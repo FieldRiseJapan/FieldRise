@@ -15,12 +15,18 @@
 
 ### 3. ハーモニー・テンポ (Harmony & Tempo)
 - **必須:** `F Major` または `Bb Major` を指定。
-- **必須:** `BPM 115-120` を指定。
+- **必須:** `BPM 115-120` または `BPM 80-85` をシーンに合わせて選択。
 - **推奨:** `Jazz turnaround ii-V-I-vi progression` を含める。
 
 ### 4. ループ・SNS (Loop & SNS)
 - **必須:** `Loop-friendly structure` を指定。
 - **必須:** ナレーションとの共存を前提とし、中域の「隙間」を意識したプロンプトを組む。
+- **推奨:** `Voiceover-friendly`, `Non-intrusive melody`, `Background music focused` を含める。
+
+### 5. シーン特化設計 (Scene-specific)
+- **原則:** ターゲットとする動画シーンを明確にし、それに合わせたプロンプトを調整する。
+- **料理・Vlog:** `Upbeat walking tempo`, `Crisp piano`.
+- **勉強・リラックス:** `Slow pulse`, `Mellow upright bass`, `Call and response with rests`.
 
 ---
 ## 運用メモ
