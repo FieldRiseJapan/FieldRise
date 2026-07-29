@@ -42,7 +42,7 @@ jobs:
       #   run: python3 automation/scripts/generate_cafe_report.py
       #   continue-on-error: true
 
-      - name: 日報を生成
+      - name: 定時報告を生成
         run: python3 automation/scripts/generate_briefing.py
 
       - name: 結果をコミット
@@ -57,7 +57,7 @@ jobs:
             git push
           fi
 
-      - name: LINEへ日報を通知
+      - name: LINEへ定時報告を通知
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
         run: python3 automation/scripts/send_line_notification.py

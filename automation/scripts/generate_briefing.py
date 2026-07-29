@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""FieldRise AI秘書 - 日報（デイリーブリーフィング）生成スクリプト
+"""FieldRise AI秘書 - 定時報告（デイリーブリーフィング）生成スクリプト
 
-収集済みの天気・AIニュースデータから、社長向けの日報Markdownを生成する。
+収集済みの天気・AIニュースデータから、社長向けの定時報告Markdownを生成する。
 GitHub Actionsから毎日実行される。
 """
 import json

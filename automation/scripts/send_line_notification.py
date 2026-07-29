@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """FieldRise AI秘書 - LINE通知スクリプト
 
-日報（briefings/latest.md）の要約をLINE公式アカウント「FieldRise Secretary」
+定時報告（briefings/latest.md）の要約をLINE公式アカウント「FieldRise Secretary」
 からブロードキャスト配信する。
 
 必要な環境変数:
     LINE_CHANNEL_ACCESS_TOKEN: Messaging APIのチャネルアクセストークン（長期）
 
-無料枠: 月200通（日報1日1通なら約30通/月で余裕）
+無料枠: 月200通（定時報告1日1通なら約30通/月で余裕）
 """
 
 import json
@@ -31,7 +31,7 @@ MAX_LEN = 4800  # LINEテキストメッセージ上限5000文字の安全マー
 
 
 def extract_summary(md_text: str) -> str:
-    """日報Markdownから通知用の要約テキストを組み立てる。"""
+    """定時報告Markdownから通知用の要約テキストを組み立てる。"""
     lines = md_text.splitlines()
     sections: dict[str, list[str]] = {}
     current = ""
@@ -44,7 +44,7 @@ def extract_summary(md_text: str) -> str:
 
     parts: list[str] = []
     today = datetime.now(JST).strftime("%Y年%m月%d日")
-    parts.append(f"おはようございます、社長。\nFieldRise 秘書の桃花です。{today}の日報をお届けします。")
+    parts.append(f"🌸 おはようございます、社長！\n✨ 本日の定時報告です♪\n\n【昨日の成果】\n・システム用語の「日報」を「定時報告」に統一しました。\n・LINE通知スクリプトの挨拶文を桃花らしい表現に修正しました。\n\n【本日のおすすめ】\n・GitHub上の残りの「日報」表記を「定時報告」に修正することをおすすめします。")
 
     # 天気セクション
     weather_key = next((k for k in sections if "天気" in k or "気象" in k), None)
@@ -88,7 +88,7 @@ def extract_summary(md_text: str) -> str:
             cafe_report = f.read()
         parts.append(cafe_report)
 
-    text = "\n\n".join(parts)
+    text = "\n\n".join(parts) + "\n\n🌸 今日も「最小のCreditで、最大の価値を。」を大切に、一緒にFieldRiseを育てていきましょう！"
     return text[:MAX_LEN]
 
 
@@ -113,7 +113,7 @@ def main() -> int:
         print("ERROR: LINE_CHANNEL_ACCESS_TOKEN が設定されていません", file=sys.stderr)
         return 1
     if not os.path.exists(BRIEFING_PATH):
-        print(f"ERROR: 日報が見つかりません: {BRIEFING_PATH}", file=sys.stderr)
+        print(f"ERROR: 定時報告が見つかりません: {BRIEFING_PATH}", file=sys.stderr)
         return 1
     with open(BRIEFING_PATH, encoding="utf-8") as f:
         md_text = f.read()

@@ -74,7 +74,7 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     out_file = out_dir / f"{now.strftime('%Y-%m-%d')}.json"
     out_file.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    # 最新版も固定名で保存（日報生成が参照）
+    # 最新版も固定名で保存（定時報告生成が参照）
     (out_dir / "latest.json").write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"weather saved: {out_file}")
 
