@@ -41,13 +41,15 @@ FieldRise Music AIにおける「良い曲」とは、単体で感動を与え�
 - **楽器:** Deep Bass, Reverb-light Piano, Smooth Saxophone (Subtle).
 - **プロンプト例:** `Deep night relaxation, low warm bass, soft emotional piano, slow tempo, cozy atmosphere, minimalist jazz.`
 
-## 4. SUNO AI 設定推奨値
-- **Weirdness (0-100):** `0-10`
-  - 理由: Cafeシリーズは「王道」であるべき。奇をてらう必要はない。
-- **Style Influence (0-100):** `50-70`
-  - 理由: プロンプトの指示を確実に守らせつつ、AIの自然な音楽性を活かす。
+## 4. SUNO AI 設定推奨値 (v4/v5対応)
+- **Weirdness (0-100):** `0-10` (Safe Zone)
+  - 理由: Cafeシリーズは「王道」であるべき。値を上げると不協和音や予期せぬ展開が増えるため、最小限に留める。
+- **Style Influence (0-100):** `70-90` (Strong)
+  - 理由: 楽器構成（Soft Piano, Upright Bass）や「2秒の法則」を確実に守らせるため、高めに設定する。
 - **Duration:** `180s (3分)`
   - 理由: TikTok利用（15-60秒）を前提としつつ、YouTube作業用BGMとしての汎用性も確保。
+- **Audio Influence:** (Audio Upload使用時のみ) `60-80`
+  - 理由: 成功モデルのメロディラインを継承しつつ、新しいバリエーションを生むためのバランス値。
 
 ## 5. 必須・禁止ワード集
 
