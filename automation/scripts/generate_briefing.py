@@ -122,9 +122,9 @@ def main() -> None:
     weather = load_json(BASE / "data" / "weather" / "latest.json")
     news = load_json(BASE / "data" / "ai-news" / "latest.json")
 
-    md = f"""# {date_str}（{wd}）朝の定時報告
+    md = f"""# {date_str}（{wd}）定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: {now.strftime('%H:%M')} JST
+**FieldRise 秘書の桃花です。** | **生成時刻**: {now.strftime('%H:%M')} JST
 
 ---
 

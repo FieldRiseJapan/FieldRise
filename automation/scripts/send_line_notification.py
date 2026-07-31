@@ -45,20 +45,25 @@ def format_weather_for_line(body: str) -> str:
         if line.startswith("|") and line.endswith("|"):
             cells = [c.strip() for c in line.strip("|").split("|")]
             # ヘッダー行（日付・天気・気温...）はスキップ
-            if cells and cells[0] in ("日付", ""):
+            if not cells or cells[0] == "日付" or all(not c for c in cells):
                 continue
+            
             # データ行を整形: 日付 天気 最高/最低 降水量 降水確率 風速
             if len(cells) >= 6:
+                date_part = cells[0]
+                weather_part = cells[1]
+                temp_part = cells[2]
+                rain_mm = cells[3]
+                rain_prob = cells[4]
+                wind_part = cells[5]
+                
                 result_lines.append(
-                    f"📅 {cells[0]}\n"
-                    f"   天気: {cells[1]}\n"
-                    f"   気温: {cells[2]}\n"
-                    f"   降水: {cells[3]} / {cells[4]}\n"
-                    f"   風速: {cells[5]}"
+                    f"📅 {date_part}\n"
+                    f"   {weather_part} | {temp_part}\n"
+                    f"   降水:{rain_mm}({rain_prob}) | 風:{wind_part}"
                 )
-        else:
-            # テーブル以外の行（地点情報など）はそのまま追加
-            result_lines.append(line)
+        elif "地点:" in line:
+            result_lines.append(f"📍 {line}")
     return "\n".join(result_lines)
 
 
@@ -82,8 +87,8 @@ def extract_summary(md_text: str) -> str:
     wd = WEEKDAYS_JA[now.weekday()]
     parts.append(
         f"🌸 おはようございます、社長！\n"
-        f"FieldRise AI協働本部 COO・秘書の桃花です。\n\n"
-        f"{date_str}（{wd}）朝の定時報告をお届けします。"
+        f"FieldRise 秘書の桃花です。\n\n"
+        f"{date_str}（{wd}）の定時報告をお届けします。"
     )
 
     # ── 天気セクション ──

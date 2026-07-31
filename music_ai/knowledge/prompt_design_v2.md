@@ -18,11 +18,12 @@ FieldRise Music AIにおける「良い曲」とは、単体で感動を与え�
 
 ## 3. Scene別プロンプト設計
 
-### A. Cooking Cafe (料理・ASMR向け)
+### A. Cooking Cafe (料理・ASMR向け / Standard Success Model)
 - **目的:** 調理音（焼く、切る）を引き立て、工程を軽快に見せる。**Voiceover-friendlyを最優先**。
-- **推奨BPM:** 115-120 (Walking Tempo)
+- **推奨BPM:** 115-120 (Walking Tempo / Model 001 Standard)
 - **楽器:** Soft Piano, Light Brush Drums, Warm Upright Bass.
-- **プロンプト例:** `Quiet start, soft piano melody, light brush drums, warm upright bass with natural presence, minimal arrangement, voiceover-friendly, ample space for ASMR sounds, consistent volume, natural loop, long-time listening.`
+- **プロンプト例 (Model 001 Reconstruction):** `Start all instruments (piano, upright bass, brush drums) simultaneously from 0:00. Consistent walking tempo at 118 BPM. Acoustic piano features syncopated call-and-response phrases with ample rests. Clear upright walking bassline. Soft brush drums with a steady swing feel. F Major key, voiceover-friendly.`
+- **プロンプト例 (General):** `Quiet start, soft piano melody, light brush drums, warm upright bass with natural presence, minimal arrangement, voiceover-friendly, ample space for ASMR sounds, consistent volume, natural loop, long-time listening.`
 
 ### B. Focus Cafe (勉強・作業向け)
 - **目的:** 思考を邪魔せず、集中状態（フロー）を維持させる。**Voiceover-friendlyを最優先**。
@@ -72,12 +73,14 @@ FieldRise Music AIにおける「良い曲」とは、単体で感動を与え�
 - `EDM / Strong Drums / Aggressive sounds`: 激しすぎる音はBGMの枠を超えるため禁止。
 - `Complex melody / Intrusive melody`: 映像の主役（声）と競合するため禁止。
 
-## 6. Intro設計ルール (新基準)
-- **目的:** 視聴者の集中を妨げず、動画の世界観に自然に溶け込む「静かな導入」を実現する。
-- **0:00〜0:05:** `Quiet start with soft ambient pad or very subtle, warm upright bass entry.`
-  - 目的: 楽曲の存在感を最小限に抑え、動画の開始を邪魔しない。
-- **0:05〜0:15:** `Gently introduce soft piano melody with ample space, maintaining consistent low volume.`
-  - 目的: 静かに世界観へ没入させ、ナレーションやASMR音のための余白を確保する。
+## 6. Intro設計ルール (用途別)
+- **A. Standard Success Model (001型):**
+  - **目的:** 0秒で世界観を確定させ、スクロールを止める。
+  - **設計:** `Start all instruments simultaneously from 0:00.` 全楽器が揃った状態で開始。
+- **B. Minimalist / Relax Model (002型/新基準):**
+  - **目的:** 視聴者の集中を妨げず、動画の世界観に自然に溶け込む「静かな導入」を実現する。
+  - **0:00〜0:05:** `Quiet start with soft ambient pad or very subtle, warm upright bass entry.`
+  - **0:05〜0:15:** `Gently introduce soft piano melody with ample space, maintaining consistent low volume.`
 
 ## 7. 評価基準 (100点満点) - 新基準
 1. **Voiceover-friendly (25点):** ナレーションや環境音を全く邪魔しないか。中域のクリアさ、余白の適切さ。
