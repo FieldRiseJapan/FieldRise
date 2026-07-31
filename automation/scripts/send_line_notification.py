@@ -18,16 +18,48 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 
 JST = timezone(timedelta(hours=9))
+WEEKDAYS_JA = ["月", "火", "水", "木", "金", "土", "日"]
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BRIEFING_PATH = os.path.join(
     REPO_ROOT, "projects", "project-001-ai-secretary", "briefings", "latest.md"
 )
 BRIEFING_URL = (
-    "https://github.com/hatsuhiko8215/FieldRise/blob/main/"
+    "https://github.com/FieldRiseJapan/FieldRise/blob/main/"
     "projects/project-001-ai-secretary/briefings/latest.md"
 )
 API_URL = "https://api.line.me/v2/bot/message/broadcast"
 MAX_LEN = 4800  # LINEテキストメッセージ上限5000文字の安全マージン
+
+
+def format_weather_for_line(body: str) -> str:
+    """MarkdownテーブルをLINE向けのテキスト形式に変換する。"""
+    result_lines = []
+    for line in body.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        # テーブルの区切り行（|---|）はスキップ
+        if re.match(r"^\|[-\s|]+\|$", line):
+            continue
+        # テーブル行（| ... |）をLINE向けに整形
+        if line.startswith("|") and line.endswith("|"):
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            # ヘッダー行（日付・天気・気温...）はスキップ
+            if cells and cells[0] in ("日付", ""):
+                continue
+            # データ行を整形: 日付 天気 最高/最低 降水量 降水確率 風速
+            if len(cells) >= 6:
+                result_lines.append(
+                    f"📅 {cells[0]}\n"
+                    f"   天気: {cells[1]}\n"
+                    f"   気温: {cells[2]}\n"
+                    f"   降水: {cells[3]} / {cells[4]}\n"
+                    f"   風速: {cells[5]}"
+                )
+        else:
+            # テーブル以外の行（地点情報など）はそのまま追加
+            result_lines.append(line)
+    return "\n".join(result_lines)
 
 
 def extract_summary(md_text: str) -> str:
@@ -43,29 +75,37 @@ def extract_summary(md_text: str) -> str:
             sections[current].append(line)
 
     parts: list[str] = []
-    today = datetime.now(JST).strftime("%Y年%m月%d日")
-    parts.append(f"🌸 おはようございます、社長！\n✨ 本日の定時報告です♪\n\n【昨日の成果】\n・システム用語の「日報」を「定時報告」に統一しました。\n・LINE通知スクリプトの挨拶文を桃花らしい表現に修正しました。\n\n【本日のおすすめ】\n・GitHub上の残りの「日報」表記を「定時報告」に修正することをおすすめします。")
 
-    # 天気セクション
+    # ── 挨拶文（動的生成）──
+    now = datetime.now(JST)
+    date_str = now.strftime("%Y年%m月%d日")
+    wd = WEEKDAYS_JA[now.weekday()]
+    parts.append(
+        f"🌸 おはようございます、社長！\n"
+        f"FieldRise AI協働本部 COO・秘書の桃花です。\n\n"
+        f"{date_str}（{wd}）朝の定時報告をお届けします。"
+    )
+
+    # ── 天気セクション ──
     weather_key = next((k for k in sections if "天気" in k or "気象" in k), None)
     if weather_key:
         body = "\n".join(sections[weather_key])
-        # テーブルや太字などのMarkdown記号を軽く除去
+        # 太字などのMarkdown記号を除去
         body = re.sub(r"\*\*(.+?)\*\*", r"\1", body)
-        body = "\n".join(
-            l for l in body.splitlines() if l.strip() and not l.strip().startswith("|--")
-        )
-        parts.append(f"■ まんのう町の天気\n{body[:1200]}")
+        formatted = format_weather_for_line(body)
+        if formatted.strip():
+            parts.append(f"■ まんのう町の天気\n{formatted[:1200]}")
 
-    # 農業アラート
+    # ── 農業アラート ──
     alert_key = next((k for k in sections if "アラート" in k or "注意" in k), None)
     if alert_key:
         body = "\n".join(l for l in sections[alert_key] if l.strip())
         body = re.sub(r"\*\*(.+?)\*\*", r"\1", body)
+        body = re.sub(r"^[-・]\s*", "・", body, flags=re.MULTILINE)
         if body.strip():
-            parts.append(f"■ 農業アラート\n{body[:800]}")
+            parts.append(f"⚠️ 農業アラート\n{body[:800]}")
 
-    # AIニュース
+    # ── AIニュース ──
     news_key = next((k for k in sections if "ニュース" in k or "News" in k), None)
     if news_key:
         items = []
@@ -80,15 +120,21 @@ def extract_summary(md_text: str) -> str:
         if items:
             parts.append("■ AIニュース（主要5件）\n" + "\n".join(items))
 
-    parts.append(f"詳細はこちら:\n{BRIEFING_URL}")
-    # Cafe Brand Report (Ver.2)
-    cafe_report_path = os.path.join(REPO_ROOT, "data", "latest_report.txt")
-    if os.path.exists(cafe_report_path):
-        with open(cafe_report_path, encoding="utf-8") as f:
-            cafe_report = f.read()
-        parts.append(cafe_report)
+    # ── ワンポイントコメント ──
+    comment_key = next((k for k in sections if "ワンポイント" in k or "コメント" in k), None)
+    if comment_key:
+        body = "\n".join(l for l in sections[comment_key] if l.strip())
+        body = re.sub(r"\*\*(.+?)\*\*", r"\1", body)
+        if body.strip():
+            parts.append(f"💡 本日のワンポイント\n{body[:400]}")
 
-    text = "\n\n".join(parts) + "\n\n🌸 今日も「最小のCreditで、最大の価値を。」を大切に、一緒にFieldRiseを育てていきましょう！"
+    parts.append(f"📎 詳細はこちら:\n{BRIEFING_URL}")
+
+    text = (
+        "\n\n".join(parts)
+        + "\n\n🌸 今日も「最小のCreditで、最大の価値を。」を大切に、"
+        "一緒にFieldRiseを育てていきましょう！"
+    )
     return text[:MAX_LEN]
 
 
