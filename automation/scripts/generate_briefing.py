@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """FieldRise AI秘書 - 定時報告（デイリーブリーフィング）生成スクリプト
 
 収集済みの天気・AIニュースデータから、社長向けの定時報告Markdownを生成する。
@@ -84,7 +83,6 @@ def get_music_comment(now: datetime) -> str:
     weekday = now.weekday()
     hour = now.hour
     
-    # 曜日と時間帯に基づいたコメント
     if weekday >= 4:  # 金土日
         return "週末です。Cafeシリーズのアイデアを整理するのに適した一日です。"
     elif hour >= 14:  # 午後
@@ -97,7 +95,6 @@ def news_section(data) -> str:
     if not data or not data.get("items"):
         return "本日のAIニュースは取得できませんでした。\n"
     lines = []
-    # 日本語ソース優先で表示
     ja = [i for i in data["items"] if i.get("lang") == "ja"][:6]
     en = [i for i in data["items"] if i.get("lang") == "en"][:6]
     if ja:
@@ -124,7 +121,7 @@ def main() -> None:
 
     md = f"""# {date_str}（{wd}）定時報告
 
-**FieldRise 秘書の桃花です。** | **生成時刻**: {now.strftime('%H:%M')} JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: {now.strftime('%H:%M')} JST
 
 ---
 
