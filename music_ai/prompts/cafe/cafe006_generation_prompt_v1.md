@@ -21,7 +21,7 @@ Lo-fi jazz, chillhop, calm cafe music, upright walking bass played strictly with
 ### Lyrics / Prompt Section (曲調・構造指定 - 冒頭絶対制御型)
 ```text
 [Intro]
-Absolute silence from 0.0 to 0.4 seconds. At exactly 0.4 seconds, a single deep upright bass note enters extremely softly, plucked with the fleshy part of the finger, featuring a long, warm, swelling decay and zero sharp attack. The acoustic piano enters much later in an extremely sparse manner, leaving massive structural spaces and rests between notes. Soft brush drums stay deep in the background.
+Extreme slow swell intro. The upright bass enters at 0.02s but takes 1.8 seconds to reach its peak volume, creating a deep, gradual crescendo. Plucked with the fleshy part of the finger to achieve a zero-attack, muffled deep tone (860Hz spectral centroid). Absolute avoidance of sharp transients. The acoustic piano enters much later in an extremely sparse manner, leaving massive structural spaces and rests between notes. Soft brush drums stay deep in the background.
 
 [Verse]
 The walking bass smoothly connects each measure with a deep wooden resonance. The piano plays a minimalist, conversational melody with natural rests, maintaining an elegant, uncluttered cafe ambiance without any sudden volume spikes. The mid-range frequency remains completely open for voiceover.
