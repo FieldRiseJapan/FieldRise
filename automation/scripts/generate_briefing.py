@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""FieldRise AI秘書 - 日報（デイリーブリーフィング）生成スクリプト
+"""FieldRise AI秘書 - 定時報告（デイリーブリーフィング）生成スクリプト
 
-収集済みの天気・AIニュースデータから、社長向けの日報Markdownを生成する。
-GitHub Actionsから毎日実行される。
+収集済みの天気・AIニュースデータから、社長向けの定時報告Markdownを生成する。
+GitHub Actionsから毎朝実行される。
 """
 import json
 from datetime import datetime, timezone, timedelta
-import random
 from pathlib import Path
 
 JST = timezone(timedelta(hours=9))
@@ -39,7 +38,6 @@ def weather_section(data) -> str:
             f"| {d['precipitation_mm']}mm | {d['precipitation_probability_pct']}% "
             f"| {d['wind_max_kmh']}km/h |"
         )
-    # 農業向けアラート（簡易ルール）
     alerts = []
     today = data["forecast"][0]
     if today["temp_max_c"] >= 35:
@@ -47,7 +45,7 @@ def weather_section(data) -> str:
     if today["precipitation_probability_pct"] >= 70:
         alerts.append("降水確率70%以上。屋外作業の予定調整をおすすめします。")
     if today["wind_max_kmh"] >= 40:
-        alerts.append("強風予想（40km/h以上）。resource・設備の固定を確認してください。")
+        alerts.append("強風予想（40km/h以上）。設備の固定を確認してください。")
     for d in data["forecast"][:3]:
         if d["precipitation_mm"] >= 30:
             alerts.append(f"{d['date']}に大雨予想（{d['precipitation_mm']}mm）。排水対策をご検討ください。")
@@ -64,11 +62,9 @@ def get_agriculture_comment(weather_data) -> str:
     """農業向けのワンポイントコメントを生成"""
     if not weather_data or not weather_data.get("forecast"):
         return "本日の天気データから最適な農作業をご判断ください。"
-    
     today = weather_data["forecast"][0]
     temp_max = today.get("temp_max_c", 0)
     precip_prob = today.get("precipitation_probability_pct", 0)
-    
     if temp_max >= 35:
         return "猛暑が予想されます。田んぼの水管理を優先してください。"
     elif precip_prob >= 70:
@@ -83,13 +79,11 @@ def get_music_comment(now: datetime) -> str:
     """音楽・Cafeシリーズ向けのワンポイントコメントを生成"""
     weekday = now.weekday()
     hour = now.hour
-    
-    # 曜日と時間帯に基づいたコメント
-    if weekday >= 4:  # 金土日
+    if weekday >= 4:
         return "週末です。Cafeシリーズのアイデアを整理するのに適した一日です。"
-    elif hour >= 14:  # 午後
+    elif hour >= 14:
         return "午後です。新しい音楽トレンドをチェックするのに適した時間帯です。"
-    else:  # 朝
+    else:
         return "朝です。Cafeシリーズのコンセプト整理に集中するのに適した時間帯です。"
 
 
@@ -97,7 +91,6 @@ def news_section(data) -> str:
     if not data or not data.get("items"):
         return "本日のAIニュースは取得できませんでした。\n"
     lines = []
-    # 日本語ソース優先で表示
     ja = [i for i in data["items"] if i.get("lang") == "ja"][:6]
     en = [i for i in data["items"] if i.get("lang") == "en"][:6]
     if ja:
@@ -153,7 +146,7 @@ GitHub・各システムは正常稼働中です。
 
 ---
 
-本ブリーフィングはGitHub Actionsにより毎朝7:00に自動生成されています。
+本定時報告はGitHub Actionsにより毎朝7:00に自動生成されています。
 Credit節約運用中のため、本報告は無料APIと公開情報のみを利用しています。
 """
 
@@ -162,7 +155,7 @@ Credit節約運用中のため、本報告は無料APIと公開情報のみを�
     out_file = out_dir / f"{date_str}.md"
     out_file.write_text(md, encoding="utf-8")
     (out_dir / "latest.md").write_text(md, encoding="utf-8")
-    print(f"briefing saved: {out_file}")
+    print(f"定時報告 saved: {out_file}")
 
 
 if __name__ == "__main__":
