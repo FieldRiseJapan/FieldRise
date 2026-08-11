@@ -23,3 +23,7 @@ FieldRiseでは、代表取締役を最上位の単独カードとして配置�
 [2] 富士通「役員一覧」https://global.fujitsu/ja-jp/about/corporate/management
 
 [3] JTB「役員紹介（取締役）」https://www.jtbcorp.jp/jp/company/management/
+
+## 公開版の検証結果
+
+2026-08-12に公開版を確認し、トップページではFieldRiseを「FIELD」「RISE」の二段構成で画面を大きく占有するブランドヒーローとして表示した。経営体制ページでは、代表取締役を単独の最上位表示とし、その後に社長代行・副社長、事業推進チームを続ける階層が反映されている。
