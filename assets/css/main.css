@@ -165,14 +165,18 @@ button { font: inherit; }
 
 @media (max-width: 600px) {
   .site-header { padding: 18px 6vw; }
+  .brand-name { font-size: 23px; }
+  .brand-sub { font-size: 8px; }
+  .menu-button { min-width: 52px; min-height: 48px; padding: 11px 0; font-size: 14px; font-weight: 800; letter-spacing: .06em; }
   .hero { min-height: 760px; }
   .hero-content { padding: 0 6vw 32px; }
-  .hero-kicker { font-size: 8px; }
+  .hero-kicker { font-size: 9px; }
   .hero-kicker span:last-child { display: none; }
-  .wordmark { margin-left: -.045em; font-size: clamp(73px, 19.5vw, 112px); letter-spacing: -.105em; }
+  .wordmark { margin: 0 0 5px -.045em; font-size: clamp(73px, 19.5vw, 112px); letter-spacing: -.105em; line-height: .9; }
+  .wordmark span { background: none; color: #fff; -webkit-text-fill-color: #fff; }
   .hero-message { margin-top: 31px; padding-bottom: 20px; }
   .hero-philosophy { font-size: clamp(28px, 8vw, 42px); }
-  .hero-statement { font-size: 17px; line-height: 1.75; }
+  .hero-statement { font-size: 18px; line-height: 1.75; }
   .hero-bottom { margin-top: 14px; }
   .hero-bottom > span { display: none; }
   .hero-scroll { display: none; }
@@ -180,17 +184,27 @@ button { font: inherit; }
   .section-heading { display: block; }
   .section-heading > p { margin-top: 24px; }
   .business-grid, .leadership-secondary, .execution-row, .prose-grid { grid-template-columns: 1fr; }
-  .business-card { min-height: 245px; }
+  .business-card { min-height: 245px; padding: 26px; }
+  .business-index { font-size: 11px; }
+  .business-card p { font-size: 14px; line-height: 1.8; }
   .leadership-primary { grid-template-columns: 1fr; gap: 19px; }
   .leadership-primary .position-role { font-size: 40px; }
   .leader-card .position-role { font-size: 33px; }
   .leader-card + .leader-card { border-left: 0; border-top: 1px solid var(--line-light); }
   .execution-card { min-height: 125px; border-left: 0; border-top: 1px solid var(--line-light); }
+  .execution-intro, .execution-card { padding: 24px; }
+  .execution-intro p { font-size: 16px; }
+  .execution-card strong { font-size: 24px; }
+  .execution-card small { font-size: 15px; }
   .project-card { margin-top: 8px; }
   .news-item { grid-template-columns: 76px 1fr 20px; gap: 12px; }
   .footer-top { grid-template-columns: 1fr; gap: 35px; }
   .footer-bottom { display: grid; }
   .page-hero { min-height: 48vh; padding: 130px 6vw 45px; }
+  .page-hero .display { font-size: clamp(52px, 15vw, 62px); line-height: .98; }
+  .page-hero .lead { font-size: 18px; line-height: 1.75; }
+  .prose p { font-size: 17px; line-height: 1.9; }
+  .prose-card p { font-size: 15px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
