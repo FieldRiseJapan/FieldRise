@@ -1,300 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FieldRise | AI協働本部</title>
-    <style>
-        :root {
-            --primary: #0066ff;
-            --bg: #000000;
-            --text: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Background Animation */
-        .bg-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #000 100%);
-            z-index: -1;
-        }
-
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(to bottom, transparent, var(--bg));
-        }
-
-        .logo {
-            font-size: clamp(4.75rem, 11vw, 8.5rem);
-            font-weight: 800;
-            letter-spacing: -0.07em;
-            margin-bottom: 1.35rem;
-            background: linear-gradient(45deg, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .philosophy {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .hero-text {
-            max-width: 800px;
-            font-size: 1.1rem;
-            color: #ccc;
-            margin-bottom: 3rem;
-        }
-
-        section {
-            padding: 5rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            border-bottom: 2px solid var(--primary);
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .organization-card {
-            max-width: 920px;
-            margin: 0 auto;
-            padding: 3rem;
-        }
-
-        .organization-intro {
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            text-align: center;
-            color: #d4d7df;
-        }
-
-        .executive-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-top: 1px solid rgba(255, 255, 255, 0.14);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-        }
-
-        .executive {
-            min-height: 146px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-        }
-
-        .executive + .executive {
-            border-left: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .executive-role {
-            display: block;
-            margin-bottom: 0.7rem;
-            color: #8fb7ff;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-        }
-
-        .executive-name {
-            display: block;
-            color: #fff;
-            font-size: 1.55rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2.4rem;
-            text-align: center;
-        }
-
-        .team-member strong {
-            display: block;
-            margin-bottom: 0.35rem;
-            color: #fff;
-            font-size: 1.05rem;
-        }
-
-        .team-member small {
-            color: #afb4c0;
-            font-size: 0.85rem;
-        }
-
-        .footer-links {
-            text-align: center;
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.02);
-            margin-top: 5rem;
-        }
-
-        .footer-links a {
-            color: #888;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .contact-btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-top: 2rem;
-            transition: opacity 0.3s;
-        }
-
-        .contact-btn:hover {
-            opacity: 0.8;
-        }
-
-        @media (max-width: 768px) {
-            .logo { font-size: clamp(4rem, 18vw, 5.5rem); }
-            .philosophy { font-size: 1.1rem; }
-            .organization-card { padding: 2rem 1.25rem; }
-            .executive-grid, .team-grid { grid-template-columns: 1fr; }
-            .executive + .executive { border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.12); }
-            .executive { min-height: auto; padding: 1.5rem; }
-            .team-grid { gap: 1.25rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FieldRiseは、人・技術・データの協力により、新しい価値を世界へ届ける会社です。">
+  <title>FieldRise | Data. Creation. Human Value.</title>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <div class="bg-glow"></div>
-
-    <header>
-        <div class="logo">FieldRise</div>
-        <div class="philosophy">「データで学び、AIで創り、人が価値を決める。」</div>
-        <p class="hero-text">
-            人・AI・自然・データが協力し、新しい価値を世界へ届ける。<br>
-            AIは人の能力を最大限に引き出すパートナーであり、最終的な創造と責任は人が担う。<br>
-            私たちはAIと共に成長する未来を創ります。
-        </p>
-        <a href="#about" class="contact-btn">Explore More</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand-lockup" href="index.html" aria-label="FieldRise ホーム"><span class="brand-name">FieldRise</span><span class="brand-sub">Data · Creation · Human Value</span></a>
+      <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false">MENU</button>
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <a href="philosophy.html">理念</a><a href="business.html">事業</a><a href="leadership.html">経営体制</a><a href="project-001.html">Project-001</a><a href="news.html">ニュース</a><a href="contact.html">お問い合わせ</a>
+      </nav>
     </header>
 
-    <section id="about">
-        <center><h2>事業内容</h2></center>
-        <div class="grid">
-            <div class="card">
-                <h3>AI音楽制作</h3>
-                <p>「Cafeシリーズ」をはじめとする、世界中の人々の日常に溶け込むグローバルなBGMブランドを展開。AIと感性を融合させた新しい音楽体験を創造します。</p>
-            </div>
-            <div class="card">
-                <h3>農業・データサイエンス</h3>
-                <p>香川県での農産物生産とAI・データを融合。自然の恵みと最新技術を組み合わせ、持続可能で進化し続ける農業事業へと成長させます。</p>
-            </div>
-            <div class="card">
-                <h3>SNS・コンテンツ運営</h3>
-                <p>TikTok、YouTube、Instagram等のプラットフォームを活用し、ブランド価値を最大化するコンテンツ戦略をAIと共に実行します。</p>
-            </div>
-            <div class="card">
-                <h3>AI研究開発</h3>
-                <p>実務に即したAIシステム開発と研究を行い、業務効率化と新しい収益モデルの構築を推進します。</p>
-            </div>
+    <main>
+      <section class="hero" aria-labelledby="top-title">
+        <div class="hero-solar" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="hero-kicker"><span>Corporate website · established 2026</span><span>人・技術・データが、未来をつくる。</span></div>
+          <h1 id="top-title" class="wordmark"><span>Field</span><span>Rise</span></h1>
+          <div class="hero-bottom">
+            <p class="lead">「データで学び、AIで創り、人が価値を決める。」<br>創造と責任を人が担いながら、技術と共に新しい価値を世界へ届けます。</p>
+            <a href="#manifesto" class="text-link">FieldRiseの考え方を知る</a>
+          </div>
         </div>
-    </section>
+        <div class="hero-scroll">Scroll to explore</div>
+      </section>
 
-    <section>
-        <center><h2>経営・組織体制</h2></center>
-        <div class="card organization-card">
-            <p class="organization-intro">
-                FieldRiseは、人・技術・データが協力し、新しい価値を世界へ届ける会社です。<br>
-                それぞれの専門性を尊重する一つのチームとして、世界市場へ挑みます。
-            </p>
-            <div class="executive-grid" aria-label="経営体制">
-                <div class="executive">
-                    <span class="executive-role">代表取締役</span>
-                    <strong class="executive-name">山神 肇位</strong>
-                </div>
-                <div class="executive">
-                    <span class="executive-role">社長代行</span>
-                    <strong class="executive-name">侠吾</strong>
-                </div>
-                <div class="executive">
-                    <span class="executive-role">副社長</span>
-                    <strong class="executive-name">祖優</strong>
-                </div>
-            </div>
-            <div class="team-grid" aria-label="事業推進チーム">
-                <div class="team-member"><strong>桃花 · COO</strong><small>実務・分析</small></div>
-                <div class="team-member"><strong>彩花 · CTO</strong><small>戦略・設計</small></div>
-                <div class="team-member"><strong>Automation</strong><small>自動化・実行</small></div>
-            </div>
+      <section id="manifesto" class="section manifesto">
+        <div class="section-inner manifesto-grid">
+          <div><p class="eyebrow">Our Philosophy</p><h2 class="display">Data gives us<br><em>direction.</em></h2></div>
+          <div class="manifesto-copy"><p>FieldRiseは、音楽・農業・システム開発という異なる領域を、データと技術によって前進させる会社です。人の感性、自然の営み、そして新しい技術が互いを高め合うことで、持続する価値を創ります。</p><a href="philosophy.html" class="text-link">経営理念・行動原則へ</a></div>
         </div>
-    </section>
+      </section>
 
-    <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <p style="margin-top: 2rem; color: #555; font-size: 0.8rem;">&copy; 2026 FieldRise. AI創業記念日: 2026年7月18日</p>
-    </div>
+      <section class="section business">
+        <div class="section-inner">
+          <div class="section-heading"><div><p class="eyebrow">Business Fields</p><h2 class="display">Different fields.<br><em>One direction.</em></h2></div><p>領域を横断して学び、つなぎ、実装する。FieldRiseは変化の中に、新しい事業の可能性を見いだします。</p></div>
+          <div class="business-grid">
+            <a class="business-card" href="business.html#music"><span class="business-index">01 / MUSIC</span><div><h3>Music<br>that belongs.</h3><p>Café Seriesをはじめ、日常に溶け込むBGMと新しい音楽体験を世界へ。</p></div><span class="business-arrow">↗</span></a>
+            <a class="business-card" href="business.html#agriculture"><span class="business-index">02 / AGRICULTURE</span><div><h3>Nature,<br>with data.</h3><p>農産物の生産とデータを結び、持続可能な農業の未来をつくります。</p></div><span class="business-arrow">↗</span></a>
+            <a class="business-card" href="business.html#content"><span class="business-index">03 / CONTENT</span><div><h3>Stories<br>in motion.</h3><p>映像とSNSコンテンツを通じて、事業と世界の接点を育てます。</p></div><span class="business-arrow">↗</span></a>
+            <a class="business-card" href="business.html#systems"><span class="business-index">04 / SYSTEMS</span><div><h3>Systems<br>that learn.</h3><p>実務から学ぶ技術開発で、現場に根づく仕組みを実装します。</p></div><span class="business-arrow">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section governance">
+        <div class="section-inner">
+          <div class="governance-top"><div><p class="eyebrow">Leadership</p><h2 class="display">Built on<br><em>responsibility.</em></h2></div><p>意思決定と責任の所在を明確にしながら、専門性を持つ仲間が一つのチームとして事業を進めます。</p></div>
+          <div class="leadership-panel">
+            <div class="leadership-primary"><span class="role-label">Representative Director</span><h3 class="leader-name">山神 肇位</h3></div>
+            <div class="leadership-secondary"><div class="leader-card"><span class="role-label">President Delegate</span><h3>侠吾</h3></div><div class="leader-card"><span class="role-label">Vice President</span><h3>祖優</h3></div></div>
+            <div class="execution-row"><div class="execution-intro"><span class="role-label">Execution Team</span><p>専門性を担い、経営と現場をつなぐ事業推進チーム。</p></div><div class="execution-card"><strong>桃花 · COO</strong><small>実務・分析</small></div><div class="execution-card"><strong>彩花 · CTO</strong><small>戦略・設計</small></div><div class="execution-card"><strong>Automation</strong><small>自動化・実行</small></div></div>
+          </div>
+          <p style="margin:34px 0 0;"><a href="leadership.html" class="text-link">経営・組織体制の詳細へ</a></p>
+        </div>
+      </section>
+
+      <section class="section project">
+        <div class="section-inner project-grid"><div><p class="eyebrow">Project-001 / FieldRise AI Secretary</p><h2 class="display">Time for<br><em>what matters.</em></h2><p class="lead">重要な変化を見逃さず、現場の情報をつなげる。社長が創造と経営に集中できる環境をつくるための、専属秘書プロジェクトです。</p></div><aside class="project-card"><span class="metric">001</span><p>音楽・SNS・農業・売上・天気・業界動向を一つの視点で整理し、重要な判断へつなげます。</p><a href="project-001.html" class="button button-dark">Project-001を見る <span>↗</span></a></aside></div>
+      </section>
+
+      <section class="section latest"><div class="section-inner latest-grid"><div><p class="eyebrow">Latest</p><h2 class="display">What is<br><em>rising now.</em></h2></div><div class="news-list"><a class="news-item" href="news.html"><time>2026.08</time><h3>FieldRiseコーポレートサイトを刷新しました。</h3><span>↗</span></a><a class="news-item" href="project-001.html"><time>2026.07</time><h3>Project-001｜FieldRise AI秘書を始動しました。</h3><span>↗</span></a><a class="news-item" href="business.html#music"><time>2026.07</time><h3>Café Seriesを、FieldRiseのBGM事業として展開しています。</h3><span>↗</span></a></div></div></section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top"><div><p class="display footer-wordmark">FieldRise</p><p class="footer-note">データで学び、AIで創り、人が価値を決める。<br>創造と責任を、人の手に。</p></div><div class="footer-nav"><h3>Company</h3><a href="philosophy.html">理念</a><a href="leadership.html">経営体制</a><a href="news.html">ニュース</a></div><div class="footer-nav"><h3>Business</h3><a href="business.html#music">音楽制作</a><a href="business.html#agriculture">農業・データ</a><a href="business.html#systems">AIシステム開発</a></div><div class="footer-nav"><h3>Connect</h3><a href="https://cafeseries-dq9x3ugk.manus.space" target="_blank" rel="noreferrer">Café Series ↗</a><a href="contact.html">お問い合わせ</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>
+      <div class="footer-bottom"><span>© 2026 FieldRise. All rights reserved.</span><span>AI創業記念日：2026年7月18日</span></div>
+    </footer>
+  </div>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
