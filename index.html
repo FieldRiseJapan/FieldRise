@@ -49,10 +49,10 @@
         }
 
         .logo {
-            font-size: 3.5rem;
+            font-size: clamp(4.75rem, 11vw, 8.5rem);
             font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
+            letter-spacing: -0.07em;
+            margin-bottom: 1.35rem;
             background: linear-gradient(45deg, #fff, var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -113,6 +113,73 @@
             font-size: 1.5rem;
         }
 
+        .organization-card {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        .organization-intro {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            text-align: center;
+            color: #d4d7df;
+        }
+
+        .executive-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .executive {
+            min-height: 146px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .executive + .executive {
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .executive-role {
+            display: block;
+            margin-bottom: 0.7rem;
+            color: #8fb7ff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+        }
+
+        .executive-name {
+            display: block;
+            color: #fff;
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2.4rem;
+            text-align: center;
+        }
+
+        .team-member strong {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: #fff;
+            font-size: 1.05rem;
+        }
+
+        .team-member small {
+            color: #afb4c0;
+            font-size: 0.85rem;
+        }
+
         .footer-links {
             text-align: center;
             padding: 3rem;
@@ -149,8 +216,13 @@
         }
 
         @media (max-width: 768px) {
-            .logo { font-size: 2.5rem; }
+            .logo { font-size: clamp(4rem, 18vw, 5.5rem); }
             .philosophy { font-size: 1.1rem; }
+            .organization-card { padding: 2rem 1.25rem; }
+            .executive-grid, .team-grid { grid-template-columns: 1fr; }
+            .executive + .executive { border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+            .executive { min-height: auto; padding: 1.5rem; }
+            .team-grid { gap: 1.25rem; }
         }
     </style>
 </head>
@@ -191,17 +263,30 @@
     </section>
 
     <section>
-        <center><h2>AI協働本部</h2></center>
-        <div class="card" style="max-width: 800px; margin: 0 auto;">
-            <p style="text-align: center; margin-bottom: 2rem;">
-                FieldRiseは「AIを使う会社」ではなく「AIと共に成長する会社」です。<br>
-                社長、COO（Manus）、CTO（ChatGPT）、Automation担当（GitHub）が<br>
-                一つのチームとして機能し、世界市場へ挑みます。
+        <center><h2>経営・組織体制</h2></center>
+        <div class="card organization-card">
+            <p class="organization-intro">
+                FieldRiseは、人・技術・データが協力し、新しい価値を世界へ届ける会社です。<br>
+                それぞれの専門性を尊重する一つのチームとして、世界市場へ挑みます。
             </p>
-            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; text-align: center;">
-                <div><strong>桃花 (COO)</strong><br><small>実務・分析</small></div>
-                <div><strong>彩花（CTO）</strong><br><small>戦略・設計</small></div>
-                <div><strong>Automation</strong><br><small>自動化・実行</small></div>
+            <div class="executive-grid" aria-label="経営体制">
+                <div class="executive">
+                    <span class="executive-role">代表取締役</span>
+                    <strong class="executive-name">山神 肇位</strong>
+                </div>
+                <div class="executive">
+                    <span class="executive-role">社長代行</span>
+                    <strong class="executive-name">侠吾</strong>
+                </div>
+                <div class="executive">
+                    <span class="executive-role">副社長</span>
+                    <strong class="executive-name">祖優</strong>
+                </div>
+            </div>
+            <div class="team-grid" aria-label="事業推進チーム">
+                <div class="team-member"><strong>桃花 · COO</strong><small>実務・分析</small></div>
+                <div class="team-member"><strong>彩花 · CTO</strong><small>戦略・設計</small></div>
+                <div class="team-member"><strong>Automation</strong><small>自動化・実行</small></div>
             </div>
         </div>
     </section>
