@@ -91,6 +91,9 @@ button { font: inherit; }
 .leadership-panel { border-top: 1px solid var(--line-light); }
 .leadership-primary { display: grid; grid-template-columns: .68fr 1.32fr; gap: 4vw; align-items: end; padding: 42px 0 52px; border-bottom: 1px solid var(--line-light); }
 .role-label { color: var(--blue-light); font-size: 11px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+.position-role { display: block; color: #fff; font-family: var(--serif); font-size: clamp(30px, 3.25vw, 54px); font-weight: 400; letter-spacing: -.05em; line-height: 1; }
+.leadership-primary .position-role { color: var(--blue-light); font-size: clamp(37px, 4.1vw, 68px); }
+.leader-card .position-role { color: #fff; font-size: clamp(30px, 3.25vw, 54px); }
 .leader-name { margin: 0; font-family: var(--serif); font-size: clamp(58px,8vw,130px); font-weight: 400; letter-spacing: -.08em; line-height: .8; }
 .leadership-secondary { display: grid; grid-template-columns: repeat(2,1fr); }
 .leader-card { min-height: 230px; display: flex; flex-direction: column; justify-content: space-between; padding: 37px 38px; border-bottom: 1px solid var(--line-light); }
@@ -178,6 +181,8 @@ button { font: inherit; }
   .business-grid, .leadership-secondary, .execution-row, .prose-grid { grid-template-columns: 1fr; }
   .business-card { min-height: 245px; }
   .leadership-primary { grid-template-columns: 1fr; gap: 19px; }
+  .leadership-primary .position-role { font-size: 40px; }
+  .leader-card .position-role { font-size: 33px; }
   .leader-card + .leader-card { border-left: 0; border-top: 1px solid var(--line-light); }
   .execution-card { min-height: 125px; border-left: 0; border-top: 1px solid var(--line-light); }
   .project-card { margin-top: 8px; }
