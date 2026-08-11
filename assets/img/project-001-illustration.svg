@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="情報が一つの判断につながる抽象イラスト">
+  <rect width="1600" height="900" fill="#f4d983"/>
+  <path d="M140 130C540 130 510 730 890 700S1100 160 1470 190" fill="none" stroke="#0b1021" stroke-width="7"/>
+  <path d="M140 280C480 280 590 680 890 700S1210 350 1470 350" fill="none" stroke="#4478ff" stroke-width="12"/>
+  <path d="M140 470C450 470 610 620 890 700S1220 560 1470 570" fill="none" stroke="#9de8ef" stroke-width="8"/>
+  <circle cx="890" cy="700" r="100" fill="#0b1021"/><circle cx="890" cy="700" r="52" fill="#f4d983"/>
+  <g fill="#4478ff"><circle cx="140" cy="130" r="15"/><circle cx="140" cy="280" r="15"/><circle cx="140" cy="470" r="15"/><circle cx="1470" cy="190" r="15"/><circle cx="1470" cy="350" r="15"/><circle cx="1470" cy="570" r="15"/></g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="対話と協業を表す抽象イラスト">
+  <rect width="1600" height="900" fill="#eff2eb"/>
+  <path d="M100 440C360 180 570 180 800 440S1250 700 1500 440" fill="none" stroke="#4478ff" stroke-width="14"/>
+  <path d="M100 620C350 780 590 760 800 440S1260 100 1500 260" fill="none" stroke="#0b1021" stroke-width="7"/>
+  <circle cx="800" cy="440" r="132" fill="none" stroke="#be983d" stroke-width="10"/>
+  <circle cx="800" cy="440" r="42" fill="#be983d"/>
+  <g fill="#9de8ef"><circle cx="100" cy="440" r="18"/><circle cx="100" cy="620" r="18"/><circle cx="1500" cy="440" r="18"/><circle cx="1500" cy="260" r="18"/></g>
+</svg>

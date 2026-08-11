@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="責任と信頼を表す抽象イラスト">
+  <rect width="1600" height="900" fill="#0b1021"/>
+  <path d="M130 700H1470" stroke="#8baeff" stroke-width="4" opacity=".7"/>
+  <path d="M400 700V230M800 700V120M1200 700V330" stroke="#8baeff" stroke-width="18" opacity=".9"/>
+  <path d="M400 230L800 120L1200 330" fill="none" stroke="#9de8ef" stroke-width="6"/>
+  <circle cx="400" cy="230" r="48" fill="#4478ff"/><circle cx="800" cy="120" r="62" fill="#9de8ef"/><circle cx="1200" cy="330" r="48" fill="#4478ff"/>
+  <circle cx="800" cy="120" r="126" fill="none" stroke="#be983d" stroke-width="4" opacity=".8"/>
+  <g fill="#ffffff" opacity=".2"><circle cx="255" cy="700" r="9"/><circle cx="560" cy="700" r="9"/><circle cx="1040" cy="700" r="9"/><circle cx="1360" cy="700" r="9"/></g>
+</svg>

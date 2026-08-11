@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="変化と前進を表す抽象イラスト">
+  <rect width="1600" height="900" fill="#e9edf7"/>
+  <circle cx="500" cy="480" r="260" fill="none" stroke="#4478ff" stroke-width="12"/>
+  <circle cx="500" cy="480" r="180" fill="none" stroke="#8baeff" stroke-width="8"/>
+  <circle cx="500" cy="480" r="94" fill="#4478ff"/>
+  <path d="M750 480H1480" stroke="#0b1021" stroke-width="10"/>
+  <path d="M1160 270L1390 480 1160 690" fill="none" stroke="#be983d" stroke-width="16"/>
+  <g fill="#0b1021" opacity=".25"><circle cx="160" cy="480" r="11"/><circle cx="860" cy="480" r="11"/><circle cx="980" cy="480" r="11"/></g>
+</svg>
