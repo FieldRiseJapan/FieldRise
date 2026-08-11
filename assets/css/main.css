@@ -53,11 +53,12 @@ button { font: inherit; }
 .hero-content { width: 100%; padding: 0 4.5vw 42px; }
 .hero-kicker { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 .hero-kicker span:last-child { color: rgba(255,255,255,.58); }
-.wordmark { display: grid; margin: 0 -0.07em -0.09em; font-family: var(--sans); font-size: clamp(120px, 18.3vw, 350px); font-weight: 900; letter-spacing: -.12em; line-height: .65; text-transform: uppercase; }
-.wordmark span:first-child { color: #fff; }
-.wordmark span:last-child { justify-self: end; background: linear-gradient(90deg,#d3e2ff 0%,#4f86ff 48%,#8ee9ee 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero-bottom { display: grid; grid-template-columns: minmax(280px, .7fr) minmax(320px, 1fr); gap: 12vw; align-items: end; max-width: 1110px; margin: 42px 0 0 auto; }
-.hero-bottom .lead { color: rgba(255,255,255,.82); font-size: clamp(15px,1.4vw,19px); }
+.wordmark { display: block; width: fit-content; max-width: 100%; margin: 0 -0.055em; font-family: var(--sans); font-size: clamp(116px, 17.4vw, 340px); font-weight: 900; letter-spacing: -.11em; line-height: .78; white-space: nowrap; }
+.wordmark span { display: block; background: linear-gradient(98deg,#ffffff 6%,#ebf1ff 46%,#7ea4ff 77%,#a1f0ed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-message { display: grid; grid-template-columns: minmax(380px,1.25fr) minmax(260px,.75fr); gap: clamp(28px,6vw,100px); align-items: end; max-width: 1250px; margin: clamp(36px,5vw,70px) 0 0 auto; padding: 0 0 26px; border-bottom: 1px solid rgba(255,255,255,.28); }
+.hero-philosophy { margin: 0; color: #fff; font-family: var(--serif); font-size: clamp(31px,3.25vw,59px); font-weight: 400; letter-spacing: -.045em; line-height: 1.25; }
+.hero-statement { max-width: 410px; margin: 0 0 6px; color: rgba(255,255,255,.88); font-size: clamp(17px,1.45vw,25px); font-weight: 600; line-height: 1.7; }
+.hero-bottom { display: flex; justify-content: space-between; gap: 26px; align-items: center; max-width: 1250px; margin: 17px 0 0 auto; color: rgba(255,255,255,.55); font-size: 10px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
 .hero-bottom .text-link { width: fit-content; color: #fff; }
 .hero-scroll { position: absolute; bottom: 42px; left: 4.5vw; display: grid; gap: 10px; color: rgba(255,255,255,.58); font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; writing-mode: vertical-rl; }
 .hero-scroll::before { width: 1px; height: 50px; background: currentColor; content: ""; }
@@ -149,8 +150,9 @@ button { font: inherit; }
   .site-header.open .site-nav { position: absolute; top: 70px; right: 5vw; display: grid; min-width: 210px; padding: 18px; border: 1px solid var(--line-light); background: rgba(9,11,18,.95); backdrop-filter: blur(14px); }
   .site-header.open .site-nav a { padding: 11px; }
   .hero { min-height: 850px; }
-  .hero-bottom, .manifesto-grid, .governance-top, .project-grid, .latest-grid { grid-template-columns: 1fr; gap: 45px; }
-  .hero-bottom { max-width: 600px; margin-left: 0; }
+  .manifesto-grid, .governance-top, .project-grid, .latest-grid { grid-template-columns: 1fr; gap: 45px; }
+  .hero-message { grid-template-columns: 1fr; max-width: 700px; margin-left: 0; gap: 18px; }
+  .hero-bottom { max-width: 700px; margin-left: 0; }
   .business-grid { grid-template-columns: repeat(2,1fr); }
   .execution-row { grid-template-columns: repeat(3,1fr); }
   .execution-intro { grid-column: 1/-1; min-height: auto; }
@@ -163,8 +165,12 @@ button { font: inherit; }
   .hero-content { padding: 0 6vw 32px; }
   .hero-kicker { font-size: 8px; }
   .hero-kicker span:last-child { display: none; }
-  .wordmark { font-size: clamp(91px, 24vw, 135px); }
-  .hero-bottom { margin-top: 30px; }
+  .wordmark { margin-left: -.045em; font-size: clamp(73px, 19.5vw, 112px); letter-spacing: -.105em; }
+  .hero-message { margin-top: 31px; padding-bottom: 20px; }
+  .hero-philosophy { font-size: clamp(28px, 8vw, 42px); }
+  .hero-statement { font-size: 17px; line-height: 1.75; }
+  .hero-bottom { margin-top: 14px; }
+  .hero-bottom > span { display: none; }
   .hero-scroll { display: none; }
   .section { padding: 85px 6vw; }
   .section-heading { display: block; }
