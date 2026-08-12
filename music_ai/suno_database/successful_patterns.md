@@ -1,6 +1,6 @@
 # Cafeシリーズ 成功・失敗パターンDB
 
-> **目的**: 成功・失敗を感想で終わらせず、次回の設計で再利用できる「条件 → 根拠 → 行動」として蓄積する。現時点の登録は既存の制作標準から抽出した**運用仮説**であり、実験で確認できるまで`provisional`とする。
+> **目的**: 成功・失敗を感想で終わらせず、次回の設計で再利用できる「条件 → 根拠 → 行動」として蓄積する。`confirmed`は001・002の双方または独立した複数実験で実測根拠を確認した条件、`provisional`は仮説または聴取確認前の条件とする。
 
 ## 登録ルール
 
@@ -14,17 +14,19 @@
 | `use_rule` | 次回に固定・回避・比較する具体的な行動を書く。 |
 | `confidence` | `provisional`、`confirmed`、`deprecated`のいずれか。 |
 
-`confirmed`へ変更するには、001・002の両方で根拠を確認するか、独立した二つ以上の実験で同じ傾向を確認する。根拠がない状態で「成功」と断定しない。
-
 ## 現在の登録
 
-| pattern_id | type | condition | evidence | effect | use_rule | confidence |
-|---|---|---|---|---|---|---|
-| P-S-001 | success | Pianoを主役にし、BassとDrumsを最小限にする。 | `analysis/cafe_series_success_pattern.md` | 既存分析では、背景音楽としての余白と長時間聴取のしやすさに寄与すると整理されている。 | 001・002の観測完了後、楽器数と中域密度を固定条件候補にする。 | provisional |
-| P-S-002 | success | 0:00〜0:02にWarm deep bass、0:02〜0:10にSoft Pianoを置く。 | `knowledge/prompt_design_v2.md` | 既存制作標準では、早い段階でCafeの世界観を提示するルールとして定義されている。 | A1で001・002の実際のタイムコードを記録し、B1以降の固定候補にする。 | provisional |
-| P-S-003 | success | 予測可能な展開と、終端から始点へ自然につながるLoopを維持する。 | `analysis/cafe_series_success_pattern.md` | 既存分析では、没入感と背景音楽としての使いやすさに寄与すると整理されている。 | G08を必須ゲートとして判定する。 | provisional |
-| P-F-001 | avoid_condition | Heavy drums、EDM、強いビルドアップを入れない。 | `knowledge/prompt_design_v2.md` | 既存制作標準では、映像・声との競合や集中阻害につながる回避条件とされている。 | プロンプトのAvoid欄へ明記し、発生時はG05/G07でタイムコードを記録する。 | provisional |
-| P-F-002 | avoid_condition | Complex melodyや過度なリバーブを入れない。 | `knowledge/prompt_design_v2.md`, `experiments/cafe_series_test001.md` | 声や環境音の余白を減らし、音の輪郭をぼかす可能性がある。 | Piano密度を変数にする実験では、他の要素を固定する。 | provisional |
+| pattern_id | type | condition | evidence | use_rule | confidence |
+|---|---|---|---|---|---|
+| P-S-001 | success | Pianoを主役にし、BassとDrumsを最小限にする。 | 既存成功パターン分析 | 001・002の聴取レビューでPiano／Keysの役割を確認する。 | provisional |
+| P-S-002 | success | 0:00〜0:02にWarm deep bassを置く。 | 既存制作標準、A1 | 001・002でBass Onsetが0.464秒。B1以降は0.5秒未満のBass立ち上がりを固定する。 | confirmed |
+| P-S-003 | success | 予測可能な展開と自然なLoopを維持する。 | 既存成功パターン分析、001の近似値0.9914 | 終端→開始を聴取し、G08の最終判定後に固定条件化する。 | provisional |
+| P-S-004 | success | Intro 0〜2秒を低域主導にし、DrumsをBassより大幅に後退させる。 | A1：Bass低域比率84.21〜98.73%、Drums RMSはBassより約37〜40 dB低い。 | B1以降、Introで強いDrumsを入れない。 | confirmed |
+| P-S-005 | success | 推定80〜86 BPM帯からCafe BGMを設計する。 | A1：001 86.13 BPM、002 80.75 BPM。 | B1はこの範囲を固定し、テンポを変更変数にしない。 | confirmed |
+| P-S-006 | success | ボーカルを主成分にしない。 | A1：ボーカルRMSは001 -108.55、002 -80.83 dBFS。 | Voiceover-friendlyを維持し、主旋律の歌唱を入れない。 | confirmed |
+| P-F-001 | avoid_condition | Heavy drums、EDM、強いビルドアップを入れない。 | 既存制作標準 | プロンプトのAvoid欄へ明記する。 | provisional |
+| P-F-002 | avoid_condition | Complex melodyや過度なリバーブを入れない。 | 既存制作標準、Cafe 003計画 | Piano密度を変数にする際、他の要素を固定する。 | provisional |
+| P-F-003 | failure | 無音のMainを正解データとして採用しない。 | A1：002 MainはRMS -240.00 dBFS。 | MainのRMS・Onset・ステム再構成を入力検証に追加する。 | confirmed |
 
 ## 新規登録テンプレート
 
@@ -48,12 +50,11 @@ updated_at: YYYY-MM-DD
 1. 実験台帳の結論から、再利用可能な条件だけを抽出する。
 2. 実験ID・タイムコード・評価項目を`evidence`へ保存する。
 3. 一回の検証結果は`provisional`で登録する。
-4. 再現確認後に`confirmed`へ更新し、更新理由を追記する。
+4. 001・002の両方、または複数実験で根拠を確認後に`confirmed`へ更新する。
 5. 反証された条件は削除せず、`deprecated`に変更して履歴を残す。
 
 ## 参考資料
 
-[1] [Cafeシリーズ成功パターン分析](../analysis/cafe_series_success_pattern.md)
-[2] [Prompt Design Ver.2](../knowledge/prompt_design_v2.md)
-[3] [Cafe 003 制作実験計画](../experiments/cafe_series_test001.md)
-[4] [Issue #2 — 追加タスク⑦](https://github.com/FieldRiseJapan/FieldRise/issues/2)
+[1] [001・002 ステム実測レポート](../analysis/cafe/2026-08-12_001-002-stem-measurement.md)
+[2] [Cafeシリーズ成功パターン分析](../analysis/cafe_series_success_pattern.md)
+[3] [Prompt Design Ver.2](../knowledge/prompt_design_v2.md)

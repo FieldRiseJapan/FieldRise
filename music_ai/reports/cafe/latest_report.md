@@ -2,28 +2,35 @@
 
 - **更新日**: 2026-08-12
 - **対象**: Issue #2「001・002再現基盤 強化タスク」
-- **状態**: 運用資産の整備完了。A1は音源参照先の入力待ち。
+- **状態**: A1のステム実測を完了。人の聴取レビューと002 Mainの確認を保留。
 
-## 今回整備した資産
+## 今回の更新
 
-| Issue #2の指示 | 保存先 | 状態 |
+| 項目 | 状態 | 結果 |
 |---|---|---|
-| ⑤ 正解データ仕様 | [`reference_music/ground_truth_spec_v1.md`](../../reference_music/ground_truth_spec_v1.md) | Ver.1草案を作成。G01〜G09と必須ゲートを定義。 |
-| ⑤ 001・002の記録票 | [`reference_music/_ground_truth_record_template.md`](../../reference_music/_ground_truth_record_template.md) | 観測値を推測せず記録する書式を作成。 |
-| ⑥ 検証台帳 | [`experiments/_experiment_template.md`](../../experiments/_experiment_template.md) | 実験IDから結論までを同一ファイルで追跡可能。 |
-| ⑥ A1 | [`experiments/A1_001-002-ground-truth-capture.md`](../../experiments/A1_001-002-ground-truth-capture.md) | 001・002の音源参照先を待つ`blocked`状態。 |
-| ⑦ Pattern DB | [`suno_database/successful_patterns.md`](../../suno_database/successful_patterns.md) | 既存設計からの仮説を`provisional`として登録。 |
-| ⑧ 彩花の参照手順 | [`knowledge/cto_reference_protocol.md`](../../knowledge/cto_reference_protocol.md) | 最新記録から変更変数を一つ選ぶ手順を定義。 |
+| 001の入力整合 | 完了 | 4ステムはStudio Mainを相関1.000000、SNR 151.91 dBで再構成。 |
+| 002の入力整合 | 保留 | 提供Mainは無音。4ステムは解析可能。正しいMainまたはステム合成版の承認が必要。 |
+| A1の実測比較 | 完了 | Bass Onset 0.464秒、低域主導Intro、低いDrums、80〜86 BPM帯、非ボーカル主導を共通候補として記録。 |
+| 正解データ | 更新 | `success_song_001.md` と `success_song_002.md` に実測値と保留事項を記録。 |
+| Pattern DB | 更新 | A1の実測根拠をもつ固定条件候補を`confirmed`で登録。 |
+| B1設計 | 準備完了 | Bass・テンポ・Drums・非ボーカル主導を固定し、その他ステムの導入時刻だけを変更する案を設定。 |
 
 ## 現在のブロッカー
 
-001・002の音源URLまたはGitHub上の聴取可能なファイルが未登録です。このため、BPM、Key、Intro、Bass、Piano、ダイナミクス、構成、ノイズ、Loopの観測値を確定できません。A1は新規生成を行わず、参照データの取得・正規化を最初の完了条件とします。
+002の提供MainはRMS -240.00 dBFSの無音であるため、002のMain全体の音圧・構成・不要ノイズ・Loop感を確定できない。正しいMainを再書き出しするか、4ステムの合成版を基準Mainとして承認する必要がある。また、001・002とも、Bass音色、Piano／Keysの音数・間、不要ノイズ、シームレスLoopは人の聴取とタイムコードが必要である。
 
 ## 次の一手
 
-1. 001・002の音源参照先を登録する。
-2. 桃花が正解データ記録票を埋め、A1を完了させる。
-3. 彩花が評価草案とA1の結果を確認し、B1の変更変数を一つ指定する。
-4. 社長が生成の優先順位とCreditを最終判断する。
+1. 002の正しいMainを再書き出しする、またはステム合成版を基準Mainとして承認する。
+2. 001・002の終端→開始、Piano／Keys、Bass音色、不要ノイズを人が聴取し、G02・G03・G07・G08を埋める。
+3. 彩花がA1の固定条件候補を確認する。
+4. B1では、その他ステムの導入時刻のみを0.3秒案と2.3秒案で比較する。
+5. 社長が生成の優先順位とCreditを最終判断する。
 
-詳細な設計判断は、[Issue #2対応報告書](../../../../cto/inbox/2026-08-12_001-002-reproduction-base-report.md)を参照する。
+## 主な参照先
+
+- [A1 — 001・002 正解データ取得](../../experiments/A1_001-002-ground-truth-capture.md)
+- [001・002 ステム実測レポート](../../analysis/cafe/2026-08-12_001-002-stem-measurement.md)
+- [成功・失敗パターンDB](../../suno_database/successful_patterns.md)
+- [001の正解データ](../../reference_music/success_song_001.md)
+- [002の正解データ](../../reference_music/success_song_002.md)
