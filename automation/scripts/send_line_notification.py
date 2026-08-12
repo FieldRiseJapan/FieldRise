@@ -26,6 +26,9 @@ BRIEFING_URL = (
     "https://github.com/FieldRiseJapan/FieldRise/blob/main/"
     "projects/project-001-ai-secretary/briefings/latest.md"
 )
+DASHBOARD_URL = os.environ.get(
+    "SOCIAL_DASHBOARD_URL", "https://socialdash-f6zzqx89.manus.space"
+).strip()
 API_URL = "https://api.line.me/v2/bot/message/broadcast"
 MAX_LEN = 4800  # LINEテキストメッセージ上限5000文字の安全マージン
 
@@ -76,6 +79,7 @@ def extract_summary(md_text: str) -> str:
         if items:
             parts.append("■ AIニュース（主要5件）\n" + "\n".join(items))
 
+    parts.append(f"SNS分析ダッシュボード:\n{DASHBOARD_URL}")
     parts.append(f"詳細はこちら:\n{BRIEFING_URL}")
     cafe_report_path = os.path.join(REPO_ROOT, "data", "latest_report.txt")
     if os.path.exists(cafe_report_path):
