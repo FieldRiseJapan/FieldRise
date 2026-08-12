@@ -60,6 +60,5 @@ jobs:
       - name: LINEへ定時報告を通知
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
-          SOCIAL_DASHBOARD_URL: https://socialdash-f6zzqx89.manus.space
         run: python3 automation/scripts/send_line_notification.py
         continue-on-error: true
