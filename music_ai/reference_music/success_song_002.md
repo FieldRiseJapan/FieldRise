@@ -4,6 +4,7 @@
 - **分析状態**: ステム実測済み。提供されたMainは無音のため、Main全体に基づく評価は保留。
 - **提供Main**: 212.920秒、44.1 kHz、Stereo、RMS -240.00 dBFS、SHA-256 `ba06f71b3c7a0ab9363d90a3346ec5e43fb8b922990f4035333a620e6e6eeff3`
 - **分離ステム**: Bass、Drums、その他、ボーカル。各ステムは解析可能。正しいMainの再書き出しまたはステム合成版の承認が必要。
+- **GitHub参照音源**: [`audio/002_reference_stem_mix.flac`](audio/002_reference_stem_mix.flac)。提供Mainの代わりに、4ステムをゲイン正規化なしで合成した参照版を使用する。
 
 ## 基本情報
 

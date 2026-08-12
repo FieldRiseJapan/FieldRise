@@ -20,8 +20,8 @@ fixed_conditions:
 
 | 参照曲 | 受領状態 | 整合結果 | 判定 |
 |---|---|---|---|
-| 001 | Mainと4ステムを受領 | 4ステムはStudio Mainを相関1.000000、SNR 151.91 dBで再構成 | 分析可能 |
-| 002 | Mainと4ステムを受領 | 提供Mainが無音。4ステムは分析可能だがMainとの照合は不能 | Main再書き出し待ち |
+| 001 | Mainと4ステムを受領 | 4ステムはStudio Mainを相関1.000000、SNR 151.91 dBで再構成。可逆FLACをGitHubへ登録済み。 | 分析可能 |
+| 002 | Mainと4ステムを受領 | 提供Mainが無音。4ステムを合成したFLACを暫定の参照MainとしてGitHubへ登録。 | 聴取・正式Main確認待ち |
 
 ## 共通する実測要素
 
@@ -61,3 +61,4 @@ fixed_conditions:
 
 [1] [001・002 ステム実測レポート](../analysis/cafe/2026-08-12_001-002-stem-measurement.md)
 [2] [001・002 正解データ仕様 Ver.1](../reference_music/ground_truth_spec_v1.md)
+[3] [001・002 参照音源台帳](../reference_music/audio/README.md)
