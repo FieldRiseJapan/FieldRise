@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "knowledge_promotion_minimum_score": 95.0,
+  "required_evidence": [
+    "source_audio_available_for_remeasurement",
+    "canonical_score_calculation",
+    "recorded_prompt_version",
+    "recorded_suno_settings",
+    "human_approval"
+  ],
+  "nonnegotiable_rules": [
+    "A score from an older narrative report is not a canonical score until its input audio, metric scope, and formula are reproducible.",
+    "The deterministic gate may block a promotion but must not automatically promote a candidate.",
+    "Fact and Hypothesis records must remain separate in all generated reports."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "source_file": "music_ai/reference_music/cafe_rainy/cafe_rainy.wav",
+  "sample_rate_hz": 48000,
+  "duration_sec": 212.92,
+  "measurement_note": "All values are waveform measurements. Threshold crossing uses 20 ms RMS frames with 10 ms hop.",
+  "threshold_dbfs": -60.0,
+  "first_rms_threshold_crossing_sec": 0.21,
+  "segments": [
+    {
+      "start_sec": 0.0,
+      "end_sec": 0.3,
+      "samples": 14400,
+      "rms_dbfs": -28.071,
+      "peak_dbfs": -15.581
+    },
+    {
+      "start_sec": 0.3,
+      "end_sec": 2.3,
+      "samples": 96000,
+      "rms_dbfs": -22.766,
+      "peak_dbfs": -10.294
+    },
+    {
+      "start_sec": 0.0,
+      "end_sec": 2.0,
+      "samples": 96000,
+      "rms_dbfs": -23.172,
+      "peak_dbfs": -10.294
+    }
+  ]
+}

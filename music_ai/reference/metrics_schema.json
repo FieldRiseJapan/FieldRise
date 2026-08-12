@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FieldRise Music AI Common Metric Record",
+  "type": "object",
+  "required": ["metric_id", "model_id", "scope", "metric", "unit", "value", "status", "source_file", "method"],
+  "properties": {
+    "metric_id": {"type": "string", "pattern": "^[a-z0-9_.-]+$"},
+    "model_id": {"type": "string"},
+    "scope": {"type": "string", "description": "Signal, stem, time window, or musical scope being measured."},
+    "metric": {"type": "string"},
+    "unit": {"type": "string"},
+    "value": {"type": ["number", "string", "boolean"]},
+    "value_min": {"type": ["number", "null"]},
+    "value_max": {"type": ["number", "null"]},
+    "status": {"type": "string", "enum": ["fact", "estimated_fact", "hypothesis", "pending"]},
+    "source_file": {"type": "string"},
+    "method": {"type": "string"},
+    "measured_at": {"type": ["string", "null"]},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

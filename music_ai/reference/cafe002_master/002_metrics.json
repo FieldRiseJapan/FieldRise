@@ -1,0 +1,11 @@
+{
+  "model_id": "CAFE-002",
+  "source_of_truth": "002_Master_Card.md",
+  "records": [
+    {"metric_id":"cafe002.full_track.duration","model_id":"CAFE-002","scope":"full_track","metric":"duration","unit":"sec","value":212.92,"value_min":null,"value_max":null,"status":"fact","source_file":"../../analysis/cafe/p0_002_intro_probe.json","method":"librosa file-duration measurement","measured_at":"2026-08-12","notes":"Reference file cafe_rainy.wav."},
+    {"metric_id":"cafe002.full_track.tempo","model_id":"CAFE-002","scope":"full_track","metric":"tempo","unit":"BPM","value":82.5,"value_min":80,"value_max":85,"status":"estimated_fact","source_file":"../../analysis/cafe/cafe002_analysis_v1.md","method":"Existing analysis estimate","measured_at":"2026-07-28","notes":"Do not use as a strict target until remeasured."},
+    {"metric_id":"cafe002.intro.full_track.threshold_crossing","model_id":"CAFE-002","scope":"full_track_intro","metric":"rms_threshold_crossing","unit":"sec","value":0.21,"value_min":null,"value_max":null,"status":"fact","source_file":"../../analysis/cafe/p0_002_intro_probe.json","method":"20ms RMS frames, 10ms hop, -60dBFS threshold","measured_at":"2026-08-12","notes":"Reference track only; not an independent 002 Main stem."},
+    {"metric_id":"cafe002.intro.full_track.rms_0_0_3","model_id":"CAFE-002","scope":"full_track_0_0_to_0_3sec","metric":"rms","unit":"dBFS","value":-28.071,"value_min":null,"value_max":null,"status":"fact","source_file":"../../analysis/cafe/p0_002_intro_probe.json","method":"Waveform RMS","measured_at":"2026-08-12","notes":"The full 0.0-0.3s window is not silent."},
+    {"metric_id":"cafe002.intro.all_instruments_entry","model_id":"CAFE-002","scope":"arrangement_intro","metric":"entry_time","unit":"sec","value":2.0,"value_min":null,"value_max":null,"status":"estimated_fact","source_file":"../../analysis/cafe/cafe002_analysis_v1.md","method":"Existing timeline analysis","measured_at":"2026-07-28","notes":"Bass and drums enter at 0:02 according to existing analysis."}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "source_file": "music_ai/reference/cafe001_master/001_original.wav",
+  "sample_rate_hz": 44100,
+  "duration_sec": 222.4,
+  "measurement_note": "All values are waveform measurements. Threshold crossing uses 20 ms RMS frames with 10 ms hop.",
+  "threshold_dbfs": -60.0,
+  "first_rms_threshold_crossing_sec": 0.0,
+  "segments": [
+    {
+      "start_sec": 0.0,
+      "end_sec": 0.3,
+      "samples": 13230,
+      "rms_dbfs": -59.837,
+      "peak_dbfs": -58.631
+    },
+    {
+      "start_sec": 0.3,
+      "end_sec": 2.3,
+      "samples": 88200,
+      "rms_dbfs": -21.031,
+      "peak_dbfs": -8.526
+    },
+    {
+      "start_sec": 0.0,
+      "end_sec": 2.0,
+      "samples": 88200,
+      "rms_dbfs": -22.652,
+      "peak_dbfs": -8.526
+    }
+  ]
+}

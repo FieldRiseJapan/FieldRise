@@ -1,0 +1,57 @@
+{
+  "left_file": "music_ai/analysis/cafe/cafe008_1A_metrics.json",
+  "right_file": "music_ai/analysis/cafe/cafe008_1B_metrics.json",
+  "comparison_note": "Values are compared only when metric IDs match. This tool does not infer musical quality or overwrite the experiment registry.",
+  "differences": [
+    {
+      "metric_id": "candidate.full_track.melody_density",
+      "left_value": 2.54,
+      "right_value": 2.49,
+      "delta_right_minus_left": -0.05,
+      "unit": "notes_per_sec",
+      "left_status": "estimated_fact",
+      "right_status": "estimated_fact",
+      "comparison_ready": true
+    },
+    {
+      "metric_id": "candidate.full_track.spectral_centroid",
+      "left_value": 452,
+      "right_value": 619,
+      "delta_right_minus_left": 167,
+      "unit": "Hz",
+      "left_status": "estimated_fact",
+      "right_status": "estimated_fact",
+      "comparison_ready": true
+    },
+    {
+      "metric_id": "candidate.intro.initial_level",
+      "left_value": -73.7,
+      "right_value": -52.9,
+      "delta_right_minus_left": 20.8,
+      "unit": "dB",
+      "left_status": "estimated_fact",
+      "right_status": "estimated_fact",
+      "comparison_ready": true
+    },
+    {
+      "metric_id": "candidate.intro.swell",
+      "left_value": 1.01,
+      "right_value": 1.12,
+      "delta_right_minus_left": 0.11,
+      "unit": "sec",
+      "left_status": "estimated_fact",
+      "right_status": "estimated_fact",
+      "comparison_ready": true
+    },
+    {
+      "metric_id": "candidate.overall_match_rate",
+      "left_value": 91.5,
+      "right_value": 95.8,
+      "delta_right_minus_left": 4.3,
+      "unit": "percent",
+      "left_status": "estimated_fact",
+      "right_status": "estimated_fact",
+      "comparison_ready": true
+    }
+  ]
+}

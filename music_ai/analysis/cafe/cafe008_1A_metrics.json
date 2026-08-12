@@ -1,0 +1,12 @@
+{
+  "model_id": "CAFE008-1A",
+  "source_of_truth": "cafe_20260811_1A_analysis.md",
+  "asset_available_in_repo": false,
+  "records": [
+    {"metric_id":"candidate.overall_match_rate","model_id":"CAFE008-1A","scope":"existing_report","metric":"overall_match_rate","unit":"percent","value":91.5,"value_min":null,"value_max":null,"status":"estimated_fact","source_file":"cafe_20260811_1A_analysis.md","method":"Existing reported evaluation","measured_at":"2026-08-11","notes":"Calculation formula pending common score card."},
+    {"metric_id":"candidate.intro.initial_level","model_id":"CAFE008-1A","scope":"full_track_intro","metric":"initial_level","unit":"dB","value":-73.7,"value_min":null,"value_max":null,"status":"estimated_fact","source_file":"cafe_20260811_1A_analysis.md","method":"Existing reported analysis","measured_at":"2026-08-11","notes":"Raw WAV unavailable in repository for remeasurement."},
+    {"metric_id":"candidate.intro.swell","model_id":"CAFE008-1A","scope":"full_track_intro","metric":"swell_duration","unit":"sec","value":1.01,"value_min":null,"value_max":null,"status":"estimated_fact","source_file":"cafe_20260811_1A_analysis.md","method":"Existing reported analysis","measured_at":"2026-08-11","notes":"Raw WAV unavailable in repository for remeasurement."},
+    {"metric_id":"candidate.full_track.spectral_centroid","model_id":"CAFE008-1A","scope":"full_track","metric":"spectral_centroid","unit":"Hz","value":452,"value_min":null,"value_max":null,"status":"estimated_fact","source_file":"cafe_20260811_1A_analysis.md","method":"Existing reported analysis","measured_at":"2026-08-11","notes":"Scope must match comparison target before scoring."},
+    {"metric_id":"candidate.full_track.melody_density","model_id":"CAFE008-1A","scope":"full_track","metric":"melody_density","unit":"notes_per_sec","value":2.54,"value_min":null,"value_max":null,"status":"estimated_fact","source_file":"cafe_20260811_1A_analysis.md","method":"Existing reported analysis","measured_at":"2026-08-11","notes":"Raw WAV unavailable in repository for remeasurement."}
+  ]
+}
