@@ -2,7 +2,7 @@
 
 **調査日:** 2026-08-12
 **対象:** FieldRise Music AI／成功モデル001・002の再現精度向上、Cafeシリーズの継続制作・投稿基盤
-**保存区分:** 分析・設備監査
+**保存区分:** 正式報告・設備監査
 **作成:** 桃花（COO）
 **判断者:** 彩花（CTO）
 
@@ -20,7 +20,7 @@
 
 ## 2. 現在ある設備（Fact）
 
-001については、絶対仕様、DNA、Timeline、採点表、再現プロンプト、進化ログ、最新データ伝達テンプレートを含むマスター資産が揃っています。特に `001_Design_Spec.md` は、全体RMS、Bass／Piano／Brush DrumのRMS、BPM、冒頭Bassの開始・Attack・スペクトル重心などをFactとして固定しており、再現研究の強い基準です。[001 Design Spec](../../reference/cafe001_master/001_Design_Spec.md)
+001については、絶対仕様、DNA、Timeline、採点表、再現プロンプト、進化ログ、最新データ伝達テンプレートを含むマスター資産が揃っています。特に `001_Design_Spec.md` は、全体RMS、Bass／Piano／Brush DrumのRMS、BPM、冒頭Bassの開始・Attack・スペクトル重心などをFactとして固定しており、再現研究の強い基準です。[001 Design Spec](../../../reference/cafe001_master/001_Design_Spec.md)
 
 | 設備領域 | 現在確認できた資産 | 評価 | 再現プロジェクトへの意味 |
 |---|---|---|---|
@@ -34,7 +34,7 @@
 | **プロンプト資産** | Cafe向けプロンプト、検証テンプレート、Suno Databaseの雛形 | 分散 | 個別実験向けの資産は多いが、再利用可能な設定DBとしては未完成 |
 | **GitHub Actions** | 定時報告、APIヘルスチェックの2ワークフロー | 転用可能 | Python実行・Secrets・定時／手動起動の運用経験がある |
 
-現在の001→生成→分析→改善ループは、`001_Evolution_Log.md`に時系列で記録され、006B（88.2%）、007A（94.2%）、008-1B（95.8%）という到達値が記載されています。ただし、これらの値は文書と実験別JSONに分散しており、各値の計算式・入力音源・プロンプト・設定・判断者を一行で追える共通台帳にはなっていません。[Evolution Log](../../reference/cafe001_master/001_Evolution_Log.md) [Cafe008 JSON](cafe008_analysis_results.json)
+現在の001→生成→分析→改善ループは、`001_Evolution_Log.md`に時系列で記録され、006B（88.2%）、007A（94.2%）、008-1B（95.8%）という到達値が記載されています。ただし、これらの値は文書と実験別JSONに分散しており、各値の計算式・入力音源・プロンプト・設定・判断者を一行で追える共通台帳にはなっていません。[Evolution Log](../../../reference/cafe001_master/001_Evolution_Log.md) [Cafe008 JSON](../../../analysis/cafe/cafe008_analysis_results.json)
 
 ### 監査で検出した「基準値の文脈欠落」（Fact）
 
@@ -50,7 +50,7 @@
 
 ## 3. 001・002再現に不足している設備（Factと影響）
 
-現状の不足は「分析能力」ではなく、既存分析を比較可能な研究データへ変換する接続部です。特に002は、分析文書はある一方で、001に存在するAbsolute Specification、DNA、Timeline、採点基準、プロンプト、ステム比較と同型のマスター構造が確認できません。これでは001／002のどちらを狙う実験か、どの差分を許容するかを機械的に判定できません。[002 Analysis](cafe002_analysis_v1.md) [001 vs 002 Comparison](cafe_series_comparison_v1.md)
+現状の不足は「分析能力」ではなく、既存分析を比較可能な研究データへ変換する接続部です。特に002は、分析文書はある一方で、001に存在するAbsolute Specification、DNA、Timeline、採点基準、プロンプト、ステム比較と同型のマスター構造が確認できません。これでは001／002のどちらを狙う実験か、どの差分を許容するかを機械的に判定できません。[002 Analysis](../../../analysis/cafe/cafe002_analysis_v1.md) [001 vs 002 Comparison](../../../analysis/cafe/cafe_series_comparison_v1.md)
 
 | 不足設備 | 現在の状態（Fact） | 再現精度への影響 | 強化案 |
 |---|---|---|---|
@@ -94,7 +94,7 @@ P0台帳は、音楽ファイルそのものをGitへ重複保存するための
 
 ## 5. GitHub Actionsで安全に自動化できる範囲（提案）
 
-GitHub Actionsは、現在すでにPython、Secrets、定時起動、手動起動、成果物のコミットを運用しています。[Daily Briefing Workflow](../../../.github/workflows/daily-briefing.yml) この運用を音楽研究に転用する場合も、**生成行為ではなく、生成後の検証・記録・品質ゲート**へ限定することが安全かつ費用対効果の高い選択です。
+GitHub Actionsは、現在すでにPython、Secrets、定時起動、手動起動、成果物のコミットを運用しています。[Daily Briefing Workflow](../../../../.github/workflows/daily-briefing.yml) この運用を音楽研究に転用する場合も、**生成行為ではなく、生成後の検証・記録・品質ゲート**へ限定することが安全かつ費用対効果の高い選択です。
 
 | 自動化候補 | 起動方法 | 実行内容 | 実装可否 | 安全上の条件 |
 |---|---|---|---|---|
