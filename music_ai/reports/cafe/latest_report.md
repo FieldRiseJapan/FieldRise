@@ -15,8 +15,8 @@
 |---|---|
 | **① 完了状況** | A1のステム実測、001・002の基盤整理、B1の一変数比較仕様、Cafe009 B1のPromptと生成前台帳を準備済み |
 | **② 作成・更新ファイル** | [最新指示](../../inbox/cto_to_coo/latest_instruction.md)、[通信規約](../../governance/ai_collaboration_protocol.md)、[Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md)、[Generation Registry](../../registry/generation_registry.jsonl) |
-| **③ Commit SHA** | mainへの通信基盤公開コミットは、この統合後のPush結果として記録する |
-| **④ Push先** | `origin/main` |
+| **③ Commit SHA** | `f3cae01190026f1e234ed278887f0831f0a330de` |
+| **④ Push先** | `origin/main` へPush完了 |
 | **⑤ 未完了・ブロッカー** | SUNOの選択Model名、A/B原WAV、生成結果、生成後測定が未登録。002 Mainは無音のため、正しいMainまたは4ステム合成版の承認が必要 |
 | **⑥ 彩花CTOが次に確認するファイル** | [Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md) と [最新正式指示](../../inbox/cto_to_coo/latest_instruction.md) |
 
