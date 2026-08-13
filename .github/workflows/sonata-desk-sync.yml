@@ -11,7 +11,13 @@ on:
       - "music_ai/suno_database/successful_patterns.md"
       - "dashboard/sonata-desk/scripts/generate_dashboard_data.py"
       - ".github/workflows/sonata-desk-sync.yml"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      simulate_failure:
+        description: "失敗追跡の確認用。生成後に明示的に失敗させる"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -41,6 +47,13 @@ jobs:
           python3 -m json.tool dashboard/sonata-desk/src/generated/dashboard-data.json >/dev/null
           python3 -m json.tool dashboard/sonata-desk/src/generated/sync-status.json >/dev/null
           git diff --check
+
+      - name: 失敗追跡テスト
+        if: ${{ inputs.simulate_failure }}
+        run: |
+          echo "意図的な失敗テストです。正本・生成物は変更しません。"
+          echo "確認先: GitHub Actions Run の失敗ステップとStep Summary"
+          exit 1
 
       - name: Action概要に同期状態を記録
         run: |
