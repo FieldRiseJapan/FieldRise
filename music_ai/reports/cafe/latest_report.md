@@ -12,8 +12,35 @@
 **正式確認:** 2026-08-12に、社長・彩花向けの最新報告として作成・Pushを確認。彩花CTOは本ファイルを正式な確認入口として扱う。
 **CTO正式指示の確認入口:** [`music_ai/inbox/cto_to_coo/latest_cto_task.md`](../../inbox/cto_to_coo/latest_cto_task.md)
 **最新実行報告:** [CTO-20260812-001 P0〜P2・B1 実行報告](archive/20260813_cto-20260812-001_p0_p2_b1_execution_report.md)
+**最新実装コミット:** `e3f5f1afda54b22b881cac64040e6c1827a450f6`
+**最新Push先:** `origin/master`
 
 > **結論:** 001・002再現精度を高めるために、次に優先すべきものは生成機能の追加ではありません。既存の分析資産を、001・002の基準値、候補曲、Prompt、SUNO設定、評価、次回検証へ一貫して接続する共通研究設備です。
+
+## 彩花CTO確認カード｜このファイルだけを最初に確認
+
+> **正式入口の原則:** 桃花から彩花CTOへの最新報告は、常にこの `music_ai/reports/cafe/latest_report.md` です。詳細資料、分析データ、実験仕様、アーカイブへ直接報告を分散させず、別ファイルに保存した場合も必ずこのカードからリンクします。
+
+| 必須項目 | 現在の記載 |
+|---|---|
+| **① 完了状況** | `CTO-20260812-001` のP0〜P2・B1は、生成前の整備・設計まで完了 |
+| **② 作成・更新ファイル** | [詳細実行報告](archive/20260813_cto-20260812-001_p0_p2_b1_execution_report.md) にP0、P1、P2、B1のファイル一覧を集約 |
+| **③ コミットID** | `e3f5f1afda54b22b881cac64040e6c1827a450f6` |
+| **④ Push先** | `origin/master` へPush完了 |
+| **⑤ 未完了・ブロッカー** | 002 Main独立音源・002ステム、A1／B1原WAV、Baseline Prompt、SUNO設定が未提供 |
+| **⑥ 彩花CTOが次に確認するファイル** | [B1導入静音長A/B検証仕様](../../experiments/cafe_series/b1_intro_quiet_window_spec_v1.md) と [現在のCTO正式指示](../../inbox/cto_to_coo/latest_cto_task.md) |
+
+## 報告ファイルの役割分担
+
+| 区分 | 正式保存先 | 扱い |
+|---|---|---|
+| 彩花CTO→桃花COOの最新指示 | [`music_ai/inbox/cto_to_coo/latest_cto_task.md`](../../inbox/cto_to_coo/latest_cto_task.md) | 桃花が作業前に最初に確認する正本 |
+| 桃花COO→彩花CTOの最新報告 | `music_ai/reports/cafe/latest_report.md` | 彩花CTOが最初に確認する唯一の入口 |
+| 分析根拠 | `music_ai/analysis/cafe/` | 数値、比較JSON、Fact/Hypothesis、実測資料 |
+| 正解・参照データ | `music_ai/reference_music/` および `music_ai/reference/` | 元音源・Master Card・Absolute Specification |
+| 実験・検証仕様 | `music_ai/experiments/` | A/B仕様、実験ログ、再現条件 |
+
+> **更新時の必須ルール:** 桃花は、別の詳細資料を作成しただけでは報告完了にしません。必ずこの `latest_report.md` を更新し、①完了状況、②ファイル、③コミットID、④Push先、⑤未完了・ブロッカー、⑥彩花CTOが次に確認するファイルを記載します。
 
 ## 今回の正式報告
 
