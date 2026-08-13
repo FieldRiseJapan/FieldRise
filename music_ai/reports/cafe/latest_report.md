@@ -23,6 +23,10 @@
 
 詳細は[自動反映実証報告](archive/2026-08-13_sonata-desk-auto-sync-verification.md)、実装と運用は[`dashboard/sonata-desk/SYNC.md`](../../../dashboard/sonata-desk/SYNC.md)を参照する。
 
+### 最終実証（彩花指示）
+
+**判定:** **完成。** 正本変更`43dead9`→自動同期Action成功→生成コミット`e844ccd`→Sonata Deskの`SYNC ed8f375099…`表示→正本復元`115c485`→自動同期Action成功→生成コミット`3a5db46`→最終`SYNC 046dd75259…`までを確認した。失敗追跡も[Run 31706207859](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706207859)で確認済みである。詳細は[最終自動同期証跡](archive/2026-08-13_sonata-desk-final-auto-sync-proof.md)を参照する。
+
 ## Sonata Desk 最終確認｜完成判定
 
 **判定:** **完成（彩花指示の最小ダッシュボード範囲）**。GitHub上のソースだけを新規環境へ取得し、依存関係を再構成した後のTypeScript検証・Vite production buildを通過した。Git追跡ツリーに`node_modules/`、`dist/`、`.vite/`は含まれない。
