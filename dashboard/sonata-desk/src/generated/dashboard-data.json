@@ -1,0 +1,202 @@
+{
+  "a1": {
+    "changedVariable": "なし。新規生成は行わない",
+    "gates": [
+      {
+        "id": "G01",
+        "label": "冒頭 0〜2秒",
+        "note": "001: Bassの最初のOnsetは0.464秒。0〜2秒のBass低域比率は98.73%、RMSは-26.85 dBFS。 / 002: Bassの最初のOnsetは0.464秒。Bass低域比率は84.21%、RMSは-29.00 dBFS。その他ステムのOnsetは0.255秒。",
+        "state": "measured"
+      },
+      {
+        "id": "G02",
+        "label": "Bassの存在・音質",
+        "note": "001: Bass全体RMSは-19.95 dBFS、スペクトル重心は485.2 Hz。低域が主成分。音色の主観評価は未完了。 / 002: Bass全体RMSは-22.90 dBFS、スペクトル重心は156.1 Hz。低域が主成分。音色の主観評価は未完了。",
+        "state": "measured"
+      },
+      {
+        "id": "G03",
+        "label": "Pianoの音数・間",
+        "note": "001: その他ステムの最初のOnsetは2.299秒。2〜10秒の中低域（180〜2,000 Hz）比率は99.85%。楽器同定・間の主観評価は未完了。 / 002: その他ステムの最初のOnsetは0.255秒。2〜10秒の中低域比率は91.96%。楽器同定・間の主観評価は未完了。",
+        "state": "measured"
+      },
+      {
+        "id": "G04",
+        "label": "BPM・シーン適合",
+        "note": "001: 推定86.13 BPM。既存Cafe基準の70〜90 BPM帯に収まる。[1] / 002: 推定80.75 BPM。既存Cafe基準の70〜90 BPM帯に収まる。[1]",
+        "state": "measured"
+      },
+      {
+        "id": "G05",
+        "label": "音圧・ダイナミクス",
+        "note": "001: 元Mainの平均RMSは-18.03 dBFS、P10/P90は-29.64/-12.98 dBFS、crest factorは14.28 dB。 / 002: 提供Mainが無音のため判定不能。ステム単体のRMSはBass -22.90、Drums -62.82、その他 -21.26 dBFS。",
+        "state": "partial"
+      },
+      {
+        "id": "G06",
+        "label": "構成",
+        "note": "001: Bass先行（0〜2秒）、その他ステム導入（約2.299秒）を確認。全体構成の区分は未完了。 / 002: 0.5秒未満にBass、0.255秒にその他ステム、1.161秒にDrums Onsetを確認。Main無音のため全体構成は保留。",
+        "state": "measured"
+      },
+      {
+        "id": "G07",
+        "label": "不要ノイズ",
+        "note": "001: 自動測定では判定しない。人の聴取とタイムコードが必要。 / 002: Main無音のため判定不能。",
+        "state": "pending"
+      },
+      {
+        "id": "G08",
+        "label": "Loop感",
+        "note": "001: 冒頭・終端各8秒の調性特徴類似度は0.9914。シームレス判定は未完了。 / 002: Main無音のため判定不能。Bass単体の近似値は0.9130。",
+        "state": "partial"
+      },
+      {
+        "id": "G09",
+        "label": "001／002との類似度",
+        "note": "001: 比較対象。共通要素はA1に集約する。 / 002: 比較対象。共通要素はA1に集約する。",
+        "state": "measured"
+      }
+    ],
+    "purpose": "001・002の正解データを観測し、再現基準を固定する",
+    "status": "evaluated_with_hold"
+  },
+  "ledger": [
+    {
+      "id": "A1",
+      "note": "001は正本、002は正式Main待ち。",
+      "outcome": "evaluated_with_hold",
+      "title": "001・002の正解データを観測し、再現基準を固定する",
+      "variable": "なし。新規生成は行わない"
+    },
+    {
+      "id": "B1",
+      "note": "Bass・Tempo・Drums・非ボーカル主導を固定。",
+      "outcome": "設計済み / 承認待ち",
+      "title": "その他ステムの導入時刻比較",
+      "variable": "0.3 sec vs 2.3 sec のみ"
+    }
+  ],
+  "patterns": [
+    {
+      "body": "001・002の聴取レビューでPiano／Keysの役割を確認する。",
+      "evidence": "既存成功パターン分析",
+      "id": "P-S-001",
+      "kind": "success",
+      "label": "provisional",
+      "title": "Pianoを主役にし、BassとDrumsを最小限にする。"
+    },
+    {
+      "body": "001・002でBass Onsetが0.464秒。B1以降は0.5秒未満のBass立ち上がりを固定する。",
+      "evidence": "既存制作標準、A1",
+      "id": "P-S-002",
+      "kind": "success",
+      "label": "confirmed",
+      "title": "0:00〜0:02にWarm deep bassを置く。"
+    },
+    {
+      "body": "終端→開始を聴取し、G08の最終判定後に固定条件化する。",
+      "evidence": "既存成功パターン分析、001の近似値0.9914",
+      "id": "P-S-003",
+      "kind": "success",
+      "label": "provisional",
+      "title": "予測可能な展開と自然なLoopを維持する。"
+    },
+    {
+      "body": "B1以降、Introで強いDrumsを入れない。",
+      "evidence": "A1：Bass低域比率84.21〜98.73%、Drums RMSはBassより約37〜40 dB低い。",
+      "id": "P-S-004",
+      "kind": "success",
+      "label": "confirmed",
+      "title": "Intro 0〜2秒を低域主導にし、DrumsをBassより大幅に後退させる。"
+    },
+    {
+      "body": "B1はこの範囲を固定し、テンポを変更変数にしない。",
+      "evidence": "A1：001 86.13 BPM、002 80.75 BPM。",
+      "id": "P-S-005",
+      "kind": "success",
+      "label": "confirmed",
+      "title": "推定80〜86 BPM帯からCafe BGMを設計する。"
+    },
+    {
+      "body": "Voiceover-friendlyを維持し、主旋律の歌唱を入れない。",
+      "evidence": "A1：ボーカルRMSは001 -108.55、002 -80.83 dBFS。",
+      "id": "P-S-006",
+      "kind": "success",
+      "label": "confirmed",
+      "title": "ボーカルを主成分にしない。"
+    },
+    {
+      "body": "プロンプトのAvoid欄へ明記する。",
+      "evidence": "既存制作標準",
+      "id": "P-F-001",
+      "kind": "avoid_condition",
+      "label": "provisional",
+      "title": "Heavy drums、EDM、強いビルドアップを入れない。"
+    },
+    {
+      "body": "Piano密度を変数にする際、他の要素を固定する。",
+      "evidence": "既存制作標準、Cafe 003計画",
+      "id": "P-F-002",
+      "kind": "avoid_condition",
+      "label": "provisional",
+      "title": "Complex melodyや過度なリバーブを入れない。"
+    },
+    {
+      "body": "MainのRMS・Onset・ステム再構成を入力検証に追加する。",
+      "evidence": "A1：002 MainはRMS -240.00 dBFS。",
+      "id": "P-F-003",
+      "kind": "failure",
+      "label": "confirmed",
+      "title": "無音のMainを正解データとして採用しない。"
+    }
+  ],
+  "references": [
+    {
+      "audioPath": "music_ai/reference_music/audio/001_reference_main.flac",
+      "bassOnset": "0.464秒",
+      "bpm": "86.13 BPM*",
+      "drumsRms": "-57.36 dBFS",
+      "duration": "未観測",
+      "id": "001",
+      "introBass": "98.73%",
+      "sampleRate": "未観測",
+      "sourcePath": "music_ai/reference_music/success_song_001.md",
+      "sourceType": "正本 Main / 可逆FLAC",
+      "status": "verified",
+      "statusLabel": "正本・検証済み",
+      "summary": "ステム実測済み。人の聴取による最終レビューは未完了。"
+    },
+    {
+      "audioPath": "music_ai/reference_music/audio/002_reference_stem_mix.flac",
+      "bassOnset": "0.464秒",
+      "bpm": "80.75 BPM*",
+      "drumsRms": "-62.82 dBFS",
+      "duration": "未観測",
+      "id": "002",
+      "introBass": "84.21%",
+      "sampleRate": "未観測",
+      "sourcePath": "music_ai/reference_music/success_song_002.md",
+      "sourceType": "暫定 Main / 4-stem mix FLAC",
+      "status": "pending",
+      "statusLabel": "暫定・正式Main待ち",
+      "summary": "ステム実測済み。提供されたMainは無音のため、Main全体に基づく評価は保留。"
+    }
+  ],
+  "schemaVersion": 1,
+  "sourceDigest": "046dd7525953a51785427e4d4d3ea0d705de3f345117a2e0f5a7ec48540596a9",
+  "sourceFiles": {
+    "music_ai/experiments/A1_001-002-ground-truth-capture.md": "45c04d570bb119b3ffbf0b27694b6c3c15d5deebe4db2328d788117f487be3b0",
+    "music_ai/reference_music/audio/README.md": "6b453b8684b42e9612463b05b308eefa9487edda397550a355ad8bbb5460883e",
+    "music_ai/reference_music/success_song_001.md": "ff2990c70ac163b98d434762ab7e807de8bbadcba356df8d428d9660a510c6b2",
+    "music_ai/reference_music/success_song_002.md": "e4527b72f3aa7f879520ee66fece343d7f9be99ae82c85c5c594c1eddff14194",
+    "music_ai/suno_database/successful_patterns.md": "eec43f012c464da5f2fd31cc5d9edc36739b63fdb233dfaa3ceb83fccfc3d89c"
+  },
+  "sources": {
+    "a1": "music_ai/experiments/A1_001-002-ground-truth-capture.md",
+    "audioLedger": "music_ai/reference_music/audio/README.md",
+    "groundTruth": "music_ai/reference_music/ground_truth_spec_v1.md",
+    "patterns": "music_ai/suno_database/successful_patterns.md",
+    "song001": "music_ai/reference_music/success_song_001.md",
+    "song002": "music_ai/reference_music/success_song_002.md"
+  }
+}

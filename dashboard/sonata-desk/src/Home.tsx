@@ -3,7 +3,7 @@
  * 生成りの紙面、楽譜の時間軸、深いモスグリーンで「静謐・精密・実直」を表現する。
  * GitHubを唯一の正本とし、画面は001・002再現研究の表示・比較・参照層に徹する。
  */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
   AudioLines,
@@ -53,7 +53,7 @@ const navigation = [
   { id: "sources", label: "参照音源", icon: FileAudio },
 ];
 
-const referenceTracks = [
+const fallbackReferenceTracks = [
   {
     id: "001",
     sourceType: "正本 Main / 可逆FLAC",
@@ -86,7 +86,7 @@ const referenceTracks = [
   },
 ];
 
-const a1Gates = [
+const fallbackA1Gates = [
   { id: "G01", label: "冒頭 0–2秒", state: "measured", note: "Bass Onsetを両曲で0.464秒に観測" },
   { id: "G02", label: "Bass 音質", state: "pending", note: "周波数特徴は測定済み。音色の聴取記録が必要" },
   { id: "G03", label: "Piano / Keys の間", state: "pending", note: "その他ステムの導入時刻は取得済み。聴感確認が必要" },
@@ -98,7 +98,7 @@ const a1Gates = [
   { id: "G09", label: "001 / 002 比較", state: "measured", note: "共通固定条件と差分変数を定義済み" },
 ];
 
-const ledgerRows = [
+const fallbackLedgerRows = [
   {
     id: "A1",
     title: "001・002 正解データ取得",
@@ -117,7 +117,7 @@ const ledgerRows = [
   },
 ];
 
-const patterns = [
+const fallbackPatterns = [
   { id: "P-S-002", label: "confirmed", title: "0.5秒未満のBass立ち上がり", body: "001・002ともBass Onsetは0.464秒。B1では固定条件。", tone: "bg-[#E8F0E9] text-[#244131]" },
   { id: "P-S-004", label: "confirmed", title: "低域主導・控えめなDrums", body: "Intro 0–2秒のBass低域比率は84–99%。DrumsはBassより大幅に低い。", tone: "bg-[#E8F0E9] text-[#244131]" },
   { id: "P-S-005", label: "confirmed", title: "80–86 BPM帯", body: "両曲の推定テンポを根拠に、B1ではテンポを変数にしない。", tone: "bg-[#E8F0E9] text-[#244131]" },
@@ -131,6 +131,32 @@ const stateStyle = {
   partial: { label: "一部実測", className: "bg-[#F8F0E1] text-[#7B5A2D]" },
   pending: { label: "聴取待ち", className: "bg-[#F7EAE5] text-[#8C4634]" },
 };
+
+type SyncReference = {
+  id: string; sourceType: string; status: string; statusLabel: string; duration: string; sampleRate: string;
+  bpm: string; bassOnset: string; introBass: string; drumsRms: string; summary: string; audioPath: string; sourcePath: string;
+};
+type SyncGate = { id: string; label: string; state: "measured" | "partial" | "pending"; note: string };
+type SyncLedger = { id: string; title: string; variable: string; outcome: string; note: string };
+type SyncPattern = { id: string; kind: string; label: string; title: string; body: string; evidence: string };
+type SyncData = { sourceDigest: string; references: SyncReference[]; a1: { status: string; gates: SyncGate[] }; ledger: SyncLedger[]; patterns: SyncPattern[] };
+
+const dashboardDataUrl = "https://raw.githubusercontent.com/FieldRiseJapan/FieldRise/main/dashboard/sonata-desk/src/generated/dashboard-data.json";
+
+function syncTone(label: string) {
+  if (label === "confirmed") return "bg-[#E8F0E9] text-[#244131]";
+  if (label === "deprecated") return "bg-[#F7EAE5] text-[#8C4634]";
+  return "bg-[#F8F0E1] text-[#7B5A2D]";
+}
+
+function toTrack(track: SyncReference) {
+  return { ...track, duration: track.duration.replace("秒", " sec"), audio: `${rawRoot}${track.audioPath}`, source: `${githubRoot}${track.sourcePath}` };
+}
+
+function toLedger(row: SyncLedger) {
+  const tone = row.id === "A1" ? "border-[#C9D8CB] bg-[#E8F0E9] text-[#244131]" : "border-[#E0CBA8] bg-[#F8F0E1] text-[#7B5A2D]";
+  return { ...row, tone };
+}
 
 function Rule({ className = "" }: { className?: string }) {
   return <span className={`block h-px bg-[#D8D0C1] ${className}`} aria-hidden="true" />;
@@ -171,6 +197,26 @@ function SourceLink({ href, children }: { href: string; children: React.ReactNod
 export default function Home() {
   const [activeSection, setActiveSection] = useState("overview");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [syncData, setSyncData] = useState<SyncData | null>(null);
+  const [syncState, setSyncState] = useState<"checking" | "synced" | "fallback">("checking");
+
+  useEffect(() => {
+    let active = true;
+    fetch(dashboardDataUrl, { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`GitHub display data: ${response.status}`);
+        return response.json() as Promise<SyncData>;
+      })
+      .then((data) => { if (active) { setSyncData(data); setSyncState("synced"); } })
+      .catch(() => { if (active) setSyncState("fallback"); });
+    return () => { active = false; };
+  }, []);
+
+  const referenceTracks = syncData ? syncData.references.map(toTrack) : fallbackReferenceTracks;
+  const a1Gates = syncData ? syncData.a1.gates : fallbackA1Gates;
+  const ledgerRows = syncData ? syncData.ledger.map(toLedger) : fallbackLedgerRows;
+  const patterns = syncData ? syncData.patterns.map((pattern) => ({ ...pattern, tone: syncTone(pattern.label) })) : fallbackPatterns;
+  const a1Status = syncData?.a1.status ?? "evaluated_with_hold";
 
   const scrollTo = (id: string) => {
     setActiveSection(id);
@@ -189,7 +235,7 @@ export default function Home() {
             <span><span className="block font-serif text-[18px] font-semibold leading-none tracking-[-0.02em]">FieldRise</span><span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.18em] text-[#6D6A63]">Music research desk</span></span>
           </button>
           <div className="hidden items-center gap-7 md:flex">
-            <span className="font-mono text-[10px] tracking-[0.14em] text-[#716E67]">CANONICAL / GITHUB</span>
+            <span className="font-mono text-[10px] tracking-[0.14em] text-[#716E67]">CANONICAL / {syncState === "synced" ? "SYNCED" : syncState === "checking" ? "CHECKING" : "FALLBACK"}</span>
             <SourceLink href={sources.issue}>Issue #2 を開く</SourceLink>
           </div>
           <button type="button" onClick={() => setMenuOpen((value) => !value)} className="grid h-10 w-10 place-items-center border border-[#D8D0C1] bg-[#FBF9F4] md:hidden" aria-expanded={menuOpen} aria-label="ナビゲーションを開く">
@@ -205,7 +251,7 @@ export default function Home() {
         <main className="min-w-0 px-5 pb-16 pt-6 sm:px-8 sm:pt-8 lg:px-10 xl:px-14">
           <section id="overview" className="scroll-mt-28" aria-labelledby="hero-title">
             <div className="grid overflow-hidden border border-[#D8D0C1] bg-[#EAE6DA] shadow-[0_16px_45px_rgba(60,49,28,0.06)] lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)]">
-              <div className="relative flex min-h-[420px] flex-col justify-between p-7 sm:p-10 lg:p-12"><div className="absolute inset-x-0 top-0 h-[5px] bg-[#3F5D4B]" /><div><div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-[#4F6B5A]"><span className="h-px w-8 bg-[#4F6B5A]" />sonata desk / canonical view</div><h1 id="hero-title" className="mt-7 max-w-[620px] font-serif text-[42px] font-semibold leading-[1.13] tracking-[-0.045em] text-[#1F1D19] sm:text-[52px] xl:text-[62px]">記録を見渡して、<br /><span className="text-[#3F5D4B]">次の一変数を選ぶ。</span></h1><p className="mt-6 max-w-[540px] text-[14px] leading-7 text-[#5F5B53] sm:text-[15px]">001・002の正本、A1、Pattern DB、検証台帳、参照音源をGitHubから辿るための、読み取り専用の研究デスクです。</p></div><div className="mt-10 grid max-w-[500px] grid-cols-[1fr_auto] items-end gap-5 border-t border-[#CFC7B7] pt-5"><div><p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#817B70]">Current gate</p><p className="mt-2 text-[15px] font-semibold text-[#2F4A3B]">A1 / 実測済み・聴取確認待ち</p></div><button type="button" onClick={() => scrollTo("a1")} className="group inline-flex items-center gap-2 text-[12px] font-semibold text-[#1C1A17]">A1を確認<ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" /></button></div></div>
+              <div className="relative flex min-h-[420px] flex-col justify-between p-7 sm:p-10 lg:p-12"><div className="absolute inset-x-0 top-0 h-[5px] bg-[#3F5D4B]" /><div><div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-[#4F6B5A]"><span className="h-px w-8 bg-[#4F6B5A]" />sonata desk / canonical view</div><h1 id="hero-title" className="mt-7 max-w-[620px] font-serif text-[42px] font-semibold leading-[1.13] tracking-[-0.045em] text-[#1F1D19] sm:text-[52px] xl:text-[62px]">記録を見渡して、<br /><span className="text-[#3F5D4B]">次の一変数を選ぶ。</span></h1><p className="mt-6 max-w-[540px] text-[14px] leading-7 text-[#5F5B53] sm:text-[15px]">001・002の正本、A1、Pattern DB、検証台帳、参照音源をGitHubから辿るための、読み取り専用の研究デスクです。</p></div><div className="mt-10 grid max-w-[500px] grid-cols-[1fr_auto] items-end gap-5 border-t border-[#CFC7B7] pt-5"><div><p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#817B70]">Current gate</p><p className="mt-2 text-[15px] font-semibold text-[#2F4A3B]">A1 / {a1Status}</p>{syncData && <p className="mt-1 font-mono text-[9px] tracking-[0.1em] text-[#7C756B]">SYNC {syncData.sourceDigest.slice(0, 10)}</p>}</div><button type="button" onClick={() => scrollTo("a1")} className="group inline-flex items-center gap-2 text-[12px] font-semibold text-[#1C1A17]">A1を確認<ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" /></button></div></div>
               <div className="relative min-h-[310px] overflow-hidden lg:min-h-full"><img src={heroImage} alt="朝の喫茶店に置かれたピアノと制作ノート" className="h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1B211B]/40 via-transparent to-transparent" /><div className="absolute right-5 top-5 grid h-16 w-16 place-items-center border border-white/50 bg-[#233F2F]/70 backdrop-blur-sm"><img src={brandMark} alt="" className="h-12 w-12 object-contain brightness-0 invert" /></div><div className="absolute bottom-5 left-5 right-5 flex items-center justify-between border-t border-white/40 pt-3 text-white"><span className="font-mono text-[10px] tracking-[0.16em]">SONATA DESK / V1.1</span><span className="font-mono text-[10px] tracking-[0.16em]">GITHUB CANONICAL</span></div></div>
             </div>
             <div className="mt-5 grid gap-4 md:grid-cols-3">{[["001 / 002", "参照する二つの正本", "正式Mainと暫定Mainを区別する"], ["A1", "次の判断のゲート", "実測・保留・承認待ちを分ける"], ["B1", "一つだけ変える実験", "その他ステムの導入時刻を比較する"]].map(([number, title, note]) => <article key={title} className="border border-[#DCD5C7] bg-[#FBF9F4] p-5 transition-transform duration-200 hover:-translate-y-0.5"><p className="font-mono text-[24px] leading-none tracking-[-0.06em] text-[#3F5D4B]">{number}</p><h2 className="mt-4 text-[13px] font-semibold text-[#282620]">{title}</h2><p className="mt-1 text-[12px] leading-5 text-[#706B62]">{note}</p></article>)}</div><div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-[#D8D0C1] pt-3 font-mono text-[9px] tracking-[0.12em] text-[#726C62]"><span className="inline-flex items-center gap-2"><i className="h-2 w-2 bg-[#3F5D4B]" />FIELD MOSS / 実測・前進</span><span className="inline-flex items-center gap-2"><i className="h-2 w-2 bg-[#A45B40]" />TERRACOTTA / 保留・再検証</span><span className="inline-flex items-center gap-2"><i className="h-2 w-2 bg-[#B18350]" />BRASS / 記録・知見</span></div>
@@ -215,7 +261,7 @@ export default function Home() {
             <div className="mt-7 grid gap-5 xl:grid-cols-2">{referenceTracks.map((track) => <article key={track.id} className="overflow-hidden border border-[#D8D0C1] bg-[#FBF9F4]"><div className="flex items-start justify-between gap-4 border-b border-[#E1DBCE] p-5 sm:p-6"><div><p className="font-mono text-[10px] tracking-[0.16em] text-[#7A756C]">REFERENCE / {track.id}</p><h3 className="mt-2 font-serif text-[30px] font-semibold tracking-[-0.04em]">Cafe {track.id}</h3><p className="mt-1 text-[11px] text-[#706B62]">{track.sourceType}</p></div><span className={`shrink-0 border px-2.5 py-1 font-mono text-[9px] tracking-[0.08em] ${track.status === "verified" ? "border-[#C9D8CB] bg-[#E8F0E9] text-[#244131]" : "border-[#E5C4B6] bg-[#F7EAE5] text-[#8C4634]"}`}>{track.statusLabel}</span></div><div className="grid grid-cols-2 gap-px bg-[#E5DED0] sm:grid-cols-3">{[["Length", track.duration], ["Format", track.sampleRate], ["Tempo", track.bpm], ["Bass onset", track.bassOnset], ["Intro bass", track.introBass], ["Drums RMS", track.drumsRms]].map(([label, value]) => <div key={label} className="bg-[#F7F4EC] px-4 py-4"><p className="font-mono text-[9px] tracking-[0.13em] text-[#8A8378]">{label}</p><p className="mt-2 text-[12px] font-semibold text-[#332F28]">{value}</p></div>)}</div><div className="p-5 sm:p-6"><p className="text-[12px] leading-6 text-[#676158]">{track.summary}</p><div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-[#E1DBCE] pt-4"><SourceLink href={track.source}>正解データを読む</SourceLink><SourceLink href={track.audio}>FLACを開く</SourceLink></div></div></article>)}</div><div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_330px]"><p className="self-center font-mono text-[10px] leading-5 text-[#7C756B]">* BPMはアルゴリズム推定値。最終値はDAWまたは聴取で確認する。</p><DecisionNote title="B1は音源差ではなく、導入時刻を比べる。" body="001の約2.3秒と002の約0.3秒。比較以外の条件を固定するため、正本・暫定の区別をカード上で維持する。" action="A1の固定条件を見る" href={sources.a1} /></div></section>
 
           <section id="a1" className="scroll-mt-28 pt-20" aria-labelledby="a1-title"><div className="grid gap-8 border-t-2 border-[#1C1A17] pt-5 xl:grid-cols-[0.8fr_1.2fr]"><div><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#4F6B5A]">02 / A1 progress</p><h2 id="a1-title" className="mt-3 font-serif text-[32px] font-semibold tracking-[-0.04em] sm:text-[38px]">確定したことと、<br />まだ聞くべきこと。</h2><ScoreRuler start="G01" end="G09" note="Measured / Pending / Hold" /><p className="mt-5 max-w-[420px] text-[13px] leading-7 text-[#666158]">A1は実測を終え、聴取レビューと002の正式Main確認を保留しています。未観測の値を推測で埋めないことが次の比較の前提です。</p><div className="mt-7 border border-[#E5C4B6] bg-[#F7EAE5] p-5"><div className="flex items-center gap-2 text-[#A45B40]"><CircleAlert className="h-4 w-4" /><span className="font-mono text-[10px] tracking-[0.14em]">CURRENT HOLD</span></div><p className="mt-3 text-[12px] leading-6 text-[#5D5549]">002の受領Mainは無音。現在の002参照音源は、4ステム合成による暫定版です。</p><div className="mt-4"><SourceLink href={sources.a1}>A1台帳を開く</SourceLink></div></div></div>
-              <div className="overflow-hidden border border-[#D8D0C1] bg-[#FBF9F4]"><div className="flex items-center justify-between border-b border-[#E1DBCE] px-5 py-4 sm:px-6"><div className="flex items-center gap-3"><FileCheck2 className="h-4 w-4 text-[#3F5D4B]" /><span className="text-[12px] font-semibold">G01–G09 / Status</span></div><span className="font-mono text-[10px] tracking-[0.14em] text-[#7F796F]">A1 / evaluated_with_hold</span></div><div className="divide-y divide-[#E7E0D3]">{a1Gates.map((gate) => { const style = stateStyle[gate.state as keyof typeof stateStyle]; return <div key={gate.id} className="grid gap-3 px-5 py-4 sm:grid-cols-[52px_140px_minmax(0,1fr)_auto] sm:items-center sm:px-6"><span className="font-mono text-[11px] text-[#3F5D4B]">{gate.id}</span><p className="text-[12px] font-semibold text-[#302E29]">{gate.label}</p><p className="text-[11px] leading-5 text-[#716C62]">{gate.note}</p><span className={`w-fit px-2 py-1 font-mono text-[9px] tracking-[0.08em] ${style.className}`}>{style.label}</span></div>; })}</div></div>
+              <div className="overflow-hidden border border-[#D8D0C1] bg-[#FBF9F4]"><div className="flex items-center justify-between border-b border-[#E1DBCE] px-5 py-4 sm:px-6"><div className="flex items-center gap-3"><FileCheck2 className="h-4 w-4 text-[#3F5D4B]" /><span className="text-[12px] font-semibold">G01–G09 / Status</span></div><span className="font-mono text-[10px] tracking-[0.14em] text-[#7F796F]">A1 / {a1Status}</span></div><div className="divide-y divide-[#E7E0D3]">{a1Gates.map((gate) => { const style = stateStyle[gate.state as keyof typeof stateStyle]; return <div key={gate.id} className="grid gap-3 px-5 py-4 sm:grid-cols-[52px_140px_minmax(0,1fr)_auto] sm:items-center sm:px-6"><span className="font-mono text-[11px] text-[#3F5D4B]">{gate.id}</span><p className="text-[12px] font-semibold text-[#302E29]">{gate.label}</p><p className="text-[11px] leading-5 text-[#716C62]">{gate.note}</p><span className={`w-fit px-2 py-1 font-mono text-[9px] tracking-[0.08em] ${style.className}`}>{style.label}</span></div>; })}</div></div>
             </div></section>
 
           <section id="ledger" className="scroll-mt-28 pt-20" aria-labelledby="ledger-title"><div className="flex flex-col justify-between gap-5 border-t-2 border-[#1C1A17] pt-5 sm:flex-row sm:items-end"><div><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#4F6B5A]">03 / Experiment ledger</p><h2 id="ledger-title" className="mt-3 font-serif text-[32px] font-semibold tracking-[-0.04em] sm:text-[38px]">検証番号に、根拠と次の一手を結ぶ。</h2></div><SourceLink href={sources.a1}>実験台帳を開く</SourceLink></div><ScoreRuler start="A1" end="B1" note="One variable / Evidence first" /><div className="mt-7 overflow-hidden border border-[#D8D0C1] bg-[#FBF9F4]"><div className="hidden grid-cols-[76px_minmax(160px,1fr)_minmax(180px,1fr)_minmax(150px,0.75fr)] gap-4 border-b border-[#E1DBCE] bg-[#F3F0E8] px-6 py-3 font-mono text-[9px] tracking-[0.14em] text-[#7C756B] md:grid"><span>ID</span><span>RESEARCH UNIT</span><span>ONE VARIABLE</span><span>STATE</span></div>{ledgerRows.map((row) => <article key={row.id} className="grid gap-4 border-b border-[#E7E0D3] px-5 py-5 last:border-b-0 md:grid-cols-[76px_minmax(160px,1fr)_minmax(180px,1fr)_minmax(150px,0.75fr)] md:items-center md:px-6"><span className="w-fit border border-[#CFC7B7] bg-[#F4F0E7] px-2 py-1 font-mono text-[11px] font-semibold text-[#454139]">{row.id}</span><div><h3 className="text-[13px] font-semibold text-[#26241E]">{row.title}</h3><p className="mt-1 text-[11px] text-[#716C62]">{row.note}</p></div><p className="text-[12px] font-medium text-[#4A554C]">{row.variable}</p><span className={`w-fit border px-2.5 py-1 font-mono text-[10px] tracking-[0.08em] ${row.tone}`}>{row.outcome}</span></article>)}</div><div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_330px]"><p className="self-center text-[12px] leading-6 text-[#706B62]">A1は正本を揃えるための観測。B1は導入時刻だけを変える比較。記録を増やす前に、比較可能性を保つ。</p><DecisionNote title="次の一手は、B1を生成することではない。" body="まず、002の正式MainとG02・G03・G07・G08の聴取記録の承認状態を確認する。" action="Issue #2の承認条件を見る" href={sources.issue} /></div></section>
