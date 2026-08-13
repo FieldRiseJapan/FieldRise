@@ -1,7 +1,7 @@
 # 彩花（CTO）→ 桃花（COO）｜最新正式指示
 
-**指示ステータス:** 実行中
-**最終更新:** 2026-08-12
+**指示ステータス:** 完了（P0〜P2・B1の指定範囲）／生成・実装の後続作業は未完了
+**最終更新:** 2026-08-13
 **指示者:** 彩花（CTO）
 **実行責任者:** 桃花（COO）
 **正式完了報告先:** [`music_ai/reports/cafe/latest_report.md`](../../reports/cafe/latest_report.md)
@@ -28,6 +28,32 @@
 桃花は、P0からP2、B1までのうち、既存資料と明確な根拠で進められる部分を途中で判断待ちにせず進行します。根拠不足、元音源未提供、権利確認、外部サービスの公式条件などで実行できない部分は、推測で埋めず `latest_report.md` の「未完了・ブロッカー」として明記します。SUNOでの新規生成またはCredit消費を伴う操作は、本指示に含めず、別途明示指示があるまで実施しません。
 
 > **正式完了条件:** P0〜P2・B1の実施結果、未完了、ブロッカー、作成・更新ファイル、コミットID、Push先を `latest_report.md` へ更新し、GitHubへPushした時点で本指示は完了とする。
+
+## 完全状態一覧｜CTO-20260812-001
+
+**この指示書で完了した範囲:** P0〜P2・B1に指定された、正本化・台帳化・決定論的な分析ツール・生成前検証仕様の整備です。
+**この指示書で未完了の範囲:** SUNO生成、未提供音源による再測定、GitHub Actionsの実行設定、AI基盤および内部Webアプリの実装・運用開始です。
+
+| 段階 | 指示内容 | 状態 | 完了・途中の具体的内容 | 根拠・確認ファイル | 未完了理由／次の条件 |
+|---|---|---|---|---|---|
+| **P0** | 001／002正本・音源・A1資料の棚卸し、002 Main無音問題の整理、現状記録 | **完了** | 001はステム付き、002は参照音源中心、A1／B1は分析資料中心と分類。002参照音源の-60dBFS閾値到達を0.21秒と実測 | [P0現状記録](../../analysis/cafe/p0_001_002_current_state_20260812.md) | 002 Main独立音源・002ステムが未提供のため、**002 Main固有**の無音問題の確定測定は未完了 |
+| **P1** | 002 Master Card、共通Metrics、共通実験台帳、Fact/Hypothesis台帳、Pattern DB | **完了** | 002のFact・未確認項目を分離し、001／002／A1／B1を接続する台帳とMetrics Schemaを整備 | [002 Master Card](../../reference/cafe002_master/002_Master_Card.md)、[Registry](../../registry/generation_registry.jsonl) | A1／B1の原WAV、Prompt、SUNO設定が未提供のため、既存報告値は再測定済みFactに未昇格 |
+| **P2-A** | A/B自動差分、再現度・品質ゲート | **完了** | `compare_metrics.py`、`quality_gate.py`を実装・試験。A1／B1の差分とB1昇格ブロックを出力 | [A/B差分](../../analysis/cafe/p2_cafe008_1A_vs_1B_diff.json)、[品質ゲート](../../analysis/cafe/p2_quality_gate_cafe008_1B.json) | Candidate音源・正規採点・Prompt・設定の未提供により、Knowledge昇格は未許可 |
+| **P2-B** | 音源解析・台帳更新の自動化設計 | **完了（設計・ローカルツール）** | Intro Probe→Metrics→A/B差分→Gate→人の承認という安全な処理順を定義 | [自動化設計](../../automation/p2_automation_design.md) | GitHub Actionsの実行ワークフローは未追加。リポジトリ運用へ影響するため別承認が必要 |
+| **P2-C** | GitHub正本を参照するAI基盤、内部Webアプリ設計 | **完了（設計）** | 根拠付き検索のみを行うAI基盤と、読み取り中心の研究コックピットを設計 | [AI基盤設計](../../ai_foundation/p2_github_grounded_ai_design.md)、[アプリ設計](../../app_design/p2_internal_research_app_design.md) | AI基盤・内部Webアプリの**実装・デプロイは未着手**。正本運用安定後に別指示が必要 |
+| **B1** | A1結果を使い、変更変数1つで次回検証条件を準備 | **完了（生成前仕様）** | `target_intro_quiet_window_sec`のみを0.3秒／2.3秒へ変えるA/B仕様を作成 | [B1検証仕様](../../experiments/cafe_series/b1_intro_quiet_window_spec_v1.md) | Baseline Prompt・SUNO設定・原音源が未記録。SUNO生成は本指示外で、社長の明示操作待ち |
+
+## 末尾の未完了一覧
+
+| ID | 未完了項目 | ブロッカー | 次に必要なもの | 完了後の報告先 |
+|---|---|---|---|---|
+| `U-001` | 002 Main無音問題の確定測定 | 002 Main独立音源・ステム未提供 | 権利確認済みの音源提供後、P0 Probeを再実行 | `latest_report.md` |
+| `U-002` | A1／B1既存分析の再測定と正規採点 | A1／B1原WAV、Baseline Prompt、SUNO設定未提供 | 音源・Prompt版・設定をGeneration Registryへ登録 | `latest_report.md` |
+| `U-003` | B1 A/B生成と評価 | SUNO生成は本指示の範囲外 | 社長が同一設定で0.3秒案／2.3秒案を生成 | `latest_report.md` |
+| `U-004` | GitHub Actions実行ワークフロー | リポジトリ運用・権限への影響 | 社長／CTOの別承認と対象範囲の確定 | `latest_report.md` |
+| `U-005` | AI基盤・内部Webアプリの実装 | P2は設計まで。データ運用の安定確認が必要 | 別の実装指示と、必要なデータ・権限設計 | `latest_report.md` |
+
+> **正式な彩花CTO確認先:** まず [`latest_report.md`](../../reports/cafe/latest_report.md) を確認し、必要に応じて上表のリンク先を開きます。
 
 ## 指示記載テンプレート
 
