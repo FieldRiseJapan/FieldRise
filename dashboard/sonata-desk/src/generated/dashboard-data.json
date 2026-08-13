@@ -17,7 +17,7 @@
       {
         "id": "G03",
         "label": "Pianoの音数・間",
-        "note": "001: その他ステムの最初のOnsetは2.299秒。2〜10秒の中低域（180〜2,000 Hz）比率は99.85%。楽器同定・間の主観評価は未完了。 / 002: その他ステムの最初のOnsetは0.255秒。2〜10秒の中低域比率は91.96%。楽器同定・間の主観評価は未完了。",
+        "note": "001: その他ステムの最初のOnsetは2.299秒。2〜10秒の中低域（180〜2,000 Hz）比率は99.85%。楽器同定・間の主観評価は未完了。 / 002: その他ステムの最初のOnsetは0.255秒。追加分離で、伴奏主成分と1.138秒に開始する低レベルのドラム残留成分を確認。二成分は元のその他を相関0.999959、SNR 40.91 dBで再構成する。楽器同定・間の主観評価は未完了。",
         "state": "measured"
       },
       {
@@ -183,12 +183,12 @@
     }
   ],
   "schemaVersion": 1,
-  "sourceDigest": "046dd7525953a51785427e4d4d3ea0d705de3f345117a2e0f5a7ec48540596a9",
+  "sourceDigest": "8be018a05870ba2c60c975af09d15193a4bd7a5d15da091f9b550e6300712626",
   "sourceFiles": {
-    "music_ai/experiments/A1_001-002-ground-truth-capture.md": "45c04d570bb119b3ffbf0b27694b6c3c15d5deebe4db2328d788117f487be3b0",
+    "music_ai/experiments/A1_001-002-ground-truth-capture.md": "84eb7439bc05a751bb2bcd02c11e326cddf8250db2a13ef032c660ab9b5762fd",
     "music_ai/reference_music/audio/README.md": "6b453b8684b42e9612463b05b308eefa9487edda397550a355ad8bbb5460883e",
     "music_ai/reference_music/success_song_001.md": "ff2990c70ac163b98d434762ab7e807de8bbadcba356df8d428d9660a510c6b2",
-    "music_ai/reference_music/success_song_002.md": "e4527b72f3aa7f879520ee66fece343d7f9be99ae82c85c5c594c1eddff14194",
+    "music_ai/reference_music/success_song_002.md": "f20b2aa0ab32699390cd19fbf9a43e5d2971d3861b24661366d077b68e632687",
     "music_ai/suno_database/successful_patterns.md": "eec43f012c464da5f2fd31cc5d9edc36739b63fdb233dfaa3ceb83fccfc3d89c"
   },
   "sources": {
