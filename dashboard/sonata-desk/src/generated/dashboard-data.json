@@ -226,9 +226,9 @@
     }
   ],
   "schemaVersion": 1,
-  "sourceDigest": "944815b084e444706776fe303738fb85c51635f5bee6d9002614ccaeb16373b0",
+  "sourceDigest": "9d37015aaba2281fb2a067077d6d8af818292af2dac1fe9b4b6fb153357aef77",
   "sourceFiles": {
-    "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md": "60d6d88a33be1c920de4d4cedb28d1784e93c315e81392d498d162f35be56e8f",
+    "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md": "8d228f72614160749fd4af3817809476c8a1c24b5df870c187ff2ca75f9d5e9b",
     "music_ai/experiments/A1_001-002-ground-truth-capture.md": "84eb7439bc05a751bb2bcd02c11e326cddf8250db2a13ef032c660ab9b5762fd",
     "music_ai/reference_music/audio/README.md": "6b453b8684b42e9612463b05b308eefa9487edda397550a355ad8bbb5460883e",
     "music_ai/reference_music/success_song_001.md": "ff2990c70ac163b98d434762ab7e807de8bbadcba356df8d428d9660a510c6b2",
