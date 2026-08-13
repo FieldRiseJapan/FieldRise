@@ -1,7 +1,7 @@
 # 実績曲分析：success_song_001
 
 - **参照ID**: 001
-- **分析状態**: ステム実測済み。人の聴取による最終レビューは未完了。
+- **分析状態**: ステム実測済み。人の聴取による最終レビューは未完了。Sonata DeskのGitHub自動同期テスト中。
 - **元Main**: 222.400秒、48 kHz、Stereo、SHA-256 `b62e1f5cf0e8bdbe7ee72a4e9b5a083722f39a2d396cb7a3d68297b5909a8006`
 - **分離ステム**: Bass、Drums、その他、ボーカル、Studio Main。分離4ステムはStudio Mainを相関1.000000、SNR 151.91 dBで再構成する。
 - **GitHub参照音源**: [`audio/001_reference_main.flac`](audio/001_reference_main.flac)。元WAVと復号FLACのPCM MD5は一致する。
