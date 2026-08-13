@@ -45,6 +45,9 @@ jobs:
       - name: 定時報告を生成
         run: python3 automation/scripts/generate_briefing.py
 
+      - name: ダッシュボードURLを検証
+        run: python3 automation/scripts/test_dashboard_url_in_briefing.py
+
       - name: 結果をコミット
         run: |
           git config user.name "FieldRise-AI-Secretary"

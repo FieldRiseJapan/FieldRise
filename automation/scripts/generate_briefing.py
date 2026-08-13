@@ -10,6 +10,7 @@ from pathlib import Path
 
 JST = timezone(timedelta(hours=9))
 WEEKDAYS_JA = ["月", "火", "水", "木", "金", "土", "日"]
+SONATA_DESK_URL = "https://fieldrise-ythnsgue.manus.space"
 
 BASE = Path(__file__).resolve().parents[2] / "projects" / "project-001-ai-secretary"
 
@@ -118,6 +119,12 @@ def main() -> None:
     md = f"""# {date_str}（{wd}）朝の定時報告
 
 **FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: {now.strftime('%H:%M')} JST
+
+---
+
+## 📊 ダッシュボード
+
+{SONATA_DESK_URL}
 
 ---
 
