@@ -10,7 +10,7 @@
 | A/B Compare | Intro、RMS、Centroid、密度、Score、Evidence | Difference JSON、Metrics、分析資料 | 採否メモの下書き |
 | Evidence Board | Fact、Hypothesis、Blocked、Pattern | Fact/Hypothesis台帳、Pattern DB | Hypothesisの検証完了を承認依頼 |
 | Experiment Register | Prompt版、SUNO設定、音源証跡、評価、次の一変数 | Generation Registry | 新候補の下書き登録 |
-| Report Center | 最新報告、アーカイブ、CTO正式指示 | `latest_report.md`、`latest_cto_task.md` | 報告確認のみ |
+| Report Center | 最新報告、アーカイブ、CTO正式指示 | `latest_report.md`、`latest_instruction.md` | 報告確認のみ |
 
 ## データと権限の原則
 

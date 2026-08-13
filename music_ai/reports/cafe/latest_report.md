@@ -3,7 +3,7 @@
 **報告日:** 2026-08-13
 **報告者:** 桃花（COO）
 **宛先:** 社長・彩花（CTO）
-**ステータス:** 現在はB1のSUNO生成・再測定の直前で停止中。`CTO-20260812-001` のP0〜P2・B1は生成前整備・設計まで完了し、後続の生成・実装は未完了。
+**ステータス:** B1の検証用A/B Promptと固定生成条件を準備済み。社長によるSUNO手動生成・原WAV登録・再測定待ち。`CTO-20260812-001` は履歴アーカイブへ移行し、現在の正本は `latest_instruction.md`。
 **常時更新ルール:** 作業途中、停止地点、未完了、完了のすべてを本ファイルへ記載する。未完了を理由に更新を省略しない。
 **詳細報告:** [20260812 001・002再現プロジェクト GitHub設備強化調査](archive/20260812_001_002_reproduction_equipment_audit.md)
 **正式保存先:** `music_ai/reports/cafe/latest_report.md`
@@ -11,7 +11,7 @@
 **正式報告固定化コミット:** `d828878d979fa1292619082550bc47cfe0b746c2`
 **Push結果:** `origin/master` へPush完了
 **正式確認:** 2026-08-12に、社長・彩花向けの最新報告として作成・Pushを確認。彩花CTOは本ファイルを正式な確認入口として扱う。
-**CTO正式指示の確認入口:** [`music_ai/inbox/cto_to_coo/latest_cto_task.md`](../../inbox/cto_to_coo/latest_cto_task.md)
+**CTO正式指示の確認入口:** [`music_ai/inbox/cto_to_coo/latest_instruction.md`](../../inbox/cto_to_coo/latest_instruction.md)
 **最新実行報告:** [CTO-20260812-001 P0〜P2・B1 実行報告](archive/20260813_cto-20260812-001_p0_p2_b1_execution_report.md)
 **最新実装コミット:** `e3f5f1afda54b22b881cac64040e6c1827a450f6`
 **最新Push先:** `origin/master`
@@ -43,10 +43,27 @@
 | 停止中 | B1のSUNO生成、A1／B1原WAVの再測定、002 Main独立音源・ステムの確定測定 |
 | ブロッカー | 002 Main独立音源・002ステム、A1／B1原WAV、Baseline Prompt、SUNO設定が未提供。SUNO生成は別途明示指示が必要 |
 | 代替として完了した範囲 | 未提供音源に依存しない正本・台帳・分析ツール・品質ゲート・検証仕様を整備済み |
-| 再開条件 | 彩花CTOが新しい正式指示を [`latest_cto_task.md`](../../inbox/cto_to_coo/latest_cto_task.md) へ記録し、必要に応じて音源・Prompt・設定を登録する |
-| 次に彩花CTOが確認するファイル | [B1検証仕様](../../experiments/cafe_series/b1_intro_quiet_window_spec_v1.md)、[固定指示書の完全状態一覧](../../inbox/cto_to_coo/latest_cto_task.md#完全状態一覧cto-20260812-001) |
+| 再開条件 | 彩花CTOが最新の正式指示を [`latest_instruction.md`](../../inbox/cto_to_coo/latest_instruction.md) へ記録し、必要に応じて音源・Prompt・設定を登録する |
+| 次に彩花CTOが確認するファイル | [Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md)、[現在の正式指示](../../inbox/cto_to_coo/latest_instruction.md) |
 
 > **未完了報告:** 本タスクは終了報告ではありません。上記の停止地点とブロッカーを、次の正式指示または必要入力が届くまでの現在地点として記録します。
+
+## 最新正式指示の進捗｜CTO-20260813-002
+
+**状態:** 途中。検証用Cafe009 B1のPrompt・命名・A/B台帳は準備済みで、社長によるSUNO手動生成待ちです。
+**開始根拠:** [`latest_instruction.md`](../../inbox/cto_to_coo/latest_instruction.md)
+**目的:** 導入静音長だけを0.3秒と2.3秒で比較する。
+
+| 必須報告項目 | 現在の状態 |
+|---|---|
+| 完了状況 | `検証用Cafe009 B1-A-0.3` と `検証用Cafe009 B1-B-2.3` のPrompt・固定設定・台帳登録を完了。SUNO生成・分析は未実施 |
+| 作成・更新ファイル | [AI協働通信規約](../../governance/ai_collaboration_protocol.md)、[最新指示](../../inbox/cto_to_coo/latest_instruction.md)、[Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md)、[Generation Registry](../../registry/generation_registry.jsonl) |
+| Commit SHA | 本規約・Prompt・台帳の保存コミットはPush後に社長・彩花CTOへ報告する |
+| Push先 | `origin/master` へPush予定 |
+| 未完了・ブロッカー | SUNOの選択Model名、原WAV、生成結果、生成後の測定・評価が未登録。手動生成は社長の操作が必要 |
+| 彩花CTOが次に確認するファイル | [Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md) と [最新正式指示](../../inbox/cto_to_coo/latest_instruction.md) |
+
+> **生成時の必須確認:** A/Bで変えるのは導入静音長の一行のみです。社長がSUNO画面で選んだModel名を含め、同一設定を生成前にRegistryへ追記してから原WAVを保存します。
 
 ## 彩花CTO確認カード｜このファイルだけを最初に確認
 
@@ -59,13 +76,13 @@
 | **③ コミットID** | `e3f5f1afda54b22b881cac64040e6c1827a450f6` |
 | **④ Push先** | `origin/master` へPush完了 |
 | **⑤ 未完了・ブロッカー** | 002 Main独立音源・002ステム、A1／B1原WAV、Baseline Prompt、SUNO設定が未提供 |
-| **⑥ 彩花CTOが次に確認するファイル** | [B1導入静音長A/B検証仕様](../../experiments/cafe_series/b1_intro_quiet_window_spec_v1.md) と [現在のCTO正式指示](../../inbox/cto_to_coo/latest_cto_task.md) |
+| **⑥ 彩花CTOが次に確認するファイル** | [B1導入静音長A/B検証仕様](../../experiments/cafe_series/b1_intro_quiet_window_spec_v1.md) と [現在のCTO正式指示](../../inbox/cto_to_coo/latest_instruction.md) |
 
 ## 報告ファイルの役割分担
 
 | 区分 | 正式保存先 | 扱い |
 |---|---|---|
-| 彩花CTO→桃花COOの最新指示 | [`music_ai/inbox/cto_to_coo/latest_cto_task.md`](../../inbox/cto_to_coo/latest_cto_task.md) | 桃花が作業前に最初に確認する正本 |
+| 彩花CTO→桃花COOの最新指示 | [`music_ai/inbox/cto_to_coo/latest_instruction.md`](../../inbox/cto_to_coo/latest_instruction.md) | 桃花が作業前に最初に確認する唯一の正本 |
 | 桃花COO→彩花CTOの最新報告 | `music_ai/reports/cafe/latest_report.md` | 彩花CTOが最初に確認する唯一の入口 |
 | 分析根拠 | `music_ai/analysis/cafe/` | 数値、比較JSON、Fact/Hypothesis、実測資料 |
 | 正解・参照データ | `music_ai/reference_music/` および `music_ai/reference/` | 元音源・Master Card・Absolute Specification |
@@ -107,9 +124,9 @@ P0では、001／002正本・音源・A1／B1資料を棚卸しし、002参照�
 
 > **判定:** 完了です。ただし、完了した範囲は `CTO-20260812-001` に指定された**P0〜P2・B1の生成前整備・設計**です。SUNO生成、未提供音源による再測定、外部サービス連携は本指示の範囲外またはブロッカーのため、完了扱いにしていません。
 
-**着手した正式指示書:** [`music_ai/inbox/cto_to_coo/latest_cto_task.md`](../../inbox/cto_to_coo/latest_cto_task.md)
+**着手した正式指示書（履歴）:** [`CTO-20260812-001`](../../inbox/cto_to_coo/archive/20260812_cto-20260812-001.md)
 **指示ID:** `CTO-20260812-001`
-**詳細な段階別状態:** 指示書内の [完全状態一覧](../../inbox/cto_to_coo/latest_cto_task.md#完全状態一覧cto-20260812-001)
+**詳細な段階別状態:** 履歴指示書内の [完全状態一覧](../../inbox/cto_to_coo/archive/20260812_cto-20260812-001.md#完全状態一覧cto-20260812-001)
 
 | 彩花CTOの確認項目 | 到達状況 | 確認ファイル |
 |---|---|---|
@@ -127,13 +144,13 @@ P0では、001／002正本・音源・A1／B1資料を棚卸しし、002参照�
 | **P1** | 完了 | 002 Master Card、Metrics Schema、Registry、Fact/Hypothesis、Pattern DB | A1／B1の再測定・正規採点は原データ未提供 | [002 Master Card](../../reference/cafe002_master/002_Master_Card.md) |
 | **P2** | 完了（ツール・設計） | A/B差分、Quality Gate、automation／AI／アプリ設計 | GitHub Actions実行設定、AI基盤・内部アプリの実装は未着手 | [P2自動化設計](../../automation/p2_automation_design.md) |
 | **B1** | 完了（生成前仕様） | 0.3秒案 vs 2.3秒案、一変数ルール、評価条件 | SUNO生成・評価は未実施 | [B1検証仕様](../../experiments/cafe_series/b1_intro_quiet_window_spec_v1.md) |
-| **後続作業** | 未着手 | — | U-001〜U-005を解消後、別のCTO正式指示として開始 | [固定指示書の未完了一覧](../../inbox/cto_to_coo/latest_cto_task.md#末尾の未完了一覧) |
+| **後続作業** | 未着手 | — | U-001〜U-005を解消後、別のCTO正式指示として開始 | [履歴指示書の未完了一覧](../../inbox/cto_to_coo/archive/20260812_cto-20260812-001.md#末尾の未完了一覧) |
 
 ## 正式指示との接続
 
-桃花は、Cafeシリーズの新しい作業を開始する前に、彩花CTOの最新正式指示である [`latest_cto_task.md`](../../inbox/cto_to_coo/latest_cto_task.md) を最初に確認します。指示に基づく作業が完了した時は、この `latest_report.md` を更新し、保存先・コミットID・Push結果を記録します。
+桃花は、Cafeシリーズの新しい作業を開始する前に、彩花CTOの最新正式指示である [`latest_instruction.md`](../../inbox/cto_to_coo/latest_instruction.md) を最初に確認します。指示に基づく作業が完了した時は、この `latest_report.md` を更新し、保存先・コミットID・Push結果を記録します。
 
-長時間タスクは、社長の依頼、Issue、会話だけを根拠に開始しません。彩花CTOが `latest_cto_task.md` へ指示ID、目的、範囲、制約、完了条件を記録した時点で、桃花の正式な実行対象になります。これにより、**彩花→桃花の最新指示**と**桃花→彩花の最新報告**が、常に固定ファイルで往復する運用を維持します。
+長時間タスクは、社長の依頼、Issue、会話だけを根拠に開始しません。彩花CTOが `latest_instruction.md` へ指示ID、目的、範囲、制約、完了条件を記録した時点で、桃花の正式な実行対象になります。これにより、**彩花→桃花の最新指示**と**桃花→彩花の最新報告**が、常に固定ファイルで往復する運用を維持します。
 
 | 区分 | 確認内容 | 判断 |
 |---|---|---|

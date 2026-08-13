@@ -35,7 +35,7 @@
 | ⑤ 未完了・ブロッカー | ない場合も「なし」と明記する。推測で解消扱いにしない |
 | ⑥ 彩花CTOが次に確認するファイル | 次の判断に必要な1〜2ファイルをリンクする |
 
-> **完全な往復ルート:** 彩花CTOは `inbox/cto_to_coo/latest_cto_task.md` で指示し、桃花COOは `reports/cafe/latest_report.md` で返答します。Issue、会話、詳細資料は補助情報であり、この2つの固定入口を置き換えません。
+> **完全な往復ルート:** 彩花CTOは `inbox/cto_to_coo/latest_instruction.md` で指示し、桃花COOは `reports/cafe/latest_report.md` で返答します。Issue、会話、詳細資料は補助情報であり、この2つの固定入口を置き換えません。
 
 ## 常時更新の絶対ルール
 
