@@ -14,3 +14,4 @@
 - [x] 作業途中・停止地点・未完了・完了の全状態をlatest_report.mdへ必ず記載する標準運用を明文化する。
 - [x] 未完了の現在地点・停止地点・ブロッカー・再開条件をlatest_report.mdへ更新してPushする。
 - [x] AI協働通信規約をlatest_instruction.mdとlatest_report.mdの正本運用へ移行し、次回検証用のSUNOプロンプトを正式に準備する。
+- [x] latest_instruction.mdとlatest_report.mdを社長・彩花CTOが開くGitHub経路へ確実に反映し、通信基盤を検証する。
