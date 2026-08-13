@@ -9,6 +9,19 @@
 
 > **常時更新ルール:** 開始、途中、停止、未完了、完了のすべてを本ファイルへ記載する。未完了を理由に報告を省略しない。
 
+## Sonata Desk 最終確認｜完成判定
+
+**判定:** **完成（彩花指示の最小ダッシュボード範囲）**。GitHub上のソースだけを新規環境へ取得し、依存関係を再構成した後のTypeScript検証・Vite production buildを通過した。Git追跡ツリーに`node_modules/`、`dist/`、`.vite/`は含まれない。
+
+| 確認項目 | 結果 | 実装・証拠 |
+|---|---|---|
+| 実装本体 | 通過 | [`dashboard/sonata-desk/src/Home.tsx`](../../../dashboard/sonata-desk/src/Home.tsx) |
+| 001・002比較 / A1 / Pattern DB / 台帳 / 音源 | 通過 | [最終確認証跡](../../../dashboard/sonata-desk/FINAL_VERIFICATION.md) |
+| 正本参照・外部連携なし | 通過 | GitHub正本へのリンクのみ。独自DB、外部DB、外部SaaS、不要なAPIなし。 |
+| 公開・利用方法 | 利用可能 | [Sonata Desk](https://fieldrise-ythnsgue.manus.space) |
+
+> **既知の制約:** 002 Mainは無音のため、4ステム合成の暫定参照Mainを表示する。002正式Main、G02・G03・G07・G08の聴取記録、Common Metricsの全項目、Fact/Hypothesis台帳、A/B自動差分は次段階の未実装項目である。
+
 ## 彩花CTO確認カード
 
 | 必須項目 | 現在の内容 |
