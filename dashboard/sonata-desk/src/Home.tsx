@@ -41,11 +41,13 @@ const sources = {
   groundTruth: `${githubRoot}music_ai/reference_music/ground_truth_spec_v1.md`,
   song001: `${githubRoot}music_ai/reference_music/success_song_001.md`,
   song002: `${githubRoot}music_ai/reference_music/success_song_002.md`,
+  expertReview: `${githubRoot}music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md`,
   issue: "https://github.com/FieldRiseJapan/FieldRise/issues/2",
 };
 
 const navigation = [
   { id: "overview", label: "概況", icon: TableProperties },
+  { id: "decision", label: "判断要約", icon: Sparkles },
   { id: "references", label: "001・002比較", icon: AudioLines },
   { id: "a1", label: "A1進捗", icon: FileCheck2 },
   { id: "ledger", label: "検証台帳", icon: Clock3 },
@@ -126,6 +128,24 @@ const fallbackPatterns = [
   { id: "P-F-003", label: "confirmed", title: "無音Mainを正本にしない", body: "002の受領Mainは無音。暫定参照Mainを明示し、正式版と混同しない。", tone: "bg-[#F7EAE5] text-[#8C4634]" },
 ];
 
+const fallbackDecisionBrief = {
+  title: "B1は、伴奏導入時刻だけを比べる。",
+  body: "001の約2.299秒と002の約0.255秒を比較する。002は暫定stem mixのため、正式Mainとテンポ確認を先に解消する。",
+  action: "完全分析を読む",
+  sourcePath: "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md",
+};
+
+const fallbackEvidenceIntegrity = [
+  { id: "001", state: "verified", label: "VERIFIED / CANONICAL", detail: "正規MainとFLAC整合、4ステム再構成を確認済み。" },
+  { id: "002", state: "pending", label: "PROVISIONAL / STEM MIX", detail: "提供Mainは無音。4ステム合成版は比較用の暫定参照。" },
+];
+
+const fallbackReviewQueue = [
+  { id: "R1", state: "blocker", title: "002の正しいMainを確保", detail: "正しいMainの再書き出し、またはstem mixの正式承認が必要。", sourcePath: fallbackDecisionBrief.sourcePath },
+  { id: "R2", state: "review", title: "002のテンポを確定", detail: "80.75 / 83.35 / 123.05 BPM候補をDAWと聴取で照合する。", sourcePath: fallbackDecisionBrief.sourcePath },
+  { id: "R3", state: "review", title: "Loopと聴取記録を完了", detail: "終端→冒頭、音色、ノイズ、音数をタイムコード付きで確認する。", sourcePath: fallbackDecisionBrief.sourcePath },
+];
+
 const stateStyle = {
   measured: { label: "実測済み", className: "bg-[#E8F0E9] text-[#244131]" },
   partial: { label: "一部実測", className: "bg-[#F8F0E1] text-[#7B5A2D]" },
@@ -139,7 +159,10 @@ type SyncReference = {
 type SyncGate = { id: string; label: string; state: "measured" | "partial" | "pending"; note: string };
 type SyncLedger = { id: string; title: string; variable: string; outcome: string; note: string };
 type SyncPattern = { id: string; kind: string; label: string; title: string; body: string; evidence: string };
-type SyncData = { sourceDigest: string; references: SyncReference[]; a1: { status: string; gates: SyncGate[] }; ledger: SyncLedger[]; patterns: SyncPattern[] };
+type DecisionBrief = { title: string; body: string; action: string; sourcePath: string };
+type EvidenceIntegrity = { id: string; state: "verified" | "pending"; label: string; detail: string };
+type ReviewQueueItem = { id: string; state: "blocker" | "review"; title: string; detail: string; sourcePath: string };
+type SyncData = { sourceDigest: string; references: SyncReference[]; a1: { status: string; gates: SyncGate[] }; ledger: SyncLedger[]; patterns: SyncPattern[]; decisionBrief?: DecisionBrief; evidenceIntegrity?: EvidenceIntegrity[]; reviewQueue?: ReviewQueueItem[] };
 
 const dashboardDataApiUrl = "https://api.github.com/repos/FieldRiseJapan/FieldRise/contents/dashboard/sonata-desk/src/generated/dashboard-data.json?ref=main";
 
@@ -225,6 +248,9 @@ export default function Home() {
   const a1Gates = syncData ? syncData.a1.gates : fallbackA1Gates;
   const ledgerRows = syncData ? syncData.ledger.map(toLedger) : fallbackLedgerRows;
   const patterns = syncData ? syncData.patterns.map((pattern) => ({ ...pattern, tone: syncTone(pattern.label) })) : fallbackPatterns;
+  const decisionBrief = syncData?.decisionBrief ?? fallbackDecisionBrief;
+  const evidenceIntegrity = syncData?.evidenceIntegrity ?? fallbackEvidenceIntegrity;
+  const reviewQueue = syncData?.reviewQueue ?? fallbackReviewQueue;
   const a1Status = syncData?.a1.status ?? "evaluated_with_hold";
 
   const scrollTo = (id: string) => {
@@ -264,6 +290,18 @@ export default function Home() {
               <div className="relative min-h-[310px] overflow-hidden lg:min-h-full"><img src={heroImage} alt="朝の喫茶店に置かれたピアノと制作ノート" className="h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#1B211B]/40 via-transparent to-transparent" /><div className="absolute right-5 top-5 grid h-16 w-16 place-items-center border border-white/50 bg-[#233F2F]/70 backdrop-blur-sm"><img src={brandMark} alt="" className="h-12 w-12 object-contain brightness-0 invert" /></div><div className="absolute bottom-5 left-5 right-5 flex items-center justify-between border-t border-white/40 pt-3 text-white"><span className="font-mono text-[10px] tracking-[0.16em]">SONATA DESK / V1.1</span><span className="font-mono text-[10px] tracking-[0.16em]">GITHUB CANONICAL</span></div></div>
             </div>
             <div className="mt-5 grid gap-4 md:grid-cols-3">{[["001 / 002", "参照する二つの正本", "正式Mainと暫定Mainを区別する"], ["A1", "次の判断のゲート", "実測・保留・承認待ちを分ける"], ["B1", "一つだけ変える実験", "その他ステムの導入時刻を比較する"]].map(([number, title, note]) => <article key={title} className="border border-[#DCD5C7] bg-[#FBF9F4] p-5 transition-transform duration-200 hover:-translate-y-0.5"><p className="font-mono text-[24px] leading-none tracking-[-0.06em] text-[#3F5D4B]">{number}</p><h2 className="mt-4 text-[13px] font-semibold text-[#282620]">{title}</h2><p className="mt-1 text-[12px] leading-5 text-[#706B62]">{note}</p></article>)}</div><div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-[#D8D0C1] pt-3 font-mono text-[9px] tracking-[0.12em] text-[#726C62]"><span className="inline-flex items-center gap-2"><i className="h-2 w-2 bg-[#3F5D4B]" />FIELD MOSS / 実測・前進</span><span className="inline-flex items-center gap-2"><i className="h-2 w-2 bg-[#A45B40]" />TERRACOTTA / 保留・再検証</span><span className="inline-flex items-center gap-2"><i className="h-2 w-2 bg-[#B18350]" />BRASS / 記録・知見</span></div>
+          </section>
+
+          <section id="decision" className="scroll-mt-28 pt-20" aria-labelledby="decision-title">
+            <div className="flex flex-col justify-between gap-6 border-t-2 border-[#1C1A17] pt-5 sm:flex-row sm:items-end">
+              <div><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#4F6B5A]">01 / Decision brief</p><h2 id="decision-title" className="mt-3 font-serif text-[32px] font-semibold tracking-[-0.04em] sm:text-[38px]">次の判断を、先に確かめる。</h2></div>
+              <SourceLink href={sources.expertReview}>完全分析を開く</SourceLink>
+            </div>
+            <div className="mt-7 grid gap-5 xl:grid-cols-[0.9fr_1.1fr]">
+              <DecisionNote title={decisionBrief.title} body={decisionBrief.body} action={decisionBrief.action} href={`${githubRoot}${decisionBrief.sourcePath}`} />
+              <div className="border border-[#D8D0C1] bg-[#FBF9F4] p-5 sm:p-6"><div className="flex items-center gap-2"><FileCheck2 className="h-4 w-4 text-[#3F5D4B]" /><p className="font-mono text-[10px] tracking-[0.16em] text-[#4F6B5A]">EVIDENCE INTEGRITY</p></div><div className="mt-5 grid gap-3 sm:grid-cols-2">{evidenceIntegrity.map((item) => <article key={item.id} className={`border p-4 ${item.state === "verified" ? "border-[#C9D8CB] bg-[#E8F0E9]" : "border-[#E5C4B6] bg-[#F7EAE5]"}`}><div className="flex items-center justify-between gap-3"><span className="font-mono text-[18px] font-semibold text-[#2F4A3B]">{item.id}</span><span className={`px-2 py-1 font-mono text-[9px] tracking-[0.08em] ${item.state === "verified" ? "bg-[#D6E5D8] text-[#244131]" : "bg-[#F3D9D0] text-[#8C4634]"}`}>{item.label}</span></div><p className="mt-3 text-[11px] leading-5 text-[#625D54]">{item.detail}</p></article>)}</div><p className="mt-5 border-t border-[#E1DBCE] pt-4 font-mono text-[9px] leading-5 tracking-[0.1em] text-[#7C756B]">同じ精度のデータとして扱わず、正本・暫定・保留を分けて判断する。</p></div>
+            </div>
+            <div className="mt-5 overflow-hidden border border-[#D8D0C1] bg-[#FBF9F4]"><div className="flex items-center justify-between gap-4 border-b border-[#E1DBCE] bg-[#F3F0E8] px-5 py-4 sm:px-6"><div className="flex items-center gap-3"><CircleAlert className="h-4 w-4 text-[#A45B40]" /><span className="text-[12px] font-semibold">Open Review Queue</span></div><span className="font-mono text-[9px] tracking-[0.12em] text-[#7C756B]">NEXT REQUIRED CHECKS</span></div><div className="divide-y divide-[#E7E0D3]">{reviewQueue.map((item) => <article key={item.id} className="grid gap-3 px-5 py-4 sm:grid-cols-[48px_minmax(0,1fr)_auto] sm:items-center sm:px-6"><span className={`w-fit px-2 py-1 font-mono text-[9px] tracking-[0.08em] ${item.state === "blocker" ? "bg-[#F7EAE5] text-[#8C4634]" : "bg-[#F8F0E1] text-[#7B5A2D]"}`}>{item.id}</span><div><h3 className="text-[12px] font-semibold text-[#302E29]">{item.title}</h3><p className="mt-1 text-[11px] leading-5 text-[#716C62]">{item.detail}</p></div><SourceLink href={`${githubRoot}${item.sourcePath}`}>根拠を読む</SourceLink></article>)}</div></div>
           </section>
 
           <section id="references" className="scroll-mt-28 pt-20" aria-labelledby="reference-title"><div className="flex flex-col justify-between gap-6 border-t-2 border-[#1C1A17] pt-5 sm:flex-row sm:items-end"><div><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#4F6B5A]">01 / Reference comparison</p><h2 id="reference-title" className="mt-3 font-serif text-[32px] font-semibold tracking-[-0.04em] sm:text-[38px]">001・002を、同じ物差しで見る。</h2></div><SourceLink href={sources.audioLedger}>音源台帳を開く</SourceLink></div><ScoreRuler start="00:00" end="LOOP" note="BPM / Bass Onset / Stem Evidence" />

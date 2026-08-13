@@ -60,6 +60,26 @@
     "purpose": "001・002の正解データを観測し、再現基準を固定する",
     "status": "evaluated_with_hold"
   },
+  "decisionBrief": {
+    "action": "完全分析を読む",
+    "body": "001の約2.299秒と002の約0.255秒を比較する。002は暫定stem mixのため、正式Mainとテンポ確認を先に解消する。",
+    "sourcePath": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md",
+    "title": "B1は、伴奏導入時刻だけを比べる。"
+  },
+  "evidenceIntegrity": [
+    {
+      "detail": "正規MainとFLAC整合、4ステム再構成を確認済み。",
+      "id": "001",
+      "label": "VERIFIED / CANONICAL",
+      "state": "verified"
+    },
+    {
+      "detail": "提供Mainは無音。4ステム合成版は比較用の暫定参照。",
+      "id": "002",
+      "label": "PROVISIONAL / STEM MIX",
+      "state": "pending"
+    }
+  ],
   "ledger": [
     {
       "id": "A1",
@@ -156,10 +176,10 @@
       "bassOnset": "0.464秒",
       "bpm": "86.13 BPM*",
       "drumsRms": "-57.36 dBFS",
-      "duration": "未観測",
+      "duration": "222.400秒",
       "id": "001",
       "introBass": "98.73%",
-      "sampleRate": "未観測",
+      "sampleRate": "48 kHz / Stereo",
       "sourcePath": "music_ai/reference_music/success_song_001.md",
       "sourceType": "正本 Main / 可逆FLAC",
       "status": "verified",
@@ -171,10 +191,10 @@
       "bassOnset": "0.464秒",
       "bpm": "80.75 BPM*",
       "drumsRms": "-62.82 dBFS",
-      "duration": "未観測",
+      "duration": "212.920秒",
       "id": "002",
       "introBass": "84.21%",
-      "sampleRate": "未観測",
+      "sampleRate": "44.1 kHz / Stereo",
       "sourcePath": "music_ai/reference_music/success_song_002.md",
       "sourceType": "暫定 Main / 4-stem mix FLAC",
       "status": "pending",
@@ -182,9 +202,33 @@
       "summary": "ステム実測済み。提供されたMainは無音のため、Main全体に基づく評価は保留。"
     }
   ],
+  "reviewQueue": [
+    {
+      "detail": "正しいMainの再書き出し、またはstem mixの正式承認が必要。",
+      "id": "R1",
+      "sourcePath": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md",
+      "state": "blocker",
+      "title": "002の正しいMainを確保"
+    },
+    {
+      "detail": "80.75 / 83.35 / 123.05 BPM候補をDAWと聴取で照合する。",
+      "id": "R2",
+      "sourcePath": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md",
+      "state": "review",
+      "title": "002のテンポを確定"
+    },
+    {
+      "detail": "終端→冒頭、音色、ノイズ、音数をタイムコード付きで確認する。",
+      "id": "R3",
+      "sourcePath": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md",
+      "state": "review",
+      "title": "Loopと聴取記録を完了"
+    }
+  ],
   "schemaVersion": 1,
-  "sourceDigest": "8be018a05870ba2c60c975af09d15193a4bd7a5d15da091f9b550e6300712626",
+  "sourceDigest": "944815b084e444706776fe303738fb85c51635f5bee6d9002614ccaeb16373b0",
   "sourceFiles": {
+    "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md": "60d6d88a33be1c920de4d4cedb28d1784e93c315e81392d498d162f35be56e8f",
     "music_ai/experiments/A1_001-002-ground-truth-capture.md": "84eb7439bc05a751bb2bcd02c11e326cddf8250db2a13ef032c660ab9b5762fd",
     "music_ai/reference_music/audio/README.md": "6b453b8684b42e9612463b05b308eefa9487edda397550a355ad8bbb5460883e",
     "music_ai/reference_music/success_song_001.md": "ff2990c70ac163b98d434762ab7e807de8bbadcba356df8d428d9660a510c6b2",
@@ -194,6 +238,7 @@
   "sources": {
     "a1": "music_ai/experiments/A1_001-002-ground-truth-capture.md",
     "audioLedger": "music_ai/reference_music/audio/README.md",
+    "expertReview": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md",
     "groundTruth": "music_ai/reference_music/ground_truth_spec_v1.md",
     "patterns": "music_ai/suno_database/successful_patterns.md",
     "song001": "music_ai/reference_music/success_song_001.md",
