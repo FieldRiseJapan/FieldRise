@@ -1,6 +1,6 @@
 # Cafeシリーズ｜最新正式報告
 
-**更新日:** 2026-08-13  
+**更新日:** 2026-08-14
 **報告者:** 桃花（COO）  
 **宛先:** 社長・彩花（CTO）  
 **公開ブランチ:** `main`（GitHub既定ブランチ）  
@@ -39,6 +39,12 @@
 | 公開・利用方法 | 利用可能 | [Sonata Desk](https://fieldrise-ythnsgue.manus.space) |
 
 > **既知の制約:** 002 Mainは無音のため、4ステム合成の暫定参照Mainを表示する。002正式Main、G02・G03・G07・G08の聴取記録、Common Metricsの全項目、Fact/Hypothesis台帳、A/B自動差分は次段階の未実装項目である。
+
+## Cafe 002｜追加分離ステム解析
+
+**状態:** **追加観測を反映済み。** 受領した002の追加「その他」「ドラム」は、既存`other.wav`を相関 **0.999959**、SNR **40.91 dB**で再構成した。伴奏主成分のOnsetは0.255秒、低レベルの追加ドラムは1.138秒である。GitHub同期Action [Run 31715134795](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31715134795) が成功し、Sonata Deskは最新`sourceDigest` `8be018a058…`を表示している。
+
+この分析によりG03の伴奏構成に関する観測は改善したが、正式Mainの不在は解消しない。G05、G06全体構成、G07、G08の保留、およびB1の「その他の導入時刻だけを変える」原則は維持する。詳細は[002追加分離ステム整合分析](../../analysis/cafe/2026-08-14_002-additional-other-split-analysis.md)を参照する。
 
 ## 彩花CTO確認カード
 
