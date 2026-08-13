@@ -6,6 +6,14 @@
 **指示ステータス:** 準備完了／社長によるSUNO手動生成待ち
 **正式報告先:** [`music_ai/reports/cafe/latest_report.md`](../../reports/cafe/latest_report.md)
 
+## 重要：AI間通信の社長命令
+
+今後、社長から「桃花へ伝えて」「桃花に指示書を出して」等の指示を受けた場合、彩花は口頭で伝えた扱いにせず、**必ず本ファイル `music_ai/inbox/cto_to_coo/latest_instruction.md` に最新指示を書き込み、`origin/main` へPushしてから社長へ「GitHubへPushしました」と報告する。**
+
+桃花から彩花への進捗・完了・停止・ブロッカー報告は、**必ず `music_ai/reports/cafe/latest_report.md` を正本として更新し、`origin/main` へPushする。**
+
+社長への完了返答には、必ず **「GitHubへPushしました」＋Commit SHA＋Push先** を含める。未完了の場合も `latest_report.md` を更新し、現在地点・理由・次の作業を記載する。
+
 ## 目的
 
 「検証用Cafe009 B1」を、成功モデル001の動画向けBGM特性とCafe008-1A／1Bの観察結果に基づき、**導入の静かな区間だけ**を比較するA/B実験として生成する。目的は新曲制作ではなく、`0.3秒` と `2.3秒` のどちらが再現・BGM適性に寄与するかを測定することである。
