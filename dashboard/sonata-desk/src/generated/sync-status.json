@@ -4,11 +4,11 @@
     "sync-status.json"
   ],
   "schemaVersion": 1,
-  "sourceDigest": "ec9e8d49514668d949090b15f653e841ca6e26d460211ba6846d4a5aade82a6f",
+  "sourceDigest": "046dd7525953a51785427e4d4d3ea0d705de3f345117a2e0f5a7ec48540596a9",
   "sourceFiles": {
     "music_ai/experiments/A1_001-002-ground-truth-capture.md": "45c04d570bb119b3ffbf0b27694b6c3c15d5deebe4db2328d788117f487be3b0",
     "music_ai/reference_music/audio/README.md": "6b453b8684b42e9612463b05b308eefa9487edda397550a355ad8bbb5460883e",
-    "music_ai/reference_music/success_song_001.md": "1cd192a3b0cb4b6ee77e4722b1c4b389290dcdf103be5fc0b170f1206ab193cc",
+    "music_ai/reference_music/success_song_001.md": "ff2990c70ac163b98d434762ab7e807de8bbadcba356df8d428d9660a510c6b2",
     "music_ai/reference_music/success_song_002.md": "e4527b72f3aa7f879520ee66fece343d7f9be99ae82c85c5c594c1eddff14194",
     "music_ai/suno_database/successful_patterns.md": "eec43f012c464da5f2fd31cc5d9edc36739b63fdb233dfaa3ceb83fccfc3d89c"
   },
