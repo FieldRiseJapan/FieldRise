@@ -1,6 +1,6 @@
 # GitHub → Sonata Desk 自動反映
 
-GitHubは唯一の正本です。Sonata Deskは正本Markdownを直接変更せず、GitHub Actionsが必要最小限の表示用JSONを生成し、ブラウザはそのJSONを読み込んで表示します。
+GitHubは唯一の正本です。Sonata Deskは正本Markdownを直接変更せず、GitHub Actionsが必要最小限の表示用JSONを生成し、ブラウザはGitHub Contents APIからそのJSONを読み込んで表示します。GitHub Raw CDNの遅延による古い表示を避けるため、GitHub内の公開APIだけを鮮度確認の目的で使用します。
 
 ```text
 正本Markdown
@@ -22,7 +22,7 @@ GitHubは唯一の正本です。Sonata Deskは正本Markdownを直接変更せ�
 
 ## 生成物と失敗追跡
 
-- `src/generated/dashboard-data.json`：画面表示用の派生データ。
+- `src/generated/dashboard-data.json`：画面表示用の派生データ。ブラウザはGitHub Contents APIから`main`の最新ファイルを読み込む。
 - `src/generated/sync-status.json`：元ファイルのSHA-256、全体digest、生成状態。
 - GitHub Actionsの実行ログとStep Summary：失敗した処理、入力コミット、同期digestをGitHub上で追跡する記録。
 

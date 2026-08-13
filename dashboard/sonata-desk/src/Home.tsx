@@ -141,7 +141,12 @@ type SyncLedger = { id: string; title: string; variable: string; outcome: string
 type SyncPattern = { id: string; kind: string; label: string; title: string; body: string; evidence: string };
 type SyncData = { sourceDigest: string; references: SyncReference[]; a1: { status: string; gates: SyncGate[] }; ledger: SyncLedger[]; patterns: SyncPattern[] };
 
-const dashboardDataUrl = "https://raw.githubusercontent.com/FieldRiseJapan/FieldRise/main/dashboard/sonata-desk/src/generated/dashboard-data.json";
+const dashboardDataApiUrl = "https://api.github.com/repos/FieldRiseJapan/FieldRise/contents/dashboard/sonata-desk/src/generated/dashboard-data.json?ref=main";
+
+function decodeGitHubContent(content: string) {
+  const bytes = Uint8Array.from(atob(content.replace(/\n/g, "")), (character) => character.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
 
 function syncTone(label: string) {
   if (label === "confirmed") return "bg-[#E8F0E9] text-[#244131]";
@@ -202,10 +207,14 @@ export default function Home() {
 
   useEffect(() => {
     let active = true;
-    fetch(dashboardDataUrl, { cache: "no-store" })
+    fetch(dashboardDataApiUrl, { cache: "no-store", headers: { Accept: "application/vnd.github+json" } })
       .then((response) => {
         if (!response.ok) throw new Error(`GitHub display data: ${response.status}`);
-        return response.json() as Promise<SyncData>;
+        return response.json() as Promise<{ content: string; encoding: string }>;
+      })
+      .then((file) => {
+        if (file.encoding !== "base64") throw new Error("Unsupported GitHub content encoding");
+        return JSON.parse(decodeGitHubContent(file.content)) as SyncData;
       })
       .then((data) => { if (active) { setSyncData(data); setSyncState("synced"); } })
       .catch(() => { if (active) setSyncState("fallback"); });

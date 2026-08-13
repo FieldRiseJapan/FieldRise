@@ -7,13 +7,13 @@
 
 ## 実装構成
 
-GitHubを唯一の正本とし、正本Markdownを変更しない派生JSONだけを自動生成する。Sonata Deskは公開時にGitHub Rawの`dashboard-data.json`を`cache: "no-store"`で取得するため、GitHubの表示用データ更新後、ユーザーがページを再読込すれば新しい正本状態を表示する。
+GitHubを唯一の正本とし、正本Markdownを変更しない派生JSONだけを自動生成する。Sonata Deskは公開時にGitHub Contents APIから`main`の`dashboard-data.json`を取得するため、GitHub Raw CDNの遅延に左右されず、GitHubの表示用データ更新後にページを再読込すれば新しい正本状態を表示する。
 
 ```text
 正本Markdownの更新
   → GitHub Actions（Sonata Desk - 正本データ同期）
   → display JSON / sync status の更新コミット
-  → 公開Sonata DeskがRaw JSONを再取得して表示
+  → 公開Sonata DeskがGitHub Contents APIから最新JSONを再取得して表示
 ```
 
 | 項目 | 実装先 | 役割 |

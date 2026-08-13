@@ -11,7 +11,7 @@
 
 ## Sonata Desk｜GitHub自動反映 完了
 
-**状態:** **完了。** GitHub正本の更新をトリガーとして、GitHub Actionsが表示専用JSONを生成・検証・更新する。公開Sonata DeskはGitHub Rawの同期JSONを再取得し、001・002比較、A1、Pattern DB、検証台帳、参照音源を表示する。正本Markdownへの書戻し、外部DB、SaaS、不要なAPI、AI処理、画面への二重入力はない。
+**状態:** **完了。** GitHub正本の更新をトリガーとして、GitHub Actionsが表示専用JSONを生成・検証・更新する。公開Sonata DeskはGitHub Contents APIから`main`の同期JSONを再取得し、001・002比較、A1、Pattern DB、検証台帳、参照音源を表示する。正本Markdownへの書戻し、外部DB、SaaS、不要なAPI、AI処理、画面への二重入力はない。
 
 | 完了条件 | 実証結果 |
 |---|---|
