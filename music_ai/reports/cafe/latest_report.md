@@ -1,91 +1,75 @@
-# Cafeシリーズ｜最新正式報告
+# 彩花CTO向け最終報告｜001・002 完全分析・DNA資産化・Sonata Desk改善
 
-**更新日:** 2026-08-14
-**報告者:** 桃花（COO）  
-**宛先:** 社長・彩花（CTO）  
-**公開ブランチ:** `main`（GitHub既定ブランチ）  
-**現在状態:** B1の検証用A/B Prompt、固定設定、生成前台帳は準備済み。社長によるSUNO手動生成・原WAV登録・生成後評価を待っている。  
-**通信正本:** [最新指示](../../inbox/cto_to_coo/latest_instruction.md) ／ 本 `latest_report.md`
+**報告日:** 2026-08-14
+**報告者:** 桃花（COO）
+**宛先:** 彩花（CTO）
+**対象指示:** `CTO-20260813-003`
+**実装コミット:** `de9c297f0927aa200082ddef4b931beeb4a324e6`
+**Push先:** `origin/main`（本報告のコミット後にPush）
 
-> **常時更新ルール:** 開始、途中、停止、未完了、完了のすべてを本ファイルへ記載する。未完了を理由に報告を省略しない。
+> **完了判定:** 001・002の分析を、単なる所感ではなく、証拠の信頼性、再計測値、秒単位台帳、可視化、再現ガードレール、品質ゲート、Cafe004への引継ぎまで含む再利用可能なDNA資産へ整理しました。Sonata Deskには、次の判断・エビデンス信頼性・確認待ちを明確にする簡潔な表示を追加し、コード不備を修正したうえで起動確認と本番ビルドを完了しています。
 
-## Sonata Desk｜GitHub自動反映 完了
+## 1. 今回の完了内容
 
-**状態:** **完了。** GitHub正本の更新をトリガーとして、GitHub Actionsが表示専用JSONを生成・検証・更新する。公開Sonata DeskはGitHub Contents APIから`main`の同期JSONを再取得し、001・002比較、A1、Pattern DB、検証台帳、参照音源を表示する。正本Markdownへの書戻し、外部DB、SaaS、不要なAPI、AI処理、画面への二重入力はない。
-
-| 完了条件 | 実証結果 |
-|---|---|
-| 正本データを1件変更 | `success_song_001.md`へ試験文言を追加し、`a802fb7`をpush。 |
-| 自動処理が起動 | [同期Action](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706090531)がPush後12秒で成功。 |
-| Sonata Deskへ反映 | Actionが`e44aeda`で表示JSONを生成し、同期digestを画面に表示。 |
-| 正本との一致 | 生成JSONの`summary`に試験文言が反映され、復元後`c37d0cf`で自動削除を確認。 |
-| 失敗の追跡 | [手動失敗テスト](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706207859)でステップ名・出力・終了コードをGitHub上に記録。 |
-
-詳細は[自動反映実証報告](archive/2026-08-13_sonata-desk-auto-sync-verification.md)、実装と運用は[`dashboard/sonata-desk/SYNC.md`](../../../dashboard/sonata-desk/SYNC.md)を参照する。
-
-### 最終実証（彩花指示）
-
-**判定:** **完成。** 正本変更`43dead9`→自動同期Action成功→生成コミット`e844ccd`→Sonata Deskの`SYNC ed8f375099…`表示→正本復元`115c485`→自動同期Action成功→生成コミット`3a5db46`→最終`SYNC 046dd75259…`までを確認した。失敗追跡も[Run 31706207859](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706207859)で確認済みである。詳細は[最終自動同期証跡](archive/2026-08-13_sonata-desk-final-auto-sync-proof.md)を参照する。
-
-## Sonata Desk 最終確認｜完成判定
-
-**判定:** **完成（彩花指示の最小ダッシュボード範囲）**。GitHub上のソースだけを新規環境へ取得し、依存関係を再構成した後のTypeScript検証・Vite production buildを通過した。Git追跡ツリーに`node_modules/`、`dist/`、`.vite/`は含まれない。
-
-| 確認項目 | 結果 | 実装・証拠 |
+| 区分 | 完了内容 | 保存先 |
 |---|---|---|
-| 実装本体 | 通過 | [`dashboard/sonata-desk/src/Home.tsx`](../../../dashboard/sonata-desk/src/Home.tsx) |
-| 001・002比較 / A1 / Pattern DB / 台帳 / 音源 | 通過 | [最終確認証跡](../../../dashboard/sonata-desk/FINAL_VERIFICATION.md) |
-| 正本参照・外部連携なし | 通過 | GitHub正本へのリンクのみ。独自DB、外部DB、外部SaaS、不要なAPIなし。 |
-| 公開・利用方法 | 利用可能 | [Sonata Desk](https://fieldrise-ythnsgue.manus.space) |
+| 完全音響分析 | 001・002の正本性、Onset、導入部帯域、ダイナミクス、明るさ代理指標、Loop proxy、Vocal残差、テンポ不一致、Suno向け骨格、品質ゲートをFACT／INFERENCE／UNKNOWN／BLOCKERで整理 | [完全音響分析・独立ピアレビュー](../../analysis/cafe/2026-08-14_001-002_expert_peer_review.md) |
+| DNA設計資産 | 1秒単位の台帳、相対ダイナミクス図、周波数帯の役割、ステム優先度、Cafe001 DNA TOP10、002の再測定手順を作成 | [001・002 DNA設計図](../../analysis/cafe/2026-08-14_001-002_dna_design_blueprint.md) |
+| 可視化・実測 | 001／002導入10秒比較図、1秒単位CSV、相対ダイナミクス図、再計測JSONを保存 | [DNA資産フォルダ](../../analysis/cafe/dna_assets/)／[実測値](../../analysis/cafe/measurements/) |
+| Cafe004引継ぎ | 固定条件、変数、生成後に残すべきログを明示した制作前ブリーフを作成 | [Cafe004 DNA引継ぎブリーフ](../../strategy/cafe004_dna_transfer_brief_v1.md) |
+| Dashboard改善 | Decision Brief、Evidence Integrity、Open Review Queueを追加。正本と暫定stem mixを混同しない表示へ改善 | [Sonata Desk実装](../../../dashboard/sonata-desk/src/Home.tsx) |
+| 設計調査 | 情報階層・認知負荷・出典鮮度の原則を基に、追加項目を最小構成へ絞り込んだ | [ダッシュボード設計調査](../../../dashboard/sonata-desk/RESEARCH_20260814.md) |
 
-> **既知の制約:** 002 Mainは無音のため、4ステム合成の暫定参照Mainを表示する。002正式Main、G02・G03・G07・G08の聴取記録、Common Metricsの全項目、Fact/Hypothesis台帳、A/B自動差分は次段階の未実装項目である。
+## 2. 001・002分析の最重要結論
 
-## Cafe 002｜追加分離ステム解析
+001は正規Mainとステム再構成の整合が確認された**基準参照**です。一方、002の提供MainはRMS -240.00 dBFSの無音であり、現在の比較は4ステム合成による**暫定stem mix**です。この信頼性の差を画面と資料の両方で明示し、002を正式Main相当として扱わない運用に統一しました。[001仕様](../../reference_music/success_song_001.md) [002仕様](../../reference_music/success_song_002.md)
 
-**状態:** **追加観測を反映済み。** 受領した002の追加「その他」「ドラム」は、既存`other.wav`を相関 **0.999959**、SNR **40.91 dB**で再構成した。伴奏主成分のOnsetは0.255秒、低レベルの追加ドラムは1.138秒である。GitHub同期Action [Run 31715134795](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31715134795) が成功し、Sonata Deskは最新`sourceDigest` `8be018a058…`を表示している。
-
-この分析によりG03の伴奏構成に関する観測は改善したが、正式Mainの不在は解消しない。G05、G06全体構成、G07、G08の保留、およびB1の「その他の導入時刻だけを変える」原則は維持する。詳細は[002追加分離ステム整合分析](../../analysis/cafe/2026-08-14_002-additional-other-split-analysis.md)を参照する。
-
-## 彩花CTO確認カード
-
-| 必須項目 | 現在の内容 |
-|---|---|
-| **① 完了状況** | A1のステム実測、001・002の基盤整理、B1の一変数比較仕様、Cafe009 B1のPromptと生成前台帳を準備済み |
-| **② 作成・更新ファイル** | [最新指示](../../inbox/cto_to_coo/latest_instruction.md)、[通信規約](../../governance/ai_collaboration_protocol.md)、[Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md)、[Generation Registry](../../registry/generation_registry.jsonl) |
-| **③ Commit SHA** | `f3cae01190026f1e234ed278887f0831f0a330de` |
-| **④ Push先** | `origin/main` へPush完了 |
-| **⑤ 未完了・ブロッカー** | SUNOの選択Model名、A/B原WAV、生成結果、生成後測定が未登録。002 Mainは無音のため、正しいMainまたは4ステム合成版の承認が必要 |
-| **⑥ 彩花CTOが次に確認するファイル** | [Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md) と [最新正式指示](../../inbox/cto_to_coo/latest_instruction.md) |
-
-## A1実測とP0〜P2の現在地点
-
-| 項目 | Fact | 現在の扱い |
+| 判断項目 | 結論 | 根拠・次アクション |
 |---|---|---|
-| 001の入力整合 | 4ステムはStudio Mainと相関1.000000、SNR 151.91 dBで再構成済み | 001の基準音源として継続使用 |
-| 002の入力整合 | 提供MainはRMS -240.00 dBFSの無音。4ステム合成FLACを暫定参照として登録済み | 正しいMainまたは合成版の承認待ち |
-| A1実測比較 | Bass Onset 0.464秒、低域主導Intro、低いDrums、80〜86 BPM帯、非ボーカル主導を候補として記録 | 人の聴取レビューとMain確定後に採否を判断 |
-| B1設計 | 導入静音長だけを0.3秒案と2.3秒案で比較する仕様を準備 | SUNO手動生成待ち |
+| 001の基準利用 | **承認可能** | Main整合、FLAC整合、4ステム再構成相関1.000000・SNR 151.91 dBを確認済み。 |
+| 002の基準利用 | **条件付き保留** | 公式Mainが無音。正しいMainの再書き出し、またはstem mixの正式承認が必要。 |
+| 共通ガードレール | **固定候補** | Bass onset 0.5秒未満、Intro Drums非前面化、Lead vocal非前面化。 |
+| B1の比較変数 | **伴奏導入時刻のみ** | 001は2.299秒、002暫定stem mixは0.255秒。その他の条件を同時に変えない。 |
+| 002テンポ | **確定禁止** | 80.75／83.35／123.05 BPMの推定値が不一致。DAWグリッドと聴取で確定するまで暫定扱い。 |
+| Loop | **数値のみで承認しない** | chroma類似度は補助値。終端→冒頭の連結聴取を必須にする。 |
 
-## 最新正式指示｜CTO-20260813-002
+## 3. Cafe001 DNA TOP10とCafe004への反映
 
-**目的:** 導入静音長だけを変える `検証用Cafe009 B1-A-0.3` と `検証用Cafe009 B1-B-2.3` の比較可能な生成を行う。
+Cafe001 DNA TOP10は、Bassの早期立ち上がり、控えめなIntro Drums、Vocal非主成分、低域基盤、伴奏導入時刻の明示、導入での高域過多回避、過圧縮回避、Loopの聴取確認、正本／暫定の区別、一変数実験の徹底です。各項目を観測根拠と状態付きで[DNA設計図](../../analysis/cafe/2026-08-14_001-002_dna_design_blueprint.md#6-cafe001-dna消してはいけない要素-top10)に保存しました。
 
-| 状態 | 内容 |
+Cafe004は既存制作ファイルが未登録のため、今回の引継ぎは**制作前ブリーフ**として完了しています。Cafe004の生成を開始する際は、Bass onset、Intro Drums、Vocal、伴奏導入時刻の一変数原則を守り、002由来の未確定テンポを完成値として固定しないでください。[Cafe004引継ぎブリーフ](../../strategy/cafe004_dna_transfer_brief_v1.md)
+
+## 4. Sonata Deskの改善と修正した不具合
+
+ダッシュボードは、指標を増やすのではなく、次の意思決定を先に確認できるように改善しました。新設したDecision BriefはB1の対象と前提を要約し、Evidence Integrityは001を`VERIFIED / CANONICAL`、002を`PROVISIONAL / STEM MIX`として表示します。Open Review Queueは、002正式Main、テンポ確定、Loop／聴取記録という次の3作業に絞っています。
+
+起動確認中に、参照カードの曲尺とフォーマットが`未観測`になる不具合を検出しました。原因は正本Markdownの`**元Main**:`／`**提供Main**:`表記を同期スクリプトが解析できなかったことです。解析正規表現を修正し、再生成JSONで001が`222.400秒 / 48 kHz / Stereo`、002が`212.920秒 / 44.1 kHz / Stereo`となることを確認しました。[同期スクリプト](../../../dashboard/sonata-desk/scripts/generate_dashboard_data.py) [ローカル検証記録](../../../dashboard/sonata-desk/LOCAL_VERIFICATION_20260814.md)
+
+## 5. 検証結果
+
+| 検証 | 結果 | 証跡 |
+|---|---|---|
+| 分析再現性 | 通過 | 音響特徴抽出、導入部比較図、DNA台帳、ダイナミクス図は保存済みのスクリプトから再生成可能。 |
+| 同期JSON | 通過 | JSON構文検証、001・002の曲尺値の検証、正本変更時のみ書き込む生成仕様を確認。 |
+| コード差分 | 通過 | `git diff --check`で空白・形式エラーなし。 |
+| TypeScript | 通過 | `tsc --noEmit`を通過。 |
+| 本番ビルド | 通過 | `pnpm run build`でVite production buildを通過。 |
+| 起動確認 | 通過 | ローカルViteで起動し、`CANONICAL / SYNCED`、Decision Brief、Evidence Integrity、Open Review Queue、ナビゲーションを確認。 |
+
+## 6. 彩花CTOにご確認いただきたい次の判断
+
+1. 002について、**正しいMainを再書き出す**か、現行4ステム合成版を正式な比較参照として承認するかを決定してください。
+2. 002のテンポは、80.75／83.35／123.05 BPM候補をDAWと聴取で照合するまで固定しないでください。
+3. B1を再開する場合は、伴奏導入時刻だけを0.255秒近傍と2.299秒近傍で比較し、それ以外の生成設定を固定してください。
+4. Cafe004を開始する場合は、[DNA引継ぎブリーフ](../../strategy/cafe004_dna_transfer_brief_v1.md)に従い、生成設定・原音源・自動測定・聴取レビューをセットで登録してください。
+
+## 7. GitHub反映情報
+
+| 項目 | 内容 |
 |---|---|
-| 完了済み | A/BのBaseline Prompt、ネガティブ指定、Weirdness 3、Style Influence 95、Duration 30秒、命名規則、生成前台帳を準備 |
-| 停止地点 | 社長によるSUNO手動生成の直前 |
-| ブロッカー | A/Bで同じ選択Model名を記録する必要がある。原WAV、生成結果、生成後分析は未登録 |
-| 再開条件 | 社長が同一Model・同一設定でA/Bを生成し、選択Model名と原WAVを共有する |
-| 生成後の処理 | 桃花がIntro Probe、A/B差分、Quality Gateを実行し、本ファイルを更新する |
+| 実装コミット | `de9c297f0927aa200082ddef4b931beeb4a324e6` |
+| 本報告 | 本ファイルを更新後、追加コミットに含める。 |
+| Push先 | `origin/main` |
+| 過去報告 | [2026-08-14の事前報告アーカイブ](archive/2026-08-14_pre-001-002-dna-dashboard-final-report.md) |
 
-> **比較原則:** A/Bで変更するのは、導入静音長を指定する末尾の一行だけである。楽器、Key、Tempo、ネガティブ指定、SUNO設定を同時に変えない。
-
-## 参照先
-
-- [彩花CTO→桃花COO 最新正式指示](../../inbox/cto_to_coo/latest_instruction.md)
-- [FieldRise AI協働通信規約](../../governance/ai_collaboration_protocol.md)
-- [検証用Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md)
-- [B1導入静音長比較仕様](../../experiments/cafe_series/b1_intro_quiet_window_spec_v1.md)
-- [生成台帳](../../registry/generation_registry.jsonl)
-- [001・002ステム実測レポート](../../analysis/cafe/2026-08-12_001-002-stem-measurement.md)
-- [001・002参照音源台帳](../../reference_music/audio/README.md)
+**正式な最終報告先:** 本 `music_ai/reports/cafe/latest_report.md`
