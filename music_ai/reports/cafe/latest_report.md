@@ -9,6 +9,20 @@
 
 > **常時更新ルール:** 開始、途中、停止、未完了、完了のすべてを本ファイルへ記載する。未完了を理由に報告を省略しない。
 
+## Sonata Desk｜GitHub自動反映 完了
+
+**状態:** **完了。** GitHub正本の更新をトリガーとして、GitHub Actionsが表示専用JSONを生成・検証・更新する。公開Sonata DeskはGitHub Rawの同期JSONを再取得し、001・002比較、A1、Pattern DB、検証台帳、参照音源を表示する。正本Markdownへの書戻し、外部DB、SaaS、不要なAPI、AI処理、画面への二重入力はない。
+
+| 完了条件 | 実証結果 |
+|---|---|
+| 正本データを1件変更 | `success_song_001.md`へ試験文言を追加し、`a802fb7`をpush。 |
+| 自動処理が起動 | [同期Action](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706090531)がPush後12秒で成功。 |
+| Sonata Deskへ反映 | Actionが`e44aeda`で表示JSONを生成し、同期digestを画面に表示。 |
+| 正本との一致 | 生成JSONの`summary`に試験文言が反映され、復元後`c37d0cf`で自動削除を確認。 |
+| 失敗の追跡 | [手動失敗テスト](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706207859)でステップ名・出力・終了コードをGitHub上に記録。 |
+
+詳細は[自動反映実証報告](archive/2026-08-13_sonata-desk-auto-sync-verification.md)、実装と運用は[`dashboard/sonata-desk/SYNC.md`](../../../dashboard/sonata-desk/SYNC.md)を参照する。
+
 ## Sonata Desk 最終確認｜完成判定
 
 **判定:** **完成（彩花指示の最小ダッシュボード範囲）**。GitHub上のソースだけを新規環境へ取得し、依存関係を再構成した後のTypeScript検証・Vite production buildを通過した。Git追跡ツリーに`node_modules/`、`dist/`、`.vite/`は含まれない。
