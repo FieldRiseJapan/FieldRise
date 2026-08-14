@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "818fd4289b5d3dc2b0d34efe3faf199ef12b8611:cto/outbox/2026-08-15_momoka-work-report-separation.md",
+    "id": "未指定",
+    "path": "cto/outbox/2026-08-15_momoka-work-report-separation.md",
+    "source_sha": "818fd4289b5d3dc2b0d34efe3faf199ef12b8611",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/818fd4289b5d3dc2b0d34efe3faf199ef12b8611/cto/outbox/2026-08-15_momoka-work-report-separation.md",
+    "priority": "未指定",
+    "created_at": "2026-08-14T15:20:27Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-14T15:20:37Z"
+  }
+}
