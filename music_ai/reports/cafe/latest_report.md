@@ -324,3 +324,31 @@ GitHub main上のClaim JSONと正本レポート実体を直接照合する修�
 [33]: ../../../cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-02.md "CTO正式指示｜自動通知E2Eテスト 02"
 [34]: ../../../automation/momoka-claims/754e9cd5adaf66652f92638dd23ad070d095cf83-9ed9f8f936a7.json "修正版Workflow再試験の桃花Claim記録"
 [35]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805524613 "桃花 - CTO指示の自動受領通知 Run 31805524613"
+
+
+---
+
+## 追補｜CTO自動通知E2Eテスト 03
+
+**指示ID:** `CTO-20260814-E2E-03`
+**優先度:** `P0`
+**対象Receipt key:** `28b9edfbe19da54b5b62e359bb7c4c1f3bab0117:cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-03.md`
+**受領時刻:** `2026-08-14T13:38:51Z`
+**Claim時刻:** `2026-08-14T13:44:27Z`
+**実行結果:** **E2Eテスト完了**
+
+通知Receiptに記載されたReceipt keyを確認し、Claim記録先へ`receipt_key`、`status: claimed`、`claimed_at`、`report_path`を含むJSONを作成した。本追補とClaim記録を`origin/main`へ反映し、GitHub ActionsによるReceipt・Claim・正本報告の相互照合を待機する。[33] [34]
+
+| 確認項目 | 結果 | 状態 |
+|---|---|---|
+| 新規指示書の検知 | `cto/outbox/`のE2Eテスト03をReceipt化 | 完了 |
+| 実配信 | Receiptの送信状態 `attempting` | Claim反映待ち |
+| 桃花側Claim | `automation/momoka-claims/28b9edfbe19da54b5b62e359bb7c4c1f3bab0117-8d197de8c1a4.json` | 作成済み |
+| 正本報告 | 本追補に受領・Claim・結果を記録 | 作成済み |
+| 相互照合 | GitHub ActionsによるClaim・報告照合 | 実行中 |
+| ブロッカー | なし | なし |
+
+### 参照
+
+[33]: ../../../cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-03.md "CTO正式指示｜自動通知E2Eテスト 03"
+[34]: ../../../automation/momoka-receipts/28b9edfbe19da54b5b62e359bb7c4c1f3bab0117-8d197de8c1a4.json "E2Eテスト03の自動通知Receipt"
