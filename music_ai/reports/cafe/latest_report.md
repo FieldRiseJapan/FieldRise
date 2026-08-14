@@ -90,3 +90,6 @@ GitHub Rawで取得した`dashboard-data.json`の`sourceDigest`は、ローカ�
 | 受領確認 | 未完了 | 実通知を有効化して、桃花側の報告更新まで確認する必要がある。 |
 
 ドライランの最終証跡は `automation/momoka-receipts/70de1fb7d5ba51fabcc91eadb9608ed2dac527be-7028857191f7.json` に保存した。実運用を有効化するには、最小権限のManus APIキーを `MANUS_API_KEY` としてGitHub Actions Secretに登録し、`dry_run=false` でテスト用の新規指示書を追加する。実送信後は、受領結果が `received` となること、ならびに桃花側で本報告ファイルを更新することを確認する。
+
+
+実送信テストとして [`31800421758`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31800421758) を `dry_run=false` で実行した。GitHub Actionsの実行環境では `MANUS_API_KEY` が空であることを確認し、API呼出は行わず `blocked` として安全に停止した。停止証跡は `automation/momoka-receipts/303580653554a19d6b30eb0c17ffcb72879ef839-7028857191f7.json` に保存されている。したがって、桃花の実受領・受領確認はまだ完了していない。
