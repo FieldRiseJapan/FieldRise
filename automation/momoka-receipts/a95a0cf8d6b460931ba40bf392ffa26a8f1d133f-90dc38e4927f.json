@@ -12,20 +12,22 @@
   "delivery": {
     "recipient": "Manus default agent (桃花)",
     "method": "Manus API task.sendMessage",
-    "status": "received_pending_claim",
+    "status": "claimed",
     "started_at": "2026-08-14T23:25:58Z",
-    "detail": "Manus APIは桃花の専用受領タスクを作成しましたが、15分以内にClaim・報告更新を確認できませんでした。",
+    "detail": "桃花のClaim記録と正本報告の双方を確認しました。",
     "http_status": "200",
-    "finished_at": "2026-08-14T23:41:55Z",
+    "finished_at": "2026-08-14T23:46:28Z",
     "delivered_at": "2026-08-14T23:26:00Z",
     "task_id": "VdU9NJMMMWDEtTbkQKcFtJ",
     "task_url": "https://manus.im/app/VdU9NJMMMWDEtTbkQKcFtJ"
   },
   "claim": {
-    "status": "pending",
-    "report_path": null,
-    "report_updated": false,
+    "status": "claimed",
+    "report_path": "docs/momoka/reports/latest_report.md",
+    "report_updated": true,
     "task_state": "in_progress",
-    "confirmed_at": null
+    "confirmed_at": "2026-08-14T23:46:28Z",
+    "claim_record_path": "automation/momoka-claims/a95a0cf8d6b460931ba40bf392ffa26a8f1d133f-90dc38e4927f.json",
+    "claimed_at": "2026-08-14T23:33:22Z"
   }
 }
