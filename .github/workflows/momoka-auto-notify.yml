@@ -1,0 +1,225 @@
+name: 桃花 - CTO指示の自動受領通知
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cto/outbox/**"
+  workflow_dispatch:
+    inputs:
+      instruction_path:
+        description: "検証対象の cto/outbox/ 配下のMarkdownファイル"
+        required: true
+        type: string
+      dry_run:
+        description: "Manus APIを呼び出さず、検知・証跡記録だけを検証する"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: momoka-auto-notify
+  cancel-in-progress: false
+
+jobs:
+  notify-momoka:
+    name: 指示を検知して桃花の受領処理を起動
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SOURCE_SHA: ${{ github.sha }}
+      EVENT_NAME: ${{ github.event_name }}
+      EVENT_BEFORE: ${{ github.event.before }}
+      MANUAL_INSTRUCTION_PATH: ${{ inputs.instruction_path }}
+      DRY_RUN: ${{ inputs.dry_run || false }}
+      MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
+
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 新規の桃花向け指示書を特定
+        id: candidates
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          is_target_instruction() {
+            local path="$1"
+            [[ "$path" == cto/outbox/*.md ]] || return 1
+            [[ "$path" != "cto/outbox/README.md" ]] || return 1
+            [[ "$path" != *_reply.md ]] || return 1
+          }
+
+          candidates_file="$RUNNER_TEMP/momoka-instruction-candidates.txt"
+          : > "$candidates_file"
+
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            is_target_instruction "$MANUAL_INSTRUCTION_PATH" || {
+              echo "手動検証の対象は cto/outbox/ 配下の返信ではない Markdown ファイルに限定されます。" >&2
+              exit 1
+            }
+            git cat-file -e "$SOURCE_SHA:$MANUAL_INSTRUCTION_PATH" || {
+              echo "指定された指示書が対象コミットに存在しません: $MANUAL_INSTRUCTION_PATH" >&2
+              exit 1
+            }
+            printf '%s\n' "$MANUAL_INSTRUCTION_PATH" >> "$candidates_file"
+          elif [[ "$EVENT_BEFORE" =~ ^0+$ ]]; then
+            git diff-tree --no-commit-id --name-only -r "$SOURCE_SHA" -- cto/outbox/ \
+              | while IFS= read -r path; do
+                  if is_target_instruction "$path"; then printf '%s\n' "$path"; fi
+                done >> "$candidates_file"
+          else
+            git diff --name-only --diff-filter=A "$EVENT_BEFORE" "$SOURCE_SHA" -- cto/outbox/ \
+              | while IFS= read -r path; do
+                  if is_target_instruction "$path"; then printf '%s\n' "$path"; fi
+                done >> "$candidates_file"
+          fi
+
+          sort -u "$candidates_file" -o "$candidates_file"
+          count="$(wc -l < "$candidates_file" | tr -d ' ')"
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "candidate_file=$candidates_file" >> "$GITHUB_OUTPUT"
+          {
+            echo "## 桃花への自動受領通知"
+            echo "- Source commit: \`$SOURCE_SHA\`"
+            echo "- Event: \`$EVENT_NAME\`"
+            echo "- Candidate count: \`$count\`"
+            if [[ "$count" -gt 0 ]]; then
+              echo "- Candidates:"
+              sed 's/^/  - `/' "$candidates_file" | sed 's/$/`/'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 受領トリガーを発火し証跡を保存
+        if: ${{ steps.candidates.outputs.count != '0' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          receipt_root="automation/momoka-receipts"
+          mkdir -p "$receipt_root"
+          git config user.name "FieldRise-Momoka-Notifier"
+          git config user.email "momoka-notifier@fieldrise.local"
+
+          commit_receipt() {
+            local message="$1"
+            git add -- "$receipt_path"
+            if git diff --cached --quiet; then
+              return 0
+            fi
+            git commit -m "$message"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          }
+
+          extract_field() {
+            local pattern="$1"
+            local fallback="$2"
+            local value
+            value="$(grep -Eim1 "$pattern" "$instruction_path" | sed -E 's/^[^:：]*[:：][[:space:]]*//; s/[`*]//g' | tr -d '\r' || true)"
+            if [[ -z "$value" ]]; then
+              value="$fallback"
+            fi
+            printf '%s' "$value"
+          }
+
+          while IFS= read -r instruction_path; do
+            [[ -n "$instruction_path" ]] || continue
+
+            path_hash="$(printf '%s' "$instruction_path" | sha256sum | cut -c1-12)"
+            receipt_path="$receipt_root/${SOURCE_SHA}-${path_hash}.json"
+            receipt_ref="origin/main:$receipt_path"
+
+            if git cat-file -e "$receipt_ref" 2>/dev/null; then
+              existing_status="$(git show "$receipt_ref" | jq -r '.delivery.status // "unknown"')"
+              if [[ "$existing_status" == "received" ]]; then
+                echo "重複防止: すでに受領済みです: $instruction_path"
+                echo "- Duplicate skipped: \`$instruction_path\`" >> "$GITHUB_STEP_SUMMARY"
+                continue
+              fi
+              if [[ "$existing_status" == "attempting" ]]; then
+                echo "不明な送信状態のため、重複を避けて停止します: $instruction_path" >&2
+                echo "- Manual review required (attempting): \`$instruction_path\`" >> "$GITHUB_STEP_SUMMARY"
+                exit 1
+              fi
+            fi
+
+            instruction_id="$(extract_field 'タスクID|指示ID|[Ii]nstruction[ _-]?[Ii][Dd]|[Tt]ask[ _-]?[Ii][Dd]' '未指定')"
+            priority="$(extract_field '優先度|[Pp]riority' '未指定')"
+            created_at="$(git log -1 --format=%cI "$SOURCE_SHA" -- "$instruction_path")"
+            instruction_url="https://github.com/${GITHUB_REPOSITORY}/blob/${SOURCE_SHA}/${instruction_path}"
+            receipt_key="${SOURCE_SHA}:${instruction_path}"
+
+            jq -n \
+              --arg receipt_key "$receipt_key" \
+              --arg instruction_id "$instruction_id" \
+              --arg instruction_path "$instruction_path" \
+              --arg source_sha "$SOURCE_SHA" \
+              --arg source_url "$instruction_url" \
+              --arg priority "$priority" \
+              --arg created_at "$created_at" \
+              --arg started_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+              '{schema_version: 1, instruction: {receipt_key: $receipt_key, id: $instruction_id, path: $instruction_path, source_sha: $source_sha, source_url: $source_url, priority: $priority, created_at: $created_at}, delivery: {recipient: "Manus default agent (桃花)", method: "Manus API task.sendMessage", status: "attempting", started_at: $started_at}}' \
+              > "$receipt_path"
+            commit_receipt "chore: claim Momoka instruction ${SOURCE_SHA:0:12}"
+
+            status="failed"
+            detail="通知処理が開始できませんでした。"
+            http_status=""
+            delivered_at=""
+
+            if [[ "$DRY_RUN" == "true" ]]; then
+              status="dry_run"
+              detail="検知・重複防止・証跡記録を検証しました。Manus APIは呼び出していません。"
+            elif [[ -z "$MANUS_API_KEY" ]]; then
+              status="blocked"
+              detail="GitHub Actions Secret MANUS_API_KEY が未設定のため、Manusへの受領トリガーは実行していません。"
+            else
+              message="[CTO指示の自動受領トリガー]\n\n指示ID: ${instruction_id}\n優先度: ${priority}\n作成日時: ${created_at}\n指示書: ${instruction_url}\nCommit SHA: ${SOURCE_SHA}\n\n上記の正式指示書を取得し、内容を確認してください。受領・進捗・完了・未完了・ブロッカーは正本の報告ファイルへ記録してください。"
+              payload="$(jq -n --arg content "$message" '{task_id: "agent-default-main_task", message: {content: $content}}')"
+              response_file="$RUNNER_TEMP/manus-response-${path_hash}.json"
+              http_status="$(curl --silent --show-error --fail-with-body --max-time 30 --output "$response_file" --write-out '%{http_code}' \
+                --request POST 'https://api.manus.ai/v2/task.sendMessage' \
+                --header 'Content-Type: application/json' \
+                --header "x-manus-api-key: $MANUS_API_KEY" \
+                --data "$payload" || true)"
+
+              if [[ "$http_status" =~ ^2[0-9][0-9]$ ]] && jq -e '.ok == true' "$response_file" >/dev/null 2>&1; then
+                status="received"
+                detail="Manus APIが桃花の受領処理へのメッセージ送信を受理しました。"
+                delivered_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+              else
+                status="failed"
+                detail="Manus APIが受領トリガーを受理しませんでした。GitHub Actions Run のログを確認してください。"
+              fi
+            fi
+
+            tmp_receipt="$RUNNER_TEMP/receipt-${path_hash}.json"
+            jq \
+              --arg status "$status" \
+              --arg detail "$detail" \
+              --arg http_status "$http_status" \
+              --arg finished_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+              --arg delivered_at "$delivered_at" \
+              '.delivery.status = $status | .delivery.detail = $detail | .delivery.http_status = (if $http_status == "" then null else $http_status end) | .delivery.finished_at = $finished_at | .delivery.delivered_at = (if $delivered_at == "" then null else $delivered_at end)' \
+              "$receipt_path" > "$tmp_receipt"
+            mv "$tmp_receipt" "$receipt_path"
+            commit_receipt "chore: record Momoka notification ${status}"
+
+            echo "- \`$instruction_path\`: **$status**" >> "$GITHUB_STEP_SUMMARY"
+            if [[ "$status" == "blocked" || "$status" == "failed" ]]; then
+              echo "受領トリガーは完了していません: $detail" >&2
+              exit 1
+            fi
+          done < "${{ steps.candidates.outputs.candidate_file }}"
+
+      - name: 対象外変更を記録
+        if: ${{ steps.candidates.outputs.count == '0' }}
+        run: |
+          echo "対象となる新規の桃花向け指示書はありません。" >> "$GITHUB_STEP_SUMMARY"
