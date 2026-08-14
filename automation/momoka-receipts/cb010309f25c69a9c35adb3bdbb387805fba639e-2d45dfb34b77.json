@@ -12,9 +12,9 @@
   "delivery": {
     "recipient": "Manus default agent (桃花)",
     "method": "Manus API task.sendMessage",
-    "status": "received_pending_claim",
+    "status": "claimed",
     "started_at": "2026-08-14T13:14:19Z",
-    "detail": "Manus APIは桃花の専用受領タスクを作成しましたが、4分以内にClaim・報告更新を確認できませんでした。",
+    "detail": "桃花のClaim記録と正本レポート更新をGitHub main上で確認済みです。初回の4分待機を超えたため、Receiptを事後照合してclaimedへ更新しました。",
     "http_status": "200",
     "finished_at": "2026-08-14T13:18:30Z",
     "delivered_at": "2026-08-14T13:14:21Z",
@@ -22,10 +22,10 @@
     "task_url": "https://manus.im/app/4RdJnTR3ua2qoHqp3ea7A3"
   },
   "claim": {
-    "status": "pending",
-    "report_path": null,
-    "report_updated": false,
-    "task_state": "in_progress",
-    "confirmed_at": null
+    "status": "claimed",
+    "report_path": "music_ai/reports/cafe/latest_report.md",
+    "report_updated": true,
+    "task_state": "completed",
+    "confirmed_at": "2026-08-14T13:18:36Z"
   }
 }
