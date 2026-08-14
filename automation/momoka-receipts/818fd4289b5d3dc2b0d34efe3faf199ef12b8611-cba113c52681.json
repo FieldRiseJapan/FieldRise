@@ -12,7 +12,20 @@
   "delivery": {
     "recipient": "Manus default agent (桃花)",
     "method": "Manus API task.sendMessage",
-    "status": "attempting",
-    "started_at": "2026-08-14T15:20:37Z"
+    "status": "claimed",
+    "started_at": "2026-08-14T15:20:37Z",
+    "detail": "桃花が専用受領タスクでClaimし、Claim記録と正本報告の更新を完了したことを確認しました。",
+    "http_status": "200",
+    "finished_at": "2026-08-14T15:26:01Z",
+    "delivered_at": "2026-08-14T15:20:40Z",
+    "task_id": "3cacbPRsebXLS5XwWQGG5w",
+    "task_url": "https://manus.im/app/3cacbPRsebXLS5XwWQGG5w"
+  },
+  "claim": {
+    "status": "claimed",
+    "report_path": "music_ai/reports/cafe/latest_report.md",
+    "report_updated": true,
+    "task_state": "completed",
+    "confirmed_at": "2026-08-14T15:26:01Z"
   }
 }
