@@ -12,7 +12,11 @@
   "delivery": {
     "recipient": "Manus default agent (桃花)",
     "method": "Manus API task.sendMessage",
-    "status": "attempting",
-    "started_at": "2026-08-14T13:02:27Z"
+    "status": "received",
+    "started_at": "2026-08-14T13:02:27Z",
+    "detail": "Manus APIが桃花の受領処理へのメッセージ送信を受理しました。",
+    "http_status": "200",
+    "finished_at": "2026-08-14T13:02:29Z",
+    "delivered_at": "2026-08-14T13:02:29Z"
   }
 }
