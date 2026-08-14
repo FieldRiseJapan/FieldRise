@@ -22,11 +22,11 @@
 | P-S-002 | success | 0:00〜0:02にWarm deep bassを置く。 | 既存制作標準、A1 | 001・002でBass Onsetが0.464秒。B1以降は0.5秒未満のBass立ち上がりを固定する。 | confirmed |
 | P-S-003 | success | 予測可能な展開と自然なLoopを維持する。 | 既存成功パターン分析、001の近似値0.9914 | 終端→開始を聴取し、G08の最終判定後に固定条件化する。 | provisional |
 | P-S-004 | success | Intro 0〜2秒を低域主導にし、DrumsをBassより大幅に後退させる。 | A1：Bass低域比率84.21〜98.73%、Drums RMSはBassより約37〜40 dB低い。 | B1以降、Introで強いDrumsを入れない。 | confirmed |
-| P-S-005 | success | 推定80〜86 BPM帯からCafe BGMを設計する。 | A1：001 86.13 BPM、002 80.75 BPM。 | B1はこの範囲を固定し、テンポを変更変数にしない。 | confirmed |
+| P-S-005 | success | テンポはDAW・聴取で確定してからCafe BGMの固定条件にする。 | 001は86.13 BPM、002はStem解析80.75 BPMと正式Main解析123.05 BPMで推定差がある。 | B1ではDAW確認済みのテンポを固定し、未確定の推定値を制作上の固定条件にしない。 | provisional |
 | P-S-006 | success | ボーカルを主成分にしない。 | A1：ボーカルRMSは001 -108.55、002 -80.83 dBFS。 | Voiceover-friendlyを維持し、主旋律の歌唱を入れない。 | confirmed |
 | P-F-001 | avoid_condition | Heavy drums、EDM、強いビルドアップを入れない。 | 既存制作標準 | プロンプトのAvoid欄へ明記する。 | provisional |
 | P-F-002 | avoid_condition | Complex melodyや過度なリバーブを入れない。 | 既存制作標準、Cafe 003計画 | Piano密度を変数にする際、他の要素を固定する。 | provisional |
-| P-F-003 | failure | 無音のMainを正解データとして採用しない。 | A1：002 MainはRMS -240.00 dBFS。 | MainのRMS・Onset・ステム再構成を入力検証に追加する。 | confirmed |
+| P-F-003 | failure | 無音または未検証のMainを正解データとして採用しない。 | 旧002 MainはRMS -240.00 dBFSで除外。後に受領した正式MainはRMS・Onset・Stem Mix整合を検証済み。 | MainのRMS・Onset・ステム再構成を入力検証に追加する。 | confirmed |
 
 ## 新規登録テンプレート
 

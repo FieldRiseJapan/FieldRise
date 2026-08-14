@@ -51,8 +51,8 @@ def display_state(states: list[str]) -> str:
 
 
 def parse_reference(reference_id: str, text: str) -> dict[str, str]:
-    duration = first_match(r"(?:元Main|提供Main)\*\*:\s*([0-9.]+秒)", text)
-    audio_format = re.search(r"(?:元Main|提供Main)\*\*:\s*[0-9.]+秒、\s*([^、]+)、\s*([^、]+)", text)
+    duration = first_match(r"(?:元Main|提供Main|正式Main)\*\*:\s*([0-9.]+秒)", text)
+    audio_format = re.search(r"(?:元Main|提供Main|正式Main)\*\*:\s*[0-9.]+秒、\s*([^、]+)、\s*([^、]+)", text)
     sample_rate = f"{clean(audio_format.group(1))} / {clean(audio_format.group(2))}" if audio_format else "未観測"
     bpm = first_match(r"\|\s*BPM\s*\|\s*推定?\s*([0-9.]+\s*BPM)", text)
     bass_onset = first_match(r"Bassの(?:最初の)?Onsetは\s*([0-9.]+秒)", text)
@@ -62,11 +62,12 @@ def parse_reference(reference_id: str, text: str) -> dict[str, str]:
     drums_rms = first_match(r"Drums(?:全体)?RMS(?:は|は)?\s*(-[0-9.]+\s*dBFS)", text)
     analysis_state = first_match(r"- \*\*分析状態\*\*:\s*([^\n]+)", text)
     audio_path = first_match(r"GitHub参照音源\*\*: \[`([^`]+)`", text, "")
+    is_canonical = reference_id == "001" or "正式Mainを受領・検証済み" in text
     return {
         "id": reference_id,
-        "sourceType": "正本 Main / 可逆FLAC" if reference_id == "001" else "暫定 Main / 4-stem mix FLAC",
-        "status": "verified" if reference_id == "001" else "pending",
-        "statusLabel": "正本・検証済み" if reference_id == "001" else "暫定・正式Main待ち",
+        "sourceType": "正本 Main / 可逆FLAC" if is_canonical else "暫定 Main / 4-stem mix FLAC",
+        "status": "verified" if is_canonical else "pending",
+        "statusLabel": "正本・検証済み" if is_canonical else "暫定・正式Main待ち",
         "duration": duration,
         "sampleRate": sample_rate,
         "bpm": f"{bpm}*" if bpm != "未観測" else bpm,
@@ -162,22 +163,22 @@ def main() -> None:
         "references": [parse_reference("001", contents["song001"]), parse_reference("002", contents["song002"])],
         "decisionBrief": {
             "title": "B1は、伴奏導入時刻だけを比べる。",
-            "body": "001の約2.299秒と002の約0.255秒を比較する。002は暫定stem mixのため、正式Mainとテンポ確認を先に解消する。",
+            "body": "001の約2.299秒と002の約0.255秒を比較する。002の正式Mainは検証済みであり、テンポ・Key・聴取記録を先に確定する。",
             "action": "完全分析を読む",
             "sourcePath": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md",
         },
         "evidenceIntegrity": [
             {"id": "001", "state": "verified", "label": "VERIFIED / CANONICAL", "detail": "正規MainとFLAC整合、4ステム再構成を確認済み。"},
-            {"id": "002", "state": "pending", "label": "PROVISIONAL / STEM MIX", "detail": "提供Mainは無音。4ステム合成版は比較用の暫定参照。"},
+            {"id": "002", "state": "verified", "label": "VERIFIED / CANONICAL", "detail": "ユーザー提供Mainを受領・検証済み。Stem Mixは比較用の履歴として保持。"},
         ],
         "reviewQueue": [
-            {"id": "R1", "state": "blocker", "title": "002の正しいMainを確保", "detail": "正しいMainの再書き出し、またはstem mixの正式承認が必要。", "sourcePath": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md"},
-            {"id": "R2", "state": "review", "title": "002のテンポを確定", "detail": "80.75 / 83.35 / 123.05 BPM候補をDAWと聴取で照合する。", "sourcePath": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md"},
-            {"id": "R3", "state": "review", "title": "Loopと聴取記録を完了", "detail": "終端→冒頭、音色、ノイズ、音数をタイムコード付きで確認する。", "sourcePath": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md"},
+            {"id": "R1", "state": "review", "title": "002のKeyと全体構成を確定", "detail": "正式Mainを聴取し、Keyとセクション構成をタイムコード付きで記録する。", "sourcePath": "music_ai/analysis/cafe/2026-08-14_002-user-supplied-main-validation.md"},
+            {"id": "R2", "state": "review", "title": "002のテンポを確定", "detail": "80.75 / 83.35 / 123.05 BPM候補をDAWと聴取で照合する。", "sourcePath": "music_ai/analysis/cafe/2026-08-14_002-user-supplied-main-validation.md"},
+            {"id": "R3", "state": "review", "title": "Loopと聴取記録を完了", "detail": "終端→冒頭、音色、ノイズ、音数をタイムコード付きで確認する。", "sourcePath": "music_ai/analysis/cafe/2026-08-14_002-user-supplied-main-validation.md"},
         ],
         "a1": {**a1, "gates": parse_gates(contents["song001"], contents["song002"])},
         "ledger": [
-            {"id": "A1", "title": a1["purpose"], "variable": a1["changedVariable"], "outcome": a1["status"], "note": "001は正本、002は正式Main待ち。"},
+            {"id": "A1", "title": a1["purpose"], "variable": a1["changedVariable"], "outcome": a1["status"], "note": "001・002ともに正本Mainを登録済み。聴取レビューとDAW確定を継続。"},
             {"id": "B1", "title": "その他ステムの導入時刻比較", "variable": "0.3 sec vs 2.3 sec のみ", "outcome": "設計済み / 承認待ち", "note": "Bass・Tempo・Drums・非ボーカル主導を固定。"},
         ],
         "patterns": parse_patterns(contents["patterns"]),

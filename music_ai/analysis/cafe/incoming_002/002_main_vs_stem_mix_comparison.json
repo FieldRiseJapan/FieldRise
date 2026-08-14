@@ -1,0 +1,25 @@
+{
+  "candidate": "002_user_supplied_main_44100hz.wav",
+  "reference": "002_reference_stem_mix.flac",
+  "sample_rate_hz": 44100,
+  "channels_compared": 2,
+  "frames_compared": 9389771,
+  "duration_compared_seconds": 212.919977,
+  "per_channel": [
+    {
+      "channel": 1,
+      "raw_pearson_correlation": 0.99814227,
+      "gain_relative_to_reference": 0.99466067,
+      "gain_db_relative_to_reference": -0.047,
+      "gain_compensated_nrmse": 0.06097726
+    },
+    {
+      "channel": 2,
+      "raw_pearson_correlation": 0.99860335,
+      "gain_relative_to_reference": 0.99182885,
+      "gain_db_relative_to_reference": -0.071,
+      "gain_compensated_nrmse": 0.0528353
+    }
+  ],
+  "interpretation": "Correlation near 1 and very low gain-compensated NRMSE indicate the same underlying audio, with any remaining difference likely due to global level, encoding, or minor mastering changes."
+}

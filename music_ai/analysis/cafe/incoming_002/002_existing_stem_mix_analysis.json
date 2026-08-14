@@ -1,0 +1,91 @@
+{
+  "analysis_version": "1.0",
+  "source": {
+    "filename": "002_reference_stem_mix.flac",
+    "sha256": "7c1a2eb95260d3e947810d146b89ff242f6800c0aff720ba7b7f3e80515878ad",
+    "container": "FLAC",
+    "subtype": "PCM_24",
+    "sample_rate_hz": 44100,
+    "analysis_sample_rate_hz": 22050,
+    "channels": 2,
+    "duration_seconds": 212.92,
+    "file_size_bytes": 32342532
+  },
+  "global_features": {
+    "tempo_estimate_bpm": 123.05,
+    "beat_count_estimate": 436,
+    "rms_mean_dbfs": -17.94,
+    "rms_p10_dbfs": -26.98,
+    "rms_p90_dbfs": -13.72,
+    "crest_factor_db": 13.99,
+    "spectral_centroid_mean_hz": 655.5,
+    "first_detected_onset_seconds": 0.255
+  },
+  "time_windows": {
+    "intro_0_2_seconds": {
+      "time_window_seconds": [
+        0.0,
+        2.0
+      ],
+      "rms_mean_dbfs": -24.25,
+      "rms_peak_dbfs": -18.78,
+      "spectral_centroid_mean_hz": 754.8,
+      "band_energy_ratio": {
+        "low_20_180_hz": 0.4928,
+        "low_mid_180_2000_hz": 0.5068,
+        "high_2000_10000_hz": 0.0001
+      }
+    },
+    "intro_2_10_seconds": {
+      "time_window_seconds": [
+        2.0,
+        10.0
+      ],
+      "rms_mean_dbfs": -19.55,
+      "rms_peak_dbfs": -12.16,
+      "spectral_centroid_mean_hz": 684.6,
+      "band_energy_ratio": {
+        "low_20_180_hz": 0.2541,
+        "low_mid_180_2000_hz": 0.745,
+        "high_2000_10000_hz": 0.0009
+      }
+    },
+    "body_10_30_seconds": {
+      "time_window_seconds": [
+        10.0,
+        30.0
+      ],
+      "rms_mean_dbfs": -17.96,
+      "rms_peak_dbfs": -10.35,
+      "spectral_centroid_mean_hz": 537.3,
+      "band_energy_ratio": {
+        "low_20_180_hz": 0.4783,
+        "low_mid_180_2000_hz": 0.5212,
+        "high_2000_10000_hz": 0.0004
+      }
+    },
+    "outro_last_8_seconds": {
+      "time_window_seconds": [
+        204.92,
+        212.92
+      ],
+      "rms_mean_dbfs": -30.92,
+      "rms_peak_dbfs": -11.33,
+      "spectral_centroid_mean_hz": 785.4,
+      "band_energy_ratio": {
+        "low_20_180_hz": 0.9343,
+        "low_mid_180_2000_hz": 0.0656,
+        "high_2000_10000_hz": 0.0
+      }
+    }
+  },
+  "loop_proxy": {
+    "first_last_8s_chroma_cosine_similarity": 0.9255,
+    "interpretation": "Harmonic similarity only. Seamless-loop judgement still requires listening to the end-to-start transition."
+  },
+  "limitations": [
+    "Tempo is an algorithmic estimate and must be confirmed by listening or DAW measurement.",
+    "Band-energy ratios describe frequency distribution; they do not identify instruments with certainty.",
+    "Instrument identity, unwanted noise, and artistic suitability require a human listening review with timecodes."
+  ]
+}

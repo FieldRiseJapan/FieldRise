@@ -4,14 +4,14 @@
     "sync-status.json"
   ],
   "schemaVersion": 1,
-  "sourceDigest": "9d37015aaba2281fb2a067077d6d8af818292af2dac1fe9b4b6fb153357aef77",
+  "sourceDigest": "a4e72ff2067e032ad7f72665fe38cd2faf1f1f5b4f5de54a5067daf9cf27eba3",
   "sourceFiles": {
-    "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md": "8d228f72614160749fd4af3817809476c8a1c24b5df870c187ff2ca75f9d5e9b",
-    "music_ai/experiments/A1_001-002-ground-truth-capture.md": "84eb7439bc05a751bb2bcd02c11e326cddf8250db2a13ef032c660ab9b5762fd",
-    "music_ai/reference_music/audio/README.md": "6b453b8684b42e9612463b05b308eefa9487edda397550a355ad8bbb5460883e",
+    "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md": "91b9b5012b9f33fd5c363c01b53da3761f1383034fe1f8951f5669e698377ce0",
+    "music_ai/experiments/A1_001-002-ground-truth-capture.md": "39a630102d6179606a68c9d7a39620b5eb99982728be69a432fa7a0f45c6289d",
+    "music_ai/reference_music/audio/README.md": "76a240686613597c1acf15960fbb3b7765bdf2b368379025d2c71fb8b2bf2b1e",
     "music_ai/reference_music/success_song_001.md": "ff2990c70ac163b98d434762ab7e807de8bbadcba356df8d428d9660a510c6b2",
-    "music_ai/reference_music/success_song_002.md": "f20b2aa0ab32699390cd19fbf9a43e5d2971d3861b24661366d077b68e632687",
-    "music_ai/suno_database/successful_patterns.md": "eec43f012c464da5f2fd31cc5d9edc36739b63fdb233dfaa3ceb83fccfc3d89c"
+    "music_ai/reference_music/success_song_002.md": "98901fb1b3d65d2fbe5e979d224c8dbf5f07f321acdd6497020bb4376abf72a5",
+    "music_ai/suno_database/successful_patterns.md": "7df7ba227b2810d2dbcb970b224b282d2fb28f67ebec37e3b4a0257fc3b3d6a4"
   },
   "status": "ok"
 }
