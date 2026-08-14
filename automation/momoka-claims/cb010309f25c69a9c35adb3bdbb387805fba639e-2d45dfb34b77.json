@@ -1,0 +1,8 @@
+{
+  "receipt_key": "cb010309f25c69a9c35adb3bdbb387805fba639e:cto/outbox/2026-08-14_momoka-auto-notify-fix.md",
+  "status": "claimed",
+  "claimed_at": "2026-08-14T13:18:19Z",
+  "report_path": "music_ai/reports/cafe/latest_report.md",
+  "claimed_by": "Momoka COO",
+  "instruction_commit": "cb010309f25c69a9c35adb3bdbb387805fba639e"
+}
