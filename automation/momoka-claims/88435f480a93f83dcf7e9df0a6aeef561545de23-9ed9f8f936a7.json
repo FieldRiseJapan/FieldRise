@@ -1,0 +1,9 @@
+{
+  "receipt_key": "88435f480a93f83dcf7e9df0a6aeef561545de23:cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-02.md",
+  "status": "claimed",
+  "claimed_at": "2026-08-14T13:32:45Z",
+  "report_path": "music_ai/reports/cafe/latest_report.md",
+  "claimed_by": "Momoka COO",
+  "instruction_id": "CTO-20260814-E2E-02",
+  "test_result": "E2Eテスト完了"
+}
