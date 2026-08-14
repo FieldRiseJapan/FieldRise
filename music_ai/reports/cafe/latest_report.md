@@ -153,3 +153,40 @@ E2Eテスト01では、対応するClaim記録と正本レポートが先行コ�
 [21]: https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/momoka-claims/bbc26d6a312c92097174bbc3eaea213faaba1e48-c2a8bcb82616.json "E2Eテスト01のClaim記録"
 [22]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31804301913 "E2Eテスト01 Run"
 [23]: https://github.com/FieldRiseJapan/FieldRise/blob/main/.github/workflows/momoka-auto-notify.yml "桃花自動受領通知Workflow"
+
+
+---
+
+## 追補｜CTO自動通知E2Eテスト 01（Receipt `da77a95`）
+
+**指示ID:** `CTO-20260814-E2E-01`
+
+**優先度:** `P0`
+
+**対象Receipt key:** `da77a95feb017182f57147f34a0d9b5e3aad294c:cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-01.md`
+
+**受領時刻:** `2026-08-14T13:20:53Z`
+
+**Claim時刻:** `2026-08-14T13:29:54Z`
+
+**実行結果:** **E2Eテスト完了**
+
+指定された正式指示書を確認し、対象Receipt keyと正本報告の固定パスを保持するClaim記録を作成した。Claim記録は`status: claimed`として独立したコミットで`origin/main`へ反映済みであり、今回の正本報告更新は別コミットとして反映する。[24] [25]
+
+| 区分 | 記録内容 | 状態 |
+|---|---|---|
+| 受領 | 通知されたReceipt keyを確認 | 完了 |
+| Claim | `automation/momoka-claims/da77a95feb017182f57147f34a0d9b5e3aad294c-c2a8bcb82616.json` を作成 | 完了 |
+| Claim状態 | `claimed` | `origin/main`へ反映済み |
+| Claimコミット | `ac7ca7e96458b639ab2dc6e34a2387147634e7d6` | 反映済み |
+| 正本報告 | `music_ai/reports/cafe/latest_report.md` に本受領・進捗・完了情報を記録 | 本コミットで反映 |
+| 進捗 | Claim作成・Claim反映・正本報告更新 | 100% |
+| 未完了 | なし | 完了 |
+| ブロッカー | なし | 解消済み |
+
+> 指示書の完了条件である「Claim記録と正本報告がGitHubの`main`に存在し、対応する自動通知の受領証跡と結び付けられること」を満たすため、本追記を含む正本報告を`origin/main`へ反映する。[24] [25]
+
+### 参照
+
+[24]: ../../../cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-01.md "CTO正式指示｜自動通知E2Eテスト 01"
+[25]: ../../../automation/momoka-claims/da77a95feb017182f57147f34a0d9b5e3aad294c-c2a8bcb82616.json "Receipt da77a95に対応する桃花Claim記録"
