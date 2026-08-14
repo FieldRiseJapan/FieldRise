@@ -417,3 +417,34 @@ GitHub正本・同期JSON・002正式Main・Sonata DeskのVite本番ビルドは
 [26]: https://fieldrisejapan.github.io/FieldRise/sonata-desk/ "Sonata Desk GitHub Pages代替公開URL"
 [27]: https://fieldrise-ythnsgue.manus.space/ "既存Manus公開URL（HTTP 404を確認）"
 [28]: https://raw.githubusercontent.com/FieldRiseJapan/FieldRise/main/dashboard/sonata-desk/src/generated/dashboard-data.json "Sonata Desk同期JSON"
+
+
+---
+
+## 受領・進捗｜GitHub全体エラー総点検 TEST（2026-08-14）
+
+**Receipt key:** `1cdd111ef0ed9c7cce56b1c220c0997d4c6feb7d:cto/outbox/2026-08-14_github-error-full-test.md`
+
+**指示書:** `cto/outbox/2026-08-14_github-error-full-test.md`
+
+**指示ID／優先度:** 未指定／未指定
+
+**受領・Claim時刻:** `2026-08-14T14:02:49Z`
+
+**現在の状態:** **実行中**
+
+正式指示書を確認し、指定されたClaim記録を作成して`origin/main`へ先行反映した。これからGitHub Actions、Issue／PR、自動通知・報告フロー、リポジトリ参照およびmain反映状態を実測で点検し、検出事項は原因・影響範囲・該当URL・修正可否・再TEST結果を追記する。[36] [37]
+
+| 区分 | 記録内容 | 状態 |
+|---|---|---|
+| 受領 | Receipt keyと正式指示書を確認 | 完了 |
+| Claim | `automation/momoka-claims/1cdd111ef0ed9c7cce56b1c220c0997d4c6feb7d-fce3cfb8ba33.json` | `claimed`、`origin/main`反映済み |
+| Claimコミット | `9d8ef54cbc4fe02fd403461baad77874dec96ea5` | 反映済み |
+| 進捗 | GitHub全体の実測点検 | 実行中 |
+| 未完了 | Actions、Issue／PR、自動通知・報告・参照整合性の調査および必要な修正・再TEST | 実行中 |
+| ブロッカー | GitHub書込み | なし |
+
+### 参照
+
+[36]: ../../../cto/outbox/2026-08-14_github-error-full-test.md "GitHub全体エラー総点検 TEST指示書"
+[37]: ../../../automation/momoka-claims/1cdd111ef0ed9c7cce56b1c220c0997d4c6feb7d-fce3cfb8ba33.json "本指示に対応する桃花Claim記録"
