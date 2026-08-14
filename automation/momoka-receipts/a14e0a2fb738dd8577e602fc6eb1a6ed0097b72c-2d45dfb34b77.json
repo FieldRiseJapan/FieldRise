@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "a14e0a2fb738dd8577e602fc6eb1a6ed0097b72c:cto/outbox/2026-08-14_momoka-auto-notify-fix.md",
+    "id": "未指定",
+    "path": "cto/outbox/2026-08-14_momoka-auto-notify-fix.md",
+    "source_sha": "a14e0a2fb738dd8577e602fc6eb1a6ed0097b72c",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/a14e0a2fb738dd8577e602fc6eb1a6ed0097b72c/cto/outbox/2026-08-14_momoka-auto-notify-fix.md",
+    "priority": "未指定",
+    "created_at": "2026-08-14T12:33:18Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-14T13:03:28Z"
+  }
+}
