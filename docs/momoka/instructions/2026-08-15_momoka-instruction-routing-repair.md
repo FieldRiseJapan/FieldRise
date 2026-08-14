@@ -4,10 +4,12 @@
 
 **社長決定済み。** 本書は、桃花が実施する正式な調査・修正指示です。
 
+**指示ID:** `MOMOKA-20260815-ROUTING-REPAIR`
+
+**優先度:** 最優先
+
 | 項目 | 内容 |
 |---|---|
-| 指示ID | `MOMOKA-20260815-ROUTING-REPAIR` |
-| 優先度 | 最優先 |
 | 関連Issue | [#6【桃花指示・決定】AI Control Dashboard Web App 構築](https://github.com/FieldRiseJapan/FieldRise/issues/6) |
 | 正式報告先 | `docs/momoka/reports/latest_report.md` |
 | 単独コメント・相談先 | `cto/inbox/momoka-comments.md` |
