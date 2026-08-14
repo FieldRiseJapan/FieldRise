@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "bbc26d6a312c92097174bbc3eaea213faaba1e48:cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-01.md",
+    "id": " CTO-20260814-E2E-01",
+    "path": "cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-01.md",
+    "source_sha": "bbc26d6a312c92097174bbc3eaea213faaba1e48",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/bbc26d6a312c92097174bbc3eaea213faaba1e48/cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-01.md",
+    "priority": " P0",
+    "created_at": "2026-08-14T13:20:53Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-14T13:21:08Z"
+  }
+}
