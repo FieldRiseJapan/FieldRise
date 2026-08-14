@@ -181,19 +181,22 @@ jobs:
               status="blocked"
               detail="GitHub Actions Secret MANUS_API_KEY が未設定のため、Manusへの受領トリガーは実行していません。"
             else
-              message="[CTO指示の自動受領・Claim要求]\n\nReceipt key: ${receipt_key}\n指示ID: ${instruction_id}\n優先度: ${priority}\n作成日時: ${created_at}\n指示書: ${instruction_url}\nCommit SHA: ${SOURCE_SHA}\n\n上記の正式指示書を取得して内容を確認し、直ちにClaimしてください。Claim後、指示を実行し、受領・進捗・完了・未完了・ブロッカーを正本の music_ai/reports/cafe/latest_report.md に記録して origin/main へPushしてください。完了時には、Receipt key、Claim状態、報告ファイルの更新有無、実行状態を明確に返してください。実施できない場合も、理由とblocked状態を明確に返してください。"
-              claim_schema='{"type":"object","properties":{"receipt_key":{"type":"string"},"claim_state":{"type":"string","enum":["claimed","not_claimed","blocked"]},"report_path":{"type":"string"},"report_updated":{"type":"boolean"},"task_state":{"type":"string","enum":["completed","in_progress","blocked"]}},"required":["receipt_key","claim_state","report_path","report_updated","task_state"],"additionalProperties":false}'
-              payload="$(jq -n --arg content "$message" --argjson claim_schema "$claim_schema" '{task_id: "agent-default-main_task", message: {content: $content}, structured_output_schema: $claim_schema}')"
+              claim_record_path="automation/momoka-claims/${SOURCE_SHA}-${path_hash}.json"
+              message="[CTO指示の自動受領・Claim要求]\n\nReceipt key: ${receipt_key}\n指示ID: ${instruction_id}\n優先度: ${priority}\n作成日時: ${created_at}\n指示書: ${instruction_url}\nCommit SHA: ${SOURCE_SHA}\nClaim記録先: ${claim_record_path}\n\nあなたは桃花COOとして、この正式指示書を取得して内容を確認し、直ちにClaimしてください。まずClaim記録先に receipt_key、status=claimed、claimed_at、report_path を持つJSONを作成し、origin/mainへPushしてください。次に指示を実行し、受領・進捗・完了・未完了・ブロッカーを正本の music_ai/reports/cafe/latest_report.md に記録して origin/mainへPushしてください。GitHubに書込めない場合は、理由をblockedとして明確に返してください。"
+              claim_schema='{"type":"object","properties":{"receipt_key":{"type":"string"},"claim_state":{"type":"string","enum":["claimed","not_claimed","blocked"]},"claim_record_path":{"type":"string"},"report_path":{"type":"string"},"report_updated":{"type":"boolean"},"task_state":{"type":"string","enum":["completed","in_progress","blocked"]}},"required":["receipt_key","claim_state","claim_record_path","report_path","report_updated","task_state"],"additionalProperties":false}'
+              payload="$(jq -n --arg content "$message" --arg title "桃花受領: ${instruction_id}" --argjson claim_schema "$claim_schema" '{title: $title, locale: "ja", interactive_mode: false, hide_in_task_list: false, agent_profile: "manus-1.6", message: {content: $content}, structured_output_schema: $claim_schema}')"
               response_file="$RUNNER_TEMP/manus-response-${path_hash}.json"
               http_status="$(curl --silent --show-error --fail-with-body --max-time 30 --output "$response_file" --write-out '%{http_code}' \
-                --request POST 'https://api.manus.ai/v2/task.sendMessage' \
+                --request POST 'https://api.manus.ai/v2/task.create' \
                 --header 'Content-Type: application/json' \
                 --header "x-manus-api-key: $MANUS_API_KEY" \
                 --data "$payload" || true)"
 
-              if [[ "$http_status" =~ ^2[0-9][0-9]$ ]] && jq -e '.ok == true' "$response_file" >/dev/null 2>&1; then
+              if [[ "$http_status" =~ ^2[0-9][0-9]$ ]] && jq -e '.ok == true and (.task_id | type == "string")' "$response_file" >/dev/null 2>&1; then
+                task_id="$(jq -r '.task_id' "$response_file")"
+                task_url="$(jq -r '.task_url // empty' "$response_file")"
                 status="received_pending_claim"
-                detail="Manus APIが桃花の受領処理へのメッセージ送信を受理しました。Claim確認を待機します。"
+                detail="Manus APIが桃花の専用受領タスクを作成しました。Claim確認を待機します。"
                 delivered_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
                 claim_status="pending"
                 claim_report_path=""
@@ -206,7 +209,7 @@ jobs:
                   sleep 10
                   claim_http_status="$(curl --silent --show-error --max-time 30 --output "$claim_response_file" --write-out '%{http_code}' \
                     --get 'https://api.manus.ai/v2/task.listMessages' \
-                    --data-urlencode 'task_id=agent-default-main_task' \
+                    --data-urlencode "task_id=$task_id" \
                     --data-urlencode 'order=desc' \
                     --data-urlencode 'limit=100' \
                     --header "x-manus-api-key: $MANUS_API_KEY" || true)"
@@ -221,22 +224,22 @@ jobs:
                   claim_task_state="$(jq -r '.task_state' <<< "$claim_value")"
                   claim_confirmed_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
-                  if [[ "$claim_status" == "claimed" && "$claim_report_updated" == "true" ]]; then
+                  if [[ "$claim_status" == "claimed" && "$claim_report_updated" == "true" ]] && git fetch origin main >/dev/null 2>&1 && git cat-file -e "origin/main:${claim_record_path}" 2>/dev/null; then
                     status="claimed"
-                    detail="桃花が受領・Claimし、報告更新を完了したことを構造化出力で確認しました。"
+                    detail="桃花が専用受領タスクでClaimし、Claim記録と正本報告の更新を完了したことを確認しました。"
                   else
                     status="received_claim_incomplete"
-                    detail="桃花からのClaimまたは報告更新の完了を確認できませんでした。"
+                    detail="桃花からのClaim、Claim記録、または報告更新の完了を確認できませんでした。"
                   fi
                   break
                 done
 
                 if [[ "$claim_status" == "pending" ]]; then
-                  detail="Manus APIは受領を受理しましたが、4分以内に桃花のClaim・報告更新を確認できませんでした。"
+                  detail="Manus APIは桃花の専用受領タスクを作成しましたが、4分以内にClaim・報告更新を確認できませんでした。"
                 fi
               else
                 status="failed"
-                detail="Manus APIが受領トリガーを受理しませんでした。GitHub Actions Run のログを確認してください。"
+                detail="Manus APIが桃花の専用受領タスクを作成できませんでした。GitHub Actions Run のログを確認してください。"
               fi
             fi
 
@@ -252,7 +255,9 @@ jobs:
               --argjson claim_report_updated "${claim_report_updated:-false}" \
               --arg claim_task_state "${claim_task_state:-}" \
               --arg claim_confirmed_at "${claim_confirmed_at:-}" \
-              '.delivery.status = $status | .delivery.detail = $detail | .delivery.http_status = (if $http_status == "" then null else $http_status end) | .delivery.finished_at = $finished_at | .delivery.delivered_at = (if $delivered_at == "" then null else $delivered_at end) | .claim = {status: $claim_status, report_path: (if $claim_report_path == "" then null else $claim_report_path end), report_updated: $claim_report_updated, task_state: (if $claim_task_state == "" then null else $claim_task_state end), confirmed_at: (if $claim_confirmed_at == "" then null else $claim_confirmed_at end)}' \
+              --arg task_id "${task_id:-}" \
+              --arg task_url "${task_url:-}" \
+              '.delivery.status = $status | .delivery.detail = $detail | .delivery.http_status = (if $http_status == "" then null else $http_status end) | .delivery.finished_at = $finished_at | .delivery.delivered_at = (if $delivered_at == "" then null else $delivered_at end) | .delivery.task_id = (if $task_id == "" then null else $task_id end) | .delivery.task_url = (if $task_url == "" then null else $task_url end) | .claim = {status: $claim_status, report_path: (if $claim_report_path == "" then null else $claim_report_path end), report_updated: $claim_report_updated, task_state: (if $claim_task_state == "" then null else $claim_task_state end), confirmed_at: (if $claim_confirmed_at == "" then null else $claim_confirmed_at end)}' \
               "$receipt_path" > "$tmp_receipt"
             mv "$tmp_receipt" "$receipt_path"
             commit_receipt "chore: record Momoka notification ${status}"
