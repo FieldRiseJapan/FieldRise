@@ -164,12 +164,8 @@ type EvidenceIntegrity = { id: string; state: "verified" | "pending"; label: str
 type ReviewQueueItem = { id: string; state: "blocker" | "review"; title: string; detail: string; sourcePath: string };
 type SyncData = { sourceDigest: string; references: SyncReference[]; a1: { status: string; gates: SyncGate[] }; ledger: SyncLedger[]; patterns: SyncPattern[]; decisionBrief?: DecisionBrief; evidenceIntegrity?: EvidenceIntegrity[]; reviewQueue?: ReviewQueueItem[] };
 
-const dashboardDataApiUrl = "https://api.github.com/repos/FieldRiseJapan/FieldRise/contents/dashboard/sonata-desk/src/generated/dashboard-data.json?ref=main";
+const dashboardDataUrl = `${rawRoot}dashboard/sonata-desk/src/generated/dashboard-data.json`;
 
-function decodeGitHubContent(content: string) {
-  const bytes = Uint8Array.from(atob(content.replace(/\n/g, "")), (character) => character.charCodeAt(0));
-  return new TextDecoder().decode(bytes);
-}
 
 function syncTone(label: string) {
   if (label === "confirmed") return "bg-[#E8F0E9] text-[#244131]";
@@ -230,14 +226,10 @@ export default function Home() {
 
   useEffect(() => {
     let active = true;
-    fetch(dashboardDataApiUrl, { cache: "no-store", headers: { Accept: "application/vnd.github+json" } })
+    fetch(dashboardDataUrl, { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error(`GitHub display data: ${response.status}`);
-        return response.json() as Promise<{ content: string; encoding: string }>;
-      })
-      .then((file) => {
-        if (file.encoding !== "base64") throw new Error("Unsupported GitHub content encoding");
-        return JSON.parse(decodeGitHubContent(file.content)) as SyncData;
+        return response.json() as Promise<SyncData>;
       })
       .then((data) => { if (active) { setSyncData(data); setSyncState("synced"); } })
       .catch(() => { if (active) setSyncState("fallback"); });
