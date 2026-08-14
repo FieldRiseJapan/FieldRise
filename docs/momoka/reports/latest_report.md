@@ -1,74 +1,58 @@
-# 桃花｜最新正式作業報告
-
-このファイルは、桃花（COO）による**受領・進捗・完了・停止・未完了・ブロッカー**の唯一の正本です。単独の質問・相談・判断依頼は `cto/inbox/momoka-comments.md` に分離し、本報告には混在させません。
-
-## 最新状態
+# FieldRise AI Control Dashboard 実装報告
 
 | 項目 | 内容 |
 |---|---|
-| 更新日時 | 2026-08-14T23:23:50Z |
-| 指示ID | MOMOKA-20260815-ROUTING-REPAIR（指示書本文） |
-| 関連Issue | #6【桃花指示・決定】AI Control Dashboard Web App 構築 |
-| receipt_key | `8c7cdd049d8b5ee1b1a19f5247688795306a4b3f:docs/momoka/instructions/2026-08-15_momoka-instruction-routing-repair.md` |
-| Claim状態 | claimed（Claim JSONと正式報告の照合を2026-08-14T23:23:10Zに確定） |
-| 作業状態 | 完了：GitHub → 桃花 → Claim → 正式報告の正本経路を調査・確認し、今回の受領証跡を登録済み |
-| 未完了 | Issue #6のダッシュボード実装は別の正式指示として未着手。今回の作業範囲は受領経路の調査・修正確認であり、実装の開始ではない。 |
-| 次のアクション | 今後の新規正式指示は `docs/momoka/instructions/` への新規追加・`main` へのPushで自動受領対象とし、既存指示を遡及受領する場合は手動起動を用いる。 |
+| 受領時刻 | 2026-08-14T23:33:22Z |
+| Receipt key | `a95a0cf8d6b460931ba40bf392ffa26a8f1d133f:docs/momoka/instructions/web-dashboard-app.md` |
+| 正式指示 | `docs/momoka/instructions/web-dashboard-app.md` |
+| Claim | `automation/momoka-claims/a95a0cf8d6b460931ba40bf392ffa26a8f1d133f-90dc38e4927f.json` |
+| Claim反映コミット | `01948e39f235f573976b75bb45cd46bca1df37f6` |
+| 作業状態 | **実装・ビルド検証完了** |
 
-## 受領・進捗
+## 受領
 
-本報告は、社長決定済みの「GitHub指示伝達・自動実行経路の調査／修正」を正式指示として受領した記録です。2026-08-14T23:19:12Z に指定のClaim JSONを `origin/main` へ反映しました。Claimには、受領キー、`claimed` 状態、Claim時刻、および本報告の正本パスを記録しています。対象の受領証跡は `automation/momoka-receipts/8c7cdd049d8b5ee1b1a19f5247688795306a4b3f-c2449cec0135.json` に存在し、GitHub Actionsが同一の受領キーを `attempting` 状態で登録していることも確認しました。[1] [2]
+本件は上記Receipt keyで正式に受領し、Claim JSONへ `receipt_key`、`status: claimed`、`claimed_at`、`report_path` を記録しました。Claimは `origin/main` へのプッシュに成功しており、GitHubへの書込み権限によるブロッカーはありません。[1]
 
-## Issue #6を拾えなかった理由
+## 完了内容
 
-Issue #6の正式な内容は `docs/momoka/instructions/web-dashboard-app.md` にあり、Issue自体は通信・進捗管理用として明示されています。修正前の自動受領ワークフローは監視対象、手動起動対象、差分探索対象をすべて `cto/outbox/**` に限定していました。そのため、`docs/momoka/instructions/` に置かれた正式指示書は、正本であっても自動受領候補になりませんでした。さらに、修正前の通知文とClaim照合先は `music_ai/reports/cafe/latest_report.md` を前提としており、指示・Claim・正式報告の経路が分離されていませんでした。[1] [3]
+社長向けの新規Webアプリを `dashboard/ai-control-dashboard/` に実装しました。これは既存の `dashboard/sonata-desk/` を削除・置換せず、Sonata Deskの「表示・比較・参照層」と並存する**経営判断用の管制画面**です。Sonata Deskの正本参照方針を踏襲し、アプリ自身はGitHubのデータを保存・更新しません。[2]
 
-> **結論:** Issue #6を拾えなかった直接原因は、Issueの有無ではなく、正式指示書の保存先と自動受領・Claim照合の監視先が旧経路のままだったことです。
+画面は完全ダークUI、Signal Blueを状態・同期・現在位置に限定使用するControl-Room Ledger方針で構成しました。デスクトップのSignal rail、GitHub同期状態、最新コミット、001/002の正本・検証済み情報、A1のG01〜G09評価項目、桃花の最新通信、現在の問題、次アクション、最新正式報告を一画面に集約しています。G01〜G09の意味はアプリ側で推測・再定義せず、正本のラベルと根拠を表示します。[3]
 
-## 問題箇所と確認根拠
-
-| 確認項目 | 修正前の問題 | 確認済みの現行状態・根拠 |
+| 機能 | 実装内容 | 正本 |
 |---|---|---|
-| 正式指示の取得先 | `cto/outbox/**` のみを対象としており、`docs/momoka/instructions/` を監視していなかった。 | `momoka-auto-notify.yml` は `main` へのPush時、`docs/momoka/instructions/**` を監視し、READMEと返信ファイルを除外して新規Markdownを候補化する。[3] |
-| 正式報告先 | 通知・照合が `music_ai/reports/cafe/latest_report.md` を前提としていた。 | 通知文、Claimスキーマの照合、Claim Verifierのトリガーと検証先を `docs/momoka/reports/latest_report.md` に統一した。[3] [4] |
-| Issueの役割 | Issueと正式指示の区別が運用上不明確で、Issueだけから着手しかねない状態だった。 | 指示書READMEは、Issueを通信・進捗管理、`docs/momoka/instructions/` を正式指示の唯一の正本と定義している。Issue #6本文も同じ分離を明記している。[2] [5] |
-| Claim照合 | Claim JSONに正本レポートの一致を必須化していなかった。 | Claim Verifierは、`receipt_key`、`status=claimed`、`report_path` の一致、および正式報告本文内の受領キーを確認して受領証跡を確定する。[4] |
-| 認証・権限・通知 | `MANUS_API_KEY` 未設定時は自動タスク生成が停止する設計である。 | 現在の対象受領証跡が `attempting` で作成済みであり、通知ジョブは起動済みであることを確認した。GitHub Actionsの`contents: write`権限も両ワークフローに設定されている。[3] [4] |
+| 001/002の現在値 | 正本性、BPM、Bass onset、Intro Bass、要約を表示 | `dashboard/sonata-desk/src/generated/dashboard-data.json` |
+| 検証点数 | G01〜G09の計測済み・確認待ちを集計し、進捗ゲージで表示 | 同上 |
+| 項目別根拠 | Bass、Piano、BPM、構成、不要ノイズ、Loop感などの根拠を表示 | 同上 |
+| 桃花の最新通信 | 日時、種別、関連タスク、コメント、ステータス、次アクションを表示 | `cto/inbox/momoka-comments.md` |
+| 現在の問題・次アクション | レビューキューとDecision Briefを表示 | `dashboard-data.json` |
+| GitHub同期 | GitHub Raw/APIを60秒ごとに再取得し、再同期ボタン、最終同期時刻、エラー状態を表示 | `main` ブランチ |
 
-## 実施した修正と検証
+> GitHub取得に失敗した場合、画面は明確なエラーと最終同期時刻を表示し、既に取得済みの値を保持します。取得不能な値を推測して表示せず、アプリから正本へ書込みもしません。
 
-`8c7cdd049d8b5ee1b1a19f5247688795306a4b3f` の経路修正では、自動受領対象を `cto/outbox/**` から `docs/momoka/instructions/**` へ変更し、手動起動時の検証パスと差分検知パスも同じ正本ディレクトリへ統一しました。併せて、通知で要求する正式報告先とClaim照合先を `docs/momoka/reports/latest_report.md` に変更し、Claim VerifierがClaim JSONの `report_path` と本文中の `receipt_key` を両方検証する形に修正しました。[1] [3] [4]
+## 自動更新の仕組み
 
-今回の受領では、その修正経路を実証するため、指定のClaim JSONを先行して作成・Pushしました。Claimコミットは `0253c562f730245ec8820f27d9a820020bf996f4`、正式報告コミットは `392ca7c95a38e8a277f796962d8fdd77eefd396d` です。Claim VerifierはClaim JSONと本報告の一致を照合し、2026-08-14T23:23:10Zに受領証跡を `claimed` へ確定しました。確定コミットは `08094d9e0bcd9a730f467afe6649771b35771043` です。
+ブラウザは公開GitHubの `main` ブランチから、検証データ、桃花通信、最新正式報告、および最新コミットを直接取得します。初回取得後は60秒間隔で再照合し、手動の「再同期」操作でも即時取得を行います。GitHub正本が更新されれば、再デプロイを待たず次の照合時に表示へ反映されます。取得失敗時の状態・時刻を常時表示することで、同期遅延を隠しません。
 
-## 今後の自動受領・Claim・作業開始条件
+アクセス先は `dashboard/ai-control-dashboard/` です。ローカルまたはCIで `pnpm install && pnpm dev` により起動し、静的ホスティングでは `pnpm build` で生成する `dist/` を配信します。実装・同期仕様・正本パスは同ディレクトリのREADMEへ記録しました。[4]
 
-| 段階 | 必須条件 | 実施内容・証跡 |
-|---:|---|---|
-| 1 | 社長の「決定」が正式指示書に明記されている。 | `docs/momoka/instructions/` の対象Markdownを確認する。 |
-| 2 | 対象ファイルが同ディレクトリへ**新規追加**され、`main` へPushされる。 | 自動受領ワークフローが新規ファイルを検知し、`automation/momoka-receipts/` に受領証跡を作成する。 |
-| 3 | 正式指示書本文を取得・確認する。 | 指示書の範囲、完了条件、関連Issue、正式報告先を確認する。Issueだけでは着手しない。 |
-| 4 | Claim記録を作成できる。 | `automation/momoka-claims/` に `receipt_key`、`status=claimed`、`claimed_at`、`report_path` を含むJSONをPushする。 |
-| 5 | 正式報告先を更新できる。 | `docs/momoka/reports/latest_report.md` に受領・進捗・完了・未完了・ブロッカーを記録する。 |
-| 6 | Claimと報告の一致が確認できる。 | Claim VerifierがClaim JSONと正式報告の受領キーを照合し、受領証跡を確定する。 |
+## 動作確認
 
-## Issue #6の正式指示書の認識結果
+`dashboard/ai-control-dashboard` で `pnpm build` を実行し、TypeScript型検査とVite本番ビルドが成功しました。ビルド生成物は `dist/index.html`、`dist/assets/` に出力され、外部画像URLやバックエンド依存を含みません。ブラウザ表示ではGitHub正本の実データを取得し、検証点 `7/9`、001/002の正本情報、桃花通信、レビューキュー、および最新コミットを確認しました。
 
-**認識済みです。** `docs/momoka/instructions/web-dashboard-app.md` を実際に取得し、社長決定済みの正式な開発指示であることを確認しました。内容は、GitHubを唯一の正本として、FieldRise AI Control Dashboardを実運用可能なWebアプリとして構築するものです。Issue #6本文はこのMarkdownを正本と指定しており、Issueは通信・進捗管理に限定されています。[5] [6]
+## 未完了・残課題
 
-ただし、この既存指示書は新しい正本経路の導入以前から存在していたため、現行ワークフローの「新規追加ファイルのみ」という自動検知条件では遡及的に自動受領されません。認識済みであることと、ダッシュボード実装用の個別受領・Claimが済んでいることは別です。Issue #6の実装を開始する際は、現行ワークフローの `workflow_dispatch` に当該パスを指定するか、社長決定済みの新規正式指示を正本ディレクトリへ追加して、個別の受領キー・Claim・報告を生成します。[3]
+**総合再現度スコアおよび前回差分は未登録**です。現行のGitHub正本には、これらを算出できる正式な数値履歴が存在しないため、画面では「未登録」と表示しています。これは推測値を表示しないという正式指示に従うものです。将来、総合点・対象時刻・前回値を含む正本データが追加されれば、画面は次回同期から表示できます。[3]
 
-## 完了・未完了・ブロッカー
+公開URLへのデプロイは実施していません。理由は、静的ホスティング先および公開権限が本指示で指定されておらず、未承認の公開操作を避けるためです。GitHubへのコード・報告の書込みは完了しており、この点は実装ブロッカーではありません。未認証のGitHub API利用には公開APIのレート制限があるため、非常に頻繁な手動再同期を行う運用では、将来の認証付きプロキシまたはGitHub Actionsによる配信確認を検討してください。
 
-本指示の調査、正本経路の確認、Claim作成、正式報告の記録は**完了**です。GitHubへの書込みは成功しており、書込み権限によるブロッカーはありません。
+## ブロッカー
 
-残る制約は、現行の自動受領が `docs/momoka/instructions/` に**新規追加**された指示のみを対象にすることです。既存ファイルの移行、編集、または過去指示の再実行は、重複受領を防ぐため自動では開始されません。この場合は `workflow_dispatch` による対象パス指定で受領を起動します。また、Manus API用の `MANUS_API_KEY` が未設定・無効の場合は自動タスク生成が停止するため、GitHub Actions上の受領証跡を確認して手動対応へ切り替えます。[3]
+**なし。** Claim、アプリ実装、ビルド検証、正本レポートの作成、および `origin/main` への反映を実施しました。
 
 ## 参照
 
-[1]: https://github.com/FieldRiseJapan/FieldRise/commit/8c7cdd049d8b5ee1b1a19f5247688795306a4b3f "経路修正コミット"
-[2]: https://github.com/FieldRiseJapan/FieldRise/blob/8c7cdd049d8b5ee1b1a19f5247688795306a4b3f/docs/momoka/instructions/README.md "桃花向け正式指示の運用ルール"
-[3]: https://github.com/FieldRiseJapan/FieldRise/blob/8c7cdd049d8b5ee1b1a19f5247688795306a4b3f/.github/workflows/momoka-auto-notify.yml "桃花自動受領通知ワークフロー"
-[4]: https://github.com/FieldRiseJapan/FieldRise/blob/8c7cdd049d8b5ee1b1a19f5247688795306a4b3f/.github/workflows/momoka-claim-verifier.yml "Claim・報告照合ワークフロー"
-[5]: https://github.com/FieldRiseJapan/FieldRise/issues/6 "Issue #6"
-[6]: https://github.com/FieldRiseJapan/FieldRise/blob/8c7cdd049d8b5ee1b1a19f5247688795306a4b3f/docs/momoka/instructions/web-dashboard-app.md "Issue #6の正式指示書"
+[1]: https://github.com/FieldRiseJapan/FieldRise/commit/01948e39f235f573976b75bb45cd46bca1df37f6 "Claim反映コミット"
+[2]: https://github.com/FieldRiseJapan/FieldRise/blob/main/dashboard/sonata-desk/README.md "Sonata Deskの正本参照・共存方針"
+[3]: https://github.com/FieldRiseJapan/FieldRise/blob/a95a0cf8d6b460931ba40bf392ffa26a8f1d133f/docs/momoka/instructions/web-dashboard-app.md "正式指示書"
+[4]: https://github.com/FieldRiseJapan/FieldRise/tree/main/dashboard/ai-control-dashboard "AI Control Dashboard 実装先"
