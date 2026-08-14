@@ -519,3 +519,92 @@ Open PRは0件で、レビュー待ちまたはCI失敗PRはない。Open Issue�
 [42]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31807986151 "共通排他制御修正後のClaim・報告照合再TEST Run"
 [43]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31808459673 "リンク修正後のGitHub Pages Run"
 [44]: https://github.com/FieldRiseJapan/FieldRise/issues "Open Issue一覧"
+
+
+---
+
+## 最終確認報告｜彩花→桃花 自動通知システム（実配信経路の再検証）
+
+**確認日時:** 2026-08-15（GMT+9）
+
+**対象指示書:** `cto/outbox/2026-08-14_momoka-auto-notify-fix.md`
+
+**対象Workflow:** [`桃花 - CTO指示の自動受領通知`](../../../.github/workflows/momoka-auto-notify.yml)
+
+**最終判定:** **完成**
+
+### 結論
+
+本確認では、GitHub Actionsが`cto/outbox/`への新規指示書追加を検知し、Manus APIを介して桃花の受領処理を起動した後、桃花側のClaim JSON、正本レポート、およびReceiptを`main`上で相互照合する既存経路を再検証した。さらに、本チャットの受領者である桃花COOから、当該トリガーメッセージがこのチャットへ実際に到達している実績が明示的に確認された。
+
+GitHub上の成功証跡として、手動起動のE2Eテスト02再試験と、`push`起点のE2Eテスト03は、ともに`completed / success`で終了している。各試験では、HTTP `200`のManus API受理、`claimed`のReceipt、`claimed`のClaim JSON、`music_ai/reports/cafe/latest_report.md`への報告更新が一致している。したがって、要求された「新規指示書の検知、実通知、受信、Claim、指示実行、完了報告、彩花側での確認、連続2回以上成功」を満たす。[1] [2] [3] [4] [5] [6]
+
+> **運用上の確定事項:** LINEコネクタは本フローに不要である。本件の正式経路は、既存の **GitHub Actions → Manus API → 桃花の本チャット受領経路 → GitHub Claim・正本報告** とする。
+
+### 通知方式とワークフロー構成
+
+| 項目 | 確定内容 |
+|---|---|
+| 起点 | `main`へのpushで、`cto/outbox/**`配下に新規追加された返信以外のMarkdown指示書を検知する。手動の`workflow_dispatch`も検証専用に利用できる。 |
+| 通知方式 | `MANUS_API_KEY`をGitHub Actions Secretからのみ読み出し、Manus APIのタスク作成エンドポイントを呼び出して桃花の受領処理を起動する。 |
+| 受領確認 | 本チャットにトリガーメッセージが到達した実績を、受領者である桃花COOが本確認時に明示した。加えて、API受理のHTTP状態、Receipt、Claim、正本報告をGitHub上で照合する。 |
+| Claim・実行 | 桃花が`automation/momoka-claims/`へ`receipt_key`、`status: claimed`、`claimed_at`、`report_path`を含むClaim JSONを反映し、`latest_report.md`へ結果を記録する。 |
+| 確定処理 | Claim照合WorkflowがReceipt、Claim JSON、正本報告の三者を照合し、Receiptを`claimed`へ確定する。 |
+
+### ブロック原因の分析と解消状況
+
+| 区分 | 原因 | 影響 | 解消・現在の扱い |
+|---|---|---|---|
+| 初期の実配信ブロック | `MANUS_API_KEY`未設定のため、WorkflowはAPI呼出を行わず`blocked`で安全停止した。 | 初期テストでは実通知不可。 | 現行の成功ReceiptではManus API受理がHTTP `200`として記録されている。Secret値は本レポートおよびリポジトリに保存しない。[7] [3] [4] |
+| 非同期反映待ち | 旧実装の待機時間内に、桃花のClaim・レポートpushがGitHubへ反映されない場合があった。 | `received_pending_claim`の履歴が残った。 | Job上限を20分、Claim確認を最大15分へ拡張し、GitHub `main`上のClaim JSONと正本報告を直接照合する実装へ修正済みである。[8] [9] |
+| Receipt書込み競合 | 通知WorkflowとClaim照合Workflowが同一Receiptを同時更新し、`git pull --rebase`競合を起こし得た。 | Receipt最終状態の反映失敗リスク。 | 両Workflowを共通の`momoka-receipt-writes` concurrency groupで直列化し、照合Workflowは開始時に`origin/main`へ同期するよう修正済みである。[10] [11] |
+| 旧記録のAPI名称 | 一部の旧Receiptの`method`表記は`task.sendMessage`だが、Workflowの実際の呼出は新規タスク作成である。 | 証跡のAPI名称に限定的な記述差異があるが、Receipt・Claimの実体照合結果は変わらない。 | 運用上の正式表記は「Manus APIによる桃花受領タスクの作成」とし、実動作とReceipt・Claimの照合で判定する。[11] [12] |
+
+### 二重通知・二重実行の防止
+
+Workflowは`source SHA + instruction path`をReceipt keyとして保持する。同一Receiptが`received`、`received_pending_claim`、または`claimed`である場合は再送せず、`attempting`の場合も不確定な重複配信を避けて手動確認へ停止する。さらに、通知とClaim照合は共通concurrency groupで直列化されるため、同一Receiptへの並行書込みを防止する。[11] [10]
+
+### 実配信E2Eテスト結果
+
+| 回 | 起点・指示書 | GitHub Actions Run | API受理 | 桃花側Claim・正本報告 | 最終結果 |
+|---|---|---|---|---|---|
+| 1 | `workflow_dispatch`、`cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-02.md` | [`31805524613`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805524613) | HTTP `200` | Receipt `claimed`、Claim JSON `claimed`、正本報告更新あり | `completed / success` [1] [3] |
+| 2 | `push`、`cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-03.md` | [`31805694664`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805694664) | HTTP `200` | Receipt `claimed`、Claim JSON `claimed`、正本報告更新あり | `completed / success` [2] [4] |
+
+この2回は同じ通知・Claim・報告の正規経路を連続して通過した。第1回は修正後Workflowの再試験、第2回は新規指示書の`push`による自動検知であり、手動ClaimだけではなくWorkflow側の`claimed`確定まで成功している。[1] [2] [3] [4]
+
+### 失敗時のリカバリ方法
+
+| 状態 | Workflowの記録 | 復旧手順 |
+|---|---|---|
+| `blocked` | Secret未設定等の理由をReceiptの`delivery.detail`へ記録し、API呼出前に停止する。 | `MANUS_API_KEY`の登録状態・最小権限・有効期限をGitHubのSecret管理画面で確認後、**新規の**指示書または明示的な再試験を実行する。 |
+| `failed` | HTTP状態と失敗概要をReceiptおよびActions Step Summaryへ保存し、Runを失敗させる。 | API認証・Manus API応答・GitHub Actionsログを確認し、原因解消後に新規Receipt keyとなる試験指示で再実行する。 |
+| `received_pending_claim` | API受理済みだが、待機期間内のClaim・報告実体を確認できなかったことを保存する。 | `automation/momoka-claims/`、正本レポート、対象Receipt keyを確認する。実体が後着していればClaim照合Workflowで確定し、未到着なら桃花側の受領タスクを調査する。 |
+| `attempting` | 二重送信を避けて停止する。 | Receipt、APIログ、Claim JSONの存在を人手で照合し、送信成否を確定してから再試験の要否を判断する。 |
+
+### 必要なSecrets・権限
+
+| 種別 | 必要なもの | 用途 | 保管・取扱い |
+|---|---|---|---|
+| GitHub Actions Secret | `MANUS_API_KEY` | Manus APIによる桃花受領タスクの作成と結果照会。 | GitHub Secretとしてのみ参照し、値をコード、Receipt、Claim、レポート、ログへ保存しない。 |
+| GitHub Actions権限 | `contents: write` | Receipt、Claim照合の結果、正本報告を`main`へ反映する。 | Workflowの最小必要権限として設定する。 |
+| GitHub PAT | 本確認におけるCOOのGitHub反映操作のみ。 | 正本レポートのコミット・push。 | Actions Secretではない。値は保存・記録・表示しない。 |
+
+### 最終判定
+
+**完成。** 既存のGitHub Actions → Manus API → 本チャット受領経路について、実受信の到達実績、HTTP `200`のAPI受理、`claimed` Receipt、`claimed` Claim JSON、正本レポート、及び連続2回の成功Runを照合した。LINEコネクタの有効化は不要であり、本フローの要件でもない。過去の`blocked`、`attempting`、`received`、`received_pending_claim`は履歴証跡として保持するが、現行経路の完成判定を覆す未解決ブロッカーではない。
+
+### 参照
+
+[1]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805524613 "E2Eテスト02再試験の成功Run"
+[2]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805694664 "E2Eテスト03の成功Run"
+[3]: ../../../automation/momoka-receipts/754e9cd5adaf66652f92638dd23ad070d095cf83-9ed9f8f936a7.json "E2Eテスト02再試験のReceipt"
+[4]: ../../../automation/momoka-receipts/28b9edfbe19da54b5b62e359bb7c4c1f3bab0117-8d197de8c1a4.json "E2Eテスト03のReceipt"
+[5]: ../../../automation/momoka-claims/754e9cd5adaf66652f92638dd23ad070d095cf83-9ed9f8f936a7.json "E2Eテスト02再試験のClaim"
+[6]: ../../../automation/momoka-claims/28b9edfbe19da54b5b62e359bb7c4c1f3bab0117-8d197de8c1a4.json "E2Eテスト03のClaim"
+[7]: ../../../automation/momoka-receipts/303580653554a19d6b30eb0c17ffcb72879ef839-7028857191f7.json "初期Secret未設定の安全停止Receipt"
+[8]: ../../../automation/momoka-receipts/5908f6920999b5207ff0dcb114e622d138d436e8-9ed9f8f936a7.json "旧待機時間のreceived_pending_claim Receipt"
+[9]: https://github.com/FieldRiseJapan/FieldRise/commit/f75beef6bde11a6110c2941894ac7046a220265d "Receipt書込み直列化の修正"
+[10]: ../../../.github/workflows/momoka-claim-verifier.yml "Claim照合Workflow"
+[11]: ../../../.github/workflows/momoka-auto-notify.yml "桃花自動受領通知Workflow"
+[12]: https://open.manus.ai/docs/v2/task.create "Manus API task.create公式仕様"
