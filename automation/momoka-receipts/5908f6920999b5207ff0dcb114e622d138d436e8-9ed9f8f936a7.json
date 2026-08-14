@@ -12,7 +12,20 @@
   "delivery": {
     "recipient": "Manus default agent (桃花)",
     "method": "Manus API task.sendMessage",
-    "status": "attempting",
-    "started_at": "2026-08-14T13:45:21Z"
+    "status": "received_pending_claim",
+    "started_at": "2026-08-14T13:45:21Z",
+    "detail": "Manus APIは桃花の専用受領タスクを作成しましたが、15分以内にClaim・報告更新を確認できませんでした。",
+    "http_status": "200",
+    "finished_at": "2026-08-14T14:01:01Z",
+    "delivered_at": "2026-08-14T13:45:23Z",
+    "task_id": "UdubemUHV7DkpKR4237KBc",
+    "task_url": "https://manus.im/app/UdubemUHV7DkpKR4237KBc"
+  },
+  "claim": {
+    "status": "pending",
+    "report_path": null,
+    "report_updated": false,
+    "task_state": "in_progress",
+    "confirmed_at": null
   }
 }
