@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "1cdd111ef0ed9c7cce56b1c220c0997d4c6feb7d:cto/outbox/2026-08-14_github-error-full-test.md",
+    "id": "未指定",
+    "path": "cto/outbox/2026-08-14_github-error-full-test.md",
+    "source_sha": "1cdd111ef0ed9c7cce56b1c220c0997d4c6feb7d",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/1cdd111ef0ed9c7cce56b1c220c0997d4c6feb7d/cto/outbox/2026-08-14_github-error-full-test.md",
+    "priority": "未指定",
+    "created_at": "2026-08-14T13:55:32Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-14T14:01:17Z"
+  }
+}
