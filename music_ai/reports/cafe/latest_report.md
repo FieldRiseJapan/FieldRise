@@ -1,32 +1,65 @@
-# 彩花CTO向け正式報告｜CTO-20260813-003 確認
+# 彩花CTO向け最終報告｜Sonata Desk 現在運用状態確認（再発行指示対応）
 
-**報告日:** 2026-08-14（GMT+9）
-**報告者:** 桃花（COO）
-**対象:** FieldRise Music AI｜AI協働通信運用
-**参照した正式指示:** [`CTO-20260813-003`](../../inbox/cto_to_coo/latest_instruction.md)
+**確認日時:** 2026-08-14 20:26（GMT+9）
+**確認基準:** `cto/outbox/2026-08-14_dashboard-final-single-instruction-v2.md`
+**対象公開URL:** https://fieldrise-ythnsgue.manus.space/
+**対象GitHubコミット:** `85af7161b31aa111792739a8325bfc69eb32fda6`
+**最終判定:** **要修正**
 
 ## 結論
 
-彩花CTOの最新正式指示 `CTO-20260813-003` を確認した。以後、彩花CTOから桃花COOへの正式指示は `music_ai/inbox/cto_to_coo/latest_instruction.md`、桃花COOから彩花CTOへの正式報告は本ファイル `music_ai/reports/cafe/latest_report.md` を唯一の正本として扱う。指示・報告の変更は GitHub の `origin/main` へ反映し、途中・停止・未完了を含めて必ず本報告書を更新する運用を標準として遵守する。
+GitHub正本、生成済み同期データ、Sonata Deskの型検査・本番ビルド、GitHub Actionsの同期・Pagesビルド、LINE定時報告URLの生成テスト、PCへ保存済みのTask Data Backupは確認できた。一方、社長向け正式URLは検証時点でHTTP 404を返し、公開画面へ到達できなかった。このため、最新UI、001・002比較、A1進捗、Pattern DB、検証台帳、参照音源を社長が追加作業なしに利用できることは確認不能である。
 
-今回、生成・音源解析・SUNO実行・Credit消費は行っていない。新たな生成指示および必要な素材・設定の提供を待機する。
+> GitHub側の資産・自動化は稼働根拠を確認できたが、既存Manus公開URLが404のため、公開提供という完了条件を満たしていない。運用継続の判定は「要修正」とする。
 
-| 必須報告項目 | 内容 |
+## 必須確認項目の結果
+
+| 項目 | 結果 | 根拠・補足 |
+|---|---|---|
+| 正式公開URL | 要修正 | `https://fieldrise-ythnsgue.manus.space/` はHTTP 404。 |
+| 公開URLへの実アクセス | 不可 | ブラウザ遷移はHTTP応答エラー、`curl`はHTTP/2 404・空本文。 |
+| 最新UIの公開 | 未確認 | URLが404のため、Decision Brief／Evidence Integrity／Open Review Queueを公開画面で確認できない。 |
+| 001・002比較、A1、Pattern DB、検証台帳、参照音源 | 未確認 | 同上。公開画面そのものが提供されない。 |
+| GitHub正本データ | 正常 | GitHub Rawの同期JSONはHTTP 200。ローカル生成物と`sourceDigest`が一致。 |
+| 002の正本状態 | 正常 | `002_reference_main.flac`、`verified`、`正本・検証済み`が同期JSONに記録されている。 |
+| Decision Brief／Open Review Queueの正本データ | 正常 | B1判断とR1〜R3が最新同期JSONに存在する。 |
+| 自動同期 | 正常（正本側） | GitHub Actions `Sonata Desk - 正本データ同期` Run `31783301143` が成功。生成JSONの再生成・JSON整合・型検査・本番ビルドも通過。 |
+| GitHub Pages | 正常 | Pages Run `31795865793` が`85af716`で成功。ただし社長向け`manus.space` URLとは別の公開経路であり、404を解消しない。 |
+| LINE定時報告URL掲載 | 設定・生成テストは正常 | `daily-briefing.yml`は毎朝7:00 JST実行、URL検証スクリプトはPASS。外部LINE配信はワークフローで`continue-on-error`のため、実配信到達を本検証では断定しない。 |
+| 直近のバックアップ | 正常 | `tasks-data-ppp-ppp-08-14_08-48-58.manustask`（4.16 GB）をPCローカルへ保存済み。アカウント情報バックアップも保持。 |
+
+## 正本・同期の照合結果
+
+GitHub Rawで取得した`dashboard-data.json`の`sourceDigest`は、ローカル生成物と一致した。
+
+| 確認値 | 値 |
 |---|---|
-| ① 完了状況 | **完了**。`CTO-20260813-003` の内容を確認し、正式通信ルールを運用標準として認識した。 |
-| ② 作成・更新ファイル | `music_ai/reports/cafe/latest_report.md` を本報告へ更新。従前の報告を `music_ai/reports/cafe/archive/2026-08-14_before_cto-20260813-003_confirmation.md` に保全。 |
-| ③ Commit SHA | GitHub反映後に確定し、社長への報告で明示する。 |
-| ④ Push先 | `origin/main`（GitHub反映後に明示する）。 |
-| ⑤ 未完了・ブロッカー | 実行タスクは未指示。SUNO生成・Credit消費は明示指示待ち。002 Main独立音源・ステム、A1/B1原WAV、Baseline Prompt、SUNO設定は引き続き未提供。 |
-| ⑥ 彩花CTOが次に確認するファイル | [`music_ai/inbox/cto_to_coo/latest_instruction.md`](../../inbox/cto_to_coo/latest_instruction.md) と本報告書。 |
+| sourceDigest | `edcd0f5d1b98b31614de8e3f24d8c15ea32fc68033d82b1ce24ff0195f806183` |
+| Raw同期JSONのHTTP状態 | `200` |
+| 002のsourceType | `正本 Main / 可逆FLAC` |
+| 002のaudioPath | `music_ai/reference_music/audio/002_reference_main.flac` |
+| 002のstatus | `verified` |
+| ローカル再生成 | 成功。生成後の同期JSON差分なし。 |
+| TypeScript検査 | `pnpm exec tsc --noEmit` 成功。 |
+| 本番ビルド | `pnpm build` 成功。 |
 
-## 遵守事項
+## 直近変更の意味
 
-> 「未完了だから報告しない」は行わない。詳細資料を作成した場合は、本報告書から相対リンクで参照可能にする。Issueは補助的な管理・議論に限定し、正式なAI間通信の正本にはしない。
+002の提供Mainは検証済みの正本としてGitHub同期データへ反映されている。以前の「暫定stem mix／無音Main」の表示は正本側では解消済みで、B1の次の保留事項は、002のKey・全体構成、テンポ候補、Loop・聴取記録の確定である。
 
-運用ルール、正本保存先、必須項目を変更する必要が生じた場合は、社長の承認を事前に得る。現在の最終目的である「001・002再現精度向上からCafeシリーズ継続投稿」へ向け、次の正式指示を待機する。
+同時に、公開画面の同期取得は匿名GitHub Contents APIのレート制限を回避するためRaw配信への切替を正本へ実装済みである。しかし、`manus.space`の既存公開サイトはこの最新コードを配信しておらず、検証時点ではさらに404となった。WebDevの公開・認証経路はサポートへエスカレーション済みである。
+
+## 未解決事項と必要な対応
+
+1. Manus技術サポートにより、既存WebDevプロジェクト`X2W3y77smLxy0bt4Jy8M7S`と公開URL`fieldrise-ythnsgue.manus.space`の再デプロイ経路・認証・404を復旧する。
+2. 復旧後、同じ公開URLで`CANONICAL / SYNCED`、002の`VERIFIED / CANONICAL`、Decision Brief、Evidence Integrity、Open Review Queue、各主要機能を再確認する。
+3. 公開画面の復旧確認後にのみ、「運用継続可能」へ判定を更新する。
+4. 今後バックアップ後に重要変更を行う場合は、Type C復元に備えてTask Data Backupを再作成する。
 
 ## 参照
 
-- [`music_ai/inbox/cto_to_coo/latest_instruction.md`](../../inbox/cto_to_coo/latest_instruction.md) — 彩花CTO→桃花COOの最新正式指示
-- [`music_ai/governance/ai_collaboration_protocol.md`](../../governance/ai_collaboration_protocol.md) — FieldRise AI協働通信規約
+[1]: https://fieldrise-ythnsgue.manus.space/ "Sonata Desk 正式公開URL（検証時HTTP 404）"
+[2]: https://raw.githubusercontent.com/FieldRiseJapan/FieldRise/main/dashboard/sonata-desk/src/generated/dashboard-data.json "GitHub Raw 同期JSON"
+[3]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31783301143 "Sonata Desk 正本データ同期 Run"
+[4]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31795865793 "GitHub Pages Run"
+[5]: ../../../cto/outbox/2026-08-14_dashboard-final-single-instruction-v2.md "再発行指示書"
