@@ -12,7 +12,17 @@
   "delivery": {
     "recipient": "Manus default agent (桃花)",
     "method": "Manus API task.sendMessage",
-    "status": "attempting",
-    "started_at": "2026-08-14T13:32:07Z"
+    "status": "claimed",
+    "started_at": "2026-08-14T13:32:07Z",
+    "detail": "桃花のClaim記録と正本報告の双方を確認しました。",
+    "finished_at": "2026-08-14T13:33:48Z"
+  },
+  "claim": {
+    "status": "claimed",
+    "claim_record_path": "automation/momoka-claims/88435f480a93f83dcf7e9df0a6aeef561545de23-9ed9f8f936a7.json",
+    "report_path": "music_ai/reports/cafe/latest_report.md",
+    "report_updated": true,
+    "claimed_at": "2026-08-14T13:32:45Z",
+    "confirmed_at": "2026-08-14T13:33:48Z"
   }
 }
