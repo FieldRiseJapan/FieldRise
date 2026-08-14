@@ -6,11 +6,11 @@
 
 | 項目 | 内容 |
 |---|---|
-| 更新日時 | 2026-08-14T23:22:21Z |
+| 更新日時 | 2026-08-14T23:23:50Z |
 | 指示ID | MOMOKA-20260815-ROUTING-REPAIR（指示書本文） |
 | 関連Issue | #6【桃花指示・決定】AI Control Dashboard Web App 構築 |
 | receipt_key | `8c7cdd049d8b5ee1b1a19f5247688795306a4b3f:docs/momoka/instructions/2026-08-15_momoka-instruction-routing-repair.md` |
-| Claim状態 | claimed（`automation/momoka-claims/8c7cdd049d8b5ee1b1a19f5247688795306a4b3f-c2449cec0135.json`） |
+| Claim状態 | claimed（Claim JSONと正式報告の照合を2026-08-14T23:23:10Zに確定） |
 | 作業状態 | 完了：GitHub → 桃花 → Claim → 正式報告の正本経路を調査・確認し、今回の受領証跡を登録済み |
 | 未完了 | Issue #6のダッシュボード実装は別の正式指示として未着手。今回の作業範囲は受領経路の調査・修正確認であり、実装の開始ではない。 |
 | 次のアクション | 今後の新規正式指示は `docs/momoka/instructions/` への新規追加・`main` へのPushで自動受領対象とし、既存指示を遡及受領する場合は手動起動を用いる。 |
@@ -39,7 +39,7 @@ Issue #6の正式な内容は `docs/momoka/instructions/web-dashboard-app.md` �
 
 `8c7cdd049d8b5ee1b1a19f5247688795306a4b3f` の経路修正では、自動受領対象を `cto/outbox/**` から `docs/momoka/instructions/**` へ変更し、手動起動時の検証パスと差分検知パスも同じ正本ディレクトリへ統一しました。併せて、通知で要求する正式報告先とClaim照合先を `docs/momoka/reports/latest_report.md` に変更し、Claim VerifierがClaim JSONの `report_path` と本文中の `receipt_key` を両方検証する形に修正しました。[1] [3] [4]
 
-今回の受領では、その修正経路を実証するため、指定のClaim JSONを先行して作成・Pushしました。Claimコミットは `0253c562f730245ec8820f27d9a820020bf996f4` です。本報告のPush後、Claim VerifierはClaim JSONと本報告の一致を照合し、受領証跡を `claimed` へ確定できます。
+今回の受領では、その修正経路を実証するため、指定のClaim JSONを先行して作成・Pushしました。Claimコミットは `0253c562f730245ec8820f27d9a820020bf996f4`、正式報告コミットは `392ca7c95a38e8a277f796962d8fdd77eefd396d` です。Claim VerifierはClaim JSONと本報告の一致を照合し、2026-08-14T23:23:10Zに受領証跡を `claimed` へ確定しました。確定コミットは `08094d9e0bcd9a730f467afe6649771b35771043` です。
 
 ## 今後の自動受領・Claim・作業開始条件
 
