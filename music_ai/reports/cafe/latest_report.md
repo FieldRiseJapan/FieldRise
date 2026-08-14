@@ -1,77 +1,51 @@
-# 彩花CTO向け最終報告｜Sonata Desk 最終ユーザー向け検証
+# 彩花CTO向け最終報告｜Sonata Desk 公開反映完了
 
-**報告日:** 2026-08-14
+**報告日:** 2026-08-14（GMT+9）
 **報告者:** 桃花（COO）
 **宛先:** 彩花（CTO）
-**対象指示:** `cto/outbox/2026-08-14_dashboard-report-final-check.md`
-**検証基準:** 社長が公開URLを開き、GitHubの最新データを確認できる状態であること。
-**最終判定:** **未完成（公開リリース差分あり）**
+**対象指示:** `cto/outbox/2026-08-14_dashboard-final-single-instruction.md`
+**最終判定:** **完成**
 
-> **要約:** 公開中のSonata Deskは到達可能であり、既存の001・002比較、A1進捗、Pattern DB、検証台帳、参照音源を利用できます。GitHub正本から同期JSONへの自動反映も、GitHub Actionsの成功と公開画面から取得した最新`sourceDigest`の一致で確認しました。しかし、GitHubに追加済みの最新UI（Decision Brief、Evidence Integrity、Open Review Queue）は公開URLに表示されません。社長が最新画面まで利用できる状態を確認できないため、完成とは判定しません。
+## 結論
 
-## 1. 必須報告項目
+Sonata Deskの最新UIを、既存の公開URLへ反映し、公開環境で最終検証まで完了しました。公開先は変更しておらず、`Decision Brief`、`Evidence Integrity`、`Open Review Queue` の3要素が、GitHubを正本とする同期データとともに実画面へ表示されることを確認しています。[1]
 
-| 必須項目 | 検証結果 | 判定 |
+> **完成判定:** 公開URL、型検査、本番ビルド、GitHub同期データ、必須3要素の実画面表示をすべて確認済みです。
+
+| 確認項目 | 結果 | 検証内容 |
 |---|---|---|
-| 1. 正式Sonata Desk URL | [https://fieldrise-ythnsgue.manus.space/](https://fieldrise-ythnsgue.manus.space/) | 到達可能 |
-| 2. GitHub正本の自動反映 | 正本Markdown → `generate_dashboard_data.py` → `dashboard-data.json` → 公開画面がGitHub Contents APIで取得する構成 | データ同期は確認済み |
-| 3. 各機能の実装・表示 | 001・002比較、A1進捗、Pattern DB、検証台帳、参照音源は公開画面で表示を確認 | 利用可能 |
-| 4. 最新GitHubデータの表示 | `sourceDigest` `9d37015a…`、001 `222.400秒 / 48 kHz / Stereo`、002 `212.920秒 / 44.1 kHz / Stereo`をGitHub同期JSONから取得できることを確認 | データは最新 |
-| 5. 自動同期最終テスト | [Run 31754271300](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31754271300) が成功し、表示JSONを生成・Pushしたことをログで確認 | 成功 |
-| 6. 毎日のLINE定時報告 | `test_dashboard_url_in_briefing.py`を実行し、定時報告本文およびLINE通知文にURLが含まれることを確認 | 通過 |
-| 7. 未実装・既知の問題 | 最新UIコンポーネントが公開URLに未反映。公開先とGitHub Pagesの配信経路も分離している | 未解消 |
-| 8. 最終判定 | 公開URLの最新UI反映を確認できない | **未完成** |
+| 既存公開URL | 完了 | 公開先を変更せず、既存URLへ最新UIを反映しました。[1] |
+| Decision Brief | 完了 | B1の伴奏導入時刻比較を次の判断として表示しています。[1] |
+| Evidence Integrity | 完了 | 001を `VERIFIED / CANONICAL`、002を `PROVISIONAL / STEM MIX` と区別して表示しています。[1] |
+| Open Review Queue | 完了 | 002の正しいMain確保、テンポ確定、Loop・聴取記録の3件を表示しています。[1] |
+| GitHub同期 | 完了 | 公開画面は `CANONICAL / SYNCED` と同期digest `9d37015aab` を表示しました。[1] |
+| 型検査 | 合格 | `pnpm check`（TypeScriptの`--noEmit`）を通過しました。 |
+| 本番ビルド | 合格 | Vite本番ビルドとサーバーバンドルが成功しました。 |
 
-## 2. ユーザーとして確認した公開画面
+## 実施内容
 
-公開URLを実際に開き、次の項目を確認しました。
+既存のSonata Desk WebDevプロジェクトに、GitHub `main` ブランチの `dashboard/sonata-desk/src/Home.tsx` をUI正本として反映しました。既存の`/manus-storage/`配下の画像参照は保持し、重複する新規サイトを作らず、同一の公開URLを更新しています。
 
-| 機能 | 公開画面での確認内容 |
+公開画面では、Decision Briefとして「B1は、伴奏導入時刻だけを比べる」という次の判断が示されます。続いて、001の正本性と002の暫定性を混同しないEvidence Integrity、次に解消すべき3つの確認事項をOpen Review Queueとして確認できます。[1]
+
+| UI要素 | 実画面で確認した内容 |
 |---|---|
-| 001・002比較 | 正本／暫定の状態、曲尺、BPM、Bass onset、Intro bass、Drums RMS、正解データ・FLACへの導線を確認。 |
-| A1進捗 | G01–G09、Current Hold、A1固定条件への導線を確認。 |
-| Pattern DB | Fact／Hypothesis／Pendingのカード表示を確認。 |
-| 検証台帳 | A1／B1、変更変数、状態、根拠導線を確認。 |
-| 参照音源 | 001正本FLACと002暫定stem mixの再生・直接リンクを確認。 |
+| Decision Brief | 001の約2.299秒と002の約0.255秒を比較対象とし、002の正式Mainとテンポ確認を先行条件として表示しました。 |
+| Evidence Integrity | 001は正規Main・FLAC整合・4ステム再構成済み、002は無音Mainのため4ステム合成版を暫定参照として明示しました。 |
+| Open Review Queue | R1: 002の正しいMain確保、R2: 002のテンポ確定、R3: Loop・聴取記録完了を表示しました。 |
 
-画面は`CANONICAL / SYNCED`を表示し、公開URLからGitHub Contents APIの最新同期JSONを取得しています。GitHub同期JSON内には、001・002の最新曲尺・形式、Decision Brief、3件のReview Queueを確認しました。
+## 検証記録
 
-## 3. 自動同期の証拠
+ビルド前にTypeScript検査を実行し、続けてVite本番ビルドとサーバーバンドルを実行しました。型エラー・ビルドエラーはありませんでした。JavaScriptバンドルサイズに関する警告は出ていますが、公開を妨げるエラーではありません。
 
-`Sonata Desk - 正本データ同期`の[Run 31754271300](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31754271300)は成功しています。実行ログでは、正本データから表示JSONを生成し、`b77ce51`（`chore: sync Sonata Desk display data`）を`main`へPushしたことを確認しました。
+公開後は、実際の公開URLを直接開き、必須3要素の見出し・内容・根拠リンクを確認しました。さらに、画面がGitHub Contents APIから同期データを取得し、`CANONICAL / SYNCED`として表示されることを確認しています。[1] [2]
 
-公開画面が取得するJSONの`sourceDigest`は、GitHub `main`の`sync-status.json`と同じ `9d37015aaba2281fb2a067077d6d8af818292af2dac1fe9b4b6fb153357aef77` です。したがって、**表示データの自動同期は実動しています。**
+## 運用上の留意点
 
-## 4. LINE定時報告の設定状況
+今回の公開反映でダッシュボードは完成と判定します。ただし、音楽研究上の保留事項は残っています。002の正式Main入手、テンポ候補のDAW・聴取による確定、Loop・音色・ノイズの人手レビューは、画面上のOpen Review Queueに残しており、未確定情報を確定値として扱わない運用を維持します。[1] [3]
 
-毎朝7:00 JST実行の`FieldRise AI秘書 - 定時報告`ワークフローには、ダッシュボードURLを検証するステップが登録されています。[ワークフロー](../../../.github/workflows/daily-briefing.yml)の`test_dashboard_url_in_briefing.py`をローカルで実行し、定時報告本文とLINE通知文の両方に `https://fieldrise-ythnsgue.manus.space` が含まれることを確認しました。
+## 参照
 
-## 5. 未実装・既知の問題・制約
-
-### 公開UIのリリース差分
-
-GitHubの`d7f6fb9`には、Decision Brief、Evidence Integrity、Open Review Queueを含む最新`Home.tsx`が存在します。しかし、公開URLのナビゲーションにはこれらが表示されず、旧表示バンドルが配信されている状態です。公開URLがGitHub同期JSONを読んでいるためデータは最新ですが、**最新の画面コードが社長の公開URLへ反映済みとは確認できません。**
-
-### 公開経路の分離
-
-GitHub Pagesは `https://fieldrisejapan.github.io/FieldRise/` で公開され、`main`ブランチのリポジトリルートを配信元としています。一方、社長向けSonata Desk URLは `https://fieldrise-ythnsgue.manus.space/` であり、GitHub Pagesとは別の公開バンドルです。GitHub Pagesの最終デプロイは成功していますが、Sonata Deskの最新Viteビルドをどの公開先へ反映するかは別途確定が必要です。
-
-## 6. 最終判定と再開条件
-
-**最終判定は未完成です。** 理由は、コアのデータ同期と既存機能は動作しているものの、最新UIコンポーネントが社長向け公開URLに現れていないためです。コミット履歴やTODOの完了ではなく、実際の公開URLを根拠に判定しました。
-
-再開・完成判定の条件は、以下のとおりです。
-
-1. `fieldrise-ythnsgue.manus.space` の公開先を特定する。
-2. GitHubの最新`dashboard/sonata-desk` Viteビルドを当該公開先へデプロイする。
-3. 公開URLでDecision Brief、Evidence Integrity、Open Review Queueが表示されることを確認する。
-4. 公開画面の`sourceDigest`とGitHub `main`の`sync-status.json`を再照合する。
-5. 上記の証跡を本ファイルへ追記して、最終判定を「完成」へ更新する。
-
-## 7. 証跡・関連資料
-
-- [CTO正式指示](../../../cto/outbox/2026-08-14_dashboard-report-final-check.md)
-- [最終ユーザー向け検証証跡](../../../dashboard/sonata-desk/USER_FACING_VERIFICATION_20260814.md)
-- [同期ワークフロー](../../../.github/workflows/sonata-desk-sync.yml)
-- [LINE定時報告ワークフロー](../../../.github/workflows/daily-briefing.yml)
-- [前回の分析・ダッシュボード完了報告](archive/2026-08-14_pre-sonata-user-facing-verification.md)
+[1]: https://fieldrise-ythnsgue.manus.space/ "Sonata Desk 公開環境"
+[2]: https://github.com/FieldRiseJapan/FieldRise/blob/main/dashboard/sonata-desk/src/generated/dashboard-data.json "Sonata Desk 同期データ"
+[3]: https://github.com/FieldRiseJapan/FieldRise/blob/main/music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md "001・002 専門分析レビュー"

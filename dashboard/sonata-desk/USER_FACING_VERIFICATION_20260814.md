@@ -50,3 +50,18 @@ GitHub Pagesは公開中であり、Pages URLは `https://fieldrisejapan.github.
 ## 結論
 
 **最終判定: 未完成（公開リリース差分あり）。** 既存の研究ダッシュボードとしては利用可能で、GitHubデータの自動反映も実証済みである。ただし、公開URLが最新`Home.tsx`の画面コンポーネントを配信していないため、`d7f6fb9`で追加した最新UIまで社長が利用できる状態は確認できない。公開先を特定し、最新Viteビルドを同じURLへデプロイしてから再確認が必要である。
+
+
+## 公開反映完了の再検証（2026-08-14 GMT+9）
+
+既存の公開URL `https://fieldrise-ythnsgue.manus.space/` を直接開き、最新UIの公開反映を確認した。画面は `CANONICAL / SYNCED` と同期digest `9d37015aab` を表示した。
+
+| 確認対象 | 公開環境での結果 |
+|---|---|
+| Decision Brief | 「B1は、伴奏導入時刻だけを比べる」が表示された。 |
+| Evidence Integrity | 001の `VERIFIED / CANONICAL` と002の `PROVISIONAL / STEM MIX` が表示された。 |
+| Open Review Queue | R1〜R3（正式Main、テンポ、Loop・聴取記録）が表示された。 |
+| データ同期 | GitHub Contents API由来の同期データが公開画面に反映された。 |
+| 最終判定 | 完成。公開リリース差分は解消された。 |
+
+公開反映前に`pnpm check`およびVite本番ビルドを実行し、いずれも成功した。バンドルサイズに関する警告はあったが、型検査・ビルド・公開を阻害するエラーはなかった。
