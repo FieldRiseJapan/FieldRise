@@ -12,7 +12,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: momoka-claim-verifier
+  # 通知Workflowと同じ受領証跡を更新するため、同一の書込み枠で直列化する。
+  group: momoka-receipt-writes
   cancel-in-progress: false
 
 jobs:
@@ -34,6 +35,10 @@ jobs:
 
           git config user.name "FieldRise-Momoka-Claim-Verifier"
           git config user.email "momoka-claim-verifier@fieldrise.local"
+
+          # 待機中に進んだ通知・Claimの更新を取り込み、古いcheckoutで同じReceiptを再更新しない。
+          git fetch origin main
+          git reset --hard origin/main
 
           finalized=0
           skipped=0
@@ -80,6 +85,6 @@ jobs:
             echo "確定対象の受領証跡はありません。"
           else
             git commit -m "chore: finalize Momoka claim receipts"
-            git pull --rebase origin main
+            # 同一concurrency groupで通知Workflowと直列化済み。直後のrebaseによる同一Receipt競合を避ける。
             git push origin HEAD:main
           fi

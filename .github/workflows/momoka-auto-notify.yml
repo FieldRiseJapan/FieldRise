@@ -21,7 +21,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: momoka-auto-notify
+  # Claim照合Workflowと同一Receiptを更新するため、書込みは共通枠で直列化する。
+  group: momoka-receipt-writes
   cancel-in-progress: false
 
 jobs:
