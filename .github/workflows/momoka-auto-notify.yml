@@ -181,7 +181,7 @@ jobs:
               status="blocked"
               detail="GitHub Actions Secret MANUS_API_KEY が未設定のため、Manusへの受領トリガーは実行していません。"
             else
-              message="[CTO指示の自動受領・Claim要求]\n\nReceipt key: ${receipt_key}\n指示ID: ${instruction_id}\n優先度: ${priority}\n作成日時: ${created_at}\n指示書: ${instruction_url}\nCommit SHA: ${SOURCE_SHA}\n\n上記の正式指示書を取得して内容を確認し、直ちにClaimしてください。Claim後、指示を実行し、受領・進捗・完了・未完了・ブロッカーを正本の `music_ai/reports/cafe/latest_report.md` に記録して `origin/main` へPushしてください。完了時には、Receipt key、Claim状態、報告ファイルの更新有無、実行状態を明確に返してください。実施できない場合も、理由とblocked状態を明確に返してください。"
+              message="[CTO指示の自動受領・Claim要求]\n\nReceipt key: ${receipt_key}\n指示ID: ${instruction_id}\n優先度: ${priority}\n作成日時: ${created_at}\n指示書: ${instruction_url}\nCommit SHA: ${SOURCE_SHA}\n\n上記の正式指示書を取得して内容を確認し、直ちにClaimしてください。Claim後、指示を実行し、受領・進捗・完了・未完了・ブロッカーを正本の music_ai/reports/cafe/latest_report.md に記録して origin/main へPushしてください。完了時には、Receipt key、Claim状態、報告ファイルの更新有無、実行状態を明確に返してください。実施できない場合も、理由とblocked状態を明確に返してください。"
               claim_schema='{"type":"object","properties":{"receipt_key":{"type":"string"},"claim_state":{"type":"string","enum":["claimed","not_claimed","blocked"]},"report_path":{"type":"string"},"report_updated":{"type":"boolean"},"task_state":{"type":"string","enum":["completed","in_progress","blocked"]}},"required":["receipt_key","claim_state","report_path","report_updated","task_state"],"additionalProperties":false}'
               payload="$(jq -n --arg content "$message" --argjson claim_schema "$claim_schema" '{task_id: "agent-default-main_task", message: {content: $content}, structured_output_schema: $claim_schema}')"
               response_file="$RUNNER_TEMP/manus-response-${path_hash}.json"
