@@ -18,11 +18,11 @@ GitHubを唯一の正本とし、正本Markdownを変更しない派生JSONだ�
 
 | 項目 | 実装先 | 役割 |
 |---|---|---|
-| 表示データ生成 | [`dashboard/sonata-desk/scripts/generate_dashboard_data.py`](../../../dashboard/sonata-desk/scripts/generate_dashboard_data.py) | 5つの正本Markdownを決定的に解析し、表示専用JSONを生成する。 |
-| 自動起動 | [`.github/workflows/sonata-desk-sync.yml`](../../../.github/workflows/sonata-desk-sync.yml) | 正本更新を検知し、JSON検証・コミット・GitHubログ記録を行う。 |
-| 表示データ | [`dashboard-data.json`](../../../dashboard/sonata-desk/src/generated/dashboard-data.json) | 001・002比較、A1、台帳、Pattern DB、音源カードの派生表示データ。 |
-| 同期状態 | [`sync-status.json`](../../../dashboard/sonata-desk/src/generated/sync-status.json) | 入力ファイルSHA-256、全体digest、生成状態を保持する。 |
-| 画面接続 | [`dashboard/sonata-desk/src/Home.tsx`](../../../dashboard/sonata-desk/src/Home.tsx) | 同期JSONを優先表示し、取得失敗時だけ既存の読取専用フォールバックを使う。 |
+| 表示データ生成 | [`dashboard/sonata-desk/scripts/generate_dashboard_data.py`](../../../../dashboard/sonata-desk/scripts/generate_dashboard_data.py) | 5つの正本Markdownを決定的に解析し、表示専用JSONを生成する。 |
+| 自動起動 | [`.github/workflows/sonata-desk-sync.yml`](../../../../.github/workflows/sonata-desk-sync.yml) | 正本更新を検知し、JSON検証・コミット・GitHubログ記録を行う。 |
+| 表示データ | [`dashboard-data.json`](../../../../dashboard/sonata-desk/src/generated/dashboard-data.json) | 001・002比較、A1、台帳、Pattern DB、音源カードの派生表示データ。 |
+| 同期状態 | [`sync-status.json`](../../../../dashboard/sonata-desk/src/generated/sync-status.json) | 入力ファイルSHA-256、全体digest、生成状態を保持する。 |
+| 画面接続 | [`dashboard/sonata-desk/src/Home.tsx`](../../../../dashboard/sonata-desk/src/Home.tsx) | 同期JSONを優先表示し、取得失敗時だけ既存の読取専用フォールバックを使う。 |
 
 ## トリガー対象と反映領域
 
@@ -42,7 +42,7 @@ GitHubを唯一の正本とし、正本Markdownを変更しない派生JSONだ�
 | 1 | `success_song_001.md`の分析状態へ試験文言を1件追加 | 正本変更コミット`a802fb7`をpush | [正本変更](https://github.com/FieldRiseJapan/FieldRise/commit/a802fb7) |
 | 2 | Pushトリガーで同期Actionが起動 | 12秒で成功 | [Run 31706090531](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706090531) |
 | 3 | Actionが派生JSONを更新・コミット | `e44aeda`が生成された | [生成コミット](https://github.com/FieldRiseJapan/FieldRise/commit/e44aeda) |
-| 4 | 生成JSONに試験文言が反映されたことを確認 | `summary`で一致 | [表示データ](../../../dashboard/sonata-desk/src/generated/dashboard-data.json) |
+| 4 | 生成JSONに試験文言が反映されたことを確認 | `summary`で一致 | [表示データ](../../../../dashboard/sonata-desk/src/generated/dashboard-data.json) |
 | 5 | 正本を元の分析状態へ復元 | `01f8187`をpush | [復元コミット](https://github.com/FieldRiseJapan/FieldRise/commit/01f8187) |
 | 6 | 復元PushでActionが再度成功しJSONを更新 | 試験文言が最終JSONから消えた | [生成コミット](https://github.com/FieldRiseJapan/FieldRise/commit/c37d0cf) |
 

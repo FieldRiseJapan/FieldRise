@@ -44,7 +44,7 @@
 
 ## 4. LINE定時報告の設定状況
 
-毎朝7:00 JST実行の`FieldRise AI秘書 - 定時報告`ワークフローには、ダッシュボードURLを検証するステップが登録されています。[ワークフロー](../../../.github/workflows/daily-briefing.yml)の`test_dashboard_url_in_briefing.py`をローカルで実行し、定時報告本文とLINE通知文の両方に `https://fieldrise-ythnsgue.manus.space` が含まれることを確認しました。
+毎朝7:00 JST実行の`FieldRise AI秘書 - 定時報告`ワークフローには、ダッシュボードURLを検証するステップが登録されています。[ワークフロー](../../../../.github/workflows/daily-briefing.yml)の`test_dashboard_url_in_briefing.py`をローカルで実行し、定時報告本文とLINE通知文の両方に `https://fieldrise-ythnsgue.manus.space` が含まれることを確認しました。
 
 ## 5. 未実装・既知の問題・制約
 
@@ -70,8 +70,8 @@ GitHub Pagesは `https://fieldrisejapan.github.io/FieldRise/` で公開され、
 
 ## 7. 証跡・関連資料
 
-- [CTO正式指示](../../../cto/outbox/2026-08-14_dashboard-report-final-check.md)
-- [最終ユーザー向け検証証跡](../../../dashboard/sonata-desk/USER_FACING_VERIFICATION_20260814.md)
-- [同期ワークフロー](../../../.github/workflows/sonata-desk-sync.yml)
-- [LINE定時報告ワークフロー](../../../.github/workflows/daily-briefing.yml)
-- [前回の分析・ダッシュボード完了報告](archive/2026-08-14_pre-sonata-user-facing-verification.md)
+- [CTO正式指示](../../../../cto/outbox/2026-08-14_dashboard-report-final-check.md)
+- [最終ユーザー向け検証証跡](../../../../dashboard/sonata-desk/USER_FACING_VERIFICATION_20260814.md)
+- [同期ワークフロー](../../../../.github/workflows/sonata-desk-sync.yml)
+- [LINE定時報告ワークフロー](../../../../.github/workflows/daily-briefing.yml)
+- [前回の分析・ダッシュボード完了報告](2026-08-14_pre-sonata-user-facing-verification.md)

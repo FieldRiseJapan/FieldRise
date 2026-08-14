@@ -5,7 +5,7 @@
 **宛先:** 社長・彩花（CTO）
 **公開ブランチ:** `main`（GitHub既定ブランチ）
 **現在状態:** B1の検証用A/B Prompt、固定設定、生成前台帳は準備済み。社長によるSUNO手動生成・原WAV登録・生成後評価を待っている。
-**通信正本:** [最新指示](../../inbox/cto_to_coo/latest_instruction.md) ／ 本 `latest_report.md`
+**通信正本:** [最新指示](../../../inbox/cto_to_coo/latest_instruction.md) ／ 本 `latest_report.md`
 
 > **常時更新ルール:** 開始、途中、停止、未完了、完了のすべてを本ファイルへ記載する。未完了を理由に報告を省略しない。
 
@@ -21,11 +21,11 @@
 | 正本との一致 | 生成JSONの`summary`に試験文言が反映され、復元後`c37d0cf`で自動削除を確認。 |
 | 失敗の追跡 | [手動失敗テスト](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706207859)でステップ名・出力・終了コードをGitHub上に記録。 |
 
-詳細は[自動反映実証報告](archive/2026-08-13_sonata-desk-auto-sync-verification.md)、実装と運用は[`dashboard/sonata-desk/SYNC.md`](../../../dashboard/sonata-desk/SYNC.md)を参照する。
+詳細は[自動反映実証報告](2026-08-13_sonata-desk-auto-sync-verification.md)、実装と運用は[`dashboard/sonata-desk/SYNC.md`](../../../../dashboard/sonata-desk/SYNC.md)を参照する。
 
 ### 最終実証（彩花指示）
 
-**判定:** **完成。** 正本変更`43dead9`→自動同期Action成功→生成コミット`e844ccd`→Sonata Deskの`SYNC ed8f375099…`表示→正本復元`115c485`→自動同期Action成功→生成コミット`3a5db46`→最終`SYNC 046dd75259…`までを確認した。失敗追跡も[Run 31706207859](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706207859)で確認済みである。詳細は[最終自動同期証跡](archive/2026-08-13_sonata-desk-final-auto-sync-proof.md)を参照する。
+**判定:** **完成。** 正本変更`43dead9`→自動同期Action成功→生成コミット`e844ccd`→Sonata Deskの`SYNC ed8f375099…`表示→正本復元`115c485`→自動同期Action成功→生成コミット`3a5db46`→最終`SYNC 046dd75259…`までを確認した。失敗追跡も[Run 31706207859](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31706207859)で確認済みである。詳細は[最終自動同期証跡](2026-08-13_sonata-desk-final-auto-sync-proof.md)を参照する。
 
 ## Sonata Desk 最終確認｜完成判定
 
@@ -33,8 +33,8 @@
 
 | 確認項目 | 結果 | 実装・証拠 |
 |---|---|---|
-| 実装本体 | 通過 | [`dashboard/sonata-desk/src/Home.tsx`](../../../dashboard/sonata-desk/src/Home.tsx) |
-| 001・002比較 / A1 / Pattern DB / 台帳 / 音源 | 通過 | [最終確認証跡](../../../dashboard/sonata-desk/FINAL_VERIFICATION.md) |
+| 実装本体 | 通過 | [`dashboard/sonata-desk/src/Home.tsx`](../../../../dashboard/sonata-desk/src/Home.tsx) |
+| 001・002比較 / A1 / Pattern DB / 台帳 / 音源 | 通過 | [最終確認証跡](../../../../dashboard/sonata-desk/FINAL_VERIFICATION.md) |
 | 正本参照・外部連携なし | 通過 | GitHub正本へのリンクのみ。独自DB、外部DB、外部SaaS、不要なAPIなし。 |
 | 公開・利用方法 | 利用可能 | [Sonata Desk](https://fieldrise-ythnsgue.manus.space) |
 
@@ -44,18 +44,18 @@
 
 **状態:** **追加観測を反映済み。** 受領した002の追加「その他」「ドラム」は、既存`other.wav`を相関 **0.999959**、SNR **40.91 dB**で再構成した。伴奏主成分のOnsetは0.255秒、低レベルの追加ドラムは1.138秒である。GitHub同期Action [Run 31715134795](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31715134795) が成功し、Sonata Deskは最新`sourceDigest` `8be018a058…`を表示している。
 
-この分析によりG03の伴奏構成に関する観測は改善したが、正式Mainの不在は解消しない。G05、G06全体構成、G07、G08の保留、およびB1の「その他の導入時刻だけを変える」原則は維持する。詳細は[002追加分離ステム整合分析](../../analysis/cafe/2026-08-14_002-additional-other-split-analysis.md)を参照する。
+この分析によりG03の伴奏構成に関する観測は改善したが、正式Mainの不在は解消しない。G05、G06全体構成、G07、G08の保留、およびB1の「その他の導入時刻だけを変える」原則は維持する。詳細は[002追加分離ステム整合分析](../../../analysis/cafe/2026-08-14_002-additional-other-split-analysis.md)を参照する。
 
 ## 彩花CTO確認カード
 
 | 必須項目 | 現在の内容 |
 |---|---|
 | **① 完了状況** | A1のステム実測、001・002の基盤整理、B1の一変数比較仕様、Cafe009 B1のPromptと生成前台帳を準備済み |
-| **② 作成・更新ファイル** | [最新指示](../../inbox/cto_to_coo/latest_instruction.md)、[通信規約](../../governance/ai_collaboration_protocol.md)、[Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md)、[Generation Registry](../../registry/generation_registry.jsonl) |
+| **② 作成・更新ファイル** | [最新指示](../../../inbox/cto_to_coo/latest_instruction.md)、[通信規約](../../../governance/ai_collaboration_protocol.md)、[Cafe009 B1 Prompt](../../../prompts/cafe/cafe009_b1_generation_prompt_v1.md)、[Generation Registry](../../../registry/generation_registry.jsonl) |
 | **③ Commit SHA** | `f3cae01190026f1e234ed278887f0831f0a330de` |
 | **④ Push先** | `origin/main` へPush完了 |
 | **⑤ 未完了・ブロッカー** | SUNOの選択Model名、A/B原WAV、生成結果、生成後測定が未登録。002 Mainは無音のため、正しいMainまたは4ステム合成版の承認が必要 |
-| **⑥ 彩花CTOが次に確認するファイル** | [Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md) と [最新正式指示](../../inbox/cto_to_coo/latest_instruction.md) |
+| **⑥ 彩花CTOが次に確認するファイル** | [Cafe009 B1 Prompt](../../../prompts/cafe/cafe009_b1_generation_prompt_v1.md) と [最新正式指示](../../../inbox/cto_to_coo/latest_instruction.md) |
 
 ## A1実測とP0〜P2の現在地点
 
@@ -82,10 +82,10 @@
 
 ## 参照先
 
-- [彩花CTO→桃花COO 最新正式指示](../../inbox/cto_to_coo/latest_instruction.md)
-- [FieldRise AI協働通信規約](../../governance/ai_collaboration_protocol.md)
-- [検証用Cafe009 B1 Prompt](../../prompts/cafe/cafe009_b1_generation_prompt_v1.md)
-- [B1導入静音長比較仕様](../../experiments/cafe_series/b1_intro_quiet_window_spec_v1.md)
-- [生成台帳](../../registry/generation_registry.jsonl)
-- [001・002ステム実測レポート](../../analysis/cafe/2026-08-12_001-002-stem-measurement.md)
-- [001・002参照音源台帳](../../reference_music/audio/README.md)
+- [彩花CTO→桃花COO 最新正式指示](../../../inbox/cto_to_coo/latest_instruction.md)
+- [FieldRise AI協働通信規約](../../../governance/ai_collaboration_protocol.md)
+- [検証用Cafe009 B1 Prompt](../../../prompts/cafe/cafe009_b1_generation_prompt_v1.md)
+- [B1導入静音長比較仕様](../../../experiments/cafe_series/b1_intro_quiet_window_spec_v1.md)
+- [生成台帳](../../../registry/generation_registry.jsonl)
+- [001・002ステム実測レポート](../../../analysis/cafe/2026-08-12_001-002-stem-measurement.md)
+- [001・002参照音源台帳](../../../reference_music/audio/README.md)

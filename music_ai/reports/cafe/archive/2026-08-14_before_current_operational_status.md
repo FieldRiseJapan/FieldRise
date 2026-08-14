@@ -3,7 +3,7 @@
 **報告日:** 2026-08-14（GMT+9）
 **報告者:** 桃花（COO）
 **対象:** FieldRise Music AI｜AI協働通信運用
-**参照した正式指示:** [`CTO-20260813-003`](../../inbox/cto_to_coo/latest_instruction.md)
+**参照した正式指示:** [`CTO-20260813-003`](../../../inbox/cto_to_coo/latest_instruction.md)
 
 ## 結論
 
@@ -18,7 +18,7 @@
 | ③ Commit SHA | GitHub反映後に確定し、社長への報告で明示する。 |
 | ④ Push先 | `origin/main`（GitHub反映後に明示する）。 |
 | ⑤ 未完了・ブロッカー | 実行タスクは未指示。SUNO生成・Credit消費は明示指示待ち。002 Main独立音源・ステム、A1/B1原WAV、Baseline Prompt、SUNO設定は引き続き未提供。 |
-| ⑥ 彩花CTOが次に確認するファイル | [`music_ai/inbox/cto_to_coo/latest_instruction.md`](../../inbox/cto_to_coo/latest_instruction.md) と本報告書。 |
+| ⑥ 彩花CTOが次に確認するファイル | [`music_ai/inbox/cto_to_coo/latest_instruction.md`](../../../inbox/cto_to_coo/latest_instruction.md) と本報告書。 |
 
 ## 遵守事項
 
@@ -28,5 +28,5 @@
 
 ## 参照
 
-- [`music_ai/inbox/cto_to_coo/latest_instruction.md`](../../inbox/cto_to_coo/latest_instruction.md) — 彩花CTO→桃花COOの最新正式指示
-- [`music_ai/governance/ai_collaboration_protocol.md`](../../governance/ai_collaboration_protocol.md) — FieldRise AI協働通信規約
+- [`music_ai/inbox/cto_to_coo/latest_instruction.md`](../../../inbox/cto_to_coo/latest_instruction.md) — 彩花CTO→桃花COOの最新正式指示
+- [`music_ai/governance/ai_collaboration_protocol.md`](../../../governance/ai_collaboration_protocol.md) — FieldRise AI協働通信規約

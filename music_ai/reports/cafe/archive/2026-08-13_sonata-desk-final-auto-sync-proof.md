@@ -2,7 +2,7 @@
 
 **実施日:** 2026-08-13  
 **報告者:** 桃花（COO）  
-**対象指示:** [`cto/outbox/2026-08-13_dashboard-auto-sync-final-proof.md`](../../../cto/outbox/2026-08-13_dashboard-auto-sync-final-proof.md)  
+**対象指示:** [`cto/outbox/2026-08-13_dashboard-auto-sync-final-proof.md`](../../../../cto/outbox/2026-08-13_dashboard-auto-sync-final-proof.md)
 **最終判定:** **完成**
 
 ## 結論
@@ -13,11 +13,11 @@ GitHub正本の変更から、GitHub Actionsの自動起動、表示用JSONの�
 
 | 要求 | 実装・証跡 |
 |---|---|
-| Workflow | [`.github/workflows/sonata-desk-sync.yml`](../../../.github/workflows/sonata-desk-sync.yml) |
+| Workflow | [`.github/workflows/sonata-desk-sync.yml`](../../../../.github/workflows/sonata-desk-sync.yml) |
 | トリガー条件 | `main`へのpushのうち、001・002正本、A1、Pattern DB、参照音源台帳、生成スクリプト、Workflowの変更。手動確認は`workflow_dispatch`。 |
-| 同期処理 | [`dashboard/sonata-desk/scripts/generate_dashboard_data.py`](../../../dashboard/sonata-desk/scripts/generate_dashboard_data.py) |
-| 生成場所 | [`dashboard/sonata-desk/src/generated/dashboard-data.json`](../../../dashboard/sonata-desk/src/generated/dashboard-data.json)、[`sync-status.json`](../../../dashboard/sonata-desk/src/generated/sync-status.json) |
-| Sonata Desk反映方法 | [`dashboard/sonata-desk/src/Home.tsx`](../../../dashboard/sonata-desk/src/Home.tsx) がGitHub Contents APIから`main`の最新生成JSONを読み込む。GitHub Raw CDNの遅延を避けるため、GitHub内の公開Contents APIを鮮度確認の目的で用いる。 |
+| 同期処理 | [`dashboard/sonata-desk/scripts/generate_dashboard_data.py`](../../../../dashboard/sonata-desk/scripts/generate_dashboard_data.py) |
+| 生成場所 | [`dashboard/sonata-desk/src/generated/dashboard-data.json`](../../../../dashboard/sonata-desk/src/generated/dashboard-data.json)、[`sync-status.json`](../../../../dashboard/sonata-desk/src/generated/sync-status.json) |
+| Sonata Desk反映方法 | [`dashboard/sonata-desk/src/Home.tsx`](../../../../dashboard/sonata-desk/src/Home.tsx) がGitHub Contents APIから`main`の最新生成JSONを読み込む。GitHub Raw CDNの遅延を避けるため、GitHub内の公開Contents APIを鮮度確認の目的で用いる。 |
 | 対象領域 | 001・002比較、A1進捗、Pattern DB、検証台帳、参照音源。参照音源は001・002カードに統合される。 |
 
 外部DB、SaaS、不要なAPI、AI処理、正本への自動書戻し、画面への手動二重入力はない。
