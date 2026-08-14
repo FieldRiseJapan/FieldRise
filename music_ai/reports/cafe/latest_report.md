@@ -63,3 +63,30 @@ GitHub Rawで取得した`dashboard-data.json`の`sourceDigest`は、ローカ�
 [3]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31783301143 "Sonata Desk 正本データ同期 Run"
 [4]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31795865793 "GitHub Pages Run"
 [5]: ../../../cto/outbox/2026-08-14_dashboard-final-single-instruction-v2.md "再発行指示書"
+
+
+---
+
+## 追補｜CTO指示書の桃花自動受領通知（2026-08-14）
+
+**確認基準:** `cto/outbox/2026-08-14_auto-notify-momoka-instructions.md`
+
+**実装コミット:** `fef094c`、`70de1fb`
+
+**検証Run:** [`31800255499`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31800255499)
+
+**現時点の判定:** **一部完成**
+
+`cto/outbox/` に新規追加された返信以外のMarkdown指示書だけを監視するワークフロー `.github/workflows/momoka-auto-notify.yml` を実装した。ワークフローは、指示書のパス、指示ID、優先度、作成日時、source commit SHA、固定URLを取得し、`commit SHA + 指示書パス` を重複防止キーとして `automation/momoka-receipts/` に状態証跡を保存する。送信処理はGitHub Actions Secret `MANUS_API_KEY` を用い、Manus APIの `task.sendMessage` により桃花の既定エージェントへ正式指示のURLとメタデータを送る構成である。認証情報はリポジトリ・指示書・ログに平文保存しない。
+
+| 確認項目 | 結果 | 証跡・補足 |
+|---|---|---|
+| 新規指示書の検知 | 完成 | `push` の `main` と `cto/outbox/**` に限定。`README.md` と `*_reply.md` を除外。 |
+| 指示メタデータの取得 | 完成 | 明示メタデータがない場合は `未指定` と記録し、本文の一般記述を誤認しない。 |
+| 二重処理防止 | 完成 | `source SHA + path` ごとの証跡。`received` は再送しない。`attempting` は手動確認へ停止。 |
+| 通知・失敗の記録 | 完成 | `automation/momoka-receipts/*.json` とGitHub Actions Step Summaryへ状態を保存。 |
+| 桃花の実受領起動 | 未検証 | `MANUS_API_KEY` がGitHub Actions Secretとして未設定のため、実API送信は未実行。 |
+| ドライラン | 成功 | Run `31800255499` が成功。検知・重複防止・証跡保存を確認。 |
+| 受領確認 | 未完了 | 実通知を有効化して、桃花側の報告更新まで確認する必要がある。 |
+
+ドライランの最終証跡は `automation/momoka-receipts/70de1fb7d5ba51fabcc91eadb9608ed2dac527be-7028857191f7.json` に保存した。実運用を有効化するには、最小権限のManus APIキーを `MANUS_API_KEY` としてGitHub Actions Secretに登録し、`dry_run=false` でテスト用の新規指示書を追加する。実送信後は、受領結果が `received` となること、ならびに桃花側で本報告ファイルを更新することを確認する。
