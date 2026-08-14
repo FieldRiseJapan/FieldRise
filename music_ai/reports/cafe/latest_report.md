@@ -352,3 +352,27 @@ GitHub main上のClaim JSONと正本レポート実体を直接照合する修�
 
 [33]: ../../../cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-03.md "CTO正式指示｜自動通知E2Eテスト 03"
 [34]: ../../../automation/momoka-receipts/28b9edfbe19da54b5b62e359bb7c4c1f3bab0117-8d197de8c1a4.json "E2Eテスト03の自動通知Receipt"
+
+
+---
+
+## 最終追補｜彩花→桃花 自動通知E2E連続成功確認（2026-08-14）
+
+**最終判定:** **完成**
+
+CTO修正指示が求める実配信、桃花の受領・Claim、指示実行、正本報告、GitHub上の照合を、新規指示書による連続2回の実行で確認した。各回では、`cto/outbox/` への新規Markdown追加を起点として、専用の桃花受領タスクを作成し、Claim JSONと `music_ai/reports/cafe/latest_report.md` の更新を `origin/main` 上で照合した。認証情報はGitHub Actions Secret `MANUS_API_KEY` としてのみ参照し、リポジトリや報告には記録していない。
+
+| 回 | 指示ID | GitHub Actions Run | Receipt状態 | Claim・正本報告 | 判定 |
+|---|---|---|---|---|---|
+| 1 | `CTO-20260814-E2E-02` | [`31805524613`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805524613) | `claimed` | Claim JSON・`latest_report.md` の相互照合済み | 成功 |
+| 2 | `CTO-20260814-E2E-03` | [`31805694664`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805694664) | `claimed` | Claim JSON・`latest_report.md` の相互照合済み | 成功 |
+
+2回とも、GitHub Actionsが成功終了し、対応するReceipt key、`status: claimed` のClaim JSON、正本報告が `main` 上で一致した。したがって、**連続して2回以上成功**という完成条件を満たす。既存のダッシュボードおよびLINE定時報告の設定は、このE2E検証指示の範囲では変更していない。
+
+### 最終証跡
+
+| 種別 | E2Eテスト02 | E2Eテスト03 |
+|---|---|---|
+| Receipt | `automation/momoka-receipts/754e9cd5adaf66652f92638dd23ad070d095cf83-9ed9f8f936a7.json` | `automation/momoka-receipts/28b9edfbe19da54b5b62e359bb7c4c1f3bab0117-8d197de8c1a4.json` |
+| Claim | `automation/momoka-claims/754e9cd5adaf66652f92638dd23ad070d095cf83-9ed9f8f936a7.json` | `automation/momoka-claims/28b9edfbe19da54b5b62e359bb7c4c1f3bab0117-8d197de8c1a4.json` |
+| 正式指示書 | `cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-02.md` | `cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-03.md` |
