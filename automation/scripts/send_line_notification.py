@@ -26,7 +26,7 @@ BRIEFING_URL = (
     "https://github.com/FieldRiseJapan/FieldRise/blob/main/"
     "projects/project-001-ai-secretary/briefings/latest.md"
 )
-SONATA_DESK_URL = "https://fieldrise-ythnsgue.manus.space"
+SONATA_DESK_URL = "https://fieldrisejapan.github.io/FieldRise/sonata-desk/"
 API_URL = "https://api.line.me/v2/bot/message/broadcast"
 MAX_LEN = 4800  # LINEテキストメッセージ上限5000文字の安全マージン
 
