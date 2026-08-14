@@ -150,8 +150,8 @@ jobs:
               fi
             fi
 
-            instruction_id="$(extract_field 'タスクID|指示ID|[Ii]nstruction[ _-]?[Ii][Dd]|[Tt]ask[ _-]?[Ii][Dd]' '未指定')"
-            priority="$(extract_field '優先度|[Pp]riority' '未指定')"
+            instruction_id="$(extract_field '^[[:space:]]*(\*\*)?(タスクID|指示ID|[Ii]nstruction[ _-]?[Ii][Dd]|[Tt]ask[ _-]?[Ii][Dd])(\*\*)?[[:space:]]*[:：]' '未指定')"
+            priority="$(extract_field '^[[:space:]]*(\*\*)?(優先度|[Pp]riority)(\*\*)?[[:space:]]*[:：]' '未指定')"
             created_at="$(git log -1 --format=%cI "$SOURCE_SHA" -- "$instruction_path")"
             instruction_url="https://github.com/${GITHUB_REPOSITORY}/blob/${SOURCE_SHA}/${instruction_path}"
             receipt_key="${SOURCE_SHA}:${instruction_path}"
