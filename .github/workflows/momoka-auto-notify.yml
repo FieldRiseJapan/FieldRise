@@ -208,7 +208,28 @@ jobs:
                 claim_response_file="$RUNNER_TEMP/manus-claim-${path_hash}.json"
 
                 # GitHubへのClaim・正本レポート反映を含め最大15分待機する。
+                # 構造化応答が未着でも、GitHub main上のClaim実体と正本報告が一致すれば完了とする。
                 for attempt in $(seq 1 90); do
+                  if git fetch origin main >/dev/null 2>&1 \
+                    && git cat-file -e "origin/main:${claim_record_path}" 2>/dev/null \
+                    && git cat-file -e "origin/main:music_ai/reports/cafe/latest_report.md" 2>/dev/null; then
+                    repo_claim_json="$(git show "origin/main:${claim_record_path}")"
+                    repo_claim_receipt_key="$(jq -r '.receipt_key // empty' <<< "$repo_claim_json")"
+                    repo_claim_status="$(jq -r '.status // empty' <<< "$repo_claim_json")"
+                    repo_claim_report_path="$(jq -r '.report_path // empty' <<< "$repo_claim_json")"
+                    if [[ "$repo_claim_receipt_key" == "$receipt_key" && "$repo_claim_status" == "claimed" && "$repo_claim_report_path" == "music_ai/reports/cafe/latest_report.md" ]] \
+                      && git show "origin/main:music_ai/reports/cafe/latest_report.md" | grep -Fq "$receipt_key"; then
+                      status="claimed"
+                      detail="GitHub main上の桃花Claim記録と正本報告を直接照合して完了を確認しました。"
+                      claim_status="claimed"
+                      claim_report_path="music_ai/reports/cafe/latest_report.md"
+                      claim_report_updated=true
+                      claim_task_state="completed"
+                      claim_confirmed_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+                      break
+                    fi
+                  fi
+
                   sleep 10
                   claim_http_status="$(curl --silent --show-error --max-time 30 --output "$claim_response_file" --write-out '%{http_code}' \
                     --get 'https://api.manus.ai/v2/task.listMessages' \
