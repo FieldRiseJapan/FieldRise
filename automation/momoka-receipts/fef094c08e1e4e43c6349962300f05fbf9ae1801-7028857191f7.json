@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "fef094c08e1e4e43c6349962300f05fbf9ae1801:cto/outbox/2026-08-14_auto-notify-momoka-instructions.md",
+    "id": "指示ID・ファイル名・commit SHA・優先度・作成日時を取得",
+    "path": "cto/outbox/2026-08-14_auto-notify-momoka-instructions.md",
+    "source_sha": "fef094c08e1e4e43c6349962300f05fbf9ae1801",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/fef094c08e1e4e43c6349962300f05fbf9ae1801/cto/outbox/2026-08-14_auto-notify-momoka-instructions.md",
+    "priority": "指示ID・ファイル名・commit SHA・優先度・作成日時を取得",
+    "created_at": "2026-08-14T10:28:31Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-14T12:24:35Z"
+  }
+}
