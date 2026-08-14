@@ -65,3 +65,19 @@ GitHub Pagesは公開中であり、Pages URLは `https://fieldrisejapan.github.
 | 最終判定 | 完成。公開リリース差分は解消された。 |
 
 公開反映前に`pnpm check`およびVite本番ビルドを実行し、いずれも成功した。バンドルサイズに関する警告はあったが、型検査・ビルド・公開を阻害するエラーはなかった。
+
+## 002 正式Main登録後の同期復旧（2026-08-14）
+
+公開画面が `CANONICAL / FALLBACK` を表示し、002を `PROVISIONAL / STEM MIX` として表示していた。公開ページからGitHub Contents APIを直接取得したところ、API応答はHTTP 403で、匿名アクセスのレート制限超過が原因だった。一方、GitHub Raw配信による同じ同期JSONの取得はHTTP 200で成功し、002の `VERIFIED / CANONICAL`、`002_reference_main.flac` を含む最新データを確認した。
+
+GitHub正本の `dashboard/sonata-desk/src/Home.tsx` は、同期データ取得先をGitHub Contents APIからGitHub Raw配信へ切り替え、TypeScript検査・本番ビルドを通過した。既存のManus WebDevプロジェクトへは、同じ正本コードを既存の`/manus-storage/`画像参照を維持して保存し、Auto publish有効の公開設定下で再デプロイ待ちとした。
+
+> 公開完了後には、同一公開URLで `CANONICAL / SYNCED`、002の `VERIFIED / CANONICAL`、002正式Mainの参照パス、更新済みOpen Review Queueを再確認する。
+
+[1]: https://raw.githubusercontent.com/FieldRiseJapan/FieldRise/main/dashboard/sonata-desk/src/generated/dashboard-data.json "Sonata Desk Raw同期JSON"
+[2]: https://github.com/FieldRiseJapan/FieldRise/blob/main/dashboard/sonata-desk/src/Home.tsx "同期取得修正済みHome実装"
+
+
+### 公開反映待ちの追加記録
+
+既存WebDevの編集モードで、GitHub正本の`Home.tsx`を既存の`/manus-storage/`画像パスへ置換して保存した。公開設定はAuto publish有効である。保存直後に公開URLを再読込した時点では、前回の公開バンドルが残り、`CANONICAL / FALLBACK`と旧002状態を表示していた。これは新しいビルドの公開完了がまだ確認できないためであり、公開URLでの再検証を継続する。

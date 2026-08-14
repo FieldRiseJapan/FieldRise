@@ -47,3 +47,11 @@ Sonata Deskの同期JSONも再生成した。ダッシュボードでは、002�
 [1]: ../../analysis/cafe/2026-08-14_002-user-supplied-main-validation.md "002 ユーザー提供Main検証記録"
 [2]: ../../reference_music/success_song_002.md "実績曲分析：success_song_002"
 [3]: ../../../dashboard/sonata-desk/src/generated/dashboard-data.json "Sonata Desk 同期データ"
+
+## 公開同期の復旧状況
+
+GitHub正本では、002の正式Main登録と同期取得の修正を完了した。公開画面の障害原因は、匿名GitHub Contents APIがHTTP 403のレート制限に達し、画面がフォールバック値へ戻ることだった。同期取得先をGitHub Raw配信へ切り替える実装は、型検査・本番ビルドを通過し、GitHubの`main`へ反映済みである。[4]
+
+既存Manus WebDevの編集画面へも、同じ`Home.tsx`を既存画像参照を維持して保存し、Auto publishが有効であることを確認した。ただし、公開URLを再検証した時点では依然として旧バンドルが `CANONICAL / FALLBACK` と旧002状態を配信しており、新しいチェックポイントの公開完了は確認できていない。このため、**GitHub正本・分析資産・同期修正は完了、公開URLでの復旧確認は保留**とする。
+
+[4]: ../../../dashboard/sonata-desk/USER_FACING_VERIFICATION_20260814.md "公開同期障害と復旧記録"
