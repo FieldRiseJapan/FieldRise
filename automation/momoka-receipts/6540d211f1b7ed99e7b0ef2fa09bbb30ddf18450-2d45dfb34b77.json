@@ -12,7 +12,11 @@
   "delivery": {
     "recipient": "Manus default agent (桃花)",
     "method": "Manus API task.sendMessage",
-    "status": "attempting",
-    "started_at": "2026-08-14T12:33:40Z"
+    "status": "blocked",
+    "started_at": "2026-08-14T12:33:40Z",
+    "detail": "GitHub Actions Secret MANUS_API_KEY が未設定のため、Manusへの受領トリガーは実行していません。",
+    "http_status": null,
+    "finished_at": "2026-08-14T12:33:42Z",
+    "delivered_at": null
   }
 }
