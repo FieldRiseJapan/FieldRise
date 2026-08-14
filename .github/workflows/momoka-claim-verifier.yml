@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "automation/momoka-claims/**"
-      - "music_ai/reports/cafe/latest_report.md"
+      - "docs/momoka/reports/latest_report.md"
   workflow_dispatch: {}
 
 permissions:
@@ -42,7 +42,7 @@ jobs:
 
           finalized=0
           skipped=0
-          report_path="music_ai/reports/cafe/latest_report.md"
+          report_path="docs/momoka/reports/latest_report.md"
 
           shopt -s nullglob
           for claim_path in automation/momoka-claims/*.json; do
@@ -60,15 +60,18 @@ jobs:
             receipt_status="$(jq -r '.delivery.status // empty' "$receipt_path")"
             [[ "$receipt_status" == "claimed" ]] && { skipped=$((skipped + 1)); continue; }
 
+            claim_report_path="$(jq -r '.report_path // empty' "$claim_path")"
+            [[ "$claim_report_path" == "$report_path" ]] || { skipped=$((skipped + 1)); continue; }
             grep -Fq "$receipt_key" "$report_path" || { skipped=$((skipped + 1)); continue; }
 
             claimed_at="$(jq -r '.claimed_at // empty' "$claim_path")"
             tmp_receipt="$RUNNER_TEMP/$(basename "$receipt_path")"
             jq \
               --arg claim_path "$claim_path" \
+              --arg report_path "$report_path" \
               --arg claimed_at "$claimed_at" \
               --arg finalized_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-              '.delivery.status = "claimed" | .delivery.detail = "桃花のClaim記録と正本報告の双方を確認しました。" | .delivery.finished_at = $finalized_at | .claim.status = "claimed" | .claim.claim_record_path = $claim_path | .claim.report_path = "music_ai/reports/cafe/latest_report.md" | .claim.report_updated = true | .claim.claimed_at = (if $claimed_at == "" then null else $claimed_at end) | .claim.confirmed_at = $finalized_at' \
+              '.delivery.status = "claimed" | .delivery.detail = "桃花のClaim記録と正本報告の双方を確認しました。" | .delivery.finished_at = $finalized_at | .claim.status = "claimed" | .claim.claim_record_path = $claim_path | .claim.report_path = $report_path | .claim.report_updated = true | .claim.claimed_at = (if $claimed_at == "" then null else $claimed_at end) | .claim.confirmed_at = $finalized_at' \
               "$receipt_path" > "$tmp_receipt"
             mv "$tmp_receipt" "$receipt_path"
             git add -- "$receipt_path"

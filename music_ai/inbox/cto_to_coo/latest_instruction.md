@@ -1,4 +1,7 @@
-# 彩花CTO → 桃花COO｜最新正式指示
+# 彩花CTO → 桃花COO｜旧運用の最終指示（履歴参照専用）
+
+> **運用移行（2026-08-15）:** 本ファイルはCafeシリーズの過去指示を保存する履歴です。桃花向けの新規正式指示は `docs/momoka/instructions/` の新規Markdownファイルだけを正本として受領・Claim・実行します。新規の正式報告は `docs/momoka/reports/latest_report.md`、単独コメント・相談は `cto/inbox/momoka-comments.md` を使用します。
+
 
 **更新日時:** 2026-08-13
 **対象Project:** FieldRise Music AI｜AI協働通信運用

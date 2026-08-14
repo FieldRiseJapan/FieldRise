@@ -4,11 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "cto/outbox/**"
+      - "docs/momoka/instructions/**"
   workflow_dispatch:
     inputs:
       instruction_path:
-        description: "検証対象の cto/outbox/ 配下のMarkdownファイル"
+        description: "検証対象の docs/momoka/instructions/ 配下のMarkdownファイル"
         required: true
         type: string
       dry_run:
@@ -54,8 +54,8 @@ jobs:
 
           is_target_instruction() {
             local path="$1"
-            [[ "$path" == cto/outbox/*.md ]] || return 1
-            [[ "$path" != "cto/outbox/README.md" ]] || return 1
+            [[ "$path" == docs/momoka/instructions/*.md ]] || return 1
+            [[ "$path" != "docs/momoka/instructions/README.md" ]] || return 1
             [[ "$path" != *_reply.md ]] || return 1
           }
 
@@ -64,7 +64,7 @@ jobs:
 
           if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
             is_target_instruction "$MANUAL_INSTRUCTION_PATH" || {
-              echo "手動検証の対象は cto/outbox/ 配下の返信ではない Markdown ファイルに限定されます。" >&2
+              echo "手動検証の対象は docs/momoka/instructions/ 配下の返信ではない Markdown ファイルに限定されます。" >&2
               exit 1
             }
             git cat-file -e "$SOURCE_SHA:$MANUAL_INSTRUCTION_PATH" || {
@@ -73,12 +73,12 @@ jobs:
             }
             printf '%s\n' "$MANUAL_INSTRUCTION_PATH" >> "$candidates_file"
           elif [[ "$EVENT_BEFORE" =~ ^0+$ ]]; then
-            git diff-tree --no-commit-id --name-only -r "$SOURCE_SHA" -- cto/outbox/ \
+            git diff-tree --no-commit-id --name-only -r "$SOURCE_SHA" -- docs/momoka/instructions/ \
               | while IFS= read -r path; do
                   if is_target_instruction "$path"; then printf '%s\n' "$path"; fi
                 done >> "$candidates_file"
           else
-            git diff --name-only --diff-filter=A "$EVENT_BEFORE" "$SOURCE_SHA" -- cto/outbox/ \
+            git diff --name-only --diff-filter=A "$EVENT_BEFORE" "$SOURCE_SHA" -- docs/momoka/instructions/ \
               | while IFS= read -r path; do
                   if is_target_instruction "$path"; then printf '%s\n' "$path"; fi
                 done >> "$candidates_file"
@@ -185,7 +185,8 @@ jobs:
               detail="GitHub Actions Secret MANUS_API_KEY が未設定のため、Manusへの受領トリガーは実行していません。"
             else
               claim_record_path="automation/momoka-claims/${SOURCE_SHA}-${path_hash}.json"
-              message="[CTO指示の自動受領・Claim要求]\n\nReceipt key: ${receipt_key}\n指示ID: ${instruction_id}\n優先度: ${priority}\n作成日時: ${created_at}\n指示書: ${instruction_url}\nCommit SHA: ${SOURCE_SHA}\nClaim記録先: ${claim_record_path}\n\nあなたは桃花COOとして、この正式指示書を取得して内容を確認し、直ちにClaimしてください。まずClaim記録先に receipt_key、status=claimed、claimed_at、report_path を持つJSONを作成し、origin/mainへPushしてください。次に指示を実行し、受領・進捗・完了・未完了・ブロッカーを正本の music_ai/reports/cafe/latest_report.md に記録して origin/mainへPushしてください。GitHubに書込めない場合は、理由をblockedとして明確に返してください。"
+              report_path="docs/momoka/reports/latest_report.md"
+              message="[CTO指示の自動受領・Claim要求]\n\nReceipt key: ${receipt_key}\n指示ID: ${instruction_id}\n優先度: ${priority}\n作成日時: ${created_at}\n指示書: ${instruction_url}\nCommit SHA: ${SOURCE_SHA}\nClaim記録先: ${claim_record_path}\n\nあなたは桃花COOとして、この正式指示書を取得して内容を確認し、直ちにClaimしてください。まずClaim記録先に receipt_key、status=claimed、claimed_at、report_path を持つJSONを作成し、origin/mainへPushしてください。次に指示を実行し、受領・進捗・完了・未完了・ブロッカーを正本の docs/momoka/reports/latest_report.md に記録して origin/mainへPushしてください。GitHubに書込めない場合は、理由をblockedとして明確に返してください。"
               claim_schema='{"type":"object","properties":{"receipt_key":{"type":"string"},"claim_state":{"type":"string","enum":["claimed","not_claimed","blocked"]},"claim_record_path":{"type":"string"},"report_path":{"type":"string"},"report_updated":{"type":"boolean"},"task_state":{"type":"string","enum":["completed","in_progress","blocked"]}},"required":["receipt_key","claim_state","claim_record_path","report_path","report_updated","task_state"],"additionalProperties":false}'
               payload="$(jq -n --arg content "$message" --arg title "桃花受領: ${instruction_id}" --argjson claim_schema "$claim_schema" '{title: $title, locale: "ja", interactive_mode: false, hide_in_task_list: false, agent_profile: "manus-1.6", message: {content: $content}, structured_output_schema: $claim_schema}')"
               response_file="$RUNNER_TEMP/manus-response-${path_hash}.json"
@@ -213,17 +214,17 @@ jobs:
                 for attempt in $(seq 1 90); do
                   if git fetch origin main >/dev/null 2>&1 \
                     && git cat-file -e "origin/main:${claim_record_path}" 2>/dev/null \
-                    && git cat-file -e "origin/main:music_ai/reports/cafe/latest_report.md" 2>/dev/null; then
+                    && git cat-file -e "origin/main:${report_path}" 2>/dev/null; then
                     repo_claim_json="$(git show "origin/main:${claim_record_path}")"
                     repo_claim_receipt_key="$(jq -r '.receipt_key // empty' <<< "$repo_claim_json")"
                     repo_claim_status="$(jq -r '.status // empty' <<< "$repo_claim_json")"
                     repo_claim_report_path="$(jq -r '.report_path // empty' <<< "$repo_claim_json")"
-                    if [[ "$repo_claim_receipt_key" == "$receipt_key" && "$repo_claim_status" == "claimed" && "$repo_claim_report_path" == "music_ai/reports/cafe/latest_report.md" ]] \
-                      && git show "origin/main:music_ai/reports/cafe/latest_report.md" | grep -Fq "$receipt_key"; then
+                    if [[ "$repo_claim_receipt_key" == "$receipt_key" && "$repo_claim_status" == "claimed" && "$repo_claim_report_path" == "$report_path" ]] \
+                      && git show "origin/main:${report_path}" | grep -Fq "$receipt_key"; then
                       status="claimed"
                       detail="GitHub main上の桃花Claim記録と正本報告を直接照合して完了を確認しました。"
                       claim_status="claimed"
-                      claim_report_path="music_ai/reports/cafe/latest_report.md"
+                      claim_report_path="$report_path"
                       claim_report_updated=true
                       claim_task_state="completed"
                       claim_confirmed_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
@@ -250,7 +251,7 @@ jobs:
                   claim_confirmed_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
                   claim_evidence_valid=false
-                  if [[ "$claim_status" == "claimed" && "$claim_report_updated" == "true" && -n "$claim_report_path" ]] \
+                  if [[ "$claim_status" == "claimed" && "$claim_report_updated" == "true" && "$claim_report_path" == "$report_path" ]] \
                     && git fetch origin main >/dev/null 2>&1 \
                     && git cat-file -e "origin/main:${claim_record_path}" 2>/dev/null \
                     && git cat-file -e "origin/main:${claim_report_path}" 2>/dev/null; then
