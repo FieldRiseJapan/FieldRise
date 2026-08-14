@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "5d9aba4dad35f9f2a6a9382d9971ab9ff757ea28:cto/outbox/2026-08-15_momoka-single-comment-routing.md",
+    "id": "未指定",
+    "path": "cto/outbox/2026-08-15_momoka-single-comment-routing.md",
+    "source_sha": "5d9aba4dad35f9f2a6a9382d9971ab9ff757ea28",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/5d9aba4dad35f9f2a6a9382d9971ab9ff757ea28/cto/outbox/2026-08-15_momoka-single-comment-routing.md",
+    "priority": "未指定",
+    "created_at": "2026-08-14T22:44:14Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-14T22:44:25Z"
+  }
+}
