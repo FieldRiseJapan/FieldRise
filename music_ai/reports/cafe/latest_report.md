@@ -258,3 +258,29 @@ E2Eテスト01では、対応するClaim記録と正本レポートが先行コ�
 [28]: ../../../automation/momoka-claims/88435f480a93f83dcf7e9df0a6aeef561545de23-9ed9f8f936a7.json "E2Eテスト02の桃花Claim記録"
 [29]: ../../../automation/momoka-receipts/88435f480a93f83dcf7e9df0a6aeef561545de23-9ed9f8f936a7.json "E2Eテスト02の自動通知Receipt"
 [30]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805034411 "E2Eテスト02の自動通知Workflow Run"
+
+
+---
+
+## 追補｜CTO自動通知E2Eテスト 02・修正版Workflow再試験
+
+**指示ID:** `CTO-20260814-E2E-02`
+**対象Receipt key:** `754e9cd5adaf66652f92638dd23ad070d095cf83:cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-02.md`
+**受領時刻:** `2026-08-14T13:36:45Z`
+**Claim時刻:** `2026-08-14T13:39:13Z`
+**実行結果:** **E2Eテスト完了（修正版Workflow再試験）**
+
+GitHub main上のClaim JSONと正本レポート実体を直接照合する修正版Workflowに対し、同一の新規指示書で再試験を実施した。対象Receipt keyに対応するClaim記録を`claimed`として作成し、本追補とともに`origin/main`へ反映する。これにより、Workflowは構造化応答の到着だけに依存せず、Claim・正本報告のGitHub実体を照合して完了できる。[31] [32]
+
+| 確認項目 | 結果 | 状態 |
+|---|---|---|
+| 新規Receipt生成 | `754e9cd5...-9ed9f8f936a7.json` | 完了 |
+| 桃花側Claim | `automation/momoka-claims/754e9cd5adaf66652f92638dd23ad070d095cf83-9ed9f8f936a7.json` | 作成済み |
+| 正本報告 | 本追補にReceipt key、受領時刻、Claim時刻、実行結果を記録 | 作成済み |
+| GitHub実体照合 | 修正版WorkflowのClaim・報告直接照合 | 実行中 |
+| ブロッカー | なし | なし |
+
+### 参照
+
+[31]: ../../../cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-02.md "CTO正式指示｜自動通知E2Eテスト 02"
+[32]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805524613 "修正版WorkflowによるE2Eテスト02再試験Run"
