@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "8c7cdd049d8b5ee1b1a19f5247688795306a4b3f:docs/momoka/instructions/2026-08-15_momoka-instruction-routing-repair.md",
+    "id": "未指定",
+    "path": "docs/momoka/instructions/2026-08-15_momoka-instruction-routing-repair.md",
+    "source_sha": "8c7cdd049d8b5ee1b1a19f5247688795306a4b3f",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/8c7cdd049d8b5ee1b1a19f5247688795306a4b3f/docs/momoka/instructions/2026-08-15_momoka-instruction-routing-repair.md",
+    "priority": "未指定",
+    "created_at": "2026-08-14T23:14:27Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-14T23:14:42Z"
+  }
+}
