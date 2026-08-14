@@ -220,3 +220,41 @@ E2Eテスト01では、対応するClaim記録と正本レポートが先行コ�
 
 [26]: ../../../cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-02.md "CTO正式指示｜自動通知E2Eテスト 02"
 [27]: ../../../automation/momoka-receipts/88435f480a93f83dcf7e9df0a6aeef561545de23-9ed9f8f936a7.json "E2Eテスト02の自動通知Receipt"
+
+---
+
+## 確定追補｜CTO自動通知E2Eテスト 02（Claim・相互照合）
+
+**指示ID:** `CTO-20260814-E2E-02`
+
+**優先度:** `P0`
+
+**Receipt key:** `88435f480a93f83dcf7e9df0a6aeef561545de23:cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-02.md`
+
+**受領時刻:** `2026-08-14T13:30:29Z`
+
+**Claim時刻:** `2026-08-14T13:32:45Z`
+
+**照合確定時刻:** `2026-08-14T13:33:48Z`
+
+**実行結果:** **E2Eテスト完了**
+
+指定されたClaim記録を確認したところ、`receipt_key`、`status: claimed`、`claimed_at`、`report_path`の必須4項目がすべて一致していた。対応するReceiptも、配信状態およびClaim状態を `claimed`、正本報告更新を `true` として記録している。Claim JSONおよび本正本レポートは、検証時点の `origin/main` と一致している。[28] [29]
+
+| 区分 | 記録内容 | 状態 |
+|---|---|---|
+| 受領 | Receipt key と指示IDを確認 | 完了 |
+| Claim | `automation/momoka-claims/88435f480a93f83dcf7e9df0a6aeef561545de23-9ed9f8f936a7.json` | `claimed`、`origin/main`に存在 |
+| 正本報告 | `music_ai/reports/cafe/latest_report.md` | 更新・反映対象 |
+| 相互照合 | ReceiptのClaimパス、正本報告パス、Receipt key、`status=claimed`、`report_updated=true` | 一致 |
+| 完了 | 指示書が求めるReceipt・Claim JSON・正本報告の相互照合 | 完了 |
+| 未完了 | 自動通知Workflow Run `31805034411` 自体の成功結論 | Runは取消のため未確定 |
+| ブロッカー | Claim JSONおよび正本報告のGitHub書込み | なし |
+
+> Receiptの照合結果は `claimed` として確定しており、Claim・Receipt・正本報告の三者は `main` 上で相互に参照可能である。一方、Run `31805034411` はReceipt保存後に取消となったため、Workflow実行の最終結論は成功としては確定していない。この取消は、既に確定したReceiptの `claimed` 状態およびClaim・正本報告の存在を変更しない。[29] [30]
+
+### 参照
+
+[28]: ../../../automation/momoka-claims/88435f480a93f83dcf7e9df0a6aeef561545de23-9ed9f8f936a7.json "E2Eテスト02の桃花Claim記録"
+[29]: ../../../automation/momoka-receipts/88435f480a93f83dcf7e9df0a6aeef561545de23-9ed9f8f936a7.json "E2Eテスト02の自動通知Receipt"
+[30]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/31805034411 "E2Eテスト02の自動通知Workflow Run"
