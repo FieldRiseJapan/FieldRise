@@ -93,3 +93,31 @@ GitHub Rawで取得した`dashboard-data.json`の`sourceDigest`は、ローカ�
 
 
 実送信テストとして [`31800421758`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31800421758) を `dry_run=false` で実行した。GitHub Actionsの実行環境では `MANUS_API_KEY` が空であることを確認し、API呼出は行わず `blocked` として安全に停止した。停止証跡は `automation/momoka-receipts/303580653554a19d6b30eb0c17ffcb72879ef839-7028857191f7.json` に保存されている。したがって、桃花の実受領・受領確認はまだ完了していない。
+
+---
+
+## 追補｜CTO自動通知E2Eテスト 01（2026-08-14）
+
+**指示ID:** `CTO-20260814-E2E-01`  
+**優先度:** `P0`  
+**実行結果:** **E2Eテスト完了**
+
+CTO正式指示書に指定されたReceipt keyを確認し、対応するClaim記録を `claimed` 状態で作成した。Claim記録は、正本レポートへの固定パスを保持したうえで、独立したコミットとして `origin/main` に反映済みである。[1] [2]
+
+| 区分 | 記録内容 | 状態 |
+|---|---|---|
+| Receipt key | `bbc26d6a312c92097174bbc3eaea213faaba1e48:cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-01.md` | 確認済み |
+| 受領時刻 | `2026-08-14T13:20:53Z`（通知ペイロード記載時刻） | 記録済み |
+| Claim時刻 | `2026-08-14T13:24:46Z` | 記録済み |
+| Claim状態 | `claimed` | `origin/main` へ反映済み |
+| Claimコミット | `349f5a26d0fca1da09703c031bb9169096eb060b` | 反映済み |
+| 正本報告 | `music_ai/reports/cafe/latest_report.md` | 本追記を反映対象 |
+| 未完了 | なし | 完了 |
+| ブロッカー | なし | 解消済み |
+
+> 完了条件である「Claim記録と正本報告がGitHubの`main`に存在し、対応する自動通知の受領証跡と結び付けられること」を満たすため、本追記を含む正本レポートを次のコミットで`origin/main`へ反映する。[1] [2]
+
+### 参照
+
+[1]: ../../../cto/outbox/2026-08-14_momoka-auto-notify-e2e-test-01.md "CTO正式指示｜自動通知E2Eテスト 01"
+[2]: ../../../automation/momoka-claims/bbc26d6a312c92097174bbc3eaea213faaba1e48-c2a8bcb82616.json "桃花Claim記録"
