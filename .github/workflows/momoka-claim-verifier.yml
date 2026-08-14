@@ -1,0 +1,85 @@
+name: 桃花 - Claim・報告照合
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "automation/momoka-claims/**"
+      - "music_ai/reports/cafe/latest_report.md"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: momoka-claim-verifier
+  cancel-in-progress: false
+
+jobs:
+  verify-claims:
+    name: Claimと正本報告を照合して受領証跡を確定
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Claim・報告・受領証跡を照合
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "FieldRise-Momoka-Claim-Verifier"
+          git config user.email "momoka-claim-verifier@fieldrise.local"
+
+          finalized=0
+          skipped=0
+          report_path="music_ai/reports/cafe/latest_report.md"
+
+          shopt -s nullglob
+          for claim_path in automation/momoka-claims/*.json; do
+            receipt_key="$(jq -r '.receipt_key // empty' "$claim_path")"
+            claim_status="$(jq -r '.status // empty' "$claim_path")"
+            [[ -n "$receipt_key" && "$claim_status" == "claimed" ]] || { skipped=$((skipped + 1)); continue; }
+
+            source_sha="${receipt_key%%:*}"
+            instruction_path="${receipt_key#*:}"
+            path_hash="$(printf '%s' "$instruction_path" | sha256sum | cut -c1-12)"
+            receipt_path="automation/momoka-receipts/${source_sha}-${path_hash}.json"
+
+            [[ -f "$receipt_path" ]] || { skipped=$((skipped + 1)); continue; }
+
+            receipt_status="$(jq -r '.delivery.status // empty' "$receipt_path")"
+            [[ "$receipt_status" == "claimed" ]] && { skipped=$((skipped + 1)); continue; }
+
+            grep -Fq "$receipt_key" "$report_path" || { skipped=$((skipped + 1)); continue; }
+
+            claimed_at="$(jq -r '.claimed_at // empty' "$claim_path")"
+            tmp_receipt="$RUNNER_TEMP/$(basename "$receipt_path")"
+            jq \
+              --arg claim_path "$claim_path" \
+              --arg claimed_at "$claimed_at" \
+              --arg finalized_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+              '.delivery.status = "claimed" | .delivery.detail = "桃花のClaim記録と正本報告の双方を確認しました。" | .delivery.finished_at = $finalized_at | .claim.status = "claimed" | .claim.claim_record_path = $claim_path | .claim.report_path = "music_ai/reports/cafe/latest_report.md" | .claim.report_updated = true | .claim.claimed_at = (if $claimed_at == "" then null else $claimed_at end) | .claim.confirmed_at = $finalized_at' \
+              "$receipt_path" > "$tmp_receipt"
+            mv "$tmp_receipt" "$receipt_path"
+            git add -- "$receipt_path"
+            finalized=$((finalized + 1))
+          done
+
+          {
+            echo "## 桃花 Claim・報告照合"
+            echo "- Finalized: \`$finalized\`"
+            echo "- Skipped: \`$skipped\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if git diff --cached --quiet; then
+            echo "確定対象の受領証跡はありません。"
+          else
+            git commit -m "chore: finalize Momoka claim receipts"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
