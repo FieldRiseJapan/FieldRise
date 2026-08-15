@@ -18,6 +18,11 @@ on:
         options:
           - dry_run
           - send
+      test_report_path:
+        description: "任意。dry_run専用の固定テスト報告パス。未指定時は正式報告書を使用する。"
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: write
@@ -36,6 +41,8 @@ jobs:
       RECEIPTS_DIR: automation/momoka-notification-receipts
       LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
       LINE_TARGET_ID: ${{ secrets.LINE_TARGET_ID }}
+      WORKFLOW_MODE: ${{ inputs.mode }}
+      INPUT_TEST_REPORT_PATH: ${{ inputs.test_report_path }}
 
     steps:
       - name: リポジトリを取得
@@ -49,29 +56,44 @@ jobs:
         run: |
           set -euo pipefail
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            mode="${{ inputs.mode }}"
+            mode="$WORKFLOW_MODE"
+            report_path="${INPUT_TEST_REPORT_PATH:-}"
           else
             mode="send"
+            report_path=""
           fi
-          report_commit="$(git log -1 --format=%H -- "$REPORT_PATH")"
-          report_url="https://github.com/${GITHUB_REPOSITORY}/blob/${report_commit}/${REPORT_PATH}"
+          if [[ -z "$report_path" ]]; then
+            report_path="$REPORT_PATH"
+          fi
+          if [[ "$mode" != "dry_run" && "$report_path" != "$REPORT_PATH" ]]; then
+            echo "固定テスト報告はdry_runでのみ使用できます。" >&2
+            exit 1
+          fi
+          report_commit="$(git log -1 --format=%H -- "$report_path")"
+          report_url="https://github.com/${GITHUB_REPOSITORY}/blob/${report_commit}/${report_path}"
           echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "report_path=$report_path" >> "$GITHUB_OUTPUT"
           echo "report_commit=$report_commit" >> "$GITHUB_OUTPUT"
           echo "report_url=$report_url" >> "$GITHUB_OUTPUT"
 
       - name: 正式状態を判定して通知・receiptを処理
         id: notify
         shell: bash
+        env:
+          MODE_TO_PROCESS: ${{ steps.context.outputs.mode }}
+          REPORT_PATH_TO_PROCESS: ${{ steps.context.outputs.report_path }}
+          REPORT_COMMIT_TO_PROCESS: ${{ steps.context.outputs.report_commit }}
+          REPORT_URL_TO_PROCESS: ${{ steps.context.outputs.report_url }}
         run: |
           set -euo pipefail
           result_path="$RUNNER_TEMP/momoka-line-notify-result.json"
           python3 tools/momoka_task_completion_notify.py \
-            --report-path "$REPORT_PATH" \
+            --report-path "$REPORT_PATH_TO_PROCESS" \
             --receipts-dir "$RECEIPTS_DIR" \
-            --report-commit "${{ steps.context.outputs.report_commit }}" \
-            --report-url "${{ steps.context.outputs.report_url }}" \
+            --report-commit "$REPORT_COMMIT_TO_PROCESS" \
+            --report-url "$REPORT_URL_TO_PROCESS" \
             --occurred-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            --mode "${{ steps.context.outputs.mode }}" \
+            --mode "$MODE_TO_PROCESS" \
             --output "$result_path"
           action="$(jq -r '.action' "$result_path")"
           notification_status="$(jq -r '.notification_status // "not_requested"' "$result_path")"
