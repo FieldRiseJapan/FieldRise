@@ -1,12 +1,9 @@
 {
   "schema_version": 1,
-  "status": "in_progress",
-  "execution_name": "桃花｜#12｜AI Control Dashboard｜公開後検証・最終確認",
-  "issue_number": "12",
-  "project_name": "AI Control Dashboard",
-  "task_name": "公開後検証・最終確認",
-  "receipt_key": "f2869452cb5865781e0dbbc4a40466e34db759a4:docs/momoka/instructions/momoka-execution-name-runtime-fix.md",
-  "instruction_path": "docs/momoka/instructions/momoka-execution-name-runtime-fix.md",
-  "started_at": "2026-08-15T01:19:30Z",
-  "source": "manual_runtime_fix_backfill"
+  "status": "blocked",
+  "execution_name": null,
+  "receipt_key": "cd934423dcb4ba39b0ce7a9e2daa4d8a0fb1d5c5:docs/momoka/instructions/momoka-line-production-delivery-test.md",
+  "instruction_path": "docs/momoka/instructions/momoka-line-production-delivery-test.md",
+  "error": "実行名生成失敗: プロジェクト名を取得できないため、実行名を生成せず開始を停止します。 ",
+  "updated_at": "2026-08-15T01:28:54Z"
 }

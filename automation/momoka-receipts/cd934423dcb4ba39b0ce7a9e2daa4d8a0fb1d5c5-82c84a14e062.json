@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "instruction": {
+    "receipt_key": "cd934423dcb4ba39b0ce7a9e2daa4d8a0fb1d5c5:docs/momoka/instructions/momoka-line-production-delivery-test.md",
+    "id": "未指定",
+    "path": "docs/momoka/instructions/momoka-line-production-delivery-test.md",
+    "source_sha": "cd934423dcb4ba39b0ce7a9e2daa4d8a0fb1d5c5",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/cd934423dcb4ba39b0ce7a9e2daa4d8a0fb1d5c5/docs/momoka/instructions/momoka-line-production-delivery-test.md",
+    "priority": "未指定",
+    "created_at": "2026-08-15T01:28:40Z"
+  },
+  "execution": {
+    "status": "name_generation_failed",
+    "error": "実行名生成失敗: プロジェクト名を取得できないため、実行名を生成せず開始を停止します。 "
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.create",
+    "status": "blocked",
+    "detail": "execution_nameを生成できないため桃花タスクを開始していません。",
+    "finished_at": "2026-08-15T01:28:54Z"
+  }
+}
