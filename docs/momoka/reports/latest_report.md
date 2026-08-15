@@ -1,3 +1,20 @@
+# 桃花｜Issue未指定｜FieldRise｜タスク完了 → LINE自動通知システム
+
+## 受領記録（2026-08-15T01:09:46Z）
+
+| 項目 | 内容 |
+|---|---|
+| Receipt key | `bc5d3788ab219250e4fe8918fd5e06d06ba26ea5:docs/momoka/instructions/momoka-task-completion-line-auto-notification.md` |
+| 指示ID | 未指定 |
+| 関連Issue | 指示書に記載なし |
+| 正式指示 | [`docs/momoka/instructions/momoka-task-completion-line-auto-notification.md`](https://github.com/FieldRiseJapan/FieldRise/blob/bc5d3788ab219250e4fe8918fd5e06d06ba26ea5/docs/momoka/instructions/momoka-task-completion-line-auto-notification.md) |
+| 状態 | `in_progress` |
+| 次のアクション | 本受領記録を `origin/main` へ反映した後、指定のClaim JSONを作成・反映する。続いて既存のLINE連携とGitHub Actions構成を調査し、ステータス判定、二重通知防止、送信receipt、Secrets管理、安全なテスト、および実通知確認までを実装・検証して同じ正本へ記録する。 |
+
+本件は、正式報告書の状態を契機に、`completed`、`blocked`、`failed` のみを対象として社長へのLINE通知と送信receipt記録を自動化する正式指示として受領した。`in_progress` およびその他の状態では通知せず、同一完了報告の重複送信を防止し、秘密情報をGitHub Secrets等の安全な保管先に限定する。[8]
+
+---
+
 # FieldRise AI Control Dashboard 公開・最終検証報告
 
 ## 受領記録（2026-08-15T01:02:29Z）
