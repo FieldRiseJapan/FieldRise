@@ -1,5 +1,20 @@
 # FieldRise AI Control Dashboard 公開・最終検証報告
 
+## 受領記録（2026-08-15T01:02:29Z）
+
+| 項目 | 内容 |
+|---|---|
+| Receipt key | `29f93197201b1a6d384b34b712faad366cea4f48:docs/momoka/instructions/fieldrise-ai-control-dashboard-deployment-selection.md` |
+| 指示ID | 未指定 |
+| 関連Issue | 指示書に記載なし |
+| 正式指示 | [`docs/momoka/instructions/fieldrise-ai-control-dashboard-deployment-selection.md`](https://github.com/FieldRiseJapan/FieldRise/blob/29f93197201b1a6d384b34b712faad366cea4f48/docs/momoka/instructions/fieldrise-ai-control-dashboard-deployment-selection.md) |
+| 状態 | `in_progress` |
+| 次のアクション | 本受領記録を `origin/main` へ反映した後、指定のClaim JSONを作成・反映し、GitHub Pagesを第一候補として公開適合性を確認する。採用可否を確定後に本番ビルド、公開、自動デプロイ、PC・スマートフォン検証、60秒以内のGitHub自動更新テスト、E2Eテストを実施し、本報告へ進捗・完了・未完了・ブロッカーを追記する。 |
+
+本受領は、完成済みの `dashboard/ai-control-dashboard/` を実際にアクセス可能な公開Webアプリとして公開し、公開後にPC・スマートフォン検証、GitHubデータの自動反映、E2Eテストまでを完了するための正式な公開先選定・公開実行指示として扱う。公開URL、GitHub更新から60秒以内の反映確認、E2E成功、および重大エラーなしを確認するまでは、公開完了を宣言しない。[7]
+
+---
+
 ## 受領記録（2026-08-15T00:54:39Z）
 
 | 項目 | 内容 |
