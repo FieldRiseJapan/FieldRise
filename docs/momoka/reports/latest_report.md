@@ -59,8 +59,8 @@
 | 導入比較図 | `music_ai/analysis/cafe/figures/2026-08-15_project001_001_vs_suno008_009a_intro.png` |
 | 更新前の入口報告 | `docs/momoka/reports/archive/2026-08-15_pre_candidate_008_009a_comparison_latest_report.md` |
 
-**Commit SHA:** この報告の更新コミット後に確定し、本ファイルへ追記する。
-**Push先:** `origin/main`（反映後に結果を追記する）。
+**候補008・009A比較Commit SHA:** `2b55d7c9ef52401287198ebe5b374fc95009bfa6`（測定データ、可視化、比較報告、取得記録、作業台帳）
+**Push先:** `origin/main`。上記コミットはプッシュ済みで、反映時のローカルHEADとリモートHEADの一致を確認した。
 
 ## References
 
