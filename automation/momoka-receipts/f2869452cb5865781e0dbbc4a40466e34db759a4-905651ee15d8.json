@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "f2869452cb5865781e0dbbc4a40466e34db759a4:docs/momoka/instructions/momoka-execution-name-runtime-fix.md",
+    "id": "未指定",
+    "path": "docs/momoka/instructions/momoka-execution-name-runtime-fix.md",
+    "source_sha": "f2869452cb5865781e0dbbc4a40466e34db759a4",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/f2869452cb5865781e0dbbc4a40466e34db759a4/docs/momoka/instructions/momoka-execution-name-runtime-fix.md",
+    "priority": "未指定",
+    "created_at": "2026-08-15T01:16:05Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-15T01:16:16Z"
+  }
+}
