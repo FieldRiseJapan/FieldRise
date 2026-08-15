@@ -29,6 +29,7 @@ const REPO = "FieldRise";
 const BRANCH = "main";
 const GITHUB_URL = `https://github.com/${OWNER}/${REPO}`;
 const RAW_BASE = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}`;
+const COMMIT_API_URL = `https://api.github.com/repos/${OWNER}/${REPO}/commits/${BRANCH}`;
 const COMMIT_SNAPSHOT_PATH = "./data/latest-commit.json";
 const SOURCE_PATHS = {
   dashboard: "dashboard/sonata-desk/src/generated/dashboard-data.json",
@@ -138,13 +139,24 @@ async function fetchText(path: string) {
 }
 
 async function fetchCommit(): Promise<Commit> {
-  const response = await fetch(`${COMMIT_SNAPSHOT_PATH}?t=${Date.now()}`, { cache: "no-store" });
-  if (!response.ok) throw new Error(`最新コミットのスナップショット取得に失敗しました（HTTP ${response.status}）`);
-  const data = await response.json();
-  if (typeof data.sha !== "string" || typeof data.message !== "string") {
-    throw new Error("最新コミットのスナップショット形式が不正です");
+  try {
+    const response = await fetch(`${COMMIT_API_URL}?t=${Date.now()}`, {
+      cache: "no-store",
+      headers: { Accept: "application/vnd.github+json" },
+    });
+    if (!response.ok) throw new Error(`GitHub API: HTTP ${response.status}`);
+    const data = await response.json() as { sha?: unknown; commit?: { message?: unknown; author?: { date?: unknown }; committer?: { date?: unknown } } };
+    const message = data.commit?.message;
+    const date = data.commit?.author?.date ?? data.commit?.committer?.date;
+    if (typeof data.sha !== "string" || typeof message !== "string") throw new Error("GitHub APIの最新コミット形式が不正です");
+    return { sha: data.sha, message, date: typeof date === "string" ? date : "" };
+  } catch {
+    const response = await fetch(`${COMMIT_SNAPSHOT_PATH}?t=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`最新コミットを取得できませんでした（APIとスナップショットが利用不可）`);
+    const data = await response.json();
+    if (typeof data.sha !== "string" || typeof data.message !== "string") throw new Error("最新コミットのスナップショット形式が不正です");
+    return { sha: data.sha, date: typeof data.date === "string" ? data.date : "", message: data.message };
   }
-  return { sha: data.sha, date: typeof data.date === "string" ? data.date : "", message: data.message };
 }
 
 function SourceLink({ path, children }: { path: string; children: React.ReactNode }) {
