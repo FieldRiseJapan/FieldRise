@@ -1,0 +1,7 @@
+# Python bytecode and test cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local runtime reports produced by the read-only dashboard guard
+automation/dashboard_guard/reports/
