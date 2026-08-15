@@ -36,10 +36,12 @@ Cafe 001を基準とするProject-001の候補曲比較JSONが、`music_ai/analy
 - 新しい表示用データの`sourceDigest`は`1a14ca8997bbc26206c55893d8c9f32b1fe958df177678b92c9efcf855e0f674`。
 - Cafe 001対候補004／005、006／007、008／009Aの3比較セット・候補6曲を生成JSONに確認した。
 - TypeScript型検証およびGitHub Pages用本番ビルドは成功した。
-- GitHub Actionsの実行成功と公開URLへの反映は、本コミットの`main`反映後に確認する。
+- GitHub ActionsのSonata Desk同期実行`31915094389`は成功し、公開URLで候補曲比較の3比較セット・候補6曲・最新SYNC digestを確認した。
 
 **報告日時：** 2026-08-16（GMT+9）
-**Push結果：** 本コミットの`origin/main`反映および同期Action成功確認後に追記する。
+**同期修正Commit ID：** `97ae9d86c0325b109204c07ff9e66690dbb9030e`（`fix: sync Sonata Desk candidate analyses`）
+**公開ビルド識別Commit ID：** `db796a2`（`chore: refresh Sonata Desk Pages build marker`）
+**Push結果：** `origin/main`への反映成功。GitHub Actions同期・GitHub Pages公開を確認済み。
 
 ## 参照
 

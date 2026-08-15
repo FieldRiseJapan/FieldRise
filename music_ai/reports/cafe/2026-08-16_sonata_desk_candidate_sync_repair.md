@@ -70,3 +70,9 @@
 [2]: ../../analysis/cafe/measurements/2026-08-15_project001_001_vs_suno006_007.json "Cafe 001対候補006／007 測定データ"
 [3]: ../../analysis/cafe/measurements/2026-08-15_project001_001_vs_suno008_009a.json "Cafe 001対候補008／009A 測定データ"
 [4]: ../../../dashboard/sonata-desk/SYNC.md "Sonata Desk 同期仕様"
+
+## GitHub反映・公開確認
+
+同期修正はコミット`97ae9d86c0325b109204c07ff9e66690dbb9030e`として`origin/main`へ反映した。GitHub ActionsのSonata Desk同期実行`31915094389`は成功し、入力から生成された表示データのdigestは`1a14ca8997bbc26206c55893d8c9f32b1fe958df177678b92c9efcf855e0f674`である。
+
+GitHub Pagesは最初の公開更新で旧JavaScriptアセットを返していたため、公開ビルド識別子を更新したコミット`db796a2`を追加した。Pagesは同期修正コミットを対象にビルド成功し、公開URLで「候補曲比較」セクション、3比較セット、候補6曲、最新SYNC digestを確認した。したがって、GitHub正本の候補曲測定JSONから表示用JSON、公開Sonata Deskまでの反映経路は正常である。
