@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "in_progress",
+  "execution_name": "桃花｜#12｜AI Control Dashboard｜公開後検証・最終確認",
+  "issue_number": "12",
+  "project_name": "AI Control Dashboard",
+  "task_name": "公開後検証・最終確認",
+  "receipt_key": "f2869452cb5865781e0dbbc4a40466e34db759a4:docs/momoka/instructions/momoka-execution-name-runtime-fix.md",
+  "instruction_path": "docs/momoka/instructions/momoka-execution-name-runtime-fix.md",
+  "started_at": "2026-08-15T01:19:30Z",
+  "source": "manual_runtime_fix_backfill"
+}

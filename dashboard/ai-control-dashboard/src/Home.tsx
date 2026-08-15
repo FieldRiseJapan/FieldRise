@@ -33,6 +33,7 @@ const SOURCE_PATHS = {
   dashboard: "dashboard/sonata-desk/src/generated/dashboard-data.json",
   comments: "cto/inbox/momoka-comments.md",
   report: "docs/momoka/reports/latest_report.md",
+  execution: "automation/momoka-executions/latest.json",
 } as const;
 
 type Gate = { id: string; label: string; note: string; state: "measured" | "partial" | string };
@@ -65,6 +66,18 @@ type Comment = {
   nextAction: string;
 };
 type Commit = { sha: string; date: string; message: string };
+type Execution = {
+  status: string;
+  execution_name: string | null;
+  issue_number?: string | null;
+  project_name?: string;
+  task_name?: string;
+  receipt_key: string;
+  instruction_path: string;
+  started_at?: string;
+  updated_at?: string;
+  error?: string;
+};
 type SyncState = "loading" | "healthy" | "partial" | "error";
 
 const humanDate = (iso?: string) => {
@@ -171,6 +184,7 @@ export default function Home() {
   const [comment, setComment] = useState<Comment | null>(null);
   const [reportExcerpt, setReportExcerpt] = useState<string[]>([]);
   const [commit, setCommit] = useState<Commit | null>(null);
+  const [execution, setExecution] = useState<Execution | null>(null);
   const [syncState, setSyncState] = useState<SyncState>("loading");
   const [lastSync, setLastSync] = useState<string>("");
   const [errors, setErrors] = useState<string[]>([]);
@@ -183,10 +197,11 @@ export default function Home() {
       fetchText(SOURCE_PATHS.dashboard),
       fetchText(SOURCE_PATHS.comments),
       fetchText(SOURCE_PATHS.report),
+      fetchText(SOURCE_PATHS.execution),
       fetchCommit(),
     ]);
     const nextErrors: string[] = [];
-    const [dashboardResult, commentResult, reportResult, commitResult] = tasks;
+    const [dashboardResult, commentResult, reportResult, executionResult, commitResult] = tasks;
 
     if (dashboardResult.status === "fulfilled") {
       try { setData(JSON.parse(dashboardResult.value) as DashboardData); }
@@ -199,12 +214,17 @@ export default function Home() {
     if (reportResult.status === "fulfilled") setReportExcerpt(parseReportExcerpt(reportResult.value));
     else nextErrors.push("最新報告を取得できませんでした");
 
+    if (executionResult.status === "fulfilled") {
+      try { setExecution(JSON.parse(executionResult.value) as Execution); }
+      catch { nextErrors.push("桃花実行状態の形式を読み込めませんでした"); }
+    } else nextErrors.push("桃花実行状態を取得できませんでした");
+
     if (commitResult.status === "fulfilled") setCommit(commitResult.value);
     else nextErrors.push("GitHub最新コミットを取得できませんでした");
 
     setErrors(nextErrors);
     setLastSync(new Date().toISOString());
-    setSyncState(nextErrors.length === 0 ? "healthy" : nextErrors.length < 4 ? "partial" : "error");
+    setSyncState(nextErrors.length === 0 ? "healthy" : nextErrors.length < 5 ? "partial" : "error");
     setIsRefreshing(false);
   }, []);
 
@@ -221,7 +241,7 @@ export default function Home() {
   const references = data?.references ?? [];
   const currentIssue = data?.reviewQueue?.[0];
   const nextAction = data?.decisionBrief;
-  const sourceCount = useMemo(() => [data, comment, commit].filter(Boolean).length, [data, comment, commit]);
+  const sourceCount = useMemo(() => [data, comment, execution, commit].filter(Boolean).length, [data, comment, execution, commit]);
 
   return (
     <div className="app-shell">
@@ -279,7 +299,7 @@ export default function Home() {
           <section className="metric-grid" aria-label="主要指標">
             <MetricStatus label="検証点数" value={gates.length ? `${measured} / ${gates.length}` : "未登録"} detail={gates.length ? `計測済み ${measured}件・確認待ち ${partial}件` : "GitHub正本の検証データを待機中"} trace="EVIDENCE / A1 GATE LEDGER" tone="good" />
             <MetricStatus label="前回との差分" value="未登録" detail="GitHub正本に比較スコア履歴が未登録のため、差分は算出しません" trace="Δ / HISTORY NOT REGISTERED" tone="warn" />
-            <MetricStatus label="同期対象" value={`${sourceCount} / 3`} detail="検証データ・桃花コメント・最新コミットを照合" trace={`SYNC / ${lastSync ? new Date(lastSync).toISOString().slice(11, 19) : "WAITING"}Z`} />
+            <MetricStatus label="同期対象" value={`${sourceCount} / 4`} detail="検証データ・桃花通信・実行状態・最新コミットを照合" trace={`SYNC / ${lastSync ? new Date(lastSync).toISOString().slice(11, 19) : "WAITING"}Z`} />
             <MetricStatus label="重要タスク" value={currentIssue ? currentIssue.id : "未登録"} detail={currentIssue ? compact(currentIssue.title, 34) : "GitHub正本のタスク情報を待機中"} trace="QUEUE / REVIEW REQUIRED" />
           </section>
 
@@ -323,6 +343,11 @@ export default function Home() {
               <div className="panel-title"><div><p className="eyebrow">DECISION QUEUE</p><h2>現在の問題と次のアクション</h2></div><ArrowRight size={18} /></div>
               <div className="decision-card"><span className="decision-label">CURRENT ISSUE</span><h3>{currentIssue?.title ?? "未登録"}</h3><p>{currentIssue?.detail ?? "GitHub正本のレビューキューを取得中です。"}</p>{currentIssue && <SourceLink path={currentIssue.sourcePath}>根拠を確認</SourceLink>}</div>
               <div className="next-action"><span>NEXT</span><div><h3>{nextAction?.title ?? "未登録"}</h3><p>{nextAction?.body ?? "GitHub正本の次アクションを取得中です。"}</p></div></div>
+            </article>
+
+            <article className="ops-panel execution-panel">
+              <div className="panel-title"><div><p className="eyebrow">MOMOKA / ACTIVE EXECUTION</p><h2>桃花の実行状態</h2></div><Workflow size={18} /></div>
+              {execution ? <div className="report-excerpt"><p><strong>{execution.execution_name ?? "実行名生成失敗"}</strong></p><p>状態: {execution.status} {execution.issue_number ? `｜ Issue #${execution.issue_number}` : ""}</p><p>{execution.error ?? `${execution.project_name ?? ""}｜${execution.task_name ?? ""}`}</p><p>開始・更新: {humanDate(execution.started_at ?? execution.updated_at)}</p><SourceLink path={SOURCE_PATHS.execution}>実行状態の正本を開く</SourceLink></div> : <div className="empty-data"><LoaderCircle className="spin" size={18} /> 桃花実行状態を取得中</div>}
             </article>
 
             <article className="ops-panel report-panel">

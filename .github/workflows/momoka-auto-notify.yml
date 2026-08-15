@@ -39,6 +39,7 @@ jobs:
       MANUAL_INSTRUCTION_PATH: ${{ inputs.instruction_path }}
       DRY_RUN: ${{ inputs.dry_run || false }}
       MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
+      GH_TOKEN: ${{ github.token }}
 
     steps:
       - name: リポジトリを取得
@@ -159,6 +160,52 @@ jobs:
             instruction_url="https://github.com/${GITHUB_REPOSITORY}/blob/${SOURCE_SHA}/${instruction_path}"
             receipt_key="${SOURCE_SHA}:${instruction_path}"
 
+            # 外部タスクを作成する前に、Issue・正式指示から唯一の正式名称を確定する。
+            # 未指定・Task・Untitled・Unknownを補完値として送信することは許可しない。
+            execution_metadata_file="$RUNNER_TEMP/execution-name-${path_hash}.json"
+            issue_number="$(python3 tools/momoka_execution_name.py "$instruction_path" --issue-number-only || true)"
+            issue_title=""
+            if [[ -n "$issue_number" ]]; then
+              issue_title="$(gh issue view "$issue_number" --repo "$GITHUB_REPOSITORY" --json title -q '.title' 2>/dev/null || true)"
+            fi
+
+            execution_error_file="$RUNNER_TEMP/execution-name-${path_hash}.error"
+            if ! python3 tools/momoka_execution_name.py "$instruction_path" --issue-title "$issue_title" > "$execution_metadata_file" 2> "$execution_error_file"; then
+              execution_error="$(tr '\n' ' ' < "$execution_error_file" | sed 's/[[:space:]]\+/ /g')"
+              execution_error="${execution_error:-実行名生成に失敗しました。}"
+              jq -n \
+                --arg receipt_key "$receipt_key" \
+                --arg instruction_id "$instruction_id" \
+                --arg instruction_path "$instruction_path" \
+                --arg source_sha "$SOURCE_SHA" \
+                --arg source_url "$instruction_url" \
+                --arg priority "$priority" \
+                --arg created_at "$created_at" \
+                --arg execution_error "$execution_error" \
+                --arg finished_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+                '{schema_version: 2, instruction: {receipt_key: $receipt_key, id: $instruction_id, path: $instruction_path, source_sha: $source_sha, source_url: $source_url, priority: $priority, created_at: $created_at}, execution: {status: "name_generation_failed", error: $execution_error}, delivery: {recipient: "Manus default agent (桃花)", method: "Manus API task.create", status: "blocked", detail: "execution_nameを生成できないため桃花タスクを開始していません。", finished_at: $finished_at}}' \
+                > "$receipt_path"
+              execution_state_path="automation/momoka-executions/latest.json"
+              mkdir -p "$(dirname "$execution_state_path")"
+              jq -n \
+                --arg receipt_key "$receipt_key" \
+                --arg instruction_path "$instruction_path" \
+                --arg error "$execution_error" \
+                --arg updated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+                '{schema_version: 1, status: "blocked", execution_name: null, receipt_key: $receipt_key, instruction_path: $instruction_path, error: $error, updated_at: $updated_at}' \
+                > "$execution_state_path"
+              git add -- "$execution_state_path"
+              commit_receipt "chore: block Momoka unnamed execution ${SOURCE_SHA:0:12}"
+              echo "実行名生成失敗のためタスク作成を停止しました: $instruction_path — $execution_error" >&2
+              exit 1
+            fi
+
+            execution_name="$(jq -r '.execution_name' "$execution_metadata_file")"
+            issue_number="$(jq -r '.issue_number' "$execution_metadata_file")"
+            project_name="$(jq -r '.project_name' "$execution_metadata_file")"
+            task_name="$(jq -r '.task_name' "$execution_metadata_file")"
+            execution_source="$(jq -r '.source' "$execution_metadata_file")"
+
             jq -n \
               --arg receipt_key "$receipt_key" \
               --arg instruction_id "$instruction_id" \
@@ -167,9 +214,27 @@ jobs:
               --arg source_url "$instruction_url" \
               --arg priority "$priority" \
               --arg created_at "$created_at" \
+              --arg execution_name "$execution_name" \
+              --arg issue_number "$issue_number" \
+              --arg project_name "$project_name" \
+              --arg task_name "$task_name" \
+              --arg execution_source "$execution_source" \
               --arg started_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-              '{schema_version: 1, instruction: {receipt_key: $receipt_key, id: $instruction_id, path: $instruction_path, source_sha: $source_sha, source_url: $source_url, priority: $priority, created_at: $created_at}, delivery: {recipient: "Manus default agent (桃花)", method: "Manus API task.sendMessage", status: "attempting", started_at: $started_at}}' \
+              '{schema_version: 2, instruction: {receipt_key: $receipt_key, id: $instruction_id, path: $instruction_path, source_sha: $source_sha, source_url: $source_url, priority: $priority, created_at: $created_at}, execution: {execution_name: $execution_name, issue_number: (if $issue_number == "" then null else $issue_number end), project_name: $project_name, task_name: $task_name, source: $execution_source}, delivery: {recipient: "Manus default agent (桃花)", method: "Manus API task.create", status: "attempting", started_at: $started_at}}' \
               > "$receipt_path"
+            execution_state_path="automation/momoka-executions/latest.json"
+            mkdir -p "$(dirname "$execution_state_path")"
+            jq -n \
+              --arg receipt_key "$receipt_key" \
+              --arg execution_name "$execution_name" \
+              --arg issue_number "$issue_number" \
+              --arg project_name "$project_name" \
+              --arg task_name "$task_name" \
+              --arg instruction_path "$instruction_path" \
+              --arg started_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+              '{schema_version: 1, status: "in_progress", execution_name: $execution_name, issue_number: (if $issue_number == "" then null else $issue_number end), project_name: $project_name, task_name: $task_name, receipt_key: $receipt_key, instruction_path: $instruction_path, started_at: $started_at, source: "momoka-auto-notify"}' \
+              > "$execution_state_path"
+            git add -- "$execution_state_path"
             commit_receipt "chore: claim Momoka instruction ${SOURCE_SHA:0:12}"
 
             status="failed"
@@ -186,9 +251,9 @@ jobs:
             else
               claim_record_path="automation/momoka-claims/${SOURCE_SHA}-${path_hash}.json"
               report_path="docs/momoka/reports/latest_report.md"
-              message="[CTO指示の自動受領・Claim要求]\n\nReceipt key: ${receipt_key}\n指示ID: ${instruction_id}\n優先度: ${priority}\n作成日時: ${created_at}\n指示書: ${instruction_url}\nCommit SHA: ${SOURCE_SHA}\nClaim記録先: ${claim_record_path}\n\nあなたは桃花COOとして、この正式指示書を取得して内容を確認してください。**構造化した受領結果を返す前に、必ず次の順序を完了してください。** (1) 正本の docs/momoka/reports/latest_report.md に receipt_key、指示ID、関連Issue、状態=in_progress、次のアクションを記録して origin/mainへPushする。(2) Claim記録先に receipt_key、status=claimed、claimed_at、report_path=docs/momoka/reports/latest_report.md を持つJSONを作成して origin/mainへPushする。(3) 作業の進捗・完了・未完了・ブロッカーは同じ正式報告先を更新して記録する。GitHubに書込めない場合は、Claimを作成せず、理由をblockedとして明確に返してください。"
-              claim_schema='{"type":"object","properties":{"receipt_key":{"type":"string"},"claim_state":{"type":"string","enum":["claimed","not_claimed","blocked"]},"claim_record_path":{"type":"string"},"report_path":{"type":"string"},"report_updated":{"type":"boolean"},"task_state":{"type":"string","enum":["completed","in_progress","blocked"]}},"required":["receipt_key","claim_state","claim_record_path","report_path","report_updated","task_state"],"additionalProperties":false}'
-              payload="$(jq -n --arg content "$message" --arg title "桃花受領: ${instruction_id}" --argjson claim_schema "$claim_schema" '{title: $title, locale: "ja", interactive_mode: false, hide_in_task_list: false, agent_profile: "manus-1.6", message: {content: $content}, structured_output_schema: $claim_schema}')"
+              message="[CTO指示の自動受領・Claim要求]\n\n実行名: ${execution_name}\nIssue番号: ${issue_number:-なし}\nプロジェクト名: ${project_name}\n作業内容: ${task_name}\nReceipt key: ${receipt_key}\n指示ID: ${instruction_id}\n優先度: ${priority}\n作成日時: ${created_at}\n指示書: ${instruction_url}\nCommit SHA: ${SOURCE_SHA}\nClaim記録先: ${claim_record_path}\n\nこの実行名は実行画面、GitHub Claim・作業記録、FieldRise AI Control Dashboardで使用する唯一の正式名称です。名前は実行開始前に生成・検証済みです。**構造化した受領結果を返す前に、必ず次の順序を完了してください。** (1) 正本の docs/momoka/reports/latest_report.md に実行名、receipt_key、指示ID、関連Issue、状態=in_progress、次のアクションを記録して origin/mainへPushする。(2) Claim記録先に receipt_key、execution_name、status=claimed、claimed_at、report_path=docs/momoka/reports/latest_report.md を持つJSONを作成して origin/mainへPushする。(3) 作業の進捗・完了・未完了・ブロッカーは同じ正式報告先を更新して記録する。GitHubに書込めない場合は、Claimを作成せず、理由をblockedとして明確に返してください。"
+              claim_schema='{"type":"object","properties":{"receipt_key":{"type":"string"},"execution_name":{"type":"string"},"claim_state":{"type":"string","enum":["claimed","not_claimed","blocked"]},"claim_record_path":{"type":"string"},"report_path":{"type":"string"},"report_updated":{"type":"boolean"},"task_state":{"type":"string","enum":["completed","in_progress","blocked"]}},"required":["receipt_key","execution_name","claim_state","claim_record_path","report_path","report_updated","task_state"],"additionalProperties":false}'
+              payload="$(jq -n --arg content "$message" --arg title "$execution_name" --argjson claim_schema "$claim_schema" '{title: $title, locale: "ja", interactive_mode: false, hide_in_task_list: false, agent_profile: "manus-1.6", message: {content: $content}, structured_output_schema: $claim_schema}')"
               response_file="$RUNNER_TEMP/manus-response-${path_hash}.json"
               http_status="$(curl --silent --show-error --fail-with-body --max-time 30 --output "$response_file" --write-out '%{http_code}' \
                 --request POST 'https://api.manus.ai/v2/task.create' \
