@@ -1,3 +1,21 @@
+# 桃花実行名自動命名・実行画面反映修正 — 着手報告
+
+## 受領記録（2026-08-15T01:16:05Z）
+
+| 項目 | 内容 |
+|---|---|
+| 実行名 | `桃花｜#12｜AI Control Dashboard｜公開後検証・最終確認` |
+| Receipt key | `f2869452cb5865781e0dbbc4a40466e34db759a4:docs/momoka/instructions/momoka-execution-name-runtime-fix.md` |
+| 指示ID | 未指定 |
+| 関連Issue | [#12：AI Control Dashboard｜公開後検証・最終確認](https://github.com/FieldRiseJapan/FieldRise/issues/12) |
+| 正式指示 | [`docs/momoka/instructions/momoka-execution-name-runtime-fix.md`](https://github.com/FieldRiseJapan/FieldRise/blob/f2869452cb5865781e0dbbc4a40466e34db759a4/docs/momoka/instructions/momoka-execution-name-runtime-fix.md) |
+| 状態 | `in_progress` |
+| 次のアクション | 本受領記録を `origin/main` へ反映した後、指定のClaim JSONを作成・反映する。続いて、実行開始前の `execution_name` 生成、実行ランナー・実行画面・GitHub Claim・AI Control Dashboardへの単一名称伝播、既存の `桃花受領：未指定` 実行の扱い、テストおよびエラー処理を実装・検証し、同じ正本に結果を記録する。 |
+
+本件は、実行開始後の記録だけでなく、**実行開始前に**指示書とIssueの情報から唯一の正式名称である `execution_name` を確定し、実行画面、GitHub Claim、およびAI Control Dashboardに同一値を表示・記録するための根本修正指示として受領した。必須情報が取得できない場合には、禁止された既定値で開始せず、名称生成失敗として停止・報告する。  
+
+---
+
 # 桃花｜Issue未指定｜FieldRise｜タスク完了 → LINE自動通知システム
 
 ## 受領記録（2026-08-15T01:09:46Z）
