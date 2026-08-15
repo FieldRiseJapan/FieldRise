@@ -51,5 +51,6 @@
 2. 候補曲が登録される際は、同じ実験IDに音源、生成Prompt、SUNO設定、Negative指定を紐付け、Phase 2へ進める。
 3. 以後のPrompt設計では、001型のBass条件を固定し、伴奏導入時刻だけを最初の変更変数とする。
 
-**Commit SHA:** この途中報告の反映コミット後に確定し、同じ正本へ追記する。
-**Push先:** `origin/main`（反映後に結果を追記する）。
+**基準報告Commit SHA:** `c01456b735f7508f91029395c1272bf8f70e835e`（途中報告・作業台帳）
+**Phase 1測定Commit SHA:** `33c210aa4f00a99aeac2eac5feea8e9ba1cc4abe`（0〜2秒測定資産・可視化・再現用スクリプト）
+**Push先:** `origin/main`。各コミットはプッシュ済みで、測定反映時点のローカルHEADとリモートHEADの一致を確認した。
