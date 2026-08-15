@@ -13,6 +13,16 @@
 
 本受領は、完成済みの `dashboard/ai-control-dashboard/` を実際にアクセス可能な公開Webアプリとして公開し、公開後にPC・スマートフォン検証、GitHubデータの自動反映、E2Eテストまでを完了するための正式な公開先選定・公開実行指示として扱う。公開URL、GitHub更新から60秒以内の反映確認、E2E成功、および重大エラーなしを確認するまでは、公開完了を宣言しない。[7]
 
+## 進捗・完了・未完了・ブロッカー（2026-08-15T01:03:38Z）
+
+| 区分 | 状況 |
+|---|---|
+| 進捗 | 正式指示書の取得・内容確認、正本への受領記録、および指定Claim JSONの作成を完了した。全体状態は `in_progress` を維持する。 |
+| 完了 | 受領記録を [`86223bd`](https://github.com/FieldRiseJapan/FieldRise/commit/86223bd)、Claim記録を [`d58aa60`](https://github.com/FieldRiseJapan/FieldRise/commit/d58aa60) として、指定された順序でそれぞれ `origin/main` へ反映した。 |
+| 未完了 | GitHub Pagesを第一候補とする公開先適合性の確認、公開先決定、本番ビルド・公開・自動デプロイ、公開URL取得、PCおよびスマートフォン実ブラウザ検証、GitHub更新から60秒以内の自動反映確認、E2Eテスト、公開完了の正式判定は未実施である。 |
+| ブロッカー | 本受領、Claim、正本へのGitHub書込みについてブロッカーはない。公開・検証工程の技術的適合性および設定上の制約は、今後の実行工程で確認する。 |
+| 次のアクション | GitHub Pagesの設定・SPAルーティング・必要なGitHub APIアクセス・セキュリティ・保守性を確認して公開先を決定し、指示書の完成条件を証跡付きで検証する。 |
+
 ---
 
 ## 受領記録（2026-08-15T00:54:39Z）
@@ -127,3 +137,4 @@
 [4]: https://github.com/FieldRiseJapan/FieldRise/tree/main/dashboard/ai-control-dashboard "AI Control Dashboard 実装先"
 [5]: https://github.com/FieldRiseJapan/FieldRise/blob/5e0ef3c607764745059c927dfeefd6550308bc73/docs/momoka/instructions/fieldrise-ai-control-dashboard-development.md "正式指示書：FieldRise AI Control Dashboard Web App"
 [6]: https://github.com/FieldRiseJapan/FieldRise/blob/c3459268a67483b8a1b7178459524df5737889c2/docs/momoka/instructions/fieldrise-ai-control-dashboard-publication-final-verification.md "正式指示書：AI Control Dashboard 公開・最終検証"
+[7]: https://github.com/FieldRiseJapan/FieldRise/blob/29f93197201b1a6d384b34b712faad366cea4f48/docs/momoka/instructions/fieldrise-ai-control-dashboard-deployment-selection.md "正式指示書：AI Control Dashboard 公開先選定・公開実行"
