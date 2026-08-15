@@ -60,8 +60,8 @@
 | 更新済み比較スクリプト | `tools/compare_cafe001_suno_candidates.py` |
 | 更新前の入口報告 | `docs/momoka/reports/archive/2026-08-15_pre_candidate_006_007_comparison_latest_report.md` |
 
-**Commit SHA:** この報告の更新コミット後に確定し、本ファイルへ追記する。
-**Push先:** `origin/main`（反映後に結果を追記する）。
+**候補006・007比較Commit SHA:** `b7403730413cc24e80dd60d63a1f172649555c88`（測定データ、可視化、比較報告、取得記録、測定スクリプト更新）
+**Push先:** `origin/main`。上記コミットはプッシュ済みで、反映時のローカルHEADとリモートHEADの一致を確認した。
 
 ## References
 
