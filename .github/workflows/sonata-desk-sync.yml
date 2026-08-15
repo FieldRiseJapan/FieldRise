@@ -8,6 +8,7 @@ on:
       - "music_ai/reference_music/success_song_002.md"
       - "music_ai/reference_music/audio/README.md"
       - "music_ai/experiments/A1_001-002-ground-truth-capture.md"
+      - "music_ai/analysis/cafe/measurements/*_project001_001_vs_suno*.json"
       - "music_ai/suno_database/successful_patterns.md"
       - "dashboard/sonata-desk/scripts/generate_dashboard_data.py"
       - ".github/workflows/sonata-desk-sync.yml"

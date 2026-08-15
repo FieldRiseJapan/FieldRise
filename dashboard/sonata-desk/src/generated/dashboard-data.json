@@ -60,6 +60,107 @@
     "purpose": "001・002の正解データを観測し、再現基準を固定する",
     "status": "measured_with_listening_pending"
   },
+  "candidateComparisons": [
+    {
+      "analysisVersion": "2026-08-15-project001-candidate-comparison-v1",
+      "candidates": [
+        {
+          "duration": "180.4 sec",
+          "fullMixOnset": "0.00 sec",
+          "globalRms": "-16.30 dBFS",
+          "introLow": "57.32%",
+          "introRms": "-15.13 dBFS",
+          "label": "CAND-004"
+        },
+        {
+          "duration": "180.7 sec",
+          "fullMixOnset": "0.00 sec",
+          "globalRms": "-15.86 dBFS",
+          "introLow": "63.56%",
+          "introRms": "-15.62 dBFS",
+          "label": "CAND-005"
+        }
+      ],
+      "id": "2026-08-15_project001_001_vs_suno004_005",
+      "limitation": "Candidate audio is MP3 while the 001 Master is FLAC; absolute metrics may be codec-sensitive.",
+      "master": {
+        "duration": "222.4 sec",
+        "fullMixOnset": "0.40 sec",
+        "globalRms": "-16.82 dBFS",
+        "introLow": "98.04%",
+        "introRms": "-22.64 dBFS",
+        "label": "MASTER-001"
+      },
+      "sourcePath": "music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno004_005.json",
+      "title": "Cafe 001 vs CAND-004 / CAND-005"
+    },
+    {
+      "analysisVersion": "2026-08-15-project001-candidate-comparison-v1",
+      "candidates": [
+        {
+          "duration": "153.8 sec",
+          "fullMixOnset": "0.10 sec",
+          "globalRms": "-15.62 dBFS",
+          "introLow": "66.88%",
+          "introRms": "-16.50 dBFS",
+          "label": "CAND-006"
+        },
+        {
+          "duration": "104.4 sec",
+          "fullMixOnset": "0.00 sec",
+          "globalRms": "-15.83 dBFS",
+          "introLow": "37.71%",
+          "introRms": "-15.12 dBFS",
+          "label": "CAND-007"
+        }
+      ],
+      "id": "2026-08-15_project001_001_vs_suno006_007",
+      "limitation": "Candidate audio is MP3 while the 001 Master is FLAC; absolute metrics may be codec-sensitive.",
+      "master": {
+        "duration": "222.4 sec",
+        "fullMixOnset": "0.40 sec",
+        "globalRms": "-16.82 dBFS",
+        "introLow": "98.04%",
+        "introRms": "-22.64 dBFS",
+        "label": "MASTER-001"
+      },
+      "sourcePath": "music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno006_007.json",
+      "title": "Cafe 001 vs CAND-006 / CAND-007"
+    },
+    {
+      "analysisVersion": "2026-08-15-project001-candidate-comparison-v1",
+      "candidates": [
+        {
+          "duration": "91.0 sec",
+          "fullMixOnset": "0.00 sec",
+          "globalRms": "-16.02 dBFS",
+          "introLow": "73.31%",
+          "introRms": "-16.80 dBFS",
+          "label": "CAND-008"
+        },
+        {
+          "duration": "107.5 sec",
+          "fullMixOnset": "0.00 sec",
+          "globalRms": "-15.00 dBFS",
+          "introLow": "71.26%",
+          "introRms": "-16.05 dBFS",
+          "label": "CAND-009A"
+        }
+      ],
+      "id": "2026-08-15_project001_001_vs_suno008_009a",
+      "limitation": "Candidate audio is MP3 while the 001 Master is FLAC; absolute metrics may be codec-sensitive.",
+      "master": {
+        "duration": "222.4 sec",
+        "fullMixOnset": "0.40 sec",
+        "globalRms": "-16.82 dBFS",
+        "introLow": "98.04%",
+        "introRms": "-22.64 dBFS",
+        "label": "MASTER-001"
+      },
+      "sourcePath": "music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno008_009a.json",
+      "title": "Cafe 001 vs CAND-008 / CAND-009A"
+    }
+  ],
   "decisionBrief": {
     "action": "完全分析を読む",
     "body": "001の約2.299秒と002の約0.255秒を比較する。002の正式Mainは検証済みであり、テンポ・Key・聴取記録を先に確定する。",
@@ -226,9 +327,12 @@
     }
   ],
   "schemaVersion": 1,
-  "sourceDigest": "edcd0f5d1b98b31614de8e3f24d8c15ea32fc68033d82b1ce24ff0195f806183",
+  "sourceDigest": "1a14ca8997bbc26206c55893d8c9f32b1fe958df177678b92c9efcf855e0f674",
   "sourceFiles": {
     "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md": "91b9b5012b9f33fd5c363c01b53da3761f1383034fe1f8951f5669e698377ce0",
+    "music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno004_005.json": "db5657fc1e9b83508d703ab5224ddffa832095be4c325c93a8509353e4fc0b4e",
+    "music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno006_007.json": "d562f6dfeb9fc4dc86af5e8c7a9720c351271036124591c276f1fb74ad26d6d4",
+    "music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno008_009a.json": "6f681cfafafaecf4b11323222f35a0d418b8507c7649d1011033af5ed079ae39",
     "music_ai/experiments/A1_001-002-ground-truth-capture.md": "326c5201fc0d2faf4465c77bbbfd1aa431bef745f1ce37713ab25c6a9cb42e42",
     "music_ai/reference_music/audio/README.md": "322c20f5fb9ee2ee196d37195c6a5a0bf18d873665a8ead394f5f143ff754ec2",
     "music_ai/reference_music/success_song_001.md": "ff2990c70ac163b98d434762ab7e807de8bbadcba356df8d428d9660a510c6b2",

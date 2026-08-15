@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT_DIR = ROOT / "dashboard" / "sonata-desk" / "src" / "generated"
-SOURCES = {
+STATIC_SOURCES = {
     "song001": ROOT / "music_ai" / "reference_music" / "success_song_001.md",
     "song002": ROOT / "music_ai" / "reference_music" / "success_song_002.md",
     "a1": ROOT / "music_ai" / "experiments" / "A1_001-002-ground-truth-capture.md",
@@ -23,6 +23,8 @@ SOURCES = {
     "audioLedger": ROOT / "music_ai" / "reference_music" / "audio" / "README.md",
     "expertReview": ROOT / "music_ai" / "analysis" / "cafe" / "2026-08-14_001-002_expert_peer_review.md",
 }
+CANDIDATE_ANALYSIS_DIR = ROOT / "music_ai" / "analysis" / "cafe" / "measurements"
+CANDIDATE_ANALYSIS_GLOB = "*_project001_001_vs_suno*.json"
 
 
 def clean(value: str) -> str:
@@ -133,6 +135,38 @@ def parse_a1_metadata(text: str) -> dict[str, str]:
     return {"status": status, "purpose": purpose, "changedVariable": changed_variable}
 
 
+def compact_candidate_track(label: str, payload: dict) -> dict[str, str]:
+    source = payload.get("source", {})
+    global_metrics = payload.get("global", {})
+    intro = payload.get("intro_0_2_seconds", {})
+    low_ratio = intro.get("band_energy_ratio", {}).get("low_20_180_hz")
+    duration = source.get("duration_seconds")
+    return {
+        "label": label,
+        "duration": f"{duration:.1f} sec" if isinstance(duration, (int, float)) else "未観測",
+        "globalRms": f"{global_metrics['rms_dbfs']:.2f} dBFS" if isinstance(global_metrics.get("rms_dbfs"), (int, float)) else "未観測",
+        "introRms": f"{intro['rms_dbfs']:.2f} dBFS" if isinstance(intro.get("rms_dbfs"), (int, float)) else "未観測",
+        "introLow": f"{low_ratio * 100:.2f}%" if isinstance(low_ratio, (int, float)) else "未観測",
+        "fullMixOnset": f"{intro['first_sustained_full_mix_signal_seconds']:.2f} sec" if isinstance(intro.get("first_sustained_full_mix_signal_seconds"), (int, float)) else "未観測",
+    }
+
+
+def parse_candidate_comparison(path: Path, text: str) -> dict:
+    payload = json.loads(text)
+    tracks = payload.get("tracks", {})
+    candidate_ids = sorted(track_id for track_id in tracks if track_id.startswith("CAND-"))
+    limitations = payload.get("limitations", [])
+    return {
+        "id": path.stem,
+        "title": f"Cafe 001 vs {' / '.join(candidate_ids)}",
+        "analysisVersion": payload.get("analysis_version", "未記録"),
+        "sourcePath": str(path.relative_to(ROOT)),
+        "limitation": limitations[0] if limitations else "測定条件の詳細は根拠JSONを確認してください。",
+        "master": compact_candidate_track("MASTER-001", tracks.get("MASTER-001", {})),
+        "candidates": [compact_candidate_track(track_id, tracks[track_id]) for track_id in candidate_ids],
+    }
+
+
 def write_json(path: Path, payload: dict) -> bool:
     serialized = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
     if path.exists() and path.read_text(encoding="utf-8") == serialized:
@@ -143,8 +177,18 @@ def write_json(path: Path, payload: dict) -> bool:
 
 
 def main() -> None:
-    contents = {key: path.read_text(encoding="utf-8") for key, path in SOURCES.items()}
-    source_hashes = {str(path.relative_to(ROOT)): hashlib.sha256(contents[key].encode("utf-8")).hexdigest() for key, path in SOURCES.items()}
+    contents = {key: path.read_text(encoding="utf-8") for key, path in STATIC_SOURCES.items()}
+    candidate_paths = sorted(CANDIDATE_ANALYSIS_DIR.glob(CANDIDATE_ANALYSIS_GLOB))
+    candidate_contents = {path: path.read_text(encoding="utf-8") for path in candidate_paths}
+    all_source_paths = [*STATIC_SOURCES.values(), *candidate_paths]
+    source_text_by_path = {
+        **{path: contents[key] for key, path in STATIC_SOURCES.items()},
+        **candidate_contents,
+    }
+    source_hashes = {
+        str(path.relative_to(ROOT)): hashlib.sha256(source_text_by_path[path].encode("utf-8")).hexdigest()
+        for path in all_source_paths
+    }
     digest = hashlib.sha256("".join(source_hashes.values()).encode("utf-8")).hexdigest()
     a1 = parse_a1_metadata(contents["a1"])
     dashboard_data = {
@@ -161,6 +205,7 @@ def main() -> None:
             "expertReview": "music_ai/analysis/cafe/2026-08-14_001-002_expert_peer_review.md",
         },
         "references": [parse_reference("001", contents["song001"]), parse_reference("002", contents["song002"])],
+        "candidateComparisons": [parse_candidate_comparison(path, candidate_contents[path]) for path in candidate_paths],
         "decisionBrief": {
             "title": "B1は、伴奏導入時刻だけを比べる。",
             "body": "001の約2.299秒と002の約0.255秒を比較する。002の正式Mainは検証済みであり、テンポ・Key・聴取記録を先に確定する。",
