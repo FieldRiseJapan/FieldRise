@@ -1,0 +1,31 @@
+{
+  "analysis_version": "2026-08-15-cafe001-intro-v1",
+  "source": {
+    "filename": "001_reference_main.flac",
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "analysis_interval_seconds": [
+      0.0,
+      2.0
+    ]
+  },
+  "method": {
+    "window_seconds": 0.05,
+    "mixdown": "stereo arithmetic mean",
+    "sustained_signal_threshold_dbfs": -45.0,
+    "note": "Frequency bands and sustained-signal time are full-mix acoustic proxies. They do not establish instrument identity or replace the validated stem onset measurement."
+  },
+  "summary": {
+    "first_sustained_full_mix_signal_seconds": 0.4,
+    "mean_rms_dbfs": -37.01101482282847,
+    "mean_low_20_180_ratio": 0.6476652559064805,
+    "low_dominant_window_share": 0.45,
+    "validated_bass_stem_onset_seconds": 0.464,
+    "validated_accompaniment_stem_onset_seconds": 2.299
+  },
+  "limitations": [
+    "The full mix cannot prove that low-band energy is a bass instrument.",
+    "Noise type, subjective attack, spatial impression, and loop naturalness require listening review.",
+    "The 0.464 second bass onset is cited from the validated stem analysis, not inferred from this full-mix calculation."
+  ]
+}

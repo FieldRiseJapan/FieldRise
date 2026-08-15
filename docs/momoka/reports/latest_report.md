@@ -14,14 +14,15 @@
 | 正式指示書の確認 | 完了 | 001をMaster固定、Fact/Hypothesis分離、一変数検証、途中経過報告、更新前SHA確認の要件を確認した。 |
 | mainの最新化 | 完了 | 書込み前に`origin/main`を取得し、ローカルHEADとの一致を確認した。 |
 | 001 Master正本の確認 | 完了 | `001_reference_main.flac`、48 kHz／Stereo、222.400秒、および4ステム再構成整合を確認した。 |
-| Phase 1：0〜2秒 Bass基準の固定 | 完了 | Bass onset 0.464秒、Bass低域比率98.73%、Bass RMS -26.85 dBFS、伴奏onset 2.299秒をFactとして固定した。 |
+| Phase 1：0〜2秒 Bass基準の固定 | 完了 | Bass stem onset 0.464秒、Bass低域比率98.73%、Bass RMS -26.85 dBFS、伴奏onset 2.299秒をFactとして固定した。加えて、001正規Mainの50ミリ秒窓再測定で、フルミックス持続信号開始0.400秒を記録した。 |
 | Phase 2〜5：候補曲との再現比較 | 未着手・`blocked` | 比較対象となる候補曲、生成条件、実験IDの対応が不足している。 |
 
 ## 作成・更新ファイル
 
 | 種別 | 保存先 | 内容 |
 |---|---|---|
-| 詳細作業台帳 | `docs/momoka/reports/2026-08-15_project001_001_reproduction_verification_worklog.md` | 001 MasterのFact、Hypothesis、A1/B1整合、Phase設計、ブロッカー、必要入力を記録。 |
+| 詳細作業台帳 | `docs/momoka/reports/2026-08-15_project001_001_reproduction_verification_worklog.md` | 001 MasterのFact、Hypothesis、A1/B1整合、Phase設計、ブロッカー、必要入力、Phase 1再測定を記録。 |
+| Phase 1測定資産 | `music_ai/analysis/cafe/measurements/2026-08-15_cafe001_intro_0_2s_windows.csv`、`music_ai/analysis/cafe/measurements/2026-08-15_cafe001_intro_0_2s_summary.json`、`music_ai/analysis/cafe/figures/2026-08-15_cafe001_intro_0_2s.png` | 001 Masterの0〜2秒フルミックス補助測定、台帳、可視化。 |
 | 最新正式報告 | `docs/momoka/reports/latest_report.md` | 本ファイル。未完了・停止状態を含む正式入口。 |
 | 履歴保全 | `docs/momoka/reports/archive/2026-08-15_pre_project001_001_reproduction_verification_latest_report.md` | 更新前の正式報告を保存。 |
 
