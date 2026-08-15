@@ -1,3 +1,24 @@
+# 桃花｜運用通信テスト｜自動伝達・受領・Claim・報告確認
+
+## 受領記録（2026-08-15T02:13:00Z）
+
+| 項目 | 内容 |
+|---|---|
+| 実行名 | `桃花｜運用通信テスト｜自動伝達・受領・Claim・報告確認` |
+| Receipt key | `61ba7dd0237dbedee211e2b5b5afe24b13e91dbd:docs/momoka/instructions/momoka-communication-e2e-test.md` |
+| 指示ID | 未指定 |
+| 関連Issue | 受付値は「なし」。固定経路の検証として対応する [#17：自動伝達・受領・Claim・報告 E2E運用テスト](https://github.com/FieldRiseJapan/FieldRise/issues/17) を自動検出した。 |
+| 正式指示 | [`docs/momoka/instructions/momoka-communication-e2e-test.md`](https://github.com/FieldRiseJapan/FieldRise/blob/61ba7dd0237dbedee211e2b5b5afe24b13e91dbd/docs/momoka/instructions/momoka-communication-e2e-test.md) |
+| 状態 | `in_progress` |
+| 次のアクション | 本受領記録を `origin/main` へ反映した後、指定パス `automation/momoka-claims/61ba7dd0237dbedee211e2b5b5afe24b13e91dbd-e139cd8ff6b3.json` にClaim JSONを作成して別コミットで反映する。続いて、正式指示書・報告書・Issue・Claim・実行名・状態遷移の固定経路を検証し、同じ正本に結果を記録する。 |
+| ブロッカー | 受領時点ではなし。GitHubへの書込みが失敗した場合はClaimを作成せず、同じ正式報告先で `blocked` として理由を記録する。 |
+
+本件は、GitHub上の正式指示書を検出し、受領・Claim・実行・正式報告までの通信経路をE2Eで確認する運用テストとして受領した。正式名称は、実行画面、GitHub Claim・作業記録、およびFieldRise AI Control Dashboardで使用する唯一の値として固定する。[1]
+
+[1]: https://github.com/FieldRiseJapan/FieldRise/blob/61ba7dd0237dbedee211e2b5b5afe24b13e91dbd/docs/momoka/instructions/momoka-communication-e2e-test.md "正式指示書：自動伝達・受領・Claim・報告 E2E運用テスト"
+
+---
+
 ## LINE本番到達テスト — 結果報告（2026-08-15T01:41:07Z）
 
 | 項目 | 結果 |
