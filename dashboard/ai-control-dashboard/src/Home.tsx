@@ -29,6 +29,7 @@ const REPO = "FieldRise";
 const BRANCH = "main";
 const GITHUB_URL = `https://github.com/${OWNER}/${REPO}`;
 const RAW_BASE = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}`;
+const COMMIT_SNAPSHOT_PATH = "./data/latest-commit.json";
 const SOURCE_PATHS = {
   dashboard: "dashboard/sonata-desk/src/generated/dashboard-data.json",
   comments: "cto/inbox/momoka-comments.md",
@@ -137,10 +138,13 @@ async function fetchText(path: string) {
 }
 
 async function fetchCommit(): Promise<Commit> {
-  const response = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/commits/${BRANCH}`, { cache: "no-store" });
-  if (!response.ok) throw new Error(`最新コミットの取得に失敗しました（HTTP ${response.status}）`);
+  const response = await fetch(`${COMMIT_SNAPSHOT_PATH}?t=${Date.now()}`, { cache: "no-store" });
+  if (!response.ok) throw new Error(`最新コミットのスナップショット取得に失敗しました（HTTP ${response.status}）`);
   const data = await response.json();
-  return { sha: data.sha, date: data.commit?.author?.date ?? "", message: data.commit?.message ?? "" };
+  if (typeof data.sha !== "string" || typeof data.message !== "string") {
+    throw new Error("最新コミットのスナップショット形式が不正です");
+  }
+  return { sha: data.sha, date: typeof data.date === "string" ? data.date : "", message: data.message };
 }
 
 function SourceLink({ path, children }: { path: string; children: React.ReactNode }) {

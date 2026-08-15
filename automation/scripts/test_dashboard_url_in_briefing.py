@@ -9,7 +9,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 GENERATOR_PATH = REPO_ROOT / "automation" / "scripts" / "generate_briefing.py"
 NOTIFIER_PATH = REPO_ROOT / "automation" / "scripts" / "send_line_notification.py"
-AI_CONTROL_DASHBOARD_URL = "https://fieldrise-da-mzdfxrfv.manus.space/"
+AI_CONTROL_DASHBOARD_URL = "https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/"
 
 
 def load_module(name: str, path: Path):

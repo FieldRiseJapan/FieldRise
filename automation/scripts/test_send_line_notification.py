@@ -15,7 +15,7 @@ class SendLineNotificationTest(unittest.TestCase):
         text = MODULE.extract_summary("## AIニュース\n- テスト項目\n")
 
         self.assertIn("📊 FieldRise AI Control Dashboard", text)
-        self.assertIn("https://fieldrise-da-mzdfxrfv.manus.space/", text)
+        self.assertIn("https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/", text)
         self.assertIn("詳細はこちら:", text)
 
 

@@ -1,12 +1,12 @@
 # 2026-08-15（土）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 16:09 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 23:28 JST
 
 ---
 
 ## 📊 ダッシュボード
 
-https://fieldrise-da-mzdfxrfv.manus.space/
+https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 ---
 

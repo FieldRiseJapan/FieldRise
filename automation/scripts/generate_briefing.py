@@ -10,7 +10,7 @@ from pathlib import Path
 
 JST = timezone(timedelta(hours=9))
 WEEKDAYS_JA = ["月", "火", "水", "木", "金", "土", "日"]
-AI_CONTROL_DASHBOARD_URL = "https://fieldrise-da-mzdfxrfv.manus.space/"
+AI_CONTROL_DASHBOARD_URL = "https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/"
 
 BASE = Path(__file__).resolve().parents[2] / "projects" / "project-001-ai-secretary"
 
