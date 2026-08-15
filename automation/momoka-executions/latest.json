@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "in_progress",
+  "status": "completed",
   "execution_name": "桃花｜運用通信テスト｜自動伝達・受領・Claim・報告確認",
   "issue_number": null,
   "project_name": "運用通信テスト",
@@ -8,5 +8,8 @@
   "receipt_key": "61ba7dd0237dbedee211e2b5b5afe24b13e91dbd:docs/momoka/instructions/momoka-communication-e2e-test.md",
   "instruction_path": "docs/momoka/instructions/momoka-communication-e2e-test.md",
   "started_at": "2026-08-15T02:10:18Z",
+  "updated_at": "2026-08-15T02:17:19Z",
+  "completed_at": "2026-08-15T02:17:19Z",
+  "result": "communication_e2e_completed",
   "source": "momoka-auto-notify"
 }
