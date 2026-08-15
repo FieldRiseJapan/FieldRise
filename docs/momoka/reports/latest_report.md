@@ -1,5 +1,22 @@
 # FieldRise AI Control Dashboard 実装報告
 
+## 受領記録（2026-08-15T00:47:15Z）
+
+| 項目 | 内容 |
+|---|---|
+| Receipt key | `5e0ef3c607764745059c927dfeefd6550308bc73:docs/momoka/instructions/fieldrise-ai-control-dashboard-development.md` |
+| 指示ID | 未指定 |
+| 関連Issue | 未指定 |
+| 正式指示 | `docs/momoka/instructions/fieldrise-ai-control-dashboard-development.md` |
+| 状態 | `in_progress` |
+| 次のアクション | 本受領記録を `origin/main` へ反映した後、指定のClaim JSONを作成・反映し、指示内容の確認結果と作業状況を同一報告先へ更新する。 |
+
+正式指示書を確認し、GitHubを唯一の正本とする連携、実データのみの表示、PC・スマートフォン対応、E2Eテスト成功を含む完成条件を確認しました。[5]
+
+---
+
+## 既存の実装報告
+
 | 項目 | 内容 |
 |---|---|
 | 受領時刻 | 2026-08-14T23:33:22Z |
@@ -56,3 +73,4 @@
 [2]: https://github.com/FieldRiseJapan/FieldRise/blob/main/dashboard/sonata-desk/README.md "Sonata Deskの正本参照・共存方針"
 [3]: https://github.com/FieldRiseJapan/FieldRise/blob/a95a0cf8d6b460931ba40bf392ffa26a8f1d133f/docs/momoka/instructions/web-dashboard-app.md "正式指示書"
 [4]: https://github.com/FieldRiseJapan/FieldRise/tree/main/dashboard/ai-control-dashboard "AI Control Dashboard 実装先"
+[5]: https://github.com/FieldRiseJapan/FieldRise/blob/5e0ef3c607764745059c927dfeefd6550308bc73/docs/momoka/instructions/fieldrise-ai-control-dashboard-development.md "正式指示書：FieldRise AI Control Dashboard Web App"
