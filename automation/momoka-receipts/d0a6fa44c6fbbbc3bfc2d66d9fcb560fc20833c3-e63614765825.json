@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "instruction": {
+    "receipt_key": "d0a6fa44c6fbbbc3bfc2d66d9fcb560fc20833c3:docs/momoka/instructions/momoka-gmail-important-event-notification.md",
+    "id": "未指定",
+    "path": "docs/momoka/instructions/momoka-gmail-important-event-notification.md",
+    "source_sha": "d0a6fa44c6fbbbc3bfc2d66d9fcb560fc20833c3",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/d0a6fa44c6fbbbc3bfc2d66d9fcb560fc20833c3/docs/momoka/instructions/momoka-gmail-important-event-notification.md",
+    "priority": "未指定",
+    "created_at": "2026-08-15T06:25:30Z"
+  },
+  "execution": {
+    "status": "name_generation_failed",
+    "error": "実行名生成失敗: プロジェクト名を取得できないため、実行名を生成せず開始を停止します。 "
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.create",
+    "status": "blocked",
+    "detail": "execution_nameを生成できないため桃花タスクを開始していません。",
+    "finished_at": "2026-08-15T06:25:59Z"
+  }
+}
