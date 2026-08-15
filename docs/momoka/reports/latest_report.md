@@ -1,3 +1,21 @@
+## LINE本番到達テスト — 結果報告（2026-08-15T01:41:07Z）
+
+| 項目 | 結果 |
+|---|---|
+| 対象 | Issue #14およびIssue #15に基づく、社長LINEへの本番到達確認専用テストタスク。実行名は `桃花｜#14｜FieldRise｜LINE本番到達テスト（テスト通知）`。 |
+| 本番実行 | [`be1ca85`](https://github.com/FieldRiseJapan/FieldRise/commit/be1ca851c08a02b624ca234027b19ce1823f2569) の正式報告更新を契機として、Dry Runではなく本番モードの通知ワークフローを**一度だけ**起動した。 |
+| テスト通知内容 | 生成された本文は「LINE本番テスト通知」で始まり、実行名、Issue #14、`completed`、および「社長LINEへの本番到達確認用テスト通知」であることを明示した。 |
+| 送信結果 | **未送信**。ワークフロー [`31857104650`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31857104650) は送信先Secret `LINE_TARGET_ID` が空であることを検出し、LINE API送信を行わず終了した。 |
+| receipt | [`70908c084991a6a6130d1a73f1af161c.json`](https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/momoka-notification-receipts/70908c084991a6a6130d1a73f1af161c.json) を [`919dea4`](https://github.com/FieldRiseJapan/FieldRise/commit/919dea4dd8e2b2db66cf6a5070c53cde7b0f2d75) として記録した。`task_id`、`execution_name`、`delivery_test=true`、`report_commit`、`retry_key`、`attempted_at`、および `notification_status=failed` を確認した。`sent_at` と `notification_id` は、送信が実行されていないため存在しない。 |
+| 到達確認 | **未確認**。LINE APIへの送信が発生していないため、社長LINEへの到達を主張しない。 |
+| 二重送信 | 本実行でLINE送信は0通である。失敗receiptを検出した本番到達テストについては、同一Receipt keyの自動再送を禁止するよう修正し、[`ab3b039`](https://github.com/FieldRiseJapan/FieldRise/commit/ab3b0393a2b1d9e860a05ee6162717673187a6ff) に反映した。回帰テスト15件は成功した。 |
+| エラー | `LINE_TARGET_ID` がGitHub Actions実行環境で空であり、送信先を検証できなかった。`LINE_CHANNEL_ACCESS_TOKEN` はマスク済み値として注入されていたが、送信先未設定のため利用しなかった。 |
+| 最終ステータス | `blocked`。送信先Secretの設定と社長LINEの本番送信先確認が完了するまで、本テストを再実行しない。 |
+
+> この試行では**実送信は0通**であり、社長LINEへの到達は確認されていない。送信先を修正する場合は、今回の失敗receiptを再利用せず、新しい明示的テストタスクとして、再度一回だけ実行する。
+
+---
+
 # 桃花｜#14｜FieldRise｜LINE本番到達テスト（テスト通知）
 
 ## LINE本番テスト送信 — 送信開始記録
