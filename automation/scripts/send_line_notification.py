@@ -26,7 +26,7 @@ BRIEFING_URL = (
     "https://github.com/FieldRiseJapan/FieldRise/blob/main/"
     "projects/project-001-ai-secretary/briefings/latest.md"
 )
-SONATA_DESK_URL = "https://fieldrisejapan.github.io/FieldRise/sonata-desk/"
+AI_CONTROL_DASHBOARD_URL = "https://fieldrise-da-mzdfxrfv.manus.space/"
 API_URL = "https://api.line.me/v2/bot/message/broadcast"
 MAX_LEN = 4800  # LINEテキストメッセージ上限5000文字の安全マージン
 
@@ -46,7 +46,7 @@ def extract_summary(md_text: str) -> str:
     parts: list[str] = []
     today = datetime.now(JST).strftime("%Y年%m月%d日")
     parts.append(f"おはようございます、社長。\nFieldRise 秘書の桃花です。{today}の定時報告をお届けします。")
-    parts.append(f"📊 ダッシュボード\n{SONATA_DESK_URL}")
+    parts.append(f"📊 FieldRise AI Control Dashboard\n{AI_CONTROL_DASHBOARD_URL}")
 
     weather_key = next((k for k in sections if "天気" in k or "気象" in k), None)
     if weather_key:

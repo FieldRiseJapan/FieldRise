@@ -9,7 +9,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 GENERATOR_PATH = REPO_ROOT / "automation" / "scripts" / "generate_briefing.py"
 NOTIFIER_PATH = REPO_ROOT / "automation" / "scripts" / "send_line_notification.py"
-SONATA_DESK_URL = "https://fieldrisejapan.github.io/FieldRise/sonata-desk/"
+AI_CONTROL_DASHBOARD_URL = "https://fieldrise-da-mzdfxrfv.manus.space/"
 
 
 def load_module(name: str, path: Path):
@@ -31,12 +31,12 @@ def main() -> None:
         briefing = (Path(temp_dir) / "briefings" / "latest.md").read_text(encoding="utf-8")
 
     line_text = notifier.extract_summary(briefing)
-    assert SONATA_DESK_URL in briefing, "briefing must include Sonata Desk URL"
-    assert SONATA_DESK_URL in line_text, "LINE text must include Sonata Desk URL"
-    assert line_text.index(SONATA_DESK_URL) < line_text.index("詳細はこちら:"), (
+    assert AI_CONTROL_DASHBOARD_URL in briefing, "briefing must include Sonata Desk URL"
+    assert AI_CONTROL_DASHBOARD_URL in line_text, "LINE text must include Sonata Desk URL"
+    assert line_text.index(AI_CONTROL_DASHBOARD_URL) < line_text.index("詳細はこちら:"), (
         "dashboard URL must be included before the briefing detail URL"
     )
-    print("PASS: Sonata Desk URL is included in briefing and LINE notification")
+    print("PASS: AI Control Dashboard URL is included in briefing and LINE notification")
 
 
 if __name__ == "__main__":

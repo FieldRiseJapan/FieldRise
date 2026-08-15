@@ -11,11 +11,11 @@ SPEC.loader.exec_module(MODULE)
 
 
 class SendLineNotificationTest(unittest.TestCase):
-    def test_summary_includes_sonata_desk_url(self):
+    def test_summary_includes_ai_control_dashboard_url(self):
         text = MODULE.extract_summary("## AIニュース\n- テスト項目\n")
 
-        self.assertIn("📊 ダッシュボード", text)
-        self.assertIn("https://fieldrisejapan.github.io/FieldRise/sonata-desk/", text)
+        self.assertIn("📊 FieldRise AI Control Dashboard", text)
+        self.assertIn("https://fieldrise-da-mzdfxrfv.manus.space/", text)
         self.assertIn("詳細はこちら:", text)
 
 
