@@ -53,6 +53,7 @@ def report_metadata(markdown: str) -> dict[str, str]:
     issue = clean_markdown(table_value(markdown, "関連Issue")) or "未指定"
     next_action = clean_markdown(table_value(markdown, "次のアクション"))
     blocker = clean_markdown(table_value(markdown, "ブロッカー"))
+    delivery_test = clean_markdown(table_value(markdown, "Delivery test")).casefold() in {"true", "yes", "本番"}
     heading = clean_markdown(first_heading(markdown))
 
     if not receipt_key:
@@ -78,6 +79,7 @@ def report_metadata(markdown: str) -> dict[str, str]:
         "issue": issue,
         "issue_number": issue_number,
         "execution_name": execution_name,
+        "delivery_test": "true" if delivery_test else "false",
         "next_action": next_action or "正式報告書の詳細を確認してください。",
         "blocker": blocker or "正式報告書の状態を確認してください。",
     }
@@ -114,7 +116,8 @@ def parse_iso8601(value: str) -> datetime | None:
 
 def compose_message(metadata: dict[str, str], occurred_at: str, report_url: str) -> str:
     status = metadata["status"]
-    title = "タスク完了通知" if status == "completed" else "問題発生通知"
+    is_delivery_test = metadata.get("delivery_test") == "true"
+    title = "LINE本番テスト通知" if is_delivery_test else "タスク完了通知" if status == "completed" else "問題発生通知"
     lines = [
         f"{title}",
         f"実行名: {metadata['execution_name']}",
@@ -123,6 +126,8 @@ def compose_message(metadata: dict[str, str], occurred_at: str, report_url: str)
         f"完了日時: {occurred_at}",
         "GitHub正式報告: 記録済み",
     ]
+    if is_delivery_test:
+        lines.append("これは社長LINEへの本番到達確認用テスト通知です。")
     if status == "completed":
         lines.append("概要: 正式報告書が completed と判定されました。")
     else:
@@ -254,6 +259,7 @@ def process_notification(
         "report_commit": report_commit,
         "report_url": report_url,
         "status": metadata["status"],
+        "delivery_test": metadata["delivery_test"],
         "notification_type": ("task_completed" if metadata["status"] == "completed" else "task_problem" if metadata["status"] in {"blocked", "failed"} else "none"),
         "generated_at": utc_now(),
         "receipt_path": str(receipt_path),

@@ -78,6 +78,18 @@ class MomokaTaskCompletionNotifyTests(unittest.TestCase):
         self.assertEqual(result["notification_status"], "not_requested")
         self.assertFalse(result["write_receipt"])
 
+    def test_delivery_test_is_explicit_in_message_and_receipt(self) -> None:
+        report = REPORT_TEMPLATE.format(
+            status="completed",
+            next_action="到達を確認してください。",
+            blocker="なし。",
+        ) + "| Delivery test | true |\n"
+        metadata = notify.report_metadata(report)
+        message = notify.compose_message(metadata, "2026-08-15T01:00:00Z", "https://example.test/report")
+        self.assertEqual(metadata["delivery_test"], "true")
+        self.assertIn("LINE本番テスト通知", message)
+        self.assertIn("本番到達確認用テスト通知", message)
+
     def test_completed_dry_run_creates_safe_receipt(self) -> None:
         result = self.process("completed")
         self.assertEqual(result["action"], "dry_run_receipt_written")
