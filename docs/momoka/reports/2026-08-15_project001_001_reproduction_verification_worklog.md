@@ -121,3 +121,19 @@ A1の「Bass onsetを0.5秒未満に置く」「IntroでDrumsを前面化しな�
 > **Phase 2・3判定:** CAND-005は候補内でLow比率が最も高く、CAND-004は候補内で大きな遷移が最も2秒に近い。しかし、両候補とも001より即時かつ高レベルで始まり、導入のLow-mid成分が多い。001再現は未達である。
 
 次の生成では、Bass開始時刻だけを変更し、0.00〜0.40秒をnear-silence、0.40秒からBassのみとする。2.00秒のPiano導入、後続Drums、空間・ダイナミクス、Negative指定は固定する。詳細は`2026-08-15_project001_001_reproduction_candidates_004_005.md`および`2026-08-15_project001_suno_candidate_intake.md`を正本とする。
+
+## 9. 候補006・007のBass単独導入検証
+
+CAND-006・007は、公開Prompt、公開Negative指定、BPM 80–86が同一の生成出力ペアとして確認した。両候補は、Bass開始0:00・無音なし、0〜2秒Bass単独、低域優勢、上位倍音抑制、中央・親密な定位、early stereo reverb除外という条件を公開Promptに含む。非表示seed・内部設定は未確認である。
+
+| 指標 | 001 Master | CAND-005 | CAND-006 | CAND-007 |
+|---|---:|---:|---:|---:|
+| 0〜2秒Low比率 | 98.04% | 63.56% | **66.88%** | 37.71% |
+| 0〜2秒Low-mid比率 | 1.80% | 36.32% | **33.12%** | 62.24% |
+| 0〜2秒RMS | -22.64 dBFS | -15.62 dBFS | -16.50 dBFS | -15.12 dBFS |
+| 持続信号開始 | 0.400秒 | 0.000秒 | 0.100秒 | 0.000秒 |
+| 導入Side/Mid比 | -32.40 dB | -10.24 dB | -11.27 dB | -13.94 dB |
+
+> **Phase 2・3判定:** CAND-006は004〜007で最も高いLow比率、004〜006で最も低いLow-mid比率を示し、現時点の最良候補とする。ただし001 MasterのLow集中には未到達であり、Bass単独・音色・ノイズ・Loop感は未確定である。
+
+次の候補では、Bass開始0:00・無音なし・0〜2秒Bass単独を固定し、`restrained upper harmonics`を、`very little overtone content; keep nearly all intro energy below 180 Hz and avoid audible 180–2,000 Hz resonance during the first 2.00 seconds`へ強化する。変更変数はBassの倍音量だけとし、CAND-006との比較で効果を確認する。

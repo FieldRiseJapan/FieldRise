@@ -1,4 +1,4 @@
 label,duration_seconds,global_rms_dbfs,crest_factor_db,intro_rms_dbfs,intro_low_ratio,intro_low_mid_ratio,first_sustained_signal_seconds,intro_low_dominant_window_share,intro_stereo_side_to_mid_db
 MASTER-001,222.399979,-16.82,14.32,-22.64,0.9804,0.018,0.4,0.45,-32.4
-CAND-004,180.400167,-16.3,14.94,-15.13,0.5732,0.4251,0.0,0.15,-9.18
-CAND-005,180.680167,-15.86,14.73,-15.62,0.6356,0.3632,0.0,0.275,-10.24
+CAND-006,153.840979,-15.62,15.13,-16.5,0.6688,0.3312,0.1,0.275,-11.27
+CAND-007,104.360167,-15.83,14.59,-15.12,0.3771,0.6224,0.0,0.075,-13.94

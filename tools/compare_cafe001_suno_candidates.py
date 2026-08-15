@@ -118,6 +118,17 @@ def segment(signal: np.ndarray, sr: int, start: float, end: float) -> dict[str, 
     }
 
 
+def stereo_metrics(audio: np.ndarray) -> dict[str, float | None]:
+    if audio.shape[1] != 2:
+        return {"left_right_correlation": None, "side_to_mid_db": None}
+    mid = audio.mean(axis=1)
+    side = (audio[:, 0] - audio[:, 1]) / 2.0
+    return {
+        "left_right_correlation": round(float(np.corrcoef(audio[:, 0], audio[:, 1])[0, 1]), 4),
+        "side_to_mid_db": round(db_ratio(float(np.sqrt(np.mean(np.square(side)))), float(np.sqrt(np.mean(np.square(mid))))), 2),
+    }
+
+
 def analyze(path: Path, label: str) -> tuple[dict[str, object], list[dict[str, float]]]:
     raw, sr = sf.read(path, dtype="float64", always_2d=True)
     mono = raw.mean(axis=1)
@@ -127,12 +138,9 @@ def analyze(path: Path, label: str) -> tuple[dict[str, object], list[dict[str, f
     peak = float(np.max(np.abs(mono)))
     centroid, ratios = aggregate_spectrum(mono, sr)
     intro_rows = window_rows(mono, sr)
-    mid = raw.mean(axis=1)
-    side = (raw[:, 0] - raw[:, 1]) / 2.0 if raw.shape[1] == 2 else np.zeros_like(mid)
-    stereo = {
-        "left_right_correlation": round(float(np.corrcoef(raw[:, 0], raw[:, 1])[0, 1]), 4) if raw.shape[1] == 2 else None,
-        "side_to_mid_db": round(db_ratio(float(np.sqrt(np.mean(np.square(side)))), float(np.sqrt(np.mean(np.square(mid))))), 2) if raw.shape[1] == 2 else None,
-    }
+    stereo = stereo_metrics(raw)
+    intro_samples = min(len(raw), int(round(2.0 * sr)))
+    intro_stereo = stereo_metrics(raw[:intro_samples])
     return {
         "label": label,
         "source": {
@@ -153,6 +161,7 @@ def analyze(path: Path, label: str) -> tuple[dict[str, object], list[dict[str, f
         },
         "intro_0_2_seconds": {
             **segment(mono, sr, 0.0, 2.0),
+            "stereo": intro_stereo,
             "first_sustained_full_mix_signal_seconds": first_sustained(intro_rows),
             "low_dominant_window_share": round(float(sum(row["low_20_180_hz"] >= 0.8 for row in intro_rows) / len(intro_rows)), 4),
             "largest_rms_increase_events": [
@@ -197,6 +206,8 @@ def main() -> None:
     parser.add_argument("--master", type=Path, required=True)
     parser.add_argument("--candidate-004", type=Path, required=True)
     parser.add_argument("--candidate-005", type=Path, required=True)
+    parser.add_argument("--label-a", default="CAND-004")
+    parser.add_argument("--label-b", default="CAND-005")
     parser.add_argument("--output-json", type=Path, required=True)
     parser.add_argument("--output-csv", type=Path, required=True)
     parser.add_argument("--output-png", type=Path, required=True)
@@ -204,8 +215,8 @@ def main() -> None:
 
     items = [
         ("MASTER-001", args.master),
-        ("CAND-004", args.candidate_004),
-        ("CAND-005", args.candidate_005),
+        (args.label_a, args.candidate_004),
+        (args.label_b, args.candidate_005),
     ]
     report: dict[str, object] = {
         "analysis_version": "2026-08-15-project001-candidate-comparison-v1",
@@ -236,7 +247,7 @@ def main() -> None:
             "intro_low_mid_ratio": intro["band_energy_ratio"]["low_mid_180_2000_hz"],
             "first_sustained_signal_seconds": intro["first_sustained_full_mix_signal_seconds"],
             "intro_low_dominant_window_share": intro["low_dominant_window_share"],
-            "intro_stereo_side_to_mid_db": global_metrics["stereo"]["side_to_mid_db"],
+            "intro_stereo_side_to_mid_db": intro["stereo"]["side_to_mid_db"],
         })
     args.output_json.parent.mkdir(parents=True, exist_ok=True)
     args.output_json.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
