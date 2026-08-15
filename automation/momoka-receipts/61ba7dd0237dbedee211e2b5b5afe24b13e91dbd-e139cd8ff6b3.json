@@ -19,7 +19,20 @@
   "delivery": {
     "recipient": "Manus default agent (桃花)",
     "method": "Manus API task.create",
-    "status": "attempting",
-    "started_at": "2026-08-15T02:10:18Z"
+    "status": "claimed",
+    "started_at": "2026-08-15T02:10:18Z",
+    "detail": "GitHub main上の桃花Claim記録と正本報告を直接照合して完了を確認しました。",
+    "http_status": "200",
+    "finished_at": "2026-08-15T02:13:45Z",
+    "delivered_at": "2026-08-15T02:10:20Z",
+    "task_id": "oFvcoFwJetvyzhV8ve28Fo",
+    "task_url": "https://manus.im/app/oFvcoFwJetvyzhV8ve28Fo"
+  },
+  "claim": {
+    "status": "claimed",
+    "report_path": "docs/momoka/reports/latest_report.md",
+    "report_updated": true,
+    "task_state": "completed",
+    "confirmed_at": "2026-08-15T02:13:45Z"
   }
 }
