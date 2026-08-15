@@ -2,8 +2,8 @@
   "schema_version": 1,
   "status": "blocked",
   "execution_name": null,
-  "receipt_key": "cd934423dcb4ba39b0ce7a9e2daa4d8a0fb1d5c5:docs/momoka/instructions/momoka-line-production-delivery-test.md",
-  "instruction_path": "docs/momoka/instructions/momoka-line-production-delivery-test.md",
+  "receipt_key": "0d0458a95cd2f0c04dc75562b882e343c34b8162:docs/momoka/instructions/momoka-line-production-test-send.md",
+  "instruction_path": "docs/momoka/instructions/momoka-line-production-test-send.md",
   "error": "実行名生成失敗: プロジェクト名を取得できないため、実行名を生成せず開始を停止します。 ",
-  "updated_at": "2026-08-15T01:28:54Z"
+  "updated_at": "2026-08-15T01:35:41Z"
 }
