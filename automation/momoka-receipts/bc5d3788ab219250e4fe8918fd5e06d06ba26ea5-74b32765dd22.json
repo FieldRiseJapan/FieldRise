@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "bc5d3788ab219250e4fe8918fd5e06d06ba26ea5:docs/momoka/instructions/momoka-task-completion-line-auto-notification.md",
+    "id": "未指定",
+    "path": "docs/momoka/instructions/momoka-task-completion-line-auto-notification.md",
+    "source_sha": "bc5d3788ab219250e4fe8918fd5e06d06ba26ea5",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/bc5d3788ab219250e4fe8918fd5e06d06ba26ea5/docs/momoka/instructions/momoka-task-completion-line-auto-notification.md",
+    "priority": "未指定",
+    "created_at": "2026-08-15T01:06:35Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-15T01:06:45Z"
+  }
+}
