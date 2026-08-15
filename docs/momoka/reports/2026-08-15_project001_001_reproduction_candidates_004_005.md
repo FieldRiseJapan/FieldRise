@@ -15,7 +15,7 @@
 
 候補間では、**CAND-005はLow帯域比率が高く、導入の帯域構成は候補004より001 Masterに近い。** 一方、**CAND-004は最大RMS上昇が1.85秒に現れ、目標である2.00秒の伴奏導入に候補005より近い。** ただし、RMS変化はPianoやDrumsのOnsetを直接証明しないため、この差分は「全体ミックスの遷移時刻プロキシ」として扱う。
 
-最優先の修正は、公開Promptにある`The upright bass is clearly present from the first instant`および`no silence`を、001 Masterに合わせた**開始時刻条件だけ**へ置換することである。001 Masterはフルミックス持続信号が約0.400秒、既存BassステムOnsetが0.464秒であり、候補の「0.00秒から即時・無音なし」という指定とは構造的に矛盾している。[3]
+001 Masterではフルミックス持続信号が約0.400秒、既存BassステムOnsetが0.464秒である。[3] 一方、後着の正式指示は、今回の受入条件として**Bass開始0:00・無音なし・0〜2秒Bass単独**を指定する。このため、0.400秒は001の観測Factとして保持するが、次候補で変更する主変数は開始時刻ではない。最優先は、開始0:00を維持したまま、候補で多いLow-mid成分と広い空間成分を抑え、Bass単独性を高めることである。[4]
 
 ## 検証入力と再現性
 
@@ -56,18 +56,18 @@
 
 ## 次の一変数検証
 
-次の生成では、候補004・005の公開PromptとNegative指定を基準に、**開始時刻条件だけ**を変更する。Pianoの時刻、Drums、空間、楽器構成、Negative指定は変更しない。これにより、まず001 Masterとの差が最も大きい「即時開始」を単独で検証できる。
+後着の正式指示に従い、次の候補では**Bass開始0:00・無音なし・0〜2秒Bass単独**を固定する。[4] 候補004・005でも公開Prompt上はこの条件を指定済みであるため、次に変える主変数は「Bass単独性を実現するための導入スペクトル／空間制約」である。Pianoの時刻、Drums、曲の展開、Negative指定の既存項目は変更しない。
 
-> **変更対象（1変数）:** `The upright bass is clearly present from the first instant, ... no silence` を、`From 0.00 to 0.40 seconds, preserve near-silence; at 0.40 seconds, introduce only the warm acoustic upright bass with an extremely soft, rounded, natural finger-plucked tone.` に置換する。
+> **変更対象（1変数）:** 0〜2秒のBass導入指定に、`single mono-centered low-register acoustic upright bass; keep the intro energy predominantly in 20–180 Hz; suppress bright upper harmonics and stereo reverb during the first 2.00 seconds` を加える。Bassは0:00から存在し、無音にはしない。
 
 | 固定する条件 | 理由 |
 |---|---|
-| 0〜2秒のPiano／Drums／メロディ／他楽器なし | Bass導入のみを評価するため。 |
-| 2.00秒の疎なPiano導入 | 先にBass開始条件だけを検証するため。 |
-| 後続minimal brush drums、少音数・長休符、空間・ダイナミクス指定 | 同時変更を避け、評価不能な差分を増やさないため。 |
-| Negative指定一式 | クリック、硬いアタック、早期伴奏等の不要要因を固定するため。 |
+| Bass開始0:00、無音なし | 最新正式指示の受入条件であり、次実験では変えない。 |
+| 0〜2秒のPiano／Drums／メロディ／他楽器なし | Bass単独性を評価するため。 |
+| 2.00秒の疎なPiano導入 | Bass単独区間の後の展開を固定するため。 |
+| 後続minimal brush drums、少音数・長休符、既存Negative指定 | 同時変更を避け、評価不能な差分を増やさないため。 |
 
-次の候補では、同じ測定手法により「0〜2秒RMS」「Low比率」「持続信号開始」「最大RMS上昇」を比較する。開始条件の一致後にのみ、第二実験として2.00秒のPiano遷移、第三実験としてDrums・空間を順に扱う。
+次の候補では、同じ測定手法により「0〜2秒RMS」「Low比率」「Low-mid比率」「持続信号開始」「最大RMS上昇」「Side/Mid比」を比較する。0〜2秒のBass単独性が確認できた後に、第二実験として2.00秒のPiano遷移、第三実験としてDrums・空間を順に扱う。
 
 ## 制約とリスク
 
@@ -88,3 +88,4 @@
 [1]: https://suno.com/s/QhzmREKfyxAo6uyW "Suno — 004 by 「Runa」"
 [2]: https://suno.com/s/ksoKv0j8BunFng6L "Suno — 005 by 「Runa」"
 [3]: https://github.com/FieldRiseJapan/FieldRise/blob/main/music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno004_005.json "FieldRise — 001 Master and Suno candidate measurement dataset"
+[4]: https://github.com/FieldRiseJapan/FieldRise/blob/main/docs/momoka/instructions/2026-08-15_project001_numbering_and_bass_intro.md "FieldRise — Project-001 verification numbering and bass-intro instruction"

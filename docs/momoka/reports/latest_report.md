@@ -5,19 +5,19 @@
 **詳細比較報告:** [`2026-08-15_project001_001_reproduction_candidates_004_005.md`](2026-08-15_project001_001_reproduction_candidates_004_005.md)
 **候補取得記録:** [`2026-08-15_project001_suno_candidate_intake.md`](2026-08-15_project001_suno_candidate_intake.md)
 
-> **正式結論:** Suno候補004・005は公開PromptとNegative指定が同一の生成出力ペアである。しかし、001 Masterの導入0〜2秒には未到達である。候補は001より即時かつ約7 dB高く始まり、Low比率は001より低く、Low-mid比率は高い。次の生成では、まずBassの**開始時刻条件だけ**を001 Masterに合わせて検証する。[1] [2] [3]
+> **正式結論:** Suno候補004・005は公開PromptとNegative指定が同一の生成出力ペアである。しかし、001 Masterの導入0〜2秒には未到達である。候補は001より即時かつ約7 dB高く始まり、Low比率は001より低く、Low-mid比率は高い。最新正式指示に従い、次の生成ではBass開始0:00・無音なしを固定し、**0〜2秒のBass単独性を高める導入スペクトル／空間制約だけ**を検証する。[1] [2] [3] [4]
 
 ## 検証の完了状況
 
 | 項目 | 状態 | 結果 |
 |---|---|---|
 | 001 Master正本の固定 | 完了 | `001_reference_main.flac`、48 kHz／Stereo、222.400秒を基準に固定した。 |
-| 001の0〜2秒Bass基準 | 完了 | Bass stem onset 0.464秒、フルミックス持続信号開始0.400秒、0〜2秒Low比率98.04%を確認。 |
+| 001の0〜2秒Bass基準 | 完了 | Bass stem onset 0.464秒、フルミックス持続信号開始0.400秒、0〜2秒Low比率98.04%を確認。最新受入条件のBass開始0:00・無音なしとは別に管理する。 |
 | Suno候補004・005の取得 | 完了 | ユーザー共有URLに対応する公開MP3を取得し、曲尺・形式・SHA-256を記録した。 |
 | 生成情報の照合 | 完了（限定） | 公開Prompt／Negative指定は同一。seed等の非表示設定は未確認。 |
 | 同条件の音響比較 | 完了 | 0〜2秒RMS、帯域比、持続信号開始、RMS遷移、空間プロキシを測定した。 |
 | 人によるA/B聴取 | `open` | Bassの楽器実在、クリック／金属音、Piano／Drumsの知覚Onset、Loop感は未確定。 |
-| 次の一変数生成 | `ready` | Bassの開始時刻のみを変更するPromptで次候補を作る。 |
+| 次の一変数生成 | `ready` | Bass開始0:00・無音なしを固定し、0〜2秒のBass単独性を高める導入スペクトル／空間制約のみを加える。 |
 
 ## 0〜2秒の主要測定結果
 
@@ -42,9 +42,9 @@
 
 ## 次の一変数生成指示
 
-> **変更するのは開始時刻だけである。** `The upright bass is clearly present from the first instant ... no silence` を、`From 0.00 to 0.40 seconds, preserve near-silence; at 0.40 seconds, introduce only the warm acoustic upright bass with an extremely soft, rounded, natural finger-plucked tone.` に置換する。
+> **Bass開始0:00・無音なしは固定する。** 0〜2秒のBass導入指定に、`single mono-centered low-register acoustic upright bass; keep the intro energy predominantly in 20–180 Hz; suppress bright upper harmonics and stereo reverb during the first 2.00 seconds` を加える。
 
-0〜2秒のPiano／Drums／メロディ／他楽器なし、2.00秒の疎なPiano導入、後続minimal brush drums、既存のNegative指定は固定する。次候補が生成されたら、同じ測定スクリプトで0〜2秒のRMS、Low比率、持続信号開始、RMS遷移を比較し、開始時刻修正の効果だけを評価する。
+0〜2秒のPiano／Drums／メロディ／他楽器なし、2.00秒の疎なPiano導入、後続minimal brush drums、既存のNegative指定は固定する。次候補が生成されたら、同じ測定スクリプトで0〜2秒のRMS、Low比率、Low-mid比率、持続信号開始、RMS遷移、Side/Mid比を比較し、Bass単独性の改善だけを評価する。
 
 ## 保存済み成果物
 
@@ -66,3 +66,4 @@
 [1]: https://suno.com/s/QhzmREKfyxAo6uyW "Suno — 004 by 「Runa」"
 [2]: https://suno.com/s/ksoKv0j8BunFng6L "Suno — 005 by 「Runa」"
 [3]: https://github.com/FieldRiseJapan/FieldRise/blob/main/music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno004_005.json "FieldRise — 001 Master and Suno candidate measurement dataset"
+[4]: https://github.com/FieldRiseJapan/FieldRise/blob/main/docs/momoka/instructions/2026-08-15_project001_numbering_and_bass_intro.md "FieldRise — Project-001 verification numbering and bass-intro instruction"
