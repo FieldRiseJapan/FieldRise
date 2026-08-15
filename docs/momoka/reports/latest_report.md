@@ -1,56 +1,68 @@
-# Project-001｜Cafe 001再現検証｜途中経過報告
+# Project-001｜Cafe 001再現検証｜候補004・005比較報告
 
-**状態:** `in_progress`
+**状態:** `candidate_evaluation_complete`
 **正式指示:** [`2026-08-15_project001_reproduction_verification.md`](../instructions/2026-08-15_project001_reproduction_verification.md)
-**詳細作業台帳:** [`2026-08-15_project001_001_reproduction_verification_worklog.md`](2026-08-15_project001_001_reproduction_verification_worklog.md)
-**作業開始時のmain SHA:** `ff80b0299ad4302e7e6fc91246c5dfc72b7ab391`（`origin/main`と一致確認済み）
+**詳細比較報告:** [`2026-08-15_project001_001_reproduction_candidates_004_005.md`](2026-08-15_project001_001_reproduction_candidates_004_005.md)
+**候補取得記録:** [`2026-08-15_project001_suno_candidate_intake.md`](2026-08-15_project001_suno_candidate_intake.md)
 
-> **途中結論:** 001を固定Masterとして、0〜2秒のBass導入、Bass、伴奏導入、Drums／Vocalの相対水準に関する既存Factを再確認した。001との差分を測るべき候補曲音源と、生成Prompt・SUNO設定・Negative指定の対応組がGitHub上で確認できないため、現時点では再現合否を主張せず、Phase 2以降を`blocked`として管理する。
+> **正式結論:** Suno候補004・005は公開PromptとNegative指定が同一の生成出力ペアである。しかし、001 Masterの導入0〜2秒には未到達である。候補は001より即時かつ約7 dB高く始まり、Low比率は001より低く、Low-mid比率は高い。次の生成では、まずBassの**開始時刻条件だけ**を001 Masterに合わせて検証する。[1] [2] [3]
 
-## 完了状況
+## 検証の完了状況
 
 | 項目 | 状態 | 結果 |
 |---|---|---|
-| 正式指示書の確認 | 完了 | 001をMaster固定、Fact/Hypothesis分離、一変数検証、途中経過報告、更新前SHA確認の要件を確認した。 |
-| mainの最新化 | 完了 | 書込み前に`origin/main`を取得し、ローカルHEADとの一致を確認した。 |
-| 001 Master正本の確認 | 完了 | `001_reference_main.flac`、48 kHz／Stereo、222.400秒、および4ステム再構成整合を確認した。 |
-| Phase 1：0〜2秒 Bass基準の固定 | 完了 | Bass stem onset 0.464秒、Bass低域比率98.73%、Bass RMS -26.85 dBFS、伴奏onset 2.299秒をFactとして固定した。加えて、001正規Mainの50ミリ秒窓再測定で、フルミックス持続信号開始0.400秒を記録した。 |
-| Phase 2〜5：候補曲との再現比較 | 未着手・`blocked` | 比較対象となる候補曲、生成条件、実験IDの対応が不足している。 |
+| 001 Master正本の固定 | 完了 | `001_reference_main.flac`、48 kHz／Stereo、222.400秒を基準に固定した。 |
+| 001の0〜2秒Bass基準 | 完了 | Bass stem onset 0.464秒、フルミックス持続信号開始0.400秒、0〜2秒Low比率98.04%を確認。 |
+| Suno候補004・005の取得 | 完了 | ユーザー共有URLに対応する公開MP3を取得し、曲尺・形式・SHA-256を記録した。 |
+| 生成情報の照合 | 完了（限定） | 公開Prompt／Negative指定は同一。seed等の非表示設定は未確認。 |
+| 同条件の音響比較 | 完了 | 0〜2秒RMS、帯域比、持続信号開始、RMS遷移、空間プロキシを測定した。 |
+| 人によるA/B聴取 | `open` | Bassの楽器実在、クリック／金属音、Piano／Drumsの知覚Onset、Loop感は未確定。 |
+| 次の一変数生成 | `ready` | Bassの開始時刻のみを変更するPromptで次候補を作る。 |
 
-## 作成・更新ファイル
+## 0〜2秒の主要測定結果
 
-| 種別 | 保存先 | 内容 |
-|---|---|---|
-| 詳細作業台帳 | `docs/momoka/reports/2026-08-15_project001_001_reproduction_verification_worklog.md` | 001 MasterのFact、Hypothesis、A1/B1整合、Phase設計、ブロッカー、必要入力、Phase 1再測定を記録。 |
-| Phase 1測定資産 | `music_ai/analysis/cafe/measurements/2026-08-15_cafe001_intro_0_2s_windows.csv`、`music_ai/analysis/cafe/measurements/2026-08-15_cafe001_intro_0_2s_summary.json`、`music_ai/analysis/cafe/figures/2026-08-15_cafe001_intro_0_2s.png` | 001 Masterの0〜2秒フルミックス補助測定、台帳、可視化。 |
-| 最新正式報告 | `docs/momoka/reports/latest_report.md` | 本ファイル。未完了・停止状態を含む正式入口。 |
-| 履歴保全 | `docs/momoka/reports/archive/2026-08-15_pre_project001_001_reproduction_verification_latest_report.md` | 更新前の正式報告を保存。 |
+| 指標 | 001 Master | CAND-004 | CAND-005 | 判定 |
+|---|---:|---:|---:|---|
+| 持続信号開始（全体ミックス） | 0.400秒 | 0.000秒 | 0.000秒 | 両候補は即時開始で、001と不一致。 |
+| 導入RMS | -22.64 dBFS | -15.13 dBFS | -15.62 dBFS | 両候補は001より約7 dB高い。 |
+| Low 20–180 Hz比率 | 98.04% | 57.32% | 63.56% | 005が候補中では近いが、001水準には未到達。 |
+| Low-mid 180–2,000 Hz比率 | 1.80% | 42.51% | 36.32% | 両候補は001より大幅に高い。 |
+| 最大RMS上昇 | 0.45秒 | 1.85秒 | 1.35秒 | 004は2秒付近の遷移プロキシとして相対的に近い。 |
+| Side/Mid比 | -42.68 dB | -9.61 dB | -8.12 dB | 両候補は001より空間的に広い可能性が高い。 |
 
-## 重要Factと検証上の扱い
+## Fact/Hypothesisの分離
 
-| 001の観測値 | 状態 | 再現検証での扱い |
-|---|---|---|
-| Bass初回Onset 0.464秒 | FACT | 候補曲にBassが0.5秒未満で存在するかを測定する。 |
-| 0〜2秒Bass低域比率 98.73% | FACT | 001型Introの低域主導の基準とする。 |
-| その他／伴奏初回Onset 2.299秒 | FACT | 001型の伴奏遅延。002型0.255秒と混在させず、B1の単独変数として扱う。 |
-| Intro Drums RMS -58.70 dBFS | FACT | Drumsを導入で前面化しない。 |
-| Vocal全体RMS -108.55 dBFS | FACT | Lead vocalを主成分にしない。ただし分離残差の可能性を残す。 |
-| 「Bassが実生成に存在しない」既知事象 | FACT（正式指示書記載） | Prompt文言の強化だけで解消したと仮定せず、候補音源ごとに実測する。 |
+| 区分 | 内容 |
+|---|---|
+| FACT | 候補004・005の公開PromptとNegative指定は同一表示であり、音源SHA-256は異なる。 |
+| FACT | 001 Masterは候補より遅く、低域中心かつ低レベルで導入する。 |
+| FACT | 005は候補中で最も高いLow比率、004は候補中で最も遅い大きなRMS遷移を示す。 |
+| HYPOTHESIS | 候補のLow-mid成分増加は、Bassの倍音、Piano等の早期成分、空間処理、またはMP3処理のいずれか、もしくは複合要因による。 |
+| OPEN | 音色、クリック／金属音、個別楽器の実在、Piano／Drumsの厳密なOnset、Loop品質は人によるA/B聴取またはステム分離が必要。 |
 
-## 未完了・ブロッカー
+## 次の一変数生成指示
 
-| 項目 | 状態 | 影響 | 必要な対応 |
-|---|---|---|---|
-| 001再現候補音源 | `blocked` | Bass実在、開始時刻、ノイズ、全体再現差分を測れない。 | WAVまたはFLACを実験IDとともに登録する。 |
-| 生成Prompt・SUNO設定・Negative指定 | `blocked` | 一変数検証を保証できない。 | 候補音源に完全本文・設定・Negative指定を一対一で紐付ける。 |
-| 001の人による聴取レビュー | `open` | Bass質感、Pianoの音数／休符、ノイズ、Loop感は自動測定だけで確定できない。 | 指定区間のタイムコード付き聴取記録を作成する。 |
+> **変更するのは開始時刻だけである。** `The upright bass is clearly present from the first instant ... no silence` を、`From 0.00 to 0.40 seconds, preserve near-silence; at 0.40 seconds, introduce only the warm acoustic upright bass with an extremely soft, rounded, natural finger-plucked tone.` に置換する。
 
-## 彩花CTOが次に確認するファイル
+0〜2秒のPiano／Drums／メロディ／他楽器なし、2.00秒の疎なPiano導入、後続minimal brush drums、既存のNegative指定は固定する。次候補が生成されたら、同じ測定スクリプトで0〜2秒のRMS、Low比率、持続信号開始、RMS遷移を比較し、開始時刻修正の効果だけを評価する。
 
-1. [`001再現検証 作業台帳`](2026-08-15_project001_001_reproduction_verification_worklog.md)で、001の固定Factと候補曲不足によるブロッカーを確認する。
-2. 候補曲が登録される際は、同じ実験IDに音源、生成Prompt、SUNO設定、Negative指定を紐付け、Phase 2へ進める。
-3. 以後のPrompt設計では、001型のBass条件を固定し、伴奏導入時刻だけを最初の変更変数とする。
+## 保存済み成果物
 
-**基準報告Commit SHA:** `c01456b735f7508f91029395c1272bf8f70e835e`（途中報告・作業台帳）
-**Phase 1測定Commit SHA:** `33c210aa4f00a99aeac2eac5feea8e9ba1cc4abe`（0〜2秒測定資産・可視化・再現用スクリプト）
-**Push先:** `origin/main`。各コミットはプッシュ済みで、測定反映時点のローカルHEADとリモートHEADの一致を確認した。
+| 種別 | 保存先 |
+|---|---|
+| 正式比較報告 | `docs/momoka/reports/2026-08-15_project001_001_reproduction_candidates_004_005.md` |
+| 候補取得記録・公開Prompt | `docs/momoka/reports/2026-08-15_project001_suno_candidate_intake.md` |
+| 詳細測定JSON | `music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno004_005.json` |
+| 比較サマリーCSV | `music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno004_005_summary.csv` |
+| 導入比較図 | `music_ai/analysis/cafe/figures/2026-08-15_project001_001_vs_suno004_005_intro.png` |
+| 比較再現スクリプト | `tools/compare_cafe001_suno_candidates.py` |
+| 更新前の入口報告 | `docs/momoka/reports/archive/2026-08-15_pre_candidate_004_005_comparison_latest_report.md` |
+
+**Commit SHA:** この報告の更新コミット後に確定し、本ファイルへ追記する。
+**Push先:** `origin/main`（反映後に結果を追記する）。
+
+## References
+
+[1]: https://suno.com/s/QhzmREKfyxAo6uyW "Suno — 004 by 「Runa」"
+[2]: https://suno.com/s/ksoKv0j8BunFng6L "Suno — 005 by 「Runa」"
+[3]: https://github.com/FieldRiseJapan/FieldRise/blob/main/music_ai/analysis/cafe/measurements/2026-08-15_project001_001_vs_suno004_005.json "FieldRise — 001 Master and Suno candidate measurement dataset"

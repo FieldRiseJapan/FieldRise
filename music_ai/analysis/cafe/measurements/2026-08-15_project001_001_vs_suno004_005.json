@@ -1,0 +1,336 @@
+{
+  "analysis_version": "2026-08-15-project001-candidate-comparison-v1",
+  "scope": "Full-mix acoustic comparison of 001 Master and two user-shared Suno public outputs.",
+  "limitations": [
+    "Candidate audio is MP3 while the 001 Master is FLAC; absolute metrics may be codec-sensitive.",
+    "Full-mix values cannot prove individual instrument presence or absence.",
+    "Prompt and negative text are publicly visible for both candidates, but seed and non-displayed Suno parameters are not known.",
+    "Noise type, musical key, subjective timbre, and loop naturalness require listening review."
+  ],
+  "tracks": {
+    "MASTER-001": {
+      "label": "MASTER-001",
+      "source": {
+        "filename": "001_reference_main.flac",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 222.399979
+      },
+      "global": {
+        "rms_dbfs": -16.82,
+        "peak_dbfs": -2.51,
+        "frame_rms_p10_dbfs": -29.83,
+        "frame_rms_p90_dbfs": -12.98,
+        "crest_factor_db": 14.32,
+        "spectral_centroid_hz": 232.8,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.7505,
+          "low_mid_180_2000_hz": 0.2483,
+          "high_2000_10000_hz": 0.0007
+        },
+        "stereo": {
+          "left_right_correlation": 0.9999,
+          "side_to_mid_db": -42.68
+        }
+      },
+      "intro_0_2_seconds": {
+        "seconds": [
+          0.0,
+          2.0
+        ],
+        "rms_dbfs": -22.64,
+        "peak_dbfs": -8.52,
+        "spectral_centroid_hz": 97.7,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.9804,
+          "low_mid_180_2000_hz": 0.018,
+          "high_2000_10000_hz": 0.0008
+        },
+        "first_sustained_full_mix_signal_seconds": 0.4,
+        "low_dominant_window_share": 0.45,
+        "largest_rms_increase_events": [
+          {
+            "seconds": 0.45,
+            "rms_increase_db": 27.56
+          },
+          {
+            "seconds": 1.8,
+            "rms_increase_db": 20.03
+          },
+          {
+            "seconds": 1.7,
+            "rms_increase_db": 6.82
+          },
+          {
+            "seconds": 1.55,
+            "rms_increase_db": 3.7
+          },
+          {
+            "seconds": 1.4,
+            "rms_increase_db": 0.15
+          }
+        ]
+      },
+      "sections": {
+        "intro_2_10": {
+          "seconds": [
+            2.0,
+            10.0
+          ],
+          "rms_dbfs": -22.07,
+          "peak_dbfs": -7.69,
+          "spectral_centroid_hz": 164.1,
+          "band_energy_ratio": {
+            "low_20_180_hz": 0.8297,
+            "low_mid_180_2000_hz": 0.168,
+            "high_2000_10000_hz": 0.0013
+          }
+        },
+        "body_10_30": {
+          "seconds": [
+            10.0,
+            30.0
+          ],
+          "rms_dbfs": -20.55,
+          "peak_dbfs": -4.46,
+          "spectral_centroid_hz": 232.4,
+          "band_energy_ratio": {
+            "low_20_180_hz": 0.7158,
+            "low_mid_180_2000_hz": 0.2824,
+            "high_2000_10000_hz": 0.001
+          }
+        },
+        "outro_last_8": {
+          "seconds": [
+            214.4,
+            222.4
+          ],
+          "rms_dbfs": -35.98,
+          "peak_dbfs": -13.69,
+          "spectral_centroid_hz": 353.1,
+          "band_energy_ratio": {
+            "low_20_180_hz": 0.9247,
+            "low_mid_180_2000_hz": 0.0153,
+            "high_2000_10000_hz": 0.045
+          }
+        }
+      }
+    },
+    "CAND-004": {
+      "label": "CAND-004",
+      "source": {
+        "filename": "CAND-004_4a35d77d.mp3",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 180.400167
+      },
+      "global": {
+        "rms_dbfs": -16.3,
+        "peak_dbfs": -1.36,
+        "frame_rms_p10_dbfs": -30.0,
+        "frame_rms_p90_dbfs": -12.3,
+        "crest_factor_db": 14.94,
+        "spectral_centroid_hz": 228.2,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.5894,
+          "low_mid_180_2000_hz": 0.4092,
+          "high_2000_10000_hz": 0.0002
+        },
+        "stereo": {
+          "left_right_correlation": 0.8047,
+          "side_to_mid_db": -9.61
+        }
+      },
+      "intro_0_2_seconds": {
+        "seconds": [
+          0.0,
+          2.0
+        ],
+        "rms_dbfs": -15.13,
+        "peak_dbfs": -1.59,
+        "spectral_centroid_hz": 215.8,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.5732,
+          "low_mid_180_2000_hz": 0.4251,
+          "high_2000_10000_hz": 0.0001
+        },
+        "first_sustained_full_mix_signal_seconds": 0.0,
+        "low_dominant_window_share": 0.15,
+        "largest_rms_increase_events": [
+          {
+            "seconds": 1.85,
+            "rms_increase_db": 28.28
+          },
+          {
+            "seconds": 1.05,
+            "rms_increase_db": 11.25
+          },
+          {
+            "seconds": 0.05,
+            "rms_increase_db": 4.74
+          },
+          {
+            "seconds": 0.7,
+            "rms_increase_db": 3.62
+          },
+          {
+            "seconds": 0.5,
+            "rms_increase_db": 3.29
+          }
+        ]
+      },
+      "sections": {
+        "intro_2_10": {
+          "seconds": [
+            2.0,
+            10.0
+          ],
+          "rms_dbfs": -16.46,
+          "peak_dbfs": -2.91,
+          "spectral_centroid_hz": 216.5,
+          "band_energy_ratio": {
+            "low_20_180_hz": 0.4778,
+            "low_mid_180_2000_hz": 0.5209,
+            "high_2000_10000_hz": 0.0001
+          }
+        },
+        "body_10_30": {
+          "seconds": [
+            10.0,
+            30.0
+          ],
+          "rms_dbfs": -16.06,
+          "peak_dbfs": -2.07,
+          "spectral_centroid_hz": 222.5,
+          "band_energy_ratio": {
+            "low_20_180_hz": 0.5239,
+            "low_mid_180_2000_hz": 0.4746,
+            "high_2000_10000_hz": 0.0001
+          }
+        },
+        "outro_last_8": {
+          "seconds": [
+            172.4,
+            180.4
+          ],
+          "rms_dbfs": -14.95,
+          "peak_dbfs": -2.36,
+          "spectral_centroid_hz": 205.2,
+          "band_energy_ratio": {
+            "low_20_180_hz": 0.6779,
+            "low_mid_180_2000_hz": 0.3195,
+            "high_2000_10000_hz": 0.0008
+          }
+        }
+      }
+    },
+    "CAND-005": {
+      "label": "CAND-005",
+      "source": {
+        "filename": "CAND-005_ef70c86b.mp3",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 180.680167
+      },
+      "global": {
+        "rms_dbfs": -15.86,
+        "peak_dbfs": -1.13,
+        "frame_rms_p10_dbfs": -26.43,
+        "frame_rms_p90_dbfs": -12.28,
+        "crest_factor_db": 14.73,
+        "spectral_centroid_hz": 222.5,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.6357,
+          "low_mid_180_2000_hz": 0.363,
+          "high_2000_10000_hz": 0.0004
+        },
+        "stereo": {
+          "left_right_correlation": 0.7331,
+          "side_to_mid_db": -8.12
+        }
+      },
+      "intro_0_2_seconds": {
+        "seconds": [
+          0.0,
+          2.0
+        ],
+        "rms_dbfs": -15.62,
+        "peak_dbfs": -1.48,
+        "spectral_centroid_hz": 217.4,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.6356,
+          "low_mid_180_2000_hz": 0.3632,
+          "high_2000_10000_hz": 0.0002
+        },
+        "first_sustained_full_mix_signal_seconds": 0.0,
+        "low_dominant_window_share": 0.275,
+        "largest_rms_increase_events": [
+          {
+            "seconds": 1.35,
+            "rms_increase_db": 10.36
+          },
+          {
+            "seconds": 0.9,
+            "rms_increase_db": 5.73
+          },
+          {
+            "seconds": 1.75,
+            "rms_increase_db": 3.85
+          },
+          {
+            "seconds": 0.05,
+            "rms_increase_db": 3.29
+          },
+          {
+            "seconds": 0.5,
+            "rms_increase_db": 1.81
+          }
+        ]
+      },
+      "sections": {
+        "intro_2_10": {
+          "seconds": [
+            2.0,
+            10.0
+          ],
+          "rms_dbfs": -15.04,
+          "peak_dbfs": -1.44,
+          "spectral_centroid_hz": 185.3,
+          "band_energy_ratio": {
+            "low_20_180_hz": 0.5722,
+            "low_mid_180_2000_hz": 0.4271,
+            "high_2000_10000_hz": 0.0002
+          }
+        },
+        "body_10_30": {
+          "seconds": [
+            10.0,
+            30.0
+          ],
+          "rms_dbfs": -16.71,
+          "peak_dbfs": -1.6,
+          "spectral_centroid_hz": 225.7,
+          "band_energy_ratio": {
+            "low_20_180_hz": 0.6327,
+            "low_mid_180_2000_hz": 0.3669,
+            "high_2000_10000_hz": 0.0002
+          }
+        },
+        "outro_last_8": {
+          "seconds": [
+            172.68,
+            180.68
+          ],
+          "rms_dbfs": -15.73,
+          "peak_dbfs": -2.85,
+          "spectral_centroid_hz": 239.3,
+          "band_energy_ratio": {
+            "low_20_180_hz": 0.6447,
+            "low_mid_180_2000_hz": 0.3522,
+            "high_2000_10000_hz": 0.0009
+          }
+        }
+      }
+    }
+  }
+}
