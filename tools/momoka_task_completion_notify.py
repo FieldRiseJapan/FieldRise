@@ -290,6 +290,17 @@ def process_notification(
         return result
 
     retry_key = str(uuid.uuid5(uuid.NAMESPACE_URL, f"{task_id}:{metadata['status']}"))
+    if existing and existing.get("notification_status") == "failed" and metadata.get("delivery_test") == "true":
+        result.update(
+            {
+                "action": "delivery_test_retry_blocked",
+                "notification_status": "failed",
+                "retry_key": retry_key,
+                "detail": "本番到達テストは失敗後の自動再送を禁止しています。Secretsと送信先を修正し、新しい明示的テストタスクでのみ再試行してください。",
+                "write_receipt": False,
+            }
+        )
+        return result
     if existing and existing.get("notification_status") == "failed":
         previous_attempt = parse_iso8601(str(existing.get("attempted_at", "")))
         if previous_attempt and datetime.now(timezone.utc) - previous_attempt > MAX_RETRY_WINDOW:

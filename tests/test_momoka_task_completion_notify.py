@@ -121,6 +121,41 @@ class MomokaTaskCompletionNotifyTests(unittest.TestCase):
         self.assertEqual(second["notification_status"], "sent")
         self.assertFalse(second["write_receipt"])
 
+    def test_failed_delivery_test_does_not_retry_automatically(self) -> None:
+        report = REPORT_TEMPLATE.format(
+            status="completed",
+            next_action="Secretsを修正してください。",
+            blocker="LINE送信先が未設定です。",
+        ) + "| Delivery test | true |\n"
+        self.report.write_text(report, encoding="utf-8")
+        receipts = self.receipts
+        first = notify.process_notification(
+            report_path=self.report,
+            receipts_dir=receipts,
+            report_commit="b" * 40,
+            report_url="https://example.test/report",
+            occurred_at="2026-08-15T01:00:00Z",
+            mode="send",
+            line_token="token",
+            line_target_id="",
+            retry_delay_seconds=0,
+        )
+        notify.write_receipt(first)
+        second = notify.process_notification(
+            report_path=self.report,
+            receipts_dir=receipts,
+            report_commit="b" * 40,
+            report_url="https://example.test/report",
+            occurred_at="2026-08-15T01:01:00Z",
+            mode="send",
+            line_token="token",
+            line_target_id="target",
+            retry_delay_seconds=0,
+        )
+        self.assertEqual(first["notification_status"], "failed")
+        self.assertEqual(second["action"], "delivery_test_retry_blocked")
+        self.assertFalse(second["write_receipt"])
+
     def test_blocked_then_completed_is_a_new_notification_event(self) -> None:
         blocked = self.process("blocked")
         notify.write_receipt(blocked)
