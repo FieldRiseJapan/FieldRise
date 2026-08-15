@@ -2,8 +2,8 @@
   "schema_version": 1,
   "status": "blocked",
   "execution_name": null,
-  "receipt_key": "d0a6fa44c6fbbbc3bfc2d66d9fcb560fc20833c3:docs/momoka/instructions/momoka-gmail-important-event-notification.md",
-  "instruction_path": "docs/momoka/instructions/momoka-gmail-important-event-notification.md",
+  "receipt_key": "53e25df0eb05ed00b261a090851f6b60be4eb4a5:docs/momoka/instructions/2026-08-15_cto_instruction_git409.md",
+  "instruction_path": "docs/momoka/instructions/2026-08-15_cto_instruction_git409.md",
   "error": "実行名生成失敗: プロジェクト名を取得できないため、実行名を生成せず開始を停止します。 ",
-  "updated_at": "2026-08-15T06:25:59Z"
+  "updated_at": "2026-08-15T12:39:39Z"
 }
