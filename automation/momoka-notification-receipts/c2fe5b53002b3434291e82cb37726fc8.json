@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "momoka-c2fe5b53002b3434291e82cb",
+  "issue_number": "999",
+  "execution_name": "桃花｜#999｜FieldRise｜LINE通知ドライラン検証",
+  "receipt_key": "test-fixture-momoka-line-completed-v1",
+  "report_path": "tests/fixtures/momoka_task_completion_completed.md",
+  "report_commit": "ce95ba5928f35e4001bd6b4c16f2d4e45fea64f1",
+  "report_url": "https://github.com/FieldRiseJapan/FieldRise/blob/ce95ba5928f35e4001bd6b4c16f2d4e45fea64f1/tests/fixtures/momoka_task_completion_completed.md",
+  "status": "completed",
+  "notification_type": "task_completed",
+  "generated_at": "2026-08-15T01:17:38Z",
+  "message_preview": "タスク完了通知\n実行名: 桃花｜#999｜FieldRise｜LINE通知ドライラン検証\nIssue: #999\n状態: completed\n完了日時: 2026-08-15T01:17:38Z\nGitHub正式報告: 記録済み\n概要: 正式報告書が completed と判定されました。\n詳細: https://github.com/FieldRiseJapan/FieldRise/blob/ce95ba5928f35e4001bd6b4c16f2d4e45fea64f1/tests/fixtures/momoka_task_completion_completed.md",
+  "retry_key": "3e33233a-fb14-5fa8-bc8e-d471a482766d",
+  "action": "dry_run_receipt_written",
+  "notification_status": "dry_run",
+  "attempted_at": "2026-08-15T01:17:38Z",
+  "detail": "安全テストとして通知内容・状態判定・receiptのみを検証し、LINE APIは呼び出していません。"
+}
