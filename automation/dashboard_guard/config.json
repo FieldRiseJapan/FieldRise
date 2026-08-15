@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "report_directory": "automation/dashboard_guard/reports",
+  "issue_labels": ["automation", "dashboard", "verification"],
+  "public_urls": [
+    {
+      "name": "AI Control Dashboard (GitHub Pages)",
+      "url": "https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/",
+      "expected_status": 200,
+      "required_text": ["FieldRise AI Control Dashboard"]
+    },
+    {
+      "name": "Sonata Desk (GitHub Pages)",
+      "url": "https://fieldrisejapan.github.io/FieldRise/sonata-desk/",
+      "expected_status": 200,
+      "required_text": ["Sonata Desk"]
+    }
+  ],
+  "dashboards": [
+    {
+      "name": "AI Control Dashboard",
+      "directory": "dashboard/ai-control-dashboard",
+      "package_manager": "pnpm"
+    },
+    {
+      "name": "Sonata Desk",
+      "directory": "dashboard/sonata-desk",
+      "package_manager": "pnpm"
+    }
+  ],
+  "json_sources": [
+    "dashboard/sonata-desk/src/generated/dashboard-data.json",
+    "automation/momoka-executions/latest.json"
+  ],
+  "protected_paths": [
+    "dashboard/ai-control-dashboard/**",
+    "dashboard/sonata-desk/**",
+    "ai-control-dashboard/**",
+    "sonata-desk/**",
+    ".github/workflows/**"
+  ],
+  "approval_boundary": {
+    "may_create": [
+      "automation/dashboard_guard/reports/**",
+      "docs/momoka/reports/**",
+      ".github/ISSUE_TEMPLATE/**"
+    ],
+    "must_not_modify": [
+      "dashboard source code",
+      "static deployment artifacts",
+      "GitHub Pages settings",
+      "workflow permissions",
+      "main branch"
+    ],
+    "manual_approval_required_for": [
+      "applying a patch to dashboard or deployment files",
+      "pushing a repair branch",
+      "changing GitHub settings or workflow permissions",
+      "publishing or redeploying a dashboard"
+    ]
+  }
+}

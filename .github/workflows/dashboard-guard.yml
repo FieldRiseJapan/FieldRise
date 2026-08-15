@@ -1,0 +1,136 @@
+name: Dashboard Guard
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "dashboard/ai-control-dashboard/**"
+      - "dashboard/sonata-desk/**"
+      - "ai-control-dashboard/**"
+      - "sonata-desk/**"
+      - "automation/dashboard_guard/**"
+      - "tests/dashboard_guard/**"
+      - ".github/workflows/dashboard-guard.yml"
+      - ".github/ISSUE_TEMPLATE/dashboard-repair-approval.md"
+      - "automation/scripts/generate_briefing.py"
+      - "automation/scripts/send_line_notification.py"
+  schedule:
+    - cron: "15 22 * * *" # 07:15 JST
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: dashboard-guard-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  inspect-only:
+    name: Read-only dashboard inspection
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: |
+            dashboard/ai-control-dashboard/pnpm-lock.yaml
+            dashboard/sonata-desk/pnpm-lock.yaml
+
+      - name: Run read-only dashboard guard
+        id: guard
+        shell: bash
+        run: |
+          set +e
+          python3 automation/dashboard_guard/dashboard_guard.py --output-dir "$RUNNER_TEMP/dashboard-guard" > "$RUNNER_TEMP/dashboard-guard-result.json"
+          exit_code=$?
+          cat "$RUNNER_TEMP/dashboard-guard-result.json"
+          python3 - <<'PY' "$RUNNER_TEMP/dashboard-guard-result.json" "$GITHUB_OUTPUT" "$RUNNER_TEMP/dashboard-guard"
+          import json
+          import sys
+          from pathlib import Path
+
+          result = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          output = Path(sys.argv[2])
+          latest = sorted(Path(sys.argv[3]).glob("*.md"))[-1]
+          with output.open("a", encoding="utf-8") as handle:
+              handle.write(f"status={result['status']}\n")
+              handle.write(f"report={latest}\n")
+          PY
+          exit 0
+
+      - name: Upload diagnostic evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-guard-${{ github.run_id }}
+          path: ${{ runner.temp }}/dashboard-guard/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Create or update approval-required issue
+        if: steps.guard.outputs.status == 'attention_required'
+        uses: actions/github-script@v7
+        env:
+          REPORT_FILE: ${{ steps.guard.outputs.report }}
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync(process.env.REPORT_FILE, 'utf8');
+            const title = 'Dashboard Guard: 承認待ちの修正提案';
+            const body = [
+              '## 自動検知結果',
+              '',
+              '> このIssueは読み取り専用の自動監視で作成されました。ダッシュボード本体、公開設定、GitHub Pages、`main`ブランチへの自動変更は行っていません。',
+              '',
+              report,
+              '',
+              '## 次の手順',
+              '',
+              '1. 原因と影響範囲を確認する。',
+              '2. 修正パッチ案を別ブランチで作成することを承認する。',
+              '3. テスト結果を確認する。',
+              '4. 本体への適用・公開は別途承認する。',
+            ].join('\n');
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'automation,dashboard,verification',
+              per_page: 100,
+            });
+            const existing = issues.find((issue) => issue.title === title && !issue.pull_request);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+              core.notice(`Updated approval-required issue #${existing.number}`);
+            } else {
+              const created = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['automation', 'dashboard', 'verification'],
+              });
+              core.notice(`Created approval-required issue #${created.data.number}`);
+            }
+
+      - name: Safety boundary summary
+        run: |
+          echo "This workflow is inspection-only."
+          echo "It never writes dashboard files, static assets, deployment settings, or main."
+          echo "Any issue is an approval request, not an automated repair."
