@@ -58,8 +58,9 @@
 | 比較再現スクリプト | `tools/compare_cafe001_suno_candidates.py` |
 | 更新前の入口報告 | `docs/momoka/reports/archive/2026-08-15_pre_candidate_004_005_comparison_latest_report.md` |
 
-**Commit SHA:** この報告の更新コミット後に確定し、本ファイルへ追記する。
-**Push先:** `origin/main`（反映後に結果を追記する）。
+**候補比較Commit SHA:** `bda8793f375d59b595255e55df53998d003d7d6d`（測定データ、可視化、詳細比較報告、候補取得記録）
+**指示整合Commit SHA:** `07d3b1ee918e54411faee7f2fb9e286327feec15`（Bass開始0:00・無音なし条件への整合）
+**Push先:** `origin/main`。上記コミットはプッシュ済みで、反映時のローカルHEADとリモートHEADの一致を確認した。
 
 ## References
 
