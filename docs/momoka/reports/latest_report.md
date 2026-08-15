@@ -360,3 +360,24 @@
 [11]: https://github.com/FieldRiseJapan/FieldRise/commit/c868f7fb524fe6d74f8e395c0dee514e6f75e0fe "本件の受領報告反映コミット"
 [12]: https://github.com/FieldRiseJapan/FieldRise/commit/0e6faf3e22e29a6292384938176cb64aac377a68 "本件のClaim反映コミット"
 [13]: https://github.com/FieldRiseJapan/FieldRise/issues/9#issuecomment-5299780264 "Issue #9への公開状態・公開後検証記録"
+
+---
+
+# 桃花｜Gmail重要イベント補助通知｜到達テスト
+
+## 実施結果（2026-08-15）
+
+| 項目 | 内容 |
+|---|---|
+| 対象 | 社長指定の既存Gmailを使用した、重要イベント補助通知の到達確認テスト |
+| 関連Issue | [#18：LINE_TARGET_ID取得・Secret設定・本番テスト準備](https://github.com/FieldRiseJapan/FieldRise/issues/18) の補助報告経路確認 |
+| 正式指示 | `docs/momoka/instructions/momoka-gmail-important-event-notification.md` |
+| 正式報告の正本 | `docs/momoka/reports/latest_report.md`（本ファイル） |
+| 宛先 | 社長指定の既存Gmailアドレス |
+| 送信頻度 | 重要イベント時のみ |
+| テスト送信 | 件名「［FieldRise｜桃花］Gmail重要イベント通知テスト」で1通送信した。メール本文に `LINE_TARGET_ID`、Channel Access Token、Channel secretその他の秘密情報は含めていない。 |
+| 到達確認 | 社長から「到達確認」を受領した。 |
+| 重複送信 | テストメールは1通のみ。 |
+| 最終ステータス | `completed` |
+
+> **完了判定**：既存Gmailへの接続確認、受信先・頻度の社長指定、テストメール1通の送信、および社長による到達確認が完了した。Gmailは重要イベント時の補助通知に限定し、GitHub Issue、正式指示書、および本報告書の固定経路を置き換えない。
