@@ -1,9 +1,12 @@
 {
   "schema_version": 1,
-  "status": "blocked",
-  "execution_name": null,
-  "receipt_key": "0b4f760a4635df97f4d41540d5064674848eb9d7:docs/momoka/instructions/momoka-line-target-id-setup-and-retest.md",
-  "instruction_path": "docs/momoka/instructions/momoka-line-target-id-setup-and-retest.md",
-  "error": "実行名生成失敗: プロジェクト名を取得できないため、実行名を生成せず開始を停止します。 ",
-  "updated_at": "2026-08-15T02:02:09Z"
+  "status": "in_progress",
+  "execution_name": "桃花｜運用通信テスト｜自動伝達・受領・Claim・報告確認",
+  "issue_number": null,
+  "project_name": "運用通信テスト",
+  "task_name": "自動伝達・受領・Claim・報告確認",
+  "receipt_key": "61ba7dd0237dbedee211e2b5b5afe24b13e91dbd:docs/momoka/instructions/momoka-communication-e2e-test.md",
+  "instruction_path": "docs/momoka/instructions/momoka-communication-e2e-test.md",
+  "started_at": "2026-08-15T02:10:18Z",
+  "source": "momoka-auto-notify"
 }
