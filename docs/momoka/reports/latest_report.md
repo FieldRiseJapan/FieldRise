@@ -226,3 +226,41 @@
 [8]: https://github.com/FieldRiseJapan/FieldRise/blob/63162d8aeeadee076cdbc9ede0784b0ba1e2f9cc/docs/momoka/instructions/fieldrise-ai-control-dashboard-post-publication-verification.md "正式指示書：AI Control Dashboard 社長手動公開後の検証・状態更新"
 [9]: https://developers.line.biz/en/docs/messaging-api/sending-messages/ "LINE Developers: Send messages"
 [10]: https://developers.line.biz/en/docs/messaging-api/retrying-api-request/ "LINE Developers: Retry failed API requests"
+
+---
+## 公開後検証・最終確認（2026-08-15T01:20:00Z）
+
+本件の公開は社長による手動公開であり、桃花が公開を実行したものではない。桃花の担当範囲である公開後検証を、公開URL上のブラウザ確認、本番ビルド、同期・エラー状態のランタイム確認、およびPC・スマートフォン相当のレンダリング確認として実施した。[9]
+
+| 検証項目 | 結果 | 確認内容 |
+|---|---|---|
+| 公開URLへの到達 | 合格 | `https://fieldrise-da-mzdfxrfv.manus.space/` でAI Control Dashboardを表示できた。 |
+| UI・主要情報 | 合格 | ダークUI、Blue基調、検証バロメーター、001/002、G01〜G09、桃花通信、最新正式報告、GitHub正本リンクを確認した。 |
+| GitHubデータ取得 | 合格 | 同期状態は「同期正常」、同期対象は3/3であり、検証データ・桃花コメント・最新コミットを取得した。 |
+| 手動再同期 | 合格 | 再同期操作後、最終同期表示が `01:16:04 UTC` から `01:16:18 UTC` へ更新された。 |
+| 60秒自動更新 | 合格 | 初期同期 `01:16:04 UTC`、手動同期 `01:16:18 UTC` の後、ページ起動時からの60秒周期で自動同期 `01:17:04 UTC` を確認した。 |
+| エラー表示・復帰 | 合格 | 一時的なクライアント内通信失敗で「同期失敗」と4取得対象のエラー詳細を表示し、既存ゲージを保持した。通信復帰後の再同期でエラー領域は消え、「同期正常」に回復した。 |
+| PC表示 | 合格 | 1440×1000相当で、サイドバー、主要指標、001/002、再現度バロメーター、G01〜G09見出しを重なり・横方向欠落なく表示した。 |
+| スマートフォン表示 | 合格 | 390×844相当で、モバイルヘッダー、再同期、Hero、コミット、主要指標の2列グリッドを重なり・横方向欠落なく表示した。 |
+| E2E主要導線 | 合格 | 初期ロード、正本データ表示、手動再同期、定期再同期、取得失敗時の表示保持、復帰再同期、PC・モバイル相当表示を一連の公開環境で確認した。 |
+| 本番ビルド | 合格 | `pnpm install --frozen-lockfile && pnpm build` が成功し、TypeScript検査とVite本番成果物生成を確認した。 |
+
+エラー確認はブラウザ実行時の通信関数を一時的に失敗させる方法で行い、GitHubのデータ、公開アプリのソース、公開設定を変更していない。復帰後に再同期を実行して正常状態へ戻したため、検証起因の永続的な変更は残っていない。
+
+## 進捗・完了・未完了・ブロッカー（2026-08-15T01:20:00Z）
+
+| 区分 | 状況 |
+|---|---|
+| 進捗 | 受領報告、Claim、公開URL確認、機能確認、同期確認、エラー表示確認、PC・スマートフォン相当表示確認、E2E主要導線、本番ビルド、およびIssue #9への状態記録を完了した。 |
+| 完了 | 受領報告は [`c868f7f`](https://github.com/FieldRiseJapan/FieldRise/commit/c868f7fb524fe6d74f8e395c0dee514e6f75e0fe)、Claimは [`0e6faf3`](https://github.com/FieldRiseJapan/FieldRise/commit/0e6faf3e22e29a6292384938176cb64aac377a68) として、指定順序どおり `origin/main` へ反映済みである。Issue #9にも、公開者・公開方法・URL・桃花の公開後検証担当を記録した。[10] [11] [12] [13] |
+| 未完了 | 公開後検証の範囲に未完了項目はない。ダッシュボード上の「総合再現度」「前回との差分」が未登録であること、およびG07・G08が確認待ちであることは、正本データ上の既存課題であり、本公開後検証で検出した画面不具合ではない。 |
+| ブロッカー | なし。GitHub書込み、Claim作成、公開URL確認、同期確認、ビルド、PC・スマートフォン相当確認、E2E主要導線確認のいずれにも本件の完了を妨げるブロッカーはない。 |
+| 修正内容 | 画面・同期・エラー処理に検証時の不具合は検出されなかったため、公開アプリの修正および再デプロイは不要と判断した。 |
+| 最終ステータス | `completed` — 社長手動公開済みのAI Control Dashboardに対する桃花の公開後検証・状態更新を完了した。 |
+
+## 参照
+[9]: https://fieldrise-da-mzdfxrfv.manus.space/ "FieldRise AI Control Dashboard（社長手動公開済みURL）"
+[10]: https://github.com/FieldRiseJapan/FieldRise/issues/9 "Issue #9：AI Control Dashboard 公開先選定・公開実行"
+[11]: https://github.com/FieldRiseJapan/FieldRise/commit/c868f7fb524fe6d74f8e395c0dee514e6f75e0fe "本件の受領報告反映コミット"
+[12]: https://github.com/FieldRiseJapan/FieldRise/commit/0e6faf3e22e29a6292384938176cb64aac377a68 "本件のClaim反映コミット"
+[13]: https://github.com/FieldRiseJapan/FieldRise/issues/9#issuecomment-5299780264 "Issue #9への公開状態・公開後検証記録"
