@@ -1,3 +1,23 @@
+# 桃花｜#14｜FieldRise｜LINE本番到達テスト（テスト通知）
+
+## LINE本番テスト送信 — 送信開始記録
+
+| 項目 | 内容 |
+|---|---|
+| Receipt key | `momoka-line-production-test-issue-14-20260815-013900` |
+| 指示ID | 未指定 |
+| 関連Issue | [#14：LINE自動通知 本番送信・社長LINE到達確認](https://github.com/FieldRiseJapan/FieldRise/issues/14) |
+| 実行名 | `桃花｜#14｜FieldRise｜LINE本番到達テスト（テスト通知）` |
+| 状態 | `completed` |
+| Delivery test | `true` |
+| テスト内容 | 社長のLINEを送信先とする、LINE自動通知システムの本番到達確認用テスト通知を1通だけ送信する。Dry Runは使用しない。 |
+| 次のアクション | 本pushを契機に本番モードの通知処理を一度だけ実行し、receiptの `notification_status=sent`、`notification_id`、到達確認、および二重送信防止を確認して本報告を更新する。 |
+| ブロッカー | 送信前時点ではなし。GitHub Actions内でLINE Secrets、本番送信先、冪等receiptを検証し、失敗時は自動再送しない。 |
+
+本記録はIssue #14およびIssue #15に基づく**社長LINE本番到達確認専用のテストタスク**である。通常業務の完了通知ではなく、通知本文・receiptともに `delivery_test=true` を明示する。送信処理はこの一回の状態更新のみを契機とし、同一Receipt keyについては既存の `sent` receiptがあれば再送しない。
+
+---
+
 ## 進捗・完了・未完了・ブロッカー（2026-08-15T01:26:18Z）
 
 | 区分 | 状況 |
