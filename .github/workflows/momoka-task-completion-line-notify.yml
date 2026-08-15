@@ -1,0 +1,110 @@
+name: 桃花 - タスク完了LINE自動通知
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/momoka/reports/latest_report.md"
+  schedule:
+    # 失敗した送信は、24時間のLINE Retry Key有効期間内に自動再試行する。
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry_run はLINEへ送信せず判定とreceiptだけを検証する。send は最終状態の通知を送信する。"
+        required: true
+        default: dry_run
+        type: choice
+        options:
+          - dry_run
+          - send
+
+permissions:
+  contents: write
+
+concurrency:
+  group: momoka-task-completion-line-notify-main
+  cancel-in-progress: false
+
+jobs:
+  notify-president:
+    name: 正式状態を判定してLINE通知
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      REPORT_PATH: docs/momoka/reports/latest_report.md
+      RECEIPTS_DIR: automation/momoka-notification-receipts
+      LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+      LINE_TARGET_ID: ${{ secrets.LINE_TARGET_ID }}
+
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 実行モードと正式報告の証跡を確定
+        id: context
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            mode="${{ inputs.mode }}"
+          else
+            mode="send"
+          fi
+          report_commit="$(git log -1 --format=%H -- "$REPORT_PATH")"
+          report_url="https://github.com/${GITHUB_REPOSITORY}/blob/${report_commit}/${REPORT_PATH}"
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "report_commit=$report_commit" >> "$GITHUB_OUTPUT"
+          echo "report_url=$report_url" >> "$GITHUB_OUTPUT"
+
+      - name: 正式状態を判定して通知・receiptを処理
+        id: notify
+        shell: bash
+        run: |
+          set -euo pipefail
+          result_path="$RUNNER_TEMP/momoka-line-notify-result.json"
+          python3 tools/momoka_task_completion_notify.py \
+            --report-path "$REPORT_PATH" \
+            --receipts-dir "$RECEIPTS_DIR" \
+            --report-commit "${{ steps.context.outputs.report_commit }}" \
+            --report-url "${{ steps.context.outputs.report_url }}" \
+            --occurred-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --mode "${{ steps.context.outputs.mode }}" \
+            --output "$result_path"
+          action="$(jq -r '.action' "$result_path")"
+          notification_status="$(jq -r '.notification_status // "not_requested"' "$result_path")"
+          detail="$(jq -r '.detail' "$result_path")"
+          echo "action=$action" >> "$GITHUB_OUTPUT"
+          echo "notification_status=$notification_status" >> "$GITHUB_OUTPUT"
+          echo "detail=$detail" >> "$GITHUB_OUTPUT"
+          {
+            echo "## 桃花タスク完了LINE自動通知"
+            echo "- 実行モード: \`${{ steps.context.outputs.mode }}\`"
+            echo "- 処理結果: \`$action\`"
+            echo "- 通知状態: \`$notification_status\`"
+            echo "- 詳細: $detail"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 通知receiptをGitHubへ記録
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git status --short -- "$RECEIPTS_DIR" | grep -q .; then
+            git config user.name "FieldRise-Momoka-Notifier"
+            git config user.email "momoka-notifier@fieldrise.local"
+            git add -- "$RECEIPTS_DIR"
+            git commit -m "chore: record Momoka LINE notification ${{ steps.notify.outputs.notification_status }}"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo "新規receiptはありません。"
+          fi
+
+      - name: 送信失敗を可視化
+        if: ${{ steps.notify.outputs.action == 'send_failed' || steps.notify.outputs.action == 'processing_failed' }}
+        shell: bash
+        run: |
+          echo "LINE通知は送信済みとして扱いません。receiptの notification_status と詳細を確認してください。" >&2
+          exit 1
