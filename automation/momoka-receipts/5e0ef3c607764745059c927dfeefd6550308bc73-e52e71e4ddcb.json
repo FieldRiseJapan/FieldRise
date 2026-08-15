@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "instruction": {
+    "receipt_key": "5e0ef3c607764745059c927dfeefd6550308bc73:docs/momoka/instructions/fieldrise-ai-control-dashboard-development.md",
+    "id": "未指定",
+    "path": "docs/momoka/instructions/fieldrise-ai-control-dashboard-development.md",
+    "source_sha": "5e0ef3c607764745059c927dfeefd6550308bc73",
+    "source_url": "https://github.com/FieldRiseJapan/FieldRise/blob/5e0ef3c607764745059c927dfeefd6550308bc73/docs/momoka/instructions/fieldrise-ai-control-dashboard-development.md",
+    "priority": "未指定",
+    "created_at": "2026-08-15T00:40:44Z"
+  },
+  "delivery": {
+    "recipient": "Manus default agent (桃花)",
+    "method": "Manus API task.sendMessage",
+    "status": "attempting",
+    "started_at": "2026-08-15T00:40:57Z"
+  }
+}
