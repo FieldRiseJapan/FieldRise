@@ -109,6 +109,16 @@ class MomokaTaskCompletionNotifyTests(unittest.TestCase):
         self.assertEqual(second["notification_status"], "sent")
         self.assertFalse(second["write_receipt"])
 
+    def test_blocked_then_completed_is_a_new_notification_event(self) -> None:
+        blocked = self.process("blocked")
+        notify.write_receipt(blocked)
+        blocked_stored = json.loads(Path(blocked["receipt_path"]).read_text(encoding="utf-8"))
+        blocked_stored.update({"notification_status": "sent", "sent_at": "2026-08-15T01:02:00Z"})
+        Path(blocked["receipt_path"]).write_text(json.dumps(blocked_stored), encoding="utf-8")
+        completed = self.process("completed")
+        self.assertEqual(completed["action"], "dry_run_receipt_written")
+        self.assertNotEqual(completed["receipt_path"], blocked["receipt_path"])
+
     def test_missing_secret_is_recorded_as_failed_not_sent(self) -> None:
         result = self.process("completed", mode="send")
         self.assertEqual(result["action"], "send_failed")

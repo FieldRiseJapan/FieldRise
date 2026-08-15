@@ -88,8 +88,11 @@ def task_id_for(receipt_key: str) -> str:
     return f"momoka-{digest}"
 
 
-def receipt_path_for(receipts_dir: Path, receipt_key: str) -> Path:
-    digest = hashlib.sha256(receipt_key.encode("utf-8")).hexdigest()[:32]
+def receipt_path_for(receipts_dir: Path, receipt_key: str, status: str) -> Path:
+    # 同一状態の同一タスクは一度だけ通知する。一方、blocked/failedの後に
+    # completedへ遷移した場合は、別の正式状態として完了通知を許可する。
+    notification_identity = f"{receipt_key}:{status}"
+    digest = hashlib.sha256(notification_identity.encode("utf-8")).hexdigest()[:32]
     return receipts_dir / f"{digest}.json"
 
 
@@ -238,7 +241,7 @@ def process_notification(
     markdown = report_path.read_text(encoding="utf-8")
     metadata = report_metadata(markdown)
     task_id = task_id_for(metadata["receipt_key"])
-    receipt_path = receipt_path_for(receipts_dir, metadata["receipt_key"])
+    receipt_path = receipt_path_for(receipts_dir, metadata["receipt_key"], metadata["status"])
     existing = read_json(receipt_path)
 
     result: dict[str, Any] = {
