@@ -1,3 +1,25 @@
+## 進捗・完了・未完了・ブロッカー（2026-08-15T01:26:18Z）
+
+| 区分 | 状況 |
+|---|---|
+| 進捗 | 指定順序に従い、受領記録を [`5f1531d`](https://github.com/FieldRiseJapan/FieldRise/commit/5f1531d381241e82c685468e950f5d70fccc3409)、Claimを [`eb14113`](https://github.com/FieldRiseJapan/FieldRise/commit/eb14113e7fac45cdb9a534243cab437633614c71) として `origin/main` に反映した。その後、実行開始時の自動命名・Claim伝播・ダッシュボード表示を実装し、[`087c897`](https://github.com/FieldRiseJapan/FieldRise/commit/087c897bb1c9b34b387b1b34e9f9302d319f0475) として反映した。 |
+| 原因 | 既存の受領ワークフローは、外部実行タスクを作成する際に `title: "桃花受領: ${instruction_id}"` を使用していた。`instruction_id` は未記載時に `未指定` へフォールバックしており、実行開始前の `execution_name` 生成、実行情報の保存、ダッシュボード連携が存在しなかった。 |
+| 修正箇所 | `.github/workflows/momoka-auto-notify.yml` で外部タスク作成前に `tools/momoka_execution_name.py` を実行し、正式名を検証してから、タスクの `title`、受領証跡、受領メッセージ、Claim要求、および `automation/momoka-executions/latest.json` に同じ値を伝播するよう修正した。 |
+| 実行名生成方法 | 指示書に具体的な `桃花｜…` 形式の実行名が明示される場合はそれを最優先で採用する。明示名がない場合はIssue番号、プロジェクト名、作業内容を取得して `桃花｜#Issue番号｜プロジェクト名｜作業内容`（Issue番号なしでは `桃花｜プロジェクト名｜作業内容`）を生成する。テンプレート上の `#Issue番号｜プロジェクト名｜作業内容` は具体値として採用しない。 |
+| 失敗時の扱い | プロジェクト名または作業内容を取得できない場合、あるいは `未指定`、`Task`、`Untitled`、`Unknown` 等の禁止値が含まれる場合は、外部実行タスクを作成しない。受領証跡と実行状態を `blocked`／`name_generation_failed` として記録し、実行開始を停止する。 |
+| 実行画面への反映 | 外部実行タスクの作成payloadの `title` を `execution_name` に変更した。したがって、新規の桃花実行画面は、実行開始時点から生成済みの正式名称を表示する。 |
+| GitHub Claim連携 | Claim要求メッセージに `execution_name`、Issue、プロジェクト名、作業内容を明示し、構造化出力の必須項目に `execution_name` を追加した。Claim JSONには同じ実行名を記録する運用とした。今回のClaimにも `桃花｜#12｜AI Control Dashboard｜公開後検証・最終確認` を記録済みである。 |
+| ダッシュボード連携 | AI Control Dashboardは `automation/momoka-executions/latest.json` を60秒ごとに取得し、「桃花の実行状態」カードで `execution_name`、状態、Issue、開始・更新時刻を表示する。今回の実行状態にも同一名称を登録した。 |
+| テスト結果 | `python3 -m unittest tests/test_momoka_execution_name.py tests/test_momoka_task_completion_notify.py` は13件すべて成功した。今回の正式指示書から `桃花｜#12｜AI Control Dashboard｜公開後検証・最終確認` が生成されること、一般テンプレートを誤採用しないこと、Issue番号なし命名、禁止値での停止を確認した。`pnpm build` によりダッシュボードのTypeScript型検査およびVite本番ビルドも成功した。 |
+| 完了 | 今後の新規受領では、実行名を生成・検証する前に外部実行を開始できないようにし、実行画面、GitHub受領・Claim、AI Control Dashboardの3箇所に同一の `execution_name` を渡す実装を完了した。 |
+| 未完了 | 既に `桃花受領：未指定` として作成済みの外部実行タスクの画面タイトルは、既存の受領証跡にタスクIDが残っておらず、利用中の作成APIにも名称更新操作がないため、今回の実装から直接更新できない。GitHub正本上のClaim・実行状態は正式名称へ補正済みである。 |
+| ブロッカー | 新規実行の自動命名・記録・表示にはブロッカーがない。既存外部タスクの画面タイトルを遡及更新するには、タスクIDを取得できる受領証跡または外部実行サービスの名称更新APIが必要である。 |
+| 次のアクション | 次回の新規指示受領で、実行画面上の生成済み正式名称、Claim JSON、ダッシュボード表示が同一値であることを実運用証跡として照合する。既存タイトルの遡及更新APIが提供される場合は、受領証跡の `task_id` を用いる移行処理を追加する。 |
+
+> 今回の正式実行名は **`桃花｜#12｜AI Control Dashboard｜公開後検証・最終確認`** であり、以後の実行開始ではこのような具体的な名称を生成できない限り外部実行を開始しない。
+
+---
+
 # 桃花実行名自動命名・実行画面反映修正 — 着手報告
 
 ## 受領記録（2026-08-15T01:16:05Z）
