@@ -155,3 +155,31 @@
 [5]: https://github.com/FieldRiseJapan/FieldRise/blob/5e0ef3c607764745059c927dfeefd6550308bc73/docs/momoka/instructions/fieldrise-ai-control-dashboard-development.md "正式指示書：FieldRise AI Control Dashboard Web App"
 [6]: https://github.com/FieldRiseJapan/FieldRise/blob/c3459268a67483b8a1b7178459524df5737889c2/docs/momoka/instructions/fieldrise-ai-control-dashboard-publication-final-verification.md "正式指示書：AI Control Dashboard 公開・最終検証"
 [7]: https://github.com/FieldRiseJapan/FieldRise/blob/29f93197201b1a6d384b34b712faad366cea4f48/docs/momoka/instructions/fieldrise-ai-control-dashboard-deployment-selection.md "正式指示書：AI Control Dashboard 公開先選定・公開実行"
+
+---
+## 受領記録（2026-08-15T01:15:00Z）
+| 項目 | 内容 |
+|---|---|
+| 実行名 | `桃花｜#9｜AI Control Dashboard｜公開後検証・最終確認` |
+| Receipt key | `63162d8aeeadee076cdbc9ede0784b0ba1e2f9cc:docs/momoka/instructions/fieldrise-ai-control-dashboard-post-publication-verification.md` |
+| 指示ID | 未指定 |
+| 関連Issue | [#9：AI Control Dashboard 公開先選定・公開実行](https://github.com/FieldRiseJapan/FieldRise/issues/9) |
+| 正式指示 | [`docs/momoka/instructions/fieldrise-ai-control-dashboard-post-publication-verification.md`](https://github.com/FieldRiseJapan/FieldRise/blob/63162d8aeeadee076cdbc9ede0784b0ba1e2f9cc/docs/momoka/instructions/fieldrise-ai-control-dashboard-post-publication-verification.md) |
+| 状態 | `in_progress` |
+| 公開状態 | 社長による手動公開済み。桃花は公開担当ではなく公開後検証を担当する。 |
+| 公開URL | `https://fieldrise-da-mzdfxrfv.manus.space/` |
+| 次のアクション | 本受領記録を `origin/main` へ反映した後、指定Claim JSONを作成・反映する。続いて公開URL、GitHubデータ取得、60秒自動更新、手動再同期、エラー表示、PC・スマートフォン表示、およびE2Eの検証結果を本報告へ記録する。 |
+
+本件は、社長が手動公開したAI Control Dashboardを、桃花が自身で公開したものとして扱わず、公開済みWebアプリとして検証・状態管理する正式指示として受領した。公開済みURLのアクセス確認、UI要件、データ同期、手動再同期、エラー表示、PC・スマートフォン表示、E2Eテスト、および必要な問題修正を行うまで、最終完了とは判定しない。[8]
+
+## 進捗・完了・未完了・ブロッカー（2026-08-15T01:15:00Z）
+| 区分 | 状況 |
+|---|---|
+| 進捗 | 正式指示書および関連Issue #9を確認し、正式報告への受領記録を作成した。全体状態は `in_progress` とする。 |
+| 完了 | 指示内容の確認、社長手動公開・桃花の公開後検証担当という役割区分の確認、ならびに本受領報告の作成を完了した。 |
+| 未完了 | 本受領報告の `origin/main` 反映、Claim作成・反映、公開URLの実ブラウザ検証、GitHub連携確認、60秒自動更新および手動再同期の確認、PC・スマートフォン表示確認、E2Eテスト、問題修正の要否判断、最終ステータスの確定は未完了である。 |
+| ブロッカー | 現時点で、GitHubへの書込み可否は未判定である。書込みに失敗した場合はClaimを作成せず、理由を `blocked` として本報告へ記録する。 |
+| 次のアクション | 本受領記録をコミットして `origin/main` へプッシュし、成功後に指定パスへClaim JSONを作成して別コミットで反映する。 |
+
+## 参照
+[8]: https://github.com/FieldRiseJapan/FieldRise/blob/63162d8aeeadee076cdbc9ede0784b0ba1e2f9cc/docs/momoka/instructions/fieldrise-ai-control-dashboard-post-publication-verification.md "正式指示書：AI Control Dashboard 社長手動公開後の検証・状態更新"
