@@ -1,0 +1,223 @@
+{
+  "analysis_version": "2026-08-15-reassessment-v1",
+  "scope": "Canonical full-mix audio reassessment under one transparent analysis method.",
+  "limitations": [
+    "Full-mix analysis cannot determine individual stem onsets or instrument identity.",
+    "Tempo candidates are algorithmic proxies; final BPM requires DAW grid and listening review.",
+    "Spectral centroid and band ratios are acoustic proxies, not subjective quality scores.",
+    "Loop suitability and unwanted-noise decisions require monitored listening of an end-to-start edit."
+  ],
+  "track_001": {
+    "source": {
+      "filename": "001_reference_main.flac",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "duration_seconds": 222.399979,
+      "samples": 10675199
+    },
+    "global": {
+      "rms_dbfs": -16.82,
+      "peak_dbfs": -2.51,
+      "frame_rms_p10_dbfs": -29.83,
+      "frame_rms_p90_dbfs": -12.98,
+      "crest_factor_db": 14.32,
+      "spectral_centroid_hz": 232.8,
+      "band_energy_ratio": {
+        "low_20_180_hz": 0.751,
+        "low_mid_180_2000_hz": 0.2479,
+        "high_2000_10000_hz": 0.0007
+      }
+    },
+    "sections": {
+      "intro_0_2": {
+        "seconds": [
+          0.0,
+          2.0
+        ],
+        "rms_dbfs": -22.64,
+        "peak_dbfs": -8.52,
+        "spectral_centroid_hz": 97.3,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.9846,
+          "low_mid_180_2000_hz": 0.014,
+          "high_2000_10000_hz": 0.0008
+        }
+      },
+      "intro_2_10": {
+        "seconds": [
+          2.0,
+          10.0
+        ],
+        "rms_dbfs": -22.07,
+        "peak_dbfs": -7.69,
+        "spectral_centroid_hz": 165.3,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.8289,
+          "low_mid_180_2000_hz": 0.1687,
+          "high_2000_10000_hz": 0.0013
+        }
+      },
+      "body_10_30": {
+        "seconds": [
+          10.0,
+          30.0
+        ],
+        "rms_dbfs": -20.55,
+        "peak_dbfs": -4.46,
+        "spectral_centroid_hz": 232.1,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.7171,
+          "low_mid_180_2000_hz": 0.2812,
+          "high_2000_10000_hz": 0.001
+        }
+      },
+      "outro_last_8": {
+        "seconds": [
+          214.4,
+          222.4
+        ],
+        "rms_dbfs": -35.98,
+        "peak_dbfs": -13.69,
+        "spectral_centroid_hz": 351.0,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.9183,
+          "low_mid_180_2000_hz": 0.0175,
+          "high_2000_10000_hz": 0.0482
+        }
+      }
+    },
+    "onset_and_tempo_proxy": {
+      "frame_hop_seconds": 0.010667,
+      "first_sustained_full_mix_signal_seconds": 0.4267,
+      "tempo_candidates_bpm": [
+        {
+          "bpm": 86.54,
+          "relative_score": 0.5747
+        },
+        {
+          "bpm": 133.93,
+          "relative_score": 0.2968
+        },
+        {
+          "bpm": 64.66,
+          "relative_score": 0.2746
+        }
+      ],
+      "method_note": "Autocorrelation of positive spectral flux. Candidates are algorithmic timing proxies and do not replace DAW grid or listening confirmation."
+    }
+  },
+  "track_002": {
+    "source": {
+      "filename": "002_reference_main.flac",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "duration_seconds": 212.919979,
+      "samples": 10220159
+    },
+    "global": {
+      "rms_dbfs": -17.11,
+      "peak_dbfs": -2.82,
+      "frame_rms_p10_dbfs": -26.99,
+      "frame_rms_p90_dbfs": -13.74,
+      "crest_factor_db": 14.3,
+      "spectral_centroid_hz": 349.4,
+      "band_energy_ratio": {
+        "low_20_180_hz": 0.4916,
+        "low_mid_180_2000_hz": 0.5076,
+        "high_2000_10000_hz": 0.0007
+      }
+    },
+    "sections": {
+      "intro_0_2": {
+        "seconds": [
+          0.0,
+          2.0
+        ],
+        "rms_dbfs": -23.17,
+        "peak_dbfs": -10.29,
+        "spectral_centroid_hz": 256.5,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.4802,
+          "low_mid_180_2000_hz": 0.5195,
+          "high_2000_10000_hz": 0.0001
+        }
+      },
+      "intro_2_10": {
+        "seconds": [
+          2.0,
+          10.0
+        ],
+        "rms_dbfs": -18.84,
+        "peak_dbfs": -4.06,
+        "spectral_centroid_hz": 535.1,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.2381,
+          "low_mid_180_2000_hz": 0.7608,
+          "high_2000_10000_hz": 0.0009
+        }
+      },
+      "body_10_30": {
+        "seconds": [
+          10.0,
+          30.0
+        ],
+        "rms_dbfs": -17.28,
+        "peak_dbfs": -3.65,
+        "spectral_centroid_hz": 317.8,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.4668,
+          "low_mid_180_2000_hz": 0.5326,
+          "high_2000_10000_hz": 0.0005
+        }
+      },
+      "outro_last_8": {
+        "seconds": [
+          204.92,
+          212.92
+        ],
+        "rms_dbfs": -24.97,
+        "peak_dbfs": -6.4,
+        "spectral_centroid_hz": 112.0,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.9156,
+          "low_mid_180_2000_hz": 0.0843,
+          "high_2000_10000_hz": 0.0001
+        }
+      }
+    },
+    "onset_and_tempo_proxy": {
+      "frame_hop_seconds": 0.010667,
+      "first_sustained_full_mix_signal_seconds": 0.2027,
+      "tempo_candidates_bpm": [
+        {
+          "bpm": 125.0,
+          "relative_score": 0.4011
+        },
+        {
+          "bpm": 82.72,
+          "relative_score": 0.3967
+        },
+        {
+          "bpm": 62.5,
+          "relative_score": 0.2994
+        },
+        {
+          "bpm": 156.25,
+          "relative_score": 0.123
+        },
+        {
+          "bpm": 170.45,
+          "relative_score": 0.1177
+        }
+      ],
+      "method_note": "Autocorrelation of positive spectral flux. Candidates are algorithmic timing proxies and do not replace DAW grid or listening confirmation."
+    }
+  },
+  "comparison": {
+    "duration_difference_seconds_001_minus_002": 9.48,
+    "rms_difference_db_001_minus_002": 0.29,
+    "centroid_difference_hz_001_minus_002": -116.6,
+    "first_signal_difference_seconds_001_minus_002": 0.224,
+    "interpretation": "Positive duration/RMS/centroid values mean 001 is longer/louder/brighter by this full-mix proxy. These values do not identify individual instruments or final musical tempo."
+  }
+}
