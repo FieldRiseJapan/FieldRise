@@ -29,7 +29,30 @@
 | 状態 | `in_progress` |
 | 次のアクション | 本受領記録を `origin/main` へ反映した後、指定のClaim JSONを作成・反映する。続いて既存のLINE連携とGitHub Actions構成を調査し、ステータス判定、二重通知防止、送信receipt、Secrets管理、安全なテスト、および実通知確認までを実装・検証して同じ正本へ記録する。 |
 
-本件は、正式報告書の状態を契機に、`completed`、`blocked`、`failed` のみを対象として社長へのLINE通知と送信receipt記録を自動化する正式指示として受領した。`in_progress` およびその他の状態では通知せず、同一完了報告の重複送信を防止し、秘密情報をGitHub Secrets等の安全な保管先に限定する。[8]
+本件は、正式報告書の状態を契機に、`completed`、`blocked`、`failed` のみを対象として社長へのLINE通知と送信receipt記録を自動化する正式指示として受領した。`in_progress` およびその他の状態では通知せず、同一完了報告の重複送信を防止し、秘密情報をGitHub Secrets等の安全な保管先に限定する。[9]
+
+## 実装・検証進捗（2026-08-15T01:20:05Z）
+
+| 区分 | 状況 |
+|---|---|
+| 進捗 | `docs/momoka/reports/latest_report.md` の更新を起点に、正式状態を判定してLINE通知とGitHub receipt記録を行うワークフローを実装した。実行トリガーは正本報告の更新、6時間ごとの失敗再試行、および安全な手動ドライランである。 |
+| 完了 | 通知ロジック、GitHub Actionsワークフロー、固定完了状態の安全テスト報告、単体テストを `origin/main` へ反映した。通知対象は `completed`、`blocked`、`failed` のみであり、`in_progress` は通知対象外である。`completed` は完了通知、`blocked`／`failed` は理由と社長に必要な対応を含む問題通知として整形する。 |
+| 二重通知防止 | task IDはReceipt keyから決定的に生成し、receiptは「Receipt key＋状態」単位で `automation/momoka-notification-receipts/` に保存する。同一状態の送信済みreceiptは再送しないが、`blocked`／`failed` の後に `completed` へ遷移した場合は別の正式状態として完了通知を許可する。LINEの `X-Line-Retry-Key` も同一状態で固定し、500応答時のみ同キーで1回再試行する。[10] |
+| Secrets管理 | `LINE_CHANNEL_ACCESS_TOKEN` と `LINE_TARGET_ID` はGitHub Actions Secretsからのみ参照する。トークン、宛先ID、API本文はソース、Markdown、Issue、receipt、ログへ保存しない。 |
+| テスト結果 | ローカル単体テスト7件は成功した。`in_progress` の非通知、`completed` の安全ドライランreceipt、同一完了の重複抑止、`blocked`／`failed` の問題通知、Secret未設定時のfailed receipt、LINE 500→同一Retry Key再試行、`blocked`→`completed` の状態遷移を検証した。GitHub Actionsの固定完了状態ドライランも成功し、LINE APIを呼ばずにreceiptを [`85a088f`](https://github.com/FieldRiseJapan/FieldRise/commit/85a088f86da0b10eaf75b48fd1aa8ea7ad2619f5) として記録した。 |
+| 未完了 | 本番LINEへの実送信、および本番送信後の`notification_status: sent`・`notification_id`の確認は未実施である。安全方針により、認証情報・宛先の存在を確認しないまま本番通知を試行していない。 |
+| ブロッカー | GitHubシークレット名の一覧取得は権限不足（HTTP 403）で確認できず、実際のチャネルアクセストークンと宛先IDも本作業環境には提供されていない。そのため、本番LINE送信の事実確認は保留である。受領・Claim・実装・安全テスト・GitHubへの書込みにはブロッカーはない。 |
+| 次のアクション | リポジトリのGitHub Actions Secretsに `LINE_CHANNEL_ACCESS_TOKEN` と `LINE_TARGET_ID` を安全に設定済みであることを確認後、`send` モードで最終状態の正式報告を一度だけ送信し、生成されたreceiptの `notification_status: sent` と `notification_id` を同じ正本へ記録する。 |
+
+### 構成・証跡
+
+| 要素 | 実装内容 |
+|---|---|
+| トリガー | 正式報告書のpush、6時間間隔の再試行、`workflow_dispatch`。固定テスト報告は`dry_run`でのみ許可する。 |
+| LINE通知方式 | LINE Messaging APIのPush Message。Bearerトークンと宛先IDはGitHub Actions Secretsから注入する。[9] |
+| receipt保存 | `automation/momoka-notification-receipts/<状態別SHA-256>.json`。`task_id`、`issue_number`、`execution_name`、`report_commit`、`notification_status`、`sent_at`、`notification_id`、Retry Key、詳細を記録する。 |
+| 実装コミット | [`da262af`](https://github.com/FieldRiseJapan/FieldRise/commit/da262af)、[`ce95ba5`](https://github.com/FieldRiseJapan/FieldRise/commit/ce95ba5)、[`469839d`](https://github.com/FieldRiseJapan/FieldRise/commit/469839d) |
+| 安全な実行証跡 | [GitHub Actions Run 31856101927](https://github.com/FieldRiseJapan/FieldRise/actions/runs/31856101927)。固定テスト用の`completed`報告に対し、`notification_status: dry_run`のreceiptを作成した。 |
 
 ---
 
@@ -201,3 +224,5 @@
 
 ## 参照
 [8]: https://github.com/FieldRiseJapan/FieldRise/blob/63162d8aeeadee076cdbc9ede0784b0ba1e2f9cc/docs/momoka/instructions/fieldrise-ai-control-dashboard-post-publication-verification.md "正式指示書：AI Control Dashboard 社長手動公開後の検証・状態更新"
+[9]: https://developers.line.biz/en/docs/messaging-api/sending-messages/ "LINE Developers: Send messages"
+[10]: https://developers.line.biz/en/docs/messaging-api/retrying-api-request/ "LINE Developers: Retry failed API requests"
