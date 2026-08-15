@@ -1,3 +1,20 @@
+# FieldRise AI Control Dashboard 公開・最終検証報告
+
+## 受領記録（2026-08-15T00:54:39Z）
+
+| 項目 | 内容 |
+|---|---|
+| Receipt key | `c3459268a67483b8a1b7178459524df5737889c2:docs/momoka/instructions/fieldrise-ai-control-dashboard-publication-final-verification.md` |
+| 指示ID | 未指定 |
+| 関連Issue | 未指定 |
+| 正式指示 | [`docs/momoka/instructions/fieldrise-ai-control-dashboard-publication-final-verification.md`](https://github.com/FieldRiseJapan/FieldRise/blob/c3459268a67483b8a1b7178459524df5737889c2/docs/momoka/instructions/fieldrise-ai-control-dashboard-publication-final-verification.md) |
+| 状態 | `in_progress` |
+| 次のアクション | 本受領記録を `origin/main` へ反映した後、指定のClaim JSONを作成・反映し、公開環境、実ブラウザ検証、GitHub自動更新テスト、E2Eテストの証跡を確認して本報告へ進捗を追記する。 |
+
+本受領は、実装済みの `dashboard/ai-control-dashboard/` を実際にアクセス可能な公開Webアプリとして完成させるための正式な公開・最終検証指示として扱う。公開完了は、公開URL、PCおよびスマートフォン実機相当の表示確認、GitHub変更から60秒以内の自動反映、E2Eテスト成功、および重大エラーなしを確認するまで宣言しない。[6]
+
+---
+
 # FieldRise AI Control Dashboard 実装報告
 
 ## 受領記録（2026-08-15T00:47:15Z）
@@ -84,3 +101,4 @@
 [3]: https://github.com/FieldRiseJapan/FieldRise/blob/a95a0cf8d6b460931ba40bf392ffa26a8f1d133f/docs/momoka/instructions/web-dashboard-app.md "正式指示書"
 [4]: https://github.com/FieldRiseJapan/FieldRise/tree/main/dashboard/ai-control-dashboard "AI Control Dashboard 実装先"
 [5]: https://github.com/FieldRiseJapan/FieldRise/blob/5e0ef3c607764745059c927dfeefd6550308bc73/docs/momoka/instructions/fieldrise-ai-control-dashboard-development.md "正式指示書：FieldRise AI Control Dashboard Web App"
+[6]: https://github.com/FieldRiseJapan/FieldRise/blob/c3459268a67483b8a1b7178459524df5737889c2/docs/momoka/instructions/fieldrise-ai-control-dashboard-publication-final-verification.md "正式指示書：AI Control Dashboard 公開・最終検証"
