@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "momoka-e587ae1e8bf20447a0f5294a",
+  "issue_number": "14",
+  "execution_name": "桃花｜#14｜FieldRise｜LINE本番到達テスト（テスト通知）",
+  "receipt_key": "momoka-line-production-test-issue-14-20260815-013900",
+  "report_path": "docs/momoka/reports/latest_report.md",
+  "report_commit": "be1ca851c08a02b624ca234027b19ce1823f2569",
+  "report_url": "https://github.com/FieldRiseJapan/FieldRise/blob/be1ca851c08a02b624ca234027b19ce1823f2569/docs/momoka/reports/latest_report.md",
+  "status": "completed",
+  "delivery_test": "true",
+  "notification_type": "task_completed",
+  "generated_at": "2026-08-15T01:39:45Z",
+  "message_preview": "LINE本番テスト通知\n実行名: 桃花｜#14｜FieldRise｜LINE本番到達テスト（テスト通知）\nIssue: #14\n状態: completed\n完了日時: 2026-08-15T01:39:45Z\nGitHub正式報告: 記録済み\nこれは社長LINEへの本番到達確認用テスト通知です。\n概要: 正式報告書が completed と判定されました。\n詳細: https://github.com/FieldRiseJapan/FieldRise/blob/be1ca851c08a02b624ca234027b19ce1823f2569/docs/momoka/reports/latest_report.md",
+  "retry_key": "de2b7546-1eae-54b9-80b1-75cf9add0a9f",
+  "action": "send_failed",
+  "notification_status": "failed",
+  "attempted_at": "2026-08-15T01:39:45Z",
+  "detail": "必要なGitHub Actions Secret（LINE_CHANNEL_ACCESS_TOKENまたはLINE_TARGET_ID）が未設定です。"
+}
