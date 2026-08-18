@@ -1,48 +1,45 @@
-# 【Sonata Desk｜候補曲分析データ自動反映 修正完了報告】
+# 【彩花向け｜SNS分析・朝の定時報告 統合完了報告】
 
-> **正式報告区分：桃花（COO）の実作業。** 昨日追加されたCafe 001対Suno候補曲の比較分析がSonata Deskへ自動反映されていないことを確認し、生成入力・GitHub Actionsの監視対象・公開画面を修正した。本ファイルは2026-08-16時点の正式入口であり、詳細は下記の報告書を正本として参照する。
+> **正式報告区分：桃花（COO）の実作業。** TikTok、Instagram、YouTubeの分析レポートをFieldRiseの既存定時報告へ統合し、毎朝07:00 JSTの処理で収集・可視化・GitHub URL掲載・LINE Broadcast通知を連動させる構成を整備した。最終手動検証は成功しており、LINE配信は検証用設定により意図的に抑止した。
 
-## 受領・実施・完了・保留
+## 現在の状態
 
-| 項目 | 状態 | 内容 |
+| 項目 | 状態 | 要点 |
 |---|---|---|
-| 自動反映状況の確認 | 完了 | 昨日の候補曲比較（004／005、006／007、008／009A）が公開Sonata Deskに未反映であることを確認した。 |
-| 原因特定 | 完了 | 表示用JSONの入力と同期ワークフローのpath filterが、候補曲測定JSONを対象にしていなかった。 |
-| 生成ロジック修正 | 完了 | `*_project001_001_vs_suno*.json`を自動検出し、表示JSONの`candidateComparisons`へ取り込むよう変更した。 |
-| 同期トリガー修正 | 完了 | 候補曲比較JSONの更新時にGitHub Actionsが起動するよう変更した。 |
-| 公開画面修正 | 完了 | 正本001と候補004〜009Aの主要測定値を比較する「候補曲比較」セクションを追加した。 |
-| ビルド・JSON検証 | 完了 | 生成スクリプト、TypeScript型検証、本番ビルドが成功した。 |
-| 正本データの変更 | なし | 音源、測定JSON、既存の分析ファイルは変更していない。 |
-| 人による最終判断 | 継続 | Key、音色、ノイズ、Loop品質などは自動測定だけで確定しない。 |
+| SNS基盤・個別グラフ | 完了 | `automation/social_analytics/`にレポート、データ、CJK対応PNGを保存 |
+| 朝の定時報告 | 完了 | 毎朝07:00 JSTにSNS更新後、4本のレポートURLを掲載 |
+| LINE Broadcast | 定時実行で有効 | 既存`LINE_CHANNEL_ACCESS_TOKEN`を利用。手動検証は未送信 |
+| YouTube公開統計 | 成功 | APIキーで公開動画39本と公開再生数を更新 |
+| Instagram所有者データ | 保留 | 現在の`META_ACCESS_TOKEN`がInstagram APIで無効 |
+| TikTok所有者データ | 保留 | `TIKTOK_REFRESH_TOKEN`の登録待ち |
+| CJK描画 | 完了 | IPAexGothicを明示登録し、日本語ラベルの個別PNGを確認 |
 
-## 修正後の動作
+## 最終検証
 
-Cafe 001を基準とするProject-001の候補曲比較JSONが、`music_ai/analysis/cafe/measurements/`へ`*_project001_001_vs_suno*.json`形式で`main`に追加・更新されると、GitHub Actionsが表示用JSONを更新する。Sonata DeskはGitHub上の最新表示JSONを読み込むため、手動転記なしで候補曲比較が更新される。
+[GitHub Actions Run 32096179220](https://github.com/FieldRiseJapan/FieldRise/actions/runs/32096179220) は成功した。YouTube公開統計は、登録者85人、公開動画39本を取得している。テーマ別の取得済み動画累積再生数はWinter 3,043、EDM 1,775、Other 1,747、Cafe 76である。
 
-公開画面で表示する数値は、長さ、全体RMS、0〜2秒のRMS・低域比率・持続full-mix信号開始である。候補曲はMP3、正本001はFLACであるため、数値は比較根拠として用い、絶対値の優劣を断定しない。楽器の存在、音色、Key、ノイズ、Loopの自然さは、聴取レビュー・DAW確認で確定する。
+> **実測値と保留項目の区別:** YouTube数値は公開APIの実測値である。TikTokとInstagramは、未取得値を推測せず、認証完了まで既存の有効レポートを維持する。
 
-## 成果物と保存先
+## 彩花に共有する次の認証項目
 
-| 成果物 | 保存先 | 用途 |
-|---|---|---|
-| 詳細修正報告 | `music_ai/reports/cafe/2026-08-16_sonata_desk_candidate_sync_repair.md` | 原因、修正内容、検証、運用範囲を記録する正本。 |
-| 同期スクリプト | `dashboard/sonata-desk/scripts/generate_dashboard_data.py` | 候補曲比較JSONを自動検出し、表示データを生成する。 |
-| 同期ワークフロー | `.github/workflows/sonata-desk-sync.yml` | 分析JSONの更新を検知して同期処理を起動する。 |
-| 同期仕様 | `dashboard/sonata-desk/SYNC.md` | 監視対象・生成物・運用範囲を記録する。 |
-| 更新前の正式入口 | `music_ai/reports/cafe/archive/2026-08-16_pre_sonata_desk_candidate_sync_repair_latest_report.md` | 更新前状態を追跡するための履歴。 |
+| 優先度 | 必要なもの | 目的 |
+|---:|---|---|
+| 1 | `TIKTOK_REFRESH_TOKEN` | @fieldrizejapanの公式動画・アカウント指標を日次取得 |
+| 2 | 有効なInstagram Loginユーザーアクセストークン | リーチ、保存、シェア、再生、投稿インサイトの自動取得 |
+| 3 | YouTube OAuth 3件（`YOUTUBE_CLIENT_ID`、`YOUTUBE_CLIENT_SECRET`、`YOUTUBE_REFRESH_TOKEN`） | 視聴時間、維持率、CTR、流入元、登録者増減を含む所有者分析 |
 
-## 検証結果
+LINEは追加設定不要である。既存のBroadcast方式により、毎朝の定時報告へSNSレポートURLを掲載して通知する。
 
-- 新しい表示用データの`sourceDigest`は`1a14ca8997bbc26206c55893d8c9f32b1fe958df177678b92c9efcf855e0f674`。
-- Cafe 001対候補004／005、006／007、008／009Aの3比較セット・候補6曲を生成JSONに確認した。
-- TypeScript型検証およびGitHub Pages用本番ビルドは成功した。
-- GitHub ActionsのSonata Desk同期実行`31915094389`は成功し、公開URLで候補曲比較の3比較セット・候補6曲・最新SYNC digestを確認した。
+## 正本・参照先
 
-**報告日時：** 2026-08-16（GMT+9）
-**同期修正Commit ID：** `97ae9d86c0325b109204c07ff9e66690dbb9030e`（`fix: sync Sonata Desk candidate analyses`）
-**公開ビルド識別Commit ID：** `db796a2`（`chore: refresh Sonata Desk Pages build marker`）
-**Push結果：** `origin/main`への反映成功。GitHub Actions同期・GitHub Pages公開を確認済み。
+| 資産 | 保存先 |
+|---|---|
+| 詳細報告書 | [`2026-08-18_social_analytics_integration_report.md`](2026-08-18_social_analytics_integration_report.md) |
+| SNS総合インデックス | [`automation/social_analytics/reports/latest_report.md`](../../../automation/social_analytics/reports/latest_report.md) |
+| 統合実行記録 | [`docs/social_analytics/integration_status_2026-08-18.md`](../../../docs/social_analytics/integration_status_2026-08-18.md) |
+| CJKグラフ品質記録 | [`docs/social_analytics/chart_qc_notes.md`](../../../docs/social_analytics/chart_qc_notes.md) |
+| 更新前の正式入口 | [`archive/2026-08-18_pre_social_analytics_integration_latest_report.md`](archive/2026-08-18_pre_social_analytics_integration_latest_report.md) |
 
-## 参照
+**報告日時：** 2026-08-18（GMT+9）
 
-[1]: 2026-08-16_sonata_desk_candidate_sync_repair.md "Sonata Desk｜候補曲分析データ自動反映 修正報告"
+**最終検証：** [Run 32096179220](https://github.com/FieldRiseJapan/FieldRise/actions/runs/32096179220)
