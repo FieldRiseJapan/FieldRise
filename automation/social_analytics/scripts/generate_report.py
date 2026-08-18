@@ -138,10 +138,10 @@ def plot_youtube_top_videos(videos: list[dict[str, Any]]) -> str:
     fig, ax = plt.subplots(figsize=(11.2, 7.2))
     bars = ax.barh(labels, values, color=[PALETTE["blue"], PALETTE["sky"], PALETTE["teal"], PALETTE["green"], PALETTE["yellow"], PALETTE["orange"], PALETTE["gray"], PALETTE["sky"], PALETTE["teal"], PALETTE["blue"]])
     ax.bar_label(bars, padding=4, fontsize=9, fmt="%d")
-    ax.set_title("YouTube：公開ページで確認できた視聴上位10本", loc="left", pad=16)
+    ax.set_title("YouTube：取得済み動画の視聴上位10本", loc="left", pad=16)
     ax.set_xlabel("再生数")
     style_axis(ax, axis="x")
-    fig.text(0.125, 0.01, "出所：ログアウト状態のYouTubeチャンネル公開ページ（取得日時：2026-08-16）", fontsize=8.5, color="#64748B")
+    fig.text(0.125, 0.01, "出所：YouTube Data APIまたは公開チャンネルの取得済みデータ", fontsize=8.5, color="#64748B")
     fig.tight_layout(rect=(0, 0.04, 1, 1))
     return save_figure(fig, "youtube_top10_public_views.png")
 
@@ -160,7 +160,7 @@ def plot_youtube_categories(videos: list[dict[str, Any]]) -> str:
     ax.set_title("YouTube：確認できた動画のテーマ別累積再生数", loc="left", pad=16)
     ax.set_ylabel("再生数")
     style_axis(ax)
-    fig.text(0.125, 0.01, "注：公開ページで取得できた30本のみを集計。全39本の完全比較ではない。", fontsize=8.5, color="#64748B")
+    fig.text(0.125, 0.01, f"注：取得済み動画{len(videos)}本をテーマ分類して集計。", fontsize=8.5, color="#64748B")
     fig.tight_layout(rect=(0, 0.04, 1, 1))
     return save_figure(fig, "youtube_category_public_views.png")
 
@@ -237,25 +237,29 @@ def build_youtube_report(data: dict[str, Any], chart_top: str, chart_categories:
     top3 = top[:3]
     top3_views = sum(v["views"] for v in top3)
     cafe_recent = [v for v in videos if v["category"] == "cafe"]
+    source = data.get("source", "YouTube公開データ")
+    captured_at = data.get("captured_at", "")
+    account_total = data['account'].get('public_video_count', len(videos))
+    coverage_note = f"取得済み動画{len(videos):,}本（公開動画数{account_total:,}本）"
 
     return f"""# YouTubeフル分析レポート（公開データ版）
 
 **対象チャンネル:** [@{data['account']['handle']}]({data['account']['channel_url']})  
-**分析基準日:** 2026-08-16  
-**データ範囲:** ログアウト状態の公開チャンネルページで確認できたチャンネル概要および動画30本
+**分析基準日:** {captured_at or '最新取得時点'}  
+**データ範囲:** {source}。{coverage_note}
 
 ## エグゼクティブサマリー
 
-チャンネルの公開表示では、登録者数は**{data['account']['subscribers']:,}**、公開動画数は**{data['account']['public_video_count']:,}**です。今回確認できた30本の累計再生数は**{observed_total:,}**であり、上位3本（「{top3[0]['title']}」「{top3[1]['title']}」「{top3[2]['title']}」）が**{top3_views:,}**再生を占めました。これは確認対象の累計再生の**{pct(top3_views/observed_total)}**に相当し、視聴が一部タイトルに集中していることを示します。
+チャンネルの公開統計では、登録者数は**{data['account']['subscribers']:,}**、公開動画数は**{data['account']['public_video_count']:,}**です。{coverage_note}の累計再生数は**{observed_total:,}**であり、上位3本（「{top3[0]['title']}」「{top3[1]['title']}」「{top3[2]['title']}」）が**{top3_views:,}**再生を占めました。これは取得対象の累計再生の**{pct(top3_views/observed_total)}**に相当し、視聴が一部タイトルに集中していることを示します。
 
 一方で、チャンネル説明が掲げるCafé Seriesの直近2本は、公開表示上それぞれ63回・13回でした。これだけでシリーズの将来性を判断することはできませんが、既存の高再生群がEDM・冬季テーマ・長尺コンピレーションを含むため、Café Seriesは一貫したサムネイル、タイトル語彙、再生リスト、短尺誘導を組み合わせ、独立した視聴導線として育てる余地があります。
 
 | 指標 | 値 | 注記 |
 |---|---:|---|
-| 登録者数 | {data['account']['subscribers']:,} | 公開チャンネルページ表示 |
-| 公開動画数 | {data['account']['public_video_count']:,} | 公開チャンネルページ表示 |
-| 確認動画数 | {len(videos):,} | 公開ページで取得できた動画のみ |
-| 確認動画の累計再生数 | {observed_total:,} | 同上 |
+| 登録者数 | {data['account']['subscribers']:,} | 公開統計 |
+| 公開動画数 | {data['account']['public_video_count']:,} | 公開統計 |
+| 取得動画数 | {len(videos):,} | {source} |
+| 取得動画の累計再生数 | {observed_total:,} | 同上 |
 | 視聴上位3本の累計再生数 | {top3_views:,} | 観測対象に対する比率は{pct(top3_views/observed_total)} |
 | Café Series確認動画 | {len(cafe_recent):,} | 直近の公開動画2本 |
 
@@ -263,11 +267,11 @@ def build_youtube_report(data: dict[str, Any], chart_top: str, chart_categories:
 
 ![YouTube視聴上位10本]({chart_top})
 
-*図1. 各画像は個別PNGとして保存しています。公開ページで確認できた動画のうち、視聴上位10本を示します。*
+*図1. 各画像は個別PNGとして保存しています。取得済み動画のうち、視聴上位10本を示します。*
 
 ![YouTubeテーマ別累積再生数]({chart_categories})
 
-*図2. 公開ページで確認できた30本をテーマ分類した累積再生数です。全39本の網羅比較ではありません。*
+*図2. 取得済み動画{len(videos):,}本をテーマ分類した累積再生数です。*
 
 | 順位 | 動画 | 公開表示の再生数 | テーマ |
 |---:|---|---:|---|
@@ -284,7 +288,7 @@ def build_youtube_report(data: dict[str, Any], chart_top: str, chart_categories:
 
 ## 制約と次回更新での追加項目
 
-本レポートは30本の公開表示を対象にしています。YouTube Analytics APIの認可後は、日次の視聴回数、総再生時間、平均視聴時間、インプレッションCTR、登録者増減、トラフィックソース、視聴者維持率を追加し、公開データ版を所有者分析版へ更新します。
+本レポートはYouTube Data APIで取得できる公開統計を対象にしています。YouTube Analytics APIの認可後は、日次の視聴回数、総再生時間、平均視聴時間、インプレッションCTR、登録者増減、トラフィックソース、視聴者維持率を追加し、公開データ版を所有者分析版へ更新します。
 
 ## 参照
 
