@@ -15,6 +15,7 @@ from typing import Any
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
+import japanize_matplotlib  # Registers IPAexGothic for reliable Japanese rendering on GitHub runners.
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
@@ -39,8 +40,8 @@ def configure_style() -> None:
     mpl.rcdefaults()
     mpl.rcParams.update(
         {
-            "font.family": "Noto Sans CJK JP",
-            "font.sans-serif": ["Noto Sans CJK JP", "Noto Sans CJK", "DejaVu Sans"],
+            "font.family": "IPAexGothic",
+            "font.sans-serif": ["IPAexGothic", "Noto Sans CJK JP", "Noto Sans CJK", "DejaVu Sans"],
             "axes.unicode_minus": False,
             "figure.facecolor": "white",
             "axes.facecolor": "white",
