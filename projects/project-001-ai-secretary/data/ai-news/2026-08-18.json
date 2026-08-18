@@ -1,8 +1,64 @@
 {
-  "collected_at": "2026-08-18T07:25:33.214900+09:00",
+  "collected_at": "2026-08-18T12:22:00.601442+09:00",
   "total_items": 31,
   "errors": [],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "なぜPFNは「国産AI」をゼロから開発するのか 担当者に聞く“自家製ならではの利点”",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2608/17/2000000441/",
+      "published": "2026-08-18T10:03:57+09:00",
+      "summary": "「国産」をうたうAIモデルをゼロから開発するPreferred Networks。なぜフルスクラッチにこだわるのか聞いた。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIエージェントでCADやCAMを連携、製造プロセス自動化へ",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2608/18/news015.html",
+      "published": "2026-08-18T09:00:00+09:00",
+      "summary": "データ・デザインは、製造現場向けのAIエージェント活用に関する研究開発と実証実験を開始した。CADやCAMなどのツールを連携させ、設計から品質管理までの業務プロセスの自動化と効率化を目指す。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Cursor、コードホスティング機能「Origin」の初期βを提供開始 GitHubとの双方向同期に対応",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2608/18/2000000575/",
+      "published": "2026-08-18T08:40:47+09:00",
+      "summary": "Anysphereは、AIコードエディタ「Cursor」上でコードをホストできる新サービス「Origin」の初期β提供を有料プラン向けに開始した。GitHubリポジトリとの双方向同期やプルリクエストの共同レビューに対応する。VercelやCIツールとも連携し、AIエージェント規模の開発を想定した基盤を提供する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "業務効率に「不満」6割 なのに最も効くのは「生成AI」でも「ツール」でもなかった",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2608/18/news044.html",
+      "published": "2026-08-18T08:00:00+09:00",
+      "summary": "アスノシステムが「仕事の生産性向上・業務改善に関する実態調査2026」の結果を発表。6割が勤務先の業務効率に不満を抱いており、改善を阻む要因や改善に効く取り組み、「業務効率化したら何をしたいか」などが示された。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "なぜ「純国産AIは無理」なのか？ さくらとSakana AIが示す「ソブリンAI」の現実解",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2608/18/2000000544/",
+      "published": "2026-08-18T08:00:00+09:00",
+      "summary": "一国の判断で主要なAIサービスの提供が止まる時代に、日本企業はAI主権をどう守ればよいのか。さくらインターネットの田中邦裕社長とSakana AIの石井順也氏にそれぞれの考えを聞いた。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "なぜ「相場の半額」にできた？ 「ヒューマノイド界のトヨタ」目指すZEALSの“したたか”な戦略",
+      "url": "https://www.itmedia.co.jp/business/articles/2608/17/news051.html",
+      "published": "2026-08-18T07:00:00+09:00",
+      "summary": "ZEALSが発表したコンパクトヒューマノイド「D1」は、市場相場の半額となる「1台500万円」を実現し注目を集めている。2足歩行を捨て台車構造を選び、手には中国製パーツを用いるなど「準国産」で割り切ることで開発コストを大幅に削減。米中が開発スピードで先行する中、安全性重視の設計と医療・保険・リース・商社を巻き込んだ4領域アライアンスを武器に、日本発の「ユースケース先進国」を目指す清水正大社長の戦略"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "NVIDIA、OpenAIのオハイオAIデータセンターに最大1050億ドルの債務保証──SB Energyと提携",
+      "url": "https://www.itmedia.co.jp/news/article/2608/18/2000000572/",
+      "published": "2026-08-18T06:55:32+09:00",
+      "summary": "NVIDIAは、オハイオ州で建設中のAIデータセンター「PORTS-Pike Technology Campus」に計算基盤を独占提供すると発表した。OpenAIがテナントとなり、SB Energyが運営する。NVIDIAは最大1050億ドルの債務保証を負い、最大8GW規模のAIファクトリーを段階的に展開する。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -12,124 +68,76 @@
       "summary": "マネーフォワードは、AIサービスの利用量とコストを一元管理できる法人向けサービス「マネーフォワード クラウドAIトークン管理」の提供を始めた。同社サービスの共通ID「マネーフォワードID」を取得すれば無料で使える。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「AI進化の裏でモノづくりは30年止まっている」、直列工程を並列化する産業OS",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2608/18/news045.html",
-      "published": "2026-08-18T06:45:00+09:00",
-      "summary": "キャディは次世代版「製造業AIデータプラットフォームCADDi」を発表した。AIと人が共有するデータ／セマンティクス基盤で現場の暗黙知を構造化し、直列工程の並列化でモノづくりの加速を目指す。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "人型ロボが“人間超え”――助走なしで高さ2mのジャンプ、時速45kmで走行も 中国Unitreeが開発中の新モデルを公開",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2608/17/2000000567/",
-      "published": "2026-08-17T16:58:35+09:00",
-      "summary": "ロボット開発企業の中国Unitree Roboticsは、開発中の新型ヒューマノイドのデモ動画を公開した。助走なしで高さ2mのジャンプをしたほか、最高で秒速12.66m（時速45.576km）で走る姿を披露した。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "なぜPFNは「国産AI」をゼロから開発するのか 担当者に聞く“自家製ならではの利点”",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2608/17/2000000441/",
-      "published": "2026-08-17T15:05:21+09:00",
-      "summary": "「国産」をうたうAIモデルをゼロから開発するPreferred Networks。なぜフルスクラッチにこだわるのか聞いた。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "「データがない」「スキルがない」「発想が広がらない」 味の素冷凍食品は“3つのない”をどう解消した？",
-      "url": "https://www.itmedia.co.jp/enterprise/articles/2608/17/news071.html",
-      "published": "2026-08-17T13:30:00+09:00",
-      "summary": "マーケティングにAIを活用することで、どのような課題をどう解消できるのか。キーワードは「AIペルソナ」だ。NECのBestMoveを利用する、味の素冷凍食品の事例から探る。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "「ほんだし」のラベルがAIでぐちゃぐちゃに…… 味の素、公式Xの投稿画像について謝罪",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2608/17/2000000564/",
-      "published": "2026-08-17T12:55:19+09:00",
-      "summary": "味の素は8月16日、レシピサイト「味の素パーク」の公式Xで14日に投稿した画像について謝罪した。生成AIによる加工のため、商品のラベルや文字の一部が乱れていたという。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "Hugging Face分析、中国のオープンモデルが台頭 Qwenは派生モデル15万件超",
-      "url": "https://www.itmedia.co.jp/news/article/2608/17/2000000557/",
-      "published": "2026-08-17T08:42:45+09:00",
-      "summary": "Hugging Faceは、オープンモデル動向をまとめたレポートを公開した。中国勢が2兆パラメータ超の大規模モデルを相次いで公開するなど台頭する一方、実際のダウンロードの8割以上は10億パラメータ未満の小型モデルが占めた。Alibabaの「Qwen」は派生モデル数でMetaを上回り、開発者コミュニティの事実上の基盤モデルになりつつある。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "外資AIベンダー襲来、システム開発の“垣根”消失…… 新生TISIはどう対抗する？",
-      "url": "https://www.itmedia.co.jp/enterprise/articles/2607/29/news010.html",
-      "published": "2026-08-17T08:00:00+09:00",
-      "summary": "AIの普及によってITシステム開発の“垣根”が崩れつつある中、外資のAIベンダーがFDEを掲げて日本市場に参入してきた。SIerを取り巻く環境が急激に変わる中、TISとインテックが合併して発足したTISIはどのように自社の強みを打ち出そうとしているのか。"
+      "title": "これはスマホかモバイルバッテリーか？ シャオミ、10000mAhバッテリー搭載「REDMI Note 17 Pro Max 5G」を予告",
+      "url": "https://ascii.jp/elem/000/004/427/4427318/?rss",
+      "published": "2026-08-18T12:10:00+09:00",
+      "summary": "シャオミはスマートフォン新製品「REDMI Note 17 Pro Max 5G」を8月28日（金）に発表することを予告。最大の特長は10000mAhバッテリーの搭載!? これはもはやモバイルバッテリーでは？"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "16型165Hz液晶搭載、GIGABYTE「GAMING A16」発売 AI機能も充実",
-      "url": "https://ascii.jp/elem/000/004/427/4427188/?rss",
-      "published": "2026-08-18T07:00:00+09:00",
-      "summary": "GIGABYTEが16.0型AIゲーミングノートPC「GAMING A16」を8月17日に直販限定発売。Core Ultra 9 185HとGeForce RTX 5060 Laptop GPUを搭載し、ゲームとAI処理、4K動画編集に対応する高性能モデルだ。"
+      "title": "ソラコム、後付けIoTデバイス4製品を最大25％オフ 期間限定キャンペーン開始",
+      "url": "https://ascii.jp/elem/000/004/427/4427247/?rss",
+      "published": "2026-08-18T12:00:00+09:00",
+      "summary": "ソラコムが8月18日から9月14日まで、後付けで導入しやすいIoTデバイス4製品を最大25％オフで提供する「夏の後付けIoTデバイス導入応援キャンペーン」を実施する。対象はIoTボタン、GPSマルチユニット、LTE USBドングル、開発ボードで、PoCや小規模導入を後押しする内容だ。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "大阪国際空港と関西私鉄をつなぐ傘インフラ、大阪モノレール全18駅に展開",
-      "url": "https://ascii.jp/elem/000/004/427/4427164/?rss",
-      "published": "2026-08-18T07:00:00+09:00",
-      "summary": "株式会社Nature Innovation Groupは8月10日、大阪モノレールの全18駅において傘シェアリングサービス「アイカサ」のレンタルスポット設置を完了したと発表した。大阪国際空港（伊丹空港）に直結する大阪空港駅をはじめ、阪急やOsaka Metro、京阪など関西主要路線との結節点を網羅する。"
+      "title": "夏の城下町は食べたいものが多すぎ！｜会津若松市の郷土グルメ＆ひんやりスイーツ5選",
+      "url": "https://ascii.jp/elem/000/004/427/4427126/?rss",
+      "published": "2026-08-18T12:00:00+09:00",
+      "summary": "昼のソースカツ丼から夜の馬刺しや地酒まで、寒暖差豊かな会津若松は美味の宝庫。抹茶カフェや農家のかき氷、旬のトマトも外せない。時間を忘れて食べ歩きたくなる、至福の会津グルメ5選をお届けします。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "燃えにくい半固体系電池で持ち歩きも安心！ CIOの多機能モバイルバッテリーが便利",
-      "url": "https://ascii.jp/elem/000/004/427/4427144/?rss",
-      "published": "2026-08-18T07:00:00+09:00",
-      "summary": "Amazon.co.jpでCIOのモバイルバッテリー「SMARTCOBY SLIMⅡ Wireless2.2 Pro SS10K」が売れています。燃えにくい半固体電池で、10000mAhのモデルとなります。"
+      "title": "対話型能力診断AIエージェントを開発！ 社会実装で人とAIの共進化社会の実現を目指す",
+      "url": "https://ascii.jp/elem/000/004/425/4425261/?rss",
+      "published": "2026-08-18T12:00:00+09:00",
+      "summary": "早稲田大学発のスタートアップ企業であるエキュメノポリスの松山洋一代表取締役（CEO）は、対話型の診断に特化したAIエージェントを研究開発。JSTなどの支援制度を積極活用して研究成果の社会実装をしている。第1弾となる英会話能力診断・学習支援AIサービス「LANGX Speaking（ラングエックス・スピーキング）」は、すでに多くの大学や自治体に導入されている。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ホンダ発の立ち乗り三輪モビリティ、法人向け導入支援パッケージ展開",
-      "url": "https://ascii.jp/elem/000/004/427/4427134/?rss",
-      "published": "2026-08-18T07:00:00+09:00",
-      "summary": "株式会社ストリーモは8月4日、警備や倉庫・物流、建設、設備管理などの事業利用領域に向け、立ち乗り三輪モビリティ「ストリーモ」の法人向け導入支援パッケージの展開を開始した。現場作業における徒歩移動の時間的ロスや身体的負荷を軽減し、作業環境の改善を図る目的だ。"
+      "title": "アップル、iPhone XSなどに影響する脆弱性を修正 「iOS 18.7.10」配信",
+      "url": "https://ascii.jp/elem/000/004/427/4427254/?rss",
+      "published": "2026-08-18T11:55:00+09:00",
+      "summary": "アップルは8月17日、iPhone XSなどに対応した「iOS 18.7.10」を一般公開した。iOS 27ベータ版で提供されたセキュリティー修正を含む、122件の脆弱性に対応している。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "6.9インチの大画面スマホが1万7000円台！ モトローラ「moto g06」がセール中",
-      "url": "https://ascii.jp/elem/000/004/427/4427128/?rss",
-      "published": "2026-08-18T07:00:00+09:00",
-      "summary": "「moto g06」は2026年3月に発売されたスマートフォン。廉価で、6.9インチの大画面・大容量5100mAhバッテリーを搭載したSIMフリー端末です。"
+      "title": "iPhoneに“画像で任意コード実行”の脆弱性 iOS 26.6.1で29件を修正",
+      "url": "https://ascii.jp/elem/000/004/427/4427251/?rss",
+      "published": "2026-08-18T11:30:00+09:00",
+      "summary": "アップルは8月17日、「iOS 26.6.1」の配信を開始した。iPhone 15 Proでのファイルサイズは528.5MB（OTAの場合）。CVE番号ベースで29件の脆弱性に対応している。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「米中どちらにつく？」米国、AI陣営の“踏み絵”へ",
-      "url": "https://ascii.jp/limit/group/ida/elem/000/004/426/4426980/?rss",
-      "published": "2026-08-18T07:00:00+09:00",
-      "summary": "AIのモデルや半導体、原料になる資源をめぐる競争で、米国が各国に対して、米中のいずれにつくのか、選択を迫ろうとしている。"
+      "title": "Switch 2公式microSD Expressカード、8980円に値上げ 「ついに」「いきなり2000円アップか」",
+      "url": "https://ascii.jp/elem/000/004/427/4427250/?rss",
+      "published": "2026-08-18T11:30:00+09:00",
+      "summary": "Nintendo Switch 2で使える「microSD Express Card」について、任天堂公式ストアでの取り扱い価格が値上げされていることがわかった。新たな価格は8980円となる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "新型iPhoneは30万円超え？ 少しでもお得に買うために8月中にすべきこと",
-      "url": "https://ascii.jp/elem/000/004/426/4426938/?rss",
-      "published": "2026-08-18T07:00:00+09:00",
-      "summary": "9月の新型iPhone発売を見据え、ヨドバシカメラや楽天市場、三井住友カード、JCBのキャンペーンを活用して、Apple製品をお得に購入する方法を紹介します。"
+      "title": "楽天モバイル、Nothing Phone (3)を最大3万円値下げ MNPなら5万5990円から",
+      "url": "https://ascii.jp/elem/000/004/427/4427249/?rss",
+      "published": "2026-08-18T11:30:00+09:00",
+      "summary": "楽天モバイルは8月18日、Nothing「Phone (3)」の販売価格を改定した。"
     },
     {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "AIエージェントは企業の働き方をどう変えるのか。VivaTech 2026で語られた「Agentic Enterprise」",
-      "url": "https://ascii.jp/elem/000/004/416/4416767/?rss",
-      "published": "2026-08-18T07:00:00+09:00",
-      "summary": "VivaTech 2026で開催されたセッション「The Agentic Enterprise: From Software Development to Everyday Work」のレポート。OpenAIらの議論から、ソフトウェア開発で広がったAIエージェントが、財務・マーケティング・管理業務へどう浸透し、企業の働き方を変えつつあるのかを追う。"
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic’s annualized revenue surges to $65B",
+      "url": "https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/",
+      "published": "2026-08-18T08:56:26+09:00",
+      "summary": "The model maker added $18 billion in annualized revenue in two months."
     },
     {
       "source": "TechCrunch AI",
@@ -186,14 +194,6 @@
       "url": "https://techcrunch.com/2026/08/16/why-people-arent-buying-mark-zuckerbergs-ai-future/",
       "published": "2026-08-17T05:32:01+09:00",
       "summary": "On the latest episode of Equity podcast, we discuss why not everyone is buying Zuckerberg’s vision."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Anthropic CEO says AI backlash is ‘fundamentally a crisis of trust’",
-      "url": "https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/",
-      "published": "2026-08-17T01:53:51+09:00",
-      "summary": "Dario Amodei is pushing back against the idea that he's been painting an overly pessimistic picture of AI."
     },
     {
       "source": "VentureBeat AI",

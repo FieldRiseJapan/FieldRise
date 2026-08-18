@@ -1,49 +1,295 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-08-16T15:24:14+09:00",
-  "source": "Public channel page observed while logged out",
+  "captured_at": "2026-08-18T03:23:00+00:00",
+  "source": "YouTube Data API public channel statistics via API key",
   "account": {
-    "channel_url": "https://www.youtube.com/@Runa-Girl8215",
+    "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
     "channel_id": "UCHmI-5eV-xPLSVtcO8QOd7A",
-    "handle": "Runa-Girl8215",
+    "handle": "@runa-girl8215",
     "subscribers": 85,
     "public_video_count": 39,
-    "description": "Café Series — calm café BGM for focus, reading & work."
+    "description": "Café Series — calm café BGM for focus, reading & work.\n\nFieldRise Music creates warm piano, gentle jazz, and quiet café atmosphere for focus, reading, work, cooking, and creative time.\n\nCafé Series is our BGM-focused line: music that shapes the room without stealing attention. Your world is the story. Our music is the atmosphere.\n\nNew songs streaming on Spotify, Apple Music and all major platforms.\n\n\"I wish everyone in the world to be happy together.\"\n\n♪ Music for studying, working, relaxing and sleeping. Free to use on YouTube (Content ID protected)."
   },
   "videos_observed": [
-    {"id":"-iI8Cd_38cI","title":"cafe（A couple gazing into each other's eyes）","views":63,"age_label":"5か月前","category":"cafe"},
-    {"id":"kno0Vr_0CgU","title":"Cafe","views":13,"age_label":"5か月前","category":"cafe"},
-    {"id":"08lo8vitVUM","title":"Sunset at the Tropical Beach | Relaxing Ocean Waves in 4K","views":35,"age_label":"1年前","category":"ambient"},
-    {"id":"xfhJzXRGoVg","title":"blue sky #パンクロック #punk","views":10,"age_label":"1年前","category":"rock"},
-    {"id":"3yArxObbTDI","title":"EDM BEYOND ALL SIGNALS – Festival Extended","views":10,"age_label":"1年前","category":"edm"},
-    {"id":"t7PUPwXBo84","title":"I'm Still Here EDM","views":87,"age_label":"1年前","category":"edm"},
-    {"id":"YStrRkObqCY","title":"can you feel it EDM","views":117,"age_label":"1年前","category":"edm"},
-    {"id":"TlX8rdEkxIo","title":"In the snow","views":132,"age_label":"1年前","category":"winter"},
-    {"id":"BALaupsyad4","title":"If wishes come true","views":309,"age_label":"1年前","category":"winter"},
-    {"id":"GUc3fZU9luE","title":"as it is EDM Title,Vol.1～Title,Vol.7","views":1100,"age_label":"1年前","category":"edm"},
-    {"id":"DY6Kms7RUy0","title":"testimony「AKASI」","views":61,"age_label":"1年前","category":"winter"},
-    {"id":"W8J6ksdA-Xc","title":"Centennial Love","views":928,"age_label":"1年前","category":"winter"},
-    {"id":"rnpD_AOEFPs","title":"eternal love","views":56,"age_label":"1年前","category":"love"},
-    {"id":"OU-E8lf840E","title":"I'm a firebird","views":189,"age_label":"1年前","category":"other"},
-    {"id":"sUJF5Jg6A1E","title":"Euro Snow Vibes Refrain","views":292,"age_label":"1年前","category":"winter"},
-    {"id":"HtE6YhnxEqc","title":"Winter Again","views":37,"age_label":"1年前","category":"winter"},
-    {"id":"Zwae-qC35lQ","title":"Winter Again","views":169,"age_label":"1年前","category":"winter"},
-    {"id":"8snFp0oDL_c","title":"Euro Snow Vibes","views":174,"age_label":"1年前","category":"winter"},
-    {"id":"hKi5pSwU_Cs","title":"A Piece of Love","views":344,"age_label":"1年前","category":"winter"},
-    {"id":"RZS9F6_UhsE","title":"Love is what saves me","views":137,"age_label":"1年前","category":"other"},
-    {"id":"LOtXLDSyvbQ","title":"Christmas and Me","views":298,"age_label":"1年前","category":"winter"},
-    {"id":"eUlYWT-hfdU","title":"Kelinci Salju (Bahasa Indonesia)","views":83,"age_label":"1年前","category":"winter"},
-    {"id":"BJUp4hV2Ms8","title":"Snow Bunny","views":64,"age_label":"1年前","category":"winter"},
-    {"id":"b3hr1YZHH-U","title":"My Christmas","views":61,"age_label":"1年前","category":"winter"},
-    {"id":"y7uqHSYFcg4","title":"Fly! first","views":257,"age_label":"1年前","category":"jazz"},
-    {"id":"inf8vs2-cTw","title":"Stage（Final chapter change up mode）","views":63,"age_label":"1年前","category":"other"},
-    {"id":"GgM2EXyn4zA","title":"Chance and Courage","views":65,"age_label":"1年前","category":"other"},
-    {"id":"zwEvFbqvM68","title":"Sunrise （Cheese）","views":43,"age_label":"1年前","category":"other"},
-    {"id":"0TD9H30c0C8","title":"No money.","views":75,"age_label":"1年前","category":"other"},
-    {"id":"mM1tukeByU8","title":"Street boss","views":37,"age_label":"1年前","category":"other"}
+    {
+      "id": "-iI8Cd_38cI",
+      "title": "cafe（A couple gazing into each other's eyes）",
+      "views": 63,
+      "age_label": "2026-03-15T00:00:47Z",
+      "category": "cafe"
+    },
+    {
+      "id": "kno0Vr_0CgU",
+      "title": " Cafe  ",
+      "views": 13,
+      "age_label": "2026-03-14T23:46:39Z",
+      "category": "cafe"
+    },
+    {
+      "id": "08lo8vitVUM",
+      "title": "🌴 Sunset at the Tropical Beach | Relaxing Ocean Waves in 4K",
+      "views": 35,
+      "age_label": "2025-07-27T13:14:01Z",
+      "category": "other"
+    },
+    {
+      "id": "xfhJzXRGoVg",
+      "title": "blue sky　#パンクロック＃punk",
+      "views": 10,
+      "age_label": "2025-07-05T16:12:49Z",
+      "category": "other"
+    },
+    {
+      "id": "3yArxObbTDI",
+      "title": "EDM   BEYOND ALL SIGNALS – Festival Extended 　#edmmusic #edm #edmmix",
+      "views": 10,
+      "age_label": "2025-06-30T00:00:05Z",
+      "category": "edm"
+    },
+    {
+      "id": "t7PUPwXBo84",
+      "title": "I'm Still Here  EDM 　#edmmusic #edm #edmmix",
+      "views": 87,
+      "age_label": "2025-06-04T14:06:21Z",
+      "category": "edm"
+    },
+    {
+      "id": "YStrRkObqCY",
+      "title": "can you feel it  EDM　#edmmusic #edm #edmmix",
+      "views": 117,
+      "age_label": "2025-05-25T12:32:30Z",
+      "category": "edm"
+    },
+    {
+      "id": "TlX8rdEkxIo",
+      "title": "In the snow  #music​ #snow​ #winter​ #lovesong​",
+      "views": 132,
+      "age_label": "2025-02-16T12:55:07Z",
+      "category": "winter"
+    },
+    {
+      "id": "BALaupsyad4",
+      "title": "If wishes come true　#music #lovesong #winterslove #love",
+      "views": 309,
+      "age_label": "2025-01-12T16:22:32Z",
+      "category": "winter"
+    },
+    {
+      "id": "GUc3fZU9luE",
+      "title": "as it is EDM  Title,Vol.1～Title,Vol.7  #edmmusic #edm #edmmix",
+      "views": 1189,
+      "age_label": "2024-12-31T16:52:09Z",
+      "category": "edm"
+    },
+    {
+      "id": "DY6Kms7RUy0",
+      "title": "testimony「AKASI」 #lovesong #music #winterslove #winterlove #snow",
+      "views": 61,
+      "age_label": "2024-12-21T09:02:45Z",
+      "category": "winter"
+    },
+    {
+      "id": "W8J6ksdA-Xc",
+      "title": "Centennial Love　#music #snow #winter #lovesong",
+      "views": 928,
+      "age_label": "2024-11-04T12:36:33Z",
+      "category": "winter"
+    },
+    {
+      "id": "rnpD_AOEFPs",
+      "title": "百年love  #music #snow #winter #恋愛 #lovesong",
+      "views": 56,
+      "age_label": "2024-10-27T12:57:35Z",
+      "category": "winter"
+    },
+    {
+      "id": "OU-E8lf840E",
+      "title": "I'm a firebird #music #fire",
+      "views": 189,
+      "age_label": "2024-10-26T14:21:46Z",
+      "category": "other"
+    },
+    {
+      "id": "sUJF5Jg6A1E",
+      "title": "Euro Snow Vibes  Refrain     #music #snow #winter",
+      "views": 292,
+      "age_label": "2024-10-20T10:46:36Z",
+      "category": "winter"
+    },
+    {
+      "id": "HtE6YhnxEqc",
+      "title": "Winter  Again 　　#music #snow #winter #lovesong",
+      "views": 37,
+      "age_label": "2024-10-20T10:30:08Z",
+      "category": "winter"
+    },
+    {
+      "id": "Zwae-qC35lQ",
+      "title": "Winter Again  #music #winter #snow #lovesong",
+      "views": 169,
+      "age_label": "2024-10-20T10:17:07Z",
+      "category": "winter"
+    },
+    {
+      "id": "8snFp0oDL_c",
+      "title": "Euro Snow Vibes　#music #恋愛 #切ない恋 #雪 #newmusic",
+      "views": 174,
+      "age_label": "2024-10-11T15:09:38Z",
+      "category": "winter"
+    },
+    {
+      "id": "hKi5pSwU_Cs",
+      "title": "A Piece of Love   #music #winter #constellation",
+      "views": 344,
+      "age_label": "2024-10-08T13:04:20Z",
+      "category": "winter"
+    },
+    {
+      "id": "RZS9F6_UhsE",
+      "title": "Love is what saves me #80smusic #pop #popular",
+      "views": 137,
+      "age_label": "2024-10-06T04:32:34Z",
+      "category": "other"
+    },
+    {
+      "id": "LOtXLDSyvbQ",
+      "title": "Christmas and Me　#music #christmas",
+      "views": 298,
+      "age_label": "2024-10-05T11:46:42Z",
+      "category": "winter"
+    },
+    {
+      "id": "eUlYWT-hfdU",
+      "title": "Kelinci Salju (Bahasa Indonesia)",
+      "views": 83,
+      "age_label": "2024-09-29T05:32:19Z",
+      "category": "winter"
+    },
+    {
+      "id": "BJUp4hV2Ms8",
+      "title": "Snow Bunny　#music #snow #bunnygirl",
+      "views": 64,
+      "age_label": "2024-09-25T13:53:09Z",
+      "category": "winter"
+    },
+    {
+      "id": "b3hr1YZHH-U",
+      "title": "My Christmas　#christmas #music",
+      "views": 61,
+      "age_label": "2024-09-24T08:49:21Z",
+      "category": "winter"
+    },
+    {
+      "id": "y7uqHSYFcg4",
+      "title": "Fly! first　#jazzfusion #jazzEDM",
+      "views": 257,
+      "age_label": "2024-09-23T02:45:46Z",
+      "category": "edm"
+    },
+    {
+      "id": "inf8vs2-cTw",
+      "title": "Stage（Final chapter change up mode）",
+      "views": 63,
+      "age_label": "2024-09-19T12:23:23Z",
+      "category": "other"
+    },
+    {
+      "id": "GgM2EXyn4zA",
+      "title": "Chance and Courage",
+      "views": 65,
+      "age_label": "2024-09-15T12:48:31Z",
+      "category": "other"
+    },
+    {
+      "id": "zwEvFbqvM68",
+      "title": "Sunrise （Cheese）",
+      "views": 43,
+      "age_label": "2024-09-12T13:13:03Z",
+      "category": "other"
+    },
+    {
+      "id": "0TD9H30c0C8",
+      "title": "No money.",
+      "views": 75,
+      "age_label": "2024-09-11T11:58:33Z",
+      "category": "other"
+    },
+    {
+      "id": "mM1tukeByU8",
+      "title": "Street boss",
+      "views": 37,
+      "age_label": "2024-09-06T13:23:38Z",
+      "category": "other"
+    },
+    {
+      "id": "Vl-Ufwce0XQ",
+      "title": "you",
+      "views": 746,
+      "age_label": "2024-09-02T12:18:31Z",
+      "category": "other"
+    },
+    {
+      "id": "m3vB5zcKoTM",
+      "title": "test　No4　jazz（EDM4/4）",
+      "views": 115,
+      "age_label": "2024-09-01T04:24:28Z",
+      "category": "edm"
+    },
+    {
+      "id": "Le6KreUNtnY",
+      "title": "冬恋",
+      "views": 149,
+      "age_label": "2024-08-25T08:00:43Z",
+      "category": "other"
+    },
+    {
+      "id": "O3aInS2NCO0",
+      "title": "あの日の雪",
+      "views": 20,
+      "age_label": "2024-08-22T09:08:10Z",
+      "category": "other"
+    },
+    {
+      "id": "sE5zjMm4Xks",
+      "title": "Softly falling snow",
+      "views": 35,
+      "age_label": "2024-08-22T08:26:23Z",
+      "category": "winter"
+    },
+    {
+      "id": "ElXKVJCmyt4",
+      "title": "Test No. 4",
+      "views": 21,
+      "age_label": "2024-08-16T14:46:47Z",
+      "category": "other"
+    },
+    {
+      "id": "6svZRaV8-ew",
+      "title": "Test No3　切ない物語",
+      "views": 66,
+      "age_label": "2024-08-15T14:34:39Z",
+      "category": "other"
+    },
+    {
+      "id": "_l2vwSKeAGQ",
+      "title": "test　No2",
+      "views": 64,
+      "age_label": "2024-08-09T14:48:35Z",
+      "category": "other"
+    },
+    {
+      "id": "IQ1pPwum1VM",
+      "title": "test　No1",
+      "views": 27,
+      "age_label": "2024-08-09T09:43:42Z",
+      "category": "other"
+    }
   ],
+  "daily_analytics": {
+    "available": false,
+    "rows": []
+  },
   "limitations": [
-    "公開ページ上で確認できた30本を対象にしたスナップショットであり、チャンネルの全39本を網羅した動画別データではない。",
-    "視聴時間、視聴者維持率、CTR、流入元、登録者増減および日次推移は公開されないため、YouTube Analytics APIの認可後に追加する。"
+    "APIキーによる公開統計のみ。視聴時間、維持率、CTR、流入元、登録者増減などの所有者分析にはOAuth認可が必要。"
   ]
 }
