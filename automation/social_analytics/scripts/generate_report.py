@@ -6,6 +6,7 @@ only for observed source data and marks pending owner-only analytics explicitly.
 """
 from __future__ import annotations
 
+import importlib.util
 import json
 import textwrap
 from datetime import datetime
@@ -14,8 +15,8 @@ from typing import Any
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib import font_manager
 import numpy as np
-import japanize_matplotlib  # Registers IPAexGothic for reliable Japanese rendering on GitHub runners.
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
@@ -35,13 +36,25 @@ PALETTE = {
 }
 
 
+def register_cjk_font() -> str:
+    """Register IPAexGothic bundled with japanize-matplotlib without importing its Python-3.12-incompatible module."""
+    spec = importlib.util.find_spec("japanize_matplotlib")
+    if spec and spec.submodule_search_locations:
+        font_path = Path(next(iter(spec.submodule_search_locations))) / "fonts" / "ipaexg.ttf"
+        if font_path.exists():
+            font_manager.fontManager.addfont(str(font_path))
+            return "IPAexGothic"
+    return "Noto Sans CJK JP"
+
+
 def configure_style() -> None:
     """Apply white, minimalist theme and a Japanese CJK font before plotting."""
+    cjk_font = register_cjk_font()
     mpl.rcdefaults()
     mpl.rcParams.update(
         {
-            "font.family": "IPAexGothic",
-            "font.sans-serif": ["IPAexGothic", "Noto Sans CJK JP", "Noto Sans CJK", "DejaVu Sans"],
+            "font.family": cjk_font,
+            "font.sans-serif": [cjk_font, "Noto Sans CJK JP", "Noto Sans CJK", "DejaVu Sans"],
             "axes.unicode_minus": False,
             "figure.facecolor": "white",
             "axes.facecolor": "white",
