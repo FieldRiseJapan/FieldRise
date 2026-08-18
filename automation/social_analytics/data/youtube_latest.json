@@ -1,0 +1,49 @@
+{
+  "platform": "youtube",
+  "captured_at": "2026-08-16T15:24:14+09:00",
+  "source": "Public channel page observed while logged out",
+  "account": {
+    "channel_url": "https://www.youtube.com/@Runa-Girl8215",
+    "channel_id": "UCHmI-5eV-xPLSVtcO8QOd7A",
+    "handle": "Runa-Girl8215",
+    "subscribers": 85,
+    "public_video_count": 39,
+    "description": "Café Series — calm café BGM for focus, reading & work."
+  },
+  "videos_observed": [
+    {"id":"-iI8Cd_38cI","title":"cafe（A couple gazing into each other's eyes）","views":63,"age_label":"5か月前","category":"cafe"},
+    {"id":"kno0Vr_0CgU","title":"Cafe","views":13,"age_label":"5か月前","category":"cafe"},
+    {"id":"08lo8vitVUM","title":"Sunset at the Tropical Beach | Relaxing Ocean Waves in 4K","views":35,"age_label":"1年前","category":"ambient"},
+    {"id":"xfhJzXRGoVg","title":"blue sky #パンクロック #punk","views":10,"age_label":"1年前","category":"rock"},
+    {"id":"3yArxObbTDI","title":"EDM BEYOND ALL SIGNALS – Festival Extended","views":10,"age_label":"1年前","category":"edm"},
+    {"id":"t7PUPwXBo84","title":"I'm Still Here EDM","views":87,"age_label":"1年前","category":"edm"},
+    {"id":"YStrRkObqCY","title":"can you feel it EDM","views":117,"age_label":"1年前","category":"edm"},
+    {"id":"TlX8rdEkxIo","title":"In the snow","views":132,"age_label":"1年前","category":"winter"},
+    {"id":"BALaupsyad4","title":"If wishes come true","views":309,"age_label":"1年前","category":"winter"},
+    {"id":"GUc3fZU9luE","title":"as it is EDM Title,Vol.1～Title,Vol.7","views":1100,"age_label":"1年前","category":"edm"},
+    {"id":"DY6Kms7RUy0","title":"testimony「AKASI」","views":61,"age_label":"1年前","category":"winter"},
+    {"id":"W8J6ksdA-Xc","title":"Centennial Love","views":928,"age_label":"1年前","category":"winter"},
+    {"id":"rnpD_AOEFPs","title":"eternal love","views":56,"age_label":"1年前","category":"love"},
+    {"id":"OU-E8lf840E","title":"I'm a firebird","views":189,"age_label":"1年前","category":"other"},
+    {"id":"sUJF5Jg6A1E","title":"Euro Snow Vibes Refrain","views":292,"age_label":"1年前","category":"winter"},
+    {"id":"HtE6YhnxEqc","title":"Winter Again","views":37,"age_label":"1年前","category":"winter"},
+    {"id":"Zwae-qC35lQ","title":"Winter Again","views":169,"age_label":"1年前","category":"winter"},
+    {"id":"8snFp0oDL_c","title":"Euro Snow Vibes","views":174,"age_label":"1年前","category":"winter"},
+    {"id":"hKi5pSwU_Cs","title":"A Piece of Love","views":344,"age_label":"1年前","category":"winter"},
+    {"id":"RZS9F6_UhsE","title":"Love is what saves me","views":137,"age_label":"1年前","category":"other"},
+    {"id":"LOtXLDSyvbQ","title":"Christmas and Me","views":298,"age_label":"1年前","category":"winter"},
+    {"id":"eUlYWT-hfdU","title":"Kelinci Salju (Bahasa Indonesia)","views":83,"age_label":"1年前","category":"winter"},
+    {"id":"BJUp4hV2Ms8","title":"Snow Bunny","views":64,"age_label":"1年前","category":"winter"},
+    {"id":"b3hr1YZHH-U","title":"My Christmas","views":61,"age_label":"1年前","category":"winter"},
+    {"id":"y7uqHSYFcg4","title":"Fly! first","views":257,"age_label":"1年前","category":"jazz"},
+    {"id":"inf8vs2-cTw","title":"Stage（Final chapter change up mode）","views":63,"age_label":"1年前","category":"other"},
+    {"id":"GgM2EXyn4zA","title":"Chance and Courage","views":65,"age_label":"1年前","category":"other"},
+    {"id":"zwEvFbqvM68","title":"Sunrise （Cheese）","views":43,"age_label":"1年前","category":"other"},
+    {"id":"0TD9H30c0C8","title":"No money.","views":75,"age_label":"1年前","category":"other"},
+    {"id":"mM1tukeByU8","title":"Street boss","views":37,"age_label":"1年前","category":"other"}
+  ],
+  "limitations": [
+    "公開ページ上で確認できた30本を対象にしたスナップショットであり、チャンネルの全39本を網羅した動画別データではない。",
+    "視聴時間、視聴者維持率、CTR、流入元、登録者増減および日次推移は公開されないため、YouTube Analytics APIの認可後に追加する。"
+  ]
+}

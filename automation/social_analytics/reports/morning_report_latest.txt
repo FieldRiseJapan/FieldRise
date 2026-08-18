@@ -1,0 +1,17 @@
+2026年8月18日（火曜日）朝の定時報告をお届けします。
+
+FieldRise AI協働本部 COO・秘書の桃花です。
+
+【SNS分析レポート】
+・総合インデックス：https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports/latest_report.md
+・TikTok：https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports/tiktok_full_analysis.md
+・Instagram：https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports/instagram_full_analysis.md
+・YouTube：https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports/youtube_full_analysis.md
+
+【更新状況】
+・Instagram：投稿インサイトを基にした初期フル分析を掲載済みです。
+・YouTube：公開データによる初期フル分析を掲載済みです。
+・TikTok：所有者API認可後に実測値グラフを自動追加します。
+
+本日のワンポイントコメント
+Cafeシリーズは、YouTubeで用途語を明示した長尺動画を軸にし、同じ導入部分をTikTokとInstagram Reelsに展開すると、シリーズ認知と視聴導線を一つの設計に統合できます。

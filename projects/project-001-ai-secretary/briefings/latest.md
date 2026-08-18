@@ -1,6 +1,6 @@
 # 2026-08-18（火）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 07:25 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 12:20 JST
 
 ---
 
@@ -48,7 +48,18 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 ---
 
-## 3. 本日のワンポイントコメント
+## 3. SNS分析レポート
+
+| 媒体 | 最新レポート |
+|---|---|
+| 総合インデックス | https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports/latest_report.md |
+| TikTok | https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports/tiktok_full_analysis.md |
+| Instagram | https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports/instagram_full_analysis.md |
+| YouTube | https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports/youtube_full_analysis.md |
+
+---
+
+## 4. 本日のワンポイントコメント
 
 🌾 **農業**
 良好な天気が予想されます。農作業を進めるのに適した一日です。

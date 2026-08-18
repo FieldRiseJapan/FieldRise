@@ -11,6 +11,7 @@ from pathlib import Path
 JST = timezone(timedelta(hours=9))
 WEEKDAYS_JA = ["月", "火", "水", "木", "金", "土", "日"]
 AI_CONTROL_DASHBOARD_URL = "https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/"
+SOCIAL_REPORT_BASE_URL = "https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports"
 
 BASE = Path(__file__).resolve().parents[2] / "projects" / "project-001-ai-secretary"
 
@@ -140,7 +141,18 @@ def main() -> None:
 
 ---
 
-## 3. 本日のワンポイントコメント
+## 3. SNS分析レポート
+
+| 媒体 | 最新レポート |
+|---|---|
+| 総合インデックス | {SOCIAL_REPORT_BASE_URL}/latest_report.md |
+| TikTok | {SOCIAL_REPORT_BASE_URL}/tiktok_full_analysis.md |
+| Instagram | {SOCIAL_REPORT_BASE_URL}/instagram_full_analysis.md |
+| YouTube | {SOCIAL_REPORT_BASE_URL}/youtube_full_analysis.md |
+
+---
+
+## 4. 本日のワンポイントコメント
 
 🌾 **農業**
 {get_agriculture_comment(weather)}

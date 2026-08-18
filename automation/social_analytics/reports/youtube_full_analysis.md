@@ -1,0 +1,59 @@
+# YouTubeフル分析レポート（公開データ版）
+
+**対象チャンネル:** [@Runa-Girl8215](https://www.youtube.com/@Runa-Girl8215)  
+**分析基準日:** 2026-08-16  
+**データ範囲:** ログアウト状態の公開チャンネルページで確認できたチャンネル概要および動画30本
+
+## エグゼクティブサマリー
+
+チャンネルの公開表示では、登録者数は**85**、公開動画数は**39**です。今回確認できた30本の累計再生数は**5,309**であり、上位3本（「as it is EDM Title,Vol.1～Title,Vol.7」「Centennial Love」「A Piece of Love」）が**2,372**再生を占めました。これは確認対象の累計再生の**44.7%**に相当し、視聴が一部タイトルに集中していることを示します。
+
+一方で、チャンネル説明が掲げるCafé Seriesの直近2本は、公開表示上それぞれ63回・13回でした。これだけでシリーズの将来性を判断することはできませんが、既存の高再生群がEDM・冬季テーマ・長尺コンピレーションを含むため、Café Seriesは一貫したサムネイル、タイトル語彙、再生リスト、短尺誘導を組み合わせ、独立した視聴導線として育てる余地があります。
+
+| 指標 | 値 | 注記 |
+|---|---:|---|
+| 登録者数 | 85 | 公開チャンネルページ表示 |
+| 公開動画数 | 39 | 公開チャンネルページ表示 |
+| 確認動画数 | 30 | 公開ページで取得できた動画のみ |
+| 確認動画の累計再生数 | 5,309 | 同上 |
+| 視聴上位3本の累計再生数 | 2,372 | 観測対象に対する比率は44.7% |
+| Café Series確認動画 | 2 | 直近の公開動画2本 |
+
+## 視聴パフォーマンス
+
+![YouTube視聴上位10本](charts/youtube_top10_public_views.png)
+
+*図1. 各画像は個別PNGとして保存しています。公開ページで確認できた動画のうち、視聴上位10本を示します。*
+
+![YouTubeテーマ別累積再生数](charts/youtube_category_public_views.png)
+
+*図2. 公開ページで確認できた30本をテーマ分類した累積再生数です。全39本の網羅比較ではありません。*
+
+| 順位 | 動画 | 公開表示の再生数 | テーマ |
+|---:|---|---:|---|
+| 1 | [as it is EDM Title,Vol.1～Title,Vol.7](https://www.youtube.com/watch?v=GUc3fZU9luE) | 1,100 | edm |
+| 2 | [Centennial Love](https://www.youtube.com/watch?v=W8J6ksdA-Xc) | 928 | winter |
+| 3 | [A Piece of Love](https://www.youtube.com/watch?v=hKi5pSwU_Cs) | 344 | winter |
+| 4 | [If wishes come true](https://www.youtube.com/watch?v=BALaupsyad4) | 309 | winter |
+| 5 | [Christmas and Me](https://www.youtube.com/watch?v=LOtXLDSyvbQ) | 298 | winter |
+| 6 | [Euro Snow Vibes Refrain](https://www.youtube.com/watch?v=sUJF5Jg6A1E) | 292 | winter |
+| 7 | [Fly! first](https://www.youtube.com/watch?v=y7uqHSYFcg4) | 257 | jazz |
+| 8 | [I'm a firebird](https://www.youtube.com/watch?v=OU-E8lf840E) | 189 | other |
+| 9 | [Euro Snow Vibes](https://www.youtube.com/watch?v=8snFp0oDL_c) | 174 | winter |
+| 10 | [Winter Again](https://www.youtube.com/watch?v=Zwae-qC35lQ) | 169 | winter |
+
+## 分析上の示唆
+
+公開データの範囲では、上位コンテンツは季節・感情・ジャンルを明示したタイトルと、複数曲をまとめた長尺作品に偏っています。Café Seriesはチャンネルの説明文と直接整合するため、今後はタイトルの先頭に用途語（例：focus、reading、work）を置き、同じシリーズ名・視覚ルール・再生リストを固定し、長尺版からShorts／Instagram Reels／TikTokへの導線を一本化することが検証可能な仮説です。
+
+> **実測値と推測の区別:** 再生数・登録者数は公開表示の実測値です。CTR、視聴者維持率、流入元、収益、視聴者属性は未取得であり、上記の打ち手は仮説です。
+
+## 制約と次回更新での追加項目
+
+本レポートは30本の公開表示を対象にしています。YouTube Analytics APIの認可後は、日次の視聴回数、総再生時間、平均視聴時間、インプレッションCTR、登録者増減、トラフィックソース、視聴者維持率を追加し、公開データ版を所有者分析版へ更新します。
+
+## 参照
+
+[1]: https://www.youtube.com/@Runa-Girl8215 "YouTubeチャンネル"
+[2]: https://developers.google.com/youtube/analytics/reference/reports/query "YouTube Analytics API：reports.query"
+[3]: https://developers.google.com/youtube/v3/docs/channels "YouTube Data API：channels"

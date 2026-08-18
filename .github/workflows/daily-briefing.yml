@@ -4,7 +4,13 @@ on:
   schedule:
     # 毎朝 7:00 JST（= 22:00 UTC 前日）に実行
     - cron: '0 22 * * *'
-  workflow_dispatch: {}  # 手動実行も可能
+  workflow_dispatch:
+    inputs:
+      send_line:
+        description: "LINE定時報告を送信する（手動検証時はfalseを推奨）"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -34,13 +40,39 @@ jobs:
         run: python3 automation/scripts/collect_ai_news.py
         continue-on-error: true
 
-      # - name: Cafeブランドデータを収集
-      #   run: python3 automation/scripts/collect_cafe_data.py
-      #   continue-on-error: true
+      - name: SNS分析用CJKフォントと依存関係を導入
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          pip install -r automation/social_analytics/requirements.txt
 
-      # - name: Cafeブランドレポートを生成
-      #   run: python3 automation/scripts/generate_cafe_report.py
-      #   continue-on-error: true
+      - name: TikTokデータを収集
+        env:
+          TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+          TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+          TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+        run: python3 automation/social_analytics/scripts/collect_tiktok.py || echo "TikTok認証または更新に失敗。前回の有効レポートを維持します。"
+
+      - name: Instagramデータを収集
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+        run: python3 automation/social_analytics/scripts/collect_instagram.py || echo "Instagram認証または更新に失敗。前回の有効レポートを維持します。"
+
+      - name: YouTubeデータを収集
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_CHANNEL_ID: UCHmI-5eV-xPLSVtcO8QOd7A
+        run: python3 automation/social_analytics/scripts/collect_youtube.py || echo "YouTube認証または更新に失敗。前回の有効レポートを維持します。"
+
+      - name: SNSレポートと個別グラフを生成
+        run: |
+          python3 automation/social_analytics/scripts/generate_report.py
+          python3 automation/social_analytics/scripts/generate_morning_report.py
 
       - name: 定時報告を生成
         run: python3 automation/scripts/generate_briefing.py
@@ -52,7 +84,7 @@ jobs:
         run: |
           git config user.name "FieldRise-AI-Secretary"
           git config user.email "ai-secretary@fieldrise.local"
-          git add projects/project-001-ai-secretary/ data/
+          git add projects/project-001-ai-secretary/ data/ automation/social_analytics/ docs/social_analytics/
           if git diff --cached --quiet; then
             echo "変更なし。コミットをスキップします。"
           else
@@ -61,6 +93,7 @@ jobs:
           fi
 
       - name: LINEへ定時報告を通知
+        if: ${{ github.event_name == 'schedule' || inputs.send_line == 'true' }}
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
         run: python3 automation/scripts/send_line_notification.py

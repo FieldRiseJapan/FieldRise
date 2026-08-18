@@ -1,0 +1,61 @@
+{
+  "platform": "instagram",
+  "captured_at": "2026-08-16T15:23:00+09:00",
+  "source": "Connected Instagram Business account via authorized account and post insights retrieval",
+  "account": {
+    "id": "26658347270507730",
+    "username": "runa_girl8215",
+    "followers_count": 0,
+    "following_count": 0,
+    "media_count": 3,
+    "biography": "I wish for a world where everyone can be happy together. No matter how the world changes, you always belong to yourself. Free to use on YouTube."
+  },
+  "posts": [
+    {
+      "id": "18082384724640668",
+      "permalink": "https://www.instagram.com/p/DY-_FWSk8gr/",
+      "format": "carousel",
+      "published_at": "2026-05-31T01:12:18+00:00",
+      "caption": "",
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saves": 0,
+      "interactions": 1,
+      "reach": 1,
+      "views": 3
+    },
+    {
+      "id": "18092802956259897",
+      "permalink": "https://www.instagram.com/reel/DY9v9R6yRc9/",
+      "format": "reel",
+      "published_at": "2026-05-30T13:41:40+00:00",
+      "caption": "#runagirl8215 #cafe",
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saves": 0,
+      "interactions": 1,
+      "reach": 105,
+      "views": 115
+    },
+    {
+      "id": "18006592268885181",
+      "permalink": "https://www.instagram.com/reel/DWys4aIEuRj/",
+      "format": "reel",
+      "published_at": "2026-04-06T13:40:09+00:00",
+      "caption": "",
+      "likes": 19,
+      "comments": 0,
+      "shares": 1,
+      "saves": 2,
+      "interactions": 23,
+      "reach": 175,
+      "views": 183
+    }
+  ],
+  "limitations": [
+    "フォロワー数が0と返却されているため、フォロワー基準のエンゲージメント率は算出しない。",
+    "API取得時点の累積値であり、日次推移・リーチの推定誤差・ストーリーズ指標は含まれない。"
+  ]
+}
