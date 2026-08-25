@@ -12,6 +12,7 @@ def check(actual, expected, label):
 
 
 check(extract_wire_codes("RIGHT-Y5"), ["Y5"], "RIGHT cross-panel wire code")
+check(extract_wire_codes("LEFT-Y5"), ["Y5"], "LEFT cross-panel wire code")
 check(extract_wire_codes("LEFT-Y5/RIGHT-Y5"), ["Y5"], "LEFT/RIGHT duplicate wire code")
 check(extract_wire_codes("T1:1-Y2"), ["Y2"], "wire code after terminal reference")
 check(extract_wire_codes("5Y"), ["5Y"], "size-first wire code")
@@ -20,4 +21,6 @@ check(exclusion_reason("DT1 (2)", "", ""), "対象外: 扉付きDT系端子台",
 check(exclusion_reason("T1 (2)", "D-Y0.5", ""), "対象外: 線コードがD-で始まる", "D-prefixed wire code excluded")
 check(exclusion_reason("T1 (2)", "I/L", ""), "対象外: 端子台接続先のIは盤内行き", "internal-panel I excluded")
 check(exclusion_reason("ZT1 (14)", "RIGHT-Y5", "T1-1"), "", "ZT RIGHT remains included")
+check(exclusion_reason("ZT1 (14)", "LEFT-Y5", "T1-1"), "", "ZT LEFT remains included")
+check(exclusion_reason("ZT1 (14)", "LEFT-Y5/RIGHT-Y5", "T1-1"), "", "ZT LEFT and RIGHT remain included")
 print("ALL RULE TESTS PASSED")

@@ -85,7 +85,13 @@ def ocr(image: np.ndarray, psm: int = 7) -> str:
 
 
 def normalize_header(text: str) -> str:
-    return clean_text(text).upper().replace("=", "-").replace(" ", "")
+    normalized = clean_text(text).upper().replace("=", "-").replace(" ", "")
+    # 小型ZT枠はZ7T1のようにZとTの間へノイズが入ることがある。
+    # 見出し用途ではZT1として正規化するが、行内の文字は変更しない。
+    zt = re.search(r"Z.?T[1I](?:\(\d+\))?", normalized)
+    if zt:
+        return re.sub(r"^Z.?T", "ZT", zt.group(0)).replace("I", "1")
+    return normalized
 
 
 def classify_header(header: str) -> str:
@@ -180,6 +186,23 @@ def detect_frames(gray: np.ndarray) -> list[tuple[int, int, int, int]]:
     for frame in sorted(raw, key=lambda item: item[2] * item[3]):
         if all(overlap(frame, previous) < 0.72 for previous in result):
             result.append(frame)
+    # ZTブロックは高さが小さく、一般枠の最小高さ条件だけでは見逃すことがある。
+    # 見出しZT1等を局所OCRで探し、その直下を専用枠候補として追加する。
+    data = pytesseract.image_to_data(gray, config="--oem 1 --psm 11", output_type=pytesseract.Output.DICT)
+    zt_headers = []
+    for index, raw in enumerate(data["text"]):
+        text = clean_text(raw).upper().replace(" ", "")
+        if re.fullmatch(r"ZT[1I]?(?:\(\d+\))?", text):
+            zt_headers.append((data["left"][index], data["top"][index], data["width"][index], data["height"][index]))
+    zt_headers.sort(key=lambda item: (item[0], item[1]))
+    for header_x, header_y, header_w, header_h in zt_headers:
+        below = [item[1] for item in zt_headers if item[0] == header_x and item[1] > header_y]
+        next_y = min(below) if below else header_y + 420
+        body_y = header_y + header_h + 6
+        body_h = min(380, max(80, next_y - body_y - 8))
+        candidate = (max(0, header_x - 2), body_y, min(w - header_x + 2, max(260, header_w + 220)), body_h)
+        if all(overlap(candidate, previous) < 0.72 for previous in result):
+            result.append(candidate)
     return sorted(result, key=lambda item: (item[1], item[0]))
 
 
@@ -214,9 +237,16 @@ def row_bounds(frame: tuple[int, int, int, int], gray: np.ndarray) -> list[tuple
 
 def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path) -> list[WireRow]:
     x, y, w, h = frame
-    header = ocr(crop(gray, x - int(.2*w), y - int(.30*h) - 40, int(1.4*w), max(20, int(.30*h) + 35)), 7)
+    header_top = max(0, y - max(220, int(.40 * h) + 70))
+    header_height = min(gray.shape[0] - header_top, y - header_top + 100)
+    header_image = crop(gray, x - int(.2*w), header_top, int(1.4*w), header_height)
+    # ZT等の小型枠では見出しが単独行にならないため、PSM 7と11の両方を読み、既知分類に合う方を使う。
+    header_candidates = [ocr(header_image, 6), ocr(header_image, 7), ocr(header_image, 11)]
+    header = next((candidate for candidate in header_candidates if classify_header(candidate) != "未分類"), header_candidates[0])
     header = header or "UNCLEAR"
     kind = classify_header(header)
+    if kind != "未分類":
+        header = normalize_header(header)
     rows: list[WireRow] = []
     for index, (top, bottom) in enumerate(row_bounds(frame, gray), 1):
         row_h = max(12, bottom - top)
