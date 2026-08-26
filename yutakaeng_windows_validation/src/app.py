@@ -222,7 +222,7 @@ class MainWindow(QMainWindow):
         elapsed_float = time.monotonic() - self._started_at
         elapsed = max(0, int(elapsed_float))
         if self._total > 0:
-            remaining = max(0, int(self._estimated_total_seconds - elapsed_float))
+            remaining = max(1, int(self._estimated_total_seconds - elapsed_float)) if self._done < self._total else 0
             remain = f"{remaining // 60:02}:{remaining % 60:02}"
         else:
             remain = "計算中"
