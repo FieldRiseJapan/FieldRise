@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import sys
 import time
+import webbrowser
 from pathlib import Path
 
 from PySide6.QtCore import QMimeData, QObject, QThread, QTimer, Qt, Signal
@@ -11,7 +12,7 @@ from PySide6.QtWidgets import (
     QMessageBox, QPlainTextEdit, QProgressBar, QPushButton, QVBoxLayout, QWidget,
 )
 
-from pipeline import run_pipeline
+from pipeline import desktop_path, run_pipeline
 
 
 class DropZone(QFrame):
@@ -81,10 +82,17 @@ class MainWindow(QMainWindow):
         self._started_at = 0.0
         self._done = 0
         self._total = 1
+        self._last_progress_at = 0.0
+        self._last_done = 0
+        self._seconds_per_page = 8.0
+        self._estimated_total_seconds = 8.0
         self._thread: QThread | None = None
         self._worker: Worker | None = None
+        self._input_path: Path | None = None
+        self._review_dir: Path | None = None
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_timer)
+        self.timer.setInterval(250)
         self.build_ui()
         self.apply_style()
 
@@ -107,7 +115,11 @@ class MainWindow(QMainWindow):
         controls = QHBoxLayout()
         self.choose_button = QPushButton("PDFを選択")
         self.choose_button.clicked.connect(self.choose_pdf)
-        controls.addStretch(); controls.addWidget(self.choose_button); controls.addStretch()
+        self.copilot_button = QPushButton("Copilotへ警告セルを確認依頼")
+        self.copilot_button.setObjectName("copilotButton")
+        self.copilot_button.clicked.connect(self.open_copilot_help)
+        self.copilot_button.setVisible(False)
+        controls.addStretch(); controls.addWidget(self.choose_button); controls.addWidget(self.copilot_button); controls.addStretch()
         layout.addLayout(controls)
 
         progress_box = QFrame(); progress_box.setObjectName("progressBox")
@@ -122,7 +134,7 @@ class MainWindow(QMainWindow):
         progress_layout.addLayout(labels); progress_layout.addWidget(self.progress); progress_layout.addWidget(self.counter_label)
         layout.addWidget(progress_box)
 
-        log_title = QLabel("LIVE PROCESS LOG")
+        log_title = QLabel("FULL SCREEN LIVE PROCESS LOG")
         log_title.setObjectName("logTitle")
         layout.addWidget(log_title)
         self.log_view = QPlainTextEdit()
@@ -145,6 +157,8 @@ class MainWindow(QMainWindow):
         #dropDetail { color: #8ca9bd; font-size: 12px; margin: 6px 70px 0 70px; }
         QPushButton { background: #1679bc; color: white; border: 0; border-radius: 7px; padding: 10px 30px; font-size: 14px; font-weight: 600; }
         QPushButton:hover { background: #2394dc; }
+        #copilotButton { background: #5b4cc4; }
+        #copilotButton:hover { background: #7464e8; }
         QPushButton:disabled { background: #254157; color: #7991a0; }
         #progressBox { background: #0a1c2d; border: 1px solid #1d4059; border-radius: 10px; padding: 8px; }
         QProgressBar { background: #071421; border: 1px solid #24516e; border-radius: 6px; height: 16px; color: #e8f5ff; text-align: center; }
@@ -166,9 +180,15 @@ class MainWindow(QMainWindow):
     def start_analysis(self, path: str) -> None:
         if self._thread and self._thread.isRunning():
             return
+        self._input_path = Path(path)
+        self._review_dir = None
+        self.copilot_button.setVisible(False)
         self.choose_button.setDisabled(True); self.drop_zone.setDisabled(True)
+        self.drop_zone.setVisible(False); self.choose_button.setVisible(False)
         self.progress.setValue(0); self._done, self._total = 0, 1
-        self._started_at = time.monotonic(); self.timer.start(1000)
+        self._last_done = 0; self._last_progress_at = time.monotonic()
+        self._seconds_per_page = 8.0; self._estimated_total_seconds = 8.0
+        self._started_at = time.monotonic(); self.timer.start()
         self.status.setText("RUNNING  PDF解析中")
         self.phase_label.setText(f"解析開始: {Path(path).name}")
         self.append_log("PDF_ACCEPTED", f"入力: {path}")
@@ -182,25 +202,56 @@ class MainWindow(QMainWindow):
         self._thread.start()
 
     def on_progress(self, done: int, total: int) -> None:
-        self._done, self._total = done, max(1, total)
-        value = int(done / self._total * 100)
+        now = time.monotonic()
+        total = max(1, total)
+        if done > self._last_done and self._last_progress_at:
+            elapsed_since = max(0.05, now - self._last_progress_at)
+            per_page = elapsed_since / (done - self._last_done)
+            # 初期値から急変しないよう、観測値を平滑化する。
+            self._seconds_per_page = 0.65 * self._seconds_per_page + 0.35 * per_page
+        self._done, self._total = done, total
+        self._last_done, self._last_progress_at = done, now
+        self._estimated_total_seconds = max(1.0, self._seconds_per_page * total)
+        value = int(done / total * 100)
         self.progress.setValue(value); self.phase_label.setText(f"ページ解析 {done} / {total}")
+        self.update_timer()
 
     def update_timer(self) -> None:
-        if not self._started_at: return
-        elapsed = int(time.monotonic() - self._started_at)
-        remain = "--:--"
-        if self._done > 0 and self._total > self._done:
-            seconds = int(elapsed / self._done * (self._total - self._done))
-            remain = f"{seconds // 60:02}:{seconds % 60:02}"
+        if not self._started_at:
+            return
+        elapsed_float = time.monotonic() - self._started_at
+        elapsed = max(0, int(elapsed_float))
+        if self._total > 0:
+            remaining = max(0, int(self._estimated_total_seconds - elapsed_float))
+            remain = f"{remaining // 60:02}:{remaining % 60:02}"
+        else:
+            remain = "計算中"
         self.counter_label.setText(f"ページ {self._done} / {self._total}   |   経過 {elapsed // 60:02}:{elapsed % 60:02}")
         self.eta_label.setText(f"推定残り {remain}")
 
     def on_complete(self, result: str) -> None:
-        self.timer.stop(); self.progress.setValue(100); self.status.setText("COMPLETE  Excel出力済み")
+        self.timer.stop(); self.progress.setValue(100); self._done = self._total; self.update_timer(); self.eta_label.setText("推定残り 00:00"); self.status.setText("COMPLETE  Excel出力済み")
+        if self._input_path:
+            candidates = sorted(desktop_path().glob(f"{self._input_path.stem}_yutakaeng_review_*"), key=lambda item: item.stat().st_mtime, reverse=True)
+            if candidates and any(candidates[0].glob("P*_F*_R*.png")):
+                self._review_dir = candidates[0]
+                self.copilot_button.setVisible(True)
+                self.append_log("COPILOT_HELP_READY", "警告セル限定。ボタンから1件だけ選択して手動添付できます")
         self.phase_label.setText("解析完了。候補Excelをデスクトップへ出力しました。")
         self.append_log("EXPORT_COMPLETE", result)
         QMessageBox.information(self, "yutakaeng", f"検証用Excelを出力しました。\n\n{result}\n\n候補データのため、全行確認と警告解消後に最終確定してください。")
+
+    def open_copilot_help(self) -> None:
+        if not self._review_dir:
+            QMessageBox.information(self, "yutakaeng", "外部支援の対象となる警告セル画像がありません。")
+            return
+        image_path, _ = QFileDialog.getOpenFileName(self, "Copilotへ送る警告セル画像を1件だけ選択", str(self._review_dir), "Warning cell image (*.png)")
+        if not image_path:
+            return
+        self.append_log("COPILOT_IMAGE_SELECTED", f"選択範囲のみ: {Path(image_path).name}")
+        webbrowser.open(Path(image_path).as_uri())
+        webbrowser.open("https://copilot.microsoft.com/")
+        QMessageBox.information(self, "Copilotへ確認依頼", "先ほど開いた画像をCopilotへ手動で添付してください。\n\nPDF全体や別の行は添付せず、この1枚だけを送ってください。結果は候補として扱い、Excelへ入れる前に原図と照合してください。")
 
     def on_failure(self, message: str) -> None:
         self.timer.stop(); self.status.setText("ERROR  処理停止")
@@ -209,6 +260,7 @@ class MainWindow(QMainWindow):
 
     def cleanup_thread(self) -> None:
         self.choose_button.setDisabled(False); self.drop_zone.setDisabled(False)
+        self.choose_button.setVisible(True); self.drop_zone.setVisible(True)
         if self._thread:
             self._thread.deleteLater()
         self._thread = None; self._worker = None

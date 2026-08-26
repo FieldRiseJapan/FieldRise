@@ -315,7 +315,25 @@ def normalize_side_candidate(value: str) -> str:
     """図面フォントで生じる中点・ダッシュの表記ゆれを接続先の記号へ戻す。"""
     text = normalize_main_candidate(value)
     text = text.translate(str.maketrans({"·": ":", "—": "-", "–": "-", "−": "-", "一": "-", "×": "X"}))
-    return re.sub(r"[-:.]+$", "", text)
+    text = re.sub(r"[-:.]+$", "", text)
+    # RIGHT-Y5上、LEFT-Y5一のように、正しい盤間配線コードの末尾だけへ
+    # 罫線・非ASCIIノイズが付く場合は、承認済みの線色・サイズに完全一致する部分だけ残す。
+    # 数字が続く値（RIGHT-Y51等）はY5と推測補正しない。
+    size = r"(?:0[.]3|0[.]5|0[.]75|1[.]25|1[.]5|3[.]5|5[.]5|2|3|5|8|14|22|38)"
+    cross_panel = re.match(rf"^((?:LEFT|RIGHT)-(?:GY|Y|G|K|B|W|R){size})(?:[^A-Z0-9].*)?$", text)
+    if cross_panel:
+        return cross_panel.group(1)
+    return text
+
+
+def side_candidate_is_safe(value: str, confidence: float) -> bool:
+    """接続先として明確に読めた文字列だけを採用する。"""
+    if confidence < .85 or not re.fullmatch(r"[A-Z0-9#:/\-.]+", value):
+        return False
+    # ZT/Xなどの先頭欠落・誤字は推測補正せず、空欄と警告で原図確認へ回す。
+    # ただしT1:4のようにコロンまで読めた端子参照は明確なので残す。
+    clear_terminal_reference = re.fullmatch(r"(?:ZT|T|X|FT|RT)\d+:[A-Z0-9]+(?:-[A-Z0-9.]+)?", value)
+    return not (re.match(r"^(?:7T|F:|[A-Z]1[.:]?[A-Z0-9])", value) and not clear_terminal_reference)
 
 
 def read_side_reference(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int, side: str) -> tuple[str, str]:
@@ -333,11 +351,8 @@ def read_side_reference(gray: np.ndarray, frame: tuple[int, int, int, int], top:
     value = normalize_side_candidate(value)
     if not value:
         return "", ""
-    if confidence < .85 or not re.fullmatch(r"[A-Z0-9#:/\-.]+", value):
+    if not side_candidate_is_safe(value, confidence):
         return "", f"{label}未読取"
-    # ZT/Xなどの先頭欠落・誤字は推測補正せず、空欄と警告で原図確認へ回す。
-    if re.match(r"^(?:7T|F:|[A-Z]1[.:]?[A-Z0-9])", value):
-        return "", f"{label}候補不確か"
     return value, ""
 
 
@@ -405,7 +420,7 @@ def read_frame_header(gray: np.ndarray, frame: tuple[int, int, int, int]) -> tup
     return "UNCLEAR", "未分類"
 
 
-def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path) -> list[WireRow]:
+def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None) -> list[WireRow]:
     x, y, w, h = frame
     header, kind = read_frame_header(gray, frame)
     rows: list[WireRow] = []
@@ -433,6 +448,12 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
         # ページ端の誤検出枠では診断切出しが空になることがある。解析本体を止めない。
         if source_crop.size:
             cv2.imwrite(str(crop_path), source_crop)
+            # 外部支援用には、警告行の画像だけを別フォルダへ保存する。
+            # PDF全体・他ページ・正常行は保存対象にしない。
+            if review_dir is not None and warning and not reason:
+                review_dir.mkdir(parents=True, exist_ok=True)
+                review_path = review_dir / f"P{page_no}_F{frame_no}_R{index}.png"
+                cv2.imwrite(str(review_path), source_crop)
         else:
             warning = (warning + "; " if warning else "") + "行画像切出し不可"
             if not reason:
@@ -579,10 +600,13 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn) -> Path
     started = time.monotonic()
     work = Path(tempfile.mkdtemp(prefix="yutakaeng_"))
     crops = work / "crops"; crops.mkdir()
+    review_dir = desktop_path() / f"{pdf_path.stem}_yutakaeng_review_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     log("PDF_OPEN", f"{pdf_path.name} を開いています")
     document = fitz.open(pdf_path)
     total = document.page_count
     all_rows: list[WireRow] = []
+    # UIが総ページ数を早期に受け取り、初期推定残り時間を表示できるようにする。
+    progress(0, total)
     order_no = "要確認"
     try:
         for page_index, page in enumerate(document, 1):
@@ -596,11 +620,16 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn) -> Path
             frames = detect_frames(image)
             log("FRAME_DETECT", f"ページ {page_index}: {len(frames)}枠候補を検出")
             for index, frame in enumerate(frames, 1):
-                all_rows.extend(analyze_frame(image, page_index, index, frame, crops))
+                all_rows.extend(analyze_frame(image, page_index, index, frame, crops, review_dir))
             progress(page_index, total)
         log("RULE_FILTER", "DT系端子台、D-線コード、端子台の盤内行きIを対象外として判定")
         log("SHEET_GROUP", "電線サイズ・コードごとにExcelシートを作成")
         output = write_excel(all_rows, pdf_path, order_no, desktop_path(), log)
+        warning_count = sum(item.state == "警告あり" for item in all_rows)
+        if warning_count and review_dir.exists():
+            log("REVIEW_IMAGES_READY", f"警告セル画像 {warning_count}件を限定保存: {review_dir.name}")
+        elif review_dir.exists():
+            shutil.rmtree(review_dir, ignore_errors=True)
         elapsed = time.monotonic() - started
         log("PIPELINE_COMPLETE", f"完了: {len(all_rows)}行候補 / {elapsed:.1f}秒")
         return output
