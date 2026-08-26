@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
-from pipeline import exclusion_reason, extract_wire_codes
+from pipeline import choose_main_candidate, exclusion_reason, extract_wire_codes, main_candidate_is_safe
 
 
 def check(actual, expected, label):
@@ -23,4 +23,10 @@ check(exclusion_reason("T1 (2)", "I/L", ""), "対象外: 端子台接続先のI�
 check(exclusion_reason("ZT1 (14)", "RIGHT-Y5", "T1-1"), "", "ZT RIGHT remains included")
 check(exclusion_reason("ZT1 (14)", "LEFT-Y5", "T1-1"), "", "ZT LEFT remains included")
 check(exclusion_reason("ZT1 (14)", "LEFT-Y5/RIGHT-Y5", "T1-1"), "", "ZT LEFT and RIGHT remain included")
+check(main_candidate_is_safe("D31S14", 0.95), True, "safe main text accepted")
+check(main_candidate_is_safe("RTRP?", 0.99), False, "symbol-noise main text rejected")
+check(main_candidate_is_safe("1234", 0.99), False, "numeric-only main text rejected")
+check(choose_main_candidate(("D31S14", 0.97), ("D31S1", 0.95)), ("D31S14", ""), "truncated narrow main text complemented")
+check(choose_main_candidate(("BTBP", 0.99), ("BTBP", 0.99)), ("BTBP", ""), "matching main text accepted")
+check(choose_main_candidate(("BTBP", 0.99), ("D31S14", 0.99)), ("", "主文字候補不一致"), "conflicting main text rejected")
 print("ALL RULE TESTS PASSED")

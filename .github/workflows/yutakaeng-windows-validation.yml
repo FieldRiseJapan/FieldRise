@@ -38,12 +38,14 @@ jobs:
       - name: Build portable Windows folder
         shell: pwsh
         run: |
-          pyinstaller --noconfirm --clean --windowed --onedir --name yutakaeng --collect-all fitz src\app.py
+          pyinstaller --noconfirm --clean --windowed --onedir --name yutakaeng --collect-all fitz --collect-all rapidocr --collect-all onnxruntime src\app.py
           Copy-Item -Recurse "C:\Program Files\Tesseract-OCR" "dist\yutakaeng\Tesseract-OCR"
           Copy-Item "PORTABLE_README.txt" "dist\yutakaeng\PORTABLE_README.txt"
           Copy-Item "README.md" "dist\yutakaeng\README.md"
           if (!(Test-Path "dist\yutakaeng\yutakaeng.exe")) { throw 'Executable was not created.' }
-          if (!(Test-Path "dist\yutakaeng\Tesseract-OCR\tesseract.exe")) { throw 'Portable OCR bundle missing.' }
+          if (!(Test-Path "dist\yutakaeng\Tesseract-OCR\tesseract.exe")) { throw 'Portable Tesseract bundle missing.' }
+          if (!(Test-Path "dist\yutakaeng\_internal\rapidocr\models\PP-OCRv6_rec_small.onnx")) { throw 'Offline RapidOCR recognition model missing.' }
+          if (!(Test-Path "dist\yutakaeng\_internal\onnxruntime")) { throw 'Offline ONNX Runtime bundle missing.' }
 
       - name: Package portable folder
         shell: pwsh

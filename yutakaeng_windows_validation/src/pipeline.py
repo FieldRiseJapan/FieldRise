@@ -15,6 +15,7 @@ import cv2
 import fitz  # PyMuPDF
 import numpy as np
 import pytesseract
+from rapidocr import RapidOCR
 from openpyxl import Workbook
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
@@ -30,6 +31,7 @@ WARN = "FFCCBC"
 EXCLUDED = "E8F5E9"
 SECTION = "FFF3E0"
 THIN = Side(style="thin", color="D6E3F0")
+MAIN_OCR_ENGINE: RapidOCR | None = None
 
 
 @dataclass
@@ -72,15 +74,14 @@ def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
-def ocr(image: np.ndarray, psm: int = 7) -> str:
+def ocr(image: np.ndarray, psm: int = 7, whitelist: str = "", scale: float = 3.0) -> str:
     if image.size == 0:
         return ""
-    enlarged = cv2.resize(image, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)
-    text = pytesseract.image_to_string(
-        enlarged,
-        config=f"--oem 1 --psm {psm}",
-        lang="eng",
-    )
+    enlarged = cv2.resize(image, None, fx=scale, fy=scale, interpolation=cv2.INTER_CUBIC)
+    config = f"--oem 1 --psm {psm}"
+    if whitelist:
+        config += f" -c tessedit_char_whitelist={whitelist}"
+    text = pytesseract.image_to_string(enlarged, config=config, lang="eng")
     return clean_text(text)
 
 
@@ -211,6 +212,93 @@ def crop(gray: np.ndarray, x: int, y: int, w: int, h: int) -> np.ndarray:
     return gray[max(0, y):min(height, y + h), max(0, x):min(width, x + w)]
 
 
+def remove_grid_lines(image: np.ndarray) -> np.ndarray:
+    """文字を残しつつ、セル境界の横罫線と端の縦罫線だけを除去する。"""
+    if image.size == 0:
+        return image
+    binary = cv2.threshold(image, 200, 255, cv2.THRESH_BINARY_INV)[1]
+    # 文字の横棒を消さないよう、セル幅の大半を横切る線だけを除去する。
+    horizontal = cv2.morphologyEx(binary, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (max(24, int(image.shape[1] * .75)), 1)))
+    cleaned = cv2.subtract(binary, horizontal)
+    # 端の縦罫線を白にする。中央のI・1・Lなどの文字は絶対に消さない。
+    margin = max(2, min(10, image.shape[1] // 18))
+    cleaned[:, :margin] = 0
+    cleaned[:, max(margin, image.shape[1] - margin):] = 0
+    return cv2.bitwise_not(cleaned)
+
+
+def main_ocr_engine() -> RapidOCR:
+    """主文字専用のローカルONNX認識器を一度だけ初期化する。"""
+    global MAIN_OCR_ENGINE
+    if MAIN_OCR_ENGINE is None:
+        MAIN_OCR_ENGINE = RapidOCR()
+    return MAIN_OCR_ENGINE
+
+
+def normalize_main_candidate(value: str) -> str:
+    """主文字に使える英数字・業務上の記号だけを残し、空白を除く。"""
+    return clean_text(value).upper().replace(" ", "")
+
+
+def main_candidate_is_safe(value: str, confidence: float) -> bool:
+    """意味のないOCR文字列をExcelへ出さないための保守的な品質ゲート。"""
+    text = normalize_main_candidate(value)
+    if confidence < 0.85 or not (2 <= len(text) <= 18):
+        return False
+    if not re.fullmatch(r"[A-Z0-9\-_/.:+]+", text):
+        return False
+    alnum = sum(char.isalnum() for char in text)
+    # 図面の主文字は少なくとも英字を含む識別子として扱う。単独の端子番号や罫線ノイズは拒否する。
+    if alnum < 2 or not re.search(r"[A-Z]", text):
+        return False
+    if re.fullmatch(r"([A-Z0-9])\1{2,}", text):
+        return False
+    return True
+
+
+def rapidocr_main_candidate(image: np.ndarray) -> tuple[str, float]:
+    """検出器を使わず、既知の中央セルだけを高速に認識する。"""
+    if image.size == 0:
+        return "", 0.0
+    output = main_ocr_engine()(image, use_det=False, use_cls=False, use_rec=True)
+    if not output.txts or not output.scores:
+        return "", 0.0
+    return normalize_main_candidate(output.txts[0]), float(output.scores[0])
+
+
+def choose_main_candidate(primary: tuple[str, float], narrow: tuple[str, float]) -> tuple[str, str]:
+    """幅の異なる同一セル読取を照合し、一致・安全な末尾補完だけを採用する。"""
+    first, first_confidence = primary
+    second, second_confidence = narrow
+    first_ok = main_candidate_is_safe(first, first_confidence)
+    second_ok = main_candidate_is_safe(second, second_confidence)
+    if first_ok and second_ok:
+        if first == second:
+            return first, ""
+        # 狭い切出しで末尾だけ欠ける場合に限り、広い切出しの長い一致候補を採用する。
+        if first.startswith(second) and len(first) - len(second) <= 2:
+            return first, ""
+        if second.startswith(first) and len(second) - len(first) <= 2:
+            return second, ""
+        return "", "主文字候補不一致"
+    if first_ok and not second:
+        return first, "主文字単独候補（要確認）"
+    if second_ok and not first:
+        return second, "主文字単独候補（要確認）"
+    return "", "主文字未読取"
+
+
+def read_main_text(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int) -> tuple[str, str]:
+    """中央セルをローカルONNX OCRで読み、二重照合に通った安全な候補だけを返す。"""
+    x, _, w, _ = frame
+    crop_y = top - 3
+    crop_h = row_h + 6
+    # TF-B全21行で検証済み。開始位置は行番号を避け、広い方は主文字末尾を残す。
+    broad = crop(gray, x + int(.20 * w), crop_y, max(20, int(.62 * w)), crop_h)
+    narrow = crop(gray, x + int(.20 * w), crop_y, max(20, int(.58 * w)), crop_h)
+    return choose_main_candidate(rapidocr_main_candidate(broad), rapidocr_main_candidate(narrow))
+
+
 def row_bounds(frame: tuple[int, int, int, int], gray: np.ndarray) -> list[tuple[int, int]]:
     x, y, w, h = frame
     inner = crop(gray, x + int(w * .06), y + 3, int(w * .88), h - 6)
@@ -252,21 +340,31 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
         row_h = max(12, bottom - top)
         # 左右の外部接続先と枠内主文字を同じ行の高さで読取る。
         left = ocr(crop(gray, x - int(1.65*w), top - 5, int(1.68*w), row_h + 10), 7)
-        main = ocr(crop(gray, x + int(.12*w), top - 5, int(.67*w), row_h + 10), 7)
+        main, main_warning = read_main_text(gray, frame, top, row_h)
         right = ocr(crop(gray, x + int(.72*w), top - 5, int(1.95*w), row_h + 10), 7)
         # 空欄行は確認対象として残すが、電線候補としては扱わない。
         reason = exclusion_reason(header, left, right)
-        warning = ""
+        warning = main_warning
         state = "対象外" if reason else "未確認"
+        # 主文字の未読取・候補不一致・単独候補は、空欄であっても必ず利用者確認の警告として残す。
+        if warning and not reason:
+            state = "警告あり"
         if any(value == "UNCLEAR" for value in (header, main, left, right)):
-            warning = "未判読候補あり"
+            warning = (warning + "; " if warning else "") + "未判読候補あり"
             if not reason:
                 state = "警告あり"
         crop_path = crops_dir / f"P{page_no}_F{frame_no}_R{index}.png"
-        cv2.imwrite(str(crop_path), crop(gray, x - int(1.65*w), top - 12, int(3.2*w), row_h + 24))
+        source_crop = crop(gray, x - int(1.65*w), top - 12, int(3.2*w), row_h + 24)
+        # ページ端の誤検出枠では診断切出しが空になることがある。解析本体を止めない。
+        if source_crop.size:
+            cv2.imwrite(str(crop_path), source_crop)
+        else:
+            warning = (warning + "; " if warning else "") + "行画像切出し不可"
+            if not reason:
+                state = "警告あり"
         rows.append(WireRow(
             page_no, f"P{page_no}-F{frame_no}", header, kind, str(index), main, left, right,
-            extract_wire_codes(left, right), state, reason, warning, str(crop_path),
+            extract_wire_codes(left, right), state, reason, warning, str(crop_path) if source_crop.size else "",
         ))
     return rows
 
@@ -341,7 +439,9 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
     style_table(overview, 5, 5 + len(summary), 2)
     overview["C11"].fill = PatternFill("solid", fgColor=WARN)
 
-    usable = [item for item in rows if item.state != "対象外" and (item.main_text or item.left_reference or item.right_reference)]
+    # 接続先まで空欄の未読取行も、利用者が原図で確認できるよう未分類シートへ残す。
+    # 対象外と判定した行だけを通常の確認対象から外す。
+    usable = [item for item in rows if item.state != "対象外"]
     groups: dict[str, list[WireRow]] = defaultdict(list)
     for item in usable:
         if item.wire_codes:
@@ -410,6 +510,8 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn) -> Path
             if page_index == 1:
                 order_no = extract_order_number(image)
                 log("ORDER_SCAN", f"オーダー番号候補: {order_no}")
+            # 主文字は画像層の単純切出しではなく、300dpi描画画像を用いるローカルONNX OCRで読む。
+            # これにより画像層の反転・配置差で黒塗り相当を認識する不具合を回避する。
             frames = detect_frames(image)
             log("FRAME_DETECT", f"ページ {page_index}: {len(frames)}枠候補を検出")
             for index, frame in enumerate(frames, 1):
