@@ -33,7 +33,9 @@ jobs:
           pip install -r requirements.txt pyinstaller
 
       - name: Run application rule tests
-        run: python tests_pipeline_rules.py
+        run: |
+          python tests_pipeline_rules.py
+          python tests_excel_layout.py
 
       - name: Build portable Windows folder
         shell: pwsh
