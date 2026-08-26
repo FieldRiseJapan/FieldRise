@@ -31,9 +31,9 @@ WARN = "FFCCBC"
 EXCLUDED = "E8F5E9"
 SECTION = "FFF3E0"
 THIN = Side(style="thin", color="D6E3F0")
-# 数字を含まない主文字は、実PDFで確認済みのBTBP・BTBNだけを候補化する。
+# 数字を含まない主文字は、実PDFで原図照合済みの識別子だけを候補化する。
 # これにより従来OCRで発生したRTRP等の英字だけの無意味候補をExcelへ出さない。
-ALPHA_ONLY_MAIN_ALLOWLIST = {"BTBP", "BTBN"}
+ALPHA_ONLY_MAIN_ALLOWLIST = {"BTBP", "BTBN", "SBP", "SBN"}
 MAIN_OCR_ENGINE: RapidOCR | None = None
 
 
@@ -259,6 +259,12 @@ def main_candidate_is_safe(value: str, confidence: float) -> bool:
         return False
     if re.fullmatch(r"([A-Z0-9])\1{2,}", text):
         return False
+    # 主文字セル端の罫線・端子番号が混じった実測パターンは、もっともらしく見えても確定しない。
+    if re.fullmatch(r"[A-Z]{2}\d{3}S\d{2}L", text):
+        return False
+    # AC系で先頭Aが欠けた形（C711S11等）は推測復元せず、原図確認へ回す。
+    if re.fullmatch(r"[A-Z]\d{3}S\d{2}", text):
+        return False
     return True
 
 
@@ -295,14 +301,44 @@ def choose_main_candidate(primary: tuple[str, float], narrow: tuple[str, float])
 
 
 def read_main_text(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int) -> tuple[str, str]:
-    """中央セルをローカルONNX OCRで読み、二重照合に通った安全な候補だけを返す。"""
+    """行番号・丸囲み・右端端子番号を避けた主文字セルだけをローカルONNX OCRで読む。"""
     x, _, w, _ = frame
     crop_y = top - 3
     crop_h = row_h + 6
-    # TF-B全21行で検証済み。開始位置は行番号を避け、広い方は主文字末尾を残す。
-    broad = crop(gray, x + int(.20 * w), crop_y, max(20, int(.62 * w)), crop_h)
-    narrow = crop(gray, x + int(.20 * w), crop_y, max(20, int(.58 * w)), crop_h)
+    # 最新実PDFのYF/ZF-B/IFで検証済み。旧方式(.20-.82)は末尾切れや丸囲み混入を起こした。
+    broad = crop(gray, x + int(.30 * w), crop_y, max(20, int(.65 * w)), crop_h)
+    narrow = crop(gray, x + int(.30 * w), crop_y, max(20, int(.62 * w)), crop_h)
     return choose_main_candidate(rapidocr_main_candidate(broad), rapidocr_main_candidate(narrow))
+
+
+def normalize_side_candidate(value: str) -> str:
+    """図面フォントで生じる中点・ダッシュの表記ゆれを接続先の記号へ戻す。"""
+    text = normalize_main_candidate(value)
+    text = text.translate(str.maketrans({"·": ":", "—": "-", "–": "-", "−": "-", "一": "-", "×": "X"}))
+    return re.sub(r"[-:.]+$", "", text)
+
+
+def read_side_reference(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int, side: str) -> tuple[str, str]:
+    """主文字枠の外側だけを認識し、隣列との混在を防ぐ。"""
+    x, _, w, _ = frame
+    crop_y = top - 3
+    crop_h = row_h + 6
+    if side == "left":
+        image = crop(gray, x - int(.60 * w), crop_y, max(20, int(.60 * w) - 8), crop_h)
+        label = "左側接続先"
+    else:
+        image = crop(gray, x + w + 5, crop_y, max(20, int(.72 * w)), crop_h)
+        label = "右側接続先"
+    value, confidence = rapidocr_main_candidate(image)
+    value = normalize_side_candidate(value)
+    if not value:
+        return "", ""
+    if confidence < .85 or not re.fullmatch(r"[A-Z0-9#:/\-.]+", value):
+        return "", f"{label}未読取"
+    # ZT/Xなどの先頭欠落・誤字は推測補正せず、空欄と警告で原図確認へ回す。
+    if re.match(r"^(?:7T|F:|[A-Z]1[.:]?[A-Z0-9])", value):
+        return "", f"{label}候補不確か"
+    return value, ""
 
 
 def row_bounds(frame: tuple[int, int, int, int], gray: np.ndarray) -> list[tuple[int, int]]:
@@ -329,28 +365,61 @@ def row_bounds(frame: tuple[int, int, int, int], gray: np.ndarray) -> list[tuple
     return result
 
 
+def normalize_header_ocr_candidate(value: str) -> list[str]:
+    """見出し位置で確認済みの限定的な1文字誤読だけを候補化し、推測拡張しない。"""
+    text = normalize_main_candidate(value).replace("¥", "X").replace("×", "X")
+    text = re.sub(r"^(X\d)\.", r"\1", text)
+    text = re.sub(r"^[1I]1\(", "T1(", text)
+    candidates = [text]
+    known = ("YF", "OF", "SF", "BSF", "RJF", "TF", "PF", "RPF", "LF", "RF", "FF", "ZF", "WF", "IF", "BTF", "BZF", "BWF")
+    # 例: YE→YF、SE-A→SF-A、BSE-A→BSF-A。文字数が同じで差が1文字だけの場合のみ。
+    tokens = [text] + re.findall(r"[A-Z]{2,4}(?:[-(][A-Z0-9.]+)?", text)
+    for token in tokens:
+        base = re.split(r"[-(]", token)[0]
+        for expected in known:
+            if len(base) == len(expected) and sum(a != b for a, b in zip(base, expected)) == 1:
+                candidates.append(expected + token[len(base):])
+    return candidates
+
+
+def read_frame_header(gray: np.ndarray, frame: tuple[int, int, int, int]) -> tuple[str, str]:
+    """枠直上の短い領域だけから、既知のコネクター・端子台見出しを安全に判定する。"""
+    x, y, w, _ = frame
+    # 前枠の最終行を含めない狭い見出し帯。最新実PDFでYF/ZF-B/T1/SF-A/BSF-A/IF/X1を確認済み。
+    image = crop(gray, x - int(.15 * w), max(0, y - 58), int(1.30 * w), 52)
+    detected = main_ocr_engine()(image, use_det=True, use_cls=False, use_rec=True)
+    raw_candidates = [normalize_main_candidate(text) for text in (detected.txts or [])]
+    direct = rapidocr_main_candidate(image)[0]
+    if direct:
+        raw_candidates.append(direct)
+    variants: list[str] = []
+    for candidate in raw_candidates:
+        variants.extend(normalize_header_ocr_candidate(candidate))
+    for candidate in variants:
+        # コロンを含む値はT1:4-B5等の接続先であり、枠見出しには採用しない。
+        if ":" in candidate:
+            continue
+        kind = classify_header(candidate)
+        if kind != "未分類":
+            return normalize_header(candidate), kind
+    return "UNCLEAR", "未分類"
+
+
 def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path) -> list[WireRow]:
     x, y, w, h = frame
-    header_top = max(0, y - max(220, int(.40 * h) + 70))
-    header_height = min(gray.shape[0] - header_top, y - header_top + 100)
-    header_image = crop(gray, x - int(.2*w), header_top, int(1.4*w), header_height)
-    # ZT等の小型枠では見出しが単独行にならないため、PSM 7と11の両方を読み、既知分類に合う方を使う。
-    header_candidates = [ocr(header_image, 6), ocr(header_image, 7), ocr(header_image, 11)]
-    header = next((candidate for candidate in header_candidates if classify_header(candidate) != "未分類"), header_candidates[0])
-    header = header or "UNCLEAR"
-    kind = classify_header(header)
-    if kind != "未分類":
-        header = normalize_header(header)
+    header, kind = read_frame_header(gray, frame)
     rows: list[WireRow] = []
     for index, (top, bottom) in enumerate(row_bounds(frame, gray), 1):
         row_h = max(12, bottom - top)
-        # 左右の外部接続先と枠内主文字を同じ行の高さで読取る。
-        left = ocr(crop(gray, x - int(1.65*w), top - 5, int(1.68*w), row_h + 10), 7)
+        # 左右接続先は主文字枠の外側だけ、主文字は丸囲み・端子番号を除いたセルだけを読む。
+        left, left_warning = read_side_reference(gray, frame, top, row_h, "left")
         main, main_warning = read_main_text(gray, frame, top, row_h)
-        right = ocr(crop(gray, x + int(.72*w), top - 5, int(1.95*w), row_h + 10), 7)
-        # 空欄行は確認対象として残すが、電線候補としては扱わない。
+        right, right_warning = read_side_reference(gray, frame, top, row_h, "right")
+        # 実データがない空行は出力しない。文字が読めた行だけを確認対象として残す。
+        if not any((left, main, right)):
+            continue
         reason = exclusion_reason(header, left, right)
-        warning = main_warning
+        warning = "; ".join(item for item in (main_warning, left_warning, right_warning) if item)
         state = "対象外" if reason else "未確認"
         # 主文字の未読取・候補不一致・単独候補は、空欄であっても必ず利用者確認の警告として残す。
         if warning and not reason:
@@ -445,19 +514,21 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
     style_table(overview, 5, 5 + len(summary), 2)
     overview["C11"].fill = PatternFill("solid", fgColor=WARN)
 
-    # 接続先まで空欄の未読取行も、利用者が原図で確認できるよう未分類シートへ残す。
+    # 見出しを分類できない枠は、マーカー候補へ混ぜず解析保留シートへ隔離する。
     # 対象外と判定した行だけを通常の確認対象から外す。
     usable = [item for item in rows if item.state != "対象外"]
     groups: dict[str, list[WireRow]] = defaultdict(list)
     for item in usable:
-        if item.wire_codes:
+        if item.kind == "未分類":
+            groups["解析保留"].append(item)
+        elif item.wire_codes:
             for code in item.wire_codes:
                 groups[code].append(item)
         else:
             groups["未分類"].append(item)
 
     used = {"概要"}
-    for code in sorted(groups, key=lambda value: (value == "未分類", value)):
+    for code in sorted(groups, key=lambda value: (value in {"未分類", "解析保留"}, value)):
         ws = wb.create_sheet(safe_sheet_name(code, used))
         ws.sheet_view.showGridLines = False
         widths = [10, 14, 20, 18, 10, 20, 29, 29, 16, 18, 30]

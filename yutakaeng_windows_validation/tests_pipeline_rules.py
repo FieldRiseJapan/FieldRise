@@ -26,6 +26,8 @@ check(exclusion_reason("ZT1 (14)", "LEFT-Y5/RIGHT-Y5", "T1-1"), "", "ZT LEFT and
 check(main_candidate_is_safe("D31S14", 0.95), True, "safe main text accepted")
 check(main_candidate_is_safe("BTBP", 0.99), True, "verified alpha-only main text accepted")
 check(main_candidate_is_safe("RTRP", 0.99), False, "unknown alpha-only main text rejected")
+check(main_candidate_is_safe("AC729S11L", 0.99), False, "terminal-border suffix main text rejected")
+check(main_candidate_is_safe("C711S11", 0.99), False, "missing-prefix AC-series main text rejected")
 check(main_candidate_is_safe("RTRP?", 0.99), False, "symbol-noise main text rejected")
 check(main_candidate_is_safe("1234", 0.99), False, "numeric-only main text rejected")
 check(choose_main_candidate(("D31S14", 0.97), ("D31S1", 0.95)), ("D31S14", ""), "truncated narrow main text complemented")
