@@ -31,6 +31,9 @@ WARN = "FFCCBC"
 EXCLUDED = "E8F5E9"
 SECTION = "FFF3E0"
 THIN = Side(style="thin", color="D6E3F0")
+# 数字を含まない主文字は、実PDFで確認済みのBTBP・BTBNだけを候補化する。
+# これにより従来OCRで発生したRTRP等の英字だけの無意味候補をExcelへ出さない。
+ALPHA_ONLY_MAIN_ALLOWLIST = {"BTBP", "BTBN"}
 MAIN_OCR_ENGINE: RapidOCR | None = None
 
 
@@ -250,6 +253,9 @@ def main_candidate_is_safe(value: str, confidence: float) -> bool:
     alnum = sum(char.isalnum() for char in text)
     # 図面の主文字は少なくとも英字を含む識別子として扱う。単独の端子番号や罫線ノイズは拒否する。
     if alnum < 2 or not re.search(r"[A-Z]", text):
+        return False
+    # 英字だけの候補は、実証済みの識別子以外を安全側で未読取にする。
+    if not re.search(r"\d", text) and text not in ALPHA_ONLY_MAIN_ALLOWLIST:
         return False
     if re.fullmatch(r"([A-Z0-9])\1{2,}", text):
         return False
