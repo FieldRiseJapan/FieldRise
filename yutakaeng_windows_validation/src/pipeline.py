@@ -469,16 +469,17 @@ def safe_sheet_name(name: str, used: set[str]) -> str:
     return result
 
 
-def style_table(ws, header_row: int, final_row: int, columns: int) -> None:
-    for col in range(2, columns + 2):
+def style_table(ws, header_row: int, final_row: int, columns: int, start_column: int = 2) -> None:
+    for col in range(start_column, start_column + columns):
         cell = ws.cell(header_row, col)
         cell.fill = PatternFill("solid", fgColor=NAVY)
-        cell.font = Font(bold=True, color="FFFFFF")
+        cell.font = Font(name="Yu Gothic", size=11, bold=True, color="FFFFFF")
         cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
     for row in range(header_row + 1, final_row + 1):
-        for col in range(2, columns + 2):
+        for col in range(start_column, start_column + columns):
             cell = ws.cell(row, col)
             cell.border = Border(bottom=THIN)
+            cell.font = Font(name="Yu Gothic", size=11)
             cell.alignment = Alignment(vertical="center", wrap_text=True)
             if row % 2 == 0:
                 cell.fill = PatternFill("solid", fgColor=LIGHT)
@@ -531,29 +532,32 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
     for code in sorted(groups, key=lambda value: (value in {"未分類", "解析保留"}, value)):
         ws = wb.create_sheet(safe_sheet_name(code, used))
         ws.sheet_view.showGridLines = False
-        widths = [10, 14, 20, 18, 10, 20, 29, 29, 16, 18, 30]
-        ws.column_dimensions["A"].width = 3
-        for index, width in enumerate(widths, 2):
+        # ホットマーカー作業に必要な列を先頭へ固定し、原図照合用の情報は右側へまとめる。
+        widths = [20, 13, 13, 13, 30, 30, 13, 20, 16, 14, 18, 10, 30]
+        for index, width in enumerate(widths, 1):
             ws.column_dimensions[get_column_letter(index)].width = width
-        ws.merge_cells(start_row=2, start_column=2, end_row=2, end_column=12)
-        ws.cell(2, 2, f"電線サイズ・コード: {code}（候補）")
-        ws.cell(2, 2).font = Font(size=15, bold=True, color=NAVY)
-        ws.cell(3, 2, "確認状態を更新し、警告と未確認が0件になった後に最終確定してください。")
-        ws.cell(3, 2).alignment = Alignment(wrap_text=True)
-        headers = ["PDFページ", "枠ID", "見出し", "種別", "行番号", "主文字候補", "左側接続先候補", "右側接続先候補", "読取状態", "確認状態", "警告・除外理由"]
-        for col, value in enumerate(headers, 2):
+        ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=len(widths))
+        ws.cell(2, 1, f"電線サイズ・コード: {code}（確認用候補）")
+        ws.cell(2, 1).font = Font(name="Yu Gothic", size=15, bold=True, color=NAVY)
+        ws.merge_cells(start_row=3, start_column=1, end_row=3, end_column=len(widths))
+        ws.cell(3, 1, "マーク個数は主文字を安全に読めた別電線1本につき2個の候補です。確認状態・警告を全行確認してから最終確定してください。")
+        ws.cell(3, 1).alignment = Alignment(wrap_text=True)
+        headers = ["マーク主文字", "マーク個数", "読取状態", "確認状態", "L側接続先", "R側接続先", "線コード", "見出し", "種別", "PDFページ", "枠ID", "行番号", "警告・除外理由"]
+        for col, value in enumerate(headers, 1):
             ws.cell(5, col, value)
         for row_no, item in enumerate(groups[code], 6):
-            values = [item.page, item.frame_id, item.header, item.kind, item.row_no, item.main_text, item.left_reference, item.right_reference, item.state, "対象外" if item.state == "対象外" else "未確認", item.warning or item.exclusion_reason]
-            for col, value in enumerate(values, 2):
+            mark_count = 2 if item.main_text and item.state != "対象外" else 0
+            values = [item.main_text, mark_count, item.state, "対象外" if item.state == "対象外" else "未確認", item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, item.warning or item.exclusion_reason]
+            for col, value in enumerate(values, 1):
                 ws.cell(row_no, col, value)
         end = 5 + len(groups[code])
-        style_table(ws, 5, end, len(headers))
+        style_table(ws, 5, end, len(headers), start_column=1)
         validation = DataValidation(type="list", formula1='"未確認,確認済み,要修正,対象外"', allow_blank=False)
-        ws.add_data_validation(validation); validation.add(f"K6:K{end}")
-        ws.conditional_formatting.add(f"K6:K{end}", FormulaRule(formula=['K6="要修正"'], fill=PatternFill("solid", fgColor=WARN)))
-        ws.conditional_formatting.add(f"K6:K{end}", FormulaRule(formula=['K6="対象外"'], fill=PatternFill("solid", fgColor=EXCLUDED)))
-        ws.freeze_panes = "B6"; ws.auto_filter.ref = f"B5:L{end}"
+        ws.add_data_validation(validation); validation.add(f"D6:D{end}")
+        ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="要修正"'], fill=PatternFill("solid", fgColor=WARN)))
+        ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="対象外"'], fill=PatternFill("solid", fgColor=EXCLUDED)))
+        ws.conditional_formatting.add(f"C6:C{end}", FormulaRule(formula=['C6="警告あり"'], fill=PatternFill("solid", fgColor=WARN)))
+        ws.freeze_panes = "A6"; ws.auto_filter.ref = f"A5:M{end}"
     if not groups:
         ws = wb.create_sheet("未分類")
         ws["B2"] = "有効な電線候補を抽出できませんでした。元PDFを確認してください。"
