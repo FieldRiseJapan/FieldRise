@@ -1,0 +1,42 @@
+name: Cafe Reproduction System Regression
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    name: Validate 001/002 analysis pipeline
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install analysis dependencies
+        run: python -m pip install --upgrade pip soundfile numpy matplotlib
+
+      - name: Run reference self-comparison regression
+        run: |
+          python tools/validate_cafe_reproduction_system.py \
+            --output-dir music_ai/analysis/cafe/system_runs/ci \
+            --run-id "ci-${{ github.run_id }}"
+
+      - name: Validate JSON outputs
+        run: |
+          python -m json.tool music_ai/analysis/cafe/system_runs/ci/ci-${{ github.run_id }}_system_health.json > /dev/null
+
+      - name: Upload analysis artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cafe-reproduction-regression-${{ github.run_id }}
+          path: music_ai/analysis/cafe/system_runs/ci/
+          if-no-files-found: error
+          retention-days: 14

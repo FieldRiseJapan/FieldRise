@@ -1,0 +1,108 @@
+{
+  "system": "fieldrise-cafe-reproduction-analysis",
+  "version": "1.0",
+  "run_id": "2026-08-27_regression_v3",
+  "status": "pass",
+  "tests": [
+    {
+      "profile": "001",
+      "status": "pass",
+      "analysis_json": "/home/ubuntu/fieldrise_repo/music_ai/analysis/cafe/system_runs/2026-08-27_regression_v3_001_analysis.json",
+      "ranking_csv": "/home/ubuntu/fieldrise_repo/music_ai/analysis/cafe/system_runs/2026-08-27_regression_v3_001_ranking.csv",
+      "figure_png": "/home/ubuntu/fieldrise_repo/music_ai/analysis/cafe/system_runs/2026-08-27_regression_v3_001_focus.png",
+      "master_focus_metrics": {
+        "seconds": [
+          0.0,
+          2.0
+        ],
+        "rms_dbfs": -22.64,
+        "spectral_centroid_hz": 113.7,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.9668,
+          "low_mid_180_2000_hz": 0.0304,
+          "high_2000_10000_hz": 0.0028
+        },
+        "stereo": {
+          "left_right_correlation": 0.9989,
+          "side_to_mid_db": -32.4
+        },
+        "first_sustained_full_mix_signal_seconds": 0.4,
+        "low_dominant_window_share": 0.65,
+        "top_onset_flux_events": [
+          {
+            "seconds": 1.8,
+            "onset_flux": 0.3319787
+          },
+          {
+            "seconds": 0.45,
+            "onset_flux": 0.27771756
+          },
+          {
+            "seconds": 1.1,
+            "onset_flux": 0.2528348
+          },
+          {
+            "seconds": 0.5,
+            "onset_flux": 0.1253602
+          },
+          {
+            "seconds": 1.85,
+            "onset_flux": 0.11332872
+          }
+        ]
+      }
+    },
+    {
+      "profile": "002",
+      "status": "pass",
+      "analysis_json": "/home/ubuntu/fieldrise_repo/music_ai/analysis/cafe/system_runs/2026-08-27_regression_v3_002_analysis.json",
+      "ranking_csv": "/home/ubuntu/fieldrise_repo/music_ai/analysis/cafe/system_runs/2026-08-27_regression_v3_002_ranking.csv",
+      "figure_png": "/home/ubuntu/fieldrise_repo/music_ai/analysis/cafe/system_runs/2026-08-27_regression_v3_002_focus.png",
+      "master_focus_metrics": {
+        "seconds": [
+          0.0,
+          8.0
+        ],
+        "rms_dbfs": -20.31,
+        "spectral_centroid_hz": 477.9,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.1898,
+          "low_mid_180_2000_hz": 0.8097,
+          "high_2000_10000_hz": 0.0005
+        },
+        "stereo": {
+          "left_right_correlation": 0.708,
+          "side_to_mid_db": -7.19
+        },
+        "first_sustained_full_mix_signal_seconds": 0.2,
+        "low_dominant_window_share": 0.0437,
+        "top_onset_flux_events": [
+          {
+            "seconds": 6.75,
+            "onset_flux": 0.68447736
+          },
+          {
+            "seconds": 6.95,
+            "onset_flux": 0.51073703
+          },
+          {
+            "seconds": 7.2,
+            "onset_flux": 0.50211354
+          },
+          {
+            "seconds": 2.95,
+            "onset_flux": 0.4581601
+          },
+          {
+            "seconds": 1.1,
+            "onset_flux": 0.43102431
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Self-comparison proves pipeline consistency, not candidate musical quality.",
+    "Full-mix metrics do not prove individual-instrument absence or subjective noise quality."
+  ]
+}
