@@ -4,8 +4,8 @@
 
 報告日: 2026-08-27  
 対象: `FieldRiseJapan/FieldRise` / `yutakaeng_windows_validation`  
-最新コミット: [`30e8e0c`](https://github.com/FieldRiseJapan/FieldRise/commit/30e8e0c)  
-Windows Actions: run [`32977495602`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/32977495602)（成功）
+最新コミット: [`a30c43e`](https://github.com/FieldRiseJapan/FieldRise/commit/a30c43e)  
+Windows Actions: run [`33078429531`](https://github.com/FieldRiseJapan/FieldRise/actions/runs/33078429531)（成功）
 
 ## 1. プロジェクトの目的
 
@@ -25,7 +25,7 @@ yutakaengは、文字選択できない配線図PDFから、ホットマーカ�
 | 除外 | DT系、D-開始線コード、端子台接続先単独Iを対象外とし、ZTのLEFT/RIGHTは残す |
 | Excel | A列から「マーク主文字、マーク個数、読取状態、確認状態、L側接続先、R側接続先、線コード」を固定配置 |
 | マーク個数 | 主文字を安全に読めた別電線1本につき2。主文字未読取は0 |
-| 保留 | 見出しを分類できない枠はサイズ別シートへ混ぜず「解析保留」へ隔離 |
+| 保留 | 見出し・電線サイズを分類できない行はサイズ別シートへ混ぜず「警告一覧」へ隔離 |
 | 持ち運び | `yutakaeng.exe`、Tesseract、RapidOCR、ONNX Runtime、モデル、説明書を同一フォルダへ同梱 |
 
 ## 3. 今回追加した改善
@@ -42,7 +42,15 @@ PDFをドロップした後は、ドロップ画面と選択ボタンを一時�
 
 Microsoft公式情報では、Microsoft 365 Copilot APIsを使う方式にはMicrosoft Entra IDのアプリ登録、OAuth、組織側の権限同意、対象ユーザーのライセンス等が必要とされている。[1] Copilot Studioでは画像やPDFのアップロード解析が可能だが、エージェント設定と利用チャネルの準備が必要である。[2] そのため現版は、秘密鍵をアプリへ埋め込まない手動確認方式を採用している。
 
-## 4. 実PDF検証結果
+## 4. UIブラッシュアップとExcel運用変更
+
+解析完了時は、画面中央に大きな緑色の`解析完了！`を表示する。完了ダイアログにもExcelの保存先を表示し、処理終了とファイル出力完了を見落としにくくした。解析中の画面は`LIVE PIPELINE / LOCAL OCR / NO CLOUD UPLOAD`を見出しにし、コード風ログの文字サイズ、コントラスト、余白を強化した。開始時にはローカル処理・外部送信なし・警告行のみ確認というモードをログに表示する。
+
+Excelの`マーク主文字`は、読取できた場合に`盤番号-見出しまたは端子台-主文字`の順で出力する。例えば`1A-YF-FL1A11`、`3A-T1-BTBT2BP`の形式である。Excelファイル名は抽出できたオーダー番号をそのまま使用し、例えば`JN24G75406.xlsx`となる。オーダー番号が安全に読めない場合だけ、推測せず`要確認_元PDF名_日時.xlsx`とする。
+
+確認状態は全行確認方式から変更し、正常行は`読取済み・確認不要`、不確かな行だけを`警告あり・警告確認`とする。主文字・L側・R側・行き先が未読取の場合は、右端の`警告・除外理由`に対象項目を明記し、主文字セルは利用者が直接入力できる。図面に実在する電線サイズのシートだけを作成し、サイズ不明・見出し不明の行は`警告一覧`へ集約する。
+
+## 5. 実PDF検証結果
 
 4ページ実PDF `20260824152536.pdf` を使用し、初期進捗 `0/4`、途中 `1/4`、完了 `4/4` を確認した。処理時間は91.9秒、候補行は230行、警告行は79件であった。警告セルの専用画像は79件生成され、正常行とPDF全体が外部支援用フォルダへ入っていないことを確認した。
 
@@ -62,7 +70,7 @@ Microsoft公式情報では、Microsoft 365 Copilot APIsを使う方式にはMic
 
 主文字については、既に現行のRapidOCR small方式が対象実図面36セルで31/36一致、別集計のYF/ZF-B/IF 37セルで34/37一致しており、600dpi化・単純な罫線除去・大きいOCRモデルへの変更より現行方式が良いことを確認している。局所補正の比較では、CLAHEや軽いシャープ化は現行の31/36を上回らず、適応二値化・Otsu・過剰な罫線マスクは誤読を増やすため標準採用していない。これは「補正を増やせば必ず精度が上がるわけではない」という重要な検証結果である。
 
-## 5. 彩花に確認してほしい判断事項
+## 6. 彩花に確認してほしい判断事項
 
 第一に、外部支援の安全境界をこのまま維持するか確認してほしい。現版では、Copilotへの自動API接続ではなく、警告画像1件の手動添付に限定している。会社側でMicrosoft 365 Copilot API、Copilot Studioエージェント、管理者同意、データ保持規程が正式に確認できた場合のみ、将来のAPI接続を検討する。
 
@@ -70,13 +78,13 @@ Microsoft公式情報では、Microsoft 365 Copilot APIsを使う方式にはMic
 
 第三に、警告セルをクリックするとPDF該当ページ・枠・行を開き、主文字・L側・R側の候補を個別再確認できる画面を次段階として進めるか確認してほしい。この画面が完成すれば、Copilotを使わない会社PCでも人手確認を最小化できる。
 
-## 6. 次の推奨ステップ
+## 7. 次の推奨ステップ
 
 短期的には、会社PCで最新ZIPを使い、実際の警告行について「警告画像1件の選択」「Copilot画面の起動」「PDF全体を送信しない運用」を確認する。その後、確認済みの警告画像と正解文字列を蓄積し、専用学習用TSVを作成する。追加学習は開発環境で行い、Windows版には推論モデルだけを同梱する方式が安全である。
 
 直接API接続は、会社の管理者が正式な接続方式とデータ取扱いを承認した後に限定する。承認前に、個人用の認証情報や秘密鍵をWindowsアプリへ埋め込むことは行わない。
 
-## 7. 成果物と保存先
+## 8. 成果物と保存先
 
 | 成果物 | 保存先 |
 |---|---|
@@ -84,7 +92,8 @@ Microsoft公式情報では、Microsoft 365 Copilot APIsを使う方式にはMic
 | 持ち運び版説明書 | `yutakaeng_windows_validation/PORTABLE_README.txt` |
 | 検証結果 | `yutakaeng_windows_validation/TEST_RESULTS.md` |
 | Copilot調査メモ | `yutakaeng_windows_validation/copilot_integration_notes.md` |
-| 最新Windows ZIP | ユーザー提供済み `yutakaeng_windows_portable_latest.zip` |
+| 最新Windows ZIP | ユーザー提供済み `yutakaeng_brushup_portable.zip`（約205MB、SHA-256: `35471b10b5c1ea707ffb7a508ba9c1792be01529ce8cbaba0f075902201a6809`） |
+| 構成説明 | `yutakaeng_windows_validation/PROJECT_STRUCTURE.md` |
 
 ## References
 
