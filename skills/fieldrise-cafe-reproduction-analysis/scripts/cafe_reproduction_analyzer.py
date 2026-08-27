@@ -135,7 +135,33 @@ def measure(track: Track, focus_end: float) -> dict[str, object]:
     }
 
 
-def score(reference: dict[str, object], candidate: dict[str, object]) -> float:
+def trajectory_metrics(reference: dict[str, object], candidate: dict[str, object]) -> dict[str, float]:
+    """Compare 50 ms RMS, spectral-band, and onset trajectories on a common grid."""
+    ref_rows = reference["windows_50ms"]
+    cand_rows = candidate["windows_50ms"]
+    count = min(len(ref_rows), len(cand_rows))
+    if count == 0:
+        return {"rms_profile_distance": 1.0, "low_profile_distance": 1.0, "low_mid_profile_distance": 1.0, "onset_profile_distance": 1.0, "composite_distance": 1.0}
+    ref_rows, cand_rows = ref_rows[:count], cand_rows[:count]
+    rms_distance = float(np.mean([abs(a["rms_dbfs"] - b["rms_dbfs"]) for a, b in zip(ref_rows, cand_rows)])) / 24.0
+    low_distance = float(np.mean([abs(a["low_20_180_hz"] - b["low_20_180_hz"]) for a, b in zip(ref_rows, cand_rows)]))
+    low_mid_distance = float(np.mean([abs(a["low_mid_180_2000_hz"] - b["low_mid_180_2000_hz"]) for a, b in zip(ref_rows, cand_rows)]))
+    ref_flux = np.asarray([row["onset_flux"] for row in ref_rows], dtype=float)
+    cand_flux = np.asarray([row["onset_flux"] for row in cand_rows], dtype=float)
+    ref_flux /= max(float(ref_flux.max()), EPS)
+    cand_flux /= max(float(cand_flux.max()), EPS)
+    onset_distance = float(np.mean(np.abs(ref_flux - cand_flux)))
+    metrics = {
+        "rms_profile_distance": rms_distance,
+        "low_profile_distance": low_distance,
+        "low_mid_profile_distance": low_mid_distance,
+        "onset_profile_distance": onset_distance,
+    }
+    metrics["composite_distance"] = float(np.mean(list(metrics.values())))
+    return {name: round(value, 4) for name, value in metrics.items()}
+
+
+def score(reference: dict[str, object], candidate: dict[str, object], trajectory: dict[str, float]) -> float:
     ref = reference["focus"]
     cand = candidate["focus"]
     ref_bands = ref["band_energy_ratio"]
@@ -146,6 +172,7 @@ def score(reference: dict[str, object], candidate: dict[str, object]) -> float:
         abs(float(cand_bands["low_mid_180_2000_hz"]) - float(ref_bands["low_mid_180_2000_hz"])) / 0.50,
         abs(float(cand["spectral_centroid_hz"]) - float(ref["spectral_centroid_hz"])) / 400.0,
         abs(float(cand["low_dominant_window_share"]) - float(ref["low_dominant_window_share"])) / 0.75,
+        trajectory["composite_distance"],
     ]
     ref_side = ref["stereo"]["side_to_mid_db"]
     cand_side = cand["stereo"]["side_to_mid_db"]
@@ -199,15 +226,28 @@ def main() -> None:
     tracks = [(reference.label, reference)] + [(label, load_track(label, path)) for label, path in parsed]
     measurements = {label: measure(track, focus_end) for label, track in tracks}
     reference_measurement = measurements[reference.label]
-    ranking = [{"label": label, "reproduction_score": 100.0 if label == reference.label else score(reference_measurement, item), "focus_rms_dbfs": item["focus"]["rms_dbfs"], "focus_low_ratio": item["focus"]["band_energy_ratio"]["low_20_180_hz"], "focus_low_mid_ratio": item["focus"]["band_energy_ratio"]["low_mid_180_2000_hz"], "focus_centroid_hz": item["focus"]["spectral_centroid_hz"], "focus_side_to_mid_db": item["focus"]["stereo"]["side_to_mid_db"], "signal_start_seconds": item["focus"]["first_sustained_full_mix_signal_seconds"]} for label, item in measurements.items()]
-    report = {"system": "fieldrise-cafe-reproduction-analyzer", "version": "1.0", "run_id": args.run_id, "profile": args.profile, "focus_seconds": [0.0, focus_end], "limitations": ["Full-mix metrics cannot prove individual-instrument absence or subjective noise quality.", "MP3/FLAC/WAV codec differences should be reported when comparing absolute values."], "tracks": measurements, "ranking": sorted(ranking, key=lambda row: row["reproduction_score"], reverse=True)}
+    ranking = []
+    for label, item in measurements.items():
+        trajectory = trajectory_metrics(reference_measurement, item)
+        ranking.append({
+            "label": label,
+            "reproduction_score": 100.0 if label == reference.label else score(reference_measurement, item, trajectory),
+            "focus_rms_dbfs": item["focus"]["rms_dbfs"],
+            "focus_low_ratio": item["focus"]["band_energy_ratio"]["low_20_180_hz"],
+            "focus_low_mid_ratio": item["focus"]["band_energy_ratio"]["low_mid_180_2000_hz"],
+            "focus_centroid_hz": item["focus"]["spectral_centroid_hz"],
+            "focus_side_to_mid_db": item["focus"]["stereo"]["side_to_mid_db"],
+            "signal_start_seconds": item["focus"]["first_sustained_full_mix_signal_seconds"],
+            "trajectory_distance": trajectory["composite_distance"],
+        })
+    report = {"system": "fieldrise-cafe-reproduction-analyzer", "version": "1.1", "run_id": args.run_id, "profile": args.profile, "focus_seconds": [0.0, focus_end], "limitations": ["Full-mix metrics cannot prove individual-instrument absence or subjective noise quality.", "MP3/FLAC/WAV codec differences should be reported when comparing absolute values."], "tracks": measurements, "ranking": sorted(ranking, key=lambda row: row["reproduction_score"], reverse=True)}
     args.output_dir.mkdir(parents=True, exist_ok=True)
     json_path = args.output_dir / f"{args.run_id}_{args.profile}_analysis.json"
     csv_path = args.output_dir / f"{args.run_id}_{args.profile}_ranking.csv"
     png_path = args.output_dir / f"{args.run_id}_{args.profile}_focus.png"
     json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     with csv_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(report["ranking"][0].keys()))
+        writer = csv.DictWriter(handle, fieldnames=list(report["ranking"][0].keys()), lineterminator="\n")
         writer.writeheader()
         writer.writerows(report["ranking"])
     plot(report, png_path)

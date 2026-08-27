@@ -48,6 +48,8 @@ def run_profile(root: Path, profile: str, output_dir: Path, run_id: str) -> dict
     assert len(ranking) == 2, "Expected master and self-check rows"
     assert ranking[0]["reproduction_score"] == 100.0, "Master must score 100"
     assert ranking[1]["reproduction_score"] == 100.0, "Identical signal must score 100"
+    assert ranking[0]["trajectory_distance"] == 0.0, "Master trajectory distance must be zero"
+    assert ranking[1]["trajectory_distance"] == 0.0, "Identical signal trajectory distance must be zero"
     assert set(report["tracks"][f"MASTER-{profile}"]["focus"]) >= REQUIRED_FOCUS_KEYS, "Missing focus metrics"
     assert csv_path.exists() and csv_path.stat().st_size > 80, "CSV output missing or too small"
     assert figure_path.exists() and figure_path.stat().st_size > 1024, "Figure output missing or too small"
@@ -75,7 +77,7 @@ def main() -> None:
         results.append(run_profile(root, profile, output_dir, args.run_id))
     health = {
         "system": "fieldrise-cafe-reproduction-analysis",
-        "version": "1.0",
+        "version": "1.1",
         "run_id": args.run_id,
         "status": "pass",
         "tests": results,

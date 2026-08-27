@@ -11,7 +11,7 @@
 | 資産 | 役割 | 検証状態 |
 |---|---|---|
 | [`fieldrise-cafe-reproduction-analysis`スキル](../../skills/fieldrise-cafe-reproduction-analysis/SKILL.md) | 001・002の正本保護、一変数検証、Fact/Hypothesis分離、Fender Studio引き渡しを標準化する。 | スキル検証合格 |
-| [`cafe_reproduction_analyzer.py`](../../tools/cafe_reproduction_analyzer.py) | RMS、Peak、帯域比、スペクトル重心、Stereo、持続信号開始、50 ms OnsetをJSON／CSV／PNGへ出力する。 | 001・002自己比較合格 |
+| [`cafe_reproduction_analyzer.py`](../../tools/cafe_reproduction_analyzer.py) | RMS、Peak、帯域比、スペクトル重心、Stereo、持続信号開始、50 ms Onset、時間軸再現度をJSON／CSV／PNGへ出力する。 | v1.1で001・002自己比較・軌跡距離0.0000を確認 |
 | [`validate_cafe_reproduction_system.py`](../../tools/validate_cafe_reproduction_system.py) | 正本の自己比較でスコア100、構造化データ、図生成を回帰テストする。 | 001・002合格 |
 | [`cafe_stem_assist.py`](../../tools/cafe_stem_assist.py) | Bass／Drums等の補助分離と出力ハッシュ記録を行う。 | 001の15秒クリップで実行合格 |
 | [`cafe_candidate_intake.py`](../../tools/cafe_candidate_intake.py) | 候補ID、生成条件、音声仕様、SHA-256、変更変数、固定条件をmanifestへ正規化する。 | 001自己テストで実行合格 |
@@ -35,7 +35,7 @@
 
 ## 検証結果
 
-001・002の正本をそれぞれ同一ファイルと比較し、両方で再現スコア100.00、JSON構文検査、CSV、PNGを生成した。001の図は0.40〜0.50秒付近の立上がりと低域優勢を、002の図は0〜8秒のLow／Low-mid配分変化を、一貫して表示した。音源分離については、Hybrid Demucsを001正本の先頭15秒に適用し、Bass／no_bassとハッシュ付きmanifestを出力できた。ただし、分離結果にはbleeding・artifactがあり、特定楽器の不存在・クリック音・Loopの自然さを単独で確定する根拠にはしない。
+001・002の正本をそれぞれ同一ファイルと比較し、両方で再現スコア100.00、`trajectory_distance` 0.0000、JSON構文検査、CSV、PNGを生成した。001の図は0.40〜0.50秒付近の立上がりと低域優勢を、002の図は0〜8秒のLow／Low-mid配分変化を、一貫して表示した。v1.1では50 msごとのRMS・Low・Low-mid・Onset軌跡の距離を候補順位の補助指標に加え、002の時間的な密度遷移も評価可能にした。音源分離については、Hybrid Demucsを001正本の先頭15秒に適用し、Bass／no_bassとハッシュ付きmanifestを出力できた。ただし、分離結果にはbleeding・artifactがあり、特定楽器の不存在・クリック音・Loopの自然さを単独で確定する根拠にはしない。
 
 クラウド回帰検証は[GitHub Actions実行 #33083036072](https://github.com/FieldRiseJapan/FieldRise/actions/runs/33083036072)で成功した。
 
