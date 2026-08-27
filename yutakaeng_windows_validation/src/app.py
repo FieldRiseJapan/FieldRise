@@ -90,6 +90,7 @@ class MainWindow(QMainWindow):
         self._worker: Worker | None = None
         self._input_path: Path | None = None
         self._review_dir: Path | None = None
+        self._last_output_path: Path | None = None
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_timer)
         self.timer.setInterval(250)
@@ -122,6 +123,12 @@ class MainWindow(QMainWindow):
         controls.addStretch(); controls.addWidget(self.choose_button); controls.addWidget(self.copilot_button); controls.addStretch()
         layout.addLayout(controls)
 
+        self.completion_banner = QLabel("解析完了！")
+        self.completion_banner.setObjectName("completionBanner")
+        self.completion_banner.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.completion_banner.setVisible(False)
+        layout.addWidget(self.completion_banner)
+
         progress_box = QFrame(); progress_box.setObjectName("progressBox")
         progress_layout = QVBoxLayout(progress_box)
         labels = QHBoxLayout()
@@ -134,7 +141,7 @@ class MainWindow(QMainWindow):
         progress_layout.addLayout(labels); progress_layout.addWidget(self.progress); progress_layout.addWidget(self.counter_label)
         layout.addWidget(progress_box)
 
-        log_title = QLabel("FULL SCREEN LIVE PROCESS LOG")
+        log_title = QLabel("● LIVE PIPELINE  /  LOCAL OCR  /  NO CLOUD UPLOAD")
         log_title.setObjectName("logTitle")
         layout.addWidget(log_title)
         self.log_view = QPlainTextEdit()
@@ -164,8 +171,9 @@ class MainWindow(QMainWindow):
         QProgressBar { background: #071421; border: 1px solid #24516e; border-radius: 6px; height: 16px; color: #e8f5ff; text-align: center; }
         QProgressBar::chunk { background: #1686d1; border-radius: 5px; }
         #counter, #eta_label { color: #86aabd; font-size: 12px; }
-        #logTitle { color: #6cbefa; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
-        #logView { background: #030a11; border: 1px solid #1d4059; border-radius: 8px; color: #9ae6ad; font-family: Consolas, 'Cascadia Mono', monospace; font-size: 12px; padding: 8px; }
+        #logTitle { color: #6cbefa; font-size: 13px; font-weight: 700; letter-spacing: 2px; padding: 4px 0; }
+        #logView { background: #02070d; border: 1px solid #2c789f; border-radius: 8px; color: #9ae6ad; font-family: Consolas, 'Cascadia Mono', monospace; font-size: 13px; padding: 12px; selection-background-color: #174c65; }
+        #completionBanner { background: #0b3d2b; color: #50f58b; border: 2px solid #2bdc78; border-radius: 12px; font-size: 34px; font-weight: 800; padding: 14px; letter-spacing: 4px; }
         """)
 
     def append_log(self, code: str, message: str) -> None:
@@ -182,6 +190,8 @@ class MainWindow(QMainWindow):
             return
         self._input_path = Path(path)
         self._review_dir = None
+        self._last_output_path = None
+        self.completion_banner.setVisible(False)
         self.copilot_button.setVisible(False)
         self.choose_button.setDisabled(True); self.drop_zone.setDisabled(True)
         self.drop_zone.setVisible(False); self.choose_button.setVisible(False)
@@ -193,6 +203,8 @@ class MainWindow(QMainWindow):
         self.phase_label.setText(f"解析開始: {Path(path).name}")
         self.append_log("PDF_ACCEPTED", f"入力: {path}")
         self.append_log("PIPELINE_START", "OCR候補抽出・除外判定・電線サイズ別Excel出力を開始")
+        self.append_log("SECURITY_MODE", "LOCAL ONLY / PDF画像は外部送信しません")
+        self.append_log("DISPLAY_MODE", "FULL SCREEN TERMINAL / 警告行のみ確認")
         self._thread = QThread(self); self._worker = Worker(path); self._worker.moveToThread(self._thread)
         self._thread.started.connect(self._worker.run)
         self._worker.log.connect(self.append_log); self._worker.progress.connect(self.on_progress)
@@ -231,15 +243,18 @@ class MainWindow(QMainWindow):
 
     def on_complete(self, result: str) -> None:
         self.timer.stop(); self.progress.setValue(100); self._done = self._total; self.update_timer(); self.eta_label.setText("推定残り 00:00"); self.status.setText("COMPLETE  Excel出力済み")
+        self._last_output_path = Path(result)
+        self.completion_banner.setText("解析完了！")
+        self.completion_banner.setVisible(True)
         if self._input_path:
             candidates = sorted(desktop_path().glob(f"{self._input_path.stem}_yutakaeng_review_*"), key=lambda item: item.stat().st_mtime, reverse=True)
             if candidates and any(candidates[0].glob("P*_F*_R*.png")):
                 self._review_dir = candidates[0]
                 self.copilot_button.setVisible(True)
                 self.append_log("COPILOT_HELP_READY", "警告セル限定。ボタンから1件だけ選択して手動添付できます")
-        self.phase_label.setText("解析完了。候補Excelをデスクトップへ出力しました。")
-        self.append_log("EXPORT_COMPLETE", result)
-        QMessageBox.information(self, "yutakaeng", f"検証用Excelを出力しました。\n\n{result}\n\n候補データのため、全行確認と警告解消後に最終確定してください。")
+        self.phase_label.setText("解析完了。Excelをデスクトップへ出力しました。")
+        self.append_log("EXPORT_COMPLETE", f"Excel出力完了: {result}")
+        QMessageBox.information(self, "yutakaeng | 解析完了！", f"解析完了！\n\nExcelファイル:\n{result}\n\n警告がある行だけ確認・修正してください。")
 
     def open_copilot_help(self) -> None:
         if not self._review_dir:
