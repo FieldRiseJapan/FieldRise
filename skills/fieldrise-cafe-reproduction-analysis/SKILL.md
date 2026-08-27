@@ -30,6 +30,10 @@ description: "Analyze and improve FieldRise Cafe 001 and 002 music recreations. 
 
 候補ファイル、共有URL、タイトル、生成条件、音源ハッシュ、書き出し仕様をmanifestへ記録する。同梱の`scripts/cafe_candidate_intake.py`で候補manifestを作成し、変更変数と固定条件を必ず記録する。WAV 48 kHz／24-bit／Stereoを測定正本として優先する。Suno等のMP3はスクリーニング用として扱う。
 
+### Sunoの一変数実験を記録する
+
+生成前に`templates/suno_single_variable_experiment_manifest.md`を複製し、Prompt全文、Negative指定、Weirdness、Safe Zone、Style Influence、Strong、Durationを記録する。変更する変数は一つだけにし、他の条件を固定する。
+
 ### 2. 同一条件で測定する
 
 同梱の`scripts/cafe_reproduction_analyzer.py`を実行し、001／002正本と候補の以下を測定する。
