@@ -28,6 +28,7 @@ BRIEFING_URL = (
 )
 AI_CONTROL_DASHBOARD_URL = "https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/"
 FIELDRISE_HOME_URL = "https://fieldrisejapan.github.io/FieldRise/"
+RUNAGIRL8215_PAGE_URL = "https://fieldrisejapan.github.io/FieldRise.RunaGirl8215/"
 SOCIAL_REPORT_BASE_URL = "https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/social_analytics/reports"
 API_URL = "https://api.line.me/v2/bot/message/broadcast"
 MAX_LEN = 4800  # LINEテキストメッセージ上限5000文字の安全マージン
@@ -50,6 +51,7 @@ def extract_summary(md_text: str) -> str:
     parts.append(f"おはようございます、社長。\nFieldRise 秘書の桃花です。{today}の定時報告をお届けします。")
     parts.append(f"📊 FieldRise AI Control Dashboard\n{AI_CONTROL_DASHBOARD_URL}")
     parts.append(f"🌐 FieldRiseホームページ\n{FIELDRISE_HOME_URL}")
+    parts.append(f"🎵 Runa-Girl8215｜Café Series\n{RUNAGIRL8215_PAGE_URL}")
     parts.append(
         "■ SNS分析レポート\n"
         f"・総合: {SOCIAL_REPORT_BASE_URL}/latest_report.md\n"

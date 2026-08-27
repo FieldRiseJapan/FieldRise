@@ -11,11 +11,13 @@ SPEC.loader.exec_module(MODULE)
 
 
 class SendLineNotificationTest(unittest.TestCase):
-    def test_summary_includes_ai_control_dashboard_url(self):
+    def test_summary_includes_required_fieldrise_urls(self):
         text = MODULE.extract_summary("## AIニュース\n- テスト項目\n")
 
         self.assertIn("📊 FieldRise AI Control Dashboard", text)
         self.assertIn("https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/", text)
+        self.assertIn("🎵 Runa-Girl8215｜Café Series", text)
+        self.assertIn("https://fieldrisejapan.github.io/FieldRise.RunaGirl8215/", text)
         self.assertIn("詳細はこちら:", text)
 
 
