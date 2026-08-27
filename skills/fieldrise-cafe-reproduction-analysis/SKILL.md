@@ -28,7 +28,7 @@ description: "Analyze and improve FieldRise Cafe 001 and 002 music recreations. 
 
 ### 1. 入力を固定する
 
-候補ファイル、共有URL、タイトル、生成条件、音源ハッシュ、書き出し仕様をmanifestへ記録する。WAV 48 kHz／24-bit／Stereoを測定正本として優先する。Suno等のMP3はスクリーニング用として扱う。
+候補ファイル、共有URL、タイトル、生成条件、音源ハッシュ、書き出し仕様をmanifestへ記録する。同梱の`scripts/cafe_candidate_intake.py`で候補manifestを作成し、変更変数と固定条件を必ず記録する。WAV 48 kHz／24-bit／Stereoを測定正本として優先する。Suno等のMP3はスクリーニング用として扱う。
 
 ### 2. 同一条件で測定する
 

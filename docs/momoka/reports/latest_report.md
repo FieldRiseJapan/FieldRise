@@ -14,6 +14,7 @@
 | [`cafe_reproduction_analyzer.py`](../../tools/cafe_reproduction_analyzer.py) | RMS、Peak、帯域比、スペクトル重心、Stereo、持続信号開始、50 ms OnsetをJSON／CSV／PNGへ出力する。 | 001・002自己比較合格 |
 | [`validate_cafe_reproduction_system.py`](../../tools/validate_cafe_reproduction_system.py) | 正本の自己比較でスコア100、構造化データ、図生成を回帰テストする。 | 001・002合格 |
 | [`cafe_stem_assist.py`](../../tools/cafe_stem_assist.py) | Bass／Drums等の補助分離と出力ハッシュ記録を行う。 | 001の15秒クリップで実行合格 |
+| [`cafe_candidate_intake.py`](../../tools/cafe_candidate_intake.py) | 候補ID、生成条件、音声仕様、SHA-256、変更変数、固定条件をmanifestへ正規化する。 | 001自己テストで実行合格 |
 | [技術リサーチ記録](../../music_ai/research/Cafe_Lab/2026-08-27_reproduction_analysis_technology_research.md) | Essentia、Onset解析、Demucs分離の採用根拠・制約を記録する。 | 完了 |
 | [初回回帰テスト](../../music_ai/analysis/cafe/2026-08-27_reproduction_analysis_system_validation.md) | 001・002の基準プロファイル、図の確認、Stem補助の制約を記録する。 | 完了 |
 | [GitHub回帰検証](../../.github/workflows/cafe-reproduction-system-regression.yml) | 任意の時点でクラウド環境の自己比較を再実行する。 | 手動実行成功 |
@@ -44,7 +45,7 @@
 
 ## 次の候補音源受領時の運用
 
-候補WAV／FLACまたはSuno共有URLが届いたら、001または002のプロファイルを指定して測定する。001は「Bass単独性→帯域／倍音→Stereo幅→Piano→Drums／空間→Loop」、002は「Bass→伴奏の密度遷移→Piano→Drums→空間→Loop」の順で、一回に一変数だけ変更する。Fender Studio書き出しは、48 kHz／24-bit／Stereo WAVとmanifestを優先する。
+候補WAV／FLACまたはSuno共有URLが届いたら、まず`cafe_candidate_intake.py`で候補manifestを作成し、その後001または002のプロファイルを指定して測定する。001は「Bass単独性→帯域／倍音→Stereo幅→Piano→Drums／空間→Loop」、002は「Bass→伴奏の密度遷移→Piano→Drums→空間→Loop」の順で、一回に一変数だけ変更する。Fender Studio書き出しは、48 kHz／24-bit／Stereo WAVとmanifestを優先する。
 
 ## 安全上の前提
 

@@ -55,6 +55,17 @@
 | 002 | `system_runs/2026-08-27_regression_v1_002_analysis.json` | `system_runs/2026-08-27_regression_v1_002_ranking.csv` | `system_runs/2026-08-27_regression_v1_002_focus.png` |
 | 統合 | `system_runs/2026-08-27_regression_v1_system_health.json` | — | — |
 
+## 候補登録の実行検証
+
+`tools/cafe_candidate_intake.py`を001正本の自己テスト入力で実行し、候補ID、対象プロファイル、音声仕様、SHA-256、変更変数、固定条件を含むmanifestの生成とJSON構文検査に成功した。今後のSuno候補およびFender Studio書き出しは、解析前にこのmanifestを作成する。
+
+| 検証項目 | 結果 |
+|---|---|
+| 入力 | 001正本の自己テスト入力 |
+| 出力 | `2026-08-27_candidate_intake_selftest.json` |
+| 追跡項目 | ファイル形式、サンプルレート、チャンネル、曲尺、SHA-256、公開URL、Prompt、変更変数、固定条件 |
+| 判定 | 合格。候補音源のバイナリ自体はGit追跡せず、manifestを監査証跡とする。 |
+
 ## 音源分離補助の実行検証
 
 001正本の先頭15秒を検証クリップとして切り出し、`tools/cafe_stem_assist.py`からHybrid DemucsのBass分離を実行した。`bass.wav`と`no_bass.wav`、ハッシュを含むmanifestが生成され、スクリプトの実行経路は合格した。
