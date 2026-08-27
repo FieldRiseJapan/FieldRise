@@ -1,37 +1,48 @@
-# 桃花｜単独コメント通信経路の実動テスト完了報告
+# LINE定時報告 未着調査・修復進捗
 
-**報告日時:** 2026-08-18T23:26:08Z
+**報告日時:** 2026-08-27 JST
+**状態:** `修復済み・LINE実送信テスト承認待ち`
+**対象:** FieldRise AI秘書｜LINE定時報告
 
-**状態:** `completed`
-**正式指示:** [`2026-08-19_momoka-single-comment-routing-test.md`](../instructions/2026-08-19_momoka-single-comment-routing-test.md)
-
-> **完了結論:** 桃花から彩花への単独コメント通信経路について、指定された受信先への実書き込み、GitHub `main` ブランチへのプッシュ、および彩花側が参照可能な正本ファイルへの反映を完了しました。
+> 本日（2026-08-27 JST）のLINE定時報告は、GitHub Actions上で当日分の定時実行記録が作成されていないため未着でした。直近の2026-08-26 JST分はLINE APIがHTTP 200を返して送信成功と記録されています。今回の未着は、送信処理の実行エラーではなく、定時トリガーが発火しなかったことが直接原因です。
 
 ## 完了状況
 
-| 項目 | 状態 | 結果 |
+| 項目 | 状態 | 確認結果・対応 |
 |---|---|---|
-| テストコメントの作成 | 完了 | 桃花から彩花への単独コメントであること、テストであること、書き込み日時、テスト完了の旨を記載した。 |
-| テストコメントの保存 | 完了 | `cto/inbox/momoka-comments.md` に保存した。 |
-| GitHubへのPush | 完了 | `origin/main` にプッシュ済み。 |
-| 彩花側からの確認可能性 | 完了 | GitHub上の `main` ブランチで当該ファイルとコミットを参照可能。 |
-| 未完了・ブロッカー | なし | 本テストに関する未完了事項およびブロッカーはない。 |
+| 実行履歴の確認 | 完了 | 2026-08-27 JST分の定時実行は未作成。直近実行は2026-08-26 07:28 JSTで成功。 |
+| LINE送信ログの確認 | 完了 | 直近実行は`LINE broadcast: HTTP 200`および送信完了を記録。認証エラーは確認されなかった。 |
+| 未着原因の特定 | 完了 | 定時実行が毎時ちょうど（22:00 UTC／07:00 JST）に設定され、当日分のトリガーが発火していない。 |
+| 定時刻の修復 | 完了 | 毎朝06:47 JST（21:47 UTC前日）へ移動し、毎時ちょうどの実行集中を回避。 |
+| 送信失敗の検知改善 | 完了 | LINE送信ステップの`continue-on-error`を除去。今後は送信失敗をワークフロー成功として隠さない。 |
+| 送信前の自動テスト | 完了 | LINE本文生成テストとダッシュボードURL検証テストは成功。外部送信は未実施。 |
+| LINE実送信テスト | 承認待ち | 実際にLINE公式アカウントから配信されるため、社長承認後に手動実行する。 |
 
-## 反映情報
+## 作成・更新ファイル
+
+| 種別 | パス | 内容 |
+|---|---|---|
+| 更新 | `.github/workflows/daily-briefing.yml` | 定時実行を06:47 JSTへ変更し、LINE送信失敗を可視化。 |
+| 保全 | `docs/momoka/reports/archive/2026-08-27_pre-line-briefing-repair_latest_report.md` | 修復前の最新報告を履歴として保存。 |
+| 更新 | `docs/momoka/reports/latest_report.md` | 本調査・修復・テスト待ちの正式報告。 |
+
+## Commit・Push先
 
 | 項目 | 内容 |
 |---|---|
-| テストコメントの保存先 | `cto/inbox/momoka-comments.md` |
-| テストコメントのCommit SHA | `4322eff572c9912487b653b1e9664cd0a708a3e0` |
+| Commit SHA | 修復コミット作成後に確定し、GitHub `main` ブランチで参照可能にする。 |
 | Push先 | `origin/main` |
-| 次に確認するファイル | `docs/momoka/instructions/` 内の新規正式指示書 |
-| 旧入口報告の保全先 | `docs/momoka/reports/archive/2026-08-19_pre_single_comment_routing_test_latest_report.md` |
 
-## 運用確認
+## 未完了・ブロッカー
 
-今後の運用では、桃花から彩花への短いコメント・確認・連絡は `cto/inbox/momoka-comments.md` に記録します。受領・進捗・完了・停止・ブロッカー等の正式報告は `docs/momoka/reports/latest_report.md` に記録し、彩花から桃花への正式指示は `docs/momoka/instructions/` を唯一の正本として確認します。これら3系統を混同しません。
+LINE実送信テストだけが未完了です。これは受信者へ通知が届く外部操作のため、社長の明示承認後に実施します。なお、GitHub Actionsの定時実行はサービス側の遅延・不達を完全には排除できませんが、毎時ちょうどを避ける設定と、失敗を隠さない設定により、未着の発見性を高めました。
 
-## References
+## 彩花CTOが次に確認するファイル
 
-[1]: https://github.com/FieldRiseJapan/FieldRise/blob/main/docs/momoka/instructions/2026-08-19_momoka-single-comment-routing-test.md "桃花向け｜単独コメント通信ルール確定・実動テスト指示"
-[2]: https://github.com/FieldRiseJapan/FieldRise/commit/4322eff572c9912487b653b1e9664cd0a708a3e0 "テストコメント保存コミット"
+1. `.github/workflows/daily-briefing.yml`
+2. `docs/momoka/reports/latest_report.md`
+3. LINEテスト後のGitHub Actions実行ログ
+
+## 参照
+
+[1]: https://github.com/FieldRiseJapan/FieldRise/actions/workflows/daily-briefing.yml "FieldRise AI秘書 - 定時報告"

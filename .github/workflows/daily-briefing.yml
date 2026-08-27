@@ -2,8 +2,9 @@ name: FieldRise AI秘書 - 定時報告
 
 on:
   schedule:
-    # 毎朝 7:00 JST（= 22:00 UTC 前日）に実行
-    - cron: '0 22 * * *'
+    # 毎朝 6:47 JST（= 21:47 UTC 前日）に実行。
+    # 毎時ちょうどの混雑を避け、7:00前に定時報告を届ける。
+    - cron: '47 21 * * *'
   workflow_dispatch:
     inputs:
       send_line:
@@ -94,4 +95,3 @@ jobs:
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
         run: python3 automation/scripts/send_line_notification.py
-        continue-on-error: true
