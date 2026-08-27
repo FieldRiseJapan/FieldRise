@@ -54,4 +54,5 @@
 **分析システムCommit SHA:** `9925badb0cd288db3b6888ce29c4864825ceab10`（解析器、Stem補助、回帰テスト、スキル、研究記録、GitHub回帰設定）
 **構築報告Commit SHA:** `a14d7c0e3c8e1ad3ea6d6aed78781789a1a977b6`
 **候補登録機能Commit SHA:** `c4c7fdf182061eb0d72081d0beaa9c9305c233fe`
+**時間軸再現度Commit SHA:** `4bec35c45d0d364daf94dceef34f71e1fdded114`
 **Push先:** `origin/main`。上記コミットはプッシュ済みで、反映時のローカルHEADとリモートHEADの一致を確認した。
