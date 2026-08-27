@@ -39,8 +39,8 @@
 |---|---|
 | 初回修復Commit SHA | `562f7d5d794e7b62db3e0a81b7df03a813573c92` |
 | 定時報告生成Commit SHA | `d427da7c4a8366ff45f7ec555217597a59c090c8` |
-| 追加修復Commit SHA | 条件式修復コミット作成後に確定し、GitHub `main` ブランチで参照可能にする。 |
-| URL追加Commit SHA | 作成後に確定し、GitHub `main` ブランチで参照可能にする。 |
+| 追加修復Commit SHA | `46d59d33b7ef86aaf4a30dc56d7ce095bc9d0048` |
+| URL追加Commit SHA | `f808ac6a433bbf38575f6b37805d246995fbbee9` |
 | Push先 | `origin/main` |
 
 ## 未完了・ブロッカー
@@ -58,3 +58,5 @@
 ## 参照
 
 [1]: https://github.com/FieldRiseJapan/FieldRise/actions/workflows/daily-briefing.yml "FieldRise AI秘書 - 定時報告"
+[2]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/33036007117 "LINEテスト配信の成功実行"
+[3]: https://fieldrisejapan.github.io/FieldRise.RunaGirl8215/ "Runa-Girl8215｜Café Series"
