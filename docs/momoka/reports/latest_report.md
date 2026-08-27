@@ -37,7 +37,7 @@
 
 001・002の正本をそれぞれ同一ファイルと比較し、両方で再現スコア100.00、`trajectory_distance` 0.0000、JSON構文検査、CSV、PNGを生成した。001の図は0.40〜0.50秒付近の立上がりと低域優勢を、002の図は0〜8秒のLow／Low-mid配分変化を、一貫して表示した。v1.1では50 msごとのRMS・Low・Low-mid・Onset軌跡の距離を候補順位の補助指標に加え、002の時間的な密度遷移も評価可能にした。音源分離については、Hybrid Demucsを001正本の先頭15秒に適用し、Bass／no_bassとハッシュ付きmanifestを出力できた。ただし、分離結果にはbleeding・artifactがあり、特定楽器の不存在・クリック音・Loopの自然さを単独で確定する根拠にはしない。
 
-クラウド回帰検証は[GitHub Actions実行 #33083036072](https://github.com/FieldRiseJapan/FieldRise/actions/runs/33083036072)で成功した。
+クラウド回帰検証は[初回実行 #33083036072](https://github.com/FieldRiseJapan/FieldRise/actions/runs/33083036072)と、時間軸再現度を含む[最新版実行 #33084264887](https://github.com/FieldRiseJapan/FieldRise/actions/runs/33084264887)の両方で成功した。
 
 ## 明日6:00までの最終検証
 
