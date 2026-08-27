@@ -1,0 +1,800 @@
+{
+  "system": "fieldrise-cafe-reproduction-analyzer",
+  "version": "1.1",
+  "run_id": "2026-08-28_final_regression_v1",
+  "profile": "001",
+  "focus_seconds": [
+    0.0,
+    2.0
+  ],
+  "limitations": [
+    "Full-mix metrics cannot prove individual-instrument absence or subjective noise quality.",
+    "MP3/FLAC/WAV codec differences should be reported when comparing absolute values."
+  ],
+  "tracks": {
+    "MASTER-001": {
+      "source": {
+        "filename": "001_reference_main.flac",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 222.4
+      },
+      "overall": {
+        "rms_dbfs": -16.82,
+        "peak_dbfs": -2.51,
+        "crest_factor_db": 14.32,
+        "stereo": {
+          "left_right_correlation": 0.9999,
+          "side_to_mid_db": -42.68
+        }
+      },
+      "focus": {
+        "seconds": [
+          0.0,
+          2.0
+        ],
+        "rms_dbfs": -22.64,
+        "spectral_centroid_hz": 113.7,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.9668,
+          "low_mid_180_2000_hz": 0.0304,
+          "high_2000_10000_hz": 0.0028
+        },
+        "stereo": {
+          "left_right_correlation": 0.9989,
+          "side_to_mid_db": -32.4
+        },
+        "first_sustained_full_mix_signal_seconds": 0.4,
+        "low_dominant_window_share": 0.65,
+        "top_onset_flux_events": [
+          {
+            "seconds": 1.8,
+            "onset_flux": 0.3319787
+          },
+          {
+            "seconds": 0.45,
+            "onset_flux": 0.27771756
+          },
+          {
+            "seconds": 1.1,
+            "onset_flux": 0.2528348
+          },
+          {
+            "seconds": 0.5,
+            "onset_flux": 0.1253602
+          },
+          {
+            "seconds": 1.85,
+            "onset_flux": 0.11332872
+          }
+        ]
+      },
+      "windows_50ms": [
+        {
+          "seconds": 0.0,
+          "rms_dbfs": -58.44,
+          "onset_flux": 0.0,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0001,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.05,
+          "rms_dbfs": -58.57,
+          "onset_flux": 8.251e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.1,
+          "rms_dbfs": -58.57,
+          "onset_flux": 8.648e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0001,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.15,
+          "rms_dbfs": -58.6,
+          "onset_flux": 7.424e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.2,
+          "rms_dbfs": -58.63,
+          "onset_flux": 7.999e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.25,
+          "rms_dbfs": -58.72,
+          "onset_flux": 8.124e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0001,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.3,
+          "rms_dbfs": -58.97,
+          "onset_flux": 7.835e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0001,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.35,
+          "rms_dbfs": -60.48,
+          "onset_flux": 0.00033332,
+          "low_20_180_hz": 0.9991,
+          "low_mid_180_2000_hz": 0.0006,
+          "high_2000_10000_hz": 0.0003
+        },
+        {
+          "seconds": 0.4,
+          "rms_dbfs": -44.63,
+          "onset_flux": 0.02126375,
+          "low_20_180_hz": 0.9944,
+          "low_mid_180_2000_hz": 0.0052,
+          "high_2000_10000_hz": 0.0004
+        },
+        {
+          "seconds": 0.45,
+          "rms_dbfs": -17.07,
+          "onset_flux": 0.27771756,
+          "low_20_180_hz": 0.9776,
+          "low_mid_180_2000_hz": 0.0224,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 0.5,
+          "rms_dbfs": -16.33,
+          "onset_flux": 0.1253602,
+          "low_20_180_hz": 0.9779,
+          "low_mid_180_2000_hz": 0.022,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.55,
+          "rms_dbfs": -17.41,
+          "onset_flux": 0.01712126,
+          "low_20_180_hz": 0.9751,
+          "low_mid_180_2000_hz": 0.0249,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 0.6,
+          "rms_dbfs": -19.03,
+          "onset_flux": 0.01193152,
+          "low_20_180_hz": 0.9673,
+          "low_mid_180_2000_hz": 0.0327,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 0.65,
+          "rms_dbfs": -20.12,
+          "onset_flux": 0.00994036,
+          "low_20_180_hz": 0.9768,
+          "low_mid_180_2000_hz": 0.0231,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 0.7,
+          "rms_dbfs": -21.98,
+          "onset_flux": 0.0108657,
+          "low_20_180_hz": 0.9657,
+          "low_mid_180_2000_hz": 0.0342,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.75,
+          "rms_dbfs": -23.69,
+          "onset_flux": 0.01811252,
+          "low_20_180_hz": 0.9304,
+          "low_mid_180_2000_hz": 0.0694,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.8,
+          "rms_dbfs": -25.57,
+          "onset_flux": 0.01163351,
+          "low_20_180_hz": 0.9057,
+          "low_mid_180_2000_hz": 0.0941,
+          "high_2000_10000_hz": 0.0002
+        },
+        {
+          "seconds": 0.85,
+          "rms_dbfs": -26.55,
+          "onset_flux": 0.01200656,
+          "low_20_180_hz": 0.8932,
+          "low_mid_180_2000_hz": 0.1065,
+          "high_2000_10000_hz": 0.0003
+        },
+        {
+          "seconds": 0.9,
+          "rms_dbfs": -28.17,
+          "onset_flux": 0.0109812,
+          "low_20_180_hz": 0.9023,
+          "low_mid_180_2000_hz": 0.0973,
+          "high_2000_10000_hz": 0.0004
+        },
+        {
+          "seconds": 0.95,
+          "rms_dbfs": -30.44,
+          "onset_flux": 0.00834096,
+          "low_20_180_hz": 0.8909,
+          "low_mid_180_2000_hz": 0.1083,
+          "high_2000_10000_hz": 0.0008
+        },
+        {
+          "seconds": 1.0,
+          "rms_dbfs": -32.68,
+          "onset_flux": 0.01693911,
+          "low_20_180_hz": 0.7603,
+          "low_mid_180_2000_hz": 0.2361,
+          "high_2000_10000_hz": 0.0036
+        },
+        {
+          "seconds": 1.05,
+          "rms_dbfs": -33.69,
+          "onset_flux": 0.02281333,
+          "low_20_180_hz": 0.6062,
+          "low_mid_180_2000_hz": 0.3832,
+          "high_2000_10000_hz": 0.0106
+        },
+        {
+          "seconds": 1.1,
+          "rms_dbfs": -33.99,
+          "onset_flux": 0.2528348,
+          "low_20_180_hz": 0.4097,
+          "low_mid_180_2000_hz": 0.2947,
+          "high_2000_10000_hz": 0.2952
+        },
+        {
+          "seconds": 1.15,
+          "rms_dbfs": -37.62,
+          "onset_flux": 0.00570497,
+          "low_20_180_hz": 0.4623,
+          "low_mid_180_2000_hz": 0.4644,
+          "high_2000_10000_hz": 0.0732
+        },
+        {
+          "seconds": 1.2,
+          "rms_dbfs": -40.33,
+          "onset_flux": 0.00408722,
+          "low_20_180_hz": 0.3939,
+          "low_mid_180_2000_hz": 0.5843,
+          "high_2000_10000_hz": 0.0217
+        },
+        {
+          "seconds": 1.25,
+          "rms_dbfs": -40.86,
+          "onset_flux": 0.0087742,
+          "low_20_180_hz": 0.5551,
+          "low_mid_180_2000_hz": 0.4335,
+          "high_2000_10000_hz": 0.0114
+        },
+        {
+          "seconds": 1.3,
+          "rms_dbfs": -41.0,
+          "onset_flux": 0.00983969,
+          "low_20_180_hz": 0.3686,
+          "low_mid_180_2000_hz": 0.6172,
+          "high_2000_10000_hz": 0.0142
+        },
+        {
+          "seconds": 1.35,
+          "rms_dbfs": -42.29,
+          "onset_flux": 0.00960727,
+          "low_20_180_hz": 0.3784,
+          "low_mid_180_2000_hz": 0.6115,
+          "high_2000_10000_hz": 0.01
+        },
+        {
+          "seconds": 1.4,
+          "rms_dbfs": -42.14,
+          "onset_flux": 0.00963864,
+          "low_20_180_hz": 0.1474,
+          "low_mid_180_2000_hz": 0.8374,
+          "high_2000_10000_hz": 0.0152
+        },
+        {
+          "seconds": 1.45,
+          "rms_dbfs": -43.04,
+          "onset_flux": 0.01038442,
+          "low_20_180_hz": 0.4183,
+          "low_mid_180_2000_hz": 0.5635,
+          "high_2000_10000_hz": 0.0181
+        },
+        {
+          "seconds": 1.5,
+          "rms_dbfs": -47.45,
+          "onset_flux": 0.00999766,
+          "low_20_180_hz": 0.7892,
+          "low_mid_180_2000_hz": 0.1517,
+          "high_2000_10000_hz": 0.0591
+        },
+        {
+          "seconds": 1.55,
+          "rms_dbfs": -43.76,
+          "onset_flux": 0.05834756,
+          "low_20_180_hz": 0.744,
+          "low_mid_180_2000_hz": 0.0468,
+          "high_2000_10000_hz": 0.209
+        },
+        {
+          "seconds": 1.6,
+          "rms_dbfs": -46.54,
+          "onset_flux": 0.01043358,
+          "low_20_180_hz": 0.6974,
+          "low_mid_180_2000_hz": 0.0686,
+          "high_2000_10000_hz": 0.2339
+        },
+        {
+          "seconds": 1.65,
+          "rms_dbfs": -50.33,
+          "onset_flux": 0.00427215,
+          "low_20_180_hz": 0.6127,
+          "low_mid_180_2000_hz": 0.1175,
+          "high_2000_10000_hz": 0.2696
+        },
+        {
+          "seconds": 1.7,
+          "rms_dbfs": -43.52,
+          "onset_flux": 0.02277362,
+          "low_20_180_hz": 0.9579,
+          "low_mid_180_2000_hz": 0.0153,
+          "high_2000_10000_hz": 0.0268
+        },
+        {
+          "seconds": 1.75,
+          "rms_dbfs": -36.87,
+          "onset_flux": 0.03409716,
+          "low_20_180_hz": 0.9457,
+          "low_mid_180_2000_hz": 0.0398,
+          "high_2000_10000_hz": 0.0144
+        },
+        {
+          "seconds": 1.8,
+          "rms_dbfs": -16.84,
+          "onset_flux": 0.3319787,
+          "low_20_180_hz": 0.9844,
+          "low_mid_180_2000_hz": 0.0156,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 1.85,
+          "rms_dbfs": -13.89,
+          "onset_flux": 0.11332872,
+          "low_20_180_hz": 0.9984,
+          "low_mid_180_2000_hz": 0.0015,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 1.9,
+          "rms_dbfs": -15.48,
+          "onset_flux": 0.01047173,
+          "low_20_180_hz": 0.9987,
+          "low_mid_180_2000_hz": 0.0013,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 1.95,
+          "rms_dbfs": -16.13,
+          "onset_flux": 0.01387497,
+          "low_20_180_hz": 0.9984,
+          "low_mid_180_2000_hz": 0.0016,
+          "high_2000_10000_hz": 0.0
+        }
+      ]
+    },
+    "SELF-CHECK": {
+      "source": {
+        "filename": "001_reference_main.flac",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "duration_seconds": 222.4
+      },
+      "overall": {
+        "rms_dbfs": -16.82,
+        "peak_dbfs": -2.51,
+        "crest_factor_db": 14.32,
+        "stereo": {
+          "left_right_correlation": 0.9999,
+          "side_to_mid_db": -42.68
+        }
+      },
+      "focus": {
+        "seconds": [
+          0.0,
+          2.0
+        ],
+        "rms_dbfs": -22.64,
+        "spectral_centroid_hz": 113.7,
+        "band_energy_ratio": {
+          "low_20_180_hz": 0.9668,
+          "low_mid_180_2000_hz": 0.0304,
+          "high_2000_10000_hz": 0.0028
+        },
+        "stereo": {
+          "left_right_correlation": 0.9989,
+          "side_to_mid_db": -32.4
+        },
+        "first_sustained_full_mix_signal_seconds": 0.4,
+        "low_dominant_window_share": 0.65,
+        "top_onset_flux_events": [
+          {
+            "seconds": 1.8,
+            "onset_flux": 0.3319787
+          },
+          {
+            "seconds": 0.45,
+            "onset_flux": 0.27771756
+          },
+          {
+            "seconds": 1.1,
+            "onset_flux": 0.2528348
+          },
+          {
+            "seconds": 0.5,
+            "onset_flux": 0.1253602
+          },
+          {
+            "seconds": 1.85,
+            "onset_flux": 0.11332872
+          }
+        ]
+      },
+      "windows_50ms": [
+        {
+          "seconds": 0.0,
+          "rms_dbfs": -58.44,
+          "onset_flux": 0.0,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0001,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.05,
+          "rms_dbfs": -58.57,
+          "onset_flux": 8.251e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.1,
+          "rms_dbfs": -58.57,
+          "onset_flux": 8.648e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0001,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.15,
+          "rms_dbfs": -58.6,
+          "onset_flux": 7.424e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.2,
+          "rms_dbfs": -58.63,
+          "onset_flux": 7.999e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.25,
+          "rms_dbfs": -58.72,
+          "onset_flux": 8.124e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0001,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.3,
+          "rms_dbfs": -58.97,
+          "onset_flux": 7.835e-05,
+          "low_20_180_hz": 0.9998,
+          "low_mid_180_2000_hz": 0.0001,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.35,
+          "rms_dbfs": -60.48,
+          "onset_flux": 0.00033332,
+          "low_20_180_hz": 0.9991,
+          "low_mid_180_2000_hz": 0.0006,
+          "high_2000_10000_hz": 0.0003
+        },
+        {
+          "seconds": 0.4,
+          "rms_dbfs": -44.63,
+          "onset_flux": 0.02126375,
+          "low_20_180_hz": 0.9944,
+          "low_mid_180_2000_hz": 0.0052,
+          "high_2000_10000_hz": 0.0004
+        },
+        {
+          "seconds": 0.45,
+          "rms_dbfs": -17.07,
+          "onset_flux": 0.27771756,
+          "low_20_180_hz": 0.9776,
+          "low_mid_180_2000_hz": 0.0224,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 0.5,
+          "rms_dbfs": -16.33,
+          "onset_flux": 0.1253602,
+          "low_20_180_hz": 0.9779,
+          "low_mid_180_2000_hz": 0.022,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.55,
+          "rms_dbfs": -17.41,
+          "onset_flux": 0.01712126,
+          "low_20_180_hz": 0.9751,
+          "low_mid_180_2000_hz": 0.0249,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 0.6,
+          "rms_dbfs": -19.03,
+          "onset_flux": 0.01193152,
+          "low_20_180_hz": 0.9673,
+          "low_mid_180_2000_hz": 0.0327,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 0.65,
+          "rms_dbfs": -20.12,
+          "onset_flux": 0.00994036,
+          "low_20_180_hz": 0.9768,
+          "low_mid_180_2000_hz": 0.0231,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 0.7,
+          "rms_dbfs": -21.98,
+          "onset_flux": 0.0108657,
+          "low_20_180_hz": 0.9657,
+          "low_mid_180_2000_hz": 0.0342,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.75,
+          "rms_dbfs": -23.69,
+          "onset_flux": 0.01811252,
+          "low_20_180_hz": 0.9304,
+          "low_mid_180_2000_hz": 0.0694,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 0.8,
+          "rms_dbfs": -25.57,
+          "onset_flux": 0.01163351,
+          "low_20_180_hz": 0.9057,
+          "low_mid_180_2000_hz": 0.0941,
+          "high_2000_10000_hz": 0.0002
+        },
+        {
+          "seconds": 0.85,
+          "rms_dbfs": -26.55,
+          "onset_flux": 0.01200656,
+          "low_20_180_hz": 0.8932,
+          "low_mid_180_2000_hz": 0.1065,
+          "high_2000_10000_hz": 0.0003
+        },
+        {
+          "seconds": 0.9,
+          "rms_dbfs": -28.17,
+          "onset_flux": 0.0109812,
+          "low_20_180_hz": 0.9023,
+          "low_mid_180_2000_hz": 0.0973,
+          "high_2000_10000_hz": 0.0004
+        },
+        {
+          "seconds": 0.95,
+          "rms_dbfs": -30.44,
+          "onset_flux": 0.00834096,
+          "low_20_180_hz": 0.8909,
+          "low_mid_180_2000_hz": 0.1083,
+          "high_2000_10000_hz": 0.0008
+        },
+        {
+          "seconds": 1.0,
+          "rms_dbfs": -32.68,
+          "onset_flux": 0.01693911,
+          "low_20_180_hz": 0.7603,
+          "low_mid_180_2000_hz": 0.2361,
+          "high_2000_10000_hz": 0.0036
+        },
+        {
+          "seconds": 1.05,
+          "rms_dbfs": -33.69,
+          "onset_flux": 0.02281333,
+          "low_20_180_hz": 0.6062,
+          "low_mid_180_2000_hz": 0.3832,
+          "high_2000_10000_hz": 0.0106
+        },
+        {
+          "seconds": 1.1,
+          "rms_dbfs": -33.99,
+          "onset_flux": 0.2528348,
+          "low_20_180_hz": 0.4097,
+          "low_mid_180_2000_hz": 0.2947,
+          "high_2000_10000_hz": 0.2952
+        },
+        {
+          "seconds": 1.15,
+          "rms_dbfs": -37.62,
+          "onset_flux": 0.00570497,
+          "low_20_180_hz": 0.4623,
+          "low_mid_180_2000_hz": 0.4644,
+          "high_2000_10000_hz": 0.0732
+        },
+        {
+          "seconds": 1.2,
+          "rms_dbfs": -40.33,
+          "onset_flux": 0.00408722,
+          "low_20_180_hz": 0.3939,
+          "low_mid_180_2000_hz": 0.5843,
+          "high_2000_10000_hz": 0.0217
+        },
+        {
+          "seconds": 1.25,
+          "rms_dbfs": -40.86,
+          "onset_flux": 0.0087742,
+          "low_20_180_hz": 0.5551,
+          "low_mid_180_2000_hz": 0.4335,
+          "high_2000_10000_hz": 0.0114
+        },
+        {
+          "seconds": 1.3,
+          "rms_dbfs": -41.0,
+          "onset_flux": 0.00983969,
+          "low_20_180_hz": 0.3686,
+          "low_mid_180_2000_hz": 0.6172,
+          "high_2000_10000_hz": 0.0142
+        },
+        {
+          "seconds": 1.35,
+          "rms_dbfs": -42.29,
+          "onset_flux": 0.00960727,
+          "low_20_180_hz": 0.3784,
+          "low_mid_180_2000_hz": 0.6115,
+          "high_2000_10000_hz": 0.01
+        },
+        {
+          "seconds": 1.4,
+          "rms_dbfs": -42.14,
+          "onset_flux": 0.00963864,
+          "low_20_180_hz": 0.1474,
+          "low_mid_180_2000_hz": 0.8374,
+          "high_2000_10000_hz": 0.0152
+        },
+        {
+          "seconds": 1.45,
+          "rms_dbfs": -43.04,
+          "onset_flux": 0.01038442,
+          "low_20_180_hz": 0.4183,
+          "low_mid_180_2000_hz": 0.5635,
+          "high_2000_10000_hz": 0.0181
+        },
+        {
+          "seconds": 1.5,
+          "rms_dbfs": -47.45,
+          "onset_flux": 0.00999766,
+          "low_20_180_hz": 0.7892,
+          "low_mid_180_2000_hz": 0.1517,
+          "high_2000_10000_hz": 0.0591
+        },
+        {
+          "seconds": 1.55,
+          "rms_dbfs": -43.76,
+          "onset_flux": 0.05834756,
+          "low_20_180_hz": 0.744,
+          "low_mid_180_2000_hz": 0.0468,
+          "high_2000_10000_hz": 0.209
+        },
+        {
+          "seconds": 1.6,
+          "rms_dbfs": -46.54,
+          "onset_flux": 0.01043358,
+          "low_20_180_hz": 0.6974,
+          "low_mid_180_2000_hz": 0.0686,
+          "high_2000_10000_hz": 0.2339
+        },
+        {
+          "seconds": 1.65,
+          "rms_dbfs": -50.33,
+          "onset_flux": 0.00427215,
+          "low_20_180_hz": 0.6127,
+          "low_mid_180_2000_hz": 0.1175,
+          "high_2000_10000_hz": 0.2696
+        },
+        {
+          "seconds": 1.7,
+          "rms_dbfs": -43.52,
+          "onset_flux": 0.02277362,
+          "low_20_180_hz": 0.9579,
+          "low_mid_180_2000_hz": 0.0153,
+          "high_2000_10000_hz": 0.0268
+        },
+        {
+          "seconds": 1.75,
+          "rms_dbfs": -36.87,
+          "onset_flux": 0.03409716,
+          "low_20_180_hz": 0.9457,
+          "low_mid_180_2000_hz": 0.0398,
+          "high_2000_10000_hz": 0.0144
+        },
+        {
+          "seconds": 1.8,
+          "rms_dbfs": -16.84,
+          "onset_flux": 0.3319787,
+          "low_20_180_hz": 0.9844,
+          "low_mid_180_2000_hz": 0.0156,
+          "high_2000_10000_hz": 0.0001
+        },
+        {
+          "seconds": 1.85,
+          "rms_dbfs": -13.89,
+          "onset_flux": 0.11332872,
+          "low_20_180_hz": 0.9984,
+          "low_mid_180_2000_hz": 0.0015,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 1.9,
+          "rms_dbfs": -15.48,
+          "onset_flux": 0.01047173,
+          "low_20_180_hz": 0.9987,
+          "low_mid_180_2000_hz": 0.0013,
+          "high_2000_10000_hz": 0.0
+        },
+        {
+          "seconds": 1.95,
+          "rms_dbfs": -16.13,
+          "onset_flux": 0.01387497,
+          "low_20_180_hz": 0.9984,
+          "low_mid_180_2000_hz": 0.0016,
+          "high_2000_10000_hz": 0.0
+        }
+      ]
+    }
+  },
+  "ranking": [
+    {
+      "label": "MASTER-001",
+      "reproduction_score": 100.0,
+      "focus_rms_dbfs": -22.64,
+      "focus_low_ratio": 0.9668,
+      "focus_low_mid_ratio": 0.0304,
+      "focus_centroid_hz": 113.7,
+      "focus_side_to_mid_db": -32.4,
+      "signal_start_seconds": 0.4,
+      "trajectory_distance": 0.0
+    },
+    {
+      "label": "SELF-CHECK",
+      "reproduction_score": 100.0,
+      "focus_rms_dbfs": -22.64,
+      "focus_low_ratio": 0.9668,
+      "focus_low_mid_ratio": 0.0304,
+      "focus_centroid_hz": 113.7,
+      "focus_side_to_mid_db": -32.4,
+      "signal_start_seconds": 0.4,
+      "trajectory_distance": 0.0
+    }
+  ]
+}
