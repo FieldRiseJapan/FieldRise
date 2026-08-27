@@ -52,6 +52,7 @@ class WireRow:
     exclusion_reason: str
     warning: str
     source_crop: str
+    panel_no: str = ""
 
 
 def app_root() -> Path:
@@ -420,7 +421,14 @@ def read_frame_header(gray: np.ndarray, frame: tuple[int, int, int, int]) -> tup
     return "UNCLEAR", "未分類"
 
 
-def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None) -> list[WireRow]:
+def compose_mark_text(panel_no: str, header: str, main_text: str) -> str:
+    """ホットマーカー用に、盤番号・見出し・主文字を明示的に連結する。"""
+    header_value = re.sub(r"\(\d+\)$", "", clean_text(header).upper())
+    parts = [clean_text(panel_no).upper(), header_value, normalize_main_candidate(main_text)]
+    return "-".join(part for part in parts if part and part != "UNCLEAR")
+
+
+def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None, panel_no: str = "") -> list[WireRow]:
     x, y, w, h = frame
     header, kind = read_frame_header(gray, frame)
     rows: list[WireRow] = []
@@ -460,9 +468,18 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
                 state = "警告あり"
         rows.append(WireRow(
             page_no, f"P{page_no}-F{frame_no}", header, kind, str(index), main, left, right,
-            extract_wire_codes(left, right), state, reason, warning, str(crop_path) if source_crop.size else "",
+            extract_wire_codes(left, right), state, reason, warning, str(crop_path) if source_crop.size else "", panel_no,
         ))
     return rows
+
+
+def extract_panel_number(gray: np.ndarray) -> str:
+    """右下の盤番号だけを保守的に抽出する。読めない場合は空欄のまま推測しない。"""
+    h, w = gray.shape
+    footer = crop(gray, int(w * .72), int(h * .76), int(w * .28), int(h * .24))
+    text = ocr(footer, 11).upper()
+    candidates = re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z](?:\(\d+\))?(?![A-Z0-9])", text)
+    return candidates[0] if candidates else ""
 
 
 def extract_order_number(gray: np.ndarray) -> str:
@@ -520,7 +537,7 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
     overview.merge_cells("B2:C2")
     overview["B2"] = "yutakaeng 検証出力"
     overview["B2"].font = Font(size=18, bold=True, color=NAVY)
-    overview["B3"] = "候補データです。利用者の全行確認と警告0件が完了するまでホットマーカー用の最終データには使用しません。"
+    overview["B3"] = "警告行だけを確認・修正してください。警告がない行は確認不要です。"
     overview["B3"].alignment = Alignment(wrap_text=True, vertical="center")
     overview.row_dimensions[3].height = 36
     summary = [
@@ -528,7 +545,7 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         ("対象外行数", sum(item.state == "対象外" for item in rows)),
         ("警告行数", sum(item.state == "警告あり" for item in rows)),
         ("出力場所", str(path)),
-        ("安全状態", "全行確認・警告0件が完了するまで最終出力不可"),
+        ("安全状態", "警告行の確認・修正が完了するまで最終出力不可"),
     ]
     overview["B5"], overview["C5"] = "項目", "結果"
     for index, (name, value) in enumerate(summary, 6):
@@ -542,15 +559,15 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
     groups: dict[str, list[WireRow]] = defaultdict(list)
     for item in usable:
         if item.kind == "未分類":
-            groups["解析保留"].append(item)
+            groups["警告一覧"].append(item)
         elif item.wire_codes:
             for code in item.wire_codes:
                 groups[code].append(item)
         else:
-            groups["未分類"].append(item)
+            groups["警告一覧"].append(item)
 
     used = {"概要"}
-    for code in sorted(groups, key=lambda value: (value in {"未分類", "解析保留"}, value)):
+    for code in sorted(groups, key=lambda value: (value == "警告一覧", value)):
         ws = wb.create_sheet(safe_sheet_name(code, used))
         ws.sheet_view.showGridLines = False
         # ホットマーカー作業に必要な列を先頭へ固定し、原図照合用の情報は右側へまとめる。
@@ -561,27 +578,31 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         ws.cell(2, 1, f"電線サイズ・コード: {code}（確認用候補）")
         ws.cell(2, 1).font = Font(name="Yu Gothic", size=15, bold=True, color=NAVY)
         ws.merge_cells(start_row=3, start_column=1, end_row=3, end_column=len(widths))
-        ws.cell(3, 1, "マーク個数は主文字を安全に読めた別電線1本につき2個の候補です。確認状態・警告を全行確認してから最終確定してください。")
+        ws.cell(3, 1, "マーク個数は安全に読めた別電線1本につき2個です。確認状態は警告行だけを確認・修正してください。")
         ws.cell(3, 1).alignment = Alignment(wrap_text=True)
         headers = ["マーク主文字", "マーク個数", "読取状態", "確認状態", "L側接続先", "R側接続先", "線コード", "見出し", "種別", "PDFページ", "枠ID", "行番号", "警告・除外理由"]
         for col, value in enumerate(headers, 1):
             ws.cell(5, col, value)
         for row_no, item in enumerate(groups[code], 6):
             mark_count = 2 if item.main_text and item.state != "対象外" else 0
-            values = [item.main_text, mark_count, item.state, "対象外" if item.state == "対象外" else "未確認", item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, item.warning or item.exclusion_reason]
+            display_main = compose_mark_text(item.panel_no, item.header, item.main_text) if item.main_text else ""
+            read_state = "読取済み" if item.state == "未確認" else item.state
+            confirm_state = "対象外" if item.state == "対象外" else ("警告確認" if item.state == "警告あり" else "確認不要")
+            values = [display_main, mark_count, read_state, confirm_state, item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, item.warning or item.exclusion_reason]
             for col, value in enumerate(values, 1):
                 ws.cell(row_no, col, value)
         end = 5 + len(groups[code])
         style_table(ws, 5, end, len(headers), start_column=1)
-        validation = DataValidation(type="list", formula1='"未確認,確認済み,要修正,対象外"', allow_blank=False)
+        validation = DataValidation(type="list", formula1='"警告確認,確認済み,要修正,確認不要,対象外"', allow_blank=False)
         ws.add_data_validation(validation); validation.add(f"D6:D{end}")
         ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="要修正"'], fill=PatternFill("solid", fgColor=WARN)))
+        ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="警告確認"'], fill=PatternFill("solid", fgColor=WARN)))
         ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="対象外"'], fill=PatternFill("solid", fgColor=EXCLUDED)))
         ws.conditional_formatting.add(f"C6:C{end}", FormulaRule(formula=['C6="警告あり"'], fill=PatternFill("solid", fgColor=WARN)))
         ws.freeze_panes = "A6"; ws.auto_filter.ref = f"A5:M{end}"
     if not groups:
-        ws = wb.create_sheet("未分類")
-        ws["B2"] = "有効な電線候補を抽出できませんでした。元PDFを確認してください。"
+        ws = wb.create_sheet("警告一覧")
+        ws["B2"] = "電線サイズを特定できない行です。警告理由を確認してください。"
     wb.save(path)
     log("EXCEL_WRITE_DONE", f"デスクトップへ保存しました: {path.name}")
     return path
@@ -615,12 +636,14 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn) -> Path
             if page_index == 1:
                 order_no = extract_order_number(image)
                 log("ORDER_SCAN", f"オーダー番号候補: {order_no}")
+            panel_no = extract_panel_number(image)
+            log("PANEL_SCAN", f"盤番号候補: {panel_no or '未読取'}")
             # 主文字は画像層の単純切出しではなく、300dpi描画画像を用いるローカルONNX OCRで読む。
             # これにより画像層の反転・配置差で黒塗り相当を認識する不具合を回避する。
             frames = detect_frames(image)
             log("FRAME_DETECT", f"ページ {page_index}: {len(frames)}枠候補を検出")
             for index, frame in enumerate(frames, 1):
-                all_rows.extend(analyze_frame(image, page_index, index, frame, crops, review_dir))
+                all_rows.extend(analyze_frame(image, page_index, index, frame, crops, review_dir, panel_no))
             progress(page_index, total)
         log("RULE_FILTER", "DT系端子台、D-線コード、端子台の盤内行きIを対象外として判定")
         log("SHEET_GROUP", "電線サイズ・コードごとにExcelシートを作成")
