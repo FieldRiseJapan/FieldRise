@@ -43,7 +43,7 @@
 **候補登録Commit SHA:** `c4c7fdf182061eb0d72081d0beaa9c9305c233fe`
 **時間軸再現度Commit SHA:** `4bec35c45d0d364daf94dceef34f71e1fdded114`
 **SunoテンプレートCommit SHA:** `8d810230b4df9ef566cb55a8aa5a77893fcc2dba`
-**最終回帰Commit SHA:** この報告の保存後に確定し、反映結果を追記する。
+**最終回帰成果Commit SHA:** `2f9b01dd64edf716c16d1f220a16ff9e141c58c9`（回帰証跡、詳細報告、入口更新、履歴バックアップ）
 **Push先:** `origin/main`
 
 ## References
