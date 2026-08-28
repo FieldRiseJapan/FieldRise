@@ -49,3 +49,36 @@
 ## References
 
 [1]: https://github.com/FieldRiseJapan/FieldRise/actions/runs/33115325713 "GitHub Actions — Cafe Reproduction System Regression #33115325713"
+
+## LINE通知運用更新（2026-08-28）
+
+### 完了状況
+
+社長の指定どおり、必要な通知を毎朝7:00 JSTの「定時報告書」に限定しました。タスク完了時に個別LINEを送る `桃花 - タスク完了LINE自動通知` は停止し、同ワークフローの `LINE_TARGET_ID` 未設定による失敗実行およびGitHubからの失敗メールが新たに発生しない状態にしました。
+
+### 原因と判断
+
+`桃花 - タスク完了LINE自動通知` の直近失敗実行では、`LINE_CHANNEL_ACCESS_TOKEN` は参照されていましたが、`LINE_TARGET_ID` が空で、送信先を確定できず `send_failed` となっていました。送信先IDを推測してSecretへ登録することはせず、タスク完了通知そのものを停止する社長判断を適用しました。
+
+### 維持する定時報告
+
+`FieldRise AI秘書 - 定時報告` は有効なまま維持し、スケジュールを `0 22 * * *`（UTC）へ修正しました。これは毎朝 **7:00 JST** に相当します。定時報告ワークフローは `LINE_CHANNEL_ACCESS_TOKEN` を使用する既存のBroadcast方式で、毎朝の定時報告書をLINEへ送信します。RunaGirl8215ページURLも定時報告本文へ継続掲載します。
+
+### 検証
+
+`python3 automation/scripts/test_send_line_notification.py` と `python3 -m unittest tests/test_momoka_task_completion_notify.py` は成功しました。定時報告ワークフローの7:00 JST設定はmain上で確認済みです。タスク完了通知ワークフローはGitHub上で `disabled_manually` になっており、定時報告ワークフローは `active` です。
+
+### Commit / Push
+
+この運用更新の正式報告は本ファイルへ保存し、`origin/main` へPushします。最終Commit SHAはPush後に確定して追記します。
+
+### 未完了・ブロッカー
+
+7:00 JSTの次回定時実行は、GitHub Actionsのスケジュール実行結果と社長のLINE受信端末で確認する必要があります。タスク完了時の個別LINE通知を将来再開する場合は、社長の明示承認と、送信先IDの安全な取得・Secret設定・1通の到達確認が必要です。
+
+### 彩花CTOが次に確認するファイル
+
+- `.github/workflows/daily-briefing.yml`
+- `.github/workflows/momoka-task-completion-line-notify.yml`（停止済み）
+- `docs/momoka/reports/latest_report.md`
+- `automation/scripts/send_line_notification.py`
