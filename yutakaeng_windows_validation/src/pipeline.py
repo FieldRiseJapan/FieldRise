@@ -558,16 +558,19 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
     usable = [item for item in rows if item.state != "対象外"]
     groups: dict[str, list[WireRow]] = defaultdict(list)
     for item in usable:
-        if item.kind == "未分類":
-            groups["警告一覧"].append(item)
-        elif item.wire_codes:
+        if item.wire_codes and item.kind != "未分類":
             for code in item.wire_codes:
                 groups[code].append(item)
+        elif not item.wire_codes:
+            # 図面に線サイズが書かれていない、またはOCRで判別できない行も削除しない。
+            # サイズ別シートではなく専用シートへまとめ、利用者が確認・入力できるようにする。
+            groups["線サイズ未記載"].append(item)
         else:
+            # 線サイズは読めても見出しが分類不能な場合は、マーカー候補に混ぜず警告一覧へ残す。
             groups["警告一覧"].append(item)
 
     used = {"概要"}
-    for code in sorted(groups, key=lambda value: (value == "警告一覧", value)):
+    for code in sorted(groups, key=lambda value: (value in {"線サイズ未記載", "警告一覧"}, value == "警告一覧", value)):
         ws = wb.create_sheet(safe_sheet_name(code, used))
         ws.sheet_view.showGridLines = False
         # ホットマーカー作業に必要な列を先頭へ固定し、原図照合用の情報は右側へまとめる。
@@ -597,9 +600,13 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
                 previous_header = header_value
             mark_count = 2 if item.main_text and item.state != "対象外" else 0
             display_main = compose_mark_text(item.panel_no, item.header, item.main_text) if item.main_text else ""
-            read_state = "読取済み" if item.state == "未確認" else item.state
-            confirm_state = "対象外" if item.state == "対象外" else ("警告確認" if item.state == "警告あり" else "確認不要")
-            values = [display_main, mark_count, read_state, confirm_state, item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, item.warning or item.exclusion_reason]
+            size_missing = not item.wire_codes
+            read_state = "警告あり" if size_missing else ("読取済み" if item.state == "未確認" else item.state)
+            confirm_state = "対象外" if item.state == "対象外" else ("警告確認" if (item.state == "警告あり" or size_missing) else "確認不要")
+            warning_text = item.warning or item.exclusion_reason
+            if size_missing:
+                warning_text = f"{warning_text}; 線サイズ未記載または未読取" if warning_text else "線サイズ未記載または未読取"
+            values = [display_main, mark_count, read_state, confirm_state, item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, warning_text]
             for col, value in enumerate(values, 1):
                 ws.cell(output_row, col, value)
             output_row += 1
