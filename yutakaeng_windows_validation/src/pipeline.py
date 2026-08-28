@@ -153,7 +153,15 @@ def is_terminal(header: str) -> bool:
     return classify_header(header) == "端子台"
 
 
-def exclusion_reason(header: str, left: str, right: str) -> str:
+def is_internal_wire_reference(header: str, left: str, right: str) -> bool:
+    """端子台側のI表記を盤内線として判定する。単独のIを英数字ノイズとして拡張しない。"""
+    if not is_terminal(header):
+        return False
+    refs = f"{left}/{right}".upper()
+    return bool(re.search(r"(^|[=/])\s*I(?=$|[-=/:.])", refs))
+
+
+def exclusion_reason(header: str, left: str, right: str, keep_internal: bool = False) -> str:
     h = normalize_header(header)
     if h.startswith("DT"):
         return "対象外: 扉付きDT系端子台"
@@ -163,7 +171,7 @@ def exclusion_reason(header: str, left: str, right: str) -> str:
     # ZTブロックのLEFT/RIGHTは盤間配線であり、I除外より優先して対象に残す。
     if h.startswith("ZT") and re.search(r"\b(?:LEFT|RIGHT)-", refs):
         return ""
-    if is_terminal(header) and re.search(r"(^|[=/])\s*I(?=$|[-=/:.])", refs):
+    if not keep_internal and is_internal_wire_reference(header, left, right):
         return "対象外: 端子台接続先のIは盤内行き"
     return ""
 
@@ -443,7 +451,7 @@ def compose_mark_text(panel_no: str, header: str, main_text: str) -> str:
     return "-".join(part for part in parts if part and part != "UNCLEAR")
 
 
-def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None, panel_no: str = "") -> list[WireRow]:
+def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None, panel_no: str = "", internal_only: bool = False) -> list[WireRow]:
     x, y, w, h = frame
     header, kind = read_frame_header(gray, frame)
     rows: list[WireRow] = []
@@ -456,7 +464,9 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
         # 実データがない空行は出力しない。文字が読めた行だけを確認対象として残す。
         if not any((left, main, right)):
             continue
-        reason = exclusion_reason(header, left, right)
+        if internal_only and not is_internal_wire_reference(header, left, right):
+            continue
+        reason = exclusion_reason(header, left, right, keep_internal=internal_only)
         warning = "; ".join(item for item in (main_warning, left_warning, right_warning) if item)
         state = "対象外" if reason else "未確認"
         # 主文字の未読取・候補不一致・単独候補は、空欄であっても必ず利用者確認の警告として残す。
@@ -655,7 +665,7 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
     return path
 
 
-def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn) -> Path:
+def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, internal_only: bool = False) -> Path:
     configure_tesseract()
     pdf_path = Path(pdf_path)
     if not pdf_path.exists() or pdf_path.suffix.lower() != ".pdf":
@@ -690,9 +700,12 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn) -> Path
             frames = detect_frames(image)
             log("FRAME_DETECT", f"ページ {page_index}: {len(frames)}枠候補を検出")
             for index, frame in enumerate(frames, 1):
-                all_rows.extend(analyze_frame(image, page_index, index, frame, crops, review_dir, panel_no))
+                all_rows.extend(analyze_frame(image, page_index, index, frame, crops, review_dir, panel_no, internal_only=internal_only))
             progress(page_index, total)
-        log("RULE_FILTER", "DT系端子台、D-線コード、端子台の盤内行きIを対象外として判定")
+        if internal_only:
+            log("RULE_FILTER", "盤内線モード: 端子台のI表記だけを対象として出力")
+        else:
+            log("RULE_FILTER", "DT系端子台、D-線コード、端子台の盤内行きIを対象外として判定")
         log("SHEET_GROUP", "電線サイズ・コードごとにExcelシートを作成")
         output = write_excel(all_rows, pdf_path, order_no, desktop_path(), log)
         warning_count = sum(item.state == "警告あり" for item in all_rows)
