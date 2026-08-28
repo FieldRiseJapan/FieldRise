@@ -111,6 +111,21 @@ def classify_header(header: str) -> str:
     return "未分類"
 
 
+def wire_size_status(*values: str) -> str:
+    """線サイズの状態を、未記載と記載あり・判別不明に分ける。
+
+    文字がまったくない場合は未記載、文字や数字はあるが安全な色+サイズ構文に
+    一致しない場合は判別不明とする。推測によるサイズ補正は行わない。
+    """
+    texts = [clean_text(value).upper().replace(" ", "") for value in values if clean_text(value)]
+    meaningful = [text for text in texts if text not in {"UNCLEAR", "未判読"}]
+    if not meaningful:
+        return "未記載"
+    if extract_wire_codes(*meaningful):
+        return "判別済み"
+    return "判別不明"
+
+
 def extract_wire_codes(*values: str) -> list[str]:
     """左右接続先に付く線コードだけを抽出する。主文字・接続先番号はシート名に使わない。"""
     codes: list[str] = []
@@ -561,16 +576,18 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         if item.wire_codes and item.kind != "未分類":
             for code in item.wire_codes:
                 groups[code].append(item)
-        elif not item.wire_codes:
-            # 図面に線サイズが書かれていない、またはOCRで判別できない行も削除しない。
-            # サイズ別シートではなく専用シートへまとめ、利用者が確認・入力できるようにする。
+        elif wire_size_status(item.left_reference, item.right_reference) == "未記載":
+            # 図面に線サイズがない行は、判別不明行と分けて残す。
             groups["線サイズ未記載"].append(item)
+        elif wire_size_status(item.left_reference, item.right_reference) == "判別不明":
+            # 記載らしき文字はあるが安全な色+サイズ構文でない行は推測せず分離する。
+            groups["線サイズ判別不明"].append(item)
         else:
             # 線サイズは読めても見出しが分類不能な場合は、マーカー候補に混ぜず警告一覧へ残す。
             groups["警告一覧"].append(item)
 
     used = {"概要"}
-    for code in sorted(groups, key=lambda value: (value in {"線サイズ未記載", "警告一覧"}, value == "警告一覧", value)):
+    for code in sorted(groups, key=lambda value: (value in {"線サイズ未記載", "線サイズ判別不明", "警告一覧"}, value == "警告一覧", value)):
         ws = wb.create_sheet(safe_sheet_name(code, used))
         ws.sheet_view.showGridLines = False
         # ホットマーカー作業に必要な列を先頭へ固定し、原図照合用の情報は右側へまとめる。
@@ -600,12 +617,15 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
                 previous_header = header_value
             mark_count = 2 if item.main_text and item.state != "対象外" else 0
             display_main = compose_mark_text(item.panel_no, item.header, item.main_text) if item.main_text else ""
-            size_missing = not item.wire_codes
+            size_status = wire_size_status(item.left_reference, item.right_reference)
+            size_missing = size_status != "判別済み"
             read_state = "警告あり" if size_missing else ("読取済み" if item.state == "未確認" else item.state)
             confirm_state = "対象外" if item.state == "対象外" else ("警告確認" if (item.state == "警告あり" or size_missing) else "確認不要")
             warning_text = item.warning or item.exclusion_reason
-            if size_missing:
-                warning_text = f"{warning_text}; 線サイズ未記載または未読取" if warning_text else "線サイズ未記載または未読取"
+            if size_status == "未記載":
+                warning_text = f"{warning_text}; 線サイズ未記載" if warning_text else "線サイズ未記載"
+            elif size_status == "判別不明":
+                warning_text = f"{warning_text}; 線サイズ判別不明" if warning_text else "線サイズ判別不明"
             values = [display_main, mark_count, read_state, confirm_state, item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, warning_text]
             for col, value in enumerate(values, 1):
                 ws.cell(output_row, col, value)
