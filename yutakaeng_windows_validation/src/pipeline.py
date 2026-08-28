@@ -422,9 +422,9 @@ def read_frame_header(gray: np.ndarray, frame: tuple[int, int, int, int]) -> tup
 
 
 def compose_mark_text(panel_no: str, header: str, main_text: str) -> str:
-    """ホットマーカー用に、盤番号・見出し・主文字を明示的に連結する。"""
+    """写真形式のマーク文字を作る。盤番号はシート上部、見出しはグループ行へ出す。"""
     header_value = re.sub(r"\(\d+\)$", "", clean_text(header).upper())
-    parts = [clean_text(panel_no).upper(), header_value, normalize_main_candidate(main_text)]
+    parts = [header_value, normalize_main_candidate(main_text)]
     return "-".join(part for part in parts if part and part != "UNCLEAR")
 
 
@@ -577,22 +577,42 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=len(widths))
         ws.cell(2, 1, f"電線サイズ・コード: {code}（確認用候補）")
         ws.cell(2, 1).font = Font(name="Yu Gothic", size=15, bold=True, color=NAVY)
+        ws.cell(4, 1, f"盤番号: {rows[0].panel_no if rows and rows[0].panel_no else '要確認'}")
+        ws.cell(4, 1).font = Font(name="Yu Gothic", size=11, bold=True, color=NAVY)
         ws.merge_cells(start_row=3, start_column=1, end_row=3, end_column=len(widths))
         ws.cell(3, 1, "マーク個数は安全に読めた別電線1本につき2個です。確認状態は警告行だけを確認・修正してください。")
         ws.cell(3, 1).alignment = Alignment(wrap_text=True)
         headers = ["マーク主文字", "マーク個数", "読取状態", "確認状態", "L側接続先", "R側接続先", "線コード", "見出し", "種別", "PDFページ", "枠ID", "行番号", "警告・除外理由"]
         for col, value in enumerate(headers, 1):
             ws.cell(5, col, value)
-        for row_no, item in enumerate(groups[code], 6):
+        output_row = 6
+        section_rows: list[int] = []
+        previous_header = ""
+        for item in groups[code]:
+            header_value = re.sub(r"\(\d+\)$", "", clean_text(item.header).upper()) or "未分類"
+            if header_value != previous_header:
+                section_rows.append(output_row)
+                ws.cell(output_row, 1, header_value)
+                output_row += 1
+                previous_header = header_value
             mark_count = 2 if item.main_text and item.state != "対象外" else 0
             display_main = compose_mark_text(item.panel_no, item.header, item.main_text) if item.main_text else ""
             read_state = "読取済み" if item.state == "未確認" else item.state
             confirm_state = "対象外" if item.state == "対象外" else ("警告確認" if item.state == "警告あり" else "確認不要")
             values = [display_main, mark_count, read_state, confirm_state, item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, item.warning or item.exclusion_reason]
             for col, value in enumerate(values, 1):
-                ws.cell(row_no, col, value)
-        end = 5 + len(groups[code])
+                ws.cell(output_row, col, value)
+            output_row += 1
+        end = output_row - 1
         style_table(ws, 5, end, len(headers), start_column=1)
+        for section_row in section_rows:
+            for col in range(1, len(headers) + 1):
+                cell = ws.cell(section_row, col)
+                cell.fill = PatternFill("solid", fgColor=SECTION)
+                cell.font = Font(name="Yu Gothic", size=12, bold=True, color=NAVY)
+                cell.alignment = Alignment(vertical="center")
+                cell.border = Border(bottom=THIN)
+            ws.row_dimensions[section_row].height = 24
         validation = DataValidation(type="list", formula1='"警告確認,確認済み,要修正,確認不要,対象外"', allow_blank=False)
         ws.add_data_validation(validation); validation.add(f"D6:D{end}")
         ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="要修正"'], fill=PatternFill("solid", fgColor=WARN)))

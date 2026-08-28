@@ -25,9 +25,10 @@ with tempfile.TemporaryDirectory() as temp_dir:
     worksheet = workbook["Y2"]
     expected_headers = ["マーク主文字", "マーク個数", "読取状態", "確認状態", "L側接続先", "R側接続先", "線コード", "見出し", "種別", "PDFページ", "枠ID", "行番号", "警告・除外理由"]
     check([cell.value for cell in worksheet[5]], expected_headers, "hot-marker column order")
-    check([worksheet.cell(6, column).value for column in range(1, 8)], ["1A-YF-FL1A11", 2, "読取済み", "確認不要", "L-A", "R-Y2", "Y2"], "panel/header prefix and warning-only confirmation")
-    check([worksheet.cell(7, column).value for column in range(1, 4)], [None, 0, "警告あり"], "unread main text receives zero marks")
-    check(compose_mark_text("3A", "T1(2)", "BTBT2BP"), "3A-T1-BTBT2BP", "terminal block prefix")
+    check([worksheet.cell(6, column).value for column in range(1, 4)], ["YF", None, None], "standalone header row")
+    check([worksheet.cell(7, column).value for column in range(1, 8)], ["YF-FL1A11", 2, "読取済み", "確認不要", "L-A", "R-Y2", "Y2"], "main row below header")
+    check([worksheet.cell(8, column).value for column in range(1, 4)], [None, 0, "警告あり"], "unread main text receives zero marks")
+    check(compose_mark_text("3A", "T1(2)", "BTBT2BP"), "T1-BTBT2BP", "terminal block prefix without panel number")
     check(worksheet.freeze_panes, "A6", "top layout is frozen below headers")
 
 print("ALL EXCEL LAYOUT TESTS PASSED")

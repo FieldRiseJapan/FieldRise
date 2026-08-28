@@ -126,3 +126,10 @@ WindowsビルドではRapidOCR、ONNX Runtime、RapidOCRモデルを実行フォ
 Excelのファイル名は、抽出できたオーダー番号をそのまま`.xlsx`の前に使用する既存仕様を維持した。オーダー番号が安全に抽出できない場合だけ、推測命名を避けて`要確認_入力PDF名_日時.xlsx`となる。今後の変更に備え、UI、解析パイプライン、試験、説明書、検証記録、Windowsビルドの役割を`PROJECT_STRUCTURE.md`へ整理した。
 
 検証結果は、`src/app.py`と`src/pipeline.py`の構文検査、`tests_excel_layout.py`、`tests_pipeline_rules.py`、UI表示要素の静的確認がすべて合格した。PySide6本体の画面起動確認は、Linux開発環境にPySide6がないためWindows Actionsで確認する。
+
+
+## 写真準拠のExcel配置変更
+
+見出しを主文字の各行へ重複付加する方式を廃止し、各グループの先頭にYF、ZF、T1、IFなどの見出しを単独行で挿入し、その直下へ主文字を並べる方式へ変更した。主文字はYF-FL1A11、ZF-B-BTB2C6、T1-TB2F1A1のように、見出しまたは端子台識別子だけを先頭へ付ける。盤番号はシート上部の欄へ表示する。
+
+回帰試験では、見出し単独行、主文字行、未読取行のマーク個数0、T1の主文字表記、既存の列順とfreeze panesを確認した。業務ルール試験も継続して合格している。

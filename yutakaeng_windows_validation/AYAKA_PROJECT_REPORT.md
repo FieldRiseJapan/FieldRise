@@ -99,3 +99,10 @@ Excelの`マーク主文字`は、読取できた場合に`盤番号-見出し�
 
 [1]: https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/copilot-apis-overview Microsoft 365 Copilot APIs Overview, Microsoft Learn
 [2]: https://learn.microsoft.com/en-us/microsoft-copilot-studio/image-input-analysis Allow file input from users, Microsoft Learn
+
+
+## 2026-08-27 写真準拠Excel配置の追加修正
+
+写真の確認により、「主文字の先頭へ見出しを付ける」という表現をExcel上部の先頭行ではなく、主文字文字列へ重複付加する意味と誤解していたことが判明した。実際の要望は、電線サイズシートのグループ先頭へYF、ZF、T1、IFなどの見出しを単独行で置き、その直下へ主文字行を並べる形式である。
+
+このため、主文字は`YF-FL1A11`、`ZF-B-BTB2C6`、`T1-TB2F1A1`のように見出しまたは端子台識別子を1回だけ付加し、盤番号はシート上部の盤番号欄へ移した。正常行はこれまでどおり警告確認を不要とし、未読取行だけを警告として残す。写真準拠の見出し単独行、主文字行、未読取行のマーク個数0、既存業務ルールを回帰試験で確認し、すべて合格した。
