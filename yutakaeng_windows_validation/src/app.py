@@ -62,14 +62,15 @@ class Worker(QObject):
     completed = Signal(str)
     failed = Signal(str)
 
-    def __init__(self, path: str, internal_only: bool = False) -> None:
+    def __init__(self, path: str, internal_only: bool = False, x_only: bool = False) -> None:
         super().__init__()
         self.path = path
         self.internal_only = internal_only
+        self.x_only = x_only
 
     def run(self) -> None:
         try:
-            result = run_pipeline(self.path, self.log.emit, self.progress.emit, internal_only=self.internal_only)
+            result = run_pipeline(self.path, self.log.emit, self.progress.emit, internal_only=self.internal_only, x_only=self.x_only)
             self.completed.emit(str(result))
         except Exception as exc:
             self.failed.emit(str(exc))
@@ -121,11 +122,15 @@ class MainWindow(QMainWindow):
         self.internal_button.setObjectName("internalButton")
         self.internal_button.setToolTip("I表記の盤内線だけを抽出してExcelへ出力")
         self.internal_button.clicked.connect(self.choose_internal_pdf)
+        self.x_button = QPushButton("Xブロック")
+        self.x_button.setObjectName("xButton")
+        self.x_button.setToolTip("X1、X2などXブロックだけを抽出してExcelへ出力")
+        self.x_button.clicked.connect(self.choose_x_pdf)
         self.copilot_button = QPushButton("Copilotへ警告セルを確認依頼")
         self.copilot_button.setObjectName("copilotButton")
         self.copilot_button.clicked.connect(self.open_copilot_help)
         self.copilot_button.setVisible(False)
-        controls.addStretch(); controls.addWidget(self.choose_button); controls.addWidget(self.internal_button); controls.addWidget(self.copilot_button); controls.addStretch()
+        controls.addStretch(); controls.addWidget(self.choose_button); controls.addWidget(self.internal_button); controls.addWidget(self.x_button); controls.addWidget(self.copilot_button); controls.addStretch()
         layout.addLayout(controls)
 
         self.completion_banner = QLabel("解析完了！")
@@ -173,6 +178,8 @@ class MainWindow(QMainWindow):
         #copilotButton:hover { background: #7464e8; }
         #internalButton { background: #0b9b78; }
         #internalButton:hover { background: #18bd95; }
+        #xButton { background: #b57b1e; }
+        #xButton:hover { background: #d99a2b; }
         QPushButton:disabled { background: #254157; color: #7991a0; }
         #progressBox { background: #0a1c2d; border: 1px solid #1d4059; border-radius: 10px; padding: 8px; }
         QProgressBar { background: #071421; border: 1px solid #24516e; border-radius: 6px; height: 16px; color: #e8f5ff; text-align: center; }
@@ -196,7 +203,11 @@ class MainWindow(QMainWindow):
         path, _ = QFileDialog.getOpenFileName(self, "盤内線用PDFを選択（I表記のみ）", str(Path.home()), "PDF files (*.pdf)")
         if path: self.start_analysis(path, internal_only=True)
 
-    def start_analysis(self, path: str, internal_only: bool = False) -> None:
+    def choose_x_pdf(self) -> None:
+        path, _ = QFileDialog.getOpenFileName(self, "Xブロック用PDFを選択（Xブロックのみ）", str(Path.home()), "PDF files (*.pdf)")
+        if path: self.start_analysis(path, x_only=True)
+
+    def start_analysis(self, path: str, internal_only: bool = False, x_only: bool = False) -> None:
         if self._thread and self._thread.isRunning():
             return
         self._input_path = Path(path)
@@ -204,9 +215,9 @@ class MainWindow(QMainWindow):
         self._last_output_path = None
         self.completion_banner.setVisible(False)
         self.copilot_button.setVisible(False)
-        self.internal_button.setDisabled(True)
+        self.internal_button.setDisabled(True); self.x_button.setDisabled(True)
         self.choose_button.setDisabled(True); self.drop_zone.setDisabled(True)
-        self.drop_zone.setVisible(False); self.choose_button.setVisible(False); self.internal_button.setVisible(False)
+        self.drop_zone.setVisible(False); self.choose_button.setVisible(False); self.internal_button.setVisible(False); self.x_button.setVisible(False)
         self.progress.setValue(0); self._done, self._total = 0, 1
         self._last_done = 0; self._last_progress_at = time.monotonic()
         self._seconds_per_page = 8.0; self._estimated_total_seconds = 8.0
@@ -217,11 +228,15 @@ class MainWindow(QMainWindow):
         self.append_log("PIPELINE_START", "OCR候補抽出・除外判定・電線サイズ別Excel出力を開始")
         if internal_only:
             self.append_log("INTERNAL_WIRE_MODE", "盤内線モード / I表記だけを抽出")
+        if x_only:
+            self.append_log("X_BLOCK_MODE", "Xブロックモード / Xブロックだけを抽出")
         self.append_log("SECURITY_MODE", "LOCAL ONLY / PDF画像は外部送信しません")
         self.append_log("DISPLAY_MODE", "FULL SCREEN TERMINAL / 警告行のみ確認")
         if internal_only:
             self.append_log("TARGET_FILTER", "対象: I表記の盤内線のみ / 通常解析の除外ルールは維持")
-        self._thread = QThread(self); self._worker = Worker(path, internal_only=internal_only); self._worker.moveToThread(self._thread)
+        if x_only:
+            self.append_log("TARGET_FILTER", "対象: X1、X2などXブロックのみ / 通常の安全除外ルールは維持")
+        self._thread = QThread(self); self._worker = Worker(path, internal_only=internal_only, x_only=x_only); self._worker.moveToThread(self._thread)
         self._thread.started.connect(self._worker.run)
         self._worker.log.connect(self.append_log); self._worker.progress.connect(self.on_progress)
         self._worker.completed.connect(self.on_complete); self._worker.failed.connect(self.on_failure)
@@ -290,8 +305,8 @@ class MainWindow(QMainWindow):
         QMessageBox.critical(self, "yutakaeng", f"解析を停止しました。\n\n{message}")
 
     def cleanup_thread(self) -> None:
-        self.choose_button.setDisabled(False); self.drop_zone.setDisabled(False)
-        self.choose_button.setVisible(True); self.drop_zone.setVisible(True)
+        self.choose_button.setDisabled(False); self.internal_button.setDisabled(False); self.x_button.setDisabled(False); self.drop_zone.setDisabled(False)
+        self.choose_button.setVisible(True); self.internal_button.setVisible(True); self.x_button.setVisible(True); self.drop_zone.setVisible(True)
         if self._thread:
             self._thread.deleteLater()
         self._thread = None; self._worker = None

@@ -153,6 +153,13 @@ def is_terminal(header: str) -> bool:
     return classify_header(header) == "端子台"
 
 
+def is_x_block(header: str) -> bool:
+    """X1、X2など、Xで始まる端子台ブロックだけを判定する。"""
+    normalized = normalize_header(header)
+    base = re.split(r"[-(]", normalized)[0]
+    return bool(re.fullmatch(r"X\d+", base))
+
+
 def is_internal_wire_reference(header: str, left: str, right: str) -> bool:
     """端子台側のI表記を盤内線として判定する。単独のIを英数字ノイズとして拡張しない。"""
     if not is_terminal(header):
@@ -451,7 +458,7 @@ def compose_mark_text(panel_no: str, header: str, main_text: str) -> str:
     return "-".join(part for part in parts if part and part != "UNCLEAR")
 
 
-def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None, panel_no: str = "", internal_only: bool = False) -> list[WireRow]:
+def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None, panel_no: str = "", internal_only: bool = False, x_only: bool = False) -> list[WireRow]:
     x, y, w, h = frame
     header, kind = read_frame_header(gray, frame)
     rows: list[WireRow] = []
@@ -465,6 +472,8 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
         if not any((left, main, right)):
             continue
         if internal_only and not is_internal_wire_reference(header, left, right):
+            continue
+        if x_only and not is_x_block(header):
             continue
         reason = exclusion_reason(header, left, right, keep_internal=internal_only)
         warning = "; ".join(item for item in (main_warning, left_warning, right_warning) if item)
@@ -665,7 +674,7 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
     return path
 
 
-def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, internal_only: bool = False) -> Path:
+def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, internal_only: bool = False, x_only: bool = False) -> Path:
     configure_tesseract()
     pdf_path = Path(pdf_path)
     if not pdf_path.exists() or pdf_path.suffix.lower() != ".pdf":
@@ -700,10 +709,12 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
             frames = detect_frames(image)
             log("FRAME_DETECT", f"ページ {page_index}: {len(frames)}枠候補を検出")
             for index, frame in enumerate(frames, 1):
-                all_rows.extend(analyze_frame(image, page_index, index, frame, crops, review_dir, panel_no, internal_only=internal_only))
+                all_rows.extend(analyze_frame(image, page_index, index, frame, crops, review_dir, panel_no, internal_only=internal_only, x_only=x_only))
             progress(page_index, total)
         if internal_only:
             log("RULE_FILTER", "盤内線モード: 端子台のI表記だけを対象として出力")
+        elif x_only:
+            log("RULE_FILTER", "Xブロックモード: X1、X2などXブロックだけを対象として出力")
         else:
             log("RULE_FILTER", "DT系端子台、D-線コード、端子台の盤内行きIを対象外として判定")
         log("SHEET_GROUP", "電線サイズ・コードごとにExcelシートを作成")
