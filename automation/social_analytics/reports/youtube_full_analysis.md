@@ -1,12 +1,12 @@
 # YouTubeフル分析レポート（公開データ版）
 
 **対象チャンネル:** [@@runa-girl8215](https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A)  
-**分析基準日:** 2026-08-27T03:19:41+00:00  
+**分析基準日:** 2026-08-28T05:49:45+00:00  
 **データ範囲:** YouTube Data API public channel statistics via API key。取得済み動画39本（公開動画数39本）
 
 ## エグゼクティブサマリー
 
-チャンネルの公開統計では、登録者数は**85**、公開動画数は**39**です。取得済み動画39本（公開動画数39本）の累計再生数は**6,644**であり、上位3本（「as it is EDM  Title,Vol.1～Title,Vol.7  #edmmusic #edm #edmmix」「Centennial Love　#music #snow #winter #lovesong」「you」）が**2,863**再生を占めました。これは取得対象の累計再生の**43.1%**に相当し、視聴が一部タイトルに集中していることを示します。
+チャンネルの公開統計では、登録者数は**85**、公開動画数は**39**です。取得済み動画39本（公開動画数39本）の累計再生数は**6,649**であり、上位3本（「as it is EDM  Title,Vol.1～Title,Vol.7  #edmmusic #edm #edmmix」「Centennial Love　#music #snow #winter #lovesong」「you」）が**2,863**再生を占めました。これは取得対象の累計再生の**43.1%**に相当し、視聴が一部タイトルに集中していることを示します。
 
 一方で、チャンネル説明が掲げるCafé Seriesの直近2本は、公開表示上それぞれ63回・13回でした。これだけでシリーズの将来性を判断することはできませんが、既存の高再生群がEDM・冬季テーマ・長尺コンピレーションを含むため、Café Seriesは一貫したサムネイル、タイトル語彙、再生リスト、短尺誘導を組み合わせ、独立した視聴導線として育てる余地があります。
 
@@ -15,7 +15,7 @@
 | 登録者数 | 85 | 公開統計 |
 | 公開動画数 | 39 | 公開統計 |
 | 取得動画数 | 39 | YouTube Data API public channel statistics via API key |
-| 取得動画の累計再生数 | 6,644 | 同上 |
+| 取得動画の累計再生数 | 6,649 | 同上 |
 | 視聴上位3本の累計再生数 | 2,863 | 観測対象に対する比率は43.1% |
 | Café Series確認動画 | 2 | 直近の公開動画2本 |
 
@@ -40,7 +40,7 @@
 | 7 | [Euro Snow Vibes  Refrain     #music #snow #winter](https://www.youtube.com/watch?v=sUJF5Jg6A1E) | 292 | winter |
 | 8 | [Fly! first　#jazzfusion #jazzEDM](https://www.youtube.com/watch?v=y7uqHSYFcg4) | 257 | edm |
 | 9 | [I'm a firebird #music #fire](https://www.youtube.com/watch?v=OU-E8lf840E) | 189 | other |
-| 10 | [Euro Snow Vibes　#music #恋愛 #切ない恋 #雪 #newmusic](https://www.youtube.com/watch?v=8snFp0oDL_c) | 174 | winter |
+| 10 | [Euro Snow Vibes　#music #恋愛 #切ない恋 #雪 #newmusic](https://www.youtube.com/watch?v=8snFp0oDL_c) | 176 | winter |
 
 ## 分析上の示唆
 

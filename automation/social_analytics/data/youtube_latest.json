@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-08-27T03:19:41+00:00",
+  "captured_at": "2026-08-28T05:49:45+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -126,14 +126,14 @@
     {
       "id": "Zwae-qC35lQ",
       "title": "Winter Again  #music #winter #snow #lovesong",
-      "views": 169,
+      "views": 170,
       "age_label": "2024-10-20T10:17:07Z",
       "category": "winter"
     },
     {
       "id": "8snFp0oDL_c",
       "title": "Euro Snow Vibes　#music #恋愛 #切ない恋 #雪 #newmusic",
-      "views": 174,
+      "views": 176,
       "age_label": "2024-10-11T15:09:38Z",
       "category": "winter"
     },
@@ -189,7 +189,7 @@
     {
       "id": "inf8vs2-cTw",
       "title": "Stage（Final chapter change up mode）",
-      "views": 63,
+      "views": 64,
       "age_label": "2024-09-19T12:23:23Z",
       "category": "other"
     },
@@ -203,7 +203,7 @@
     {
       "id": "zwEvFbqvM68",
       "title": "Sunrise （Cheese）",
-      "views": 43,
+      "views": 44,
       "age_label": "2024-09-12T13:13:03Z",
       "category": "other"
     },
