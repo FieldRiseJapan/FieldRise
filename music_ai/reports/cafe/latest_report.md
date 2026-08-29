@@ -74,3 +74,10 @@ GitHub Actionsのscheduleイベントが7:00 JSTより前に起動した場合�
 - [定時報告ワークフロー](https://github.com/FieldRiseJapan/FieldRise/blob/main/.github/workflows/daily-briefing.yml)
 - [Run 33279982686（LINE送信なしの手動検証）](https://github.com/FieldRiseJapan/FieldRise/actions/runs/33279982686)
 - [Run 33145925689（直近のschedule実行）](https://github.com/FieldRiseJapan/FieldRise/actions/runs/33145925689)
+
+
+### GitHub反映
+
+- **完全Commit SHA:** `37ae3118c955f179ce4a27af3892f69dcecf2c39`
+- **Push先:** `origin/main`
+- **変更:** 6:20 JST起動（UTC `20 21`）と、LINE送信前の7:00 JST同期待機
