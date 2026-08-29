@@ -20,12 +20,13 @@
 
 | 資産 | 役割 | 状態 |
 |---|---|---|
-| [`fieldrise-cafe-reproduction-analysis`スキル](../../skills/fieldrise-cafe-reproduction-analysis/SKILL.md) | 正本保護、候補登録、一変数検証、Fact/Hypothesis分離、Fender Studio引き渡しを標準化する。 | 利用可能 |
-| [`cafe_reproduction_analyzer.py`](../../tools/cafe_reproduction_analyzer.py) | 001・002別プロファイルで、帯域・Stereo・Onset・時間軸再現度を比較する。 | v1.1で検証済み |
-| [`cafe_candidate_intake.py`](../../tools/cafe_candidate_intake.py) | 候補音源・Suno設定・ハッシュ・変更変数をmanifest化する。 | 検証済み |
-| [`cafe_stem_assist.py`](../../tools/cafe_stem_assist.py) | Bass／Drums等の補助分離を行い、出力ハッシュを追跡する。 | 検証済み |
-| [`Suno実験テンプレート`](../../skills/fieldrise-cafe-reproduction-analysis/templates/suno_single_variable_experiment_manifest.md) | Prompt、Negative指定、Weirdness、Safe Zone、Style Influence、Strong、Durationを一変数実験として残す。 | 利用可能 |
-| [最終検証詳細](../../music_ai/analysis/cafe/2026-08-28_final_reproduction_system_regression.md) | 結果、証跡、未解決事項、次工程を記録する。 | 完了 |
+| [`fieldrise-cafe-reproduction-analysis`スキル](../../../skills/fieldrise-cafe-reproduction-analysis/SKILL.md) | 正本保護、候補登録、一変数検証、Fact/Hypothesis分離、Fender Studio引き渡しを標準化する。 | 利用可能 |
+| [`cafe_reproduction_analyzer.py`](../../../tools/cafe_reproduction_analyzer.py) | 001・002別プロファイルで、帯域・Stereo・Onset・時間軸再現度を比較する。 | v1.1で検証済み |
+| [`cafe_candidate_intake.py`](../../../tools/cafe_candidate_intake.py) | 候補音源・Suno設定・ハッシュ・変更変数をmanifest化する。 | 検証済み |
+| [`cafe_stem_assist.py`](../../../tools/cafe_stem_assist.py) | Bass／Drums等の補助分離を行い、出力ハッシュを追跡する。 | 検証済み |
+| [`Suno実験テンプレート`](../../../skills/fieldrise-cafe-reproduction-analysis/templates/suno_single_variable_experiment_manifest.md) | Prompt、Negative指定、Weirdness、Safe Zone、Style Influence、Strong、Durationを一変数実験として残す。 | 利用可能 |
+| [最終検証詳細](../../../music_ai/analysis/cafe/2026-08-28_final_reproduction_system_regression.md) | 結果、証跡、未解決事項、次工程を記録する。 | 完了 |
+| [彩花CTO向け引き継ぎ](../../ayaka/handover/2026-08-28_cafe_001_002_reproduction_handover.md) | 001／002別プロファイル、最初の一変数実験、候補提出条件を示す。 | 設計開始可能 |
 
 ## 001・002の運用判断
 
@@ -35,7 +36,7 @@
 
 ## 次の処理
 
-次のSuno候補またはFender Studio書き出しを受領したら、`cafe_candidate_intake.py`で候補manifestを作成してから、001または002のプロファイルで解析する。WAV 48 kHz／24-bit／Stereoを優先し、MP3はスクリーニング用として扱う。
+次のSuno候補またはFender Studio書き出しを受領したら、`cafe_candidate_intake.py`で候補manifestを作成してから、001または002のプロファイルで解析する。WAV 48 kHz／24-bit／Stereoを優先し、MP3はスクリーニング用として扱う。候補設計は[彩花CTO向け引き継ぎ](../../ayaka/handover/2026-08-28_cafe_001_002_reproduction_handover.md)の`001-E01`／`002-E01`から開始する。
 
 ## GitHub反映
 
