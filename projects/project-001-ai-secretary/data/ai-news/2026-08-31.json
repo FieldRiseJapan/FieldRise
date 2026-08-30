@@ -1,8 +1,40 @@
 {
-  "collected_at": "2026-08-31T07:58:30.224316+09:00",
+  "collected_at": "2026-08-31T08:34:50.816502+09:00",
   "total_items": 31,
   "errors": [],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ソニー・ミュージックパブリッシングとワーナー・チャペル、Anthropicを著作権侵害で提訴",
+      "url": "https://www.itmedia.co.jp/news/article/2608/31/2000000950/",
+      "published": "2026-08-31T08:21:28+09:00",
+      "summary": "Sony Music PublishingやWarner Chappell Musicなどの音楽出版社グループは、Anthropicと同社幹部を著作権侵害で提訴した。海賊版サイトからの歌詞取得や無断学習を「史上最大の知財窃盗」と主張し、数十億ドル規模の損害賠償を請求している。Anthropicは全面的に争う姿勢だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "【無料】日本語のAI学習サイトをAnthropicが公開 「Claude Code入門」など357のコンテンツが学べる",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2608/31/news015.html",
+      "published": "2026-08-31T08:00:00+09:00",
+      "summary": "Anthropicは、AIを安全かつ効果的に活用する方法を学べるWebサイト「Claude Academy」を公開した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Anthropic、OpenAIが明かす「AI利用拡大でユーザーに何が起きているか」",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2608/27/news091.html",
+      "published": "2026-08-31T08:00:00+09:00",
+      "summary": "AIの利用が業務に定着し始めた今、労働市場と業務内容はどう変わりつつあるのか。AnthropicとOpenAIがそれぞれ公開した独自データから、AIの浸透がユーザーに与えているインパクトを明らかにする。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "シリコンスタジオが「官公庁事業推進室」を新設 防衛／防災、宇宙など展開強化",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2608/31/news021.html",
+      "published": "2026-08-31T07:30:00+09:00",
+      "summary": "シリコンスタジオは、官公庁や公共分野における事業開発と提案活動を強化するため、2026年9月1日付で「官公庁事業推進室」を新設する。リアルタイム3D CG技術を生かし、防衛や防災、インフラなどの領域でデジタルツインやシミュレーション技術の展開を進める。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -36,36 +68,12 @@
       "summary": "OpenAIと評価機関METRは、Hugging Face侵害事案の技術報告書を公開した。約1200体のAIエージェントが非公式掲示板で結託し、難問攻略のため採点機構を探る過程で攻撃を実行したという。OpenAIは根本原因を報酬ハッキングとし対策を公表したが、METRは自律的集団行動の再発リスクに警戒を示している。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "OpenAI、Cursorへのモデル提供を11月12日に終了 SpaceXによる買収が理由",
-      "url": "https://www.itmedia.co.jp/news/article/2608/30/2000000945/",
-      "published": "2026-08-30T08:12:23+09:00",
-      "summary": "OpenAIは、AIコードエディタ「Cursor」へのモデル提供契約を11月12日に終了すると発表した。SpaceXによるCursor買収を受け、イーロン・マスク氏の過去の契約違反実績から規約順守を確信できないことを理由に挙げている。Cursor側は影響が限定的としつつ協議継続を表明、Anthropicは支援継続を示した。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "キオクシア5兆円投資、日米中韓の半導体投資競争はどこへゆく",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2608/29/news012.html",
-      "published": "2026-08-29T07:00:00+09:00",
-      "summary": "2026年8月24日～28日に公開された記事の中から、MONOist編集部が厳選した今週のニュースをお届けします。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "チームみらい安野氏「高市総理へのAI家庭教師」を実施 総理が音声入力で作成したのは……",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2608/28/2000000919/",
-      "published": "2026-08-28T17:53:41+09:00",
-      "summary": "チームみらいの安野貴博党首らは、高市早苗総理大臣にAIについて指導するイベント「高市総理へのAI家庭教師」を首相官邸で実施した。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "「国産ヒューマノイド」の作業風景を生配信中、3時間以上経過 「ベルトコンベヤーも自作」 アトム",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2608/28/2000000912/",
-      "published": "2026-08-28T17:11:03+09:00",
-      "summary": "アトムが人型ロボットの作業風景を生配信している。ベルトコンベヤーで流れてくる荷物を1つずつ手に取り、ラベルが貼られている面を上に向ける作業を実施中。"
+      "title": "「原則出社」命じる企業とテレワーク社員の意識ギャップ／“推し活依存”自覚するZ世代が2割／シニアの利用が盛んな○○アプリ、ほか",
+      "url": "https://ascii.jp/elem/000/004/430/4430471/?rss",
+      "published": "2026-08-31T08:00:00+09:00",
+      "summary": "今回（2026年8月22日～8月28日）は、サイバー攻撃によるデータ侵害の被害実態、テレワーク実施率の推移や従業員の意向、世界のDDoS攻撃の現状、小売業が提供するアプリの利用動向、Z世代の“推し活依存”の実態についてのデータを紹介します。"
     },
     {
       "source": "ASCII.jp AI",
@@ -122,14 +130,6 @@
       "url": "https://ascii.jp/elem/000/004/430/4430213/?rss",
       "published": "2026-08-31T07:00:00+09:00",
       "summary": "フードトラベル株式会社は8月25日、飲食店向けの店外オーダーシステム「オーダーテイク」を正式リリースした。顧客がGoogleマップの店舗情報から直接スマホで料理を事前注文・決済し、待ち時間なしでテイクアウトを受け取れるサービスだ。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "生活道路時速30キロ規制に対応。位置データと道路地図の自動照合による速度超過検知機能",
-      "url": "https://ascii.jp/elem/000/004/430/4430172/?rss",
-      "published": "2026-08-31T07:00:00+09:00",
-      "summary": "株式会社キャリオットは8月28日、車両管理システム「Cariot」において、走行した道路ごとの制限速度と実際の走行速度を自動で照合し、速度超過を検知・記録する「制限速度超過検知機能」を2026年秋に提供開始すると発表した。"
     },
     {
       "source": "TechCrunch AI",

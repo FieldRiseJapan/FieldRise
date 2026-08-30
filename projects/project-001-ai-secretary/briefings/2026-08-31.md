@@ -1,6 +1,6 @@
 # 2026-08-31（月）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 07:58 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:35 JST
 
 ---
 
@@ -32,12 +32,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [ソニー・ミュージックパブリッシングとワーナー・チャペル、Anthropicを著作権侵害で提訴](https://www.itmedia.co.jp/news/article/2608/31/2000000950/) — ITmedia AI+
+- [【無料】日本語のAI学習サイトをAnthropicが公開 「Claude Code入門」など357のコンテンツが学べる](https://atmarkit.itmedia.co.jp/ait/articles/2608/31/news015.html) — ITmedia AI+
+- [Anthropic、OpenAIが明かす「AI利用拡大でユーザーに何が起きているか」](https://www.itmedia.co.jp/enterprise/articles/2608/27/news091.html) — ITmedia AI+
+- [シリコンスタジオが「官公庁事業推進室」を新設 防衛／防災、宇宙など展開強化](https://monoist.itmedia.co.jp/mn/articles/2608/31/news021.html) — ITmedia AI+
 - [「AI時代、業務の再設計が必要」 それ、DXの時も言っていましたよね……本当にできる？ 日本IBMの答えは](https://www.itmedia.co.jp/business/articles/2608/31/news016.html) — ITmedia AI+
 - [AIが生成した“存在しない病名”、研修医の44％が信用 見抜けた医師との差は？ 仏大学病院が検証](https://www.itmedia.co.jp/news/article/2608/31/2000000865/) — ITmedia AI+
-- [パナソニックHDがAI・ロボティクス研究開発本部を新設、CAIOの榊原氏がトップに](https://monoist.itmedia.co.jp/mn/articles/2608/31/news057.html) — ITmedia AI+
-- [Hugging Face侵害事件、OpenAIとMETRが最終報告書公開──約1200体のAIエージェントが“闇掲示板”で結託し700体が攻撃に参加](https://www.itmedia.co.jp/news/article/2608/30/2000000949/) — ITmedia AI+
-- [OpenAI、Cursorへのモデル提供を11月12日に終了 SpaceXによる買収が理由](https://www.itmedia.co.jp/news/article/2608/30/2000000945/) — ITmedia AI+
-- [キオクシア5兆円投資、日米中韓の半導体投資競争はどこへゆく](https://monoist.itmedia.co.jp/mn/articles/2608/29/news012.html) — ITmedia AI+
 
 **海外AIニュース**
 
