@@ -2,9 +2,10 @@ name: FieldRise AI秘書 - 定時報告
 
 on:
   schedule:
-    # 毎朝 6:20 JST（= 21:20 UTC 前日）に起動し、送信ステップで7:00 JSTへ同期する。
-    # GitHub Actionsのschedule遅延があっても、早く起動した場合は7:00まで待機する。
+    # 6:20 JST（= 21:20 UTC 前日）を主起動、6:40 JST（= 21:40 UTC 前日）をバックアップ起動とする。
+    # どちらもLINE送信前に7:00 JSTへ同期し、送信済みガードで二重送信を防ぐ。
     - cron: '20 21 * * *'
+    - cron: '40 21 * * *'
   workflow_dispatch:
     inputs:
       send_line:
@@ -90,8 +91,22 @@ jobs:
             git push
           fi
 
-      - name: LINE送信時刻を7:00 JSTへ同期
+      - name: 本日のLINE送信済み状態を確認
+        id: line_guard
         if: ${{ github.event_name == 'schedule' || inputs.send_line }}
+        run: |
+          marker="data/project-001-ai-secretary/last_line_briefing_sent_jst.txt"
+          today=$(TZ=Asia/Tokyo date +%F)
+          if [ -f "$marker" ] && grep -Fxq "$today" "$marker"; then
+            echo "already_sent=true" >> "$GITHUB_OUTPUT"
+            echo "本日（$today）の定時報告は送信済みのため、重複送信を防止します。"
+          else
+            echo "already_sent=false" >> "$GITHUB_OUTPUT"
+            echo "本日（$today）の定時報告は未送信です。"
+          fi
+
+      - name: LINE送信時刻を7:00 JSTへ同期
+        if: ${{ (github.event_name == 'schedule' || inputs.send_line) && steps.line_guard.outputs.already_sent != 'true' }}
         run: |
           target=$(TZ=Asia/Tokyo date -d 'today 07:00' +%s)
           now=$(TZ=Asia/Tokyo date +%s)
@@ -104,7 +119,19 @@ jobs:
           fi
 
       - name: LINEへ定時報告を通知
-        if: ${{ github.event_name == 'schedule' || inputs.send_line }}
+        if: ${{ (github.event_name == 'schedule' || inputs.send_line) && steps.line_guard.outputs.already_sent != 'true' }}
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
         run: python3 automation/scripts/send_line_notification.py
+
+      - name: LINE送信済みを記録
+        if: ${{ (github.event_name == 'schedule' || inputs.send_line) && steps.line_guard.outputs.already_sent != 'true' }}
+        run: |
+          marker="data/project-001-ai-secretary/last_line_briefing_sent_jst.txt"
+          mkdir -p "$(dirname "$marker")"
+          TZ=Asia/Tokyo date +%F > "$marker"
+          git config user.name "FieldRise-AI-Secretary"
+          git config user.email "ai-secretary@fieldrise.local"
+          git add "$marker"
+          git commit -m "AI秘書: LINE定時報告送信済み $(TZ=Asia/Tokyo date +%Y-%m-%d)"
+          git push
