@@ -452,10 +452,14 @@ def read_frame_header(gray: np.ndarray, frame: tuple[int, int, int, int]) -> tup
 
 
 def compose_mark_text(panel_no: str, header: str, main_text: str) -> str:
-    """写真形式のマーク文字を作る。盤番号はシート上部、見出しはグループ行へ出す。"""
-    header_value = re.sub(r"\(\d+\)$", "", clean_text(header).upper())
-    parts = [header_value, normalize_main_candidate(main_text)]
-    return "-".join(part for part in parts if part and part != "UNCLEAR")
+    """マークセルには主文字だけを置き、見出しはExcelのグループ行へ分離する。
+
+    panel_no と header は出力行のメタデータ・見出し行で保持する。端子台表示を
+    主文字へ自動連結すると写真の配置と異なり、マーク番号を二重化するため、ここでは
+    推測したプレフィックスを付加しない。
+    """
+    value = normalize_main_candidate(main_text)
+    return "" if value in {"", "UNCLEAR"} else value
 
 
 def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None, panel_no: str = "", internal_only: bool = False, x_only: bool = False) -> list[WireRow]:
@@ -557,7 +561,7 @@ def style_table(ws, header_row: int, final_row: int, columns: int, start_column:
                 cell.fill = PatternFill("solid", fgColor=LIGHT)
 
 
-def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: Path, log: LogFn) -> Path:
+def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: Path, log: LogFn, internal_only: bool = False, x_only: bool = False) -> Path:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"{order_no}.xlsx" if order_no != "要確認" else f"要確認_{pdf_path.stem}_{timestamp}.xlsx"
     path = output_dir / filename
@@ -619,7 +623,8 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         ws.cell(4, 1, f"盤番号: {rows[0].panel_no if rows and rows[0].panel_no else '要確認'}")
         ws.cell(4, 1).font = Font(name="Yu Gothic", size=11, bold=True, color=NAVY)
         ws.merge_cells(start_row=3, start_column=1, end_row=3, end_column=len(widths))
-        ws.cell(3, 1, "マーク個数は安全に読めた別電線1本につき2個です。確認状態は警告行だけを確認・修正してください。")
+        count_note = "盤内線・Xブロックモードでは対象行をすべて2個で出力します。" if (internal_only or x_only) else "マーク個数は安全に読めた別電線1本につき2個です。"
+        ws.cell(3, 1, f"{count_note}確認状態は警告行だけを確認・修正してください。")
         ws.cell(3, 1).alignment = Alignment(wrap_text=True)
         headers = ["マーク主文字", "マーク個数", "読取状態", "確認状態", "L側接続先", "R側接続先", "線コード", "見出し", "種別", "PDFページ", "枠ID", "行番号", "警告・除外理由"]
         for col, value in enumerate(headers, 1):
@@ -634,7 +639,7 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
                 ws.cell(output_row, 1, header_value)
                 output_row += 1
                 previous_header = header_value
-            mark_count = 2 if item.main_text and item.state != "対象外" else 0
+            mark_count = 2 if (internal_only or x_only) and item.state != "対象外" else (2 if item.main_text and item.state != "対象外" else 0)
             display_main = compose_mark_text(item.panel_no, item.header, item.main_text) if item.main_text else ""
             size_status = wire_size_status(item.left_reference, item.right_reference)
             size_missing = size_status != "判別済み"
@@ -718,7 +723,7 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
         else:
             log("RULE_FILTER", "DT系端子台、D-線コード、端子台の盤内行きIを対象外として判定")
         log("SHEET_GROUP", "電線サイズ・コードごとにExcelシートを作成")
-        output = write_excel(all_rows, pdf_path, order_no, desktop_path(), log)
+        output = write_excel(all_rows, pdf_path, order_no, desktop_path(), log, internal_only=internal_only, x_only=x_only)
         warning_count = sum(item.state == "警告あり" for item in all_rows)
         if warning_count and review_dir.exists():
             log("REVIEW_IMAGES_READY", f"警告セル画像 {warning_count}件を限定保存: {review_dir.name}")

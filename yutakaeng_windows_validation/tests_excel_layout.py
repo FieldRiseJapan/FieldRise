@@ -28,17 +28,23 @@ with tempfile.TemporaryDirectory() as temp_dir:
     expected_headers = ["マーク主文字", "マーク個数", "読取状態", "確認状態", "L側接続先", "R側接続先", "線コード", "見出し", "種別", "PDFページ", "枠ID", "行番号", "警告・除外理由"]
     check([cell.value for cell in worksheet[5]], expected_headers, "hot-marker column order")
     check([worksheet.cell(6, column).value for column in range(1, 4)], ["YF", None, None], "standalone header row")
-    check([worksheet.cell(7, column).value for column in range(1, 8)], ["YF-FL1A11", 2, "読取済み", "確認不要", "L-A", "R-Y2", "Y2"], "main row below header")
+    check([worksheet.cell(7, column).value for column in range(1, 8)], ["FL1A11", 2, "読取済み", "確認不要", "L-A", "R-Y2", "Y2"], "main row below header")
     check([worksheet.cell(8, column).value for column in range(1, 4)], [None, 0, "警告あり"], "unread main text receives zero marks")
-    check(compose_mark_text("3A", "T1(2)", "BTBT2BP"), "T1-BTBT2BP", "terminal block prefix without panel number")
+    check(compose_mark_text("3A", "T1(2)", "BTBT2BP"), "BTBT2BP", "terminal display separated from mark cell")
     size_missing = workbook["線サイズ未記載"]
     check([size_missing.cell(6, column).value for column in range(1, 4)], ["TF", None, None], "missing size standalone header row")
-    check([size_missing.cell(7, column).value for column in range(1, 5)], ["TF-TB2F1A1", 2, "警告あり", "警告確認"], "missing size row remains editable warning")
+    check([size_missing.cell(7, column).value for column in range(1, 5)], ["TB2F1A1", 2, "警告あり", "警告確認"], "missing size row remains editable warning")
     check(size_missing.cell(7, 13).value, "線サイズ未記載", "missing size reason is explicit")
     size_unclear = workbook["線サイズ判別不明"]
     check([size_unclear.cell(6, column).value for column in range(1, 4)], ["IF", None, None], "unclear size standalone header row")
-    check([size_unclear.cell(7, column).value for column in range(1, 5)], ["IF-IF1", 2, "警告あり", "警告確認"], "unclear size row remains warning")
+    check([size_unclear.cell(7, column).value for column in range(1, 5)], ["IF1", 2, "警告あり", "警告確認"], "unclear size row remains warning")
     check(size_unclear.cell(7, 13).value, "線サイズ判別不明", "unclear size reason is explicit")
     check(worksheet.freeze_panes, "A6", "top layout is frozen below headers")
+
+    x_output = write_excel(rows, Path("sample_x.pdf"), "要確認", output_dir, lambda *_: None, x_only=True)
+    x_workbook = load_workbook(x_output, data_only=True)
+    x_sheet = x_workbook["Y2"]
+    check(x_sheet.cell(7, 2).value, 2, "X-block mode marks readable rows twice")
+    check(x_sheet.cell(8, 2).value, 2, "X-block mode marks unread rows twice")
 
 print("ALL EXCEL LAYOUT TESTS PASSED")
