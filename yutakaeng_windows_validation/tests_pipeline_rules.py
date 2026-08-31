@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
-from pipeline import choose_main_candidate, exclusion_reason, extract_wire_codes, is_internal_wire_reference, is_x_block, main_candidate_is_safe, normalize_side_candidate, side_candidate_is_safe
+from pipeline import choose_main_candidate, exclusion_reason, extract_wire_codes, is_if_block, is_internal_wire_reference, is_x_block, main_candidate_is_safe, normalize_side_candidate, side_candidate_is_safe
 
 
 def check(actual, expected, label):
@@ -29,6 +29,9 @@ check(is_x_block("X2 (3)"), True, "X2 block with page suffix detected")
 check(is_x_block("T1"), False, "T1 is not X block")
 check(is_x_block("YF"), False, "YF is not X block")
 check(is_internal_wire_reference("YF", "I/L", ""), False, "I on connector is not internal-panel mode")
+check(is_if_block("IF"), True, "IF block retained in internal-panel mode")
+check(is_if_block("IF (2)"), True, "IF block with page suffix retained")
+check(is_if_block("T1"), False, "T1 is not IF block")
 check(exclusion_reason("T1 (2)", "I/L", "", keep_internal=True), "", "internal-panel I retained in dedicated mode")
 check(exclusion_reason("ZT1 (14)", "RIGHT-Y5", "T1-1"), "", "ZT RIGHT remains included")
 check(exclusion_reason("ZT1 (14)", "LEFT-Y5", "T1-1"), "", "ZT LEFT remains included")
