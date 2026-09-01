@@ -40,6 +40,7 @@ jobs:
           python tests_terminal_screen_layout.py
           python tests_panel_candidate_consensus.py
           python tests_refined_ocr_consensus.py
+          python tests_accuracy_tuning_suite.py
 
       - name: Build portable Windows folder
         shell: pwsh

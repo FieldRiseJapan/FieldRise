@@ -114,6 +114,66 @@ def classify_header(header: str) -> str:
     return "未分類"
 
 
+def wire_codes_from_ocr_texts(values: Iterable[str]) -> list[str]:
+    """複数の検出OCR文字列から、形式に合う電線コードだけを重複なく抽出する。"""
+    normalized = [normalize_ocr_confusions(value, "wire_code") for value in values if clean_text(value)]
+    return extract_wire_codes(*normalized)
+
+
+def wire_size_candidates(*values: str) -> list[str]:
+    """接続先文字列から、電線色+サイズだけを順序を保って抽出する。"""
+    candidates: list[str] = []
+    for code in extract_wire_codes(*values):
+        match = re.fullmatch(r"(?:[A-Z]{1,2})([0-9]+(?:[.][0-9]+)?)|([0-9]+(?:[.][0-9]+)?)[A-Z]{1,2}", code)
+        if not match:
+            continue
+        size = match.group(1) or match.group(2)
+        if size not in candidates:
+            candidates.append(size)
+    return candidates
+
+
+def normalize_ocr_confusions(value: str, field: str) -> str:
+    """形式が限定された欄だけ、頻出OCR混同を最小限に補正する。"""
+    text = clean_text(value).upper().replace(" ", "")
+    if field == "wire_code":
+        text = re.sub(r"(?<=Y)O(?=\d)", "0", text)
+        text = re.sub(r"(?<=G)O(?=\d)", "0", text)
+    elif field == "reference":
+        text = re.sub(r"(?<=:)I(?=$|[-/.0-9])", "1", text)
+        text = re.sub(r"(?<=\.)I(?=$|[-/.0-9])", "1", text)
+    return text
+
+
+def structural_consensus(values: list[str], allowed: Callable[[str], bool]) -> str:
+    """業務形式に適合する候補だけを集計し、繰り返し一致したものを返す。"""
+    safe_values = [clean_text(value).upper().replace(" ", "") for value in values if allowed(clean_text(value).upper().replace(" ", ""))]
+    return _consensus(safe_values) or ""
+
+
+def select_ensemble_candidate(first: tuple[str, float], second: tuple[str, float], safety_check: Callable[[str, float], bool]) -> str:
+    """2方式のOCRが同じ安全候補を返した場合だけ採用する。"""
+    first_value, first_score = first
+    second_value, second_score = second
+    if not safety_check(first_value, first_score) or not safety_check(second_value, second_score):
+        return ""
+    first_value = clean_text(first_value).upper().replace(" ", "")
+    second_value = clean_text(second_value).upper().replace(" ", "")
+    return first_value if first_value == second_value else ""
+
+
+def calibrate_frame_geometry(frame: tuple[int, int, int, int], image_shape: tuple[int, int], margin: tuple[int, int]) -> tuple[int, int, int, int]:
+    """検出枠を画像内に収めたまま、指定余白を加えて再解析用の作業領域を作る。"""
+    x, y, width, height = frame
+    image_height, image_width = image_shape[:2]
+    margin_x, margin_y = margin
+    x0 = max(0, x - margin_x)
+    y0 = max(0, y - margin_y)
+    x1 = min(image_width, x + width + margin_x)
+    y1 = min(image_height, y + height + margin_y)
+    return x0, y0, x1 - x0, y1 - y0
+
+
 def wire_size_status(*values: str) -> str:
     """線サイズの状態を、未記載と記載あり・判別不明に分ける。
 
@@ -124,7 +184,7 @@ def wire_size_status(*values: str) -> str:
     meaningful = [text for text in texts if text not in {"UNCLEAR", "未判読"}]
     if not meaningful:
         return "未記載"
-    if extract_wire_codes(*meaningful):
+    if wire_size_candidates(*meaningful):
         return "判別済み"
     return "判別不明"
 
@@ -144,11 +204,15 @@ def extract_wire_codes(*values: str) -> list[str]:
             color_first = re.fullmatch(r"[A-Z]{1,2}([0-9]+(?:[.][0-9]+)?)", code)
             size_first = re.fullmatch(r"([0-9]+(?:[.][0-9]+)?)[A-Z]{1,2}", code)
             size = (color_first or size_first).group(1)
+            # OCRが02、05のように先頭ゼロを付ける場合だけ、数字欄として正規化する。
+            if size.isdigit():
+                size = size.lstrip("0") or "0"
             # 未登録・不自然なOCR値は未分類に残し、誤ったサイズシートを作らない。
             if size not in approved_sizes:
                 continue
-            if code not in codes:
-                codes.append(code)
+            normalized_code = re.sub(r"\d+(?:[.]\d+)?", size, code, count=1)
+            if normalized_code not in codes:
+                codes.append(normalized_code)
     return codes
 
 
@@ -389,6 +453,12 @@ def read_main_text(gray: np.ndarray, frame: tuple[int, int, int, int], top: int,
     candidates = collect_ocr_candidates(refined_ocr_images(broad), rapidocr_main_candidate, normalize_main_candidate)
     refined = stable_safe_candidate(candidates, main_candidate_is_safe)
     if refined:
+        # 別エンジンの候補も一致した場合だけ、単独のOCR結果より確度の高い再解析として採用する。
+        tess = normalize_main_candidate(ocr(broad, psm=7, whitelist="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-_/.:+", scale=3.0))
+        ensemble = select_ensemble_candidate((refined, .90), (tess, .90), main_candidate_is_safe)
+        if ensemble:
+            return ensemble, ""
+        # RapidOCRの補正画像一致だけでも既存の安全ゲートを通過しているため、候補は保持する。
         return refined, ""
     return primary
 
@@ -431,16 +501,44 @@ def read_side_reference(gray: np.ndarray, frame: tuple[int, int, int, int], top:
         label = "右側接続先"
     value, confidence = rapidocr_main_candidate(image)
     value = normalize_side_candidate(value)
+    value = normalize_ocr_confusions(value, "reference")
     if value and side_candidate_is_safe(value, confidence):
         return value, ""
     # 片側接続先の通常候補が不確かな場合だけ、同じ接続先領域を複数補正して再読取する。
-    candidates = collect_ocr_candidates(refined_ocr_images(image), rapidocr_main_candidate, normalize_side_candidate)
+    candidates = collect_ocr_candidates(refined_ocr_images(image), rapidocr_main_candidate, lambda text: normalize_ocr_confusions(normalize_side_candidate(text), "reference"))
     refined = stable_safe_candidate(candidates, side_candidate_is_safe)
     if refined:
+        tess = normalize_ocr_confusions(normalize_side_candidate(ocr(image, psm=7, whitelist="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#:/-.")), "reference")
+        ensemble = select_ensemble_candidate((refined, .90), (tess, .90), side_candidate_is_safe)
+        if ensemble:
+            return ensemble, ""
         return refined, ""
     if not value:
         return "", ""
     return "", f"{label}未読取"
+
+
+def should_recover_wire_codes(codes: list[str]) -> bool:
+    """既存の安全な線コードがない行だけ、高精細な全候補再解析へ回す。"""
+    return not codes
+
+
+def read_wire_code_texts(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int) -> list[str]:
+    """未解決行だけ、左右の帯を一度に軽量OCRして第一候補以外の線コードも回収する。"""
+    x, _, w, _ = frame
+    crop_y = top - 3
+    crop_h = row_h + 6
+    wide = crop(gray, x - int(.70 * w), crop_y, int(2.50 * w), crop_h)
+    if wide.size == 0:
+        return []
+    enlarged = cv2.resize(wide, None, fx=2.0, fy=2.0, interpolation=cv2.INTER_CUBIC)
+    data = pytesseract.image_to_data(
+        enlarged,
+        config="--oem 1 --psm 11 -c tessedit_char_whitelist=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#:/-.()",
+        lang="eng",
+        output_type=pytesseract.Output.DICT,
+    )
+    return [clean_text(text) for text in data.get("text", []) if clean_text(text)]
 
 
 def row_bounds(frame: tuple[int, int, int, int], gray: np.ndarray) -> list[tuple[int, int]]:
@@ -497,6 +595,10 @@ def read_frame_header(gray: np.ndarray, frame: tuple[int, int, int, int]) -> tup
     variants: list[str] = []
     for candidate in raw_candidates:
         variants.extend(normalize_header_ocr_candidate(candidate))
+    accepted = [normalize_header(candidate) for candidate in variants if ":" not in candidate and classify_header(candidate) != "未分類"]
+    consensus = structural_consensus(accepted, lambda value: classify_header(value) != "未分類")
+    if consensus:
+        return consensus, classify_header(consensus)
     for candidate in variants:
         # コロンを含む値はT1:4-B5等の接続先であり、枠見出しには採用しない。
         if ":" in candidate:
@@ -519,18 +621,22 @@ def compose_mark_text(panel_no: str, header: str, main_text: str) -> str:
 
 
 def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None, panel_no: str = "", internal_only: bool = False, x_only: bool = False) -> list[WireRow]:
-    x, y, w, h = frame
-    header, kind = read_frame_header(gray, frame)
+    # 図面ごとの罫線位置の微小なずれを吸収する作業枠。元の枠IDと画像保存範囲は維持する。
+    work_frame = calibrate_frame_geometry(frame, gray.shape, (2, 2))
+    x, y, w, h = work_frame
+    header, kind = read_frame_header(gray, work_frame)
     rows: list[WireRow] = []
-    for index, (top, bottom) in enumerate(row_bounds(frame, gray), 1):
+    for index, (top, bottom) in enumerate(row_bounds(work_frame, gray), 1):
         row_h = max(12, bottom - top)
         # 左右接続先は主文字枠の外側だけ、主文字は丸囲み・端子番号を除いたセルだけを読む。
-        left, left_warning = read_side_reference(gray, frame, top, row_h, "left")
-        main, main_warning = read_main_text(gray, frame, top, row_h)
-        right, right_warning = read_side_reference(gray, frame, top, row_h, "right")
-        # 実データがない空行は出力しない。文字が読めた行だけを確認対象として残す。
+        left, left_warning = read_side_reference(gray, work_frame, top, row_h, "left")
+        main, main_warning = read_main_text(gray, work_frame, top, row_h)
+        right, right_warning = read_side_reference(gray, work_frame, top, row_h, "right")
+        initial_wire_codes = wire_codes_from_ocr_texts([left, right])
+        # 空行には高精細再解析を実行しない。
         if not any((left, main, right)):
             continue
+        detected_wire_texts = read_wire_code_texts(gray, work_frame, top, row_h) if should_recover_wire_codes(initial_wire_codes) else []
         # 盤内線モードは端子台側のI線に加えて、IFブロック内の全マークを対象にする。
         if internal_only and not (is_internal_wire_reference(header, left, right) or is_if_block(header)):
             continue
@@ -564,7 +670,7 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
                 state = "警告あり"
         rows.append(WireRow(
             page_no, f"P{page_no}-F{frame_no}", header, kind, str(index), main, left, right,
-            extract_wire_codes(left, right), state, reason, warning, str(crop_path) if source_crop.size else "", panel_no,
+            wire_codes_from_ocr_texts([*initial_wire_codes, *detected_wire_texts]), state, reason, warning, str(crop_path) if source_crop.size else "", panel_no,
         ))
     return rows
 
