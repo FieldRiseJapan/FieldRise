@@ -1,18 +1,17 @@
-from __future__ import annotations
-
 import sys
 import time
 import webbrowser
 from pathlib import Path
 
-from PySide6.QtCore import QMimeData, QObject, QThread, QTimer, Qt, Signal
-from PySide6.QtGui import QColor, QDragEnterEvent, QDropEvent, QFont, QPalette
+from PySide6.QtCore import QObject, QThread, QTimer, Qt, Signal
+from PySide6.QtGui import QDragEnterEvent, QDropEvent
 from PySide6.QtWidgets import (
     QApplication, QFileDialog, QFrame, QHBoxLayout, QLabel, QMainWindow,
     QMessageBox, QPlainTextEdit, QProgressBar, QPushButton, QVBoxLayout, QWidget,
 )
 
 from pipeline import desktop_path, run_pipeline
+from terminal_feed import format_pipeline_event, startup_lines
 
 
 class DropZone(QFrame):
@@ -35,20 +34,28 @@ class DropZone(QFrame):
         self.detail.setObjectName("dropDetail")
         self.detail.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.detail.setWordWrap(True)
-        layout.addWidget(self.icon); layout.addWidget(self.title); layout.addWidget(self.detail)
+        layout.addWidget(self.icon)
+        layout.addWidget(self.title)
+        layout.addWidget(self.detail)
 
     def dragEnterEvent(self, event: QDragEnterEvent) -> None:
         urls = event.mimeData().urls()
         if urls and urls[0].isLocalFile() and urls[0].toLocalFile().lower().endswith(".pdf"):
             event.acceptProposedAction()
-            self.setProperty("dragging", True); self.style().unpolish(self); self.style().polish(self)
+            self.setProperty("dragging", True)
+            self.style().unpolish(self)
+            self.style().polish(self)
 
     def dragLeaveEvent(self, event) -> None:
-        self.setProperty("dragging", False); self.style().unpolish(self); self.style().polish(self)
+        self.setProperty("dragging", False)
+        self.style().unpolish(self)
+        self.style().polish(self)
 
     def dropEvent(self, event: QDropEvent) -> None:
         urls = event.mimeData().urls()
-        self.setProperty("dragging", False); self.style().unpolish(self); self.style().polish(self)
+        self.setProperty("dragging", False)
+        self.style().unpolish(self)
+        self.style().polish(self)
         if urls and urls[0].isLocalFile():
             path = urls[0].toLocalFile()
             if path.lower().endswith(".pdf"):
@@ -70,7 +77,13 @@ class Worker(QObject):
 
     def run(self) -> None:
         try:
-            result = run_pipeline(self.path, self.log.emit, self.progress.emit, internal_only=self.internal_only, x_only=self.x_only)
+            result = run_pipeline(
+                self.path,
+                self.log.emit,
+                self.progress.emit,
+                internal_only=self.internal_only,
+                x_only=self.x_only,
+            )
             self.completed.emit(str(result))
         except Exception as exc:
             self.failed.emit(str(exc))
@@ -100,21 +113,34 @@ class MainWindow(QMainWindow):
         self.apply_style()
 
     def build_ui(self) -> None:
-        root = QWidget(); self.setCentralWidget(root)
-        layout = QVBoxLayout(root); layout.setContentsMargins(34, 26, 34, 30); layout.setSpacing(16)
+        root = QWidget()
+        self.setCentralWidget(root)
+        root_layout = QVBoxLayout(root)
+        root_layout.setContentsMargins(34, 26, 34, 30)
+        root_layout.setSpacing(0)
+
+        self.normal_view = QWidget()
+        normal_layout = QVBoxLayout(self.normal_view)
+        normal_layout.setContentsMargins(0, 0, 0, 0)
+        normal_layout.setSpacing(16)
+        root_layout.addWidget(self.normal_view)
+
         header = QHBoxLayout()
         brand = QLabel("yutakaeng")
         brand.setObjectName("brand")
         subtitle = QLabel("WIRING PDF  /  VALIDATION BUILD")
         subtitle.setObjectName("subtitle")
-        header.addWidget(brand); header.addWidget(subtitle); header.addStretch()
+        header.addWidget(brand)
+        header.addWidget(subtitle)
+        header.addStretch()
         self.status = QLabel("READY  PDFを選択してください")
         self.status.setObjectName("status")
         header.addWidget(self.status)
-        layout.addLayout(header)
+        normal_layout.addLayout(header)
 
-        self.drop_zone = DropZone(); self.drop_zone.pdf_selected.connect(self.start_analysis)
-        layout.addWidget(self.drop_zone)
+        self.drop_zone = DropZone()
+        self.drop_zone.pdf_selected.connect(self.start_analysis)
+        normal_layout.addWidget(self.drop_zone)
         controls = QHBoxLayout()
         self.choose_button = QPushButton("PDFを選択")
         self.choose_button.clicked.connect(self.choose_pdf)
@@ -130,35 +156,72 @@ class MainWindow(QMainWindow):
         self.copilot_button.setObjectName("copilotButton")
         self.copilot_button.clicked.connect(self.open_copilot_help)
         self.copilot_button.setVisible(False)
-        controls.addStretch(); controls.addWidget(self.choose_button); controls.addWidget(self.internal_button); controls.addWidget(self.x_button); controls.addWidget(self.copilot_button); controls.addStretch()
-        layout.addLayout(controls)
+        controls.addStretch()
+        controls.addWidget(self.choose_button)
+        controls.addWidget(self.internal_button)
+        controls.addWidget(self.x_button)
+        controls.addWidget(self.copilot_button)
+        controls.addStretch()
+        normal_layout.addLayout(controls)
 
         self.completion_banner = QLabel("解析完了！")
         self.completion_banner.setObjectName("completionBanner")
         self.completion_banner.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.completion_banner.setVisible(False)
-        layout.addWidget(self.completion_banner)
+        normal_layout.addWidget(self.completion_banner)
 
-        progress_box = QFrame(); progress_box.setObjectName("progressBox")
+        guide = QLabel("解析中は、実際に実行している処理コードを全画面で表示します。PDFデータは外部へ送信しません。")
+        guide.setObjectName("normalGuide")
+        guide.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        normal_layout.addWidget(guide)
+        normal_layout.addStretch()
+
+        self.terminal_view = QFrame()
+        self.terminal_view.setObjectName("terminalView")
+        self.terminal_view.setVisible(False)
+        terminal_layout = QVBoxLayout(self.terminal_view)
+        terminal_layout.setContentsMargins(0, 0, 0, 0)
+        terminal_layout.setSpacing(12)
+        root_layout.addWidget(self.terminal_view)
+
+        terminal_header = QHBoxLayout()
+        terminal_title = QLabel("yutakaeng  /  LIVE EXECUTION TERMINAL")
+        terminal_title.setObjectName("terminalTitle")
+        self.terminal_state = QLabel("WAITING")
+        self.terminal_state.setObjectName("terminalState")
+        terminal_header.addWidget(terminal_title)
+        terminal_header.addStretch()
+        terminal_header.addWidget(self.terminal_state)
+        terminal_layout.addLayout(terminal_header)
+
+        progress_box = QFrame()
+        progress_box.setObjectName("progressBox")
         progress_layout = QVBoxLayout(progress_box)
         labels = QHBoxLayout()
         self.phase_label = QLabel("待機中")
         self.eta_label = QLabel("推定残り --:--")
-        labels.addWidget(self.phase_label); labels.addStretch(); labels.addWidget(self.eta_label)
-        self.progress = QProgressBar(); self.progress.setRange(0, 100); self.progress.setValue(0); self.progress.setTextVisible(True)
+        labels.addWidget(self.phase_label)
+        labels.addStretch()
+        labels.addWidget(self.eta_label)
+        self.progress = QProgressBar()
+        self.progress.setRange(0, 100)
+        self.progress.setValue(0)
+        self.progress.setTextVisible(True)
         self.counter_label = QLabel("ページ 0 / 0   |   経過 00:00")
         self.counter_label.setObjectName("counter")
-        progress_layout.addLayout(labels); progress_layout.addWidget(self.progress); progress_layout.addWidget(self.counter_label)
-        layout.addWidget(progress_box)
+        progress_layout.addLayout(labels)
+        progress_layout.addWidget(self.progress)
+        progress_layout.addWidget(self.counter_label)
+        terminal_layout.addWidget(progress_box)
 
-        log_title = QLabel("● LIVE PIPELINE  /  LOCAL OCR  /  NO CLOUD UPLOAD")
+        log_title = QLabel("● ACTUAL LOCAL PIPELINE CODE  /  NO CLOUD UPLOAD")
         log_title.setObjectName("logTitle")
-        layout.addWidget(log_title)
+        terminal_layout.addWidget(log_title)
         self.log_view = QPlainTextEdit()
-        self.log_view.setReadOnly(True); self.log_view.setObjectName("logView")
-        self.log_view.setMaximumBlockCount(500)
-        layout.addWidget(self.log_view, stretch=1)
-        self.append_log("SYSTEM_READY", "PDFをドロップすると検証パイプラインを開始します。")
+        self.log_view.setReadOnly(True)
+        self.log_view.setObjectName("logView")
+        self.log_view.setMaximumBlockCount(700)
+        terminal_layout.addWidget(self.log_view, stretch=1)
 
     def apply_style(self) -> None:
         self.setStyleSheet("""
@@ -166,12 +229,12 @@ class MainWindow(QMainWindow):
         QWidget { font-family: 'Yu Gothic UI', 'Meiryo', sans-serif; }
         #brand { color: #55b6ff; font-size: 28px; font-weight: 700; letter-spacing: 2px; }
         #subtitle { color: #7294af; font-size: 11px; margin-left: 14px; letter-spacing: 1px; }
-        #status { background: #0e2940; color: #79c7ff; border: 1px solid #215171; border-radius: 12px; padding: 7px 12px; font-size: 11px; }
+        #status, #terminalState { background: #0e2940; color: #79c7ff; border: 1px solid #215171; border-radius: 12px; padding: 7px 12px; font-size: 11px; }
         #dropZone { background: #0a1c2d; border: 2px dashed #276a96; border-radius: 18px; }
         #dropZone[dragging="true"] { background: #0e2d49; border: 2px solid #55b6ff; }
         #pdfIcon { color: #55b6ff; border: 1px solid #388bc2; border-radius: 9px; padding: 10px; font-size: 18px; font-weight: 700; max-width: 58px; }
         #dropTitle { color: #f0f8ff; font-size: 22px; font-weight: 600; margin-top: 9px; }
-        #dropDetail { color: #8ca9bd; font-size: 12px; margin: 6px 70px 0 70px; }
+        #dropDetail, #normalGuide { color: #8ca9bd; font-size: 12px; margin: 6px 70px 0 70px; }
         QPushButton { background: #1679bc; color: white; border: 0; border-radius: 7px; padding: 10px 30px; font-size: 14px; font-weight: 600; }
         QPushButton:hover { background: #2394dc; }
         #copilotButton { background: #5b4cc4; }
@@ -181,31 +244,38 @@ class MainWindow(QMainWindow):
         #xButton { background: #b57b1e; }
         #xButton:hover { background: #d99a2b; }
         QPushButton:disabled { background: #254157; color: #7991a0; }
+        #terminalView { background: #02070d; }
+        #terminalTitle { color: #55b6ff; font-family: Consolas, 'Cascadia Mono', monospace; font-size: 18px; font-weight: 700; letter-spacing: 2px; padding: 6px 0; }
         #progressBox { background: #0a1c2d; border: 1px solid #1d4059; border-radius: 10px; padding: 8px; }
-        QProgressBar { background: #071421; border: 1px solid #24516e; border-radius: 6px; height: 16px; color: #e8f5ff; text-align: center; }
+        QProgressBar { background: #071421; border: 1px solid #24516e; border-radius: 6px; height: 18px; color: #e8f5ff; text-align: center; }
         QProgressBar::chunk { background: #1686d1; border-radius: 5px; }
-        #counter, #eta_label { color: #86aabd; font-size: 12px; }
+        #counter, #eta_label { color: #86aabd; font-size: 13px; }
         #logTitle { color: #6cbefa; font-size: 13px; font-weight: 700; letter-spacing: 2px; padding: 4px 0; }
-        #logView { background: #02070d; border: 1px solid #2c789f; border-radius: 8px; color: #9ae6ad; font-family: Consolas, 'Cascadia Mono', monospace; font-size: 13px; padding: 12px; selection-background-color: #174c65; }
+        #logView { background: #02070d; border: 2px solid #2c789f; border-radius: 8px; color: #d8e2ec; font-family: Consolas, 'Cascadia Mono', monospace; font-size: 17px; line-height: 1.45; padding: 18px; selection-background-color: #174c65; }
         #completionBanner { background: #0b3d2b; color: #50f58b; border: 2px solid #2bdc78; border-radius: 12px; font-size: 34px; font-weight: 800; padding: 14px; letter-spacing: 4px; }
         """)
 
     def append_log(self, code: str, message: str) -> None:
         stamp = time.strftime("%H:%M:%S")
-        self.log_view.appendPlainText(f"[{stamp}] {code:<20} {message}")
-        bar = self.log_view.verticalScrollBar(); bar.setValue(bar.maximum())
+        formatted = format_pipeline_event(code, message)
+        self.log_view.appendPlainText(f"\n[{stamp}] {formatted}")
+        bar = self.log_view.verticalScrollBar()
+        bar.setValue(bar.maximum())
 
     def choose_pdf(self) -> None:
         path, _ = QFileDialog.getOpenFileName(self, "配線図PDFを選択", str(Path.home()), "PDF files (*.pdf)")
-        if path: self.start_analysis(path, internal_only=False)
+        if path:
+            self.start_analysis(path, internal_only=False)
 
     def choose_internal_pdf(self) -> None:
         path, _ = QFileDialog.getOpenFileName(self, "盤内線用PDFを選択（I表記のみ）", str(Path.home()), "PDF files (*.pdf)")
-        if path: self.start_analysis(path, internal_only=True)
+        if path:
+            self.start_analysis(path, internal_only=True)
 
     def choose_x_pdf(self) -> None:
         path, _ = QFileDialog.getOpenFileName(self, "Xブロック用PDFを選択（Xブロックのみ）", str(Path.home()), "PDF files (*.pdf)")
-        if path: self.start_analysis(path, x_only=True)
+        if path:
+            self.start_analysis(path, x_only=True)
 
     def start_analysis(self, path: str, internal_only: bool = False, x_only: bool = False) -> None:
         if self._thread and self._thread.isRunning():
@@ -215,32 +285,43 @@ class MainWindow(QMainWindow):
         self._last_output_path = None
         self.completion_banner.setVisible(False)
         self.copilot_button.setVisible(False)
-        self.internal_button.setDisabled(True); self.x_button.setDisabled(True)
-        self.choose_button.setDisabled(True); self.drop_zone.setDisabled(True)
-        self.drop_zone.setVisible(False); self.choose_button.setVisible(False); self.internal_button.setVisible(False); self.x_button.setVisible(False)
-        self.progress.setValue(0); self._done, self._total = 0, 1
-        self._last_done = 0; self._last_progress_at = time.monotonic()
-        self._seconds_per_page = 8.0; self._estimated_total_seconds = 8.0
-        self._started_at = time.monotonic(); self.timer.start()
+        self.internal_button.setDisabled(True)
+        self.x_button.setDisabled(True)
+        self.choose_button.setDisabled(True)
+        self.drop_zone.setDisabled(True)
+        self.normal_view.setVisible(False); self.terminal_view.setVisible(True)
+        self.showMaximized()
+        self.log_view.clear()
+        for line in startup_lines(path):
+            self.log_view.appendPlainText(line)
+        self.progress.setValue(0)
+        self._done, self._total = 0, 1
+        self._last_done = 0
+        self._last_progress_at = time.monotonic()
+        self._seconds_per_page = 8.0
+        self._estimated_total_seconds = 8.0
+        self._started_at = time.monotonic()
+        self.timer.start()
         self.status.setText("RUNNING  PDF解析中")
+        self.terminal_state.setText("RUNNING / LOCAL ONLY")
         self.phase_label.setText(f"解析開始: {Path(path).name}")
         self.append_log("PDF_ACCEPTED", f"入力: {path}")
         self.append_log("PIPELINE_START", "OCR候補抽出・除外判定・電線サイズ別Excel出力を開始")
         if internal_only:
-            self.append_log("INTERNAL_WIRE_MODE", "盤内線モード / I表記だけを抽出")
+            self.append_log("INTERNAL_WIRE_MODE", "盤内線モード / I表記とIFブロックを抽出")
         if x_only:
             self.append_log("X_BLOCK_MODE", "Xブロックモード / Xブロックだけを抽出")
         self.append_log("SECURITY_MODE", "LOCAL ONLY / PDF画像は外部送信しません")
-        self.append_log("DISPLAY_MODE", "FULL SCREEN TERMINAL / 警告行のみ確認")
-        if internal_only:
-            self.append_log("TARGET_FILTER", "対象: I表記の盤内線のみ / 通常解析の除外ルールは維持")
-        if x_only:
-            self.append_log("TARGET_FILTER", "対象: X1、X2などXブロックのみ / 通常の安全除外ルールは維持")
-        self._thread = QThread(self); self._worker = Worker(path, internal_only=internal_only, x_only=x_only); self._worker.moveToThread(self._thread)
+        self._thread = QThread(self)
+        self._worker = Worker(path, internal_only=internal_only, x_only=x_only)
+        self._worker.moveToThread(self._thread)
         self._thread.started.connect(self._worker.run)
-        self._worker.log.connect(self.append_log); self._worker.progress.connect(self.on_progress)
-        self._worker.completed.connect(self.on_complete); self._worker.failed.connect(self.on_failure)
-        self._worker.completed.connect(self._thread.quit); self._worker.failed.connect(self._thread.quit)
+        self._worker.log.connect(self.append_log)
+        self._worker.progress.connect(self.on_progress)
+        self._worker.completed.connect(self.on_complete)
+        self._worker.failed.connect(self.on_failure)
+        self._worker.completed.connect(self._thread.quit)
+        self._worker.failed.connect(self._thread.quit)
         self._thread.finished.connect(self.cleanup_thread)
         self._thread.start()
 
@@ -250,13 +331,13 @@ class MainWindow(QMainWindow):
         if done > self._last_done and self._last_progress_at:
             elapsed_since = max(0.05, now - self._last_progress_at)
             per_page = elapsed_since / (done - self._last_done)
-            # 初期値から急変しないよう、観測値を平滑化する。
             self._seconds_per_page = 0.65 * self._seconds_per_page + 0.35 * per_page
         self._done, self._total = done, total
         self._last_done, self._last_progress_at = done, now
         self._estimated_total_seconds = max(1.0, self._seconds_per_page * total)
         value = int(done / total * 100)
-        self.progress.setValue(value); self.phase_label.setText(f"ページ解析 {done} / {total}")
+        self.progress.setValue(value)
+        self.phase_label.setText(f"ページ解析 {done} / {total}")
         self.update_timer()
 
     def update_timer(self) -> None:
@@ -264,17 +345,21 @@ class MainWindow(QMainWindow):
             return
         elapsed_float = time.monotonic() - self._started_at
         elapsed = max(0, int(elapsed_float))
-        if self._total > 0:
-            remaining = max(1, int(self._estimated_total_seconds - elapsed_float)) if self._done < self._total else 0
-            remain = f"{remaining // 60:02}:{remaining % 60:02}"
-        else:
-            remain = "計算中"
+        remaining = max(1, int(self._estimated_total_seconds - elapsed_float)) if self._done < self._total else 0
+        remain = f"{remaining // 60:02}:{remaining % 60:02}"
         self.counter_label.setText(f"ページ {self._done} / {self._total}   |   経過 {elapsed // 60:02}:{elapsed % 60:02}")
         self.eta_label.setText(f"推定残り {remain}")
 
     def on_complete(self, result: str) -> None:
-        self.timer.stop(); self.progress.setValue(100); self._done = self._total; self.update_timer(); self.eta_label.setText("推定残り 00:00"); self.status.setText("COMPLETE  Excel出力済み")
+        self.timer.stop()
+        self.progress.setValue(100)
+        self._done = self._total
+        self.update_timer()
+        self.eta_label.setText("推定残り 00:00")
+        self.status.setText("COMPLETE  Excel出力済み")
+        self.terminal_state.setText("COMPLETE")
         self._last_output_path = Path(result)
+        self.append_log("EXPORT_COMPLETE", f"Excel出力完了: {result}")
         self.completion_banner.setText("解析完了！")
         self.completion_banner.setVisible(True)
         if self._input_path:
@@ -284,7 +369,7 @@ class MainWindow(QMainWindow):
                 self.copilot_button.setVisible(True)
                 self.append_log("COPILOT_HELP_READY", "警告セル限定。ボタンから1件だけ選択して手動添付できます")
         self.phase_label.setText("解析完了。Excelをデスクトップへ出力しました。")
-        self.append_log("EXPORT_COMPLETE", f"Excel出力完了: {result}")
+        self.normal_view.setVisible(True); self.terminal_view.setVisible(False)
         QMessageBox.information(self, "yutakaeng | 解析完了！", f"解析完了！\n\nExcelファイル:\n{result}\n\n警告がある行だけ確認・修正してください。")
 
     def open_copilot_help(self) -> None:
@@ -300,22 +385,29 @@ class MainWindow(QMainWindow):
         QMessageBox.information(self, "Copilotへ確認依頼", "先ほど開いた画像をCopilotへ手動で添付してください。\n\nPDF全体や別の行は添付せず、この1枚だけを送ってください。結果は候補として扱い、Excelへ入れる前に原図と照合してください。")
 
     def on_failure(self, message: str) -> None:
-        self.timer.stop(); self.status.setText("ERROR  処理停止")
+        self.timer.stop()
+        self.status.setText("ERROR  処理停止")
+        self.terminal_state.setText("ERROR")
         self.append_log("PIPELINE_ERROR", message)
+        self.normal_view.setVisible(True); self.terminal_view.setVisible(False)
         QMessageBox.critical(self, "yutakaeng", f"解析を停止しました。\n\n{message}")
 
     def cleanup_thread(self) -> None:
-        self.choose_button.setDisabled(False); self.internal_button.setDisabled(False); self.x_button.setDisabled(False); self.drop_zone.setDisabled(False)
-        self.choose_button.setVisible(True); self.internal_button.setVisible(True); self.x_button.setVisible(True); self.drop_zone.setVisible(True)
+        self.choose_button.setDisabled(False)
+        self.internal_button.setDisabled(False)
+        self.x_button.setDisabled(False)
+        self.drop_zone.setDisabled(False)
         if self._thread:
             self._thread.deleteLater()
-        self._thread = None; self._worker = None
+        self._thread = None
+        self._worker = None
 
 
 def main() -> None:
     app = QApplication(sys.argv)
     app.setApplicationName("yutakaeng")
-    window = MainWindow(); window.show()
+    window = MainWindow()
+    window.show()
     raise SystemExit(app.exec())
 
 
