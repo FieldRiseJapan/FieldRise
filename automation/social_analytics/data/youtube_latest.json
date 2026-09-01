@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-09-01T00:47:23+00:00",
+  "captured_at": "2026-09-01T23:22:28+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -105,7 +105,7 @@
     {
       "id": "OU-E8lf840E",
       "title": "I'm a firebird #music #fire",
-      "views": 189,
+      "views": 190,
       "age_label": "2024-10-26T14:21:46Z",
       "category": "other"
     },
