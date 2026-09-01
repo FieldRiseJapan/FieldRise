@@ -520,38 +520,66 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
     return rows
 
 
-def _footer_ocr(gray: np.ndarray, x0: float, y0: float, x1: float, y1: float) -> str:
+def _footer_ocr_variants(gray: np.ndarray, x0: float, y0: float, x1: float, y1: float) -> list[str]:
+    """右下の限定領域だけを軽く補正し、複数条件のOCR文字列を返す。"""
     h, w = gray.shape
     region = crop(gray, int(w * x0), int(h * y0), int(w * (x1 - x0)), int(h * (y1 - y0)))
-    return ocr(region, 11).upper()
+    if region.size == 0:
+        return []
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)).apply(region)
+    variants = [region, clahe]
+    variants.append(cv2.threshold(clahe, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1])
+    variants.append(cv2.adaptiveThreshold(clahe, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+                                          cv2.THRESH_BINARY, 31, 7))
+    outputs: list[str] = []
+    whitelist = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ()-"
+    for image in variants:
+        for psm in (6, 7, 11):
+            text = ocr(image, psm, whitelist=whitelist, scale=3.0)
+            if text and text not in outputs:
+                outputs.append(text)
+    return outputs
+
+
+def _consensus(values: list[str], minimum: int = 2) -> str:
+    counts: dict[str, int] = {}
+    for value in values:
+        counts[value] = counts.get(value, 0) + 1
+    ranked = sorted(counts.items(), key=lambda item: (-item[1], -len(item[0])))
+    return ranked[0][0] if ranked and ranked[0][1] >= minimum else ""
+
+
+def _footer_ocr(gray: np.ndarray, x0: float, y0: float, x1: float, y1: float) -> str:
+    return " ".join(_footer_ocr_variants(gray, x0, y0, x1, y1))
 
 
 def extract_panel_number(gray: np.ndarray) -> str:
     """図面右下タイトル欄の盤番号を保守的に抽出する。"""
     # 盤番号は右端のSHEET/PAGE欄ではなく、タイトル欄中央付近にあるため、
     # 旧来の右端だけの切出しではなくタイトル欄を限定して読む。
-    text = _footer_ocr(gray, .68, .84, .94, .98)
-    candidates = re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z](?:\(\d+\))?(?![A-Z0-9])", text)
-    return candidates[0] if candidates else ""
+    texts = _footer_ocr_variants(gray, .68, .84, .94, .98)
+    found: list[str] = []
+    for text in texts:
+        found.extend(re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z](?:\(\d+\))?(?![A-Z0-9])", text))
+    return _consensus(found) or ""
 
 
 def extract_order_number(gray: np.ndarray) -> str:
     """図面右下DWG NO.欄の英数字オーダー番号を保守的に抽出する。"""
     # DWG NO.は図面様式によって左寄り、中央寄りの両方があるため、
     # 下段タイトル欄を2領域で読む。ただし会社文書番号やページ番号は除外する。
-    text = " ".join([
-        _footer_ocr(gray, .02, .80, .68, .98),
-        _footer_ocr(gray, .52, .84, .88, .98),
-    ])
-    tokens = re.findall(r"[A-Z0-9]{3,24}", text)
-    candidates = []
-    for token in tokens:
-        compact = token.replace(" ", "")
-        if (8 <= len(compact) <= 20 and compact not in {"JNS010823", "JNS010833"}
-                and re.search(r"[A-Z]{2,}", compact) and re.search(r"\d{3,}", compact)
-                and not compact.startswith(("TITLE", "EMORY", "MITSUBISHI"))):
-            candidates.append(compact)
-    return candidates[0] if candidates else "要確認"
+    texts = _footer_ocr_variants(gray, .02, .80, .68, .98)
+    texts += _footer_ocr_variants(gray, .52, .84, .88, .98)
+    occurrences: list[str] = []
+    for text in texts:
+        tokens = re.findall(r"[A-Z0-9]{3,24}", text)
+        for token in tokens:
+            compact = token.replace(" ", "")
+            if (8 <= len(compact) <= 20 and compact not in {"JNS010823", "JNS010833"}
+                    and re.search(r"[A-Z]{2,}", compact) and re.search(r"\d{3,}", compact)
+                    and not compact.startswith(("TITLE", "EMORY", "MITSUBISHI"))):
+                occurrences.append(compact)
+    return _consensus(occurrences) or "要確認"
 
 
 def desktop_path() -> Path:
