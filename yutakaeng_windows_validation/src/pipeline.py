@@ -198,6 +198,11 @@ def render_page(page: fitz.Page, dpi: int = 300) -> np.ndarray:
     return np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width)
 
 
+def render_metadata(page: fitz.Page) -> np.ndarray:
+    """右下タイトル欄の小さな盤番号・オーダー番号だけを高精細描画で読む。"""
+    return render_page(page, dpi=450)
+
+
 def overlap(a: tuple[int, int, int, int], b: tuple[int, int, int, int]) -> float:
     ax, ay, aw, ah = a
     bx, by, bw, bh = b
@@ -319,6 +324,33 @@ def rapidocr_main_candidate(image: np.ndarray) -> tuple[str, float]:
     return normalize_main_candidate(output.txts[0]), float(output.scores[0])
 
 
+def collect_ocr_candidates(images: Iterable, reader: Callable, normalizer: Callable[[str], str]) -> list[tuple[str, float]]:
+    """複数の補正画像を読み、空欄でないOCR候補をすべて残す。"""
+    candidates: list[tuple[str, float]] = []
+    for image in images:
+        value, confidence = reader(image)
+        normalized = normalizer(value)
+        if normalized:
+            candidates.append((normalized, float(confidence)))
+    return candidates
+
+
+def stable_safe_candidate(candidates: list[tuple[str, float]], safety_check: Callable[[str, float], bool]) -> str:
+    """異なる補正画像で2回以上一致した安全候補だけを返す。"""
+    safe_values = [value for value, confidence in candidates if safety_check(value, confidence)]
+    return _consensus(safe_values) or ""
+
+
+def refined_ocr_images(image: np.ndarray) -> list[np.ndarray]:
+    """罫線・濃淡の影響を受けた警告候補だけに使う軽量な高精細画像群を作る。"""
+    if image.size == 0:
+        return []
+    line_removed = remove_grid_lines(image)
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)).apply(line_removed)
+    otsu = cv2.threshold(clahe, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+    return [line_removed, clahe, otsu]
+
+
 def choose_main_candidate(primary: tuple[str, float], narrow: tuple[str, float]) -> tuple[str, str]:
     """幅の異なる同一セル読取を照合し、一致・安全な末尾補完だけを採用する。"""
     first, first_confidence = primary
@@ -349,7 +381,16 @@ def read_main_text(gray: np.ndarray, frame: tuple[int, int, int, int], top: int,
     # 最新実PDFのYF/ZF-B/IFで検証済み。旧方式(.20-.82)は末尾切れや丸囲み混入を起こした。
     broad = crop(gray, x + int(.30 * w), crop_y, max(20, int(.65 * w)), crop_h)
     narrow = crop(gray, x + int(.30 * w), crop_y, max(20, int(.62 * w)), crop_h)
-    return choose_main_candidate(rapidocr_main_candidate(broad), rapidocr_main_candidate(narrow))
+    primary = choose_main_candidate(rapidocr_main_candidate(broad), rapidocr_main_candidate(narrow))
+    if primary[0]:
+        return primary
+    # 通常読取が候補不一致・未読取になったセルだけを、罫線除去と濃淡補正で再読取する。
+    # 補正条件の異なる2回以上で同じ安全候補になった場合だけ自動採用する。
+    candidates = collect_ocr_candidates(refined_ocr_images(broad), rapidocr_main_candidate, normalize_main_candidate)
+    refined = stable_safe_candidate(candidates, main_candidate_is_safe)
+    if refined:
+        return refined, ""
+    return primary
 
 
 def normalize_side_candidate(value: str) -> str:
@@ -390,11 +431,16 @@ def read_side_reference(gray: np.ndarray, frame: tuple[int, int, int, int], top:
         label = "右側接続先"
     value, confidence = rapidocr_main_candidate(image)
     value = normalize_side_candidate(value)
+    if value and side_candidate_is_safe(value, confidence):
+        return value, ""
+    # 片側接続先の通常候補が不確かな場合だけ、同じ接続先領域を複数補正して再読取する。
+    candidates = collect_ocr_candidates(refined_ocr_images(image), rapidocr_main_candidate, normalize_side_candidate)
+    refined = stable_safe_candidate(candidates, side_candidate_is_safe)
+    if refined:
+        return refined, ""
     if not value:
         return "", ""
-    if not side_candidate_is_safe(value, confidence):
-        return "", f"{label}未読取"
-    return value, ""
+    return "", f"{label}未読取"
 
 
 def row_bounds(frame: tuple[int, int, int, int], gray: np.ndarray) -> list[tuple[int, int]]:
@@ -585,15 +631,39 @@ def _footer_field_images(gray: np.ndarray, x0: float, y0: float, x1: float, y1: 
     return [field, enlarged, otsu]
 
 
+def panel_candidate_from_values(values: list[str]) -> str:
+    """タイトル欄のOCR文字列から、盤番号形式だけを複数回一致で確定する。"""
+    explicit_candidates: list[str] = []
+    numeric_candidates: list[str] = []
+    for value in values:
+        normalized = clean_text(value).upper().replace(" ", "")
+        # まず1A、2A、1A(2)のように英字を含む具体的な形式を優先する。
+        explicit_candidates.extend(re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z](?:\(\d+\))?(?![A-Z0-9])", normalized))
+        # 図面によっては盤番号欄が3、1(2)のように英字なしで表記されることがある。
+        # タイトル欄の端子番号等を誤確定しないよう、後段で独立OCR条件の2回一致を必須とする。
+        numeric_candidates.extend(re.findall(r"(?<![A-Z0-9])\d{1,2}(?:\(\d+\))?(?![A-Z0-9])", normalized))
+    return _consensus(explicit_candidates) or _consensus(numeric_candidates) or ""
+
+
 def extract_panel_number(gray: np.ndarray) -> str:
-    """図面右下TITLE欄の盤番号を保守的に抽出する。"""
+    """図面右下TITLE欄の盤番号を、検出OCRと複数補正画像の一致で保守的に抽出する。"""
     found: list[str] = []
-    for image in _footer_field_images(gray, .83, .85, .91, .92):
+    # 中央1行だけを読む認識専用OCRでは、タイトル欄の先頭にある会社名を先に返す。
+    # 盤番号は同欄内の独立テキストなので、検出OCRの全候補から形式一致する値を集計する。
+    for image in _footer_field_images(gray, .80, .83, .94, .94):
+        variants = [image, _remove_footer_rules(image)]
+        for variant in variants:
+            enlarged = cv2.resize(variant, None, fx=2.0, fy=2.0, interpolation=cv2.INTER_CUBIC)
+            detected = main_ocr_engine()(enlarged, use_det=True, use_cls=False, use_rec=True)
+            for text, confidence in zip(detected.txts or [], detected.scores or []):
+                if float(confidence) >= .90:
+                    found.append(normalize_main_candidate(text))
         value, _ = rapidocr_main_candidate(image)
-        found.extend(re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z]?(?:\(\d+\))?(?![A-Z0-9])", value))
-    for text in _footer_ocr_variants(gray, .83, .85, .91, .92):
-        found.extend(re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z]?(?:\(\d+\))?(?![A-Z0-9])", text))
-    return _consensus(found) or ""
+        if value:
+            found.append(value)
+    for text in _footer_ocr_variants(gray, .80, .83, .94, .94):
+        found.append(text)
+    return panel_candidate_from_values(found)
 
 
 def extract_order_number(gray: np.ndarray) -> str:
@@ -800,7 +870,10 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
         for page_index, page in enumerate(document, 1):
             log("PAGE_RENDER", f"ページ {page_index}/{total} を300dpiで解析しています")
             image = render_page(page)
-            page_order = extract_order_number(image)
+            # 主文字・配線表は処理時間との均衡がよい300dpiを維持し、
+            # 小さなタイトル欄だけ450dpiの別描画で読み取る。
+            metadata_image = render_metadata(page)
+            page_order = extract_order_number(metadata_image)
             page_orders[page_index] = page_order
             if order_no == "要確認" and page_order != "要確認":
                 order_no = page_order
@@ -808,7 +881,7 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
                 log("ORDER_WARNING", f"ページ{page_index}のオーダー番号が不一致のため要確認: {page_order}")
                 order_no = "要確認"
             log("ORDER_SCAN", f"ページ{page_index} オーダー番号候補: {page_order}")
-            panel_no = extract_panel_number(image)
+            panel_no = extract_panel_number(metadata_image)
             page_panels[page_index] = panel_no
             log("PANEL_SCAN", f"ページ{page_index} 盤番号候補: {panel_no or '未読取'}")
             # 主文字は画像層の単純切出しではなく、300dpi描画画像を用いるローカルONNX OCRで読む。
