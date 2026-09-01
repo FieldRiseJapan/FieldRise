@@ -79,13 +79,16 @@ def clean_text(value: str) -> str:
 
 
 def ocr(image: np.ndarray, psm: int = 7, whitelist: str = "", scale: float = 3.0) -> str:
-    if image.size == 0:
+    if image.size == 0 or image.shape[0] < 3 or image.shape[1] < 3:
         return ""
     enlarged = cv2.resize(image, None, fx=scale, fy=scale, interpolation=cv2.INTER_CUBIC)
     config = f"--oem 1 --psm {psm}"
     if whitelist:
         config += f" -c tessedit_char_whitelist={whitelist}"
-    text = pytesseract.image_to_string(enlarged, config=config, lang="eng")
+    try:
+        text = pytesseract.image_to_string(enlarged, config=config, lang="eng")
+    except pytesseract.TesseractError:
+        return ""
     return clean_text(text)
 
 
@@ -520,14 +523,32 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
     return rows
 
 
+def _remove_footer_rules(image: np.ndarray) -> np.ndarray:
+    """タイトル欄の長い水平・垂直罫線だけを白化し、文字の形は変更しない。"""
+    if image.size == 0:
+        return image
+    gray_image = image if image.ndim == 2 else cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    dark = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+    horizontal = cv2.morphologyEx(dark, cv2.MORPH_OPEN,
+                                  cv2.getStructuringElement(cv2.MORPH_RECT, (max(15, gray_image.shape[1] // 5), 1)))
+    vertical = cv2.morphologyEx(dark, cv2.MORPH_OPEN,
+                                cv2.getStructuringElement(cv2.MORPH_RECT, (1, max(15, gray_image.shape[0] // 5))))
+    rules = cv2.bitwise_or(horizontal, vertical)
+    cleaned = gray_image.copy()
+    cleaned[rules > 0] = 255
+    return cleaned
+
+
 def _footer_ocr_variants(gray: np.ndarray, x0: float, y0: float, x1: float, y1: float) -> list[str]:
-    """右下の限定領域だけを軽く補正し、複数条件のOCR文字列を返す。"""
+    """右下の限定領域だけを補正し、複数条件のOCR文字列を返す。"""
     h, w = gray.shape
     region = crop(gray, int(w * x0), int(h * y0), int(w * (x1 - x0)), int(h * (y1 - y0)))
     if region.size == 0:
         return []
+    rule_cleaned = _remove_footer_rules(region)
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)).apply(region)
-    variants = [region, clahe]
+    cleaned_clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)).apply(rule_cleaned)
+    variants = [region, rule_cleaned, clahe, cleaned_clahe]
     variants.append(cv2.threshold(clahe, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1])
     variants.append(cv2.adaptiveThreshold(clahe, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
                                           cv2.THRESH_BINARY, 31, 7))
@@ -553,32 +574,40 @@ def _footer_ocr(gray: np.ndarray, x0: float, y0: float, x1: float, y1: float) ->
     return " ".join(_footer_ocr_variants(gray, x0, y0, x1, y1))
 
 
+def _footer_field_images(gray: np.ndarray, x0: float, y0: float, x1: float, y1: float) -> list[np.ndarray]:
+    """右下タイトル欄の1フィールドだけを複数の軽い補正で切り出す。"""
+    h, w = gray.shape[:2]
+    field = gray[int(h * y0):int(h * y1), int(w * x0):int(w * x1)]
+    if field.size == 0:
+        return []
+    enlarged = cv2.resize(field, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
+    otsu = cv2.threshold(enlarged, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+    return [field, enlarged, otsu]
+
+
 def extract_panel_number(gray: np.ndarray) -> str:
-    """図面右下タイトル欄の盤番号を保守的に抽出する。"""
-    # 盤番号は右端のSHEET/PAGE欄ではなく、タイトル欄中央付近にあるため、
-    # 旧来の右端だけの切出しではなくタイトル欄を限定して読む。
-    texts = _footer_ocr_variants(gray, .68, .84, .94, .98)
+    """図面右下TITLE欄の盤番号を保守的に抽出する。"""
     found: list[str] = []
-    for text in texts:
-        found.extend(re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z](?:\(\d+\))?(?![A-Z0-9])", text))
+    for image in _footer_field_images(gray, .83, .85, .91, .92):
+        value, _ = rapidocr_main_candidate(image)
+        found.extend(re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z]?(?:\(\d+\))?(?![A-Z0-9])", value))
+    for text in _footer_ocr_variants(gray, .83, .85, .91, .92):
+        found.extend(re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z]?(?:\(\d+\))?(?![A-Z0-9])", text))
     return _consensus(found) or ""
 
 
 def extract_order_number(gray: np.ndarray) -> str:
     """図面右下DWG NO.欄の英数字オーダー番号を保守的に抽出する。"""
-    # DWG NO.は図面様式によって左寄り、中央寄りの両方があるため、
-    # 下段タイトル欄を2領域で読む。ただし会社文書番号やページ番号は除外する。
-    texts = _footer_ocr_variants(gray, .02, .80, .68, .98)
-    texts += _footer_ocr_variants(gray, .52, .84, .88, .98)
     occurrences: list[str] = []
-    for text in texts:
-        tokens = re.findall(r"[A-Z0-9]{3,24}", text)
-        for token in tokens:
-            compact = token.replace(" ", "")
-            if (8 <= len(compact) <= 20 and compact not in {"JNS010823", "JNS010833"}
-                    and re.search(r"[A-Z]{2,}", compact) and re.search(r"\d{3,}", compact)
-                    and not compact.startswith(("TITLE", "EMORY", "MITSUBISHI"))):
-                occurrences.append(compact)
+    for image in _footer_field_images(gray, .74, .955, .93, .99):
+        value, _ = rapidocr_main_candidate(image)
+        for token in re.findall(r"[A-Z0-9]{8,24}", value):
+            if any(ch.isalpha() for ch in token) and any(ch.isdigit() for ch in token):
+                occurrences.append(token)
+    for text in _footer_ocr_variants(gray, .74, .955, .93, .99):
+        for token in re.findall(r"[A-Z0-9]{8,24}", text):
+            if any(ch.isalpha() for ch in token) and any(ch.isdigit() for ch in token):
+                occurrences.append(token)
     return _consensus(occurrences) or "要確認"
 
 
