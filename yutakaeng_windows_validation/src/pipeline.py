@@ -520,21 +520,37 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
     return rows
 
 
-def extract_panel_number(gray: np.ndarray) -> str:
-    """右下の盤番号だけを保守的に抽出する。読めない場合は空欄のまま推測しない。"""
+def _footer_ocr(gray: np.ndarray, x0: float, y0: float, x1: float, y1: float) -> str:
     h, w = gray.shape
-    footer = crop(gray, int(w * .72), int(h * .76), int(w * .28), int(h * .24))
-    text = ocr(footer, 11).upper()
+    region = crop(gray, int(w * x0), int(h * y0), int(w * (x1 - x0)), int(h * (y1 - y0)))
+    return ocr(region, 11).upper()
+
+
+def extract_panel_number(gray: np.ndarray) -> str:
+    """図面右下タイトル欄の盤番号を保守的に抽出する。"""
+    # 盤番号は右端のSHEET/PAGE欄ではなく、タイトル欄中央付近にあるため、
+    # 旧来の右端だけの切出しではなくタイトル欄を限定して読む。
+    text = _footer_ocr(gray, .68, .84, .94, .98)
     candidates = re.findall(r"(?<![A-Z0-9])\d{1,2}[A-Z](?:\(\d+\))?(?![A-Z0-9])", text)
     return candidates[0] if candidates else ""
 
 
 def extract_order_number(gray: np.ndarray) -> str:
-    h, w = gray.shape
-    title = crop(gray, int(w * .70), int(h * .72), int(w * .30), int(h * .28))
-    text = ocr(title, 11).upper()
-    candidates = re.findall(r"(?<![A-Z0-9])[A-Z0-9]{8,16}(?![A-Z0-9])", text)
-    candidates = [item for item in candidates if re.search(r"\d", item) and re.search(r"[A-Z]", item)]
+    """図面右下DWG NO.欄の英数字オーダー番号を保守的に抽出する。"""
+    # DWG NO.は図面様式によって左寄り、中央寄りの両方があるため、
+    # 下段タイトル欄を2領域で読む。ただし会社文書番号やページ番号は除外する。
+    text = " ".join([
+        _footer_ocr(gray, .02, .80, .68, .98),
+        _footer_ocr(gray, .52, .84, .88, .98),
+    ])
+    tokens = re.findall(r"[A-Z0-9]{3,24}", text)
+    candidates = []
+    for token in tokens:
+        compact = token.replace(" ", "")
+        if (8 <= len(compact) <= 20 and compact not in {"JNS010823", "JNS010833"}
+                and re.search(r"[A-Z]{2,}", compact) and re.search(r"\d{3,}", compact)
+                and not compact.startswith(("TITLE", "EMORY", "MITSUBISHI"))):
+            candidates.append(compact)
     return candidates[0] if candidates else "要確認"
 
 
@@ -570,8 +586,9 @@ def style_table(ws, header_row: int, final_row: int, columns: int, start_column:
                 cell.fill = PatternFill("solid", fgColor=LIGHT)
 
 
-def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: Path, log: LogFn, internal_only: bool = False, x_only: bool = False) -> Path:
+def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: Path, log: LogFn, internal_only: bool = False, x_only: bool = False, page_panels: dict[int, str] | None = None) -> Path:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    page_panels = page_panels or {}
     filename = f"{order_no}.xlsx" if order_no != "要確認" else f"要確認_{pdf_path.stem}_{timestamp}.xlsx"
     path = output_dir / filename
     wb = Workbook()
@@ -626,11 +643,12 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         widths = [20, 13, 13, 13, 30, 30, 13, 20, 16, 14, 18, 10, 30]
         for index, width in enumerate(widths, 1):
             ws.column_dimensions[get_column_letter(index)].width = width
-        ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=len(widths))
-        ws.cell(2, 1, f"電線サイズ・コード: {code}（確認用候補）")
-        ws.cell(2, 1).font = Font(name="Yu Gothic", size=15, bold=True, color=NAVY)
-        ws.cell(4, 1, f"盤番号: {rows[0].panel_no if rows and rows[0].panel_no else '要確認'}")
-        ws.cell(4, 1).font = Font(name="Yu Gothic", size=11, bold=True, color=NAVY)
+        first_page = min((item.page for item in groups[code]), default=1)
+        first_panel = page_panels.get(first_page) or next((item.panel_no for item in groups[code] if item.panel_no), "要確認")
+        ws.cell(1, 1, order_no)
+        ws.cell(1, 1).font = Font(name="Yu Gothic", size=16, bold=True, color=NAVY)
+        ws.cell(2, 1, first_panel)
+        ws.cell(2, 1).font = Font(name="Yu Gothic", size=14, bold=True, color=NAVY)
         ws.merge_cells(start_row=3, start_column=1, end_row=3, end_column=len(widths))
         count_note = "盤内線・Xブロックモードでは対象行をすべて2個で出力します。" if (internal_only or x_only) else "マーク個数は安全に読めた別電線1本につき2個です。"
         ws.cell(3, 1, f"{count_note}確認状態は警告行だけを確認・修正してください。")
@@ -641,7 +659,17 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         output_row = 6
         section_rows: list[int] = []
         previous_header = ""
+        previous_panel = ""
+        previous_page = 0
         for item in groups[code]:
+            panel_value = clean_text(page_panels.get(item.page, "")) or clean_text(item.panel_no) or "要確認"
+            if item.page != previous_page or panel_value != previous_panel:
+                section_rows.append(output_row)
+                ws.cell(output_row, 1, panel_value if output_row == 6 else f"盤番号: {panel_value}")
+                output_row += 1
+                previous_panel = panel_value
+                previous_page = item.page
+                previous_header = ""
             header_value = re.sub(r"\(\d+\)$", "", clean_text(item.header).upper()) or "未分類"
             if header_value != previous_header:
                 section_rows.append(output_row)
@@ -706,6 +734,8 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
     document = fitz.open(pdf_path)
     total = document.page_count
     all_rows: list[WireRow] = []
+    page_panels: dict[int, str] = {}
+    page_orders: dict[int, str] = {}
     # UIが総ページ数を早期に受け取り、初期推定残り時間を表示できるようにする。
     progress(0, total)
     order_no = "要確認"
@@ -713,11 +743,17 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
         for page_index, page in enumerate(document, 1):
             log("PAGE_RENDER", f"ページ {page_index}/{total} を300dpiで解析しています")
             image = render_page(page)
-            if page_index == 1:
-                order_no = extract_order_number(image)
-                log("ORDER_SCAN", f"オーダー番号候補: {order_no}")
+            page_order = extract_order_number(image)
+            page_orders[page_index] = page_order
+            if order_no == "要確認" and page_order != "要確認":
+                order_no = page_order
+            elif page_order != "要確認" and order_no != "要確認" and page_order != order_no:
+                log("ORDER_WARNING", f"ページ{page_index}のオーダー番号が不一致のため要確認: {page_order}")
+                order_no = "要確認"
+            log("ORDER_SCAN", f"ページ{page_index} オーダー番号候補: {page_order}")
             panel_no = extract_panel_number(image)
-            log("PANEL_SCAN", f"盤番号候補: {panel_no or '未読取'}")
+            page_panels[page_index] = panel_no
+            log("PANEL_SCAN", f"ページ{page_index} 盤番号候補: {panel_no or '未読取'}")
             # 主文字は画像層の単純切出しではなく、300dpi描画画像を用いるローカルONNX OCRで読む。
             # これにより画像層の反転・配置差で黒塗り相当を認識する不具合を回避する。
             frames = detect_frames(image)
@@ -732,7 +768,7 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
         else:
             log("RULE_FILTER", "DT系端子台、D-線コード、端子台の盤内行きIを対象外として判定")
         log("SHEET_GROUP", "電線サイズ・コードごとにExcelシートを作成")
-        output = write_excel(all_rows, pdf_path, order_no, desktop_path(), log, internal_only=internal_only, x_only=x_only)
+        output = write_excel(all_rows, pdf_path, order_no, desktop_path(), log, internal_only=internal_only, x_only=x_only, page_panels=page_panels)
         warning_count = sum(item.state == "警告あり" for item in all_rows)
         if warning_count and review_dir.exists():
             log("REVIEW_IMAGES_READY", f"警告セル画像 {warning_count}件を限定保存: {review_dir.name}")
