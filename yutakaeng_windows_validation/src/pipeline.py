@@ -380,6 +380,18 @@ def normalize_main_candidate(value: str) -> str:
     return clean_text(value).upper().replace(" ", "")
 
 
+def main_text_crop_bounds(header: str, frame: tuple[int, int, int, int], top: int, row_h: int) -> tuple[int, int, int, int]:
+    """主文字の切出し座標を返す。ZTは中央セルが狭いため専用比率を使う。"""
+    x, _, width, _ = frame
+    crop_y = top - 3
+    crop_h = row_h + 6
+    if is_zt_block(header):
+        # 実図面ではZTの主文字欄が枠の左2%付近で始まり、右側参照は約52%以降にある。
+        # 左側へ先頭Bを含め、右端は中央セル罫線の手前で止める。
+        return x + int(.02 * width), crop_y, max(20, int(.50 * width)), crop_h
+    return x + int(.30 * width), crop_y, max(20, int(.65 * width)), crop_h
+
+
 def main_text_has_safe_left_margin(image: np.ndarray) -> bool:
     """主文字切出しの左端に十分な余白があるかを確認する。長いTブロックの先頭欠落を確認不要にしない。"""
     if image.size == 0:
@@ -474,14 +486,16 @@ def choose_main_candidate(primary: tuple[str, float], narrow: tuple[str, float])
     return "", "主文字未読取"
 
 
-def read_main_text(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int) -> tuple[str, str]:
+def read_main_text(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int, header: str = "") -> tuple[str, str]:
     """行番号・丸囲み・右端端子番号を避けた主文字セルだけをローカルONNX OCRで読む。"""
     x, _, w, _ = frame
-    crop_y = top - 3
-    crop_h = row_h + 6
-    # 最新実PDFのYF/ZF-B/IFで検証済み。旧方式(.20-.82)は末尾切れや丸囲み混入を起こした。
-    broad = crop(gray, x + int(.30 * w), crop_y, max(20, int(.65 * w)), crop_h)
-    narrow = crop(gray, x + int(.30 * w), crop_y, max(20, int(.62 * w)), crop_h)
+    broad_x, crop_y, broad_w, crop_h = main_text_crop_bounds(header, frame, top, row_h)
+    broad = crop(gray, broad_x, crop_y, broad_w, crop_h)
+    if is_zt_block(header):
+        # ZT専用の狭い候補は、右側の端子参照を含めず、先頭文字用の余白も残す。
+        narrow = crop(gray, x + int(.02 * w), crop_y, max(20, int(.48 * w)), crop_h)
+    else:
+        narrow = crop(gray, x + int(.30 * w), crop_y, max(20, int(.62 * w)), crop_h)
     primary = choose_main_candidate(rapidocr_main_candidate(broad), rapidocr_main_candidate(narrow))
     if primary[0]:
         if not main_text_has_safe_left_margin(broad) or not main_text_has_safe_left_margin(narrow):
@@ -671,7 +685,7 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
         row_h = max(12, bottom - top)
         # 左右接続先は主文字枠の外側だけ、主文字は丸囲み・端子番号を除いたセルだけを読む。
         left, left_warning = read_side_reference(gray, work_frame, top, row_h, "left")
-        main, main_warning = read_main_text(gray, work_frame, top, row_h)
+        main, main_warning = read_main_text(gray, work_frame, top, row_h, header)
         right, right_warning = read_side_reference(gray, work_frame, top, row_h, "right")
         initial_wire_codes = wire_codes_from_ocr_texts([left, right])
         # 空行には高精細再解析を実行しない。

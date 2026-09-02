@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
-from pipeline import choose_main_candidate, exclusion_reason, extract_wire_codes, extract_order_candidate, order_consensus_from_pages, is_if_block, is_internal_wire_reference, is_x_block, main_candidate_is_safe, main_text_has_safe_left_margin, normalize_side_candidate, side_candidate_is_safe
+from pipeline import choose_main_candidate, exclusion_reason, extract_wire_codes, extract_order_candidate, main_text_crop_bounds, order_consensus_from_pages, is_if_block, is_internal_wire_reference, is_x_block, main_candidate_is_safe, main_text_has_safe_left_margin, normalize_side_candidate, side_candidate_is_safe
 
 
 def check(actual, expected, label):
@@ -53,6 +53,8 @@ check(main_text_has_safe_left_margin(edge_crop), False, "long T-block text touch
 safe_crop = np.full((30, 180), 255, dtype=np.uint8)
 safe_crop[:, 12:16] = 0
 check(main_text_has_safe_left_margin(safe_crop), True, "main text with left margin is eligible")
+check(main_text_crop_bounds("ZT1(14)", (100, 10, 400, 200), 50, 20), (108, 47, 200, 26), "ZT main crop includes the leading character and stops before right reference")
+check(main_text_crop_bounds("YF", (100, 10, 400, 200), 50, 20), (220, 47, 260, 26), "non-ZT main crop retains generic geometry")
 check(extract_order_candidate(["DWG NO 25JNG38201W", "25JNG38201W"]), "25JNG38201W", "order number candidate survives broad footer OCR")
 check(order_consensus_from_pages(["25JNG38201W", "要確認", "25JNG38201W"]), "25JNG38201W", "missing page order recovers from repeated page consensus")
 check(order_consensus_from_pages(["25JNG38201W", "25JNG38202W"]), "", "conflicting page orders remain unresolved")
