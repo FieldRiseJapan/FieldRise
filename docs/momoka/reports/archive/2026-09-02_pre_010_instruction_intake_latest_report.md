@@ -38,14 +38,6 @@
 
 次のSuno候補またはFender Studio書き出しを受領したら、`cafe_candidate_intake.py`で候補manifestを作成してから、001または002のプロファイルで解析する。WAV 48 kHz／24-bit／Stereoを優先し、MP3はスクリーニング用として扱う。候補設計は[彩花CTO向け引き継ぎ](../../ayaka/handover/2026-08-28_cafe_001_002_reproduction_handover.md)の`001-E01`／`002-E01`から開始する。
 
-## 検証用010（001-E01）受領状況
-
-**状態:** `instruction_received / candidate_audio_pending`
-
-彩花CTOが正本通信ファイル`docs/momoka/instructions/latest_verification_prompt.md`へ登録した010（001-E01）を受領しました。001の0〜2秒におけるBass主体・中央定位を検証する設計であり、Prompt、Negative、Instrumental、BPM、Weirdness範囲、Style Influence範囲、Durationが確認済みです。[010受領・解析開始前チェック](../../../music_ai/analysis/cafe/2026-09-02_010_001-E01_instruction_intake.md)
-
-候補音源または共有URLは未受領のため、音響測定、聴取、成功／失敗判定は未実施です。生成時にはWeirdness、Style Influence、Durationの**実行値**に加え、Safe ZoneとStrongの設定を記録してください。音源受領後は、候補manifestの作成、001正本との0〜2秒比較、必要時の補助的stem確認、Fact/Hypothesis/Evidence/Resultの返却を実施します。
-
 ## GitHub反映
 
 **解析基盤Commit SHA:** `9925badb0cd288db3b6888ce29c4864825ceab10`
