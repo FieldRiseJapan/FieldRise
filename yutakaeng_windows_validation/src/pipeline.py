@@ -353,6 +353,16 @@ def normalize_main_candidate(value: str) -> str:
     return clean_text(value).upper().replace(" ", "")
 
 
+def main_text_has_safe_left_margin(image: np.ndarray) -> bool:
+    """主文字切出しの左端に十分な余白があるかを確認する。長いTブロックの先頭欠落を確認不要にしない。"""
+    if image.size == 0:
+        return True
+    ink = cv2.threshold(image, 200, 255, cv2.THRESH_BINARY_INV)[1]
+    margin = max(6, min(14, image.shape[1] // 18))
+    left_density = float(np.count_nonzero(ink[:, :margin])) / max(1, ink[:, :margin].size)
+    return left_density < 0.18
+
+
 def main_candidate_is_safe(value: str, confidence: float) -> bool:
     """意味のないOCR文字列をExcelへ出さないための保守的な品質ゲート。"""
     text = normalize_main_candidate(value)
@@ -447,12 +457,16 @@ def read_main_text(gray: np.ndarray, frame: tuple[int, int, int, int], top: int,
     narrow = crop(gray, x + int(.30 * w), crop_y, max(20, int(.62 * w)), crop_h)
     primary = choose_main_candidate(rapidocr_main_candidate(broad), rapidocr_main_candidate(narrow))
     if primary[0]:
+        if not main_text_has_safe_left_margin(broad) or not main_text_has_safe_left_margin(narrow):
+            return "", "主文字先頭欠落の可能性"
         return primary
     # 通常読取が候補不一致・未読取になったセルだけを、罫線除去と濃淡補正で再読取する。
     # 補正条件の異なる2回以上で同じ安全候補になった場合だけ自動採用する。
     candidates = collect_ocr_candidates(refined_ocr_images(broad), rapidocr_main_candidate, normalize_main_candidate)
     refined = stable_safe_candidate(candidates, main_candidate_is_safe)
     if refined:
+        if not main_text_has_safe_left_margin(broad) or not main_text_has_safe_left_margin(narrow):
+            return "", "主文字先頭欠落の可能性"
         # 別エンジンの候補も一致した場合だけ、単独のOCR結果より確度の高い再解析として採用する。
         tess = normalize_main_candidate(ocr(broad, psm=7, whitelist="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-_/.:+", scale=3.0))
         ensemble = select_ensemble_candidate((refined, .90), (tess, .90), main_candidate_is_safe)
@@ -772,19 +786,50 @@ def extract_panel_number(gray: np.ndarray) -> str:
     return panel_candidate_from_values(found)
 
 
-def extract_order_number(gray: np.ndarray) -> str:
-    """図面右下DWG NO.欄の英数字オーダー番号を保守的に抽出する。"""
+def extract_order_candidate(values: Iterable[str]) -> str:
+    """広いタイトル欄OCRから、英字と数字を含むオーダー番号を複数一致で確定する。"""
     occurrences: list[str] = []
-    for image in _footer_field_images(gray, .74, .955, .93, .99):
-        value, _ = rapidocr_main_candidate(image)
-        for token in re.findall(r"[A-Z0-9]{8,24}", value):
+    for value in values:
+        normalized = clean_text(value).upper()
+        # ラベルと番号が分離している通常OCR結果を優先する。
+        tokens = re.findall(r"(?<![A-Z0-9])[A-Z0-9]{8,30}(?![A-Z0-9])", normalized)
+        # 小さい欄ではDWGNO25J...のようにラベルと番号が連結するため、ラベル直後を再抽出する。
+        tokens.extend(re.findall(r"(?:DWG|DWGNO|NO)[ :._-]*([A-Z0-9]{8,30})", normalized))
+        for token in tokens:
+            token = clean_text(token).replace(" ", "")
             if any(ch.isalpha() for ch in token) and any(ch.isdigit() for ch in token):
                 occurrences.append(token)
-    for text in _footer_ocr_variants(gray, .74, .955, .93, .99):
-        for token in re.findall(r"[A-Z0-9]{8,24}", text):
-            if any(ch.isalpha() for ch in token) and any(ch.isdigit() for ch in token):
-                occurrences.append(token)
-    return _consensus(occurrences) or "要確認"
+    return _consensus(occurrences) or ""
+
+
+def extract_order_number(gray: np.ndarray) -> str:
+    """図面右下DWG NO.欄を、位置ずれに強い少数の補正条件で抽出する。"""
+    values: list[str] = []
+    # 狭いDWG NO.欄と下端ずれに対応した広い帯だけを使用する。
+    boxes = ((.74, .955, .93, .99), (.70, .91, .99, .995))
+    for x0, y0, x1, y1 in boxes:
+        h, w = gray.shape[:2]
+        region = crop(gray, int(w * x0), int(h * y0), int(w * (x1 - x0)), int(h * (y1 - y0)))
+        if region.size == 0:
+            continue
+        rule_cleaned = _remove_footer_rules(region)
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)).apply(rule_cleaned)
+        variants = (region, rule_cleaned, cv2.threshold(clahe, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1])
+        for variant in variants:
+            text = ocr(variant, psm=7, whitelist="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ()-", scale=3.0)
+            if text:
+                values.append(text)
+        # RapidOCRは狭い高解像度欄の補助候補として1回だけ使う。
+        value, _ = rapidocr_main_candidate(region)
+        if value:
+            values.append(value)
+    return extract_order_candidate(values) or "要確認"
+
+
+def order_consensus_from_pages(page_orders: Iterable[str]) -> str:
+    """ページ単位のオーダー候補を照合し、2ページ以上で一致した値だけを返す。"""
+    candidates = [clean_text(value).upper().replace(" ", "") for value in page_orders if value and value != "要確認"]
+    return _consensus(candidates) or ""
 
 
 def desktop_path() -> Path:
@@ -981,11 +1026,13 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
             metadata_image = render_metadata(page)
             page_order = extract_order_number(metadata_image)
             page_orders[page_index] = page_order
-            if order_no == "要確認" and page_order != "要確認":
-                order_no = page_order
-            elif page_order != "要確認" and order_no != "要確認" and page_order != order_no:
+            if page_order != "要確認" and order_no not in {"要確認", page_order}:
                 log("ORDER_WARNING", f"ページ{page_index}のオーダー番号が不一致のため要確認: {page_order}")
                 order_no = "要確認"
+            # 先行ページが未読取でも、後続ページで2回以上一致した候補を安全に採用する。
+            page_consensus = order_consensus_from_pages(page_orders.values())
+            if page_consensus:
+                order_no = page_consensus
             log("ORDER_SCAN", f"ページ{page_index} オーダー番号候補: {page_order}")
             panel_no = extract_panel_number(metadata_image)
             page_panels[page_index] = panel_no

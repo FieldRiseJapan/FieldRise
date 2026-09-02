@@ -1,8 +1,9 @@
 import sys
 from pathlib import Path
+import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
-from pipeline import choose_main_candidate, exclusion_reason, extract_wire_codes, is_if_block, is_internal_wire_reference, is_x_block, main_candidate_is_safe, normalize_side_candidate, side_candidate_is_safe
+from pipeline import choose_main_candidate, exclusion_reason, extract_wire_codes, extract_order_candidate, order_consensus_from_pages, is_if_block, is_internal_wire_reference, is_x_block, main_candidate_is_safe, main_text_has_safe_left_margin, normalize_side_candidate, side_candidate_is_safe
 
 
 def check(actual, expected, label):
@@ -46,6 +47,15 @@ check(main_candidate_is_safe("1234", 0.99), False, "numeric-only main text rejec
 check(choose_main_candidate(("D31S14", 0.97), ("D31S1", 0.95)), ("D31S14", ""), "truncated narrow main text complemented")
 check(choose_main_candidate(("BTBP", 0.99), ("BTBP", 0.99)), ("BTBP", ""), "matching main text accepted")
 check(choose_main_candidate(("BTBP", 0.99), ("D31S14", 0.99)), ("", "主文字候補不一致"), "conflicting main text rejected")
+edge_crop = np.full((30, 180), 255, dtype=np.uint8)
+edge_crop[:, :4] = 0
+check(main_text_has_safe_left_margin(edge_crop), False, "long T-block text touching crop edge is warning")
+safe_crop = np.full((30, 180), 255, dtype=np.uint8)
+safe_crop[:, 12:16] = 0
+check(main_text_has_safe_left_margin(safe_crop), True, "main text with left margin is eligible")
+check(extract_order_candidate(["DWG NO 25JNG38201W", "25JNG38201W"]), "25JNG38201W", "order number candidate survives broad footer OCR")
+check(order_consensus_from_pages(["25JNG38201W", "要確認", "25JNG38201W"]), "25JNG38201W", "missing page order recovers from repeated page consensus")
+check(order_consensus_from_pages(["25JNG38201W", "25JNG38202W"]), "", "conflicting page orders remain unresolved")
 # T1:4のようにコロンを明確に読めた端子参照は、先頭欠落誤読の規則で誤って捨てない。
 check(side_candidate_is_safe("T1:4-Y2", 0.92), True, "clear terminal reference accepted")
 check(side_candidate_is_safe("7T2:4-Y2", 0.92), False, "missing-leading-Z reference rejected")
