@@ -220,6 +220,33 @@ def is_terminal(header: str) -> bool:
     return classify_header(header) == "端子台"
 
 
+def is_zt_block(header: str) -> bool:
+    """ZT1、ZT2などの隣接盤用端子台ブロックを判定する。"""
+    normalized = normalize_header(header)
+    base = re.split(r"[-(]", normalized)[0]
+    return bool(re.fullmatch(r"ZT\d+", base))
+
+
+def is_zt_direction_row(header: str, left: str, right: str) -> bool:
+    """ZTブロック内でRIGHT/LEFTを持つ隣接盤配線行だけを専用シートへ振り分ける。"""
+    if not is_zt_block(header):
+        return False
+    references = f"{clean_text(left).upper()} {clean_text(right).upper()}"
+    return bool(re.search(r"(?:RIGHT|LEFT)", references))
+
+
+def sheet_group_sort_key(name: str) -> tuple[int, float, str]:
+    """線サイズは数値順、ZTブロックと警告シートは末尾に安定して配置する。"""
+    if name == "ZTブロック":
+        return (1, 0.0, name)
+    if name in {"線サイズ未記載", "線サイズ判別不明", "警告一覧"}:
+        return (2, 0.0, name)
+    try:
+        return (0, float(name), name)
+    except ValueError:
+        return (2, 0.0, name)
+
+
 def is_x_block(header: str) -> bool:
     """X1、X2など、Xで始まる端子台ブロックだけを判定する。"""
     normalized = normalize_header(header)
@@ -900,9 +927,17 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
     usable = [item for item in rows if item.state != "対象外"]
     groups: dict[str, list[WireRow]] = defaultdict(list)
     for item in usable:
-        if item.wire_codes and item.kind != "未分類":
-            for code in item.wire_codes:
-                groups[code].append(item)
+        # ZT端子台のRIGHT/LEFTは隣接盤との取り合い線として、通常の線サイズ表へ混在させない。
+        if is_zt_direction_row(item.header, item.left_reference, item.right_reference):
+            groups["ZTブロック"].append(item)
+        elif item.wire_codes and item.kind != "未分類":
+            # シート名は線色を含めず、線サイズだけで統合する。線色+サイズは明細の線コード列へ残す。
+            sizes = wire_size_candidates(*item.wire_codes)
+            if sizes:
+                for size in sizes:
+                    groups[size].append(item)
+            else:
+                groups["線サイズ判別不明"].append(item)
         elif wire_size_status(item.left_reference, item.right_reference) == "未記載":
             # 図面に線サイズがない行は、判別不明行と分けて残す。
             groups["線サイズ未記載"].append(item)
@@ -914,15 +949,15 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
             groups["警告一覧"].append(item)
 
     used = {"概要"}
-    for code in sorted(groups, key=lambda value: (value in {"線サイズ未記載", "線サイズ判別不明", "警告一覧"}, value == "警告一覧", value)):
-        ws = wb.create_sheet(safe_sheet_name(code, used))
+    for group_name in sorted(groups, key=sheet_group_sort_key):
+        ws = wb.create_sheet(safe_sheet_name(group_name, used))
         ws.sheet_view.showGridLines = False
         # ホットマーカー作業に必要な列を先頭へ固定し、原図照合用の情報は右側へまとめる。
         widths = [20, 13, 13, 13, 30, 30, 13, 20, 16, 14, 18, 10, 30]
         for index, width in enumerate(widths, 1):
             ws.column_dimensions[get_column_letter(index)].width = width
-        first_page = min((item.page for item in groups[code]), default=1)
-        first_panel = page_panels.get(first_page) or next((item.panel_no for item in groups[code] if item.panel_no), "要確認")
+        first_page = min((item.page for item in groups[group_name]), default=1)
+        first_panel = page_panels.get(first_page) or next((item.panel_no for item in groups[group_name] if item.panel_no), "要確認")
         ws.cell(1, 1, order_no)
         ws.cell(1, 1).font = Font(name="Yu Gothic", size=16, bold=True, color=NAVY)
         ws.cell(2, 1, first_panel)
@@ -939,7 +974,7 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         previous_header = ""
         previous_panel = ""
         previous_page = 0
-        for item in groups[code]:
+        for item in groups[group_name]:
             panel_value = clean_text(page_panels.get(item.page, "")) or clean_text(item.panel_no) or "要確認"
             if item.page != previous_page or panel_value != previous_panel:
                 section_rows.append(output_row)
@@ -1050,7 +1085,7 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
             log("RULE_FILTER", "Xブロックモード: X1、X2などXブロック内の全マークを対象として出力")
         else:
             log("RULE_FILTER", "DT系端子台、D-線コード、端子台の盤内行きIを対象外として判定")
-        log("SHEET_GROUP", "電線サイズ・コードごとにExcelシートを作成")
+        log("SHEET_GROUP", "線サイズごとのExcelシートとZTブロック専用シートを作成")
         output = write_excel(all_rows, pdf_path, order_no, desktop_path(), log, internal_only=internal_only, x_only=x_only, page_panels=page_panels)
         warning_count = sum(item.state == "警告あり" for item in all_rows)
         if warning_count and review_dir.exists():
