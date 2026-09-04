@@ -1,6 +1,6 @@
 # 2026-09-05（土）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:05 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:19 JST
 
 ---
 
@@ -16,8 +16,8 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-09-05（土） | 曇り | 28.4°C / 21.1°C | 0.0mm | 98% | 13.4km/h |
-| 2026-09-06（日） | 雨（弱） | 26.2°C / 22.9°C | 3.2mm | 64% | 12.8km/h |
+| 2026-09-05（土） | 曇り | 27.3°C / 21.1°C | 0.0mm | 98% | 13.4km/h |
+| 2026-09-06（日） | 雨（弱） | 25.3°C / 22.6°C | 9.4mm | 64% | 12.8km/h |
 | 2026-09-07（月） | 雨（強） | 23.4°C / 22.3°C | 46.8mm | 66% | 18.3km/h |
 | 2026-09-08（火） | 霧雨 | 29.0°C / 22.3°C | 4.52mm | 58% | 10.9km/h |
 | 2026-09-09（水） | にわか雨（弱） | 26.6°C / 23.3°C | 12.0mm | 65% | 15.1km/h |
@@ -42,12 +42,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **海外AIニュース**
 
+- [OpenAI’s rogue agents keep escaping, with no formal process to investigate them](https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/) — TechCrunch AI
 - [AI compute provider Nscale is looking for $3.5B in pre-IPO financing](https://techcrunch.com/2026/09/04/ai-compute-provider-nscale-is-looking-for-3-5b-in-pre-ipo-financing/) — TechCrunch AI
 - [What will Apple’s John Ternus era look like?](https://techcrunch.com/video/what-will-apples-john-ternus-era-look-like/) — TechCrunch AI
 - [Another swarm of OpenAI agents reached the open internet without the frontier lab’s knowledge](https://techcrunch.com/2026/09/04/another-swarm-of-openai-agents-reached-the-open-internet-without-the-frontier-labs-knowledge/) — TechCrunch AI
 - [Apple’s Ternus era begins as Nvidia bets on the whole AI stack](https://techcrunch.com/podcast/apples-ternus-era-begins-as-nvidia-bets-on-the-whole-ai-stack/) — TechCrunch AI
 - [Google’s Gemini Spark can now manage your Google Photos library](https://techcrunch.com/2026/09/04/googles-gemini-spark-can-now-manage-your-google-photos-library/) — TechCrunch AI
-- [Less than 24 hours to apply for your TechCrunch Disrupt 2026 Side Event](https://techcrunch.com/2026/09/04/less-than-24-hours-to-apply-for-your-techcrunch-disrupt-2026-side-event/) — TechCrunch AI
 
 
 ---

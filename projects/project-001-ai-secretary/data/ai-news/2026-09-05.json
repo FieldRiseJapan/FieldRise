@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-09-05T08:04:46.283519+09:00",
+  "collected_at": "2026-09-05T08:18:52.884930+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -139,6 +139,14 @@
     {
       "source": "TechCrunch AI",
       "lang": "en",
+      "title": "OpenAI’s rogue agents keep escaping, with no formal process to investigate them",
+      "url": "https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/",
+      "published": "2026-09-05T08:15:11+09:00",
+      "summary": "OpenAI’s latest agent swarm incident adds urgency to calls for independent investigations as researchers and lawmakers question whether AI labs should control the scope of their own safety reviews."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
       "title": "AI compute provider Nscale is looking for $3.5B in pre-IPO financing",
       "url": "https://techcrunch.com/2026/09/04/ai-compute-provider-nscale-is-looking-for-3-5b-in-pre-ipo-financing/",
       "published": "2026-09-05T06:12:11+09:00",
@@ -191,14 +199,6 @@
       "url": "https://techcrunch.com/2026/09/03/the-sameness-problem-behind-those-unappetizing-ai-generated-menus/",
       "published": "2026-09-04T13:21:03+09:00",
       "summary": "While restaurant owners might look to generative AI as a shortcut to sprucing up their menu, customers can viscerally sense that something is wrong with the food."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Crusoe reportedly raises $3B at a $30B valuation",
-      "url": "https://techcrunch.com/2026/09/03/crusoe-reportedly-raises-3b-at-a-30b-valuation/",
-      "published": "2026-09-04T09:48:42+09:00",
-      "summary": "The round came together after the data center developer reportedly secured a $13 billion contract with Jane Street."
     }
   ]
 }
