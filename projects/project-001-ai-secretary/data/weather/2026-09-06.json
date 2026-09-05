@@ -2,26 +2,26 @@
   "location": "香川県まんのう町",
   "latitude": 34.19,
   "longitude": 133.83,
-  "collected_at": "2026-09-06T07:58:07.348926+09:00",
+  "collected_at": "2026-09-06T08:16:36.629126+09:00",
   "source": "Open-Meteo (https://open-meteo.com/)",
   "forecast": [
     {
       "date": "2026-09-06",
-      "weather": "霧雨（強）",
-      "temp_max_c": 24.7,
-      "temp_min_c": 22.0,
-      "precipitation_mm": 5.1,
+      "weather": "雨",
+      "temp_max_c": 25.3,
+      "temp_min_c": 22.4,
+      "precipitation_mm": 9.9,
       "precipitation_probability_pct": 96,
-      "wind_max_kmh": 16.7
+      "wind_max_kmh": 14.6
     },
     {
       "date": "2026-09-07",
-      "weather": "雨（弱）",
-      "temp_max_c": 27.1,
-      "temp_min_c": 21.9,
-      "precipitation_mm": 7.2,
+      "weather": "雨",
+      "temp_max_c": 25.4,
+      "temp_min_c": 22.5,
+      "precipitation_mm": 6.7,
       "precipitation_probability_pct": 94,
-      "wind_max_kmh": 5.5
+      "wind_max_kmh": 6.1
     },
     {
       "date": "2026-09-08",
