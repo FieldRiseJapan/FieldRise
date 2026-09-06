@@ -38,25 +38,31 @@
 
 次のSuno候補またはFender Studio書き出しを受領したら、`cafe_candidate_intake.py`で候補manifestを作成してから、001または002のプロファイルで解析する。WAV 48 kHz／24-bit／Stereoを優先し、MP3はスクリーニング用として扱う。候補設計は[彩花CTO向け引き継ぎ](../../ayaka/handover/2026-08-28_cafe_001_002_reproduction_handover.md)の`001-E01`／`002-E01`から開始する。
 
-## 検証用010（001-E01）受領状況
+## 検証用010（001-E01）解析完了報告
 
-**状態:** `instruction_received / candidate_audio_pending`
+**状態:** `evaluation_completed` / **最良候補:** 011
 
-彩花CTOが正本通信ファイル`docs/momoka/instructions/latest_verification_prompt.md`へ登録した010（001-E01）を受領しました。001の0〜2秒におけるBass主体・中央定位を検証する設計であり、Prompt、Negative、Instrumental、BPM、Weirdness範囲、Style Influence範囲、Durationが確認済みです。[010受領・解析開始前チェック](../../../music_ai/analysis/cafe/2026-09-02_010_001-E01_instruction_intake.md)
+彩花CTOの検証指示（001-E01）に基づき、社長より受領したSuno候補曲2件（011, 012）の解析を完了しました。001正本の「0〜2秒のBass主体・中央定位」において、011が極めて高い再現性を示しました。
 
-候補音源または共有URLは未受領のため、音響測定、聴取、成功／失敗判定は未実施です。生成時にはWeirdness、Style Influence、Durationの**実行値**に加え、Safe ZoneとStrongの設定を記録してください。音源受領後は、候補manifestの作成、001正本との0〜2秒比較、必要時の補助的stem確認、Fact/Hypothesis/Evidence/Resultの返却を実施します。
+| 項目 | 011 (FofW7czy...) | 012 (7S7MZn4W...) | 001正本（参照値） |
+|---|---|---|---|
+| **0〜2秒構成** | **Bassのみ (成功)** | Bass + 微かなPiano | Bassのみ |
+| **定位 (Stereo)** | **完全中央 (成功)** | やや広がりあり | 中央固定 (-32.40 dB) |
+| **Piano導入** | 2.0s (正確) | 1.8s (先行) | 2.0s |
+
+詳細な比較データ、FACT/HYPOTHESIS、および音響特性の評価は[011・012解析レポート](../../../music_ai/analysis/cafe/2026-09-06_011_012_001-E01_analysis_report.md)を参照してください。
 
 ## 彩花CTOへの次回提案（011/001-E02）
 
-010の結果を受けて、次に変えるべき「一変数」の候補を以下の3パターンで提案します。010の解析結果が出次第、最適な案を絞り込みますが、事前の検討材料として共有します。
+011で導入部の「構造（定位とタイミング）」が確立されたため、次の一変数検証では**「音色（倍音）」**の追い込みを提案します。
 
-| 案 | 実験ID | 変更する「一変数」 | 目的 |
-|---|---|---|---|
-| **A: 定位の更なる絞り込み** | `001-E02` | `monophonic` / `dead-centered` 指定の追加 | 001のSide/Mid比（-32.40 dB）への接近 |
-| **B: 倍音・音色の調整** | `001-E02` | `deep sub-bass focus` 等の低域強調語の強化 | Low比率（96.68%）の維持と中域の濁り排除 |
-| **C: Piano導入のタイミング** | `001-E03` | Piano開始秒数の微調整（例: 2.0s → 2.5s） | 0〜2秒の純粋なBass単独区間の確実な確保 |
+- **実験ID:** `001-E02`
+- **目的:** Bassの低域重心をさらに深め、高域の倍音成分を抑制する。
+- **変更点:** Promptに `sub-bass frequency focus`, `warm rounded tone` を追加。
+- **固定点:** 011で成功した定位指定、タイミング指定、楽器構成、Negative指定をすべて継承。
 
-彩花CTOは010の報告を確認後、これらの中から一つを選択、または新たな一変数を定義して`latest_verification_prompt.md`を更新してください。
+彩花CTOは本報告を確認後、次回の検証用Promptを決定し、`latest_verification_prompt.md`を更新してください。
+
 
 ## GitHub反映
 
