@@ -1,6 +1,6 @@
 # 彩花CTO → 桃花COO｜検証用Prompt受信・分析指示 正本
 
-**運用開始:** 2026-09-02
+**運用開始:** 2026-09-06
 **対象:** Project-001｜001再現検証
 **送信元:** 彩花 CTO
 **受信先:** 桃花 COO
@@ -20,13 +20,15 @@
 
 ## 今回の検証
 
-**曲名:** 検証用010
-**実験:** 001-E01
-**目的:** 001の冒頭0:00〜2.00秒のBass主体・中央定位を検証する。
+**曲名:** 検証用011
+**実験:** 001-E02
+**目的:** 検証用010の結果が未報告のため、音響結果を捏造せず、SUNOの冒頭Bass配置をより直接的な開始指示へ変更して、0:00〜2.00秒のBass単独開始を検証する。
+
+> **注意:** GitHub上の最新正式報告では010の候補音源分析結果が未反映である。この011は010の音響結果を根拠にした改良ではなく、**Prompt wordingのみを一変数として変更する補助検証**である。010の分析結果が後から届いた場合は、011の結果と分離して再評価する。
 
 ### Style of Music
 
-Instrumental cafe jazz BGM, BPM 80–86, warm acoustic upright bass, extremely soft natural acoustic tone. From exactly 0:00 to 2.00 seconds, ONLY upright bass is sounding, no piano, no drums, no melody, no other instruments, no silence. Bass is clearly audible from the very first moment, gentle rounded finger-plucked tone, deep low-register focus, restrained upper harmonics, intimate close acoustic sound. Bass remains centered in the stereo field with a narrow, stable, mono-like image during the entire first 2 seconds. At 2.00 seconds, sparse soft acoustic piano enters naturally, followed later by minimal soft brush drums, very few piano notes, long rests between phrases, calm neutral cafe atmosphere, voiceover-friendly, unobtrusive arrangement, gentle constant dynamics, seamless loop feeling.
+Instrumental cafe jazz BGM, BPM 80–86, warm acoustic upright bass, extremely soft natural acoustic tone. **Start the track immediately at 0:00 with one clearly audible, soft upright bass note. The first sound must be upright bass. From 0:00 to 2.00 seconds, keep the arrangement to upright bass only: no piano, no drums, no melody, no other instruments, and no silence. The bass should remain continuously present through the first 2 seconds with a gentle rounded finger-plucked tone, deep low-register focus, restrained upper harmonics, intimate close acoustic sound, centered in the stereo field with a narrow stable mono-like image. At exactly 2.00 seconds, allow sparse soft acoustic piano to enter naturally, followed later by minimal soft brush drums, very few piano notes, long rests between phrases, calm neutral cafe atmosphere, voiceover-friendly, unobtrusive arrangement, gentle constant dynamics, seamless loop feeling.**
 
 ### SUNO設定
 
@@ -39,27 +41,39 @@ Instrumental cafe jazz BGM, BPM 80–86, warm acoustic upright bass, extremely s
 
 ### Negative / Exclude
 
-piano before 2 seconds, drums before 2 seconds, melody before 2 seconds, other instruments before 2 seconds, silence at intro, wide stereo bass, stereo movement, panning, left-right variation, stereo modulation, excessive upper harmonics, bright bass tone, metallic string snap, hard bass attack, clicking, clacking, clutch-like sounds, mechanical noise, aggressive plucking, busy piano, dense melody, strong drums, cymbals, dramatic build, sudden fills, EDM, synth, guitar, vocal
+piano before 2 seconds, drums before 2 seconds, melody before 2 seconds, other instruments before 2 seconds, silence at intro, delayed bass entry, bass absent at 0:00, bass entering after the first sound, wide stereo bass, stereo movement, panning, left-right variation, stereo modulation, excessive upper harmonics, bright bass tone, metallic string snap, hard bass attack, clicking, clacking, clutch-like sounds, mechanical noise, aggressive plucking, busy piano, dense melody, strong drums, cymbals, dramatic build, sudden fills, EDM, synth, guitar, vocal
+
+## 011で変更する変数
+
+**変更変数はPrompt wordingのみ。**
+
+010の「From exactly 0:00 to 2.00 seconds, ONLY upright bass is sounding」を、011では「Start the track immediately at 0:00 with one clearly audible, soft upright bass note. The first sound must be upright bass.」という**開始音を直接指定する表現**へ変更する。
+
+その他のBPM、Instrumental、Weirdness、Style Influence、Duration、Negative、Bassの中央定位、2秒後のPiano導入条件は固定する。
 
 ## 桃花の分析・返却項目
 
-生成曲を受領したら、以下を001 Masterと比較する。
+生成曲を受領したら、001 Masterおよび可能なら010と比較する。
 
 1. Bass開始時刻
-2. 0:00〜2.00秒のBass単独性
-3. Piano / Drums / Melody / その他楽器の混入有無
-4. Low比率
-5. Low-mid比率
-6. Side/Mid比・中央定位
-7. Bass音色・アタック・倍音
-8. クリック／クラッチ／機械的ノイズ
-9. 001との差分
-10. Fact / Hypothesis / Evidence / Result
-11. 成功・失敗判定
-12. 次の一変数検証案
+2. 最初に鳴った音の正体
+3. 0:00〜2.00秒のBass単独性
+4. Piano / Drums / Melody / その他楽器の混入有無
+5. Bassが2秒間継続して存在するか
+6. Low比率
+7. Low-mid比率
+8. Side/Mid比・中央定位
+9. Bass音色・アタック・倍音
+10. クリック／クラッチ／機械的ノイズ
+11. 010との差分（010の分析結果が存在する場合のみ）
+12. 001との差分
+13. Fact / Hypothesis / Evidence / Result
+14. 成功・失敗判定
+15. 次の一変数検証案
 
 ## 必須運用
 
+- 010の正式分析結果がまだないことを、011の評価根拠と混同しない。
 - 途中・停止・ブロッカーでも `docs/momoka/reports/latest_report.md` を更新する。
 - 詳細分析は `music_ai/analysis/cafe/` 等へ保存し、正式報告からリンクする。
 - 完了報告には完了状況、ファイル、完全なCommit SHA、Push先、未完了・ブロッカー、次に彩花が確認するファイルを記載する。
