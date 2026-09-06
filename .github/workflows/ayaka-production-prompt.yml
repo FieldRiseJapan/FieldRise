@@ -1,0 +1,87 @@
+name: FieldRise Music AI - Ayaka Production Prompt Pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/momoka/reports/latest_report.md"
+      - "music_ai/analysis/cafe/**"
+      - "docs/momoka/instructions/latest_verification_prompt.md"
+      - "docs/ayaka/handover/2026-08-28_cafe_001_002_reproduction_handover.md"
+  workflow_dispatch:
+
+# Safety switch: keep false until the OpenAI API has usable credits.
+# Change only this value to true when the company is ready to incur API usage.
+env:
+  AYAKA_AUTOMATION_ENABLED: "false"
+  OPENAI_MODEL: "gpt-5.6-luna"
+
+permissions:
+  contents: write
+
+jobs:
+  generate-next-prompt:
+    name: Generate next SUNO verification prompt from Momoka analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Safety gate
+        run: |
+          if [[ "${AYAKA_AUTOMATION_ENABLED}" != "true" ]]; then
+            echo "⏸️ Ayaka production pipeline is configured but disabled."
+            echo "No OpenAI API request will be made and no cost will be incurred."
+            exit 0
+          fi
+
+      - name: Verify required source files
+        if: ${{ env.AYAKA_AUTOMATION_ENABLED == 'true' }}
+        run: |
+          set -euo pipefail
+          test -s docs/momoka/reports/latest_report.md
+          test -s docs/momoka/instructions/latest_verification_prompt.md
+          test -s docs/ayaka/handover/2026-08-28_cafe_001_002_reproduction_handover.md
+          test -s automation/scripts/generate_ayaka_prompt.py
+          echo "✅ Required GitHub source files are present."
+
+      - name: Generate prompt with OpenAI Responses API
+        if: ${{ env.AYAKA_AUTOMATION_ENABLED == 'true' }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 automation/scripts/generate_ayaka_prompt.py
+
+      - name: Commit Ayaka output to main
+        if: ${{ env.AYAKA_AUTOMATION_ENABLED == 'true' }}
+        run: |
+          set -euo pipefail
+          git config user.name "FieldRise Ayaka CTO Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/ayaka/outbox/next_suno_verification_prompt.md
+          if git diff --cached --quiet; then
+            echo "No prompt changes to commit."
+            exit 0
+          fi
+          git commit -m "Generate next Ayaka SUNO verification prompt"
+          git push origin HEAD:main
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## FieldRise Music AI - Ayaka Production Prompt Pipeline"
+            echo ""
+            if [[ "${AYAKA_AUTOMATION_ENABLED}" == "true" ]]; then
+              echo "✅ Production pipeline executed."
+              echo "Output: docs/ayaka/outbox/next_suno_verification_prompt.md"
+            else
+              echo "⏸️ Pipeline is constructed and currently disabled."
+              echo "OpenAI API was not called."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
