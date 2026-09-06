@@ -1,6 +1,10 @@
 name: OpenAI API Key Connectivity Test
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/openai-api-key-test.yml"
   workflow_dispatch:
 
 permissions:
