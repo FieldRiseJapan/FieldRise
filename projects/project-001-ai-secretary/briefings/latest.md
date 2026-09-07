@@ -1,6 +1,6 @@
 # 2026-09-08（火）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:34 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:45 JST
 
 ---
 
@@ -33,12 +33,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [行政機関18万人を支える「源内」 わずか1～2人での運用を実現した“一見手の込んだ仕組み”](https://www.itmedia.co.jp/enterprise/articles/2609/07/news005.html) — ITmedia AI+
+- [初回正答率の向上で「対話の往復」削減 Meta「Muse Spark 1.3」の推論強化と活用ポイント](https://atmarkit.itmedia.co.jp/ait/articles/2609/08/news045.html) — ITmedia AI+
 - [AI創薬候補、6種の「老化時計」で生物学的年齢の低下を示唆](https://www.itmedia.co.jp/news/article/2609/08/2000001239/) — ITmedia AI+
 - [Googleの自動化ツール「Workspace Studio」とは？ 他ツールとの違いと活用法](https://kn.itmedia.co.jp/kn/article/2609/08/2000001168/) — ITmedia AI+
 - [中国新興自動車メーカーが取り組むAIアーキテクチャ「LBM」は本流となるか](https://monoist.itmedia.co.jp/mn/articles/2609/08/news009.html) — ITmedia AI+
 - [独自AI搭載の「国産四足歩行ロボ」、デモ動画を公開 東大発スタートアップのHighlanders](https://www.itmedia.co.jp/aiplus/article/2609/07/2000001223/) — ITmedia AI+
-- [生成AIの普及だけじゃない 「デザイン業の倒産」が前年同期比166％増になった意外な理由](https://www.itmedia.co.jp/business/articles/2609/07/news075.html) — ITmedia AI+
-- [「Copilot、Word文書まとめて」で社内全滅？ 勝手に増殖するAIウイルスで大騒ぎ：895th Lap](https://kn.itmedia.co.jp/kn/article/2609/04/2000001139/) — ITmedia AI+
 
 **海外AIニュース**
 

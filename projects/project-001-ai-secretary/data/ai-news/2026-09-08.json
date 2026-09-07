@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-09-08T08:33:49.863382+09:00",
+  "collected_at": "2026-09-08T08:45:27.315796+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,22 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "行政機関18万人を支える「源内」 わずか1～2人での運用を実現した“一見手の込んだ仕組み”",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2609/07/news005.html",
+      "published": "2026-09-08T08:00:00+09:00",
+      "summary": "省庁ごとに環境を分ければセキュリティは上がるが、運用の手間はテナントの数だけ膨らむ――。約18万人の職員が利用する生成AI基盤「源内」で、デジタル庁はこの二律背反をどう乗り越えたのか。インフラ担当者1～2人体制で「高いセキュリティ」と運用の効率化を両立させる設計とは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "初回正答率の向上で「対話の往復」削減 Meta「Muse Spark 1.3」の推論強化と活用ポイント",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2609/08/news045.html",
+      "published": "2026-09-08T08:00:00+09:00",
+      "summary": "Metaが新たに公開したモデル「Muse Spark 1.3」は、推論能力の強化により開発時の「会話の往復」を削減するという。100万トークンのコンテキストやマルチモーダル処理を継承しつつ、選べる2種類の料金体系を提示している。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -55,22 +71,6 @@
       "url": "https://kn.itmedia.co.jp/kn/article/2609/04/2000001139/",
       "published": "2026-09-07T15:38:18+09:00",
       "summary": "「Microsoft Copilot」が仕事で使われるようになるなか、Word文書を介して感染が広がる、これまでとは少し違った脅威が見つかった。生成AIを仕事で使う企業が増えているだけに、警戒した方が良さそうだ。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "M365 Copilotでも「GPT-6 Astra」利用可能に 「Fable 5.1」も可 Work IQと合わせて「より的確な応答」に",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2609/07/2000001217/",
-      "published": "2026-09-07T15:32:17+09:00",
-      "summary": "Microsoftは、OpenAIの新モデル「GPT-6 Astra」を「Copilot Cowork」と「Copilot Studio」で提供開始。作業を細かく分けて指示せずとも、より大きなタスクを委任できるとうたう。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "M365 Copilotを配っても「使われない」 でもAI活用が進んだ福島県庁の\"逆張り\"戦略",
-      "url": "https://kn.itmedia.co.jp/kn/article/2609/07/2000000807/",
-      "published": "2026-09-07T15:31:29+09:00",
-      "summary": "福島といえば喜多方ラーメン。毎日でも飽きないスープのように、生成AIも職員が日常的に使う存在にできるのか。有償アカウント100件と研修を用意しても利用が二極化した福島県が、それでも約6000人への全庁展開に踏み切った理由を追う。"
     },
     {
       "source": "ASCII.jp AI",
