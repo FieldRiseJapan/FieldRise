@@ -91,3 +91,14 @@
 - `.github/workflows/momoka-task-completion-line-notify.yml`（停止済み）
 - `docs/momoka/reports/latest_report.md`
 - `automation/scripts/send_line_notification.py`
+
+
+## yutakaeng GitHub実装資産調査（2026-09-08）
+
+**状態:** `research_completed / integration_not_yet_started`
+
+今回、yutakaengのオフラインOCR・図面レイアウト解析・Excel出力に関連するGitHub資産を調査した。推奨候補は、PaddleOCR/PP-Structureを警告セル専用の比較OCRとして評価すること、ocr_ensembleの複数前処理・複数OCR合意方式を候補確定ロジックへ応用すること、engineering-drawing-extractorとimg2tableから工業図面の罫線除去・セル境界・Excel出力の実装パターンを参照することである。LayoutParserとdocTRは将来の図面種類拡張用の比較候補、HURIDOCS PDF layout analysisは一般文書向けでDocker・重量級依存のためWindowsポータブル本体には非推奨とした。
+
+詳細報告は[`yutakaeng_windows_validation/github_ocr_assets_research_20260908.md`](../../../../yutakaeng_windows_validation/github_ocr_assets_research_20260908.md)に保存した。導入前には各リポジトリおよびモデルのLICENSE、配布条件、依存モデルの利用条件を個別確認する。現時点では既存のRapidOCR・Tesseract・OpenCV・PyMuPDF・openpyxl構成を維持し、PaddleOCRを警告セル限定のベンチマークとして追加評価するのが安全である。
+
+彩花CTO確認事項: ①PaddleOCR候補をオフライン評価するか、②追加モデル容量と処理時間を許容するか、③実図面の正解付きゴールドセットを追加提供できるか。
