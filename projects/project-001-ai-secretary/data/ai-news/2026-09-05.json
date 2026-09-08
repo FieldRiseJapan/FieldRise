@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-09-05T08:18:52.884930+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "従業員が「個人利用のAIサービス」に顧客情報をアップロード RIZAPが謝罪",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001166/",
+      "published": "2026-09-04T12:42:38+09:00",
+      "summary": "パーソナルジムの運営などを手掛けるRIZAPは、同社従業員が個人で利用している外部の生成AIサービスに顧客情報を誤ってアップロードしたと発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ChatGPTの利用制限、新モデル「Astra」提供まで“毎日リセット” 有料ユーザー向け",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001165/",
+      "published": "2026-09-04T12:25:16+09:00",
+      "summary": "新AIモデル「GPT-6 Astra」を使えるようになるまで、「ChatGPT」の利用制限枠のリセット権を有料ユーザー向けに毎日提供する――米OpenAIのティボ・ソティオ氏は、自身のXアカウントでこのように投稿した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "RIZAP社員、私用AIに顧客の個人情報入力 氏名や疾患、保険証番号など……同社が謝罪",
+      "url": "https://www.itmedia.co.jp/news/article/2609/04/2000001161/",
+      "published": "2026-09-04T11:33:22+09:00",
+      "summary": "RIZAPの社員が、個人で使用している外部の生成AIサービスに、顧客の氏名や疾患などの個人情報・要配慮個人情報を誤ってアップロードしたという。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "とにかく「データが足りない」フィジカルAI AWS支援プログラム採択各社が示す突破口",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001158/",
+      "published": "2026-09-04T11:00:43+09:00",
+      "summary": "AWSジャパンが8月31日、総額600万米ドル規模の「フィジカルAI開発支援プログラム」の成果報告会を開催した。登壇した多くの企業が語ったのは「データ不足」の壁。半年間の開発から見えた突破口とは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "コードを書くのはAI、人間は何をする？ 弥生とビル・ゲイツが示す「開発者の次の仕事」",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2609/04/news017.html",
+      "published": "2026-09-04T10:15:00+09:00",
+      "summary": "AIがコードを書き、テストし、レビューまで担う時代が始まった。では、開発者の仕事はどのように変化するのか。仕様書中心の開発を見直した弥生の実践と、ビル・ゲイツ氏の問題提起から、AI時代に人間に残される仕事と、その境界線を考える。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Adobe、次期CEOにアニル・チャクラバーシー氏 ナラヤン氏は12月1日付で会長に",
+      "url": "https://www.itmedia.co.jp/news/article/2609/04/2000001155/",
+      "published": "2026-09-04T08:54:03+09:00",
+      "summary": "Adobeは、アニル・チャクラバーシー氏が12月1日付で社長兼CEOに就任すると発表した。2007年からCEOを務めたシャンタヌ・ナラヤン氏は執行会長に就き、新体制を支援する。また、クリエイティビティ＆プロダクティビティ事業を率いるデビッド・ワドワニ社長が退社する意向を明らかにした。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIで2D図面を3D CADモデル化、アセンブリからバラシ図面の作成も",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2609/04/news033.html",
+      "published": "2026-09-04T08:30:00+09:00",
+      "summary": "ホルスAIは、2D図面からの3D CADモデル生成や3Dアセンブリからのバラシ図面作成を行うWebサービス「Zumen AI」の先行提供を開始した。AIでCAD作業を効率化し、後工程への移行を早める。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OpenAI、「GPT-6 Astra」を一部組織向けに公開 サイバー能力が初の「Critical」に",
+      "url": "https://www.itmedia.co.jp/news/article/2609/04/2000001153/",
+      "published": "2026-09-04T08:19:48+09:00",
+      "summary": "OpenAIは新モデル「GPT-6 Astra」を公開した。サイバーセキュリティ能力が自社基準で最高の「Critical」に達した初のモデル。提供版は悪用防止のため防御用途に限定し、高度な機能は防御側支援プログラム「Daybreak」で段階的に開放する。数学やコーディング、PC操作など各領域で最高水準を記録した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「QRコード」って何の略？ 実は日本企業が生んだ“高速読み取り”の技術",
+      "url": "https://ascii.jp/elem/000/004/432/4432202/?rss",
+      "published": "2026-09-05T07:00:00+09:00",
+      "summary": "モザイクのようなギザギザが正方形状に集まっている独特な模様――「QRコード」を知らない人はいないでしょう。では、QRが何の略かご存知ですか？"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "任天堂「ニンダイ」9月8日＆9日の23時から 前代未聞の2夜連続ダブルダイレクト",
+      "url": "https://ascii.jp/elem/000/004/432/4432556/?rss",
+      "published": "2026-09-05T00:05:00+09:00",
+      "summary": "任天堂は9月8日23時より「ゼルダの伝説40周年 Direct 2026.9.8」を、そして9月9日23時より「Nintendo Direct 2026.9.9（ニンテンドーダイレクト）」を放送すると発表した。まさかの2夜連続放送に、ファンからは驚きの声があがっている。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "昭和が撮れる8894円のトイデジカメ「InstantSnap.novo」実機レビュー",
+      "url": "https://ascii.jp/elem/000/004/432/4432486/?rss",
+      "published": "2026-09-05T00:01:00+09:00",
+      "summary": "ピンコイが「Escura（エスクーラ）」によるトイデジタルカメラ「InstantSnap」の第2世代モデル「InstantSnap.novo」を発売したので使ってみました"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "最大8万5000円引き！ パソコンショップSEVENのゲーミングPC限定セール、対象は全10モデル",
+      "url": "https://ascii.jp/elem/000/004/431/4431844/?rss",
+      "published": "2026-09-05T00:00:00+09:00",
+      "summary": "パソコンショップSEVENが9月5日限定の24時間セールを開催。RTX 5080やRTX 5070搭載ゲーミングPCなど全10商品を、最大8万5000円引きの特別価格で販売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "約4万円引き！ 32GB Copilot+ PC「mouse B5」が23万9980円、画面はWQXGA・120Hz",
+      "url": "https://ascii.jp/elem/000/004/432/4432248/?rss",
+      "published": "2026-09-04T22:00:00+09:00",
+      "summary": "マウスコンピューターのノートPC「mouse B5（B5A7A01SR3SIW1106AZ）」がAmazonでタイムセール対象。参考価格279,800円から14％オフの239,980円で販売中。Ryzen AI 7 350と32GBメモリ、500GB SSDを搭載するCopilot+ PC。15.3型WQXGAディスプレーを備える国内生産のノートPCだ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Switch 2で使える！プリンストン「microSD Expressカード（1TB）」セールで2万円以上も安い",
+      "url": "https://ascii.jp/elem/000/004/432/4432490/?rss",
+      "published": "2026-09-04T21:00:00+09:00",
+      "summary": "Amazon.co.jpにて、プリンストンのmicroSD Expressカードがセール中。Nintendo Switch 2の動作確認済みで、容量1TBのカードが3万4800円です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "VAIO価格改定前の大セール開催中！ 「VAIOストア祭り」は対象モデルが10％オフ",
+      "url": "https://ascii.jp/elem/000/004/432/4432469/?rss",
+      "published": "2026-09-04T21:00:00+09:00",
+      "summary": "現在、VAIOは「VAIOストア祭り」を開催中。期間中は対象モデルが10％オフになる。期間は2026年9月18日(金)9時59分まで。すでにVAIOは価格改定を発表しているため、気になるモデルはこのタイミングでの購入がオススメだ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "RTX 5060 Ti 16GB＋32GB搭載PCが26万4980円。ドスパラ「アウトレットセール」",
+      "url": "https://ascii.jp/elem/000/004/432/4432424/?rss",
+      "published": "2026-09-04T21:00:00+09:00",
+      "summary": "ドスパラの「アウトレットセール」では、検品を終えた未使用のアウトレットPCを数量限定で販売中。お客様キャンセル品や外観にキズがあると判断された製品などが対象で、ゲーミングPCからノートPCまでラインアップしている。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI’s rogue agents keep escaping, with no formal process to investigate them",
+      "url": "https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/",
+      "published": "2026-09-05T08:15:11+09:00",
+      "summary": "OpenAI’s latest agent swarm incident adds urgency to calls for independent investigations as researchers and lawmakers question whether AI labs should control the scope of their own safety reviews."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "AI compute provider Nscale is looking for $3.5B in pre-IPO financing",
+      "url": "https://techcrunch.com/2026/09/04/ai-compute-provider-nscale-is-looking-for-3-5b-in-pre-ipo-financing/",
+      "published": "2026-09-05T06:12:11+09:00",
+      "summary": "Nscale, which recently struck a $45 billion deal with Anthropic, is in talks to raise additional funds in anticipation of an upcoming IPO."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "What will Apple’s John Ternus era look like?",
+      "url": "https://techcrunch.com/video/what-will-apples-john-ternus-era-look-like/",
+      "published": "2026-09-05T02:18:00+09:00",
+      "summary": "It&#8217;s&#160;officially the Ternus era at Apple.&#160;&#160; Tim Cook stepped down&#160;as CEO this week, handing the company to former hardware chief John Ternus, whose first memo&#160;promised a "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Another swarm of OpenAI agents reached the open internet without the frontier lab’s knowledge",
+      "url": "https://techcrunch.com/2026/09/04/another-swarm-of-openai-agents-reached-the-open-internet-without-the-frontier-labs-knowledge/",
+      "published": "2026-09-05T01:21:11+09:00",
+      "summary": "It's the latest failure of OpenAI's internal monitoring and security systems."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Apple’s Ternus era begins as Nvidia bets on the whole AI stack",
+      "url": "https://techcrunch.com/podcast/apples-ternus-era-begins-as-nvidia-bets-on-the-whole-ai-stack/",
+      "published": "2026-09-05T01:04:08+09:00",
+      "summary": "It&#8217;s&#160;officially the Ternus era at Apple.&#160;&#160; Tim Cook stepped down&#160;as CEO this week, handing the company to former hardware chief John Ternus, whose first memo&#160;promised a "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Google’s Gemini Spark can now manage your Google Photos library",
+      "url": "https://techcrunch.com/2026/09/04/googles-gemini-spark-can-now-manage-your-google-photos-library/",
+      "published": "2026-09-04T23:47:11+09:00",
+      "summary": "Gemini Spark can edit and curate photo albums, create shared collections, turn photos into calendar events, and handle other Google Photos tasks for AI Pro and Ultra subscribers."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Less than 24 hours to apply for your TechCrunch Disrupt 2026 Side Event",
+      "url": "https://techcrunch.com/2026/09/04/less-than-24-hours-to-apply-for-your-techcrunch-disrupt-2026-side-event/",
+      "published": "2026-09-04T23:00:00+09:00",
+      "summary": "Less than 24 hours left to apply to host a Side Event during TechCrunch Disrupt 2026 and make your mark in the Silicon Valley scene. Apply before the application closes tonight at midnight PT."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "The sameness problem behind those unappetizing AI-generated menus",
+      "url": "https://techcrunch.com/2026/09/03/the-sameness-problem-behind-those-unappetizing-ai-generated-menus/",
+      "published": "2026-09-04T13:21:03+09:00",
+      "summary": "While restaurant owners might look to generative AI as a shortcut to sprucing up their menu, customers can viscerally sense that something is wrong with the food."
+    }
+  ]
+}

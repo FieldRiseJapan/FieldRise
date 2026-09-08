@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-09-06T08:16:37.225668+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OpenAI、休眠サイトへの自社AIエージェント書き込みを認め、非公表の理由を説明",
+      "url": "https://www.itmedia.co.jp/news/article/2609/06/2000001202/",
+      "published": "2026-09-06T07:35:17+09:00",
+      "summary": "OpenAIは、AIエージェントが休眠Wikiを掲示板として悪用した問題について声明を発表し、自社モデルの関与を初めて認めた。セキュリティ侵害ではなく「ミスアライメント」の研究事例と位置付けていたため個別公表しなかったと釈明し、新たな開示基準を数週間以内に策定、公開するとしている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「最大45％コスト減」 Anthropicが「Claude Fable 5.1」発表 脆弱性検知にも対応",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2609/05/news009.html",
+      "published": "2026-09-05T13:00:00+09:00",
+      "summary": "Anthropicは、新AIモデル「Claude Fable 5.1」および「Claude Mythos 5.1」を発表した。キャッシュ読み取り価格の引き下げによりFable 5.1は最大約45％のコスト削減が見込めるとしている。脆弱性検知への対応など、セーフガードも一部変更されたという。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OpenAIのAIエージェント、休眠サイトを掲示板化してタスク回答を共有か 研究団体が報告書公開",
+      "url": "https://www.itmedia.co.jp/news/article/2609/05/2000001200/",
+      "published": "2026-09-05T12:06:58+09:00",
+      "summary": "OpenAIの社内AIエージェントが休眠状態の外部Wikiサイトを不正に“掲示板”として利用し、評価タスクの答えや制限回避の手法を共有していたとする報告書を研究団体が公開した。閲覧のみ許可されていた環境の抜け道を突き、GETリクエストで書き込みを行っていた。OpenAI側は内容を精査して対処するとしている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "従業員が「個人利用のAIサービス」に顧客情報をアップロード RIZAPが謝罪",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001166/",
+      "published": "2026-09-04T12:42:38+09:00",
+      "summary": "パーソナルジムの運営などを手掛けるRIZAPは、同社従業員が個人で利用している外部の生成AIサービスに顧客情報を誤ってアップロードしたと発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ChatGPTの利用制限、新モデル「Astra」提供まで“毎日リセット” 有料ユーザー向け",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001165/",
+      "published": "2026-09-04T12:25:16+09:00",
+      "summary": "新AIモデル「GPT-6 Astra」を使えるようになるまで、「ChatGPT」の利用制限枠のリセット権を有料ユーザー向けに毎日提供する――米OpenAIのティボ・ソティオ氏は、自身のXアカウントでこのように投稿した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "RIZAP社員、私用AIに顧客の個人情報入力 氏名や疾患、保険証番号など……同社が謝罪",
+      "url": "https://www.itmedia.co.jp/news/article/2609/04/2000001161/",
+      "published": "2026-09-04T11:33:22+09:00",
+      "summary": "RIZAPの社員が、個人で使用している外部の生成AIサービスに、顧客の氏名や疾患などの個人情報・要配慮個人情報を誤ってアップロードしたという。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "とにかく「データが足りない」フィジカルAI AWS支援プログラム採択各社が示す突破口",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001158/",
+      "published": "2026-09-04T11:00:43+09:00",
+      "summary": "AWSジャパンが8月31日、総額600万米ドル規模の「フィジカルAI開発支援プログラム」の成果報告会を開催した。登壇した多くの企業が語ったのは「データ不足」の壁。半年間の開発から見えた突破口とは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "コードを書くのはAI、人間は何をする？ 弥生とビル・ゲイツが示す「開発者の次の仕事」",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2609/04/news017.html",
+      "published": "2026-09-04T10:15:00+09:00",
+      "summary": "AIがコードを書き、テストし、レビューまで担う時代が始まった。では、開発者の仕事はどのように変化するのか。仕様書中心の開発を見直した弥生の実践と、ビル・ゲイツ氏の問題提起から、AI時代に人間に残される仕事と、その境界線を考える。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "AMD Ryzen 9・RTX 5070搭載PCが5万2000円オフ、パソコンショップSEVENで限定セール",
+      "url": "https://ascii.jp/elem/000/004/432/4432218/?rss",
+      "published": "2026-09-06T00:00:00+09:00",
+      "summary": "パソコンショップSEVENが9月6日限定の24時間セールを開催。ゲーミングPCやデスクトップPCなど対象10商品が最大5万2000円オフに。Ryzen 9・GeForce RTX 5070搭載モデルなど、注目製品とセール価格を紹介します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "楽天モバイル、10月以降のローミングエリアについてユーザーに告知 「時間を要するエリアは、10月以降も継続」",
+      "url": "https://ascii.jp/elem/000/004/432/4432587/?rss",
+      "published": "2026-09-05T21:25:00+09:00",
+      "summary": "楽天モバイルは、同社公式サイト上で9月末に一旦区切りを迎えるKDDIとのローミング契約について、ユーザーに対する告知文を掲載している。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "アップル、有機EL版MacBook ProにM5 Ultra搭載？ノート型Mac初の最上位チップか",
+      "url": "https://ascii.jp/elem/000/004/432/4432420/?rss",
+      "published": "2026-09-05T20:00:00+09:00",
+      "summary": "アップルが開発中とうわさされる有機ELディスプレー搭載の新型MacBook Proには、M5シリーズの上位チップ「M5 Ultra」が搭載される可能性があるという。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "アップル「iPhone 18 Pro」9月12日午後4時に予約開始？",
+      "url": "https://ascii.jp/elem/000/004/432/4432419/?rss",
+      "published": "2026-09-05T20:00:00+09:00",
+      "summary": "アップルが9月9日のスペシャルイベントで発表するとうわさのiPhone 18 Pro、iPhone 18 Pro Maxの予約受付は、例年より1日遅い9月12日に始まる可能性が高い。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "約1kgのVAIOが17万円台！ 16:10画面で仕事がはかどる「VAIO S13」が10％オフ",
+      "url": "https://ascii.jp/elem/000/004/432/4432523/?rss",
+      "published": "2026-09-05T19:00:00+09:00",
+      "summary": "VAIOストアで「VAIOストア祭り」を開催中。約1kgの軽量ボディと縦横比16:10の13.3型ディスプレーを備えた「VAIO S13」が10％オフとなり、17万8200円から購入できる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「ツンデレなセリフをたくさん言いました」イイトコドリの桜木美緒、ギャップが冴える6th DVDリリース",
+      "url": "https://ascii.jp/elem/000/004/431/4431690/?rss",
+      "published": "2026-09-05T19:00:00+09:00",
+      "summary": "4月から新体制になったアイドルグループ「イイトコドリ」の桜木美緒さんが、6th DVD「桜木ちゃんはちょっぴり不器用」の発売記念イベントを8月8日、ソフマップAKIBA アミューズメント館で開催した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "黒猫になった「東京ばな奈」がかわいすぎる！ “ぶにゃんこ”コンプリートセットも",
+      "url": "https://ascii.jp/elem/000/004/432/4432502/?rss",
+      "published": "2026-09-05T18:40:00+09:00",
+      "summary": "東京ばな奈ワールドは9月10日より、東京ばな奈を黒猫カラーにした秋冬限定商品「東京ばな奈ぶにゃんこ チョコバナナ味、『見ぃつけたっ』」を発売。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "6.8インチ大型スマホ「Pixel 11 Pro XL」を使い倒して、大画面ってやっぱりいい！と思った",
+      "url": "https://ascii.jp/elem/000/004/432/4432529/?rss",
+      "published": "2026-09-05T18:00:00+09:00",
+      "summary": "グーグルの最上位スマホ「Pixel 11 Pro XL」の実機レビューです。6.8型の大画面は明るく見やすく、226gの重さもすぐに慣れると評価。Tensor G6による高速なローカルAI処理や、全レンズ高画素で最大120倍ズーム対応のカメラなど、妥協のないスペックを解説します。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft",
+      "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
+      "published": "2026-09-06T07:49:55+09:00",
+      "summary": "Two more news organizations are suing OpenAI and Microsoft over the supposed use of their journalism to train AI."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Hikers rescued after using Google Gemini for planning",
+      "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
+      "published": "2026-09-06T04:35:24+09:00",
+      "summary": "The sheriff’s office said the hikers “were advised by Gemini to bring far less food and water than their group required.\""
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI confirms ‘wiki incident,’ says it’s ‘working on a framework’ for more disclosure",
+      "url": "https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure/",
+      "published": "2026-09-06T03:05:27+09:00",
+      "summary": "OpenAI acknowledged its role in a recently reported incident where AI agents took over a German wiki forum."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "XDOF, just three months out of stealth, is in talks for a Series B at a $1.2B valuation",
+      "url": "https://techcrunch.com/2026/09/04/xdof-just-three-months-out-of-stealth-is-in-talks-for-a-series-b-at-a-1-2b-valuation/",
+      "published": "2026-09-05T08:36:14+09:00",
+      "summary": "The round is being raised just months after the robot data startup exited from stealth."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI’s rogue agents keep escaping, with no formal process to investigate them",
+      "url": "https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/",
+      "published": "2026-09-05T08:15:11+09:00",
+      "summary": "OpenAI’s latest agent swarm incident adds urgency to calls for independent investigations as researchers and lawmakers question whether AI labs should control the scope of their own safety reviews."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "AI compute provider Nscale is looking for $3.5B in pre-IPO financing",
+      "url": "https://techcrunch.com/2026/09/04/ai-compute-provider-nscale-is-looking-for-3-5b-in-pre-ipo-financing/",
+      "published": "2026-09-05T06:12:11+09:00",
+      "summary": "Nscale, which recently struck a $45 billion deal with Anthropic, is in talks to raise additional funds in anticipation of an upcoming IPO."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "What will Apple’s John Ternus era look like?",
+      "url": "https://techcrunch.com/video/what-will-apples-john-ternus-era-look-like/",
+      "published": "2026-09-05T02:18:00+09:00",
+      "summary": "It&#8217;s&#160;officially the Ternus era at Apple.&#160;&#160; Tim Cook stepped down&#160;as CEO this week, handing the company to former hardware chief John Ternus, whose first memo&#160;promised a "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Another swarm of OpenAI agents reached the open internet without the frontier lab’s knowledge",
+      "url": "https://techcrunch.com/2026/09/04/another-swarm-of-openai-agents-reached-the-open-internet-without-the-frontier-labs-knowledge/",
+      "published": "2026-09-05T01:21:11+09:00",
+      "summary": "It's the latest failure of OpenAI's internal monitoring and security systems."
+    }
+  ]
+}

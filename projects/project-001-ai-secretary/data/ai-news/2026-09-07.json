@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-09-07T08:09:21.906067+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OpenAI、休眠サイトへの自社AIエージェント書き込みを認め、非公表の理由を説明",
+      "url": "https://www.itmedia.co.jp/news/article/2609/06/2000001202/",
+      "published": "2026-09-06T07:35:17+09:00",
+      "summary": "OpenAIは、AIエージェントが休眠Wikiを掲示板として悪用した問題について声明を発表し、自社モデルの関与を初めて認めた。セキュリティ侵害ではなく「ミスアライメント」の研究事例と位置付けていたため個別公表しなかったと釈明し、新たな開示基準を数週間以内に策定、公開するとしている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「最大45％コスト減」 Anthropicが「Claude Fable 5.1」発表 脆弱性検知にも対応",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2609/05/news009.html",
+      "published": "2026-09-05T13:00:00+09:00",
+      "summary": "Anthropicは、新AIモデル「Claude Fable 5.1」および「Claude Mythos 5.1」を発表した。キャッシュ読み取り価格の引き下げによりFable 5.1は最大約45％のコスト削減が見込めるとしている。脆弱性検知への対応など、セーフガードも一部変更されたという。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OpenAIのAIエージェント、休眠サイトを掲示板化してタスク回答を共有か 研究団体が報告書公開",
+      "url": "https://www.itmedia.co.jp/news/article/2609/05/2000001200/",
+      "published": "2026-09-05T12:06:58+09:00",
+      "summary": "OpenAIの社内AIエージェントが休眠状態の外部Wikiサイトを不正に“掲示板”として利用し、評価タスクの答えや制限回避の手法を共有していたとする報告書を研究団体が公開した。閲覧のみ許可されていた環境の抜け道を突き、GETリクエストで書き込みを行っていた。OpenAI側は内容を精査して対処するとしている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "従業員が「個人利用のAIサービス」に顧客情報をアップロード RIZAPが謝罪",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001166/",
+      "published": "2026-09-04T12:42:38+09:00",
+      "summary": "パーソナルジムの運営などを手掛けるRIZAPは、同社従業員が個人で利用している外部の生成AIサービスに顧客情報を誤ってアップロードしたと発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ChatGPTの利用制限、新モデル「Astra」提供まで“毎日リセット” 有料ユーザー向け",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001165/",
+      "published": "2026-09-04T12:25:16+09:00",
+      "summary": "新AIモデル「GPT-6 Astra」を使えるようになるまで、「ChatGPT」の利用制限枠のリセット権を有料ユーザー向けに毎日提供する――米OpenAIのティボ・ソティオ氏は、自身のXアカウントでこのように投稿した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "RIZAP社員、私用AIに顧客の個人情報入力 氏名や疾患、保険証番号など……同社が謝罪",
+      "url": "https://www.itmedia.co.jp/news/article/2609/04/2000001161/",
+      "published": "2026-09-04T11:33:22+09:00",
+      "summary": "RIZAPの社員が、個人で使用している外部の生成AIサービスに、顧客の氏名や疾患などの個人情報・要配慮個人情報を誤ってアップロードしたという。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "とにかく「データが足りない」フィジカルAI AWS支援プログラム採択各社が示す突破口",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001158/",
+      "published": "2026-09-04T11:00:43+09:00",
+      "summary": "AWSジャパンが8月31日、総額600万米ドル規模の「フィジカルAI開発支援プログラム」の成果報告会を開催した。登壇した多くの企業が語ったのは「データ不足」の壁。半年間の開発から見えた突破口とは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "コードを書くのはAI、人間は何をする？ 弥生とビル・ゲイツが示す「開発者の次の仕事」",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2609/04/news017.html",
+      "published": "2026-09-04T10:15:00+09:00",
+      "summary": "AIがコードを書き、テストし、レビューまで担う時代が始まった。では、開発者の仕事はどのように変化するのか。仕様書中心の開発を見直した弥生の実践と、ビル・ゲイツ氏の問題提起から、AI時代に人間に残される仕事と、その境界線を考える。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "サイコム「G-Master Velox Mini 2」発売、縦置きできる21.3Lの小型ゲーミングPC",
+      "url": "https://ascii.jp/elem/000/004/432/4432625/?rss",
+      "published": "2026-09-07T08:00:00+09:00",
+      "summary": "サイコムが、縦置き・横置きに対応した小型ゲーミングPC「G-Master Velox Mini 2」3機種を発売。RTX 5060を標準搭載し、21.3Lのコンパクト設計ながら優れた冷却性能と拡張性を実現します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "SaaSに代わりAIエージェント支える“AaaS”が台頭／議事録作成AIは「意思決定支援」へ進化／生成AIの顧客満足度・1位はClaude、ほか",
+      "url": "https://ascii.jp/elem/000/004/432/4432581/?rss",
+      "published": "2026-09-07T08:00:00+09:00",
+      "summary": "今回（2026年8月29日～9月4日）は、“意思決定支援”へと進化する会議支援AIツール市場、AIエージェントを支える基盤＝「AaaS」市場の台頭、最新の生成AIサービスの顧客満足度ランキング、ソフトウェア開発組織におけるAI活用の実態、企業のAI投資とROI（投資対効果）についてのデータを紹介します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ついにAIキャラクターと“ビデオチャット”へ 「MiniMax H3」がリアルタイム生成に接近",
+      "url": "https://ascii.jp/elem/000/004/432/4432622/?rss",
+      "published": "2026-09-07T07:00:00+09:00",
+      "summary": "動画生成AI「MiniMax H3」の高速化により、ローカルPCでもセミリアルタイムの動画対話や連続生成が可能になりつつある。将来的には動画は続きを“作って見る”時代になるかもしれない。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "自作PCトーク『ジサトラKTU』生放送～DLSS 5のNeural Renderingは画質と性能にどう影響するのか？～",
+      "url": "https://ascii.jp/elem/000/004/432/4432543/?rss",
+      "published": "2026-09-07T07:00:00+09:00",
+      "summary": "DLSS 5のNeural Renderingは画質と性能にどう影響するのか？ 木曜20:00から放送スタート！"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "iPhone 18＆折りたたみiPhone発表直前！理詰め＆妄想予想で盛り上がる！の巻：スマホ総研定例会391",
+      "url": "https://ascii.jp/elem/000/004/432/4432526/?rss",
+      "published": "2026-09-07T07:00:00+09:00",
+      "summary": "iPhone 18＆折りたたみiPhoneを理詰め＆妄想で大予想！ iPhone 18 Pro Maxは7万円値上げ!? 可変絞り付きカメラが搭載？ ディープパープルのカラバリ登場？ といった理詰めの分析やネット上のウワサはもちろん、折りたたみiPhoneでmacOSが動いてほしい！ といった妄想までスマホ総研の3人で語ります！"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "『今週のASCII.jp注目ニュース』生放送（9/5～9/11ぶん）",
+      "url": "https://ascii.jp/elem/000/004/432/4432524/?rss",
+      "published": "2026-09-07T07:00:00+09:00",
+      "summary": "アスキーのNEWSメディア『ASCII.jp』で注目を集めたこの2週間の記事をランキング形式でお届け！ ASCII.jp編集部のオカモト、ムラリン、MCつばさの3人が、自由におしゃべりします。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "タクシーアプリで送金できるチップ機能でインバウンド対応と乗務員還元を強化",
+      "url": "https://ascii.jp/elem/000/004/432/4432329/?rss",
+      "published": "2026-09-07T07:00:00+09:00",
+      "summary": "DiDiモビリティジャパン株式会社は9月1日、配車アプリ「DiDi」において、乗車完了後にアプリ上で乗務員へチップを支払える機能の提供を開始した。キャッシュレス決済の浸透に伴う現金の手渡しの減少や、チップ習慣を持つ訪日外国人観光客の利用を見込み、アプリ経由で送金する手段として導入された。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "災害時のトイレ課題。仮設トイレの設置場所を自治体から収集するアップデート",
+      "url": "https://ascii.jp/elem/000/004/432/4432114/?rss",
+      "published": "2026-09-07T07:00:00+09:00",
+      "summary": "株式会社TOILET SEARCHは8月31日、同社のトイレ検索アプリ「TOILET SEARCH」において、災害用仮設トイレの設置場所を地図上に「緑のピン」で表示する新機能を提供開始した。災害発生時に断水などで既存トイレが使用不可となった際、設置された仮設トイレの位置が被災者に伝わりにくいという課題に対応するためのアップデートとなる。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Authors push back as publishers and agents make claims on Anthropic settlement",
+      "url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/",
+      "published": "2026-09-07T05:47:37+09:00",
+      "summary": "Authors say publishers seem to be claiming more than their fair share of settlement payments."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Travis Kalanick’s Atoms might be getting into the robotaxi business",
+      "url": "https://techcrunch.com/2026/09/06/travis-kalanicks-atoms-might-be-getting-into-the-robotaxi-business/",
+      "published": "2026-09-07T01:45:00+09:00",
+      "summary": "The Uber founder has said that Atoms will allow him to complete \"unfinished business.\""
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft",
+      "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
+      "published": "2026-09-06T07:49:55+09:00",
+      "summary": "Two more news organizations are suing OpenAI and Microsoft over the supposed use of their journalism to train AI."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Hikers rescued after using Google Gemini for planning",
+      "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
+      "published": "2026-09-06T04:35:24+09:00",
+      "summary": "The sheriff’s office said the hikers “were advised by Gemini to bring far less food and water than their group required.\""
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI confirms ‘wiki incident,’ says it’s ‘working on a framework’ for more disclosure",
+      "url": "https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure/",
+      "published": "2026-09-06T03:05:27+09:00",
+      "summary": "OpenAI acknowledged its role in a recently reported incident where AI agents took over a German wiki forum."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "XDOF, just three months out of stealth, is in talks for a Series B at a $1.2B valuation",
+      "url": "https://techcrunch.com/2026/09/04/xdof-just-three-months-out-of-stealth-is-in-talks-for-a-series-b-at-a-1-2b-valuation/",
+      "published": "2026-09-05T08:36:14+09:00",
+      "summary": "The round is being raised just months after the robot data startup exited from stealth."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI’s rogue agents keep escaping, with no formal process to investigate them",
+      "url": "https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/",
+      "published": "2026-09-05T08:15:11+09:00",
+      "summary": "OpenAI’s latest agent swarm incident adds urgency to calls for independent investigations as researchers and lawmakers question whether AI labs should control the scope of their own safety reviews."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "AI compute provider Nscale is looking for $3.5B in pre-IPO financing",
+      "url": "https://techcrunch.com/2026/09/04/ai-compute-provider-nscale-is-looking-for-3-5b-in-pre-ipo-financing/",
+      "published": "2026-09-05T06:12:11+09:00",
+      "summary": "Nscale, which recently struck a $45 billion deal with Anthropic, is in talks to raise additional funds in anticipation of an upcoming IPO."
+    }
+  ]
+}

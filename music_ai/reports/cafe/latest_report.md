@@ -110,3 +110,38 @@ GitHub Actionsのscheduleイベント自体が2本とも欠落する場合、Git
 - **完全Commit SHA:** `5e6e03b8b86b7f43f358a5ab0d5984bce8d3d08d`
 - **Push先:** `origin/main`
 - **検証Run:** [Run 33340545502](https://github.com/FieldRiseJapan/FieldRise/actions/runs/33340545502)
+
+
+## 7:05 JST LINE未送信監視スクリプトの実装（2026-09-08）
+
+### 完了状況
+
+7:05 JSTに当日分のLINE定時報告が送信済みとして記録されているかを確認する、読み取り専用の監視スクリプトを作成し、独立したGitHub Actionsワークフローへ組み込んだ。
+
+### 作成・更新ファイル
+
+| 区分 | 保存先 | 内容 |
+|---|---|---|
+| 監視スクリプト | `automation/scripts/monitor_line_briefing.py` | JST当日、送信済みマーカー、当日定時報告ファイルを判定し、JSON/Markdownレポートを出力 |
+| 監視ワークフロー | `.github/workflows/line-briefing-monitor.yml` | 毎朝7:05 JST（UTC 22:05）に監視を起動し、成果物を14日保存 |
+| テスト | `tests/line_briefing_monitor/test_line_briefing_monitor.py` | 送信済み、未送信、前日マーカー、定時報告欠落の4ケースを検証 |
+
+### 判定仕様
+
+監視は `data/project-001-ai-secretary/last_line_briefing_sent_jst.txt` の日付が当日JSTと一致し、`projects/project-001-ai-secretary/briefings/YYYY-MM-DD.md` が存在する場合だけ `pass` とする。マーカーがない、前日の日付である、または当日報告ファイルがない場合は `attention_required` とし、ワークフローを失敗状態として明示する。監視自身はLINE送信、再送、ファイル修復、GitHub設定変更を行わない。
+
+### 検証結果
+
+新規テストは実装前に対象スクリプト不在で失敗することを確認し、実装後は4件すべて成功した。既存のLINE本文テスト1件と、タスク完了通知関連テスト9件も成功した。追加の成功・前日マーカーの統合判定ケースも成功し、`git diff --check` に問題はなかった。
+
+### GitHub反映
+
+- **完全Commit SHA:** `133b5ae652aeb8bc3cc437f2f4dc044e12e811e1`
+- **Push先:** `origin/main`
+- **7:05 JST監視ワークフロー:** [`line-briefing-monitor.yml`](https://github.com/FieldRiseJapan/FieldRise/blob/main/.github/workflows/line-briefing-monitor.yml)
+- **監視スクリプト:** [`monitor_line_briefing.py`](https://github.com/FieldRiseJapan/FieldRise/blob/main/automation/scripts/monitor_line_briefing.py)
+- **テスト:** [`test_line_briefing_monitor.py`](https://github.com/FieldRiseJapan/FieldRise/blob/main/tests/line_briefing_monitor/test_line_briefing_monitor.py)
+
+### 未完了・運用上の注意
+
+この監視は「未送信を検知してGitHub Actionsを失敗させ、JSON/Markdown成果物を残す」機能であり、LINEへの異常通知や自動再送は行わない。GitHub Actionsのschedule自体が欠落した場合は監視も起動しないため、7:05の監視起動まで外部サービスで保証するものではない。監視結果はGitHub Actionsのワークフロー履歴と成果物から確認する。

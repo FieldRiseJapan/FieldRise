@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-09-04T08:31:12.610947+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "日立社長が熱弁を振るう「フィジカルAI革命」 英の産業革命、米のネット革命、次は日本から起こせるか",
+      "url": "https://www.itmedia.co.jp/business/articles/2609/04/news058.html",
+      "published": "2026-09-04T07:00:00+09:00",
+      "summary": "日立は、フィジカルAIを活用して「自律進化するデジタルインフラ」を目指す。競争が激化するAI領域で、日本そして日立ならではの“勝ち筋”について徳永俊昭社長が語った。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "時価総額720兆円のApple、クックCEO退任で新体制へ AI遅れと中国依存を脱せるか",
+      "url": "https://www.itmedia.co.jp/business/articles/2609/04/news020.html",
+      "published": "2026-09-04T07:00:00+09:00",
+      "summary": "AppleのCEOを15年務めたティム・クック氏が退任し、ハードウェア責任者のジョン・ターナス氏が新CEOに就任した。クック氏は時価総額を4.5兆ドル超へ膨らませるなど業績をけん引した一方、EV断念やAIでの遅れといった課題も残した。新体制となったAppleには、急速に進むAI時代での巻き返しと、米中対立に伴うサプライチェーンの「脱・中国依存」という2つの試練が突きつけられている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「Copilot、Word文書まとめて」で社内全滅？ 勝手に増殖するAIウイルスで大騒ぎ：895th Lap",
+      "url": "https://kn.itmedia.co.jp/kn/article/2609/04/2000001139/",
+      "published": "2026-09-04T07:00:00+09:00",
+      "summary": "「Microsoft Copilot」が仕事で使われるようになるなか、Word文書を介して感染が広がる、これまでとは少し違った脅威が見つかった。生成AIを仕事で使う企業が増えているだけに、警戒した方が良さそうだ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "キオクシアのフラッシュメモリとSSDはなぜAIデータセンターに必要とされるのか",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2609/04/news059.html",
+      "published": "2026-09-04T06:00:00+09:00",
+      "summary": "キオクシアは、2026年8月4～6日に米国サンタクララで開催されたメモリとストレージのイベント「FMS: the Future of Memory and Storage」の展示内容を中心に、AIデータセンター向け製品の最新技術について説明した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "なぜAI企業は社内で「ソフトウェアエンジニア」と呼ばなくなったのか 広がる「MTS」と職種の未来",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2609/04/news003.html",
+      "published": "2026-09-04T05:00:00+09:00",
+      "summary": "AnthropicやOpenAIでは、研究者とエンジニアをまたぐ共通の社内肩書きとして「Member of Technical Staff（技術スタッフの一員）」が使われている。元CTOたちが次々とこの肩書きに転じている現象から、肩書きが専門性を証明しなくなった時代に何が価値を決めるのかを考える。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "複数のAIサービスで障害発生 ChatGPT／Claude／Grok【復旧済み】",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/04/2000001152/",
+      "published": "2026-09-04T03:10:08+09:00",
+      "summary": "日本時間の2026年9月4日午前0時30分現在、複数のAIサービスで障害が発生しており、接続しにくい、もしくは接続できない状態となっている。少なくとも、米OpenAIの「ChatGPT」、米Anthropicの「Claude」、米SpaceXAIの「Grok」で障害が報告されている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「AIで業務アプリを作成する仕組み」で特許取得、KDDI傘下のELYZA X上では一部批判も【追記あり】",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/03/2000001144/",
+      "published": "2026-09-03T23:09:57+09:00",
+      "summary": "KDDIグループのAI開発企業ELYZAは、法人向けAIツール「ELYZA Works」において、業務アプリをAIで作成する仕組みの特許を取得したと発表した。一方、X上の一部では批判の声も上がっている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "NVIDIAがHugging Face買収で合意 約2兆円 ジェンスン・フアンCEOはオープンモデルの重要性に言及",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/03/2000001150/",
+      "published": "2026-09-03T22:34:49+09:00",
+      "summary": "米NVIDIAが、AI開発プラットフォームを運営する米Hugging Faceを129億3030万ドルで買収することに合意したと発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "物流、病院、家事まで変える“フィジカルAI”最前線 AWSが支援する日本企業14社の挑戦",
+      "url": "https://ascii.jp/elem/000/004/432/4432201/?rss",
+      "published": "2026-09-04T08:00:00+09:00",
+      "summary": "フィジカルAIの開発では、高速な検証サイクルや実装までのスピード感が求められる。アマゾン ウェブ サービス ジャパンでは、開発をそのように加速する上での技術面・コスト面の課題を解消する「フィジカルAI開発支援プログラム」を展開している。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "雨の日の靴はコレでOK！ GORE-TEX搭載のミズノ「ウエーブヌー GTX」が30％オフ",
+      "url": "https://ascii.jp/elem/000/004/432/4432198/?rss",
+      "published": "2026-09-04T07:00:00+09:00",
+      "summary": "GORE-TEXを採用し、雨の日でも履きやすいミズノ「ウエーブヌー GTX」。濡れた路面に強いWgripやクッション性の高いMIZUNO ENERZY、3E相当の幅広設計を備え、通勤や旅行にも活躍します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "人を減らさず、売上と給与を増やす。10pct.が地方旅館から観光地をつくる方法",
+      "url": "https://ascii.jp/elem/000/004/431/4431239/?rss",
+      "published": "2026-09-04T07:00:00+09:00",
+      "summary": "地方のホテルや旅館の運営に入り、AIやソフトウェアで業務を効率化しながら、売上の向上と従業員の待遇改善を目指す10pct.。宿ごとの歴史、地域性を残しつつ、運営ノウハウや顧客データを生かして経営を改善し、将来は観光地そのものを育てる。10pct.が描く、新しい地方リゾート運営のかたちを聞いた。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "なぜ肥料が高いのか？ 食料価格が化石燃料と結びつく理由",
+      "url": "https://ascii.jp/elem/000/004/432/4432206/?rss",
+      "published": "2026-09-04T06:51:30+09:00",
+      "summary": "画像クレジット:Getty Images"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "気候も戦争も生活費も—— 「ポリクライシス」世代を 支えようとする人たち",
+      "url": "https://ascii.jp/elem/000/004/432/4432204/?rss",
+      "published": "2026-09-04T06:42:17+09:00",
+      "summary": "10カ国の子どもと若者1万人を対象にした2021年の調査では、56%が「人類は破滅する」という意見に同意した。彼らが不安を抱くのは気候だけではない。パンデミック、紛争、生活費の高騰、権威主義の台頭——複数の危機が重なる「ポリクライシス」の中で育つ世代を支えようと、支援ネットワークが生まれている。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "LenovoがIFA2026で画面が横に伸びる＆厚み10mmのファンレス・モバイルノートを公開",
+      "url": "https://ascii.jp/elem/000/004/432/4432203/?rss",
+      "published": "2026-09-04T03:35:00+09:00",
+      "summary": "レノボは、ドイツ・ベルリンで開催された「Lenovo Innovation World at IFA 2026」において、試作モデルも公開しました"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "LenovoがIFA2026でRTX Spark搭載のクリエイター向けペン入力PCなど新Yogaシリーズを発表",
+      "url": "https://ascii.jp/elem/000/004/431/4431835/?rss",
+      "published": "2026-09-04T01:00:00+09:00",
+      "summary": "レノボは、ドイツ・ベルリンで開催された「Lenovo Innovation World at IFA 2026」において、Yogaシリーズの最新ラインアップを発表しました"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "銀座に日本最大級の海鮮ビュッフェ「銀座四海」が誕生!＝タラバ蟹に大トロ、生カキ・アワビ、A5和牛も食べ放題!!",
+      "url": "https://ascii.jp/elem/000/004/432/4432090/?rss",
+      "published": "2026-09-04T00:01:00+09:00",
+      "summary": "東京・銀座の「銀座ベルビア館」9階に「極上海鮮ビュッフェダイニング 銀座四海（よつみ）」がグランドオープンです"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Accel reportedly in talks to lead $1B round for Thinking Machines at $40B valuation",
+      "url": "https://techcrunch.com/2026/09/03/accel-reportedly-in-talks-to-lead-1b-round-for-thinking-machines-at-40b-valuation/",
+      "published": "2026-09-04T04:36:29+09:00",
+      "summary": "The high-profile startup's annual revenue run rate stands at over $100 million."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Abliteration.ai is making a business out of removing AI guardrails",
+      "url": "https://techcrunch.com/2026/09/03/abliteration-ai-is-making-a-business-out-of-removing-ai-guardrails/",
+      "published": "2026-09-04T03:37:57+09:00",
+      "summary": "Abliteration.AI is making powerful AI models without guardrails easier to access, arguing that giving defenders the same tools as bad actors could ultimately improve cybersecurity."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta is paying to peek at how you use their latest AI model",
+      "url": "https://techcrunch.com/2026/09/03/meta-is-paying-to-peek-at-how-you-use-their-latest-ai-model/",
+      "published": "2026-09-04T03:19:56+09:00",
+      "summary": "For its new Muse Spark model, intended for operating coding and other agents, Meta is offering an explicit discount averaging out to about 95% for users who \"contribute\" to the development of future m"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI launches Astra, its powerful (and controversial) new model",
+      "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
+      "published": "2026-09-04T03:01:45+09:00",
+      "summary": "OpenAI claims that Astra represents \"a new frontier on computer and browser use,\" and that it handles tasks with unmatched \"speed, accuracy, and safety.\""
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Ollie is betting its focus on privacy can help it win the AI assistant race",
+      "url": "https://techcrunch.com/2026/09/03/ollie-is-betting-privacy-can-win-the-ai-assistant-race/",
+      "published": "2026-09-04T01:09:01+09:00",
+      "summary": "The family-focused AI assistant wants access to the details of your everyday life, but says it won’t use that data to train AI models or share it with others."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Google’s latest AI weather model gives you no excuse to forget your umbrella",
+      "url": "https://techcrunch.com/2026/09/03/googles-latest-ai-weather-model-gives-you-no-excuse-to-forget-your-umbrella/",
+      "published": "2026-09-04T00:00:00+09:00",
+      "summary": "WeatherNext 3 is the latest wave of a sea change in meteorology brought out by deep learning techniques. Google says it will start feeding into weather information users see in search, Google Maps, an"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia confirms it will buy Hugging Face for $12.9 billion",
+      "url": "https://techcrunch.com/2026/09/03/nvidia-confirms-it-will-buy-hugging-face-for-12-9-billion/",
+      "published": "2026-09-03T21:42:45+09:00",
+      "summary": "Nvidia said Hugging Face hosts over 3 million models and is used by over 18 million developers."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "The Builders Stage brings practical strategies for scaling startups to TechCrunch Disrupt 2026",
+      "url": "https://techcrunch.com/2026/09/02/the-builders-stage-brings-practical-strategies-for-scaling-startups-to-techcrunch-disrupt-2026/",
+      "published": "2026-09-03T08:01:00+09:00",
+      "summary": "The Builders Stage is returning to TechCrunch Disrupt, bringing together founders, startup operators, and investors for practical conversations on what it takes to build and scale."
+    }
+  ]
+}

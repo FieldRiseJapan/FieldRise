@@ -1,0 +1,255 @@
+{
+  "collected_at": "2026-09-03T08:32:41.417680+09:00",
+  "total_items": 31,
+  "errors": [],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Google、「Gemini 3.8 Flash」公開 3.7から3週間、価格据え置きで防御特化の「Cyber」も",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/03/2000001096/",
+      "published": "2026-09-03T07:42:19+09:00",
+      "summary": "GoogleはAIモデル「Gemini 3.8 Flash」と、サイバー防御に特化した「Gemini 3.8 Flash Cyber」を発表した。推論とコーディング性能を大幅に向上させつつ価格は据え置いた。サイバー版は政府やインフラ企業など信頼できる防御側に限定提供され、脆弱性発見やパッチ自動生成を支援する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "70代会長も動いた 創業108年みそメーカーがGemini利用率86％を達成した「3つの工夫」",
+      "url": "https://www.itmedia.co.jp/business/articles/2609/03/news017.html",
+      "published": "2026-09-03T07:00:00+09:00",
+      "summary": "生成AIのアカウントを社員に付与しても使われない――。AIの社内定着は大きな課題だ。長野県のみそメーカー、ハナマルキは「Geminiの利用率が86％」という数字を誇る。導入時の工夫とは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "無差別攻撃時代に「AI対AI」で挑む NECがAnthropicと描く、日本サイバー防衛の「勝ち筋」",
+      "url": "https://www.itmedia.co.jp/business/articles/2609/03/news052.html",
+      "published": "2026-09-03T07:00:00+09:00",
+      "summary": "NECの幹部は、AI時代のセキュリティを巡り「AI対AIになる」と述べた。同社は、Anthropicなど米AI企業のフロンティアAIを活用し、対策に挑む。その勝ち筋とは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "茨城県鹿嶋市は「公式Web×Claude」で市民対応をどう変えた？ Claude Codeで内製化も",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2609/03/news019.html",
+      "published": "2026-09-03T05:00:00+09:00",
+      "summary": "限られた職員で行政サービスをどう維持するか――。鹿嶋市は本格的に「生成AI」の活用に乗り出した。まずは公式Webサイトと「Claude」で市民対応業務を改善。「Claude Code」による内製化にも着手している。狙いやその仕組みについて同市に取材した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "NEC、AIモデル「ミュトス」をサイバーセキュリティに活用 「Project Glasswing」に参画",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/02/2000001075/",
+      "published": "2026-09-02T16:48:34+09:00",
+      "summary": "NECは、米AnthropicのAIモデル「Claude Mythos Preview」をサイバーセキュリティ業務に活用すると発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "NEC、先進AI「Claude Mythos」ついに導入 Anthropic主導“セキュリティ防衛連合”で、何ができる？",
+      "url": "https://www.itmedia.co.jp/business/articles/2609/02/news095.html",
+      "published": "2026-09-02T16:30:00+09:00",
+      "summary": "NECが、Anthropicの先進AI「Claude Mythos Preview」を導入すると発表した。Anthropicが主導し、200社以上が参画する“セキュリティ防衛連合”「Project Glasswing」に参画した同社。何ができるようになったのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "フェイフェイ・リー氏のWorld Labs、空間知能オムニモデル「Atlas」発表 少数の画像から3D空間やバレットタイム映像を生成",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2609/02/2000001068/",
+      "published": "2026-09-02T14:09:32+09:00",
+      "summary": "World Labsは、テキストや画像、3Dを統合的に扱う次世代の世界モデル「Atlas」を発表した。3D空間コンテキストを保持し、自由なカメラ制御生成や少数の画像からの空間再構成、ロボティクス向けシミュレーションが可能。現在は一部パートナー向けに早期アクセスを提供しており、自社製品「Marble」などへ順次統合する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Meta、初のリアルタイム音声認識モデル「Muse Voice Transcribe」 20人超の話者識別と多言語混在に対応",
+      "url": "https://www.itmedia.co.jp/news/article/2609/02/2000001062/",
+      "published": "2026-09-02T13:18:44+09:00",
+      "summary": "Metaは、リアルタイム音声認識モデル「Muse Voice Transcribe」を発表した。単一モデルで音声認識、話者分離、発話終了検知を処理し、20人以上の話者識別や日本語を含む多言語に対応する。「Meta Model API」で提供するほか、Mac版「Meta AI」」アプリや「Muse Code」でも利用可能だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "タッチパッドがテンキーに早変わり！ 日本語配列の3in1キーボード",
+      "url": "https://ascii.jp/elem/000/004/431/4431840/?rss",
+      "published": "2026-09-03T08:30:00+09:00",
+      "summary": "タッチパッドとテンキーを1秒で切り替えられる、1台3役の日本語配列ワイヤレスキーボードが登場。Bluetooth 6.0と2.4GHz接続に対応し、PCやスマホなど最大3台を切り替えて使える注目製品を紹介する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Dropbox Protect提供開始 “過剰なファイル共有”をすべて把握し情報漏洩リスクを低減",
+      "url": "https://ascii.jp/elem/000/004/431/4431836/?rss",
+      "published": "2026-09-03T07:30:00+09:00",
+      "summary": "Dropboxが、コンテンツガバナンスソリューション「Dropbox Protect」の正式提供開始を発表した。企業が利用するクラウドストレージのコンテンツ共有状態を可視化し、適切に管理／削除できるSaaS型ツールで、情報漏洩のリスクがある社外共有リンクの迅速な発見と対応を支援する。世界に先行して日本から提供開始される。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "スニーカー感覚で歩けるサンダル！ リーボック「HYPERIUM SANDAL」はクッション性も◎",
+      "url": "https://ascii.jp/elem/000/004/431/4431827/?rss",
+      "published": "2026-09-03T07:00:00+09:00",
+      "summary": "リーボックの「HYPERIUM SANDAL」は、トレイルランニングシューズを思わせるデザインと、FuelFoamによるクッション性が特徴。かかとを固定できるストラップも備え、夏の街歩きや旅行にも使いやすいスポーツサンダルです。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "スマホに磁石でピタッ！ Ankerの薄型ワイヤレスバッテリーがお買い得",
+      "url": "https://ascii.jp/elem/000/004/431/4431780/?rss",
+      "published": "2026-09-03T07:00:00+09:00",
+      "summary": "Amazon.co.jpで「Anker Nano Power Bank」がスマイルSale中です。約8.6mmの薄型ワイヤレスモバイルバッテリーが、5690円です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "米国・NATO標準規格に準拠した国産AI防衛システム",
+      "url": "https://ascii.jp/elem/000/004/431/4431081/?rss",
+      "published": "2026-09-03T07:00:00+09:00",
+      "summary": "スカイゲートテクノロジズ株式会社は8月27日、米国やNATOの軍事規格に準拠した国産AI防衛システム「Alayasiki（アラヤシキ）」を発表した。ドローンやAIを活用した現代戦の高速化に加え、安全保障上の自立と同盟国との連携を両立させるシステムとして展開される。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "AcerがIFA2026で超変形ゲーミングPCや800g切りのモバイルノート、RTX Sparkを発表",
+      "url": "https://ascii.jp/elem/000/004/431/4431833/?rss",
+      "published": "2026-09-03T03:00:00+09:00",
+      "summary": "AcerはIFA2026に向けて開催したnext@acerグローバル記者会見で、モバイル性能を極限まで追求した超軽量ノートPCや、次世代AI、環境配慮、そしてポータブルゲームに焦点を当てた新製品群を発表しまし"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ASUSが世界に向けて初の「RTX Spark」搭載ノートPCを正式発表＝16型は100Whバッテリーで1.7kgを実現!!",
+      "url": "https://ascii.jp/elem/000/004/431/4431831/?rss",
+      "published": "2026-09-03T00:01:00+09:00",
+      "summary": "ASUSはIFA2026でNVIDIAの次世代チップ「RTX Spark」を搭載したクリエイター向けPC「ProArtシリーズ」を3モデルを発表しました"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "DJIが「Osmo 360 II」を日本で発表＝8K60Pの全天周ムービーが撮影できる新型360度カメラ＝実機レビュー",
+      "url": "https://ascii.jp/elem/000/004/431/4431462/?rss",
+      "published": "2026-09-03T00:01:00+09:00",
+      "summary": "DJIは全天周の8K映像を60fpsで撮影できる「Osmo 360 II」を発表しました"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "The Builders Stage brings practical strategies for scaling startups to TechCrunch Disrupt 2026",
+      "url": "https://techcrunch.com/2026/09/02/the-builders-stage-brings-practical-strategies-for-scaling-startups-to-techcrunch-disrupt-2026/",
+      "published": "2026-09-03T08:01:00+09:00",
+      "summary": "The Builders Stage is returning to TechCrunch Disrupt, bringing together founders, startup operators, and investors for practical conversations on what it takes to build and scale."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Palo Alto Networks paid $500M for Thrive-backed Console, sources say",
+      "url": "https://techcrunch.com/2026/09/02/palo-alto-networks-paid-500m-for-thrive-backed-console-sources-say/",
+      "published": "2026-09-03T07:44:56+09:00",
+      "summary": "The acquisition also leaves Sequoia-backed Serval as the de facto startup leader in AI IT service automation, industry watchers believe."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "TechCrunch Disrupt 2026’s new Real World AI Stage features Nvidia, robots, and extinct animals",
+      "url": "https://techcrunch.com/2026/09/02/techcrunch-disrupt-2026s-new-real-world-ai-stage-features-nvidia-robots-and-extinct-animals/",
+      "published": "2026-09-03T07:24:09+09:00",
+      "summary": "On our new Real World AI stage, we’ll be focusing on the intersection between the digital and physical, and all the ways we’ll continue to see a blending of the two."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI’s new reasoning technique alarms AI safety experts",
+      "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
+      "published": "2026-09-03T05:19:14+09:00",
+      "summary": "OpenAI’s new Astra model will use “recurrent depth,” a technique that allows the model to operate outside of the sequential thinking that characterizes most reasoning models."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Pangram’s Max Spero on why AI detection is harder than ‘Real or Fake’",
+      "url": "https://techcrunch.com/video/pangrams-max-spero-on-why-ai-detection-is-harder-than-real-or-fake/",
+      "published": "2026-09-03T02:18:13+09:00",
+      "summary": "The internet has a trust problem, and&#160;it’s&#160;not just because social media feeds are filling up with AI&#160;slop. AI-generated text and images are now making their way into job applications, "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "We’re ‘dangerously close’ to dead internet theory, says Pangram’s CEO",
+      "url": "https://techcrunch.com/podcast/were-dangerously-close-to-dead-internet-theory-says-pangrams-ceo/",
+      "published": "2026-09-03T02:09:57+09:00",
+      "summary": "The internet has a trust problem, and&#160;it’s&#160;not just because social media feeds are filling up with AI&#160;slop. AI-generated text and images are now making their way into job applications, "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "US government sides with OpenAI on issue of training LLMs on copyrighted material",
+      "url": "https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/",
+      "published": "2026-09-03T02:09:06+09:00",
+      "summary": "\"The United States has a strong interest in continuing to develop a robust and competitive artificial intelligence industry that sets the standard for the practice and procedure of AI use globally,\" t"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Wonderful more than doubles its valuation to $5B in under 6 months",
+      "url": "https://techcrunch.com/2026/09/02/wonderful-more-than-doubles-its-valuation-to-5b-in-under-6-months/",
+      "published": "2026-09-03T01:04:10+09:00",
+      "summary": "Wonderful said it will use its $550 million Series C funding to develop products faster, expand its FDE teams, and meet demand for its products."
+    },
+    {
+      "source": "VentureBeat AI",
+      "lang": "en",
+      "title": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
+      "url": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them",
+      "published": "2026-08-27T23:01:00+09:00",
+      "summary": "Presented by Gravitee Agent complexity is the insidious shadow lurking inside enterprises right now that needs a light shone on it.That’s because enterprises don&#x27;t deploy a single agent and watch"
+    },
+    {
+      "source": "VentureBeat AI",
+      "lang": "en",
+      "title": "When agents act on their own, governance has to live in the data layer",
+      "url": "https://venturebeat.com/security/when-agents-act-on-their-own-governance-has-to-live-in-the-data-layer",
+      "published": "2026-08-27T21:01:00+09:00",
+      "summary": "Presented by EDB As enterprises give AI agents more autonomy — the ability to plan, decide, and act across systems without a human approving each step — a hard question moves to the center of every ar"
+    },
+    {
+      "source": "VentureBeat AI",
+      "lang": "en",
+      "title": "Orchestration is the new challenge for CX in the age of AI agents",
+      "url": "https://venturebeat.com/orchestration/orchestration-is-the-new-challenge-for-cx-in-the-age-of-ai-agents",
+      "published": "2026-08-26T23:30:00+09:00",
+      "summary": "Presented by Tata Communications Enterprises are deploying AI agents, voice AI, and automation across messaging, voice, and digital channels faster than the architecture meant to support it. Most of t"
+    },
+    {
+      "source": "VentureBeat AI",
+      "lang": "en",
+      "title": "VentureBeat names Rob Strechay as its first Lead Analyst, expanding its enterprise AI research push",
+      "url": "https://venturebeat.com/ai/venturebeat-names-rob-strechay-as-its-first-lead-analyst-expanding-its-enterprise-ai-research-push",
+      "published": "2026-08-19T23:18:12+09:00",
+      "summary": "Rob Strechay, until recently managing director and principal analyst at theCUBE Research, has joined VentureBeat as our first Lead Analyst and a founding analyst of VentureBeat Research. His arrival i"
+    },
+    {
+      "source": "VentureBeat AI",
+      "lang": "en",
+      "title": "Google just redesigned the search box for the first time in 25 years — here’s why it matters more than you think.",
+      "url": "https://venturebeat.com/technology/google-just-redesigned-the-search-box-for-the-first-time-in-25-years-heres-why-it-matters-more-than-you-think",
+      "published": "2026-05-20T02:45:00+09:00",
+      "summary": "For a quarter century, the Google search box has been one of the most recognizable interfaces in computing: a thin white rectangle, a blinking cursor, a few typed words, and a list of blue links. On T"
+    },
+    {
+      "source": "VentureBeat AI",
+      "lang": "en",
+      "title": "Railway secures $100 million to challenge AWS with AI-native cloud infrastructure",
+      "url": "https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud",
+      "published": "2026-01-22T23:00:00+09:00",
+      "summary": "Railway, a San Francisco-based cloud platform that has quietly amassed two million developers without spending a dollar on marketing, announced Thursday that it raised $100 million in a Series B fundi"
+    },
+    {
+      "source": "VentureBeat AI",
+      "lang": "en",
+      "title": "Claude Code costs up to $200 a month. Goose does the same thing for free.",
+      "url": "https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free",
+      "published": "2026-01-19T23:00:00+09:00",
+      "summary": "The artificial intelligence coding revolution comes with a catch: it&#x27;s expensive.Claude Code, Anthropic&#x27;s terminal-based AI agent that can write, debug, and deploy code autonomously, has cap"
+    }
+  ]
+}
