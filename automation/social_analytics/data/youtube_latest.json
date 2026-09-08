@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-09-07T23:45:39+00:00",
+  "captured_at": "2026-09-08T23:39:24+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -35,7 +35,7 @@
     {
       "id": "xfhJzXRGoVg",
       "title": "blue sky　#パンクロック＃punk",
-      "views": 10,
+      "views": 11,
       "age_label": "2025-07-05T16:12:49Z",
       "category": "other"
     },
