@@ -60,6 +60,7 @@ check(order_consensus_from_pages(["25JNG38201W", "要確認", "25JNG38201W"]), "
 check(order_consensus_from_pages(["25JNG38201W", "25JNG38202W"]), "", "conflicting page orders remain unresolved")
 # T1:4のようにコロンを明確に読めた端子参照は、先頭欠落誤読の規則で誤って捨てない。
 check(side_candidate_is_safe("T1:4-Y2", 0.92), True, "clear terminal reference accepted")
+check(side_candidate_is_safe("RIGHT-Y51", 0.92), False, "unapproved ZT wire size is rejected")
 check(side_candidate_is_safe("7T2:4-Y2", 0.92), False, "missing-leading-Z reference rejected")
 check(side_candidate_is_safe("T14", 0.92), False, "ambiguous terminal reference rejected")
 print("ALL RULE TESTS PASSED")

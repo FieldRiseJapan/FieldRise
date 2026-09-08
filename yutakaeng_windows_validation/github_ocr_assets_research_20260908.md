@@ -68,3 +68,13 @@ HURIDOCSのPDF文書レイアウト解析は、VGTまたはLightGBM、Tesseract�
 [7]: https://github.com/huridocs/pdf-document-layout-analysis "HURIDOCS PDF document layout analysis"
 
 > **ライセンスについて:** 導入前に各リポジトリのLICENSE、モデル配布条件、依存モデルの利用条件を個別に確認する必要があります。この調査では、実装機能と構成適合性を中心に評価し、yutakaengへのコード取り込みや配布許諾を確定したものではありません。
+
+## 2026-09-08 実装・実測追記
+
+PaddleOCR 3.7.0 / PaddlePaddle 3.3.1 を警告セル専用の任意ローカル候補として接続した。モデルは `PP-OCRv6_medium_det` と `PP-OCRv6_medium_rec` をWindows配布時に同梱し、モデルディレクトリが存在しない場合は初期化せず、ネットワークへ接続しない設計とした。CPUのoneDNN互換エラーを避けるため `enable_mkldnn=False` を設定した。
+
+RapidOCR・Tesseract・PaddleOCRの候補は、エンジン名を重複させず、2つ以上の独立エンジンが一致した場合だけ安全候補として採用する。候補が不一致の場合は従来どおり警告へ残す。img2tableを参考に、ZT/Tブロックでは検出した水平罫線を除去してから主文字・左右欄を再解析する。PyInstaller実行時は実行ファイル基準の `paddle_models` も探索する。
+
+実図面4ページの最終実測では、生成Excelのシートは `概要, 0.5, 2, 3, 5, ZTブロック, 線サイズ判別不明, 線サイズ未記載`。ZTブロック13行について主文字空欄は0行となり、主文字存在率は13/13だった。状態は読取済み8行、警告あり1行、セクション行等4行。警告行は `RIGHT-Y51` のような線サイズ不確定や右側接続先未読取を推測確定せず保持している。
+
+全回帰テスト、構文検査、GitHub資産アダプターテストは通過。処理時間はPaddleOCRの警告セル再解析により増加するため、通常行を既存RapidOCRで処理し、警告候補に限定してPaddleOCRを呼び出す。

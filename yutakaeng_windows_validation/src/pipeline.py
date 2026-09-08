@@ -16,6 +16,7 @@ import fitz  # PyMuPDF
 import numpy as np
 import pytesseract
 from rapidocr import RapidOCR
+from ocr_assets import detect_cell_boundaries, ensemble_consensus, paddle_candidates, prepare_block_cell, split_by_boundaries
 from openpyxl import Workbook
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
@@ -486,11 +487,21 @@ def choose_main_candidate(primary: tuple[str, float], narrow: tuple[str, float])
     return "", "主文字未読取"
 
 
+def _paddle_main_candidate(image: np.ndarray) -> tuple[str, float]:
+    candidates = paddle_candidates(image)
+    if not candidates:
+        return "", 0.0
+    candidates.sort(key=lambda item: item[1], reverse=True)
+    return normalize_main_candidate(candidates[0][0]), float(candidates[0][1])
+
+
 def read_main_text(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int, header: str = "") -> tuple[str, str]:
     """行番号・丸囲み・右端端子番号を避けた主文字セルだけをローカルONNX OCRで読む。"""
     x, _, w, _ = frame
     broad_x, crop_y, broad_w, crop_h = main_text_crop_bounds(header, frame, top, row_h)
     broad = crop(gray, broad_x, crop_y, broad_w, crop_h)
+    if is_zt_block(header) or normalize_header(header).startswith("T"):
+        broad = prepare_block_cell(broad)
     if is_zt_block(header):
         # ZT専用の狭い候補は、右側の端子参照を含めず、先頭文字用の余白も残す。
         narrow = crop(gray, x + int(.02 * w), crop_y, max(20, int(.48 * w)), crop_h)
@@ -510,9 +521,17 @@ def read_main_text(gray: np.ndarray, frame: tuple[int, int, int, int], top: int,
             return "", "主文字先頭欠落の可能性"
         # 別エンジンの候補も一致した場合だけ、単独のOCR結果より確度の高い再解析として採用する。
         tess = normalize_main_candidate(ocr(broad, psm=7, whitelist="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-_/.:+", scale=3.0))
-        ensemble = select_ensemble_candidate((refined, .90), (tess, .90), main_candidate_is_safe)
-        if ensemble:
+        paddle_value, paddle_score = _paddle_main_candidate(broad)
+        ensemble = ensemble_consensus(
+            [(refined, .90, "rapid"), (tess, .90, "tesseract"), (paddle_value, paddle_score, "paddle")],
+            min_engines=2,
+        )
+        if ensemble and main_candidate_is_safe(ensemble, .90):
             return ensemble, ""
+        # PaddleOCRが未導入の持ち運び版では、従来のRapidOCR/Tesseract合意へ戻す。
+        legacy_ensemble = select_ensemble_candidate((refined, .90), (tess, .90), main_candidate_is_safe)
+        if legacy_ensemble:
+            return legacy_ensemble, ""
         # RapidOCRの補正画像一致だけでも既存の安全ゲートを通過しているため、候補は保持する。
         return refined, ""
     return primary
@@ -540,10 +559,20 @@ def side_candidate_is_safe(value: str, confidence: float) -> bool:
     # ZT/Xなどの先頭欠落・誤字は推測補正せず、空欄と警告で原図確認へ回す。
     # ただしT1:4のようにコロンまで読めた端子参照は明確なので残す。
     clear_terminal_reference = re.fullmatch(r"(?:ZT|T|X|FT|RT)\d+:[A-Z0-9]+(?:-[A-Z0-9.]+)?", value)
+    if re.search(r"^(?:LEFT|RIGHT)-", value) and not extract_wire_codes(value):
+        return False
     return not (re.match(r"^(?:7T|F:|[A-Z]1[.:]?[A-Z0-9])", value) and not clear_terminal_reference)
 
 
-def read_side_reference(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int, side: str) -> tuple[str, str]:
+def _paddle_side_candidate(image: np.ndarray) -> tuple[str, float]:
+    candidates = paddle_candidates(image)
+    if not candidates:
+        return "", 0.0
+    candidates.sort(key=lambda item: item[1], reverse=True)
+    return normalize_side_candidate(candidates[0][0]), float(candidates[0][1])
+
+
+def read_side_reference(gray: np.ndarray, frame: tuple[int, int, int, int], top: int, row_h: int, side: str, header: str = "") -> tuple[str, str]:
     """主文字枠の外側だけを認識し、隣列との混在を防ぐ。"""
     x, _, w, _ = frame
     crop_y = top - 3
@@ -554,6 +583,8 @@ def read_side_reference(gray: np.ndarray, frame: tuple[int, int, int, int], top:
     else:
         image = crop(gray, x + w + 5, crop_y, max(20, int(.72 * w)), crop_h)
         label = "右側接続先"
+    if is_zt_block(header) or normalize_header(header).startswith("T"):
+        image = prepare_block_cell(image)
     value, confidence = rapidocr_main_candidate(image)
     value = normalize_side_candidate(value)
     value = normalize_ocr_confusions(value, "reference")
@@ -564,9 +595,16 @@ def read_side_reference(gray: np.ndarray, frame: tuple[int, int, int, int], top:
     refined = stable_safe_candidate(candidates, side_candidate_is_safe)
     if refined:
         tess = normalize_ocr_confusions(normalize_side_candidate(ocr(image, psm=7, whitelist="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#:/-.")), "reference")
-        ensemble = select_ensemble_candidate((refined, .90), (tess, .90), side_candidate_is_safe)
-        if ensemble:
+        paddle_value, paddle_score = _paddle_side_candidate(image)
+        ensemble = ensemble_consensus(
+            [(refined, .90, "rapid"), (tess, .90, "tesseract"), (paddle_value, paddle_score, "paddle")],
+            min_engines=2,
+        )
+        if ensemble and side_candidate_is_safe(ensemble, .90):
             return ensemble, ""
+        legacy_ensemble = select_ensemble_candidate((refined, .90), (tess, .90), side_candidate_is_safe)
+        if legacy_ensemble:
+            return legacy_ensemble, ""
         return refined, ""
     if not value:
         return "", ""
@@ -684,9 +722,9 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
     for index, (top, bottom) in enumerate(row_bounds(work_frame, gray), 1):
         row_h = max(12, bottom - top)
         # 左右接続先は主文字枠の外側だけ、主文字は丸囲み・端子番号を除いたセルだけを読む。
-        left, left_warning = read_side_reference(gray, work_frame, top, row_h, "left")
+        left, left_warning = read_side_reference(gray, work_frame, top, row_h, "left", header)
         main, main_warning = read_main_text(gray, work_frame, top, row_h, header)
-        right, right_warning = read_side_reference(gray, work_frame, top, row_h, "right")
+        right, right_warning = read_side_reference(gray, work_frame, top, row_h, "right", header)
         initial_wire_codes = wire_codes_from_ocr_texts([left, right])
         # 空行には高精細再解析を実行しない。
         if not any((left, main, right)):

@@ -120,3 +120,13 @@
 詳細報告は[`yutakaeng_windows_validation/github_ocr_assets_research_20260908.md`](../../../../yutakaeng_windows_validation/github_ocr_assets_research_20260908.md)に保存した。導入前には各リポジトリおよびモデルのLICENSE、配布条件、依存モデルの利用条件を個別確認する。現時点では既存のRapidOCR・Tesseract・OpenCV・PyMuPDF・openpyxl構成を維持し、PaddleOCRを警告セル限定のベンチマークとして追加評価するのが安全である。
 
 彩花CTO確認事項: ①PaddleOCR候補をオフライン評価するか、②追加モデル容量と処理時間を許容するか、③実図面の正解付きゴールドセットを追加提供できるか。
+
+## yutakaeng GitHub実装資産統合（2026-09-08）
+
+**状態:** `integration_verified / windows_build_pending`
+
+PaddleOCR 3.7.0 / PaddlePaddle 3.3.1を警告セル専用のローカル候補として組み込み、RapidOCR・Tesseract・PaddleOCRの候補合意を追加した。PaddleOCRモデルが同梱されていない場合は初期化せず、ネットワークへ接続しない。CPU推論は`enable_mkldnn=False`で実行する。ocr_ensembleの考え方を候補合意へ、img2tableの考え方をZT/Tブロックの罫線検出・除去へ反映した。
+
+全回帰テスト、構文検査、GitHub資産アダプターテストに合格。実図面4ページでは、ZTブロック13行の主文字空欄が0行となり、主文字存在率13/13を確認した。ZT行の状態は読取済み8行、警告あり1行、セクション行等4行。生成Excelのシート構成は`概要, 0.5, 2, 3, 5, ZTブロック, 線サイズ判別不明, 線サイズ未記載`。
+
+Windows CIにはPaddleOCR依存、モデル取得、PyInstaller同梱、モデル存在検査、GitHub資産テストを追加した。次の作業は差分確認、コミット、GitHub Actions Windowsビルド、成果物ZIPの整合性検査である。

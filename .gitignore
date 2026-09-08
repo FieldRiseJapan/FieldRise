@@ -5,3 +5,6 @@ __pycache__/
 
 # Local runtime reports produced by the read-only dashboard guard
 automation/dashboard_guard/reports/
+
+# Large offline OCR models are downloaded by the Windows build workflow.
+yutakaeng_windows_validation/paddle_models/
