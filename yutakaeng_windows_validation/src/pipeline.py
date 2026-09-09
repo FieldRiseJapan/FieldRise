@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import gc
+import json
 import os
 import re
 import shutil
@@ -18,6 +20,7 @@ import pytesseract
 from rapidocr import RapidOCR
 from ocr_assets import detect_cell_boundaries, ensemble_consensus, paddle_candidates, prepare_block_cell, split_by_boundaries
 from openpyxl import Workbook
+from openpyxl.drawing.image import Image as ExcelImage
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
@@ -54,6 +57,7 @@ class WireRow:
     warning: str
     source_crop: str
     panel_no: str = ""
+    header_crop: str = ""
 
 
 def app_root() -> Path:
@@ -713,11 +717,19 @@ def compose_mark_text(panel_no: str, header: str, main_text: str) -> str:
     return "" if value in {"", "UNCLEAR"} else value
 
 
-def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None, panel_no: str = "", internal_only: bool = False, x_only: bool = False) -> list[WireRow]:
+def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[int, int, int, int], crops_dir: Path, review_dir: Path | None = None, panel_no: str = "", internal_only: bool = False, x_only: bool = False, header_crops_dir: Path | None = None) -> list[WireRow]:
     # 図面ごとの罫線位置の微小なずれを吸収する作業枠。元の枠IDと画像保存範囲は維持する。
     work_frame = calibrate_frame_geometry(frame, gray.shape, (2, 2))
     x, y, w, h = work_frame
     header, kind = read_frame_header(gray, work_frame)
+    header_crop_path = ""
+    if header_crops_dir is not None:
+        header_crops_dir.mkdir(parents=True, exist_ok=True)
+        header_crop = crop(gray, x, y, w, h)
+        if header_crop.size:
+            header_path = header_crops_dir / f"P{page_no}_F{frame_no}_{normalize_header(header) or 'UNCLEAR'}.png"
+            cv2.imwrite(str(header_path), header_crop)
+            header_crop_path = str(header_path)
     rows: list[WireRow] = []
     for index, (top, bottom) in enumerate(row_bounds(work_frame, gray), 1):
         row_h = max(12, bottom - top)
@@ -763,7 +775,7 @@ def analyze_frame(gray: np.ndarray, page_no: int, frame_no: int, frame: tuple[in
                 state = "警告あり"
         rows.append(WireRow(
             page_no, f"P{page_no}-F{frame_no}", header, kind, str(index), main, left, right,
-            wire_codes_from_ocr_texts([*initial_wire_codes, *detected_wire_texts]), state, reason, warning, str(crop_path) if source_crop.size else "", panel_no,
+            wire_codes_from_ocr_texts([*initial_wire_codes, *detected_wire_texts]), state, reason, warning, str(crop_path) if source_crop.size else "", panel_no, header_crop_path,
         ))
     return rows
 
@@ -1005,7 +1017,7 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         ws = wb.create_sheet(safe_sheet_name(group_name, used))
         ws.sheet_view.showGridLines = False
         # ホットマーカー作業に必要な列を先頭へ固定し、原図照合用の情報は右側へまとめる。
-        widths = [20, 13, 13, 13, 30, 30, 13, 20, 16, 14, 18, 10, 30]
+        widths = [20, 13, 28, 13, 13, 30, 30, 13, 20, 16, 14, 18, 10, 30]
         for index, width in enumerate(widths, 1):
             ws.column_dimensions[get_column_letter(index)].width = width
         first_page = min((item.page for item in groups[group_name]), default=1)
@@ -1018,7 +1030,7 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         count_note = "盤内線・Xブロックモードでは対象行をすべて2個で出力します。" if (internal_only or x_only) else "マーク個数は安全に読めた別電線1本につき2個です。"
         ws.cell(3, 1, f"{count_note}確認状態は警告行だけを確認・修正してください。")
         ws.cell(3, 1).alignment = Alignment(wrap_text=True)
-        headers = ["マーク主文字", "マーク個数", "読取状態", "確認状態", "L側接続先", "R側接続先", "線コード", "見出し", "種別", "PDFページ", "枠ID", "行番号", "警告・除外理由"]
+        headers = ["マーク主文字", "マーク個数", "解析スクリーンショット", "読取状態", "確認状態", "L側接続先", "R側接続先", "線コード", "見出し", "種別", "PDFページ", "枠ID", "行番号", "警告・除外理由"]
         for col, value in enumerate(headers, 1):
             ws.cell(5, col, value)
         output_row = 6
@@ -1052,9 +1064,18 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
                 warning_text = f"{warning_text}; 線サイズ未記載" if warning_text else "線サイズ未記載"
             elif size_status == "判別不明":
                 warning_text = f"{warning_text}; 線サイズ判別不明" if warning_text else "線サイズ判別不明"
-            values = [display_main, mark_count, read_state, confirm_state, item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, warning_text]
+            values = [display_main, mark_count, None, read_state, confirm_state, item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, warning_text]
             for col, value in enumerate(values, 1):
                 ws.cell(output_row, col, value)
+            if item.header_crop and Path(item.header_crop).exists():
+                try:
+                    preview = ExcelImage(item.header_crop)
+                    preview.width = 180
+                    preview.height = 70
+                    ws.add_image(preview, f"C{output_row}")
+                    ws.row_dimensions[output_row].height = 58
+                except (OSError, ValueError):
+                    ws.cell(output_row, 3, "画像読込不可")
             output_row += 1
         end = output_row - 1
         style_table(ws, 5, end, len(headers), start_column=1)
@@ -1067,18 +1088,30 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
                 cell.border = Border(bottom=THIN)
             ws.row_dimensions[section_row].height = 24
         validation = DataValidation(type="list", formula1='"警告確認,確認済み,要修正,確認不要,対象外"', allow_blank=False)
-        ws.add_data_validation(validation); validation.add(f"D6:D{end}")
-        ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="要修正"'], fill=PatternFill("solid", fgColor=WARN)))
-        ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="警告確認"'], fill=PatternFill("solid", fgColor=WARN)))
-        ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="対象外"'], fill=PatternFill("solid", fgColor=EXCLUDED)))
-        ws.conditional_formatting.add(f"C6:C{end}", FormulaRule(formula=['C6="警告あり"'], fill=PatternFill("solid", fgColor=WARN)))
-        ws.freeze_panes = "A6"; ws.auto_filter.ref = f"A5:M{end}"
+        ws.add_data_validation(validation); validation.add(f"E6:E{end}")
+        ws.conditional_formatting.add(f"E6:E{end}", FormulaRule(formula=['E6="要修正"'], fill=PatternFill("solid", fgColor=WARN)))
+        ws.conditional_formatting.add(f"E6:E{end}", FormulaRule(formula=['E6="警告確認"'], fill=PatternFill("solid", fgColor=WARN)))
+        ws.conditional_formatting.add(f"E6:E{end}", FormulaRule(formula=['E6="対象外"'], fill=PatternFill("solid", fgColor=EXCLUDED)))
+        ws.conditional_formatting.add(f"D6:D{end}", FormulaRule(formula=['D6="警告あり"'], fill=PatternFill("solid", fgColor=WARN)))
+        ws.freeze_panes = "A6"; ws.auto_filter.ref = f"A5:N{end}"
     if not groups:
         ws = wb.create_sheet("警告一覧")
         ws["B2"] = "電線サイズを特定できない行です。警告理由を確認してください。"
     wb.save(path)
     log("EXCEL_WRITE_DONE", f"デスクトップへ保存しました: {path.name}")
     return path
+
+
+def _write_page_checkpoint(path: Path, rows: list[WireRow]) -> None:
+    path.write_text(json.dumps([asdict(row) for row in rows], ensure_ascii=False), encoding="utf-8")
+
+
+def _load_page_checkpoints(directory: Path) -> list[WireRow]:
+    rows: list[WireRow] = []
+    for path in sorted(directory.glob("page_*.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        rows.extend(WireRow(**item) for item in payload)
+    return rows
 
 
 def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, internal_only: bool = False, x_only: bool = False) -> Path:
@@ -1094,6 +1127,8 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
     started = time.monotonic()
     work = Path(tempfile.mkdtemp(prefix="yutakaeng_"))
     crops = work / "crops"; crops.mkdir()
+    header_crops = work / "header_crops"; header_crops.mkdir()
+    checkpoints = work / "page_checkpoints"; checkpoints.mkdir()
     review_dir = desktop_path() / f"{pdf_path.stem}_yutakaeng_review_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     log("PDF_OPEN", f"{pdf_path.name} を開いています")
     document = fitz.open(pdf_path)
@@ -1106,6 +1141,7 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
     order_no = "要確認"
     try:
         for page_index, page in enumerate(document, 1):
+            page_rows: list[WireRow] = []
             log("PAGE_RENDER", f"ページ {page_index}/{total} を300dpiで解析しています")
             image = render_page(page)
             # 主文字・配線表は処理時間との均衡がよい300dpiを維持し、
@@ -1129,8 +1165,14 @@ def run_pipeline(pdf_path: str | Path, log: LogFn, progress: ProgressFn, interna
             frames = detect_frames(image)
             log("FRAME_DETECT", f"ページ {page_index}: {len(frames)}枠候補を検出")
             for index, frame in enumerate(frames, 1):
-                all_rows.extend(analyze_frame(image, page_index, index, frame, crops, review_dir, panel_no, internal_only=internal_only, x_only=x_only))
+                page_rows.extend(analyze_frame(image, page_index, index, frame, crops, review_dir, panel_no, internal_only=internal_only, x_only=x_only, header_crops_dir=header_crops))
+            _write_page_checkpoint(checkpoints / f"page_{page_index:05d}.json", page_rows)
+            log("PAGE_CHECKPOINT", f"ページ {page_index}/{total} の中間結果を保存しました: {len(page_rows)}行")
+            del image, metadata_image, page_rows
+            gc.collect()
             progress(page_index, total)
+        all_rows = _load_page_checkpoints(checkpoints)
+        log("CHECKPOINT_RESTORE", f"ページ中間結果を再構成しました: {len(all_rows)}行")
         if internal_only:
             log("RULE_FILTER", "盤内線モード: 端子台のI表記とIFブロック内の全マークを対象として出力")
         elif x_only:

@@ -46,6 +46,7 @@ jobs:
         run: |
           python tests_pipeline_rules.py
           python tests_excel_layout.py
+          python tests_multipage_header_images.py
           python tests_terminal_feed.py
           python tests_terminal_screen_layout.py
           python tests_panel_candidate_consensus.py
