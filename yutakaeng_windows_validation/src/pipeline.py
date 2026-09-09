@@ -1038,7 +1038,8 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
         previous_header = ""
         previous_panel = ""
         previous_page = 0
-        for item in groups[group_name]:
+        group_items = groups[group_name]
+        for item_index, item in enumerate(group_items):
             panel_value = clean_text(page_panels.get(item.page, "")) or clean_text(item.panel_no) or "要確認"
             if item.page != previous_page or panel_value != previous_panel:
                 section_rows.append(output_row)
@@ -1067,13 +1068,31 @@ def write_excel(rows: list[WireRow], pdf_path: Path, order_no: str, output_dir: 
             values = [display_main, mark_count, None, read_state, confirm_state, item.left_reference, item.right_reference, "/".join(item.wire_codes), item.header, item.kind, item.page, item.frame_id, item.row_no, warning_text]
             for col, value in enumerate(values, 1):
                 ws.cell(output_row, col, value)
+            # 同一見出しに属する主文字全体の行高へ画像を合わせる。画像は見出し単位で1枚だけ貼る。
+            header_key = (item.page, panel_value, header_value)
+            previous_item_key = None
+            if item_index > 0:
+                previous_item = group_items[item_index - 1]
+                previous_panel = clean_text(page_panels.get(previous_item.page, "")) or clean_text(previous_item.panel_no) or "要確認"
+                previous_header = re.sub(r"\(\d+\)$", "", clean_text(previous_item.header).upper()) or "未分類"
+                previous_item_key = (previous_item.page, previous_panel, previous_header)
+            first_in_header_group = header_key != previous_item_key
+            header_group_count = 1
+            if first_in_header_group:
+                for following in group_items[item_index + 1:]:
+                    following_panel = clean_text(page_panels.get(following.page, "")) or clean_text(following.panel_no) or "要確認"
+                    following_header = re.sub(r"\(\d+\)$", "", clean_text(following.header).upper()) or "未分類"
+                    if (following.page, following_panel, following_header) != header_key:
+                        break
+                    header_group_count += 1
             if item.header_crop and Path(item.header_crop).exists():
                 try:
-                    preview = ExcelImage(item.header_crop)
-                    preview.width = 180
-                    preview.height = 70
-                    ws.add_image(preview, f"C{output_row}")
                     ws.row_dimensions[output_row].height = 58
+                    if first_in_header_group:
+                        preview = ExcelImage(item.header_crop)
+                        preview.width = 180
+                        preview.height = 58 * header_group_count
+                        ws.add_image(preview, f"C{output_row}")
                 except (OSError, ValueError):
                     ws.cell(output_row, 3, "画像読込不可")
             output_row += 1
