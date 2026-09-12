@@ -232,4 +232,8 @@ ChatGPT／Astraは投稿文、キャプション、ハッシュタグ、審査�
 
 ### 8. GitHub反映
 
-この調査結果を本ファイルへ追記し、`origin/main` へPushする。完全なコミットSHAとPush結果は、反映後に本節へ確定記録する。
+この調査結果を本ファイルへ追記した。
+
+コミットSHA: `d5e38f21d7abc86bfd1bf15086c105b708a4f0f5`
+
+Push先: `origin/main`（Push成功）
