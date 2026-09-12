@@ -175,3 +175,61 @@ FieldRiseリポジトリの現行ファイルおよびGit履歴を調査し、AP
 コミットSHA: `3d7b22f39b7a98ea6eb6671e33ec8d8fcf8564a9`
 
 Push先: `origin/main`（Push成功）
+
+
+## SNS API・Secret・権限 現状調査報告（2026-09-12）
+
+**完了ステータス:** `investigation_completed / no_plaintext_keys_detected / posting_not_implemented`
+
+彩花CTOの指示書 [`docs/momoka/instructions/2026-09-12_sns_api_investigation.md`](../../instructions/2026-09-12_sns_api_investigation.md) に基づき、現行の `origin/main` を取得して、リポジトリ内のAPIキー実値、Git履歴、GitHub ActionsのSecret参照、SNS分析・投稿関連コードを確認した。SNSへの実投稿、OAuth認証、Secret変更は実施していない。
+
+### 1. APIキー実値の調査結果
+
+現行追跡ファイルとGit履歴を既知形式で検索した結果、OpenAI、GitHub、AWS、Google、Slackの実キー、およびPEM形式の秘密鍵は検出されなかった。APIキー、アクセストークン、Refresh Tokenの実値は報告書にも記載していない。GitHub Secret ScanningアラートとActions Secretの実値一覧は、現在のGitHub連携権限では403となり、独立確認できない。このため、実値が存在しないことを保証するものではなく、今回の結論は「確認可能なリポジトリ範囲では平文キーを検出しなかった」である。
+
+### 2. Secret名と参照箇所
+
+| サービス | 現在確認できるSecret／設定名 | 主な参照箇所 | 用途・現状 |
+|---|---|---|---|
+| OpenAI | `OPENAI_API_KEY` | `.github/workflows/ayaka-production-prompt.yml`, `.github/workflows/openai-api-key-test.yml`, `tools/momoka_execution_name.py` | API呼び出し・疎通確認。実投稿とは無関係。 |
+| TikTok | `TIKTOK_CLIENT_KEY`, `TIKTOK_CLIENT_SECRET`, `TIKTOK_REFRESH_TOKEN` | `.github/workflows/daily-briefing.yml`, `automation/social_analytics/scripts/collect_tiktok.py` | OAuthトークン更新と分析取得。投稿処理は確認できない。 |
+| Instagram / Meta | `INSTAGRAM_ACCESS_TOKEN`, `INSTAGRAM_USER_ID`, `META_ACCESS_TOKEN` | `.github/workflows/daily-briefing.yml`, `automation/social_analytics/scripts/collect_instagram.py` | Instagram Graph APIの分析取得。Content Publishing処理は確認できない。 |
+| YouTube | `YOUTUBE_API_KEY`, `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, `YOUTUBE_REFRESH_TOKEN` | `.github/workflows/daily-briefing.yml`, `automation/social_analytics/scripts/collect_youtube.py` | YouTube Data API／Analytics APIのチャンネル・動画分析取得。動画アップロード処理は確認できない。 |
+| LINE | `LINE_CHANNEL_ACCESS_TOKEN`、`LINE_TARGET_ID` | `.github/workflows/daily-briefing.yml`, `automation/scripts/send_line_notification.py` | 定時報告通知。SNS投稿APIではない。タスク完了個別通知ワークフローは停止済み。 |
+| Manus | `MANUS_API_KEY` | `.github/workflows/momoka-auto-notify.yml` | Manus受領・通知連携。SNS投稿APIではない。 |
+
+`YOUTUBE_CHANNEL_ID` はSecretではなく、ワークフロー内の公開チャンネル識別子として設定されている。その他、`TIKTOK_API_KEY`、`INSTAGRAM_API_KEY` などを参照する旧来の分析コードも存在するが、現行の `daily-briefing.yml` が注入する主要Secret名とは一致しないため、整理または廃止判断が必要である。
+
+### 3. 各SNSの実装・権限・不足項目
+
+| SNS | 実装状況 | 必要API・権限の整理 | 現在の実装ファイル | 不足項目・申請 |
+|---|---|---|---|---|
+| TikTok | 一部実装（OAuth更新・分析取得） | TikTok Content Posting API。投稿には投稿権限、ユーザー認可、審査・アプリ設定が必要。 | `automation/social_analytics/scripts/collect_tiktok.py`, `.github/workflows/daily-briefing.yml` | Content Posting APIの投稿エンドポイント、動画アップロード・公開フロー、投稿結果保存、審査・認可確認が未実装。 |
+| YouTube | 一部実装（Data／Analyticsの分析取得） | YouTube Data API v3。動画アップロードにはOAuth 2.0の適切なスコープ（通常 `youtube.upload`）とチャンネル認可が必要。 | `automation/social_analytics/scripts/collect_youtube.py`, `.github/workflows/daily-briefing.yml` | 動画アップロード、タイトル・説明・タグ・公開設定、投稿ID保存、再試行・重複防止が未実装。APIプロジェクト設定とOAuth同意画面の確認が必要。 |
+| Instagram | 一部実装（Graph APIの分析取得） | Instagram Graph API / Content Publishing。Professionalアカウント、Facebook連携、投稿権限、メディアコンテナ作成・公開の認可が必要。 | `automation/social_analytics/scripts/collect_instagram.py`, `.github/workflows/daily-briefing.yml` | Reels／画像／動画のメディアコンテナ作成・公開、公開結果保存、アカウント種別・権限確認が未実装。 |
+
+### 4. 現在の関連ファイル
+
+調査対象の中心は、`.github/workflows/daily-briefing.yml`、`.github/workflows/api-health-check.yml`、`.github/workflows/openai-api-key-test.yml`、`automation/social_analytics/scripts/collect_tiktok.py`、`collect_youtube.py`、`collect_instagram.py`、`automation/social_analytics/scripts/generate_report.py`、`automation/social_analytics/scripts/send_line.py`、および `automation/scripts/send_line_notification.py` である。既存成果物は主としてSNS分析レポートとLINE定時報告であり、自動投稿の本体ではない。
+
+### 5. 推奨アーキテクチャ
+
+`曲完成 → 動画生成 → キャプション／ハッシュタグ生成 → GitHub Actions → SNS API投稿 → 投稿結果保存 → GitHub記録` の順に分離する。投稿ジョブはプラットフォーム別アダプター、共通メディアメタデータ、冪等キー、Secret注入、失敗時の再試行、投稿ID・URL・時刻・レスポンス要約の非機密ログを持つ構成にする。アクセストークンやRefresh Tokenはログ・Artifacts・レポートへ出力しない。
+
+ChatGPT／Astraは投稿文、キャプション、ハッシュタグ、審査要件の整理を担当し、桃花はGitHub Actions、Secret参照、投稿ジョブ、結果記録、監査証跡を担当する。実投稿とOAuth認証の開始は、社長の明示承認後に限定する。
+
+### 6. 次の優先順位
+
+1. 投稿対象のSNS、アカウント種別、動画形式、公開設定を確定する。
+2. 各SNSの開発者アプリ、OAuth同意、審査、必要権限を管理画面で確認する。
+3. 投稿処理を実装する前に、dry-run、入力検証、冪等性、Secret非出力テストを追加する。
+4. 最初は非公開または限定テスト用の1本で投稿フローを検証し、結果保存とGitHub記録を確認する。
+5. 承認後にのみ本番スケジュールと自動公開を有効化する。
+
+### 7. ブロッカーと次に必要なもの
+
+ブロッカーは、GitHub Secretの実値・Secret Scanningアラートへの権限不足、各SNS開発者アプリの審査・OAuth設定情報、投稿対象アカウントと公開ポリシーの未確定である。次に必要なのは、各SNSのアプリ設定・承認済み権限、テスト用アカウントまたは非公開投稿方針、動画保存先とメタデータ仕様、社長によるOAuth認証・実投稿の明示承認である。これらが揃うまで、投稿機能の実装・有効化・実投稿は行わない。
+
+### 8. GitHub反映
+
+この調査結果を本ファイルへ追記し、`origin/main` へPushする。完全なコミットSHAとPush結果は、反映後に本節へ確定記録する。
