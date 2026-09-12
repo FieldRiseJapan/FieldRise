@@ -1,12 +1,12 @@
 # YouTubeフル分析レポート（公開データ版）
 
 **対象チャンネル:** [@@runa-girl8215](https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A)  
-**分析基準日:** 2026-09-11T23:31:35+00:00  
+**分析基準日:** 2026-09-12T23:05:04+00:00  
 **データ範囲:** YouTube Data API public channel statistics via API key。取得済み動画39本（公開動画数39本）
 
 ## エグゼクティブサマリー
 
-チャンネルの公開統計では、登録者数は**85**、公開動画数は**39**です。取得済み動画39本（公開動画数39本）の累計再生数は**6,653**であり、上位3本（「as it is EDM  Title,Vol.1～Title,Vol.7  #edmmusic #edm #edmmix」「Centennial Love　#music #snow #winter #lovesong」「you」）が**2,863**再生を占めました。これは取得対象の累計再生の**43.0%**に相当し、視聴が一部タイトルに集中していることを示します。
+チャンネルの公開統計では、登録者数は**85**、公開動画数は**39**です。取得済み動画39本（公開動画数39本）の累計再生数は**6,654**であり、上位3本（「as it is EDM  Title,Vol.1～Title,Vol.7  #edmmusic #edm #edmmix」「Centennial Love　#music #snow #winter #lovesong」「you」）が**2,863**再生を占めました。これは取得対象の累計再生の**43.0%**に相当し、視聴が一部タイトルに集中していることを示します。
 
 一方で、チャンネル説明が掲げるCafé Seriesの直近2本は、公開表示上それぞれ63回・13回でした。これだけでシリーズの将来性を判断することはできませんが、既存の高再生群がEDM・冬季テーマ・長尺コンピレーションを含むため、Café Seriesは一貫したサムネイル、タイトル語彙、再生リスト、短尺誘導を組み合わせ、独立した視聴導線として育てる余地があります。
 
@@ -15,7 +15,7 @@
 | 登録者数 | 85 | 公開統計 |
 | 公開動画数 | 39 | 公開統計 |
 | 取得動画数 | 39 | YouTube Data API public channel statistics via API key |
-| 取得動画の累計再生数 | 6,653 | 同上 |
+| 取得動画の累計再生数 | 6,654 | 同上 |
 | 視聴上位3本の累計再生数 | 2,863 | 観測対象に対する比率は43.0% |
 | Café Series確認動画 | 2 | 直近の公開動画2本 |
 
@@ -35,7 +35,7 @@
 | 2 | [Centennial Love　#music #snow #winter #lovesong](https://www.youtube.com/watch?v=W8J6ksdA-Xc) | 928 | winter |
 | 3 | [you](https://www.youtube.com/watch?v=Vl-Ufwce0XQ) | 746 | other |
 | 4 | [A Piece of Love   #music #winter #constellation](https://www.youtube.com/watch?v=hKi5pSwU_Cs) | 344 | winter |
-| 5 | [If wishes come true　#music #lovesong #winterslove #love](https://www.youtube.com/watch?v=BALaupsyad4) | 309 | winter |
+| 5 | [If wishes come true　#music #lovesong #winterslove #love](https://www.youtube.com/watch?v=BALaupsyad4) | 310 | winter |
 | 6 | [Christmas and Me　#music #christmas](https://www.youtube.com/watch?v=LOtXLDSyvbQ) | 298 | winter |
 | 7 | [Euro Snow Vibes  Refrain     #music #snow #winter](https://www.youtube.com/watch?v=sUJF5Jg6A1E) | 292 | winter |
 | 8 | [Fly! first　#jazzfusion #jazzEDM](https://www.youtube.com/watch?v=y7uqHSYFcg4) | 257 | edm |
