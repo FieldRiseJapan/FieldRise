@@ -130,3 +130,46 @@ PaddleOCR 3.7.0 / PaddlePaddle 3.3.1を警告セル専用のローカル候補�
 全回帰テスト、構文検査、GitHub資産アダプターテストに合格。実図面4ページでは、ZTブロック13行の主文字空欄が0行となり、主文字存在率13/13を確認した。ZT行の状態は読取済み8行、警告あり1行、セクション行等4行。生成Excelのシート構成は`概要, 0.5, 2, 3, 5, ZTブロック, 線サイズ判別不明, 線サイズ未記載`。
 
 Windows CIにはPaddleOCR依存、モデル取得、PyInstaller同梱、モデル存在検査、GitHub資産テストを追加した。次の作業は差分確認、コミット、GitHub Actions Windowsビルド、成果物ZIPの整合性検査である。
+
+
+## APIキー／認証情報調査報告（2026-09-12）
+
+**状態:** `investigation_completed / no_plaintext_keys_detected`
+
+FieldRiseリポジトリの現行ファイルおよびGit履歴を調査し、APIキー・認証情報の実値がコミットされていないか確認した。
+
+### 調査結果
+
+- 現行ファイルおよびGit履歴から、既知形式のOpenAI、GitHub、AWS、Google、Slackの実キーは検出されなかった。
+- PEM形式の秘密鍵も検出されなかった。
+- GitHub Actionsのワークフローから、以下のSecret名が参照されていることを確認した。実値はGitHub側で非表示のため、取得・掲載していない。
+  - `OPENAI_API_KEY`
+  - `MANUS_API_KEY`
+  - `TIKTOK_CLIENT_KEY`
+  - `TIKTOK_CLIENT_SECRET`
+  - `TIKTOK_REFRESH_TOKEN`
+  - `INSTAGRAM_ACCESS_TOKEN`
+  - `INSTAGRAM_USER_ID`
+  - `META_ACCESS_TOKEN`
+  - `YOUTUBE_API_KEY`
+  - `YOUTUBE_CLIENT_ID`
+  - `YOUTUBE_CLIENT_SECRET`
+  - `YOUTUBE_REFRESH_TOKEN`
+  - `LINE_CHANNEL_ACCESS_TOKEN`
+  - `LINE_TARGET_ID`
+- GitHub Secret ScanningアラートのAPI取得は、現在のGitHub連携権限では403となり、アラートの有無を独立には確認できなかった。
+- GitHub Actions Secretの実値一覧も、現在の権限では取得できなかった。
+
+### 彩花CTOへの結論
+
+リポジトリへAPIキーの実値を直接コミットした形跡は、今回の調査範囲では確認されなかった。一方、GitHub Actionsには外部サービス用の認証情報がSecretとして参照される構成がある。Secretの有効性・ローテーション要否・Secret Scanningアラートの最終確認は、GitHub管理権限で実施する必要がある。
+
+### 調査対象・制約
+
+- 対象: `FieldRiseJapan/FieldRise` の現行追跡ファイル、Git履歴、`.github/workflows/`
+- 非対象: GitHub Actions Secretの実値、GitHub管理画面上のSecret Scanningアラート詳細
+- キー値・トークン値は安全上、報告ファイルおよびGitHub Issueへ記載していない。
+
+### GitHub反映
+
+本節を追加したコミットSHAとPush結果は、このファイルの次回更新時に追記する。
