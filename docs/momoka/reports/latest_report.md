@@ -172,4 +172,6 @@ FieldRiseリポジトリの現行ファイルおよびGit履歴を調査し、AP
 
 ### GitHub反映
 
-本節を追加したコミットSHAとPush結果は、このファイルの次回更新時に追記する。
+コミットSHA: `3d7b22f39b7a98ea6eb6671e33ec8d8fcf8564a9`
+
+Push先: `origin/main`（Push成功）
