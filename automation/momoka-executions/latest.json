@@ -2,8 +2,8 @@
   "schema_version": 1,
   "status": "blocked",
   "execution_name": null,
-  "receipt_key": "ad601db2dd5a8cc3fe0557ab4f6727b3b1ea72de:docs/momoka/instructions/latest_verification_prompt.md",
-  "instruction_path": "docs/momoka/instructions/latest_verification_prompt.md",
+  "receipt_key": "956fb596e18ce944340b64c759ac2859152917f3:docs/momoka/instructions/2026-09-12_sns_api_investigation.md",
+  "instruction_path": "docs/momoka/instructions/2026-09-12_sns_api_investigation.md",
   "error": "実行名生成失敗: プロジェクト名を取得できないため、実行名を生成せず開始を停止します。 ",
-  "updated_at": "2026-09-02T13:27:56Z"
+  "updated_at": "2026-09-12T03:29:43Z"
 }
