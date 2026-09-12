@@ -1,7 +1,7 @@
 # YouTubeフル分析レポート（公開データ版）
 
 **対象チャンネル:** [@@runa-girl8215](https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A)  
-**分析基準日:** 2026-09-12T23:05:04+00:00  
+**分析基準日:** 2026-09-12T23:20:56+00:00  
 **データ範囲:** YouTube Data API public channel statistics via API key。取得済み動画39本（公開動画数39本）
 
 ## エグゼクティブサマリー
