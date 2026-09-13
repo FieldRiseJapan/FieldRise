@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FieldRise Creator Studio | TikTok</title>
+  <meta name="description" content="FieldRise Creator Studio TikTok publishing interface">
+  <style>
+    :root{color-scheme:dark;--bg:#081018;--panel:#0f1a24;--panel2:#132231;--line:#26384a;--text:#eef5fb;--muted:#9fb0bf;--accent:#28e0a9;--accent2:#39a8ff;--danger:#ff6b7d;--warn:#ffc857}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 10% 0%,#14304a 0,#081018 36%);color:var(--text)}
+    .wrap{max-width:1040px;margin:auto;padding:28px 18px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent2),var(--accent));display:grid;place-items:center;font-weight:900;color:#031018}.eyebrow{font-size:12px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}.title{font-size:24px;font-weight:800;margin:1px 0}.sub{font-size:13px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media(max-width:820px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+    .card{background:rgba(15,26,36,.94);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 18px 50px rgba(0,0,0,.25)}.card h2{font-size:17px;margin:0 0 14px}.wide{grid-column:1/-1}
+    .account{display:flex;align-items:center;gap:14px}.avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;background:#1c2a36;border:1px solid var(--line)}.name{font-weight:800}.handle{color:var(--muted);font-size:13px}.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;font-size:12px;border:1px solid var(--line);color:var(--muted)}.ok{color:var(--accent);border-color:#236a58}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+    button,.btn{appearance:none;border:0;border-radius:11px;padding:11px 15px;font-weight:750;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#04121b}.secondary{background:#182735;color:var(--text);border:1px solid var(--line)}.danger{background:#311820;color:#ffb8c1;border:1px solid #67313c}button:disabled{opacity:.45;cursor:not-allowed}
+    label{display:block;font-size:13px;font-weight:700;margin:14px 0 7px}.hint{font-size:12px;color:var(--muted);margin-top:6px}.req{color:var(--warn)}input[type=text],textarea,select,input[type=file]{width:100%;background:#0a141d;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:11px 12px;font:inherit}textarea{min-height:100px;resize:vertical}select{cursor:pointer}
+    .checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}@media(max-width:560px){.checks{grid-template-columns:1fr}}.check{display:flex;gap:9px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:10px;background:#0b1620}.check input{margin-top:3px}.check span{font-size:13px}.check small{display:block;color:var(--muted);margin-top:3px;line-height:1.35}
+    video{width:100%;max-height:440px;border-radius:14px;background:#030609;border:1px solid var(--line)}.empty{min-height:220px;display:grid;place-items:center;border:1px dashed var(--line);border-radius:14px;color:var(--muted);text-align:center;padding:18px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.status{border-radius:12px;padding:13px 14px;background:#0a141d;border:1px solid var(--line);font-size:13px;line-height:1.5}.status strong{display:block;margin-bottom:4px}.status.good{border-color:#236a58}.status.bad{border-color:#713440}.status.wait{border-color:#705c27}.hide{display:none!important}.foot{margin-top:18px;color:var(--muted);font-size:12px;line-height:1.6}.privacy-note{padding:10px 12px;border-radius:10px;background:#16202a;border:1px solid var(--line);font-size:12px;color:var(--muted);margin-top:10px}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><div class="logo">FR</div><div><div class="eyebrow">FieldRise</div><div class="title">Creator Studio</div><div class="sub">TikTok Content Publishing</div></div></div>
+    <div class="badge" id="sessionBadge"><span class="dot"></span><span>Not connected</span></div>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>1. TikTok account</h2>
+      <div id="accountEmpty">
+        <p class="sub">Connect TikTok with Login Kit before preparing a post.</p>
+        <a class="btn primary" id="connectBtn" href="#">Connect TikTok</a>
+      </div>
+      <div id="accountConnected" class="hide">
+        <div class="account">
+          <img class="avatar" id="avatar" alt="TikTok profile">
+          <div><div class="name" id="nickname">Connected account</div><div class="handle" id="username"></div></div>
+        </div>
+        <div class="actions"><button class="secondary" id="refreshAccount">Refresh account</button><button class="danger" id="disconnectBtn">Disconnect session</button></div>
+        <div class="hint">The browser session is temporary. TikTok access and refresh tokens remain on the server and are never exposed here.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Select video</h2>
+      <label for="videoInput">MP4 video <span class="req">required</span></label>
+      <input id="videoInput" type="file" accept="video/mp4,.mp4">
+      <div class="hint">Maximum 50 MB for this review interface. The selected file is uploaded only after you press “Post to TikTok”.</div>
+      <div id="fileMeta" class="privacy-note">No video selected.</div>
+    </section>
+
+    <section class="card wide">
+      <h2>3. Preview</h2>
+      <div id="previewEmpty" class="empty">Select an MP4 video to preview it before publishing.</div>
+      <video id="preview" class="hide" controls playsinline></video>
+    </section>
+
+    <section class="card">
+      <h2>4. Post details</h2>
+      <label for="caption">Caption / hashtags</label>
+      <textarea id="caption" maxlength="2200" placeholder="Write the caption and hashtags the creator wants to publish."></textarea>
+      <div class="hint"><span id="captionCount">0</span> / 2200</div>
+
+      <label for="privacy">Privacy <span class="req">required</span></label>
+      <select id="privacy" disabled><option value="">Connect TikTok first</option></select>
+      <div class="privacy-note">Privacy is never preselected. Choose one of the options TikTok returns for the connected creator.</div>
+    </section>
+
+    <section class="card">
+      <h2>5. Interaction & disclosure</h2>
+      <div class="checks">
+        <label class="check"><input id="allowComment" type="checkbox" checked><span>Allow comments<small id="commentHint">Subject to the creator's TikTok settings.</small></span></label>
+        <label class="check"><input id="allowDuet" type="checkbox" checked><span>Allow Duet<small id="duetHint">Subject to the creator's TikTok settings.</small></span></label>
+        <label class="check"><input id="allowStitch" type="checkbox" checked><span>Allow Stitch<small id="stitchHint">Subject to the creator's TikTok settings.</small></span></label>
+        <label class="check"><input id="isAigc" type="checkbox"><span>AI-generated content<small>Enable when the video should be disclosed as AI-generated.</small></span></label>
+        <label class="check"><input id="brandOrganic" type="checkbox"><span>Your brand<small>Content promoting your own brand, product, or service.</small></span></label>
+        <label class="check"><input id="brandContent" type="checkbox"><span>Paid partnership<small>Branded content involving a third-party brand.</small></span></label>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>6. Final review & explicit consent</h2>
+      <label class="check"><input id="consent" type="checkbox"><span>I reviewed the selected video, caption, privacy setting, interaction settings, and commercial-content disclosures. I explicitly want FieldRise Creator Studio to publish this content to the connected TikTok account.<small>Nothing is posted until this box is checked and the Post button is pressed.</small></span></label>
+      <div class="actions"><button class="primary" id="postBtn" disabled>Post to TikTok</button></div>
+      <div id="result" class="status hide" aria-live="polite"></div>
+      <div class="foot">FieldRise Creator Studio uses TikTok Login Kit and Content Posting API. The creator remains in control of account authorization, content selection, privacy, interaction settings, disclosures, and the final publishing action.</div>
+    </section>
+  </div>
+</div>
+
+<script>
+(() => {
+  const OAUTH_START='https://nmkcjtrllzkwjxmjromw.supabase.co/functions/v1/tiktok-oauth-start';
+  const API='https://nmkcjtrllzkwjxmjromw.supabase.co/functions/v1/tiktok-creator-studio-api';
+  const $=id=>document.getElementById(id);
+  let session=sessionStorage.getItem('fieldrise_tiktok_session')||'';
+  let creator=null;
+  let previewUrl='';
+
+  if(location.hash.startsWith('#session=')){
+    session=decodeURIComponent(location.hash.slice(9));
+    sessionStorage.setItem('fieldrise_tiktok_session',session);
+    history.replaceState(null,'',location.pathname+location.search);
+  }
+  $('connectBtn').href=OAUTH_START;
+
+  function setStatus(message,type='wait'){
+    const el=$('result'); el.className='status '+type; el.classList.remove('hide'); el.innerHTML=message;
+  }
+  function clearStatus(){ $('result').classList.add('hide'); }
+  function humanPrivacy(v){return ({PUBLIC_TO_EVERYONE:'Public',MUTUAL_FOLLOW_FRIENDS:'Friends',FOLLOWER_OF_CREATOR:'Followers',SELF_ONLY:'Only me'})[v]||v.replaceAll('_',' ').toLowerCase();}
+  function authHeaders(){return {'x-fieldrise-session':session};}
+
+  async function apiCreator(){
+    if(!session) return;
+    clearStatus();
+    try{
+      const r=await fetch(API+'?action=creator',{headers:authHeaders(),cache:'no-store'});
+      const p=await r.json();
+      if(r.status===401){sessionStorage.removeItem('fieldrise_tiktok_session');session='';throw new Error('Your creator session expired. Please connect TikTok again.');}
+      if(!r.ok||!p.ok) throw new Error(p.error||'Unable to read creator info.');
+      creator=p.creator;
+      $('accountEmpty').classList.add('hide');$('accountConnected').classList.remove('hide');
+      $('sessionBadge').classList.add('ok');$('sessionBadge').querySelector('span:last-child').textContent='Connected';
+      $('nickname').textContent=creator.nickname||creator.username||'TikTok creator';
+      $('username').textContent=creator.username?'@'+creator.username:'';
+      if(creator.avatar_url){$('avatar').src=creator.avatar_url;$('avatar').style.visibility='visible';}else $('avatar').style.visibility='hidden';
+      const privacy=$('privacy');privacy.disabled=false;privacy.innerHTML='<option value="">Select privacy…</option>'+(creator.privacy_level_options||[]).map(v=>`<option value="${v}">${humanPrivacy(v)}</option>`).join('');
+      [['allowComment','comment_disabled','commentHint','Comments'],['allowDuet','duet_disabled','duetHint','Duet'],['allowStitch','stitch_disabled','stitchHint','Stitch']].forEach(([id,key,hint,label])=>{const input=$(id);input.disabled=!!creator[key];if(creator[key]){input.checked=false;$(hint).textContent=label+' is disabled by the creator’s TikTok settings.';}});
+      updatePostButton();
+    }catch(e){
+      $('accountEmpty').classList.remove('hide');$('accountConnected').classList.add('hide');
+      $('sessionBadge').classList.remove('ok');$('sessionBadge').querySelector('span:last-child').textContent='Not connected';
+      setStatus('<strong>Connection needed</strong>'+escapeHtml(e.message),'bad');
+    }
+  }
+
+  function escapeHtml(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+  function updatePostButton(){
+    const f=$('videoInput').files[0];
+    $('postBtn').disabled=!(session&&creator&&f&&$('privacy').value&&$('consent').checked);
+  }
+
+  $('videoInput').addEventListener('change',()=>{
+    const f=$('videoInput').files[0];
+    if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';}
+    if(!f){$('preview').classList.add('hide');$('previewEmpty').classList.remove('hide');$('fileMeta').textContent='No video selected.';updatePostButton();return;}
+    if(f.type!=='video/mp4'||f.size>50*1024*1024){$('videoInput').value='';setStatus('<strong>Video not accepted</strong>Please select an MP4 file no larger than 50 MB.','bad');updatePostButton();return;}
+    clearStatus();previewUrl=URL.createObjectURL(f);$('preview').src=previewUrl;$('preview').classList.remove('hide');$('previewEmpty').classList.add('hide');$('fileMeta').textContent=`${f.name} • ${(f.size/1024/1024).toFixed(2)} MB`;
+    updatePostButton();
+  });
+  $('caption').addEventListener('input',()=>{$('captionCount').textContent=$('caption').value.length;});
+  $('privacy').addEventListener('change',updatePostButton);$('consent').addEventListener('change',updatePostButton);
+  $('refreshAccount').addEventListener('click',apiCreator);
+  $('disconnectBtn').addEventListener('click',()=>{sessionStorage.removeItem('fieldrise_tiktok_session');session='';creator=null;location.reload();});
+
+  $('postBtn').addEventListener('click',async()=>{
+    const f=$('videoInput').files[0];if(!f)return;
+    $('postBtn').disabled=true;
+    setStatus('<strong>Uploading</strong>The selected video is being transferred to TikTok. Do not close this page.','wait');
+    const fd=new FormData();
+    fd.append('video',f);fd.append('title',$('caption').value);fd.append('privacy_level',$('privacy').value);fd.append('consent',String($('consent').checked));
+    fd.append('disable_comment',String(!$('allowComment').checked));fd.append('disable_duet',String(!$('allowDuet').checked));fd.append('disable_stitch',String(!$('allowStitch').checked));
+    fd.append('brand_content_toggle',String($('brandContent').checked));fd.append('brand_organic_toggle',String($('brandOrganic').checked));fd.append('is_aigc',String($('isAigc').checked));
+    try{
+      const r=await fetch(API+'?action=publish',{method:'POST',headers:authHeaders(),body:fd});const p=await r.json();
+      if(!r.ok||!p.ok) throw new Error(p.error+(p.details?.message?': '+p.details.message:''));
+      setStatus('<strong>Upload accepted</strong>TikTok is processing the post. Publish ID: '+escapeHtml(p.publish_id),'wait');
+      await pollStatus(p.publish_id);
+    }catch(e){setStatus('<strong>Publish failed</strong>'+escapeHtml(e.message),'bad');updatePostButton();}
+  });
+
+  async function pollStatus(publishId){
+    for(let i=0;i<20;i++){
+      await new Promise(r=>setTimeout(r,3000));
+      const r=await fetch(API+'?action=status',{method:'POST',headers:{...authHeaders(),'content-type':'application/json'},body:JSON.stringify({publish_id:publishId})});const p=await r.json();
+      if(!r.ok||!p.ok){setStatus('<strong>Status check failed</strong>'+escapeHtml(p.error||'Unknown error'),'bad');updatePostButton();return;}
+      if(p.status==='PUBLISH_COMPLETE'){setStatus('<strong>Published successfully ✓</strong>TikTok returned PUBLISH_COMPLETE. Publish ID: '+escapeHtml(publish_id),'good');return;}
+      if(p.status==='FAILED'){setStatus('<strong>TikTok publishing failed</strong>'+escapeHtml(p.fail_reason||'No failure reason returned.'),'bad');updatePostButton();return;}
+      setStatus('<strong>Processing</strong>'+escapeHtml(p.status||'TikTok is processing the upload')+' • check '+(i+1)+'/20','wait');
+    }
+    setStatus('<strong>Still processing</strong>The upload was accepted, but TikTok has not returned a final status yet. Please use Refresh account only for account data; do not submit the same video again.','wait');
+  }
+
+  if(session) apiCreator();
+  else updatePostButton();
+})();
+</script>
+</body>
+</html>
