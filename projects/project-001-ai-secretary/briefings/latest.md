@@ -1,6 +1,6 @@
 # 2026-09-16（水）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:33 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:42 JST
 
 ---
 
@@ -32,12 +32,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [「足りないのはCOBOL人材じゃない」 日立が語る、AI時代のシステム刷新における“人”の役割](https://www.itmedia.co.jp/enterprise/articles/2609/16/news012.html) — ITmedia AI+
 - [OpenAI、AI安全性でAnthropic、Google DeepMindと協議中──Bloomberg報道](https://www.itmedia.co.jp/news/article/2609/16/2000001522/) — ITmedia AI+
 - [富士通、国産CPU「モナカ」販売 スパコン技術を結集した“小さなチップ”に託す「3兆円のAIビジネス」の行方](https://www.itmedia.co.jp/business/articles/2609/16/news039.html) — ITmedia AI+
 - [【Pythonで学ぶデータ分析】独立性の検定をベイズ統計で行う ～ 雨男・雨女は本当にいるのか？](https://atmarkit.itmedia.co.jp/ait/articles/2609/16/news003.html) — ITmedia AI+
 - [「APIキーは.envに」はもはや通用しない AIエージェントの“内通者化”をどう防ぐ？](https://atmarkit.itmedia.co.jp/ait/articles/2609/17/news006.html) — ITmedia AI+
 - [「Grok 5はAGI」「4.9はAstraクラス」 マスク氏、自社AIの開発状況を共有 AI開発減速論にも賛成](https://www.itmedia.co.jp/aiplus/article/2609/15/2000001499/) — ITmedia AI+
-- [「監視されていないときのAIは、もう評価できない」 OpenAI現役研究者が個人声明](https://www.itmedia.co.jp/news/article/2609/15/2000001500/) — ITmedia AI+
 
 **海外AIニュース**
 

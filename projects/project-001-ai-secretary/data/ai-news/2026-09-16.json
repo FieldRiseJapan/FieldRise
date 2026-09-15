@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-09-16T08:32:56.728272+09:00",
+  "collected_at": "2026-09-16T08:41:46.414297+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,14 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「足りないのはCOBOL人材じゃない」 日立が語る、AI時代のシステム刷新における“人”の役割",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2609/16/news012.html",
+      "published": "2026-09-16T08:00:00+09:00",
+      "summary": "生成AIによってレガシーシステム刷新の課題が解消されつつある一方、日立は「人間のエンジニアが果たす役割は大きい」と強調する。同社は刷新プロジェクトの最大の“難所”にAIをどう適用し、人の役割はどう変わろうとしているのか。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -65,12 +73,12 @@
       "summary": "Googleは、Aアシスタント「Gemini」をWindows 10／11のデスクトップから呼び出せるネイティブアプリを提供開始した。［Alt］＋［Space］のショートカットで即座に呼び出せる他、「Google Drive」との情報連携や画像・動画生成に対応する。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「きもい」「内部資料そのまま」と話題のAI生成掲示物についてセブンイレブンに聞いてみた 「本部提供ではない」",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2609/15/2000001494/",
-      "published": "2026-09-15T15:22:45+09:00",
-      "summary": "セブンイレブン店頭の“AIポップ”についてセブンイレブンに取材したところ「一部店舗が掲示物作成にAIを利用していることを確認している」との回答を得た。"
+      "title": "ASUSのMicroATXマザーボード「PRIME B550M-K ARGB-CSM」が登場、B550搭載で接続性と拡張性を強化",
+      "url": "https://ascii.jp/elem/000/004/435/4435157/?rss",
+      "published": "2026-09-16T08:30:00+09:00",
+      "summary": "ASUSのMicroATXマザーボード「PRIME B550M-K ARGB-CSM」が9月17日に発売。AMD B550チップセット搭載で、Ryzen 5000/5000G/4000G/3000シリーズに対応し、デュアルM.2やUSB 3.2 Gen1 Type-C、ARGBヘッダーを備える。"
     },
     {
       "source": "ASCII.jp AI",
@@ -127,14 +135,6 @@
       "url": "https://ascii.jp/elem/000/004/434/4434982/?rss",
       "published": "2026-09-16T00:01:00+09:00",
       "summary": "手のひらサイズなのに1000万画素センサーにモニターと光学ファインダーを搭載し、写りもよくなりました"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "ソニーがGレンズなのに1000gを切る世界最軽量の超望遠単焦点レンズ「400mm F4.5」と「600mm F6.3」を発表",
-      "url": "https://ascii.jp/elem/000/004/434/4434044/?rss",
-      "published": "2026-09-16T00:01:00+09:00",
-      "summary": "ソニーが35mmフルサイズ対応のEマウントレンズの超望遠単焦点レンズ2本を発表、1000gを切る小型・軽量設計を実現しています"
     },
     {
       "source": "TechCrunch AI",
