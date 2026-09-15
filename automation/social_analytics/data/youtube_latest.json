@@ -1,12 +1,12 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-09-14T23:59:17+00:00",
+  "captured_at": "2026-09-15T23:33:07+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
     "channel_id": "UCHmI-5eV-xPLSVtcO8QOd7A",
     "handle": "@runa-girl8215",
-    "subscribers": 85,
+    "subscribers": 86,
     "public_video_count": 39,
     "description": "Café Series — calm café BGM for focus, reading & work.\n\nFieldRise Music creates warm piano, gentle jazz, and quiet café atmosphere for focus, reading, work, cooking, and creative time.\n\nCafé Series is our BGM-focused line: music that shapes the room without stealing attention. Your world is the story. Our music is the atmosphere.\n\nNew songs streaming on Spotify, Apple Music and all major platforms.\n\n\"I wish everyone in the world to be happy together.\"\n\n♪ Music for studying, working, relaxing and sleeping. Free to use on YouTube (Content ID protected)."
   },
@@ -14,14 +14,14 @@
     {
       "id": "-iI8Cd_38cI",
       "title": "cafe（A couple gazing into each other's eyes）",
-      "views": 66,
+      "views": 67,
       "age_label": "2026-03-15T00:00:47Z",
       "category": "cafe"
     },
     {
       "id": "kno0Vr_0CgU",
       "title": " Cafe  ",
-      "views": 14,
+      "views": 15,
       "age_label": "2026-03-14T23:46:39Z",
       "category": "cafe"
     },
