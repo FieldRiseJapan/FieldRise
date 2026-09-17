@@ -1,6 +1,6 @@
 # 2026-09-18（金）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:34 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:40 JST
 
 ---
 
@@ -32,12 +32,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [経営者は「AI導入」に夢中、現場は「IT環境」に疲弊 ITサポート軽視が招く時間・人件費ロスの実態](https://atmarkit.itmedia.co.jp/ait/articles/2609/18/news036.html) — ITmedia AI+
+- [恐るるに足らず？ 中国フィジカルAI主要15社と5大集積地で見る「点と線と面」](https://monoist.itmedia.co.jp/mn/articles/2609/18/news012.html) — ITmedia AI+
+- [AIへの「念のためプロンプト」はもう逆効果 Claudeのトークンを浪費する6つのアンチパターン](https://atmarkit.itmedia.co.jp/ait/articles/2609/18/news040.html) — ITmedia AI+
+- [資生堂、AIエージェントで原料探索を95％削減 研究員の「目利き」を複数LLMで再現](https://www.itmedia.co.jp/enterprise/articles/2609/18/news020.html) — ITmedia AI+
 - [英チャールズ国王、AI大手トップらに「実存的な危険」を警告 NVIDIAやOpenAI、Anthropicが参加](https://www.itmedia.co.jp/news/article/2609/18/2000001600/) — ITmedia AI+
 - [AIが異常察知し7つの専門エージェントが解決案を提案、NECのSCMソリューション](https://monoist.itmedia.co.jp/mn/articles/2609/18/news039.html) — ITmedia AI+
-- [経営「AIでラクして早く帰って」→社員「帰らない」 工数最大9割減のDeNAも悩むAI効率化の壁](https://www.itmedia.co.jp/news/article/2609/18/2000001484/) — ITmedia AI+
-- [Microsoftが進めるCopilot再編 「Microsoft Copilot」への移行で、企業への影響は？](https://kn.itmedia.co.jp/kn/article/2609/18/2000001586/) — ITmedia AI+
-- [NVIDIA、Google、Emerald AIがAIデータセンターの電力消費調整を目指すアライアンス設立 Anthropicも参加](https://www.itmedia.co.jp/news/article/2609/18/2000001599/) — ITmedia AI+
-- [九州国立博物館、特別展ポスターに生成AI使用 当初「使用していない」と説明](https://www.itmedia.co.jp/aiplus/article/2609/17/2000001595/) — ITmedia AI+
 
 **海外AIニュース**
 
