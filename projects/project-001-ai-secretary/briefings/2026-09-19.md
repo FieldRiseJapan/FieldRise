@@ -1,6 +1,6 @@
 # 2026-09-19（土）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:21 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:34 JST
 
 ---
 
@@ -38,12 +38,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **海外AIニュース**
 
+- [A startup that builds other startups raised $100M, and is all-in on physical AI](https://techcrunch.com/2026/09/18/a-startup-that-builds-other-startups-raised-100m-and-is-all-in-on-physical-ai/) — TechCrunch AI
 - [Anthropic is operating a lab that conducts biology experiments](https://techcrunch.com/2026/09/18/anthropic-is-operating-a-lab-that-conducts-biology-experiments/) — TechCrunch AI
-- [AI Hallucination Nearly Triggers US Military Operation](https://techcrunch.com/2026/09/18/ai-hallucination-nearly-triggers-us-military-operation/) — TechCrunch AI
+- [AI hallucination nearly triggers US military operation](https://techcrunch.com/2026/09/18/ai-hallucination-nearly-triggers-us-military-operation/) — TechCrunch AI
 - [Anthropic’s first embedded evaluator is … Accenture?](https://techcrunch.com/2026/09/18/anthropics-first-embedded-evaluator-is-accenture/) — TechCrunch AI
 - [World model companies are keeping a lot of secrets](https://techcrunch.com/2026/09/18/world-model-companies-are-keeping-a-lot-of-secrets/) — TechCrunch AI
 - [A new kind of AI model from a ChatGPT inventor is thrilling developers](https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-a-chatgpt-inventor-is-thrilling-developers/) — TechCrunch AI
-- [Disney’s first CTO led an AI startup it once accused of copying its characters](https://techcrunch.com/2026/09/18/disneys-first-cto-led-an-ai-startup-it-once-accused-of-copying-its-characters/) — TechCrunch AI
 
 
 ---

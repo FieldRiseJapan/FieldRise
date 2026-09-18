@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-09-19T08:21:17.917529+09:00",
+  "collected_at": "2026-09-19T08:34:20.003812+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -139,6 +139,14 @@
     {
       "source": "TechCrunch AI",
       "lang": "en",
+      "title": "A startup that builds other startups raised $100M, and is all-in on physical AI",
+      "url": "https://techcrunch.com/2026/09/18/a-startup-that-builds-other-startups-raised-100m-and-is-all-in-on-physical-ai/",
+      "published": "2026-09-19T08:25:01+09:00",
+      "summary": "UP.Labs, now doing business under the name Vantora, is building startups for industrial corporations."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
       "title": "Anthropic is operating a lab that conducts biology experiments",
       "url": "https://techcrunch.com/2026/09/18/anthropic-is-operating-a-lab-that-conducts-biology-experiments/",
       "published": "2026-09-19T08:13:31+09:00",
@@ -147,7 +155,7 @@
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "AI Hallucination Nearly Triggers US Military Operation",
+      "title": "AI hallucination nearly triggers US military operation",
       "url": "https://techcrunch.com/2026/09/18/ai-hallucination-nearly-triggers-us-military-operation/",
       "published": "2026-09-19T08:12:32+09:00",
       "summary": "“It’s important for service members to understand the uncertainty inherent to LLMs,\" a GovAI research scholar warns."
@@ -191,14 +199,6 @@
       "url": "https://techcrunch.com/2026/09/18/googles-new-cc-is-an-ai-agent-that-helps-families-run-their-households/",
       "published": "2026-09-19T02:33:50+09:00",
       "summary": "Google is refocusing its CC AI agent on household coordination, letting families share emails, schedules, and tasks so the AI can manage calendars, fill out forms, make shopping lists, plan meals, and"
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Dario Amodei and other AI leaders want to ‘Pace the Frontier’ but…how?",
-      "url": "https://techcrunch.com/video/dario-amodei-and-other-ai-leaders-want-to-pace-the-frontier-buthow/",
-      "published": "2026-09-19T02:09:56+09:00",
-      "summary": "A week after an Anthropic researcher&#8217;s doomsday warning rattled the AI world, the company&#8217;s CEO Dario Amodei has&#160;outlined his plan to “pace the frontier”&#160;of AI development. The p"
     }
   ]
 }
