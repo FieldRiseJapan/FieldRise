@@ -21,3 +21,10 @@ Still required before resubmission:
 
 Security:
 - No TikTok credentials, access tokens, refresh tokens, or client secrets are stored in this file.
+
+
+## Final public-page icon fix
+- Privacy Policy and Terms pages now reference the public high-quality JPG directly: `automation/sns_auto_posting/instagram/26.jpg`.
+- The same JPG is used for the browser favicon declaration.
+- This replaces the SVG-wrapper reference that failed to render the embedded image reliably on GitHub Pages.
+- Commits: privacy `b7cb5a036c90d31034c44cb60b3761c033639905`, terms `06f221c2140df44c292c9d3b88a5e91165af9382`.
