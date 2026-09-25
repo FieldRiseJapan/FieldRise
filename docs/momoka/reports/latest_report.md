@@ -334,3 +334,37 @@ TikTok、Instagram、OAuth設定、YouTubeのSupabase secrets・Edge Function設
 - テスト結果: `node --test tests/test_youtube_creator_studio.cjs` は8件成功。`node --check automation/sns_auto_posting/youtube/creator-studio.js` 成功。回帰・secret非露出確認は最終報告へ記録。
 - 実アップロード: 未実施（安全な認証経路がないため）。
 - 公開確認URL: なし（現時点では未push／未公開）。
+
+
+---
+
+## 2026-09-25 YouTube secure gateway design v1
+
+### 1. 完了状況
+認証ゲートウェイは**設計のみ完了**。実装、Supabase/Auth/Edge Function/DB設定、Secret/OAuth設定変更、実アップロードは一切行っていない。Creator Studioの投稿操作は無効のまま。
+
+### 2. 変更ファイル
+- `docs/momoka/designs/youtube_secure_upload_gateway_v1.md` — 認証・認可、JWT、API/OpenAPI、CORS、payload、idempotency/rate limit、secret配置、脅威、手順、テスト、rollback、未決定事項を記載
+- `docs/momoka/reports/latest_report.md` — 本報告
+
+### 3. Commit SHA
+設計書コミット: `f158475cb8df94ce7649f3b805855287a0fe8552`
+
+### 4. Push先
+`origin/main`。設計成果物と本報告だけを反映対象とし、実装・設定・Secret・OAuth・投稿機能は含めない。
+
+### 5. 未解決事項・ブロッカー
+- ブラウザにSupabase access/refresh tokenを一切置けない要件なら、ブラウザJWT方式は成立せず、BFF方式へ再設計が必要。
+- `https://fieldrisejapan.github.io`ではGitHub Pages project path単位にOrigin/CORSを分離できないため、専用Originまたは明示的リスク受容が必要。
+- 社長のSupabase user UUID、TOTP/AAL2必須方針、Email配送/redirect、Supabase plan、動画サイズ上限、既存`youtube-upload`のソース・`verify_jwt`設定・secret検証方法、token保管場所は未確認。
+- 初期案の動画サイズ50 MiBとrate limit 15分3件は設計上の暫定値であり、実測・CTO承認前に実装値として扱わない。
+
+### 6. 次に彩花CTOが確認すべき事項
+1. `docs/momoka/designs/youtube_secure_upload_gateway_v1.md`のD1/D2（JWT利用可否、専用Origin）を判断する。
+2. 許可するAuthユーザー、TOTP/AAL2必須化、email delivery/redirect、sessionの保存・失効条件を決める。
+3. 既存`youtube-upload`実装・デプロイ設定を秘密値を表示せず監査し、共有module化またはHTTP relayの可否を判断する。
+4. 対象planと実動画で最大サイズ・実行時間・memoryを測定し、API quotaとrate-limit/retentionを決める。
+5. 以上が承認されるまで、実装・Supabase設定変更・Secret/OAuth変更・投稿button有効化・実アップロードへ進まない。
+
+### 7. 検証
+OpenAPI 3.1をRedoclyでlintし、エラーなし。Mermaid構成図のPNG render、必須項目/単一H1/static safety検査、`git diff --check`、秘密値パターン検査を実施。
