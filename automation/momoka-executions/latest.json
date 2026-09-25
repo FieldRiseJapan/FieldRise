@@ -2,8 +2,8 @@
   "schema_version": 1,
   "status": "blocked",
   "execution_name": null,
-  "receipt_key": "d271cc423fb07298988160a3ca0938930507181e:docs/momoka/instructions/2026-09-25_tiktok_app_icon_consistency_fix.md",
-  "instruction_path": "docs/momoka/instructions/2026-09-25_tiktok_app_icon_consistency_fix.md",
+  "receipt_key": "23006e60f0e6d17074e4e6dd8c98f890b8f20833:docs/momoka/instructions/2026-09-25_youtube_creator_studio_frontend_v1.md",
+  "instruction_path": "docs/momoka/instructions/2026-09-25_youtube_creator_studio_frontend_v1.md",
   "error": "実行名生成失敗: プロジェクト名を取得できないため、実行名を生成せず開始を停止します。 ",
-  "updated_at": "2026-09-25T12:09:52Z"
+  "updated_at": "2026-09-25T13:50:30Z"
 }
