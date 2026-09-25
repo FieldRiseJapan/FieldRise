@@ -368,3 +368,7 @@ TikTok、Instagram、OAuth設定、YouTubeのSupabase secrets・Edge Function設
 
 ### 7. 検証
 OpenAPI 3.1をRedoclyでlintし、エラーなし。Mermaid構成図のPNG render、必須項目/単一H1/static safety検査、`git diff --check`、秘密値パターン検査を実施。
+
+- OpenAPI 3.1を`@redocly/cli lint`で検証し、エラーなし。
+- Mermaid構成図のPNG render成功。単一H1・必須項目・静的安全条件の検査成功。
+- `git diff --check`成功。設計書と報告書の秘密値パターン検査に一致なし。
