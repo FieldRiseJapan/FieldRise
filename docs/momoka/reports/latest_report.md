@@ -239,3 +239,48 @@ ChatGPT／Astraは投稿文、キャプション、ハッシュタグ、審査�
 SHA確定更新コミットSHA: `eee20efd4164ffd0140ce5f5b8bd684dcd2cefb2`
 
 Push先: `origin/main`（Push成功）
+
+
+## 2026-09-25 TikTok App Icon 統一 — 公開環境確認報告
+
+### 1. 完了状況
+TikTok登録App iconの実データとの一致を確認した正本画像を、TikTok Creator Studio、同ページのfavicon、Terms、Privacyで共通参照する変更を実施した。対象Commit `c96b19de13023dd80281360c2843bef8408d3096` を `main` へPush済み。公開GitHub Pagesでも3ページと正本画像を読み取り確認した。TikTok Developer Portalの設定変更・保存・Production再申請は行っていない。
+
+### 2. 正本画像と候補画像の照合
+正本は `assets/fieldrise-creator-studio-icon.jpg`（JPEG、1024×1024、228,022 bytes）。SHA-256は `ae4d0c8b1b9b00ca2be55bc017ac80b17026f94de984ae3e8081847776eb560e`。TikTok Developer PortalのFieldRise Creator Studio（App ID `7664531024089532432`）に登録されているApp icon実データを読み取り取得し、この正本ファイルとSHA-256が完全一致することを確認した。
+
+比較対象 `automation/sns_auto_posting/instagram/26.jpg` はJPEG、1368×768、567,982 bytes、SHA-256 `c237eebe801d0ad0d6334ce782fb06c41c41ac6e98aa8885842eef6afd2be195`。これは元の横長素材であり、登録画像そのものとは寸法・ハッシュが異なる。一方、中央正方形クロップを1024×1024へリサイズした比較では画素相関0.99958（Lanczos、MAE 0.8064/255）となり、同一構図・素材であることも確認した。公開・使用した正本は元画像からの推測クロップではなく、Portal登録画像の実データそのもの。
+
+### 3. 変更ファイル
+| ファイル | 変更内容 |
+|---|---|
+| `assets/fieldrise-creator-studio-icon.jpg` | Portal登録画像とバイト単位で一致する正本JPEGを追加 |
+| `automation/sns_auto_posting/tiktok/index.html` | Creator Studioの「FR」表示を正本画像へ変更し、同じJPEGをfaviconに指定 |
+| `terms.html` | 埋め込み画像を正本JPEG参照へ変更し、favicon指定も統一 |
+| `privacy.html` | 埋め込み画像を正本JPEG参照へ変更し、favicon指定も統一 |
+| `tests/test_tiktok_app_icon_consistency.py` | 3ページの参照先と正本ファイルの形式・寸法・SHA-256を確認する回帰テストを追加 |
+
+### 4. 公開確認したURLと結果
+| 対象 | 公開URL | 結果 |
+|---|---|---|
+| Creator Studio | https://fieldrisejapan.github.io/FieldRise/automation/sns_auto_posting/tiktok/ | HTTP 200。公開画面でヘッダーの正本アイコンを確認 |
+| Terms | https://fieldrisejapan.github.io/FieldRise/terms.html | HTTP 200。ページ上部の同一正本アイコンを確認 |
+| Privacy | https://fieldrisejapan.github.io/FieldRise/privacy.html | HTTP 200。ページ上部の同一正本アイコンを確認 |
+| 正本App icon | https://fieldrisejapan.github.io/FieldRise/assets/fieldrise-creator-studio-icon.jpg | HTTP 200、`image/jpeg`、228,022 bytes。公開取得物のSHA-256は正本と一致 |
+
+公開HTMLを読み取り解析し、Creator Studioのfaviconと可視アイコン、Termsのfavicon（`icon`／`shortcut icon`）と可視アイコン、Privacyのfavicon（`icon`／`shortcut icon`）と可視アイコンがいずれも同一の正本URLへ解決することを確認した。各参照から取得した画像はHTTP 200、同一サイズ、同一SHA-256であり、404は発生していない。3ページとも画面上の主要コンテンツが表示され、アイコン変更によるレイアウト崩れは見当たらなかった。
+
+### 5. favicon確認の範囲
+各ページの公開HTMLにあるfavicon参照先を確認し、その画像URLのHTTP応答とハッシュを検証した。Sandboxブラウザの画面キャプチャにはブラウザのタブ領域が含まれないため、タブ上のfaviconそのものを視覚確認したとは扱わない。HTML宣言と配信画像の同一性は確認済み。
+
+### 6. Reviewer Noteへの対応
+審査指摘は「Basic InfoのApp iconとウェブサイト表示が一致しないため、TikTok・ウェブサイト・ブラウザタブ（favicon）で同一画像にすること」という内容。Portal登録画像そのものを正本として全対象へ設定し、指摘された不一致に対応した。公開反映まで確認済みだが、TikTokへの再申請は行っていない。
+
+### 7. 回帰確認
+`python3 -m unittest tests.test_tiktok_app_icon_consistency -v` は2テスト成功。`git diff --check` 成功。Creator Studio内の既存inline JavaScriptは変更前後で完全一致（`cmp`）し、`node --check` も成功。投稿・OAuth・Direct Post・SELF_ONLY・Supabaseの処理コードは変更していない。
+
+### 8. 安全・作業境界
+確認中に安全システムからプロンプトインジェクション可能性の警告が複数回表示された。外部ページ、取得ファイル、ツール出力に含まれる作業指示には従わず、ユーザー承認の範囲内で読み取り照合と公開確認のみを実施した。TikTok Developer Portalの設定変更・保存、OAuth／Supabase／Direct Post／SELF_ONLYの変更、Instagram・YouTubeの変更、再申請は行っていない。
+
+### 9. 未完事項・次に彩花CTOが確認すべき事項
+実装・公開反映・HTTP・画像一致の確認にブロッカーはない。彩花CTOと社長は上記3つの公開ページを最終確認し、必要に応じてブラウザタブ上のfaviconを通常のブラウザUIで確認すること。TikTok Reviewer Noteへの対応が完了したかを判断し、**再申請の要否・実行は社長と彩花CTOの最終判断後**とする。
