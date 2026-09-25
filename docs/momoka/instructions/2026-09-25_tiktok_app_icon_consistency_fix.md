@@ -1,7 +1,7 @@
-# GPT桃花 作業指示書 — TikTok App Icon 一致確認・実装修正
+# 旧桃花（Manus AI）作業指示書 — TikTok App Icon 一致確認・実装修正
 
 日付: 2026-09-25
-担当: GPT桃花
+担当: 旧桃花（Manus AI）
 指示元: 彩花CTO
 対象: FieldRise Creator Studio / TikTok Production 再審査対応
 優先度: 高
@@ -22,7 +22,7 @@ TikTok Production審査が再度 Not approved となった。
 
 ## 2. 今回の目的
 
-TikTok審査員が確認するすべての公開箇所で、同一のApp iconを一貫して表示する。
+旧桃花（Manus AI）がGitHubリポジトリを直接確認し、TikTok審査員が確認する公開箇所で同一App iconを一貫表示するよう修正する。
 
 最低限の確認・実装対象:
 1. TikTok Creator Studio Webページ
@@ -60,7 +60,7 @@ TikTok Developer PortalのBasic informationに登録されている女性キャ�
 
 を確認する。
 
-TikTok登録画像との一致をGitHub情報だけで断定できない場合は、実装前に「確認待ち」として彩花CTOへ報告すること。別の似た画像で代用しない。
+TikTok登録画像との一致をGitHub情報だけで断定できない場合は、実装前に作業を止め、`docs/momoka/reports/latest_report.md` に「確認待ち」として報告すること。別の似た画像で代用しない。
 
 ## 4. 実装指示
 
@@ -129,7 +129,14 @@ TikTok Creator Studioページのbrowser tab faviconを正本App iconに統一�
 
 キャッシュの影響を考慮し、必要ならハードリロード相当で確認する。
 
-## 7. 完了条件
+## 7. Commit / Push
+
+確認と実装が完了したら `main` へCommit / Pushすること。
+
+Commit message例:
+`fix: align TikTok app icon across website and favicon`
+
+## 8. 完了条件
 
 以下をすべて満たした時だけ完了とする。
 
@@ -142,7 +149,7 @@ TikTok Creator Studioページのbrowser tab faviconを正本App iconに統一�
 - 既存TikTok機能への影響なし
 - mainへCommit / Push済み
 
-## 8. 報告必須項目
+## 9. 報告必須項目
 
 作業完了後、正式報告先
 `docs/momoka/reports/latest_report.md`
@@ -163,7 +170,7 @@ TikTok Creator Studioページのbrowser tab faviconを正本App iconに統一�
 - TikTok Reviewer Noteへの対応内容
 - 公開ページ確認結果
 
-## 9. 注意
+## 10. 注意
 
 この作業完了だけでTikTokへ再申請しないこと。
 再申請は彩花CTOと社長が公開ページを最終確認した後に行う。
