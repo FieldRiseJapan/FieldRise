@@ -306,11 +306,11 @@ TikTok、Instagram、OAuth設定、YouTubeのSupabase secrets・Edge Function設
 
 ### 3. Commit SHA
 
-検証完了後にcommitし、SHAを本項へ追記する。
+実装Commit SHA: `ea126879d096b46347c8f5452e54b4e9062fee98`
 
 ### 4. Push先
 
-未push。安全な認証ゲートウェイがなく、投稿機能を有効にしていない。検証・レビュー後、安全条件を満たす範囲の画面・テスト・報告のみをcommit／pushする。
+反映先: `origin/main`（ユーザー確認後、安全な範囲の画面・テスト・報告のみpush対象。投稿機能は無効のまま）
 
 ### 5. 未完・ブロッカー
 
