@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="FieldRise Creator Studio YouTube upload preparation">
+  <title>FieldRise Creator Studio | YouTube</title>
+  <link rel="icon" type="image/jpeg" href="../../../assets/fieldrise-creator-studio-icon.jpg">
+  <link rel="stylesheet" href="./creator-studio.css">
+  <script src="./creator-studio.js" defer></script>
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <img class="logo" src="../../../assets/fieldrise-creator-studio-icon.jpg" alt="FieldRise Creator Studio">
+        <div>
+          <div class="eyebrow">FieldRise · SNS Studio</div>
+          <h1>Creator Studio</h1>
+          <p class="sub">YouTube video upload</p>
+        </div>
+      </div>
+      <div class="badge badge-warn" aria-label="投稿機能は未接続です"><span class="dot"></span>投稿機能は準備中</div>
+    </header>
+
+    <section class="intro" aria-labelledby="pageTitle">
+      <div>
+        <p class="eyebrow">YOUTUBE STUDIO</p>
+        <h2 id="pageTitle">動画を確認して、投稿の準備をする</h2>
+        <p>動画と投稿内容を確認できます。投稿前には必ず内容確認と明示的な操作が必要です。</p>
+      </div>
+      <div class="steps" aria-label="投稿準備の手順">
+        <span class="step active"><b>01</b> 動画を選択</span>
+        <span class="step"><b>02</b> 内容を確認</span>
+        <span class="step"><b>03</b> 最終確認</span>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section class="card media-card" aria-labelledby="mediaHeading">
+        <div class="section-heading"><span class="number">01</span><div><h2 id="mediaHeading">動画ファイル</h2><p>投稿する動画を選択してプレビューします。</p></div></div>
+        <label class="upload-area" for="videoInput">
+          <span class="upload-icon" aria-hidden="true">↑</span>
+          <span class="upload-title">動画を選択</span>
+          <span class="upload-hint">MP4形式 · この画面ではファイルは端末内でプレビューされます</span>
+          <input id="videoInput" type="file" accept="video/mp4,.mp4" required aria-describedby="fileMeta">
+        </label>
+        <div id="fileMeta" class="file-meta" aria-live="polite">動画が選択されていません</div>
+        <div id="previewEmpty" class="video-empty"><span class="play-mark" aria-hidden="true">▶</span><span>動画を選択すると、ここにプレビューが表示されます</span></div>
+        <video id="videoPreview" class="video-preview hidden" controls playsinline preload="metadata" aria-label="選択した動画のプレビュー"></video>
+      </section>
+
+      <section class="card details-card" aria-labelledby="detailsHeading">
+        <div class="section-heading"><span class="number">02</span><div><h2 id="detailsHeading">投稿内容</h2><p>タイトルと説明文を確認してください。</p></div></div>
+        <label for="titleInput">タイトル <span class="required">必須</span></label>
+        <input id="titleInput" type="text" autocomplete="off" placeholder="動画のタイトルを入力" required>
+        <div class="field-foot"><span>投稿前にタイトルを再確認してください。</span><span id="titleCount">0文字</span></div>
+        <label for="descriptionInput">説明文 <span class="optional">任意</span></label>
+        <textarea id="descriptionInput" rows="7" placeholder="動画の説明を入力"></textarea>
+        <div class="field-foot"><span>リンクや補足情報を入力できます。</span><span id="descriptionCount">0文字</span></div>
+        <div class="privacy-card" role="status" aria-label="公開設定: 非公開">
+          <span class="privacy-lock" aria-hidden="true">●</span>
+          <div><strong>非公開（Private）</strong><span>現段階の投稿は非公開に固定されています。</span></div>
+          <span class="fixed-tag">固定</span>
+          <input type="hidden" id="privacyStatus" value="private">
+        </div>
+      </section>
+
+      <section class="card review-card" aria-labelledby="reviewHeading">
+        <div class="section-heading"><span class="number">03</span><div><h2 id="reviewHeading">投稿前の最終確認</h2><p>動画・タイトル・説明文・公開設定を確認します。</p></div></div>
+        <div class="review-summary">
+          <div class="review-row"><span>動画</span><strong id="reviewFile">未選択</strong></div>
+          <div class="review-row"><span>タイトル</span><strong id="reviewTitle">未入力</strong></div>
+          <div class="review-row"><span>説明文</span><strong id="reviewDescription">未入力</strong></div>
+          <div class="review-row"><span>公開設定</span><strong class="private-value">非公開（Private）</strong></div>
+        </div>
+        <label class="confirm-row" for="finalConfirm">
+          <input id="finalConfirm" type="checkbox">
+          <span><strong>内容を確認しました</strong><small>選択した動画とタイトル・説明文を確認し、投稿時は非公開になることを理解しました。</small></span>
+        </label>
+        <div class="actions">
+          <button id="postButton" class="primary" type="button" disabled aria-describedby="postingBlocker">YouTubeへ投稿</button>
+        </div>
+        <div id="postingBlocker" class="security-note" role="note"><strong>安全な投稿経路が未接続です</strong><span>ブラウザからアップロード秘密値を送らない認証ゲートウェイが用意されるまで、投稿操作は無効です。</span></div>
+        <div id="result" class="result hidden" role="status" aria-live="polite"></div>
+        <p class="foot">自動投稿は行われません。投稿機能を有効にするには、サーバー側認証セッション・認可・secret管理を備えた安全なゲートウェイの構築が必要です。</p>
+      </section>
+    </div>
+    <footer class="footer">FieldRise Creator Studio <span>·</span> YouTube専用ワークスペース</footer>
+  </main>
+</body>
+</html>

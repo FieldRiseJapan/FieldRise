@@ -284,3 +284,53 @@ TikTok登録App iconの実データとの一致を確認した正本画像を、
 
 ### 9. 未完事項・次に彩花CTOが確認すべき事項
 実装・公開反映・HTTP・画像一致の確認にブロッカーはない。彩花CTOと社長は上記3つの公開ページを最終確認し、必要に応じてブラウザタブ上のfaviconを通常のブラウザUIで確認すること。TikTok Reviewer Noteへの対応が完了したかを判断し、**再申請の要否・実行は社長と彩花CTOの最終判断後**とする。
+
+---
+
+## 2026-09-25 YouTube Creator Studio frontend v1
+
+### 1. 完了状況
+
+安全な投稿経路が未構築のため、**実アップロード機能は実装保留**。YouTube専用の画面、動画の端末内プレビュー、投稿内容入力、private固定表示、最終確認、無効化された投稿操作を実装した。公開GitHub Pagesから既存の `youtube-upload` に必要な秘密ヘッダーを安全に供給する仕組みがリポジトリ内に確認できず、ブラウザからsecretを送る実装はしていない。
+
+### 2. 変更ファイル
+
+- `automation/sns_auto_posting/youtube/index.html` — YouTube専用Creator Studio画面
+- `automation/sns_auto_posting/youtube/creator-studio.css` — 既存Creator Studioに合わせたスタイル
+- `automation/sns_auto_posting/youtube/creator-studio.js` — 端末内プレビュー、入力検証、private固定、エラー非露出、重複操作ガード。外部送信なし
+- `automation/sns_auto_posting/youtube/README.md` — 安全設計・未接続要件・テスト手順
+- `tests/test_youtube_creator_studio.cjs` — 画面・ロジック・secret非露出のテスト
+- `docs/momoka/reports/latest_report.md` — 本報告
+
+TikTok、Instagram、OAuth設定、YouTubeのSupabase secrets・Edge Function設定は変更していない。
+
+### 3. Commit SHA
+
+検証完了後にcommitし、SHAを本項へ追記する。
+
+### 4. Push先
+
+未push。安全な認証ゲートウェイがなく、投稿機能を有効にしていない。検証・レビュー後、安全条件を満たす範囲の画面・テスト・報告のみをcommit／pushする。
+
+### 5. 未完・ブロッカー
+
+- `youtube-upload` は `x-fieldrise-upload-secret` を要求する一方、ブラウザへsecretを公開できない。
+- 認証済み利用者を検証し、サーバー側だけでsecretを付与する同一オリジン認証ゲートウェイ（セッション、認可、CSRF・ログ・エラー保護を含む）の構築が必要。
+- ゲートウェイのホスト先・認証／セッション方式・認可ユーザーが決まるまでは投稿ボタンを無効のままにする。
+- 実アップロードは未実施。認証経路が未整備のため、secretを露出するテストは実施していない。
+
+### 6. 次に彩花CTOが確認すべきファイル
+
+- `automation/sns_auto_posting/youtube/README.md` — 認証ゲートウェイ設計案・前提
+- `automation/sns_auto_posting/youtube/index.html` — UIと無効化状態
+- `automation/sns_auto_posting/youtube/creator-studio.js` — 投稿通信がなく、private固定・入力検証・プレビューのみであること
+- `tests/test_youtube_creator_studio.cjs` — 安全条件と期待挙動のテスト
+
+### 追加報告
+
+- UI: YouTube専用の暗色FieldRise Creator Studio。MP4選択・ローカルプレビュー・ファイル名／サイズ・タイトル／説明文・非公開固定・明示確認・投稿状態欄を実装。
+- 認証／セッション方式: 未接続。ブラウザから既存secretヘッダーまたはGoogle／Supabase tokenを送らない。サーバー側認証ゲートウェイが必要。
+- secret非露出: HTML／JavaScriptに `youtube-upload` endpoint、カスタムsecretヘッダー、credentials、tokenを含めず、外部fetch／ログ出力なし。専用テストで検査。
+- テスト結果: `node --test tests/test_youtube_creator_studio.cjs` は8件成功。`node --check automation/sns_auto_posting/youtube/creator-studio.js` 成功。回帰・secret非露出確認は最終報告へ記録。
+- 実アップロード: 未実施（安全な認証経路がないため）。
+- 公開確認URL: なし（現時点では未push／未公開）。
