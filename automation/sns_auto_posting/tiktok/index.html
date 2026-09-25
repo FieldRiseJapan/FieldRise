@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FieldRise Creator Studio | TikTok</title>
   <meta name="description" content="FieldRise Creator Studio TikTok publishing interface">
+  <link rel="icon" type="image/jpeg" href="../../../assets/fieldrise-creator-studio-icon.jpg">
   <style>
     :root{color-scheme:dark;--bg:#081018;--panel:#0f1a24;--panel2:#132231;--line:#26384a;--text:#eef5fb;--muted:#9fb0bf;--accent:#28e0a9;--accent2:#39a8ff;--danger:#ff6b7d;--warn:#ffc857}
     *{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 10% 0%,#14304a 0,#081018 36%);color:var(--text)}
-    .wrap{max-width:1040px;margin:auto;padding:28px 18px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent2),var(--accent));display:grid;place-items:center;font-weight:900;color:#031018}.eyebrow{font-size:12px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}.title{font-size:24px;font-weight:800;margin:1px 0}.sub{font-size:13px;color:var(--muted)}
+    .wrap{max-width:1040px;margin:auto;padding:28px 18px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:12px;object-fit:cover;flex:none}.eyebrow{font-size:12px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}.title{font-size:24px;font-weight:800;margin:1px 0}.sub{font-size:13px;color:var(--muted)}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media(max-width:820px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
     .card{background:rgba(15,26,36,.94);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 18px 50px rgba(0,0,0,.25)}.card h2{font-size:17px;margin:0 0 14px}.wide{grid-column:1/-1}
     .account{display:flex;align-items:center;gap:14px}.avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;background:#1c2a36;border:1px solid var(--line)}.name{font-weight:800}.handle{color:var(--muted);font-size:13px}.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;font-size:12px;border:1px solid var(--line);color:var(--muted)}.ok{color:var(--accent);border-color:#236a58}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
@@ -21,7 +22,7 @@
 <body>
 <div class="wrap">
   <div class="top">
-    <div class="brand"><div class="logo">FR</div><div><div class="eyebrow">FieldRise</div><div class="title">Creator Studio</div><div class="sub">TikTok Content Publishing</div></div></div>
+    <div class="brand"><img class="logo" src="../../../assets/fieldrise-creator-studio-icon.jpg" alt="FieldRise Creator Studio app icon"><div><div class="eyebrow">FieldRise</div><div class="title">Creator Studio</div><div class="sub">TikTok Content Publishing</div></div></div>
     <div class="badge" id="sessionBadge"><span class="dot"></span><span>Not connected</span></div>
   </div>
   <div class="grid">
