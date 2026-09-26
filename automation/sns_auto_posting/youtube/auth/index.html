@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>YouTube Studio 認証準備 | FieldRise</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./page.mjs"></script>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">FIELDRISE · YOUTUBE STUDIO</p>
+    <h1>認証の準備</h1>
+    <p>この画面ではメール認証と追加認証を確認できます。動画投稿は行いません。</p>
+    <section aria-labelledby="emailHeading">
+      <h2 id="emailHeading">1. メール認証</h2>
+      <label for="email">社長本人のメールアドレス</label>
+      <input id="email" type="email" autocomplete="email" required>
+      <div class="actions">
+        <button id="signIn" type="button">登録済みユーザーとしてリンクを送信</button>
+        <button id="firstRegistration" type="button" class="secondary">初回登録用リンクを送信</button>
+      </div>
+      <p class="help">初回登録は本人が最初のユーザーを作るときだけ使用します。メール内のリンクは同じブラウザで開いてください。</p>
+    </section>
+    <section aria-labelledby="sessionHeading">
+      <h2 id="sessionHeading">2. セッション</h2>
+      <p id="sessionState">確認中</p>
+      <p id="aalState">AAL: 確認中</p>
+      <button id="refresh" type="button">状態を再確認</button>
+      <button id="signOut" type="button" class="secondary">サインアウト</button>
+    </section>
+    <section aria-labelledby="mfaHeading">
+      <h2 id="mfaHeading">3. TOTP追加認証</h2>
+      <button id="enroll" type="button" disabled>Authenticatorを登録</button>
+      <div id="qrContainer" hidden>
+        <p>このQRを本人のAuthenticatorアプリで読み取ってください。画面やQRを共有しないでください。</p>
+        <img id="qr" alt="TOTP登録用QRコード">
+      </div>
+      <label for="totpCode">Authenticatorのコード</label>
+      <input id="totpCode" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,8}" maxlength="8">
+      <button id="verify" type="button" disabled>コードを検証</button>
+      <p class="help">既に登録済みの場合も、コードを入力してAAL2へ進めます。</p>
+    </section>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <p class="foot"><a href="../index.html">投稿準備画面へ戻る</a> · 投稿ボタンは無効のままです。</p>
+  </main>
+</body>
+</html>
