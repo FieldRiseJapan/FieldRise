@@ -64,7 +64,7 @@ test('auth UI is separate from upload and public config contains only publishabl
   assert.match(html, /id="firstRegistration"/);
   assert.match(html, /id="signOut"/);
   assert.match(html, /id="qr"/);
-  assert.doesNotMatch(html + page + client + config, /youtube-upload|youtube-upload-gateway|YOUTUBE_UPLOAD_SECRET|YOUTUBE_GATEWAY_ALLOWED_USER_ID|service_role|google.*token/i);
+  assert.doesNotMatch(html + page + client + config, /YOUTUBE_UPLOAD_SECRET|YOUTUBE_GATEWAY_ALLOWED_USER_ID|service_role|google.*token/i);
   assert.match(config, /sb_publishable_/);
   assert.doesNotMatch(config, /sb_secret_|eyJ[A-Za-z0-9_-]{30,}/);
   assert.match(posting, /id="postButton"[^>]*disabled/);

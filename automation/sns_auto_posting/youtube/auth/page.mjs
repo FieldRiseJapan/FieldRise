@@ -1,9 +1,17 @@
 import { supabase } from './auth-client.mjs';
 import { sendMagicLink, currentAuth, beginTotp, verifiedTotpFactor, challengeAndVerify } from './auth-flow.mjs';
+import { GATEWAY_URL, MAX_GATEWAY_TEST_VIDEO_BYTES, runGatewaySafetyCheck } from './gateway-check.mjs';
+import { SUPABASE_PUBLISHABLE_KEY } from './public-config.mjs';
 
 const $ = id => document.getElementById(id);
+const hasValidTestVideo = () => {
+  const file = $('gatewayVideo').files?.[0];
+  return !!file && file.size > 0 && file.size <= MAX_GATEWAY_TEST_VIDEO_BYTES &&
+    file.type === 'video/mp4' && /\.mp4$/i.test(file.name);
+};
 let factorId = null;
 let busy = false;
+let gatewayAttempted = false;
 const notice = text => { $('notice').textContent = text; };
 const clearQr = () => {
   $('qr').removeAttribute('src');
@@ -23,9 +31,56 @@ async function refresh() {
   $('aalState').textContent = `AAL: ${state.aal}`;
   $('enroll').disabled = !state.signedIn || state.aal === 'aal2';
   $('verify').disabled = !state.signedIn || state.aal === 'aal2';
+  $('gatewayVideo').disabled = !state.signedIn || state.aal !== 'aal2' || gatewayAttempted;
+  $('gatewayCheck').disabled = !state.signedIn || state.aal !== 'aal2' || gatewayAttempted || !hasValidTestVideo();
   if (!state.signedIn) clearQr();
-  if (state.aal === 'aal2') { clearQr(); notice('AAL2を確認しました。動画投稿はまだできません。'); }
+  if (state.aal === 'aal2') { clearQr(); notice('AAL2を確認しました。検証用Gateway確認が利用できます。動画投稿はできません。'); }
 }
+$('gatewayVideo').addEventListener('change', () => locked(async () => {
+  const state = await currentAuth(supabase.auth);
+  $('gatewayVideo').disabled = !state.signedIn || state.aal !== 'aal2' || gatewayAttempted;
+  $('gatewayCheck').disabled = !state.signedIn || state.aal !== 'aal2' || gatewayAttempted || !hasValidTestVideo();
+  $('gatewayResult').hidden = true;
+}));
+$('gatewayCheck').addEventListener('click', () => locked(async () => {
+  const file = $('gatewayVideo').files?.[0];
+  if (!file || gatewayAttempted) return;
+  // Re-check immediately before sending; the disabled button is only a UI aid.
+  const state = await currentAuth(supabase.auth);
+  if (!state.signedIn || state.aal !== 'aal2') {
+    await refresh();
+    notice('AAL2が必要です。Gatewayへの送信は行っていません。');
+    return;
+  }
+  gatewayAttempted = true;
+  $('gatewayVideo').disabled = true;
+  $('gatewayCheck').disabled = true;
+  const result = await runGatewaySafetyCheck({
+    auth: supabase.auth,
+    video: file,
+    endpoint: GATEWAY_URL,
+    origin: window.location.origin,
+    publishableKey: SUPABASE_PUBLISHABLE_KEY,
+  });
+  const box = $('gatewayResult');
+  box.replaceChildren();
+  const rows = [
+    ['HTTP', result.httpStatus === null ? '通信失敗' : String(result.httpStatus)],
+    ['状態', result.code || result.status || (result.sent ? '応答を確認できません' : result.reason)],
+  ];
+  if (result.authorized !== undefined) rows.push(['authorized', String(result.authorized)]);
+  if (result.validated !== undefined) rows.push(['validated', String(result.validated)]);
+  if (result.privacyStatus) rows.push(['privacyStatus', result.privacyStatus]);
+  if (result.requestId) rows.push(['request_id', result.requestId]);
+  rows.push(['videoId', result.hasVideoId ? '予期しない応答' : 'なし']);
+  for (const [label, value] of rows) {
+    const line = document.createElement('p');
+    line.textContent = `${label}: ${value}`;
+    box.append(line);
+  }
+  box.hidden = false;
+  notice(result.success ? 'Gatewayのvalidation_only確認が完了しました。YouTube投稿は行っていません。' : 'Gateway安全確認は成功しませんでした。追加リクエストは停止しています。');
+}));
 async function send(initialRegistration) {
   await locked(async () => {
     const ok = await sendMagicLink(supabase.auth, $('email').value, window.location.href, initialRegistration);

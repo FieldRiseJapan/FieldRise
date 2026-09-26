@@ -42,6 +42,15 @@
       <button id="verify" type="button" disabled>コードを検証</button>
       <p class="help">既に登録済みの場合も、コードを入力してAAL2へ進めます。</p>
     </section>
+    <section aria-labelledby="gatewayHeading" class="gateway-check">
+      <h2 id="gatewayHeading">4. Gateway安全確認（テスト専用）</h2>
+      <p>ログイン済みでAAL2のときだけ、選択したMP4をGatewayへ1回送信します。YouTubeへの投稿は行いません。</p>
+      <label for="gatewayVideo">検証用MP4（2 MiB以下）</label>
+      <input id="gatewayVideo" type="file" accept="video/mp4,.mp4" disabled>
+      <button id="gatewayCheck" type="button" disabled>Gateway安全確認</button>
+      <p class="help">動画はGatewayで形式と入力を確認するためだけに送ります。DBやYouTubeには保存・投稿されません。</p>
+      <div id="gatewayResult" role="status" aria-live="polite" hidden></div>
+    </section>
     <p id="notice" role="status" aria-live="polite"></p>
     <p class="foot"><a href="../index.html">投稿準備画面へ戻る</a> · 投稿ボタンは無効のままです。</p>
   </main>

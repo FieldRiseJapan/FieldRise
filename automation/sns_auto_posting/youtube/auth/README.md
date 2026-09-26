@@ -6,6 +6,8 @@ GitHub Pages の `/FieldRise/automation/sns_auto_posting/youtube/auth/` に置�
 - 既定の Magic Link テンプレートに合わせて implicit flow を使用します。callback は SDK がセッションを確立した後、URL の fragment/query を履歴から取り除きます。
 - TOTP の QR はブラウザ内に一時表示し、登録時の factor ID もページ内メモリのみで扱います。登録済み factor は Supabase Auth API から取得します。
 - AAL は Supabase Auth の `getAuthenticatorAssuranceLevel()` で確認します。AAL2 表示は投稿許可や投稿成功を意味しません。
+- 「Gateway安全確認」はログイン状態とAAL2をクリック直前に再確認し、選択した2 MiB以下のMP4をGatewayへ1回送って入力検証だけを行います。Supabase SDKから得たaccess tokenはAuthorization headerにだけ使い、表示・独自保存・ログ出力はしません。
+- テスト結果にはHTTP状態と許可された応答項目だけを表示します。Gatewayは`validation_only`で終了し、YouTube APIとは接続しません。通常の投稿ボタンとは独立しています。
 - `public-config.mjs` は Project URL と公開用 publishable key だけを含みます。値を Secret として扱うサーバー設定はここへ追加しません。
 
 Auth 設定変更は未実施です。配置後、Site URL を `https://fieldrisejapan.github.io/FieldRise/automation/sns_auto_posting/youtube/` に変更し、Redirect URL に `https://fieldrisejapan.github.io/FieldRise/automation/sns_auto_posting/youtube/auth/callback.html` を追加する計画です。変更前に別途承認を受けます。本人登録とメール送信も未実施です。
