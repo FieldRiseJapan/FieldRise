@@ -1,6 +1,6 @@
 # YouTube既存バックエンド読み取り専用監査
 
-監査日: 2026-09-25（JST）  
+監査日: 2026-09-25（JST）、2026-09-26（JST）再確認  
 対象: FieldRise YouTube Creator Studio / Supabase本番プロジェクト  
 監査方法: GitHubの[安全認証ゲートウェイ設計 v1](../designs/youtube_secure_upload_gateway_v1.md)を先に確認し、Supabaseのデプロイ済みEdge Function一覧・ソース・テーブルメタデータ・権限・RLSポリシーを読み取り専用で確認。関数の実行、DB行内容やSecret値の照会、ログ値の取得、実アップロードは行っていない。
 
@@ -11,9 +11,9 @@
 | `youtube-upload` | ACTIVE、version 6、`verify_jwt=false` | 共有Secretを照合し、保存済みrefresh tokenからGoogle access tokenを発行してYouTubeへresumable upload。 |
 | `youtube-oauth-callback` | ACTIVE、version 7、`verify_jwt=false` | Googleのauthorization codeを交換し、取得したrefresh tokenをDBへupsert。 |
 | YouTube token関連の追加Function | デプロイ済み一覧に該当なし | tokenの更新専用Functionは存在しない。upload自身が毎回access tokenを取得する。 |
-| `public.youtube_oauth_tokens` | RLS有効、1行（メタデータ上）、列は`id bigint`（PK）、`refresh_token text`、`updated_at timestamptz` | refresh tokenのサーバー側保管。access token列なし。値は一切閲覧していない。 |
+| `public.youtube_oauth_tokens` | RLS有効、行数は今回未照会、列は`id bigint`（PK）、`refresh_token text`、`updated_at timestamptz` | refresh tokenのサーバー側保管。access token列なし。値は一切閲覧していない。 |
 
-今回の列挙対象以外のSNS Functionは監査・変更していない。確認したデプロイ済みソースは各Functionの`index.ts` 1ファイル。リポジトリ内の推定実装ではなく、Supabaseから取得した稼働版に基づく。
+2026-09-26の再確認でも、2関数は同じversion、`verify_jwt`設定、ソースSHAであり、YouTube token関連の追加Functionは一覧にない。行データ・Secret値・実ログは確認していない。今回の列挙対象以外のSNS Functionは監査・変更していない。確認したデプロイ済みソースは各Functionの`index.ts` 1ファイル。リポジトリ内の推定実装ではなく、Supabaseから取得した稼働版に基づく。
 
 ## 2. 現行の認証境界・CORS・外部直接呼出し
 
