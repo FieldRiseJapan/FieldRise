@@ -47,6 +47,22 @@ test('session verifier is an injected fail-closed boundary until staging validat
   assert.equal(await injected.verifySession(USER, SESSION, new Date().toISOString()), true);
 });
 
+test('session verification rejects a missing row or either binding mismatch without exposing metadata', async () => {
+  const db = fakeDb();
+  const verifierCalls = [];
+  const repo = createOAuthRepository(db, { sessionVerifier: async (user, session, expiry) => {
+    verifierCalls.push([user, session, expiry]);
+    return user === USER && session === SESSION;
+  } });
+  const expiry = new Date(Date.now() + 60_000).toISOString();
+  assert.equal(await repo.verifySession(USER, SESSION, expiry), true);
+  assert.equal(await repo.verifySession('22222222-2222-4222-8222-222222222222', SESSION, expiry), false);
+  assert.equal(await repo.verifySession(USER, '55555555-5555-4555-8555-555555555555', expiry), false);
+  assert.equal(await repo.verifySession(USER, SESSION, expiry), true);
+  assert.equal(db.calls.length, 0);
+  assert.equal(verifierCalls.length, 4);
+});
+
 test('database errors become safe failure values and cutover/finish use explicit RPCs', async () => {
   const db = fakeDb({
     youtube_oauth_reserve: { data: null, error: { message: 'do not expose' } },
