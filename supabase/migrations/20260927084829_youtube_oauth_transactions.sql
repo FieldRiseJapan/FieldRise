@@ -75,10 +75,9 @@ exception
 end;
 $$;
 
--- The helper runs with the auth.sessions table owner's narrowly-scoped SELECT
--- visibility so service_role does not receive direct auth schema/table access.
--- Owner role availability and the privilege boundary must be verified in staging.
-grant usage, create on schema youtube_oauth_private to supabase_auth_admin;
+-- Keep this capability helper owned by the role that runs the migration.
+-- Supabase Staging's observed migration executor is postgres; do not transfer
+-- ownership to the managed Auth role or grant it access to this private schema.
 
 create function youtube_oauth_private.youtube_oauth_lock_bound_session(
   p_user_id uuid,
@@ -108,10 +107,6 @@ begin
   return found;
 end;
 $$;
-
-alter function youtube_oauth_private.youtube_oauth_lock_bound_session(uuid, uuid)
-  owner to supabase_auth_admin;
-revoke create on schema youtube_oauth_private from supabase_auth_admin;
 
 revoke all on function youtube_oauth_private.youtube_oauth_lock_bound_session(uuid, uuid)
   from public, anon, authenticated;

@@ -51,7 +51,7 @@ test('hash and TTL constraints enforce fixed state digest and short transaction 
   assert.match(compact, /p_ttl_seconds < 60 or p_ttl_seconds > 600/);
 });
 
-test('server RPCs keep restricted execute grants; callback session helper is a private SECURITY DEFINER', () => {
+test('server RPCs keep restricted execute grants; private session helper needs no managed Auth role transfer', () => {
   const names = [
     'youtube_oauth_reserve', 'youtube_oauth_consume_state',
     'youtube_oauth_finish', 'youtube_oauth_cutover_token',
@@ -70,8 +70,11 @@ test('server RPCs keep restricted execute grants; callback session helper is a p
   assert.match(helper, /from auth\.sessions as s/);
   assert.match(helper, /s\.id = p_session_id/);
   assert.match(helper, /s\.user_id = p_user_id/);
+  assert.match(helper, /returns boolean/);
   assert.match(helper, /for share/);
-  assert.match(compact, /alter function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) owner to supabase_auth_admin/);
+  assert.doesNotMatch(compact, /alter function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) owner to supabase_auth_admin/);
+  assert.doesNotMatch(compact, /grant usage, create on schema youtube_oauth_private to supabase_auth_admin/);
+  assert.doesNotMatch(compact, /grant\s+(?:all|select(?:\s*\([^)]*\))?)\s+on\s+(?:table\s+)?auth\.sessions\s+to\s+/);
   assert.match(compact, /revoke all on function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) from public, anon, authenticated/);
   assert.match(compact, /grant execute on function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) to service_role/);
 });
