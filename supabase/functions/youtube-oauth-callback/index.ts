@@ -1,135 +1,51 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient } from 'npm:@supabase/supabase-js@2.95.0';
+import {
+  createCallbackHandler,
+  createGoogleProvider,
+  createOAuthRepository,
+} from '../_shared/youtube-oauth.mjs';
 
-Deno.serve(async (req: Request) => {
-  try {
-    const url = new URL(req.url);
+const supabaseUrl = Deno.env.get('SUPABASE_URL') || '';
+const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '';
+const clientId = Deno.env.get('YOUTUBE_CLIENT_ID') || '';
+const clientSecret = Deno.env.get('YOUTUBE_CLIENT_SECRET') || '';
+const allowedChannelId = Deno.env.get('YOUTUBE_ALLOWED_CHANNEL_ID') || '';
 
-    const error = url.searchParams.get("error");
-    if (error) {
-      return new Response("YouTube authorization failed.", {
-        status: 400,
-      });
-    }
+const serviceClient = supabaseUrl && serviceRoleKey
+  ? createClient(supabaseUrl, serviceRoleKey, { auth: { persistSession: false, autoRefreshToken: false } })
+  : null;
+const google = createGoogleProvider({ clientId, clientSecret });
 
-    const code = url.searchParams.get("code");
+// This RPC is a fail-closed boundary contract only. Its auth.sessions access model
+// remains pending staging verification and is intentionally not implemented here.
+const verifySession = async (userId: string, sessionId: string, transactionExpiresAt: string) => {
+  if (!serviceClient) return false;
+  const { data, error } = await serviceClient.rpc('youtube_oauth_verify_session', {
+    p_user_id: userId,
+    p_session_id: sessionId,
+    p_transaction_expires_at: transactionExpiresAt,
+  });
+  return !error && data === true;
+};
+const repository = serviceClient
+  ? createOAuthRepository(serviceClient, { sessionVerifier: verifySession })
+  : null;
 
-    if (!code) {
-      return new Response("Authorization code was not received.", {
-        status: 400,
-      });
-    }
-
-    const clientId = Deno.env.get("YOUTUBE_CLIENT_ID");
-    const clientSecret = Deno.env.get("YOUTUBE_CLIENT_SECRET");
-
-    const supabaseUrl = Deno.env.get("SUPABASE_URL");
-    const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-
-    if (
-      !clientId ||
-      !clientSecret ||
-      !supabaseUrl ||
-      !serviceRoleKey
-    ) {
-      return new Response("Required server configuration is missing.", {
-        status: 500,
-      });
-    }
-
-    const redirectUri =
-      "https://nmkcjtrllzkwjxmjromw.supabase.co/functions/v1/youtube-oauth-callback";
-
-    const tokenResponse = await fetch(
-      "https://oauth2.googleapis.com/token",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          code,
-          client_id: clientId,
-          client_secret: clientSecret,
-          redirect_uri: redirectUri,
-          grant_type: "authorization_code",
-        }),
-      }
-    );
-
-    if (!tokenResponse.ok) {
-      console.error(
-        "Google OAuth token exchange failed:",
-        tokenResponse.status
-      );
-
-      return new Response(
-        "YouTube authorization failed during token exchange.",
-        { status: 500 }
-      );
-    }
-
-    const tokens = await tokenResponse.json();
-
-    if (!tokens.refresh_token) {
-      return new Response(
-        "Authorization succeeded, but no refresh token was returned.",
-        { status: 400 }
-      );
-    }
-
-    const supabase = createClient(
-      supabaseUrl,
-      serviceRoleKey,
-      {
-        auth: {
-          persistSession: false,
-          autoRefreshToken: false,
-        },
-      }
-    );
-
-    const { error: dbError } = await supabase
-      .from("youtube_oauth_tokens")
-      .upsert(
-        {
-          id: 1,
-          refresh_token: tokens.refresh_token,
-          updated_at: new Date().toISOString(),
-        },
-        {
-          onConflict: "id",
-        }
-      );
-
-    if (dbError) {
-      console.error("Failed to store YouTube OAuth token.");
-
-      return new Response(
-        "YouTube authorization succeeded, but secure token storage failed.",
-        { status: 500 }
-      );
-    }
-
-    console.log("YouTube OAuth completed and token stored.");
-
-    return new Response(
-      "FieldRise YouTube authorization succeeded. Token stored securely.",
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "text/plain; charset=utf-8",
-        },
-      }
-    );
-  } catch (err) {
-    console.error(
-      "YouTube OAuth callback error:",
-      err instanceof Error ? err.message : "unknown error"
-    );
-
-    return new Response(
-      "FieldRise YouTube authorization failed.",
-      { status: 500 }
-    );
-  }
+const handler = createCallbackHandler({
+  allowedChannelId,
+  lookupState: async (hash) => repository ? repository.lookupState(hash) : null,
+  verifySession: (userId, sessionId, expiresAt) => repository
+    ? repository.verifySession(userId, sessionId, expiresAt)
+    : false,
+  consumeState: async (hash) => repository ? repository.consumeState(hash) : null,
+  exchangeAuthorizationCode: (code) => google.exchangeAuthorizationCode(code),
+  getOwnedChannels: (accessToken) => google.getOwnedChannels(accessToken),
+  cutoverToken: async (transactionId, refreshToken) => repository
+    ? repository.cutoverToken(transactionId, refreshToken)
+    : false,
+  finish: async (transactionId, resultCode) => repository
+    ? repository.finish(transactionId, resultCode)
+    : false,
 });
+
+Deno.serve(handler);
