@@ -51,12 +51,11 @@ test('hash and TTL constraints enforce fixed state digest and short transaction 
   assert.match(compact, /p_ttl_seconds < 60 or p_ttl_seconds > 600/);
 });
 
-test('all current OAuth RPCs are invoker functions with fixed empty search_path and server-only execute', () => {
+test('server RPCs keep restricted execute grants; callback session helper is a private SECURITY DEFINER', () => {
   const names = [
-    'youtube_oauth_reserve', 'youtube_oauth_get_pending_state', 'youtube_oauth_consume_state',
+    'youtube_oauth_reserve', 'youtube_oauth_consume_state',
     'youtube_oauth_finish', 'youtube_oauth_cutover_token',
   ];
-  assert.doesNotMatch(compact, /security definer/);
   for (const name of names) {
     const definition = definitionOf(name);
     assert.match(definition, /security invoker/);
@@ -64,18 +63,42 @@ test('all current OAuth RPCs are invoker functions with fixed empty search_path 
     assert.match(compact, new RegExp(`revoke all on function public\\.${name}\\([\\s\\S]*?from public, anon, authenticated`));
     assert.match(compact, new RegExp(`grant execute on function public\\.${name}\\([\\s\\S]*?to service_role`));
   }
+
+  const helper = compact.match(/create function youtube_oauth_private\.youtube_oauth_lock_bound_session\([\s\S]*?\$\$;/)?.[0] ?? '';
+  assert.match(helper, /security definer/);
+  assert.match(helper, /set search_path = ''/);
+  assert.match(helper, /from auth\.sessions as s/);
+  assert.match(helper, /s\.id = p_session_id/);
+  assert.match(helper, /s\.user_id = p_user_id/);
+  assert.match(helper, /for share/);
+  assert.match(compact, /alter function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) owner to supabase_auth_admin/);
+  assert.match(compact, /revoke all on function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) from public, anon, authenticated/);
+  assert.match(compact, /grant execute on function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) to service_role/);
 });
 
-test('state consume is one conditional UPDATE with expiry and one-time predicates', () => {
+test('atomic state consume locks transaction and Auth session before conditional consume in one RPC transaction', () => {
   const body = bodyOf('youtube_oauth_consume_state');
-  assert.doesNotMatch(body, /\bselect\b/);
-  assert.equal((body.match(/\bupdate\b/g) ?? []).length, 1);
-  assert.match(body, /where t\.state_hash = p_state_hash/);
-  assert.match(body, /t\.expires_at > pg_catalog\.clock_timestamp\(\)/);
+  assert.match(body, /select t\.transaction_id, t\.user_id, t\.session_id/);
+  assert.match(body, /t\.state_hash = p_state_hash/);
+  assert.match(body, /t\.expires_at > v_now/);
   assert.match(body, /t\.consumed_at is null/);
   assert.match(body, /t\.finished_at is null/);
-  assert.match(body, /returning t\.transaction_id, t\.user_id, t\.session_id, t\.expires_at/);
+  assert.match(body, /for update/);
+  assert.match(body, /youtube_oauth_private\.youtube_oauth_lock_bound_session\(v_user_id, v_session_id\)/);
+  assert.match(body, /update youtube_oauth_private\.transactions as t/);
+  assert.match(body, /t\.expires_at > pg_catalog\.clock_timestamp\(\)/);
+  assert.match(body, /returning t\.transaction_id into v_transaction_id/);
+  assert.match(body, /return query select v_transaction_id/);
+  assert.doesNotMatch(body, /returning[^;]*(?:user_id|session_id|expires_at)/);
   assert.doesNotMatch(body, /raw.?state/);
+});
+
+test('auth schema receives no custom objects and no separate pending/session RPC remains', () => {
+  assert.doesNotMatch(compact, /create\s+(?:or replace\s+)?(?:function|table|schema|view|trigger)\s+auth\./);
+  assert.doesNotMatch(compact, /youtube_oauth_get_pending_state|youtube_oauth_verify_session/);
+  const callback = readFileSync(new URL('../../supabase/functions/youtube-oauth-callback/index.ts', import.meta.url), 'utf8');
+  assert.doesNotMatch(callback, /lookupState|verifySession|youtube_oauth_verify_session/);
+  assert.match(callback, /repository\.consumeState\(hash\)/);
 });
 
 test('token cutover validates nonempty input and atomically finishes then upserts without clearing old token', () => {
@@ -93,10 +116,15 @@ test('token cutover validates nonempty input and atomically finishes then upsert
   assert.doesNotMatch(body, /exception\s+when/);
 });
 
-test('callback session verifier remains absent from the B4 migration and must fail closed until separately validated', () => {
-  assert.doesNotMatch(compact, /create function public\.youtube_oauth_verify_session/);
+test('callback uses one consume operation and never claims callback-time AAL2 verification', () => {
   const callback = readFileSync(new URL('../../supabase/functions/youtube-oauth-callback/index.ts', import.meta.url), 'utf8');
-  assert.match(callback, /youtube_oauth_verify_session/);
-  assert.match(callback, /return !error && data === true/);
-  assert.match(callback, /intentionally not implemented/i);
+  const shared = readFileSync(new URL('../../supabase/functions/_shared/youtube-oauth.mjs', import.meta.url), 'utf8');
+  assert.doesNotMatch(callback, /getClaims|aal2|aal\b|verifyJwt/);
+  assert.match(shared, /transactionTtlBoundedByJwtExpiry\(ttlSeconds, claims\.exp\)/);
+  assert.match(shared, /const consumeResult = await consumeState\(stateHash\)/);
+  assert.match(shared, /const tokenResponse = await exchangeAuthorizationCode\(code\)/);
+  assert.ok(shared.indexOf('const consumeResult = await consumeState(stateHash)') <
+    shared.indexOf('const tokenResponse = await exchangeAuthorizationCode(code)'));
+  assert.match(shared, /consumeResult\?\.status === 'unavailable'/);
+  assert.match(shared, /must start a fresh OAuth flow/);
 });

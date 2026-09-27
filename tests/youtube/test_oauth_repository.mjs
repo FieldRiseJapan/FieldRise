@@ -25,42 +25,34 @@ test('reserve stores state hash as bytea and only server-derived transaction bin
   assert.equal(JSON.stringify(db.calls).includes('raw-state'), false);
 });
 
-test('lookup and consume normalize one RPC row and never retry implicitly', async () => {
-  const pending = { transaction_id: TX, user_id: USER, session_id: SESSION, expires_at: new Date(Date.now() + 60_000).toISOString() };
+test('atomic consume calls one RPC and exposes only the transaction id', async () => {
   const db = fakeDb({
-    youtube_oauth_get_pending_state: { data: [pending], error: null },
-    youtube_oauth_consume_state: { data: [pending], error: null },
+    youtube_oauth_consume_state: { data: [{ transaction_id: TX }], error: null },
   });
   const repo = createOAuthRepository(db);
-  assert.deepEqual(await repo.lookupState(HASH), pending);
-  assert.deepEqual(await repo.consumeState(HASH), pending);
-  assert.deepEqual(db.calls.map(([name]) => name), ['youtube_oauth_get_pending_state', 'youtube_oauth_consume_state']);
+  const result = await repo.consumeState(HASH);
+  assert.deepEqual(result, { status: 'consumed', transactionId: TX });
+  assert.equal(JSON.stringify(result).includes(USER), false);
+  assert.equal(JSON.stringify(result).includes(SESSION), false);
+  assert.deepEqual(db.calls, [['youtube_oauth_consume_state', { p_state_hash: `\\x${HASH}` }]]);
 });
 
-test('session verifier is an injected fail-closed boundary until staging validates its implementation', async () => {
-  const db = fakeDb();
-  const absent = createOAuthRepository(db);
-  assert.equal(await absent.verifySession(USER, SESSION, new Date().toISOString()), false);
-  assert.equal(db.calls.length, 0);
-  const injected = createOAuthRepository(db, { sessionVerifier: async (user, session, expiry) =>
-    user === USER && session === SESSION && typeof expiry === 'string' });
-  assert.equal(await injected.verifySession(USER, SESSION, new Date().toISOString()), true);
+test('missing or already consumed state returns rejected without additional RPCs', async () => {
+  const db = fakeDb({ youtube_oauth_consume_state: { data: [], error: null } });
+  const repo = createOAuthRepository(db);
+  assert.deepEqual(await repo.consumeState(HASH), { status: 'rejected' });
+  assert.equal(db.calls.length, 1);
 });
 
-test('session verification rejects a missing row or either binding mismatch without exposing metadata', async () => {
-  const db = fakeDb();
-  const verifierCalls = [];
-  const repo = createOAuthRepository(db, { sessionVerifier: async (user, session, expiry) => {
-    verifierCalls.push([user, session, expiry]);
-    return user === USER && session === SESSION;
-  } });
-  const expiry = new Date(Date.now() + 60_000).toISOString();
-  assert.equal(await repo.verifySession(USER, SESSION, expiry), true);
-  assert.equal(await repo.verifySession('22222222-2222-4222-8222-222222222222', SESSION, expiry), false);
-  assert.equal(await repo.verifySession(USER, '55555555-5555-4555-8555-555555555555', expiry), false);
-  assert.equal(await repo.verifySession(USER, SESSION, expiry), true);
-  assert.equal(db.calls.length, 0);
-  assert.equal(verifierCalls.length, 4);
+test('RPC error and ambiguous timeout are returned as unavailable with no automatic retry', async () => {
+  for (const client of [
+    { calls: [], rpc: async function(...args) { this.calls.push(args); return { data: null, error: { message: 'synthetic error' } }; } },
+    { calls: [], rpc: async function(...args) { this.calls.push(args); throw new Error('synthetic timeout'); } },
+  ]) {
+    const repo = createOAuthRepository(client);
+    assert.deepEqual(await repo.consumeState(HASH), { status: 'unavailable' });
+    assert.equal(client.calls.length, 1);
+  }
 });
 
 test('database errors become safe failure values and cutover/finish use explicit RPCs', async () => {

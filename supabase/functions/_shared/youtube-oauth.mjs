@@ -41,12 +41,26 @@ export function transactionTtlSeconds(value) {
   return seconds;
 }
 
+export function transactionTtlBoundedByJwtExpiry(configuredValue, jwtExpiresAt, nowMs = Date.now(), skewSeconds = 30) {
+  const configured = transactionTtlSeconds(configuredValue);
+  if (!Number.isSafeInteger(jwtExpiresAt) || !Number.isFinite(nowMs) ||
+      !Number.isSafeInteger(skewSeconds) || skewSeconds < 0) {
+    throw new OAuthFlowError('invalid_session_expiry', 401, 'authorize');
+  }
+  const remaining = Math.floor((jwtExpiresAt * 1000 - nowMs) / 1000) - skewSeconds;
+  const bounded = Math.min(configured, remaining);
+  if (!Number.isSafeInteger(bounded) || bounded < MIN_TRANSACTION_TTL_SECONDS) {
+    throw new OAuthFlowError('session_expiring', 401, 'authorize');
+  }
+  return bounded;
+}
+
 function firstRpcRow(data) {
   if (Array.isArray(data)) return data[0] ?? null;
   return data && typeof data === 'object' ? data : null;
 }
 
-export function createOAuthRepository(client, { sessionVerifier } = {}) {
+export function createOAuthRepository(client) {
   async function call(name, args) {
     try {
       const result = await client.rpc(name, args);
@@ -68,19 +82,20 @@ export function createOAuthRepository(client, { sessionVerifier } = {}) {
       });
       return data === true;
     },
-    async lookupState(stateHash) {
-      return firstRpcRow(await call('youtube_oauth_get_pending_state', {
-        p_state_hash: toPostgresBytea(stateHash),
-      }));
-    },
-    async verifySession(userId, sessionId, expiresAt) {
-      if (typeof sessionVerifier !== 'function') return false;
-      try { return await sessionVerifier(userId, sessionId, expiresAt) === true; } catch { return false; }
-    },
     async consumeState(stateHash) {
-      return firstRpcRow(await call('youtube_oauth_consume_state', {
-        p_state_hash: toPostgresBytea(stateHash),
-      }));
+      try {
+        const { data, error } = await client.rpc('youtube_oauth_consume_state', {
+          p_state_hash: toPostgresBytea(stateHash),
+        });
+        if (error) return { status: 'unavailable' };
+        const row = firstRpcRow(data);
+        if (!row) return { status: 'rejected' };
+        if (!isUuid(row.transaction_id)) return { status: 'unavailable' };
+        return { status: 'consumed', transactionId: row.transaction_id };
+      } catch {
+        // A timeout may follow a committed consume. Never retry this call.
+        return { status: 'unavailable' };
+      }
     },
     async finish(transactionId, resultCode) {
       if (!SAFE_RESULT_CODES.has(resultCode) || resultCode === 'token_stored') return false;
@@ -216,7 +231,8 @@ export function createStartHandler({
       if (!clientId || !redirectUri || typeof reserve !== 'function') {
         throw new OAuthFlowError('server_configuration_unavailable', 503, 'configuration');
       }
-      const ttl = transactionTtlSeconds(ttlSeconds);
+      // Keep stored transaction expiry within the verified JWT validity window.
+      const ttl = transactionTtlBoundedByJwtExpiry(ttlSeconds, claims.exp);
       const state = generateState();
       const stateHash = await hashState(state);
       const transactionId = crypto.randomUUID();
@@ -258,21 +274,12 @@ function oneQueryValue(url, key, { required = false, maxLength = 4096 } = {}) {
   return value;
 }
 
-function transactionIsUsable(transaction) {
-  if (!transaction || !isUuid(transaction.transaction_id) || !isUuid(transaction.user_id) ||
-      !isUuid(transaction.session_id) || transaction.consumed_at || transaction.finished_at) return false;
-  const expires = Date.parse(transaction.expires_at);
-  return Number.isFinite(expires) && expires > Date.now();
-}
-
 async function finalizeFailure(finish, transactionId, resultCode) {
   if (!SAFE_RESULT_CODES.has(resultCode) || typeof finish !== 'function') return;
   try { await finish(transactionId, resultCode); } catch { /* Do not expose or log database errors. */ }
 }
 
 export function createCallbackHandler({
-  lookupState,
-  verifySession,
   consumeState,
   exchangeAuthorizationCode,
   getOwnedChannels,
@@ -294,26 +301,19 @@ export function createCallbackHandler({
       const code = oneQueryValue(url, 'code', { maxLength: 4096 });
       if (!providerError && !code) throw new OAuthFlowError('invalid_callback', 400, 'query');
       const stateHash = await hashState(state);
-      if (typeof lookupState !== 'function' || typeof consumeState !== 'function' ||
-          typeof verifySession !== 'function') throw new OAuthFlowError('callback_unavailable', 503, 'configuration');
-
-      stage = 'transaction';
-      const pending = await lookupState(stateHash);
-      if (!transactionIsUsable(pending)) throw new OAuthFlowError('invalid_transaction', 400, stage);
-
-      stage = 'session';
-      const sessionActive = await verifySession(pending.user_id, pending.session_id, pending.expires_at);
-      if (sessionActive !== true) throw new OAuthFlowError('invalid_transaction', 403, stage);
+      if (typeof consumeState !== 'function') throw new OAuthFlowError('callback_unavailable', 503, 'configuration');
 
       stage = 'consume';
-      const consumed = await consumeState(stateHash);
-      if (!consumed) throw new OAuthFlowError('invalid_transaction', 400, stage);
-      const transactionId = consumed.transaction_id ?? pending.transaction_id;
-      if (transactionId !== pending.transaction_id ||
-          (consumed.user_id && consumed.user_id !== pending.user_id) ||
-          (consumed.session_id && consumed.session_id !== pending.session_id)) {
+      const consumeResult = await consumeState(stateHash);
+      if (consumeResult?.status === 'unavailable') {
+        // A timeout may follow a committed consume. Do not exchange the code or
+        // retry; the caller must start a fresh OAuth flow.
+        throw new OAuthFlowError('callback_unavailable', 503, stage);
+      }
+      if (consumeResult?.status !== 'consumed' || !isUuid(consumeResult.transactionId)) {
         throw new OAuthFlowError('invalid_transaction', 400, stage);
       }
+      const transactionId = consumeResult.transactionId;
       consumedTransactionId = transactionId;
 
       if (providerError) {

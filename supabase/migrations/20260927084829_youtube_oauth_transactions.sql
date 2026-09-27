@@ -1,6 +1,6 @@
--- Forward-only Phase 3-B4 local migration candidate.
+-- Forward-only Phase 3-B4/B6 local migration candidate.
 -- Do not apply to any live database without separate authorization and staging verification.
--- auth.sessions verification is intentionally abstract and is not implemented here.
+-- B6 keeps callback session validation and state consumption in one DB transaction.
 
 begin;
 
@@ -75,44 +75,100 @@ exception
 end;
 $$;
 
-create function public.youtube_oauth_get_pending_state(p_state_hash bytea)
-returns table (
-  transaction_id uuid,
-  user_id uuid,
-  session_id uuid,
-  expires_at timestamptz
+-- The helper runs with the auth.sessions table owner's narrowly-scoped SELECT
+-- visibility so service_role does not receive direct auth schema/table access.
+-- Owner role availability and the privilege boundary must be verified in staging.
+grant usage, create on schema youtube_oauth_private to supabase_auth_admin;
+
+create function youtube_oauth_private.youtube_oauth_lock_bound_session(
+  p_user_id uuid,
+  p_session_id uuid
 )
-language sql
-security invoker
+returns boolean
+language plpgsql
+security definer
 set search_path = ''
 as $$
-  select t.transaction_id, t.user_id, t.session_id, t.expires_at
-  from youtube_oauth_private.transactions as t
-  where t.state_hash = p_state_hash
-    and t.expires_at > pg_catalog.clock_timestamp()
-    and t.consumed_at is null
-    and t.finished_at is null
-  limit 1
+declare
+  v_session_id uuid;
+begin
+  if p_user_id is null or p_session_id is null then
+    return false;
+  end if;
+
+  -- FOR SHARE holds the matching auth row lock until the caller's outer
+  -- transaction commits, serializing sign-out/revocation updates with consume.
+  select s.id
+    into v_session_id
+  from auth.sessions as s
+  where s.id = p_session_id
+    and s.user_id = p_user_id
+  for share;
+
+  return found;
+end;
 $$;
+
+alter function youtube_oauth_private.youtube_oauth_lock_bound_session(uuid, uuid)
+  owner to supabase_auth_admin;
+revoke create on schema youtube_oauth_private from supabase_auth_admin;
+
+revoke all on function youtube_oauth_private.youtube_oauth_lock_bound_session(uuid, uuid)
+  from public, anon, authenticated;
+grant execute on function youtube_oauth_private.youtube_oauth_lock_bound_session(uuid, uuid)
+  to service_role;
 
 create function public.youtube_oauth_consume_state(p_state_hash bytea)
 returns table (
-  transaction_id uuid,
-  user_id uuid,
-  session_id uuid,
-  expires_at timestamptz
+  transaction_id uuid
 )
-language sql
+language plpgsql
 security invoker
 set search_path = ''
 as $$
+declare
+  v_transaction_id uuid;
+  v_user_id uuid;
+  v_session_id uuid;
+  v_now timestamptz := pg_catalog.clock_timestamp();
+begin
+  if p_state_hash is null or pg_catalog.octet_length(p_state_hash) <> 32 then
+    return;
+  end if;
+
+  select t.transaction_id, t.user_id, t.session_id
+    into v_transaction_id, v_user_id, v_session_id
+  from youtube_oauth_private.transactions as t
+  where t.state_hash = p_state_hash
+    and t.expires_at > v_now
+    and t.consumed_at is null
+    and t.finished_at is null
+  for update;
+
+  if not found then
+    return;
+  end if;
+
+  -- This helper locks the exact Auth session row within this transaction.
+  -- Start also caps the transaction TTL at the verified JWT exp; a missing or
+  -- mismatched row (for example after sign-out) leaves state unconsumed.
+  if not youtube_oauth_private.youtube_oauth_lock_bound_session(v_user_id, v_session_id) then
+    return;
+  end if;
+
   update youtube_oauth_private.transactions as t
   set consumed_at = pg_catalog.clock_timestamp()
-  where t.state_hash = p_state_hash
+  where t.transaction_id = v_transaction_id
+    and t.state_hash = p_state_hash
     and t.expires_at > pg_catalog.clock_timestamp()
     and t.consumed_at is null
     and t.finished_at is null
-  returning t.transaction_id, t.user_id, t.session_id, t.expires_at
+  returning t.transaction_id into v_transaction_id;
+
+  if found then
+    return query select v_transaction_id;
+  end if;
+end;
 $$;
 
 create function public.youtube_oauth_finish(
@@ -179,8 +235,6 @@ $$;
 
 revoke all on function public.youtube_oauth_reserve(uuid, bytea, uuid, uuid, integer)
   from public, anon, authenticated;
-revoke all on function public.youtube_oauth_get_pending_state(bytea)
-  from public, anon, authenticated;
 revoke all on function public.youtube_oauth_consume_state(bytea)
   from public, anon, authenticated;
 revoke all on function public.youtube_oauth_finish(uuid, text)
@@ -189,7 +243,6 @@ revoke all on function public.youtube_oauth_cutover_token(uuid, text)
   from public, anon, authenticated;
 
 grant execute on function public.youtube_oauth_reserve(uuid, bytea, uuid, uuid, integer) to service_role;
-grant execute on function public.youtube_oauth_get_pending_state(bytea) to service_role;
 grant execute on function public.youtube_oauth_consume_state(bytea) to service_role;
 grant execute on function public.youtube_oauth_finish(uuid, text) to service_role;
 grant execute on function public.youtube_oauth_cutover_token(uuid, text) to service_role;

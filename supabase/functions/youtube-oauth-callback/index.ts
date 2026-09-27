@@ -16,28 +16,13 @@ const serviceClient = supabaseUrl && serviceRoleKey
   : null;
 const google = createGoogleProvider({ clientId, clientSecret });
 
-// This RPC is a fail-closed boundary contract only. Its auth.sessions access model
-// remains pending staging verification and is intentionally not implemented here.
-const verifySession = async (userId: string, sessionId: string, transactionExpiresAt: string) => {
-  if (!serviceClient) return false;
-  const { data, error } = await serviceClient.rpc('youtube_oauth_verify_session', {
-    p_user_id: userId,
-    p_session_id: sessionId,
-    p_transaction_expires_at: transactionExpiresAt,
-  });
-  return !error && data === true;
-};
-const repository = serviceClient
-  ? createOAuthRepository(serviceClient, { sessionVerifier: verifySession })
-  : null;
+const repository = serviceClient ? createOAuthRepository(serviceClient) : null;
 
 const handler = createCallbackHandler({
   allowedChannelId,
-  lookupState: async (hash) => repository ? repository.lookupState(hash) : null,
-  verifySession: (userId, sessionId, expiresAt) => repository
-    ? repository.verifySession(userId, sessionId, expiresAt)
-    : false,
-  consumeState: async (hash) => repository ? repository.consumeState(hash) : null,
+  consumeState: async (hash) => repository
+    ? repository.consumeState(hash)
+    : { status: 'unavailable' },
   exchangeAuthorizationCode: (code) => google.exchangeAuthorizationCode(code),
   getOwnedChannels: (accessToken) => google.getOwnedChannels(accessToken),
   cutoverToken: async (transactionId, refreshToken) => repository

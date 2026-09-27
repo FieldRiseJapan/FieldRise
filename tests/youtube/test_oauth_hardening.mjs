@@ -8,6 +8,7 @@ import {
   createGoogleProvider,
   createStartHandler,
   hashState,
+  transactionTtlBoundedByJwtExpiry,
   transactionTtlSeconds,
   validateGrantedScopes,
   validateOwnedChannels,
@@ -24,7 +25,8 @@ const JWT_CANARY = 'canary.jwt.must-never-log';
 const ACCESS_CANARY = 'canary-access-token-never-log';
 const REFRESH_CANARY = 'canary-refresh-token-never-log';
 const PROVIDER_BODY_CANARY = 'canary-provider-body-never-log';
-const claims = { role: 'authenticated', is_anonymous: false, aal: 'aal2', sub: OWNER, session_id: SESSION };
+const claims = { role: 'authenticated', is_anonymous: false, aal: 'aal2', sub: OWNER, session_id: SESSION,
+  exp: Math.floor(Date.now() / 1000) + 3600 };
 
 function request(url, { method = 'POST', headers = {}, body } = {}) {
   return new Request(url, { method, headers, ...(body === undefined ? {} : { body }) });
@@ -69,15 +71,11 @@ function makeCallback(overrides = {}) {
   const handler = createCallbackHandler({
     allowedChannelId: CHANNEL,
     requiredScopes: OAUTH_SCOPES,
-    lookupState: async (hash) => { calls.push(['lookup', hash]); return transaction; },
-    verifySession: async (userId, sessionId) => {
-      calls.push(['verifySession', userId, sessionId]); return true;
-    },
     consumeState: async (hash) => {
-      calls.push(['consume', hash]);
-      if (consumed) return null;
+      calls.push(['atomicConsume', hash]);
+      if (consumed) return { status: 'rejected' };
       consumed = true;
-      return transaction;
+      return { status: 'consumed', transactionId: transaction.transaction_id };
     },
     exchangeAuthorizationCode: async (code) => {
       calls.push(['exchange', code]);
@@ -124,6 +122,18 @@ test('OAuth Start rejects role, anonymous, AAL1, allowlist mismatch, and missing
     const { handler, calls } = makeStart({ verifyJwt: async () => invalidClaims });
     const response = await handler(startRequest());
     assert.equal(response.status, 403);
+    assert.equal(calls.some(([name]) => name === 'reserve'), false);
+  }
+});
+
+test('OAuth Start rejects missing or already expiring verified JWT claims before reservation', async () => {
+  for (const invalidClaims of [
+    { ...claims, exp: undefined },
+    { ...claims, exp: Math.floor(Date.now() / 1000) + 20 },
+  ]) {
+    const { handler, calls } = makeStart({ verifyJwt: async () => invalidClaims });
+    const response = await handler(startRequest());
+    assert.equal(response.status, 401);
     assert.equal(calls.some(([name]) => name === 'reserve'), false);
   }
 });
@@ -177,6 +187,14 @@ test('transaction TTL uses a configurable server-side value capped at ten minute
   for (const invalid of ['0', '601', 'not-a-number']) assert.throws(() => transactionTtlSeconds(invalid));
 });
 
+test('OAuth transaction TTL never extends beyond the verified JWT expiry and clock skew margin', () => {
+  const nowMs = 1_800_000_000_000;
+  assert.equal(transactionTtlBoundedByJwtExpiry(600, nowMs / 1000 + 600, nowMs), 570);
+  assert.equal(transactionTtlBoundedByJwtExpiry(600, nowMs / 1000 + 100, nowMs), 70);
+  assert.throws(() => transactionTtlBoundedByJwtExpiry(600, nowMs / 1000 + 50, nowMs));
+  assert.throws(() => transactionTtlBoundedByJwtExpiry(600, undefined, nowMs));
+});
+
 test('callback rejects missing state, code, or malformed duplicate query before lookup', async () => {
   for (const query of ['', `state=${STATE}`, `state=${STATE}&state=${STATE}&code=x`, `state=${STATE}&code=x&code=y`]) {
     const { handler, calls } = makeCallback();
@@ -186,26 +204,15 @@ test('callback rejects missing state, code, or malformed duplicate query before 
   }
 });
 
-test('callback rejects invalid, expired, consumed, or wrongly bound transactions before exchange', async () => {
-  const cases = [
-    { lookupState: async () => null },
-    { lookupState: async (_hash) => ({ ...makeCallback().transaction, expires_at: new Date(0).toISOString() }) },
-    { lookupState: async (_hash) => ({ ...makeCallback().transaction, consumed_at: new Date().toISOString() }) },
-    { lookupState: async (_hash) => ({ ...makeCallback().transaction, user_id: OTHER }) },
-  ];
-  for (const override of cases) {
-    const { handler, calls } = makeCallback(override);
-    const response = await handler(callbackRequest());
-    assert.notEqual(response.status, 200);
-    assert.equal(calls.some(([name]) => name === 'exchange'), false);
-  }
-});
-
-test('callback rejects revoked, missing, expired, or wrong-user sessions before atomic consume', async () => {
-  const { handler, calls } = makeCallback({ verifySession: async () => false });
-  assert.equal((await handler(callbackRequest())).status, 403);
-  assert.equal(calls.some(([name]) => name === 'consume'), false);
+test('callback rejects invalid, expired, consumed, finished, or wrongly bound state at the atomic boundary', async () => {
+  const { handler, calls } = makeCallback({ consumeState: async (hash) => {
+    calls.push(['atomicConsume', hash]);
+    return { status: 'rejected' };
+  } });
+  assert.equal((await handler(callbackRequest())).status, 400);
+  assert.equal(calls.filter(([name]) => name === 'atomicConsume').length, 1);
   assert.equal(calls.some(([name]) => name === 'exchange'), false);
+  assert.equal(calls.some(([name]) => name === 'lookup' || name === 'verifySession'), false);
 });
 
 test('concurrent callback replay can consume once and perform only one code exchange', async () => {
@@ -214,9 +221,9 @@ test('concurrent callback replay can consume once and perform only one code exch
       let consumed = false;
       return async () => {
         await Promise.resolve();
-        if (consumed) return null;
+        if (consumed) return { status: 'rejected' };
         consumed = true;
-        return { transaction_id: TX, user_id: OWNER, session_id: SESSION };
+        return { status: 'consumed', transactionId: TX };
       };
     })(),
   });
@@ -225,13 +232,32 @@ test('concurrent callback replay can consume once and perform only one code exch
   assert.equal(calls.filter(([name]) => name === 'exchange').length, 1);
 });
 
+test('atomic consume RPC failure or ambiguous timeout blocks code exchange and is never retried', async () => {
+  for (const status of ['unavailable', 'rejected']) {
+    let rpcCalls = 0;
+    const { handler, calls } = makeCallback({ consumeState: async () => {
+      rpcCalls += 1;
+      return { status };
+    } });
+    const response = await handler(callbackRequest());
+    assert.equal(response.status, status === 'unavailable' ? 503 : 400);
+    assert.equal(rpcCalls, 1);
+    assert.equal(calls.some(([name]) => name === 'exchange'), false);
+    assert.equal(calls.some(([name]) => name === 'finish'), false);
+  }
+});
+
 test('Google denial consumes a valid transaction and finishes without code exchange', async () => {
   const { handler, calls } = makeCallback();
   const response = await handler(callbackRequest(`state=${STATE}&error=access_denied`));
   assert.equal(response.status, 400);
-  assert.equal(calls.some(([name]) => name === 'consume'), true);
+  assert.equal(calls.some(([name]) => name === 'atomicConsume'), true);
   assert.equal(calls.some(([name]) => name === 'exchange'), false);
   assert.equal(calls.some(([name, _tx, code]) => name === 'finish' && code === 'provider_denied'), true);
+  const replay = await handler(callbackRequest(`state=${STATE}&error=access_denied`));
+  assert.equal(replay.status, 400);
+  assert.equal(calls.filter(([name]) => name === 'atomicConsume').length, 2);
+  assert.equal(calls.some(([name]) => name === 'exchange'), false);
 });
 
 test('scope validation fails closed for missing, malformed, or insufficient scope fields', () => {
@@ -286,8 +312,8 @@ test('successful callback validates then atomically cuts over token and emits no
   const { handler, calls } = makeCallback();
   const response = await handler(callbackRequest());
   assert.equal(response.status, 200);
-  assert.deepEqual(calls.filter(([name]) => ['lookup', 'verifySession', 'consume', 'exchange', 'channels', 'cutover'].includes(name))
-    .map(([name]) => name), ['lookup', 'verifySession', 'consume', 'exchange', 'channels', 'cutover']);
+  assert.deepEqual(calls.filter(([name]) => ['lookup', 'verifySession', 'consume', 'atomicConsume', 'exchange', 'channels', 'cutover'].includes(name))
+    .map(([name]) => name), ['atomicConsume', 'exchange', 'channels', 'cutover']);
   assert.equal(calls.some(([name, _id, token]) => name === 'cutover' && token === REFRESH_CANARY), true);
   const body = await response.text();
   assert.doesNotMatch(body, /token|UUID|videoId/i);
