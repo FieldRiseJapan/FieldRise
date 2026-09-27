@@ -1,7 +1,7 @@
 # YouTube OAuth Phase 3-B7C: Auth Session Security Review
 
-**Date:** 2026-09-27  
-**Decision:** REDESIGN READY WITH STAGING REQUIRED  
+**Date:** 2026-09-27
+**Decision:** REDESIGN READY WITH STAGING REQUIRED
 **Scope:** Local code, tests, documentation, and GitHub main registration only. No database was changed.
 
 ## 1. Requested outcome and boundaries
