@@ -1,6 +1,7 @@
 -- Forward-only Phase 3-B4/B6 local migration candidate.
 -- Do not apply to any live database without separate authorization and staging verification.
--- B6 keeps callback session validation and state consumption in one DB transaction.
+-- B8 authorizes OAuth Start with live Supabase Auth + AAL2, then treats
+-- high-entropy state as a short-lived, one-time callback capability.
 
 begin;
 
@@ -12,8 +13,6 @@ grant usage on schema youtube_oauth_private to service_role;
 create table youtube_oauth_private.transactions (
   transaction_id uuid primary key,
   state_hash bytea not null unique,
-  user_id uuid not null,
-  session_id uuid not null,
   created_at timestamptz not null,
   expires_at timestamptz not null,
   consumed_at timestamptz,
@@ -22,7 +21,7 @@ create table youtube_oauth_private.transactions (
   constraint youtube_oauth_transactions_state_hash_sha256
     check (pg_catalog.octet_length(state_hash) = 32),
   constraint youtube_oauth_transactions_ttl
-    check (expires_at > created_at and expires_at <= created_at + interval '10 minutes'),
+    check (expires_at > created_at and expires_at <= created_at + interval '5 minutes'),
   constraint youtube_oauth_transactions_consumed_order
     check (consumed_at is null or consumed_at >= created_at),
   constraint youtube_oauth_transactions_result_code
@@ -45,8 +44,6 @@ grant select, insert, update on table youtube_oauth_private.transactions to serv
 create function public.youtube_oauth_reserve(
   p_transaction_id uuid,
   p_state_hash bytea,
-  p_user_id uuid,
-  p_session_id uuid,
   p_ttl_seconds integer
 )
 returns boolean
@@ -57,16 +54,16 @@ as $$
 declare
   v_now timestamptz := pg_catalog.clock_timestamp();
 begin
-  if p_transaction_id is null or p_user_id is null or p_session_id is null
+  if p_transaction_id is null
     or p_state_hash is null or pg_catalog.octet_length(p_state_hash) <> 32
-    or p_ttl_seconds is null or p_ttl_seconds < 60 or p_ttl_seconds > 600 then
+    or p_ttl_seconds is null or p_ttl_seconds < 60 or p_ttl_seconds > 300 then
     return false;
   end if;
 
   insert into youtube_oauth_private.transactions (
-    transaction_id, state_hash, user_id, session_id, created_at, expires_at
+    transaction_id, state_hash, created_at, expires_at
   ) values (
-    p_transaction_id, p_state_hash, p_user_id, p_session_id, v_now,
+    p_transaction_id, p_state_hash, v_now,
     v_now + (p_ttl_seconds * interval '1 second')
   );
   return true;
@@ -74,44 +71,6 @@ exception
   when unique_violation then return false;
 end;
 $$;
-
--- Keep this capability helper owned by the role that runs the migration.
--- Supabase Staging's observed migration executor is postgres; do not transfer
--- ownership to the managed Auth role or grant it access to this private schema.
-
-create function youtube_oauth_private.youtube_oauth_lock_bound_session(
-  p_user_id uuid,
-  p_session_id uuid
-)
-returns boolean
-language plpgsql
-security definer
-set search_path = ''
-as $$
-declare
-  v_session_id uuid;
-begin
-  if p_user_id is null or p_session_id is null then
-    return false;
-  end if;
-
-  -- FOR SHARE holds the matching auth row lock until the caller's outer
-  -- transaction commits, serializing sign-out/revocation updates with consume.
-  select s.id
-    into v_session_id
-  from auth.sessions as s
-  where s.id = p_session_id
-    and s.user_id = p_user_id
-  for share;
-
-  return found;
-end;
-$$;
-
-revoke all on function youtube_oauth_private.youtube_oauth_lock_bound_session(uuid, uuid)
-  from public, anon, authenticated;
-grant execute on function youtube_oauth_private.youtube_oauth_lock_bound_session(uuid, uuid)
-  to service_role;
 
 create function public.youtube_oauth_consume_state(p_state_hash bytea)
 returns table (
@@ -121,48 +80,21 @@ language plpgsql
 security invoker
 set search_path = ''
 as $$
-declare
-  v_transaction_id uuid;
-  v_user_id uuid;
-  v_session_id uuid;
-  v_now timestamptz := pg_catalog.clock_timestamp();
 begin
   if p_state_hash is null or pg_catalog.octet_length(p_state_hash) <> 32 then
     return;
   end if;
 
-  select t.transaction_id, t.user_id, t.session_id
-    into v_transaction_id, v_user_id, v_session_id
-  from youtube_oauth_private.transactions as t
-  where t.state_hash = p_state_hash
-    and t.expires_at > v_now
-    and t.consumed_at is null
-    and t.finished_at is null
-  for update;
-
-  if not found then
-    return;
-  end if;
-
-  -- This helper locks the exact Auth session row within this transaction.
-  -- Start also caps the transaction TTL at the verified JWT exp; a missing or
-  -- mismatched row (for example after sign-out) leaves state unconsumed.
-  if not youtube_oauth_private.youtube_oauth_lock_bound_session(v_user_id, v_session_id) then
-    return;
-  end if;
-
+  -- One conditional write arbitrates all concurrent callbacks. Only one
+  -- request can transition an unexpired, unfinished hash to consumed.
+  return query
   update youtube_oauth_private.transactions as t
   set consumed_at = pg_catalog.clock_timestamp()
-  where t.transaction_id = v_transaction_id
-    and t.state_hash = p_state_hash
+  where t.state_hash = p_state_hash
     and t.expires_at > pg_catalog.clock_timestamp()
     and t.consumed_at is null
     and t.finished_at is null
-  returning t.transaction_id into v_transaction_id;
-
-  if found then
-    return query select v_transaction_id;
-  end if;
+  returning t.transaction_id;
 end;
 $$;
 
@@ -228,7 +160,7 @@ begin
 end;
 $$;
 
-revoke all on function public.youtube_oauth_reserve(uuid, bytea, uuid, uuid, integer)
+revoke all on function public.youtube_oauth_reserve(uuid, bytea, integer)
   from public, anon, authenticated;
 revoke all on function public.youtube_oauth_consume_state(bytea)
   from public, anon, authenticated;
@@ -237,7 +169,7 @@ revoke all on function public.youtube_oauth_finish(uuid, text)
 revoke all on function public.youtube_oauth_cutover_token(uuid, text)
   from public, anon, authenticated;
 
-grant execute on function public.youtube_oauth_reserve(uuid, bytea, uuid, uuid, integer) to service_role;
+grant execute on function public.youtube_oauth_reserve(uuid, bytea, integer) to service_role;
 grant execute on function public.youtube_oauth_consume_state(bytea) to service_role;
 grant execute on function public.youtube_oauth_finish(uuid, text) to service_role;
 grant execute on function public.youtube_oauth_cutover_token(uuid, text) to service_role;

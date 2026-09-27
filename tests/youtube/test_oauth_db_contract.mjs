@@ -31,27 +31,28 @@ test('migration is forward-only and does not modify or delete existing data at a
   ]);
 });
 
-test('transaction table stores only binding and lifecycle metadata with RLS enabled', () => {
+test('transaction table stores only capability hash and lifecycle metadata with RLS enabled', () => {
   assert.match(compact, /create schema youtube_oauth_private/);
   assert.match(compact, /create table youtube_oauth_private\.transactions/);
   const tableDefinition = compact.match(/create table youtube_oauth_private\.transactions\s*\(([\s\S]*?)\);/)?.[1] ?? '';
-  for (const column of ['transaction_id uuid', 'state_hash bytea', 'user_id uuid', 'session_id uuid',
+  for (const column of ['transaction_id uuid', 'state_hash bytea',
     'created_at timestamptz', 'expires_at timestamptz', 'consumed_at timestamptz', 'finished_at timestamptz', 'result_code text']) {
     assert.ok(tableDefinition.includes(column), `contains ${column}`);
   }
+  assert.doesNotMatch(tableDefinition, /\b(?:user_id|session_id)\b/);
   assert.doesNotMatch(tableDefinition, /\b(?:email|access_token|refresh_token|jwt|raw_state|authorization_code)\b/);
   assert.match(compact, /alter table youtube_oauth_private\.transactions enable row level security/);
   assert.match(compact, /revoke all on table youtube_oauth_private\.transactions from public, anon, authenticated, service_role/);
   assert.match(compact, /grant select, insert, update on table youtube_oauth_private\.transactions to service_role/);
 });
 
-test('hash and TTL constraints enforce fixed state digest and short transaction lifetime', () => {
+test('hash and TTL constraints enforce fixed state digest and a five-minute maximum', () => {
   assert.match(compact, /octet_length\(state_hash\) = 32/);
-  assert.match(compact, /expires_at > created_at and expires_at <= created_at \+ interval '10 minutes'/);
-  assert.match(compact, /p_ttl_seconds < 60 or p_ttl_seconds > 600/);
+  assert.match(compact, /expires_at > created_at and expires_at <= created_at \+ interval '5 minutes'/);
+  assert.match(compact, /p_ttl_seconds < 60 or p_ttl_seconds > 300/);
 });
 
-test('server RPCs keep restricted execute grants; private session helper needs no managed Auth role transfer', () => {
+test('server RPCs keep restricted execute grants and have no Auth security definer helper', () => {
   const names = [
     'youtube_oauth_reserve', 'youtube_oauth_consume_state',
     'youtube_oauth_finish', 'youtube_oauth_cutover_token',
@@ -64,44 +65,32 @@ test('server RPCs keep restricted execute grants; private session helper needs n
     assert.match(compact, new RegExp(`grant execute on function public\\.${name}\\([\\s\\S]*?to service_role`));
   }
 
-  const helper = compact.match(/create function youtube_oauth_private\.youtube_oauth_lock_bound_session\([\s\S]*?\$\$;/)?.[0] ?? '';
-  assert.match(helper, /security definer/);
-  assert.match(helper, /set search_path = ''/);
-  assert.match(helper, /from auth\.sessions as s/);
-  assert.match(helper, /s\.id = p_session_id/);
-  assert.match(helper, /s\.user_id = p_user_id/);
-  assert.match(helper, /returns boolean/);
-  assert.match(helper, /for share/);
-  assert.doesNotMatch(compact, /alter function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) owner to supabase_auth_admin/);
-  assert.doesNotMatch(compact, /grant usage, create on schema youtube_oauth_private to supabase_auth_admin/);
-  assert.doesNotMatch(compact, /grant\s+(?:all|select(?:\s*\([^)]*\))?)\s+on\s+(?:table\s+)?auth\.sessions\s+to\s+/);
-  assert.match(compact, /revoke all on function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) from public, anon, authenticated/);
-  assert.match(compact, /grant execute on function youtube_oauth_private\.youtube_oauth_lock_bound_session\(uuid, uuid\) to service_role/);
+  assert.doesNotMatch(compact, /\bauth\.sessions\b|\bsupabase_auth_admin\b|security definer/);
 });
 
-test('atomic state consume locks transaction and Auth session before conditional consume in one RPC transaction', () => {
+test('atomic state consume is a single conditional update without an Auth session lookup', () => {
   const body = bodyOf('youtube_oauth_consume_state');
-  assert.match(body, /select t\.transaction_id, t\.user_id, t\.session_id/);
+  assert.match(body, /update youtube_oauth_private\.transactions as t/);
   assert.match(body, /t\.state_hash = p_state_hash/);
-  assert.match(body, /t\.expires_at > v_now/);
+  assert.match(body, /t\.expires_at > pg_catalog\.clock_timestamp\(\)/);
   assert.match(body, /t\.consumed_at is null/);
   assert.match(body, /t\.finished_at is null/);
-  assert.match(body, /for update/);
-  assert.match(body, /youtube_oauth_private\.youtube_oauth_lock_bound_session\(v_user_id, v_session_id\)/);
-  assert.match(body, /update youtube_oauth_private\.transactions as t/);
-  assert.match(body, /t\.expires_at > pg_catalog\.clock_timestamp\(\)/);
-  assert.match(body, /returning t\.transaction_id into v_transaction_id/);
-  assert.match(body, /return query select v_transaction_id/);
-  assert.doesNotMatch(body, /returning[^;]*(?:user_id|session_id|expires_at)/);
+  assert.match(body, /return query[\s\S]*returning t\.transaction_id/);
+  assert.doesNotMatch(body, /\bselect\b[\s\S]*\bfor update\b|auth\.sessions/);
   assert.doesNotMatch(body, /raw.?state/);
 });
 
-test('auth schema receives no custom objects and no separate pending/session RPC remains', () => {
+test('migration and callback have no direct managed Auth session dependency', () => {
   assert.doesNotMatch(compact, /create\s+(?:or replace\s+)?(?:function|table|schema|view|trigger)\s+auth\./);
-  assert.doesNotMatch(compact, /youtube_oauth_get_pending_state|youtube_oauth_verify_session/);
+  assert.doesNotMatch(compact, /auth\.sessions|supabase_auth_admin/);
   const callback = readFileSync(new URL('../../supabase/functions/youtube-oauth-callback/index.ts', import.meta.url), 'utf8');
-  assert.doesNotMatch(callback, /lookupState|verifySession|youtube_oauth_verify_session/);
+  assert.doesNotMatch(callback, /getUser|getClaims|auth\.sessions|verifySession/);
   assert.match(callback, /repository\.consumeState\(hash\)/);
+  const start = readFileSync(new URL('../../supabase/functions/youtube-oauth-start/index.ts', import.meta.url), 'utf8');
+  const shared = readFileSync(new URL('../../supabase/functions/_shared/youtube-oauth.mjs', import.meta.url), 'utf8');
+  assert.match(start, /verifyCurrentStartUser\(authClient, jwt\)/);
+  assert.match(shared, /authClient\.auth\.getClaims\(jwt\)/);
+  assert.match(shared, /authClient\.auth\.getUser\(jwt\)/);
 });
 
 test('token cutover validates nonempty input and atomically finishes then upserts without clearing old token', () => {
@@ -123,7 +112,7 @@ test('callback uses one consume operation and never claims callback-time AAL2 ve
   const callback = readFileSync(new URL('../../supabase/functions/youtube-oauth-callback/index.ts', import.meta.url), 'utf8');
   const shared = readFileSync(new URL('../../supabase/functions/_shared/youtube-oauth.mjs', import.meta.url), 'utf8');
   assert.doesNotMatch(callback, /getClaims|aal2|aal\b|verifyJwt/);
-  assert.match(shared, /transactionTtlBoundedByJwtExpiry\(ttlSeconds, claims\.exp\)/);
+  assert.match(shared, /transactionTtlBoundedByJwtExpiry\(claims\.exp\)/);
   assert.match(shared, /const consumeResult = await consumeState\(stateHash\)/);
   assert.match(shared, /const tokenResponse = await exchangeAuthorizationCode\(code\)/);
   assert.ok(shared.indexOf('const consumeResult = await consumeState(stateHash)') <

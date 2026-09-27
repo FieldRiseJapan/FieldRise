@@ -7,11 +7,12 @@ import {
   createCallbackHandler,
   createGoogleProvider,
   createStartHandler,
+  generateState,
   hashState,
   transactionTtlBoundedByJwtExpiry,
-  transactionTtlSeconds,
   validateGrantedScopes,
   validateOwnedChannels,
+  verifyCurrentStartUser,
 } from '../../supabase/functions/_shared/youtube-oauth.mjs';
 
 const OWNER = '11111111-1111-4111-8111-111111111111'; // synthetic test identity
@@ -111,6 +112,28 @@ test('OAuth Start rejects missing and invalid bearer tokens before reservation',
   }
 });
 
+test('Start verification requires a live Auth user matching verified JWT claims', async () => {
+  const calls = [];
+  const authClient = { auth: {
+    getClaims: async (jwt) => { calls.push(['claims', jwt]); return { data: { claims }, error: null }; },
+    getUser: async (jwt) => { calls.push(['user', jwt]); return { data: { user: { id: OWNER } }, error: null }; },
+  } };
+  assert.deepEqual(await verifyCurrentStartUser(authClient, 'valid-test-session'), claims);
+  assert.deepEqual(calls, [['claims', 'valid-test-session'], ['user', 'valid-test-session']]);
+
+  authClient.auth.getUser = async () => ({ data: { user: null }, error: { code: 'session_revoked' } });
+  assert.equal(await verifyCurrentStartUser(authClient, 'revoked-test-session'), null);
+  authClient.auth.getUser = async () => ({ data: { user: { id: OTHER } }, error: null });
+  assert.equal(await verifyCurrentStartUser(authClient, 'mismatched-test-session'), null);
+});
+
+test('OAuth state is a 43-character base64url string with 256-bit source length', () => {
+  const first = generateState();
+  const second = generateState();
+  assert.match(first, /^[A-Za-z0-9_-]{43}$/);
+  assert.notEqual(first, second);
+});
+
 test('OAuth Start rejects role, anonymous, AAL1, allowlist mismatch, and missing session binding', async () => {
   for (const invalidClaims of [
     { ...claims, role: 'anon' },
@@ -181,18 +204,27 @@ test('OAuth Start fails closed if state reservation fails and does not leak stat
   assert.doesNotMatch(body + JSON.stringify(events), /[A-Za-z0-9_-]{43}/);
 });
 
-test('transaction TTL uses a configurable server-side value capped at ten minutes', () => {
-  assert.equal(transactionTtlSeconds(undefined), 600);
-  assert.equal(transactionTtlSeconds('300'), 300);
-  for (const invalid of ['0', '601', 'not-a-number']) assert.throws(() => transactionTtlSeconds(invalid));
+test('OAuth transaction TTL is fixed to five minutes and bounded by verified JWT expiry', () => {
+  const nowMs = 1_800_000_000_000;
+  assert.equal(transactionTtlBoundedByJwtExpiry(nowMs / 1000 + 600, nowMs), 300);
+  assert.equal(transactionTtlBoundedByJwtExpiry(nowMs / 1000 + 100, nowMs), 70);
+  assert.throws(() => transactionTtlBoundedByJwtExpiry(nowMs / 1000 + 50, nowMs));
+  assert.throws(() => transactionTtlBoundedByJwtExpiry(undefined, nowMs));
 });
 
-test('OAuth transaction TTL never extends beyond the verified JWT expiry and clock skew margin', () => {
-  const nowMs = 1_800_000_000_000;
-  assert.equal(transactionTtlBoundedByJwtExpiry(600, nowMs / 1000 + 600, nowMs), 570);
-  assert.equal(transactionTtlBoundedByJwtExpiry(600, nowMs / 1000 + 100, nowMs), 70);
-  assert.throws(() => transactionTtlBoundedByJwtExpiry(600, nowMs / 1000 + 50, nowMs));
-  assert.throws(() => transactionTtlBoundedByJwtExpiry(600, undefined, nowMs));
+test('OAuth callback can finish an issued capability after logout without rechecking Supabase session', async () => {
+  let sessionActive = true;
+  const start = makeStart({ verifyJwt: async () => sessionActive ? claims : null });
+  const startResponse = await start.handler(startRequest());
+  assert.equal(startResponse.status, 200);
+
+  sessionActive = false;
+  const callback = makeCallback();
+  const callbackResponse = await callback.handler(callbackRequest());
+
+  assert.equal(callbackResponse.status, 200);
+  assert.deepEqual(callback.calls.filter(([name]) => ['atomicConsume', 'exchange', 'channels', 'cutover'].includes(name))
+    .map(([name]) => name), ['atomicConsume', 'exchange', 'channels', 'cutover']);
 });
 
 test('callback rejects missing state, code, or malformed duplicate query before lookup', async () => {

@@ -7,8 +7,7 @@ export const OAUTH_SCOPES = Object.freeze([
   'https://www.googleapis.com/auth/youtube.upload',
   'https://www.googleapis.com/auth/youtube.readonly',
 ]);
-export const DEFAULT_TRANSACTION_TTL_SECONDS = 600;
-export const MAX_TRANSACTION_TTL_SECONDS = 600;
+export const OAUTH_TRANSACTION_TTL_SECONDS = 300;
 export const MIN_TRANSACTION_TTL_SECONDS = 60;
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -32,27 +31,35 @@ export function isUuid(value) {
   return typeof value === 'string' && UUID.test(value);
 }
 
-export function transactionTtlSeconds(value) {
-  if (value === undefined || value === null || value === '') return DEFAULT_TRANSACTION_TTL_SECONDS;
-  if (!/^\d+$/.test(String(value))) throw new TypeError('invalid_ttl_configuration');
-  const seconds = Number(value);
-  if (!Number.isSafeInteger(seconds) || seconds < MIN_TRANSACTION_TTL_SECONDS ||
-      seconds > MAX_TRANSACTION_TTL_SECONDS) throw new TypeError('invalid_ttl_configuration');
-  return seconds;
-}
-
-export function transactionTtlBoundedByJwtExpiry(configuredValue, jwtExpiresAt, nowMs = Date.now(), skewSeconds = 30) {
-  const configured = transactionTtlSeconds(configuredValue);
+export function transactionTtlBoundedByJwtExpiry(jwtExpiresAt, nowMs = Date.now(), skewSeconds = 30) {
   if (!Number.isSafeInteger(jwtExpiresAt) || !Number.isFinite(nowMs) ||
       !Number.isSafeInteger(skewSeconds) || skewSeconds < 0) {
     throw new OAuthFlowError('invalid_session_expiry', 401, 'authorize');
   }
   const remaining = Math.floor((jwtExpiresAt * 1000 - nowMs) / 1000) - skewSeconds;
-  const bounded = Math.min(configured, remaining);
+  const bounded = Math.min(OAUTH_TRANSACTION_TTL_SECONDS, remaining);
   if (!Number.isSafeInteger(bounded) || bounded < MIN_TRANSACTION_TTL_SECONDS) {
     throw new OAuthFlowError('session_expiring', 401, 'authorize');
   }
   return bounded;
+}
+
+export async function verifyCurrentStartUser(authClient, jwt) {
+  if (typeof jwt !== 'string' || !jwt || typeof authClient?.auth?.getClaims !== 'function' ||
+      typeof authClient.auth.getUser !== 'function') return null;
+  try {
+    const { data: claimsData, error: claimsError } = await authClient.auth.getClaims(jwt);
+    const claims = claimsData?.claims;
+    if (claimsError || !claims) return null;
+
+    // getClaims validates signature and exp, but cannot detect an ended session.
+    // Check with the Auth server last, immediately before authorizing Start.
+    const { data: userData, error: userError } = await authClient.auth.getUser(jwt);
+    if (userError || !userData?.user || userData.user.id !== claims.sub) return null;
+    return claims;
+  } catch {
+    return null;
+  }
 }
 
 function firstRpcRow(data) {
@@ -72,12 +79,10 @@ export function createOAuthRepository(client) {
   }
 
   return {
-    async reserve({ transactionId, stateHash, userId, sessionId, ttlSeconds }) {
+    async reserve({ transactionId, stateHash, ttlSeconds }) {
       const data = await call('youtube_oauth_reserve', {
         p_transaction_id: transactionId,
         p_state_hash: toPostgresBytea(stateHash),
-        p_user_id: userId,
-        p_session_id: sessionId,
         p_ttl_seconds: ttlSeconds,
       });
       return data === true;
@@ -207,7 +212,6 @@ export function createStartHandler({
   clientId,
   redirectUri = OAUTH_REDIRECT_URI,
   authorizationEndpoint = GOOGLE_AUTHORIZATION_ENDPOINT,
-  ttlSeconds = DEFAULT_TRANSACTION_TTL_SECONDS,
   log = console,
 }) {
   return async (request) => {
@@ -232,7 +236,7 @@ export function createStartHandler({
         throw new OAuthFlowError('server_configuration_unavailable', 503, 'configuration');
       }
       // Keep stored transaction expiry within the verified JWT validity window.
-      const ttl = transactionTtlBoundedByJwtExpiry(ttlSeconds, claims.exp);
+      const ttl = transactionTtlBoundedByJwtExpiry(claims.exp);
       const state = generateState();
       const stateHash = await hashState(state);
       const transactionId = crypto.randomUUID();
@@ -240,8 +244,6 @@ export function createStartHandler({
       const reserved = await reserve({
         transactionId,
         stateHash,
-        userId: claims.sub,
-        sessionId: claims.session_id,
         ttlSeconds: ttl,
       });
       if (reserved !== true) throw new OAuthFlowError('state_unavailable', 503, stage);
