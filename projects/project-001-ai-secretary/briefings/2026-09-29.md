@@ -1,6 +1,6 @@
 # 2026-09-29（火）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:02 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:15 JST
 
 ---
 
@@ -33,12 +33,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [AMD、フェイフェイ・リー博士のWorld Labsを約82億ドルで買収へ ハードとモデルを一体化したオープンAIエコシステム加速へ](https://www.itmedia.co.jp/news/article/2609/29/2000001826/) — ITmedia AI+
 - [NVIDIA、AIエージェントをハードウェアでも監視する「Open Agent Safety Platform」発表 Anthropicなど100以上の組織が参加](https://www.itmedia.co.jp/news/article/2609/29/2000001824/) — ITmedia AI+
 - [「最大応力はどこ？」とAIに質問、解析結果を確認できるCAEソフト新版](https://monoist.itmedia.co.jp/mn/articles/2609/29/news022.html) — ITmedia AI+
 - [「10年ぶり刷新」 Android向けサードパーティーストアアプリ「F-Droid 2.0」公開](https://atmarkit.itmedia.co.jp/ait/articles/2609/29/news053.html) — ITmedia AI+
 - [最も人気のAIユースケース、投資成果では“いまいち”だった Gartner調査](https://www.itmedia.co.jp/enterprise/articles/2609/19/news009.html) — ITmedia AI+
 - [「デジタルの言葉が聞こえない」と言われた電源開発が、DX開始4年でフィジカルAIに挑むまで](https://www.itmedia.co.jp/enterprise/articles/2609/25/news014.html) — ITmedia AI+
-- [限界性能はどこか？ パナソニックの「設計AI」が導く勘と経験を超えた設計解](https://monoist.itmedia.co.jp/mn/articles/2609/29/news009.html) — ITmedia AI+
 
 **海外AIニュース**
 
