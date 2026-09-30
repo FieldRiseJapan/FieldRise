@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-09-29T01:15:40+00:00",
+  "captured_at": "2026-09-30T00:33:19+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -168,7 +168,7 @@
     {
       "id": "BJUp4hV2Ms8",
       "title": "Snow Bunny　#music #snow #bunnygirl",
-      "views": 64,
+      "views": 65,
       "age_label": "2024-09-25T13:53:09Z",
       "category": "winter"
     },
