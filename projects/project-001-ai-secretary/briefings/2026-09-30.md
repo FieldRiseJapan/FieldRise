@@ -1,6 +1,6 @@
 # 2026-09-30（水）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:33 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:46 JST
 
 ---
 
@@ -29,12 +29,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [AI企業トップらと昼食会のトランプ米大統領、政府内で「AI」を「SI」と呼び替える大統領令に署名](https://www.itmedia.co.jp/news/article/2609/30/2000001871/) — ITmedia AI+
 - [AIは魔法の杖ではなく“子ども”だ 「ずる賢く」育つのを阻止するための3つのポイント](https://www.itmedia.co.jp/enterprise/articles/2609/30/news017.html) — ITmedia AI+
 - [OpenAI、豪政府サイトへの不正アクセスで謝罪 最先端AI学習の安全指針も公開](https://www.itmedia.co.jp/news/article/2609/30/2000001869/) — ITmedia AI+
 - [マネーフォワード、2800人の情報をNotionに集約 「AIに聞けば分かる」環境へ](https://kn.itmedia.co.jp/kn/article/2609/30/2000001856/) — ITmedia AI+
 - [AIがもたらした「半導体」の進化 光電融合、HBM、新トランジスタ――果てなき性能向上、どうかなえる？](https://www.itmedia.co.jp/business/articles/2609/30/news021.html) — ITmedia AI+
 - [SlackやTeamsで「辞めそうな社員」が分かる？ 退職予兆を探るAI登場](https://kn.itmedia.co.jp/kn/article/2609/30/2000001811/) — ITmedia AI+
-- [OpenAIの「DevDay 2026」で発表された主なことまとめ](https://www.itmedia.co.jp/news/article/2609/30/2000001868/) — ITmedia AI+
 
 **海外AIニュース**
 
