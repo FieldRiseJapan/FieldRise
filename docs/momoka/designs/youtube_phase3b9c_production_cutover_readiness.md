@@ -107,3 +107,12 @@ UIの確認操作・選択動画・タイトル・最終確認・重複submit防
 ### Remaining gate evidence
 
 履歴repair認証、authenticated HTTP fixture経路、最新Spend cap/add-on/compute証拠、永続Staging migration apply/deploymentとDB競合検証が残る。必要Secretの名前一覧を読み取れる既存経路も未提供。既存token値を読まずに確認する。Denoなし/INFO/policyなし/Production service_role追加ACLだけではREDにしない。
+
+
+## FINAL GREEN follow-up gate — 2026-10-02
+
+**BLOCKED — BILLING RISK / PRODUCTION CUTOVER NOT READY**. Fresh main remains baseline 4cd76065473c40d15a3410e742e653b8a7453805 before documentation registration. Free/health verified; latest Spend cap/compute/add-on evidence unavailable. Staging history still unreconciled and existing CLI auth absent. Latest persistent apply gate requires reconciled expected history, so the new migration was not applied. Auth fixture/HTTP/independent-connection concurrency/deployment proofs remain pending; no test credential requested or generated.
+
+Production migration manifest remains conditional: bootstrap source cannot be blindly run against previously observed broad service_role ACL, B8 is required after verified official baseline/compatibility, then new Gateway state is required after persistent Staging proof. Do not falsely mark bootstrap applied or mutate existing token table to force it through. The ACL minimization itself is separately deferred; strict migration execution compatibility is still unresolved. Production token catalog/history evidence is inherited from the prior read-only audit, not refreshed by token row queries.
+
+Runtime prepared sequence: DB → OAuth Start/Callback → Gateway/shared core flag false → legacy tombstone/closure verification → real activation after OAuth/channel/token prerequisites. Rollback keeps tombstone and disabled/validation-only Gateway/UI, preserves token and unresolved attempts. No Production action is authorized by this document or its GitHub registration. Full 28-gate table and evidence limits are in the final report.

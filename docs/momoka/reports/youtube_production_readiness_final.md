@@ -2,7 +2,7 @@
 
 Date: 2026-10-02 JST
 
-**PRODUCTION CUTOVER NOT READY** — implementation candidate prepared; no Production cutover authorized or executed.
+**BLOCKED — BILLING RISK / PRODUCTION CUTOVER NOT READY** — FINAL GREEN follow-up could not satisfy the latest write gates; no Production cutover authorized or executed.
 
 ## Baseline / scope
 
@@ -93,3 +93,71 @@ Minimum blocker groups: (1) official history repair + exact Production migration
 ## Git validation / registration
 
 All changed files limited to Gateway/shared core/state SQL, tests, legacy tombstone, readiness design and this report. Existing bootstrap/B8 source unchanged. Node regression PASS; git diff --check PASS; staged credential pattern scan PASS (known synthetic fixture identifiers are tests only). Scan is pattern-based, not a guarantee that every possible secret form is detected. Final registration SHAs and all-file GitHub SOURCE MATCH reported separately after registration. No Production Deploy, real OAuth/reconsent/channels.list/token exchange/upload, UI release or billing action.
+
+
+## FINAL GREEN follow-up — 2026-10-02 JST
+
+This section supersedes earlier follow-up status where it differs. Formal source baseline/current main at preflight: `4cd76065473c40d15a3410e742e653b8a7453805`; remote identical, no new competing commit. New detached worktree at that formal commit; earlier worktrees retained. No code/migration source change in this follow-up.
+
+Fresh connector evidence: Staging exact name/ref/region ACTIVE_HEALTHY, Production exact ref/region ACTIVE_HEALTHY; organization plan free/tier_free. No access to current Spend cap/Compute/IPv4/PITR/custom-domain/other paid configuration metadata in the available connector. No previously saved secret authentication or authenticated fixture route appeared. No browser fallback or new credential request performed.
+
+Official CLI repair semantics (applied/reverted/version/project-ref/linked/db-url) were confirmed from help in the previous phase. The current no-install availability check failed because the pinned package is absent from the current npx cache; no reinstall or repair execution was attempted. CLI authentication variables and saved token path remain unavailable. Migration repair was NOT attempted; manual history mutation and schema replay were NOT attempted. Remote Staging versions remain `20261001115200`, `20261001115628`. This is the explicitly permitted MIGRATION HISTORY BLOCKER, not a failed repair.
+
+Latest Step 3/4 write gate requires expected reconciled history before persistent apply. It is not met. Therefore `20261001224858_youtube_gateway_real_upload_state.sql` was **NOT applied**, with no blind retry, partial apply or grants added. Source already tested in prior transactional run remains unchanged. Fresh Staging metadata confirms upload_attempts absent, token fixture 0, OAuth fixture 0, Auth fixture 0. authenticated token DML privilege false and OAuth RPC EXECUTE count 0. No Auth fixture created, so no new cleanup obligation; authenticated HTTP remains NOT RUN. New independent-connection DB concurrency and deployed Staging Gateway checks remain NOT RUN because persistent state/write gate is unavailable. Prior local/mock/rolled-back SQL results are not promoted to these missing proofs.
+
+Latest instruction explicitly requires BLOCKED — BILLING RISK if billing potential is materially unconfirmed. Free-plan metadata alone does not establish the requested latest add-on/compute/spend-cap evidence. Database writes, fixture creation and Deploy were withheld. No paid setting was found, no charge was authorized, and no assertion of current invoice 0 yen is made. This is uncertainty, not evidence that a fee occurred.
+
+Production audit in this follow-up: project identity/health metadata only. Previous catalog/history/Function audit remains prior evidence, **not** freshly reverified here. No Production token row/count/value/hash/copy query, DDL/DML/Auth/Secret/ACL/Function change. No provider call. Posting button disabled.
+
+### Production migration manifest — conditional, not executable
+
+| Version / filename | Purpose | Last catalog/history evidence | Required action / preservation / rollback |
+|---|---|---|---|
+|20260927080000_youtube_oauth_token_store_bootstrap.sql|Token-store schema/security contract|Existing Production table; source history absent; prior catalog shows expected columns/RLS/policy-none/postgres with broader service_role ACL|Blind apply NOT permitted: current strict existing-table branch would reject the observed ACL. No token row read/recreation/reset, no false applied marker. Official compatible baseline/manifest unresolved. ACL minimization alone is separate hardening; source compatibility is the unresolved execution issue. No down migration/token restoration assumed.|
+|20260927084829_youtube_oauth_transactions.sql|One-time short-lived OAuth capability and atomic token cutover RPCs|Prior Production OAuth object/history absence|Required after exact history/token-store prerequisites pass. Forward apply once, audit objects/ACL/INVOKER/search_path; failure stops without retry/escalation. Keep successful schema on feature-disable rollback.|
+|20261001224858_youtube_gateway_real_upload_state.sql|Upload state/idempotency/channel unresolved block|Staging persistent table absent freshly; Production target absent in prior audit|Required after Staging persistent/parallel verification and exact Production manifest. Forward apply once; keep attempts/unresolved state on rollback, never expire/reopen unknown automatically.|
+
+A full executable Production migration manifest is **NOT CERTIFIED**. No change to the already-applied Staging bootstrap/B8 sources, no invented version reconciliation and no unconditional db push plan. Step 10/STOP condition 19 cannot be declared satisfied.
+
+Runtime manifest (prepared source order, not executed): DB prerequisites → hardened OAuth Start/Callback → Gateway/shared core with real flag false → legacy 410 tombstone deployment/closure check → Gateway real flag activation. OAuth reconsent/channel/token cutover must complete before real activation. Gateway runtime enforces exact Production URL and default validation-only; legacy path cannot be restored on rollback. Secret existence is still unverified with current tools; values never read.
+
+OAuth trust remains Start-time AAL2 + <=5-minute capability + user/session binding at start + atomic consume, with logout/revoke-after-start expected and no callback-time AAL2 claim. Scopes remain approved youtube.upload + youtube.readonly; no scope change/reconsent/provider exchange occurred. One expected Runa-Girl8215 channel exact ID match and one <=2 MiB private MP4 remain future owner-confirmed checks. UI release requires verified private upload/channel/no duplicate/Gateway-only/final audit. Unknown blocks retries/new channel uploads pending human/CTO reconciliation.
+
+### Latest 28 gates
+
+GREEN marked prior/local evidence is expressly identified; it does not substitute for the RED persistent/HTTP/Billing gates.
+
+|#|Gate|Result / evidence freshness|
+|---|---|---|
+|1|Staging ACTIVE_HEALTHY|GREEN fresh|
+|2|Production ACTIVE_HEALTHY|GREEN fresh|
+|3|Plan Free|GREEN fresh|
+|4|Spend cap enabled|RED current evidence unavailable|
+|5|Free-compatible Compute|RED current evidence unavailable|
+|6|Paid Add-on none|RED current evidence unavailable|
+|7|Migration history reconciled|RED unchanged versions; no safe existing repair auth|
+|8|Production migration manifest certified|RED strict bootstrap compatibility/exact official baseline unresolved|
+|9|authenticated HTTP DENIED|RED NOT RUN; SQL denial is compensating evidence only|
+|10|Auth fixture cleanup 0|GREEN fresh count 0; none created|
+|11|Gateway state persistent Staging apply|RED WRITE gate failed before apply|
+|12|New state DB parallel concurrency|RED NOT RUN; mock is not independent-connection DB proof|
+|13|outcome_unknown block|GREEN prior local + transactional DB runtime assertions; persistent proof pending #11/12|
+|14|idempotency|GREEN prior local + transactional DB runtime assertions; persistent proof pending #11/12|
+|15|RLS/ACL|GREEN prior full catalog + fresh authenticated effective denial; new persistent objects absent|
+|16|Gateway source implementation|GREEN prepared candidate; deployed readiness withheld|
+|17|Gateway persistent/deployed validation|RED NOT RUN; local/transactional evidence retained|
+|18|private fixed|GREEN source/mock proof, unchanged|
+|19|legacy tombstone ready|GREEN source/mock proof, undeployed|
+|20|token preservation plan|GREEN no token row operation; bootstrap apply blocked rather than forced|
+|21|OAuth/runtime deploy manifest|GREEN source sequence prepared; Secret presence gate required later|
+|22|scope/reconsent plan|GREEN unchanged approved scopes; future owner operation|
+|23|channel verification plan|GREEN exactly-one expected-ID rule, mocked only|
+|24|first private upload plan|GREEN future one <=2 MiB MP4 only; no current upload|
+|25|rollback/failure semantics|GREEN safe disable/tombstone/record preservation|
+|26|Creator Studio release gate|GREEN disabled until real upload/channel/final regression proof|
+|27|Regression|GREEN fresh 89/89 PASS|
+|28|Secret/credential scan|GREEN changed docs scan + baseline source unchanged|
+
+Remaining blockers stay in the same three groups: official history/Production manifest; authenticated HTTP + persistent Staging/parallel/deployment validation; latest Billing evidence. Deno absence, standard service_role bypass, two known INFO notices and broader Production ACL alone are not added blockers.
+
+Changed files for this follow-up: this report and readiness design only. No new migration, Gateway edit, fixture or deploy. Follow-up local/formal GitHub SHAs and all-file SOURCE MATCH are reported after the single documentation commit. Registration does not authorize any runtime write or cutover.
