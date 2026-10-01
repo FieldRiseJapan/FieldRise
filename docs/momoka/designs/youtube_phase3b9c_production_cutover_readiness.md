@@ -1,6 +1,6 @@
 # YouTube Phase 3-B9C — Production Cutover Readiness
 
-作成日: 2026-10-01 (JST)
+更新日: 2026-10-02 (JST)
 
 **DRAFT / NOT READY — 実行承認ではない。** B9CはStaging検証と計画だけ。Production refは`nmkcjtrllzkwjxmjromw`、Staging refは`zjgmgwjeebphkbbqjbfi`。
 
@@ -8,14 +8,14 @@
 
 Stagingでbootstrap/B8 database contract、state lifecycle、exactly-once consume、dummy cutover、token write failure rollback、anon HTTP拒否は確認済み。history repairとauthenticated HTTP実証が残る。
 
-加えて、現mainのGateway handlerは`validation_only`応答で、shared real-upload moduleを呼ばない。Gateway attemptsも`processing/validated/failed`のPhase 1契約である。このsourceをdeployするだけでは安全な実uploadにならない。
+今回の候補sourceはshared coreとreal state RPC adapterを実装済み。server側`YOUTUBE_GATEWAY_REAL_UPLOAD_ENABLED=true`とexact Production URL一致だけがreal pathを選択する。Stagingではflagの有無に関係なくvalidation_only。defaultは既存validation_only。Phase 1 attempts/RPCは保持し、新upload_attemptsを分離する。Node 89 PASS、StagingのROLLBACK付きSQL runtime試験PASS。ただし永続Staging migration apply/deploy/real RPCの独立connection競合実証は未完了で、Production-readyとは判定しない。
 
 Production cutover開始前に次を閉じる:
 
 1. Staging historyを公式CLI repairでrepository versionへ対応させ、source/schema/ACL/fixture 0を再確認。
 2. 安全なStaging Auth fixtureでauthenticated HTTP拒否を検証・cleanup。
-3. 既存Production token tableとstrict bootstrapのACL compatibilityを解決する正式方針を承認。
-4. Phase 3-Aのshared server-side upload方式、本upload state machine、failure/redaction/idempotency、legacy closureを実装・mock検証したimmutable sourceを用意。
+3. Production既存tableのcatalog適合を保持し、strict bootstrapを無条件db pushしない明示migration manifestと履歴baselineを確定。広いservice_role ACL最小化自体は別hardeningであり単独blockerではない。
+4. 今回実装済みshared core/state/tombstoneのStaging migration applyとdeployment検証を完了し、source SHA固定。
 
 上記のコード・migration・rollback artifactを先にレビュー可能な状態へ仕上げ、その後に**1回の明示承認でProduction Cutover全体を連続実行**する。下表のgateは工程内の検査で、定例の追加承認フェーズではない。ownerのGoogleログイン/MFA/consentは本人操作として扱う。
 
@@ -25,7 +25,7 @@ Production cutover開始前に次を閉じる:
 |---|---|---|
 | 1 | Billingとproject identityを直前確認 | Free、spend cap、paid compute/add-onなし。Production ref/name/region/healthが承認manifestと一致。不明な課金要求は即停止 |
 | 2 | Production catalog・migration historyをREAD-ONLY取得 | table columns/default/PK/RLS/policies/owner/ACL、OAuth object absenceまたは正規履歴、deploy source版数を確認。token値は読まない |
-| 3 | 既存token preservationとbootstrap compatibilityを判断 | token有無/非emptyはDB内Boolean・aggregateだけで確認。既存rowのcopy/reset/deleteは禁止。strict bootstrapが失敗するACL状態なら停止 |
+| 3 | 既存token preservationとbootstrap compatibilityを判断 | token row/valueは読まない。catalogのみ。既存rowのcopy/reset/deleteは禁止。existing-table互換manifestを確認し、strict bootstrapを無条件実行しない |
 | 4 | 正式migration manifestをdry-run確認しDB適用 | CLIのlink先をProductionへ明示し、意図したversionだけを適用。Stagingと同じschema/ACL/function監査を実施。再試行・権限拡大で突破しない |
 | 5 | OAuth Start/Callbackをimmutable sourceからdeploy | Start `verify_jwt=true`、callback `verify_jwt=false` + hash capability検証。server-only credential wiring、Origin、redirect URIが正式Production値に一致 |
 | 6 | 必要Secret/設定の名前・存在・対象を確認/承認分だけ設定 | 値をchat/Git/reportへ出さない。共有Function Secretの影響範囲を確認。不要なrotation/deletionはしない |
@@ -50,7 +50,7 @@ Production cutover開始前に次を閉じる:
 
 B9A/B9B時点の記録ではProduction service_roleにDELETE/TRUNCATE/REFERENCES/TRIGGER等がある。現bootstrapの既存table branchはSELECT/INSERT/UPDATEだけを要求するため、その状態のままではfail closedになる。B9CはProductionの新しいcatalogを取得していない。
 
-本番では、legacy依存を確認した後のtable限定ACL minimizationを含む明示承認、または新しいforward-only compatibility方針が必要。既存migrationを安易にrename/rewriteしない。contract不一致のbootstrapを満たしたことにしてhistoryへmark-appliedしてはいけない。
+最新指示により広いservice_role ACLの最小化は別hardeningとし、それ自体をCutover blockerにしない。既存tableは3 columns/default/RLS/owner/policyなしをcatalog確認済み。browser ACL拒否を別途確認する。既存tableを再作成せずB8を適用できる。ただしrepository strict bootstrapを無条件db pushすると既存ACLで失敗するため、既存remote履歴を含めたexact migration manifest/baseline手順の確定が必要。contract不一致のbootstrapを満たしたと偽ってmark-appliedしない。CLI利用可能後にdata-preserving compatibility用forward artifactを正式version化・検証し、通常db pushが旧bootstrapを二重適用しない履歴計画を確定する。
 
 `db push`はlink先・history・exact pending manifestの確認後だけ実行する。B8のschema名が既に存在する、source不一致、partial object、unexpected historyなら止める。適用済みmigrationを再実行しない。
 
@@ -65,6 +65,7 @@ B9A/B9B時点の記録ではProduction service_roleにDELETE/TRUNCATE/REFERENCES
 | `YOUTUBE_CLIENT_ID` | Google OAuth client | 正式project/clientとの一致 |
 | `YOUTUBE_CLIENT_SECRET` | code exchange / refresh | server-sideのみ |
 | `YOUTUBE_ALLOWED_CHANNEL_ID` | callback/投稿対象channel照合 | server-side。handleだけを根拠に設定しない |
+| `YOUTUBE_GATEWAY_REAL_UPLOAD_ENABLED` | server-side real activation flag | Stagingではfalse、closureとDB確認後のみProductionでtrue |
 | `YOUTUBE_UPLOAD_SECRET` | 旧upload経路の既存依存 | 新shared方式では使わない。legacy closure後の削除は他の依存確認と承認が必要 |
 
 OAuth redirectは現在sourceの正式Production callback URI、Originは`https://fieldrisejapan.github.io`。誤ってStaging/Productionを混在させない。allowlistやchannel値は本人の安全な設定経路で扱う。
@@ -93,3 +94,16 @@ Staging全gate、履歴整合、Production catalog/ACL/migration、source match�
 UIの確認操作・選択動画・タイトル・最終確認・重複submit防止は維持する。production approvalにbutton解禁が明記されていなければ無効のままにする。callback-time AAL2 VERIFIEDとは扱わない。
 
 **B9C終了時点: Production CutoverはBLOCKED。計画は準備済みだが、実行には残blockerのclosureと明示承認が必要。**
+
+## 2026-10-02 implementation manifest
+
+- `_shared/youtube-upload/core.mjs`: token refresh、expected channel照合、private resumable insert/PUT。Locationはmemoryだけ。redirect/retryなし、2 MiB上限、MP4 ftyp/brand確認。category 10/madeForKids false維持。insert到達可能性以降の失敗は保守的にoutcome_unknown。
+- `youtube-upload-gateway/real-upload.mjs`: metadata/video hash fingerprint、DB reserve/CAS begin/terminal保存。same-key same-payloadは既存結果、different-payloadは409。DB terminal保存失敗はuploadingを残す。
+- `20261001224858_youtube_gateway_real_upload_state.sql`: official CLI 2.119.0で生成したforward migration。user/key PK、channel partial UNIQUE、user/channel advisory xact lock、3/15min rate limit、RLS/policyなし、service_roleのみ、INVOKER/empty search_path。accepted/uploading/unknownを時間で解放しない。unknown自動解除RPCなし。
+- `youtube-upload/index.ts` + `tombstone.mjs`: 410 fixed response。Production旧version7は未変更。Cutoverでこのartifactを先にdeployし、閉鎖を確認後に新Gatewayをactivate。rollbackはtombstone維持＋Gateway flag false＋UI disabled。
+- 認可・Origin・request size・metadata validationは既存handlerを共用。実upload用flagはbrowser入力にしない。
+- one-shot実行順は上表を維持。本人OAuth/MFA/consent/YouTube Studio確認は本人操作を含むため、寝ている間に完遂できると約束しない。
+
+### Remaining gate evidence
+
+履歴repair認証、authenticated HTTP fixture経路、最新Spend cap/add-on/compute証拠、永続Staging migration apply/deploymentとDB競合検証が残る。必要Secretの名前一覧を読み取れる既存経路も未提供。既存token値を読まずに確認する。Denoなし/INFO/policyなし/Production service_role追加ACLだけではREDにしない。

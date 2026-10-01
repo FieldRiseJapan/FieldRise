@@ -1,7 +1,8 @@
+import { runRealUpload } from './real-upload.mjs';
 import { authorize, corsHeaders, isUuid, validateParts, ALLOWED_ORIGIN,
   MAX_REQUEST_BYTES_PHASE1 } from './policy.mjs';
 
-export function createHandler({ verifyJwt, reserve, finish, allowedUserId, log = console }) {
+export function createHandler({ verifyJwt, reserve, finish, allowedUserId, realUpload = null, log = console }) {
   return async (req) => {
     const requestId = crypto.randomUUID();
     const origin = req.headers.get('origin');
@@ -43,6 +44,7 @@ export function createHandler({ verifyJwt, reserve, finish, allowedUserId, log =
     } catch { return response(400, 'invalid_body'); }
     const data = validateParts(form);
     if (typeof data === 'string') return response(data === 'video_size' ? 413 : 422, data);
+    if (realUpload) return runRealUpload({ data, userId: claims.sub, key, headers, response, ...realUpload });
     // No video bytes or credentials are saved. Reserve uses a DB transaction/lock shared by all instances.
     try {
       const outcome = await reserve(claims.sub, key);
@@ -55,7 +57,7 @@ export function createHandler({ verifyJwt, reserve, finish, allowedUserId, log =
         privacyStatus: 'private', request_id: requestId }),
         { status: 200, headers: { ...headers, 'Content-Type': 'application/json' } });
     } catch {
-      log.error('youtube gateway internal error', { request_id: requestId });
+      log.error('youtube_gateway_state_unavailable');
       return response(503, 'state_unavailable');
     }
   };
