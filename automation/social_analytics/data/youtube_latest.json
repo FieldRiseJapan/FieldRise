@@ -1,12 +1,12 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-10-01T00:49:30+00:00",
+  "captured_at": "2026-10-02T00:52:54+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
     "channel_id": "UCHmI-5eV-xPLSVtcO8QOd7A",
     "handle": "@runa-girl8215",
-    "subscribers": 87,
+    "subscribers": 88,
     "public_video_count": 39,
     "description": "Café Series — calm café BGM for focus, reading & work.\n\nFieldRise Music creates warm piano, gentle jazz, and quiet café atmosphere for focus, reading, work, cooking, and creative time.\n\nCafé Series is our BGM-focused line: music that shapes the room without stealing attention. Your world is the story. Our music is the atmosphere.\n\nNew songs streaming on Spotify, Apple Music and all major platforms.\n\n\"I wish everyone in the world to be happy together.\"\n\n♪ Music for studying, working, relaxing and sleeping. Free to use on YouTube (Content ID protected)."
   },
@@ -14,7 +14,7 @@
     {
       "id": "-iI8Cd_38cI",
       "title": "cafe（A couple gazing into each other's eyes）",
-      "views": 75,
+      "views": 78,
       "age_label": "2026-03-15T00:00:47Z",
       "category": "cafe"
     },
@@ -56,14 +56,14 @@
     {
       "id": "YStrRkObqCY",
       "title": "can you feel it  EDM　#edmmusic #edm #edmmix",
-      "views": 118,
+      "views": 119,
       "age_label": "2025-05-25T12:32:30Z",
       "category": "edm"
     },
     {
       "id": "TlX8rdEkxIo",
       "title": "In the snow  #music​ #snow​ #winter​ #lovesong​",
-      "views": 132,
+      "views": 133,
       "age_label": "2025-02-16T12:55:07Z",
       "category": "winter"
     },
@@ -91,14 +91,14 @@
     {
       "id": "W8J6ksdA-Xc",
       "title": "Centennial Love　#music #snow #winter #lovesong",
-      "views": 928,
+      "views": 930,
       "age_label": "2024-11-04T12:36:33Z",
       "category": "winter"
     },
     {
       "id": "rnpD_AOEFPs",
       "title": "百年love  #music #snow #winter #恋愛 #lovesong",
-      "views": 56,
+      "views": 57,
       "age_label": "2024-10-27T12:57:35Z",
       "category": "winter"
     },
@@ -189,7 +189,7 @@
     {
       "id": "inf8vs2-cTw",
       "title": "Stage（Final chapter change up mode）",
-      "views": 64,
+      "views": 65,
       "age_label": "2024-09-19T12:23:23Z",
       "category": "other"
     },
