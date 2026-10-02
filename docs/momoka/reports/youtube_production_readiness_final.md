@@ -2,7 +2,7 @@
 
 Date: 2026-10-02 JST
 
-**BLOCKED — BILLING RISK / PRODUCTION CUTOVER NOT READY** — FINAL GREEN follow-up could not satisfy the latest write gates; no Production cutover authorized or executed.
+**PRODUCTION CUTOVER NOT READY** — latest Staging persistent apply/deploy completed; remaining evidence gates below. Earlier Billing Risk conclusions are superseded by the current official Free-plan clarification.
 
 ## Baseline / scope
 
@@ -161,3 +161,93 @@ GREEN marked prior/local evidence is expressly identified; it does not substitut
 Remaining blockers stay in the same three groups: official history/Production manifest; authenticated HTTP + persistent Staging/parallel/deployment validation; latest Billing evidence. Deno absence, standard service_role bypass, two known INFO notices and broader Production ACL alone are not added blockers.
 
 Changed files for this follow-up: this report and readiness design only. No new migration, Gateway edit, fixture or deploy. Follow-up local/formal GitHub SHAs and all-file SOURCE MATCH are reported after the single documentation commit. Registration does not authorize any runtime write or cutover.
+
+
+## Latest instruction (attachment (2)) — Staging persistent verification
+
+This section supersedes earlier FINAL GREEN gate tables/statuses. Original formal source baseline is `4cd76065473c40d15a3410e742e653b8a7453805` (89 tests), never ced89de/70 tests. Current working baseline is `5a5a1fe3f69566853f21c99153b298189c7c5575`: original baseline is ancestor; one already-authorized documentation commit plus three AI-secretary/analytics/weather/briefing commits reviewed, no runtime/migration/Auth/OAuth/Gateway changes. Latest main accepted as permitted noninterference update. Gateway migration GitHub/local SOURCE MATCH confirmed, original runtime/tests preserved.
+
+The new instruction explicitly permits independent Staging apply while repair is blocked, with history state **known**, rather than requiring it already reconciled. That changed gate was used; the old expected-reconciled prerequisite was not silently ignored.
+
+### Billing correction and evidence boundary
+
+Fresh organization `plan=free`/`tier=tier_free`, both projects belong to it. [Official cost-control documentation](https://supabase.com/docs/guides/platform/cost-control) says Spend Cap is only available on Pro and Free users are not charged. Therefore previous classification of missing Free spend-cap-enabled evidence as billing danger was incorrect. **Spend Cap = NOT APPLICABLE ON FREE**, not falsely enabled. No upgrade/settings/payment/add-on action occurred. Bounded existing-project SQL/migration/Edge negative probes introduce no paid dependency or automatic billing under the verified Free plan.
+
+[Official compute documentation](https://supabase.com/docs/guides/platform/manage-your-usage/compute) lists Free/Nano at zero and distinguishes paid-plan Compute. Actual current project Compute size, dedicated IPv4/PITR/custom-domain/other add-on flags still are not returned by this connector. Prior dashboard information is not labelled current. These exact configuration gates remain UNVERIFIED/RED under the instruction; no paid option was discovered. Current invoice/billing total 0 yen cannot independently be asserted from the connector. No quota-overage design is assumed. Free-operation compatibility of the candidate remains intact; not BLOCKED — BILLING RISK solely because Free lacks the Pro spend-cap feature.
+
+### Repair / persistent migration
+
+Safe existing CLI/DB authentication absent; no new secret requested. Official repair mechanism known from prior docs/help, but NOT executed. No manual history mutation or migration replay. MCP apply has no version argument. Target migration source has no destructive DML, managed Auth changes, owner/role escalation, custom bypass or browser grant. Exact identity/health, fixture 0, main unchanged and target object/history absence checked immediately before the single apply.
+
+**Persistent apply SUCCESS exactly once**, Staging only. Repository version `20261001224858`, remote tool-generated version `20261002014237`, name `20261001224858_youtube_gateway_real_upload_state`. Stored SQL exactly matches repository, just as the two prior mappings do. This third version mismatch is explicitly recorded, not hidden or manually rewritten.
+
+| Repository version | Remote version | Stored SQL source match |
+|---|---|---|
+|20260927080000|20261001115200|YES|
+|20260927084829|20261001115628|YES|
+|20261001224858|20261002014237|YES|
+
+Future official Staging repair must cover all three unique mappings: mark repository versions applied and tool-generated versions reverted, with no schema replay and before/after catalog/data invariants. Do not run broad db push before repair. This is still MIGRATION HISTORY BLOCKER.
+
+Post-apply actual catalog: one upload_attempts table (8 columns), 6 constraints, 3 indexes including user/key PK and unresolved-channel partial UNIQUE; owner postgres, RLS on, policies 0. Exact table ACL postgres full plus service_role SELECT/INSERT/UPDATE; browser denied. Three new public RPCs are postgres-owned, SECURITY INVOKER, empty search_path, service_role EXECUTE only. No custom role, managed Auth object or unexpected candidate object. Source/history readback confirmed. Existing token/OAuth tables and RPC contracts retained.
+
+### State runtime / concurrency limits
+
+Re-ran existing SQL assertions against the **persistent** objects inside ROLLBACK: reserve/replay/mismatch, begin once, accepted/uploading/unknown channel block, stale uploading not released, invalid terminal rejection, success/failed replay, safe metadata/ACL assertions PASS.
+
+Committed dummy fixtures were then used for two separately requested DB participants. Same key/fingerprint: accepted + existing, distinct backend IDs, one persisted active row. Different users/keys/same channel: accepted + busy, distinct backend IDs, one persisted active row. The first live advisory-lock snapshot observed no waiter; the strengthened test using pg_try_advisory_xact_lock returned contended=false for both participants. **Actual overlap was NOT PROVEN.** This is not a security violation, but is also **NOT DB CONCURRENCY PASS**. Tool requests were parallel at orchestration level; their DB critical sections may have been serialized by the available execution path. No dedicated DB connection authentication or preinstalled concurrent worker extension is available; no extension/job/network side path was added to force this proof.
+
+Persistent runtime additionally verified uploading and unknown new-key block, fingerprint mismatch reject, no unknown reopen and forced nested-transaction failure after succeeded transition preserves uploading/video_id null (half commit 0). Actual SET LOCAL anon/authenticated direct table/RPC executions returned insufficient_privilege/DENIED; this is SQL evidence, not authenticated HTTP.
+
+All only-test dummy rows deleted with fixture-specific predicates after checks; final gateway/token/OAuth/Auth fixture counts **0/0/0/0**. No orphan active dummy state remains. Migration objects retained. New test protocol `tests/youtube/staging/test_gateway_concurrency.sql` records separate-connection and positive contention requirements so a sequential outcome cannot be mislabeled race PASS.
+
+### authenticated HTTP / Gateway deployment
+
+No supported safe Auth admin create/token/cleanup path became available, no user created, no managed Auth/config relaxation. **AUTHENTICATED HTTP TEST BLOCKED**. Fresh effective denial plus existing RLS/policy-none and prior anon HTTP evidence retained. Browser RPC access was not fabricated with a forged JWT.
+
+**Staging Gateway deployed ACTIVE v1, verify_jwt=true**, 5 source files read back exactly matching repository. No Secret setting/copied Google credential. Runtime exact Production URL guard forces Staging validation-only even if a real-upload flag exists. Safe HTTP POST probes: missing Bearer 401, invalid Bearer 401. No real JWT/credential input or provider call. Positive authenticated/AAL2/allowlist/validation-only Edge execution not proven without the safe fixture/allowlist route (and Phase 1 validation RPC prerequisites), so Gateway deployment is complete but positive end-to-end validation remains limited. Local 89 tests cover positive/negative authorization and provider mocks.
+
+Security advisor now has three expected INFO RLS/no-policy findings (new private table adds one). [Official linter explanation](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy). No non-INFO finding, no policy or grant widening added to silence it.
+
+### Fresh Production catalog / manifest
+
+READ-ONLY catalog/history/Function metadata refreshed. Token table ordinary, bigint id PK, text refresh_token NOT NULL, timestamptz updated_at NOT NULL/default now(), owner postgres, RLS on, policy none; existing service_role broader ACL unchanged. History has eight existing TikTok migrations; no target YouTube migration. Functions: OAuth callback v8 verify_jwt=false; legacy upload v7 false; Gateway v12 true; hardened OAuth Start absent. No Production token row/value/count/hash/copy query or runtime invocation. Secret-name existence path not available; no values read.
+
+The prior three-row migration manifest remains **conditional/not executable**. Bootstrap strict existing-table ACL contract still differs from fresh Production metadata. Broad ACL minimization by itself is separately deferred, but blindly running this specific bootstrap would fail. No false mark-applied or history shortcut. B8 and new Gateway state are required after official compatibility/history baseline is established. This source/manifest prerequisite is not certified, so Production Cutover remains stopped without trying Production.
+
+Runtime manifest order (prepared only): Production preflight/history → exact necessary DB migrations → hardened OAuth Start/Callback → Gateway/shared core flag false → legacy tombstone closure → owner OAuth reauthorization/scope/channel/token cutover → real Gateway activation → one small private MP4 → YouTube Studio/channel/no duplicate → final regression → UI release. Rollback never restores the legacy path, never clears unknown/active attempts, never exports/restores assumed old token backups. Start-time AAL2 and <=5-minute capability semantics unchanged; callback-time AAL2 not claimed. Scopes youtube.upload + approved youtube.readonly unchanged. Human confirmation required for upload/release; no current release.
+
+### Latest ONE-SHOT 28 gates
+
+|#|Gate|Result|
+|---|---|---|
+|1|Staging healthy|GREEN fresh|
+|2|Production healthy|GREEN fresh|
+|3|Plan Free|GREEN fresh|
+|4|Spend cap enabled|N/A on Free, Pro-only official feature; literal requirement cannot be asserted|
+|5|Production Compute free-compatible|RED exact latest size metadata unavailable; Free org confirmed|
+|6|Staging Compute free-compatible|RED exact latest size metadata unavailable; Free org confirmed|
+|7|Paid Add-On none|RED exact current add-on flags unavailable|
+|8|Migration history reconciled|RED three unique mappings source-matched, repair auth unavailable|
+|9|Production migration manifest|RED strict bootstrap execution compatibility/official baseline unresolved|
+|10|Gateway persistent Staging apply|GREEN successful once, source readback|
+|11|authenticated HTTP DENIED|RED no safe fixture path|
+|12|Auth fixture cleanup 0|GREEN fresh; none created|
+|13|DB concurrency|RED overlap/lock contention not proven; no violation observed|
+|14|idempotency|GREEN persistent runtime one row, replay/mismatch + local tests|
+|15|unknown channel block|GREEN persistent runtime|
+|16|RLS/ACL|GREEN actual catalog and SQL role denials|
+|17|Gateway implementation|GREEN unchanged candidate source|
+|18|Gateway validation|RED positive authenticated Edge path pending; deployment/negative HTTP PASS|
+|19|private fixed|GREEN source/mock/persistent success contract|
+|20|legacy tombstone ready|GREEN source tested; Production undeployed|
+|21|token preservation plan|GREEN no Production row operation or forced bootstrap|
+|22|OAuth deployment manifest|GREEN prepared source/order; Secret presence must pass future preflight|
+|23|scope/reconsent|GREEN approved plan; no current action|
+|24|channel verification|GREEN exact-one expected-ID rule|
+|25|first private upload|GREEN future one <=2 MiB MP4 only|
+|26|rollback/failure|GREEN safe disable/tombstone/state preservation|
+|27|Creator Studio release gate|GREEN disabled pending all required proofs|
+|28|Regression/Secret scan|GREEN 89/89 fresh, diff and credential pattern scan|
+
+Remaining groups remain A history/Production exact manifest; B authenticated positive/HTTP and true overlapping DB concurrency; C exact latest configuration evidence (with Spend Cap N/A correction). New persistent apply and negative Gateway deployment proofs are closed. No return to B9C or old tests. No Production WRITE/Deploy/Auth/Secret/ACL/token read, Google/YouTube real communication, upload, reconsent, UI enablement, billing/payment/plan action.

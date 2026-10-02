@@ -116,3 +116,16 @@ UIの確認操作・選択動画・タイトル・最終確認・重複submit防
 Production migration manifest remains conditional: bootstrap source cannot be blindly run against previously observed broad service_role ACL, B8 is required after verified official baseline/compatibility, then new Gateway state is required after persistent Staging proof. Do not falsely mark bootstrap applied or mutate existing token table to force it through. The ACL minimization itself is separately deferred; strict migration execution compatibility is still unresolved. Production token catalog/history evidence is inherited from the prior read-only audit, not refreshed by token row queries.
 
 Runtime prepared sequence: DB → OAuth Start/Callback → Gateway/shared core flag false → legacy tombstone/closure verification → real activation after OAuth/channel/token prerequisites. Rollback keeps tombstone and disabled/validation-only Gateway/UI, preserves token and unresolved attempts. No Production action is authorized by this document or its GitHub registration. Full 28-gate table and evidence limits are in the final report.
+
+
+## Latest attachment (2): persistent Staging update
+
+Supersedes earlier FINAL GREEN write-gate/status interpretation. Latest instruction only requires history state known before independent apply, not successful repair. Staging Gateway state applied once from unchanged 20261001224858 source, remote version 20261002014237 (MCP timestamp), stored SQL SOURCE MATCH. Table/RPC/RLS/ACL/owner/INVOKER/empty path and persistent state/rollback/block tests PASS; fixtures 0. Staging Gateway ACTIVE v1 verify_jwt=true, all five deployed files SOURCE MATCH; missing/invalid Bearer HTTP401. No provider or Secret operation.
+
+True DB concurrency still unproven: separate backend requests yielded one accepted/one busy or existing, but lock contention false for both. Require independently connected overlapping sessions with positive contention evidence; do not count mere Promise.all as PASS. Authenticated HTTP/positive Edge path still blocked by safe Auth fixture/allowlist path availability.
+
+Official cost-control docs clarify Spend Cap is Pro-only and Free users are not charged. Free metadata fresh; Spend Cap N/A, not enabled. Earlier Billing Risk conclusion from missing Free spend-cap evidence is corrected. Exact Compute/add-on/current invoice flags remain unverified; no billing setting is to be changed to satisfy this gate.
+
+Official repair mapping now contains three pairs: 20260927080000→20261001115200, 20260927084829→20261001115628, 20261001224858→20261002014237. All stored SQL exact-source matched. Use official repair only when existing safe auth is available; no schema replay, manual history SQL, renamed source or false applied markers. Production bootstrap strict ACL mismatch remains source execution compatibility blocker, not blanket demand to minimize ACL. Production manifest cannot be called executable until the exact data-preserving official baseline is certified.
+
+Runtime deploy sequence is DB → OAuth Start/Callback → Gateway flag false → legacy tombstone closure → owner reconsent/scope/channel/token cutover → Gateway activation → one private test upload → YouTube Studio/final regression → UI release. None executed on Production. Final status **PRODUCTION CUTOVER NOT READY**; current 28-gate evidence/limits are in final report.
