@@ -2,7 +2,7 @@
 
 Date: 2026-10-02 JST
 
-**PRODUCTION CUTOVER NOT READY** — attachment (3) read-only preflight confirms the bootstrap execution-contract mismatch. Its immediate-stop rule applies; see the final section for the authoritative current result. Earlier Billing Risk conclusions are superseded by the official Free-plan clarification.
+**PRODUCTION CUTOVER NOT READY** — attachment (4) closes existing-token compatibility and all four real overlapping Staging races. Live authenticated HTTP proof and exact billing configuration remain pending authorized access; official history repair requires owner local auth. The final section supersedes earlier blocker/stop interpretations.
 
 ## Baseline / scope
 
@@ -298,6 +298,7 @@ The hold order is fixed; an executable Production manifest is **not yet certifie
 
 Staging repair mapping still includes three pairs (including the later state apply): 20261001115200 → 20260927080000; 20261001115628 → 20260927084829; 20261002014237 → 20261001224858. Previous exact stored-SQL matches are retained, not repeated. Repair before/after catalog comparison is NOT EXECUTED because repair itself was not executed; do not claim reconciliation.
 
+
 ### Final 28 gates under attachment (3)
 
 | # | Gate | Result |
@@ -332,3 +333,99 @@ Staging repair mapping still includes three pairs (including the later state app
 |28|Secret/credential scan|GREEN changed files scanned, diff check PASS|
 
 Gateway retained ACTIVE v1/verify_jwt=true from prior SOURCE MATCH; no redeploy. Positive authenticated validation remains unverified. Start-time AAL2 + short-lived transaction/binding remains the trust model; no callback-time AAL2 claim. Production DB/Auth/Secret/Function/OAuth/ACL unchanged by this review; Google/YouTube real calls, reconsent, upload, UI enablement and billing actions all zero. No new phase or runtime redesign. Only report/design updates are registered with `docs: record remaining YouTube production blocker`; final commit SHA and readback SOURCE MATCH are reported after registration rather than self-embedded in its own commit.
+
+## Attachment (4): blocker decomposition and completed automation — 2026-10-02 JST
+
+Formal input baseline/current main before registration: `914823408161b2695e0cb7ac077f59cacaa425ac`; local equivalent `ce4f2dd70a0740835af1a89fe4afbb0397a35898`. Main checked against instruction. No old successful migration/deployment was replayed. New instruction supersedes the previous immediate-stop-on-ACL-mismatch interpretation and explicitly permits compatibility design/tests and dummy Staging concurrency.
+
+**PRODUCTION CUTOVER NOT READY.** One unresolved security evidence gate remains: actual authenticated PostgREST HTTP denial. Exact paid-feature configuration and official Staging history reconciliation remain access/owner prerequisites. No observed browser exposure or race safety failure. Do not classify this as READY — OWNER PRESTEP REQUIRED until the HTTP and billing evidence is complete; owner repair alone is not the only pending item.
+
+### ACL mismatch resolved into precise categories
+
+Fresh Production catalog-only audit: postgres owner; ordinary token table, RLS enabled, forced=false; policies 0; all three column ACLs NULL; table ACL grantees only postgres and service_role; service grants are not grantable. PUBLIC has no explicit table/column grant. Effective anon/authenticated table privileges SELECT/INSERT/UPDATE/DELETE/TRUNCATE/REFERENCES/TRIGGER/MAINTAIN all false; effective column SELECT/INSERT/UPDATE/REFERENCES all false. Browser direct token access is absent in catalog evidence. No token row/value/count/hash was queried.
+
+| Role / privilege | Classification | Reason |
+|---|---|---|
+| service_role SELECT | REQUIRED_RUNTIME | Gateway shared-core token lookup |
+| service_role INSERT / UPDATE | REQUIRED_RUNTIME | Atomic OAuth token upsert RPC |
+| service_role DELETE | UNNECESSARY_BUT_NOT_BROWSER_EXPOSED | No candidate token-store runtime delete path; catalog-only server grant |
+| service_role TRUNCATE | UNNECESSARY_BUT_NOT_BROWSER_EXPOSED | No runtime use; no browser grant |
+| service_role REFERENCES | UNNECESSARY_BUT_NOT_BROWSER_EXPOSED | No runtime token FK creation |
+| service_role TRIGGER | UNNECESSARY_BUT_NOT_BROWSER_EXPOSED | No runtime token trigger creation |
+| service_role MAINTAIN (PG17) | UNNECESSARY_BUT_NOT_BROWSER_EXPOSED | Existing server-only maintenance privilege; no runtime use |
+| PUBLIC / anon / authenticated | No DANGEROUS_BROWSER_EXPOSURE found | No table/column ACL and effective browser privilege false |
+
+Standard service_role RLS bypass is the CTO-approved standard server trust boundary, not a new custom BYPASSRLS role. Existing excess privileges enlarge server-key compromise impact; they are separately tracked post-cutover hardening, not a browser exposure or a demand for ACL reduction now. No additional privilege or delegation was granted. Source inspection confirms token runtime operations are SELECT and the atomic INSERT/UPDATE upsert; no candidate DELETE/TRUNCATE/REFERENCES/TRIGGER/MAINTAIN operation.
+
+### Non-destructive compatibility candidate — automation complete
+
+Created by official pinned CLI 2.119.0 migration new, not an invented timestamp:
+`supabase/migrations/20261002034214_youtube_token_store_existing_compatibility.sql`.
+
+Original 20260927080000 source is unchanged and remains the clean-environment minimal-ACL bootstrap. New existing-environment validator requires ordinary table/postgres owner/no inheritance, exact three columns/types/NOT NULL/defaults/PK, RLS enabled, policy 0, no PUBLIC/other grantees or grant options, no effective browser table/column access, and required service SELECT/INSERT/UPDATE. Known extra nondelegable standard service privileges are allowed; unknown/delegable/browser privileges fail closed. No row read/write, GRANT/REVOKE/OWNER/ALTER ROLE, schema/object creation or migration-history operation appears in the validator.
+
+Production exact candidate DO block was run **inside BEGIN READ ONLY**, with transaction_read_only=on, and returned existing_compatibility_verified=true. This is dry validation, not migration apply/history registration. Production table/ACL/data were not changed. Fresh conflict catalog: OAuth schema absent, new OAuth/Gateway RPC name conflicts 0, upload_attempts absent; existing Gateway schema owner postgres and ACL owner/standard service usage only.
+
+Staging isolated temporary-table rollback suite: **10/10 PASS**, exact expected error messages checked. Minimal runtime ACL and known server excess PASS. PUBLIC table grant, anon column grant, authenticated table grant, missing runtime privilege, RLS off, policy, service grant option and wrong default REJECT. Temporary dummy row retained; ROLLBACK removes all temporary test objects/data. Actual public token store and its ACL untouched. Test SQL's candidate body is source-identical except the relation is deliberately redirected to pg_temp. The candidate has not been persistently applied or recorded on either project.
+
+### Real overlapping DB races — all four PASS
+
+Changed execution orchestration: launch a long request, yield with its cell still running, launch the separate second request before waiting for completion. Each request has a separate transaction/backend; A retains runtime advisory locks for eight seconds. B's pg_try_advisory_xact_lock reports contention, then its real reserve RPC blocks until A finishes. No custom role/extension, background job or provider call.
+
+| Case | A transaction UTC interval | B UTC interval | Positive overlap + contention | Decisions / persisted result |
+|---|---|---|---|---|
+|A same channel, different users/keys|03:43:36.236–03:43:44.287|03:43:40.243–03:43:44.290|true; distinct backends|accepted/busy; one active row|
+|B same key, same fingerprint|03:44:43.449–03:44:51.459|03:44:50.172–03:44:51.462|true; distinct backends|accepted/existing; one row, duplicate 0|
+|C same key, different fingerprint|03:45:04.416–03:45:12.429|03:45:10.302–03:45:12.431|true; distinct backends|accepted/mismatch; original fingerprint preserved|
+|D transition to outcome_unknown vs new reserve|03:45:23.167–03:45:31.183|03:45:30.056–03:45:31.185|true; distinct backends|A reserved/began/marked unknown before hold; B busy; one unknown, new active 0|
+
+B.started < A.ended in every case with contention=true and distinct backend IDs. These are real overlapping transactions, unlike the previous serialized evidence. Aggregate active duplicate groups 0; half-commit rows 0; original C fingerprint true. No violation/deadlock/retry occurred. Targeted cleanup restricted to generated users AND dummy channels; final Gateway attempts 0, Auth fixtures 0. No OAuth/token fixture was created. Committed protocol updated with all four actual request blocks and positive-evidence predicates. No need to rerun these successful races merely for the next owner handoff.
+
+### Production manifest rebuilt (prepared, not executed)
+
+No blanket db push of the entire historical directory: that would still select the strict clean bootstrap. Explicit per-file, approved manifest execution is required; the original source remains available for new environments and is not falsely marked applied on Production. The new validator checks existing compatibility rather than pretending the old exact ACL contract passed.
+
+| Version / filename | Production current state | Action | Reason / order | Token preservation | ACL effect | Failure/rollback |
+|---|---|---|---|---|---|---|
+|20260927080000 / youtube_oauth_token_store_bootstrap.sql|Table exists with known nondelegable server excess ACL; strict old source unrecorded|REPLACE WITH COMPATIBILITY MIGRATION|Clean-env bootstrap not run on this existing environment; order replaced by new validator|No recreate/row access|No ACL edit|Never force old guard or falsely mark applied|
+|20261002034214 / youtube_token_store_existing_compatibility.sql|Exact DO block dry-validated READ ONLY; no history record|SAFE TO APPLY after full readiness/Production approval|Order 1 existing-token validation; already-satisfied invariants rechecked at cutover|Catalog only; no token rows touched|None|Guard failure stops cutover; transaction rollback|
+|20260927084829 / youtube_oauth_transactions.sql|Schema/new functions absent, conflict count 0; unchanged Staging-verified source|SAFE TO APPLY after full readiness/Production approval|Order 2 OAuth transaction objects/RPC; depends on order 1 PASS|No token write during migration; later approved token RPC atomic|New private/RPC service-only ACL; existing token ACL unchanged|Rollback whole migration on failure; no ad-hoc grant|
+|20261001224858 / youtube_gateway_real_upload_state.sql|Existing private schema but new table/RPCs absent, conflicts 0|SAFE TO APPLY after full readiness/Production approval|Order 3 state table/RPC; independently Staging-verified|No token operation|Existing schema remains browser-denied; new objects service-only|Transactional apply; stop on error, no replay workaround|
+
+Future execution method reviewed from installed CLI help: explicit `supabase db query --project-ref <approved-production-ref> --file <exact-approved-file>` per above order, then only after that exact file succeeds, official `supabase migration repair <that-source-version> --status applied --project-ref <approved-production-ref>` records actual executed source. This is a prepared controlled per-file apply/history workflow, not executed here. No manual history SQL or skipped migration falsely recorded. Verify exact history/source and actual catalog after each step, and stop on any failure. File order is manifest order, not timestamp sort; using unrestricted migration up/db push is prohibited for this existing-project exception. No historic migration filename/content rewrite.
+
+### Authenticated HTTP route: prepared owner-local runner, live evidence pending
+
+Investigated official createUser/password sign-in/getUser/global sign-out/deleteUser APIs. Existing callable MCP exposes publishable keys, SQL and deployment, but no Auth admin lifecycle route or server key retrieval. No existing Auth admin key in environment. No new test endpoint/privileged helper was deployed to expose built-in server secrets. A browser/dashboard fallback has not been initialized without required approval for plugin fallback.
+
+Prepared `tests/youtube/staging/verify_authenticated_http.py`: fixed Staging ref; official Auth lifecycle; synthetic .invalid email/random password and authenticated JWT memory only; no signup/security changes; no SMTP/provider call; no credential output or saved file. Owner uses an existing Staging server key only in a hidden local terminal prompt, never chat/command arguments. Initial/final Auth admin fixture counts must be zero. Real signed user identity/role is validated before HTTP tests. SELECT uses limit=0 (no token values returned); INSERT uses NULL PK/token so unexpected permission cannot persist a token; UPDATE/DELETE use synthetic negative-ID filters. Exact RPC argument names match the B8 source. Expected table 403/42501 and RPC 403/42501 or privilege-hidden discovery 404/PGRST202; other responses fail closed. Logout failure still attempts user deletion; cleanup failure stops. Outstanding JWTs expire normally; no claim that deletion instantly revokes every issued JWT.
+
+Offline runner safety tests **3/3 PASS**: sanitized successful-denial workflow; unexpected allowed response still deletes user; logout transport error does not skip deletion. These mocks are not live Auth/PostgREST proof. The runner has **not** been run with a real key/user; authenticated HTTP remains UNVERIFIED. Before owner execution confirm exact healthy Staging, Free status and token/Auth/state fixtures zero through authorized metadata/count checks. Do not supply Production keys or credentials.
+
+### Repair and billing: precise owner/access prerequisites
+
+Official CLI `migration list --project-ref zjgmgwjeebphkbbqjbfi` was attempted read-only and failed AccessTokenRequiredError. CLI installed locally via pinned npx, not global; no DB password/PAT/server key environment or fallback CLI token file exists. Exposed MCP has no official repair operation. Existing official Management API patch/upsert docs do not provide a callable authenticated version-renumbering capability here. Safe route is owner-local CLI authentication and official repair, not credential extraction/manual history DML.
+
+Staging history unchanged: 20261001115200→20260927080000, 20261001115628→20260927084829, 20261002014237→20261001224858. Candidate 20261002034214 was dry-tested only and must NOT be repaired as applied on Staging now. Owner repair (from the current repository, exact Staging ref, hidden official auth prompts):
+
+```sh
+supabase login
+supabase migration repair 20261001115200 20261001115628 20261002014237 --status reverted --project-ref zjgmgwjeebphkbbqjbfi
+supabase migration repair 20260927080000 20260927084829 20261001224858 --status applied --project-ref zjgmgwjeebphkbbqjbfi
+supabase migration list --project-ref zjgmgwjeebphkbbqjbfi
+```
+
+Owner executes the guarded repair workflow only after checking current exact source/history/catalog; no schema replay or migration up. Password/token values never belong in command text/chat/report. If an official local auth/password prompt occurs, enter it locally. Post-repair compare schema/table/RPC/RLS/ACL/owner and fixture counts against the retained baseline; never count login alone as successful repair.
+
+Billing: fresh org free/tier_free; existing two projects only used; Spend Cap NOT APPLICABLE — FREE PLAN. Exact Compute/IPv4/PITR/domain/backups/log/network/extra-billing flags still not exposed by current connector. Official read-only project-addons API exists, but authenticated API capability unavailable. No paid action/upgrade/settings change. General Free-plan noncharging documentation is retained; exact feature flags are not inferred. Minimal remaining access route is read-only Dashboard inspection (browser fallback requires user approval) or owner-local authenticated Management API inspection; no enable/upgrade/purchase/payment action.
+
+### Four-class handoff
+
+| Classification | Items |
+|---|---|
+|AUTOMATION COMPLETE|Production table/column/PUBLIC/effective-role ACL audit; existing-token compatibility candidate and READ ONLY proof; ten temp SQL safety cases; all four overlapping race proofs; idempotency/unknown cleanup; manifest preparation; Auth test runner and offline safety checks; Node regression and secret scan|
+|OWNER ACTION REQUIRED|Existing Supabase owner local login + official Staging repair; owner-local Auth runner with hidden existing Staging key OR separately approved safe dashboard-assisted lifecycle; read-only exact billing/compute/addon evidence. These are three work packages, not one falsely claimed login-only prestep. No secrets in chat.|
+|PRODUCTION CUTOVER ACTION|After readiness and explicit approval: per-file DB/official history registration; hardened OAuth/Gateway/tombstone deployment in approved order; later owner reconsent/channel/token/private upload/release gates. Existing token ACL reduction is optional separately reviewed post-cutover hardening, not performed now.|
+|UNRESOLVED SECURITY BLOCKER|Live authenticated HTTP denial proof only. No observed dangerous grant, bypass or race violation. Missing billing configuration remains a separate access/cost-evidence gate; history repair is an owner prerequisite.|
+
+Final gates: compatibility/token-preservation/browser-catalog-isolation/races/idempotency/unknown/Gateway/tombstone/OAuth-plan/manifest/regression/scan PASS at their stated source/preparation scopes. Authenticated HTTP NOT VERIFIED; exact Billing config NOT VERIFIED; official repair NOT EXECUTED. Gateway prior deployment retained, no redeploy. Node **89/89 PASS**, SQL compatibility **10/10**, offline Auth-runner safety **3/3**. Deno unavailable, no global install. Diff/credential/secret scan PASS. Production no persistent DB/DDL/DML/history/Auth/Secret/Function/ACL change, no token data read; Google/YouTube calls/reconsent/upload/UI enablement and billing actions all zero. Candidate source/tests/docs only registered, readback SOURCE MATCH reported after commit. No Production cutover authorization implied.
