@@ -1,6 +1,6 @@
 # YouTube Phase 3 — 高速完遂作業の最終状態
 
-更新日: 2026-10-02 JST
+更新日: 2026-10-03 JST
 
 **PRIVATE TEST UPLOAD NOT READY — 社長AAL2正常系・実channel binding・本番切替が未完了。**
 
@@ -15,7 +15,7 @@
 |Staging履歴|現在の実DBは20260927080000 / 20260927084829 / 20261001224858。正式versionに整合済み。READ ONLYでstored statementsと候補を照合: 4/21/18 statementsすべて一致（CRLF/LF・文区切り・外側空白を正規化）。修復SQLやCLI repairを再実行していない。修復主体/方法はこの観測から断定しない|
 |AAL2 / allowlist|候補コードの必須判定を保持。現在の実セッションでAAL2/allowlist内のpositive HTTP検証は未実施。未認証拒否は既存実HTTP証跡、AAL1/allowlist拒否は既存テスト証跡として区別|
 |validation経路|候補正常系テストPASSを保持。今回の認証済み実HTTP正常系は未実証|
-|対象チャンネル|指定Runa-Girl8215。候補はserver-side channel bindingを必須化。実providerの現在のbinding確認は未実施、確認済みとしない|
+|対象チャンネル|社長正式確認済み: Runa-Girl8215 / https://www.youtube.com/@Runa-Girl8215 。他channel禁止。候補はserver-side一意Channel ID bindingを必須化。authenticated providerから取得する実ID照合は未実施。handle承認と実provider照合を区別|
 |Gateway|既存Staging ACTIVE v1 / verify_jwt=true証跡を保持、再Deployなし。候補実投稿はserver-only opt-inかつProduction URL限定|
 |legacy upload封鎖|410 tombstone候補あり。Productionへ封鎖版Deploy済みとは扱わない。唯一の正式入口の本番切替は未完了|
 |privacyStatus|候補コードはprivate固定。public/unlistedへの変更なし|
@@ -23,9 +23,11 @@
 |投稿予定動画|未指定・未受領。仮の動画を作って実投稿しない|
 |Deno|従来の利用不可を保持。global installなし|
 
-現在の認証境界: 既存Production認証画面をブラウザで開き、表示は未ログイン/AAL none。安全なbrowserAuth入力により登録済み本人用Magic Link送信ボタンを1回実行し、「メールを確認してください。リンクはこのブラウザで開いてください」を観測。メールアドレス/key/JWTを取得・出力していない。新規signup、TOTP enroll、設定変更、動画選択/送信なし。これはログイン完了やAAL2成功ではない。
+現在の認証境界: 2026-10-03再開時、旧Cloud Browserタブは存在せず、新しい既存認証ページの表示は未ログイン/AAL none。前日の実Authログでは /otp HTTP429・over_email_send_rate_limit 3件、HTTP200 2件を確認。READ ONLY集計で登録ユーザー1・email確認済み1・ban0・verified TOTP1。ユーザー/MFA再作成なし。制限解除時刻は断定しない。
 
-次の1アクション: 同じCloud Browserで社長本人が受信済みMagic Linkを開く手動handoff。リンク/JWT/OTPをチャットに貼らない。続いて既存TOTPでAAL2到達を安全な認証handoffで確認し、validation_only正常系を検証する。channel実binding・legacy閉鎖・実投稿設定・動画選定が未完了なので、ここからREADYとはしない。Staging denialのkey要求と履歴修復待ちは解消済み。
+本人用Magic Linkを1回送信するbrowserAuth要求は、送信制限解除の証拠不足を理由に自動承認レビューで拒否された。ユーザー入力フォーム表示前、メール送信前に停止。別ブラウザ/CLI/HTTPによる迂回・再送なし。今回Secret取得、OAuth/providerアクセス、Google/YouTube通信、動画選択/送信なし。
+
+次の1アクション: 未使用かつ有効な最新Magic Linkがある場合のみ、社長本人がCloud Browserで1回開く。ない場合は送信制限解除が確認できるまで再送しない。認証後、既存TOTPによるAAL2→allowlist正常系→OAuth→実provider Channel ID照合→Gateway/legacy封鎖を進める。未検証をREADYと扱わない。前日のStaging実HTTP8拒否・cleanup0、履歴整合、Node89/89・Auth safety3/3・BillingGREENは継承し、理由なく再検証しない。
 
 git diff --check / 本報告Secretパターンscan PASS。Commit値は登録後の完了報告で提示し、自分自身のSHAをファイルへ循環記入しない。Production DB/Auth/Secret/Function/履歴変更なし。実OAuth/Google/YouTube通信、実投稿、再認可、課金操作なし。本人要求のSupabase認証メール送信のみ実施。
 
