@@ -1,3 +1,38 @@
+# YouTube Phase 3 — 高速完遂作業の最終状態
+
+更新日: 2026-10-02 JST
+
+**PRIVATE TEST UPLOAD NOT READY — 認証アクセス待ち。** READYとは記録しない。
+
+- Branch: `feature/youtube-phase3-private-readiness`
+- GitHub main基点: `28ff4db0f1269facc32e9a0de60cb33d47dd646e`。mainへ直接登録せずfeature branchのみ。
+- 変更: 本報告のみ。既存のGateway/Auth/DB設計・Production・Secret・課金設定を変更していない。
+- Node 89/89 PASS、Authランナー安全テスト3/3 PASS、Billing GREENは確認済みとして保持。今回同じテスト/Billingを再実行していない。Auth 3/3はoffline safetyであり、実HTTP成功を意味しない。
+
+| 最終確認項目 | 状態 |
+|---|---|
+|authenticated HTTP|未実証。正規のStagingユーザーセッションとAuth管理アクセスが環境にない。JWT偽造、Auth直接挿入、権限拡張、Secret抽出を行っていない|
+|Staging履歴|現在の実DBは20260927080000 / 20260927084829 / 20261001224858。正式versionに整合済み。READ ONLYでstored statementsと候補を照合: 4/21/18 statementsすべて一致（CRLF/LF・文区切り・外側空白を正規化）。修復SQLやCLI repairを再実行していない。修復主体/方法はこの観測から断定しない|
+|AAL2 / allowlist|候補コードの必須判定を保持。現在の実セッションでAAL2/allowlist内のpositive HTTP検証は未実施。未認証拒否は既存実HTTP証跡、AAL1/allowlist拒否は既存テスト証跡として区別|
+|validation経路|候補正常系テストPASSを保持。今回の認証済み実HTTP正常系は未実証|
+|対象チャンネル|指定Runa-Girl8215。候補はserver-side channel bindingを必須化。実providerの現在のbinding確認は未実施、確認済みとしない|
+|Gateway|既存Staging ACTIVE v1 / verify_jwt=true証跡を保持、再Deployなし。候補実投稿はserver-only opt-inかつProduction URL限定|
+|legacy upload封鎖|410 tombstone候補あり。Productionへ封鎖版Deploy済みとは扱わない。唯一の正式入口の本番切替は未完了|
+|privacyStatus|候補コードはprivate固定。public/unlistedへの変更なし|
+|二重投稿防止|4実並行race PASSを保持。outcome_unknownは再投稿禁止、未解決channelを保持。再試験・実投稿なし|
+|投稿予定動画|未指定・未受領。仮の動画を作って実投稿しない|
+|Deno|従来の利用不可を保持。global installなし|
+
+STOP理由: 指示の条件4。既存CLI PAT/DB password/server keyも正規のテスト用ユーザーsessionも、この実行環境にない。Dashboard承認はREAD-ONLYなので、Auth作成、MFA設定変更、Secret表示をブラウザで行わない。認証アクセスを新規発行・表示・取得する社長操作が必要となる境界で停止。通常の実装修正では解決できず、安全設計を下げない。
+
+次の1アクション: 社長のローカル環境で、既存Staging server keyをチャット/Git/引数に渡さず、`python tests/youtube/staging/verify_authenticated_http.py` のhidden promptへ入力して正規Auth/PostgREST denial実証を実行する。既存keyが使えるなら新規発行は不要。安全labelの結果のみ返す。このrunnerはtoken表/RPC拒否の実証であり、社長AAL2/allowlist内Gateway正常系や動画READYを自動的に証明しない。それらは正規の社長セッションと動画選定が別途必要。
+
+git diff --check / 本報告Secretパターンscan PASS。Commit値は登録後の完了報告で提示し、自分自身のSHAをファイルへ循環記入しない。Production DB/Auth/Secret/Function/履歴変更なし。実OAuth/Google/YouTube通信、実投稿、再認可、課金操作なし。
+
+---
+
+以下は既存Cafeプロジェクト報告（内容を保持）。
+
 # Project-001｜001・002再現解析システム 最終回帰検証 完了報告
 
 **状態:** `final_regression_passed` / `ready_for_candidate_evaluation`
