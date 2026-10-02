@@ -2,7 +2,7 @@
 
 Date: 2026-10-02 JST
 
-**PRODUCTION CUTOVER NOT READY** — attachment (4) closes existing-token compatibility and all four real overlapping Staging races. Live authenticated HTTP proof and exact billing configuration remain pending authorized access; official history repair requires owner local auth. The final section supersedes earlier blocker/stop interpretations.
+**PRODUCTION CUTOVER NOT READY** — attachment (4) closes existing-token compatibility and all four real overlapping Staging races. Billing configuration is now GREEN after the approved read-only Dashboard inspection below. Live authenticated HTTP proof remains pending; official history repair requires owner local auth. The final section supersedes earlier blocker/stop interpretations.
 
 ## Baseline / scope
 
@@ -429,3 +429,33 @@ Billing: fresh org free/tier_free; existing two projects only used; Spend Cap NO
 |UNRESOLVED SECURITY BLOCKER|Live authenticated HTTP denial proof only. No observed dangerous grant, bypass or race violation. Missing billing configuration remains a separate access/cost-evidence gate; history repair is an owner prerequisite.|
 
 Final gates: compatibility/token-preservation/browser-catalog-isolation/races/idempotency/unknown/Gateway/tombstone/OAuth-plan/manifest/regression/scan PASS at their stated source/preparation scopes. Authenticated HTTP NOT VERIFIED; exact Billing config NOT VERIFIED; official repair NOT EXECUTED. Gateway prior deployment retained, no redeploy. Node **89/89 PASS**, SQL compatibility **10/10**, offline Auth-runner safety **3/3**. Deno unavailable, no global install. Diff/credential/secret scan PASS. Production no persistent DB/DDL/DML/history/Auth/Secret/Function/ACL change, no token data read; Google/YouTube calls/reconsent/upload/UI enablement and billing actions all zero. Candidate source/tests/docs only registered, readback SOURCE MATCH reported after commit. No Production cutover authorization implied.
+
+
+## Approved read-only Dashboard Billing verification — 2026-10-02 UTC
+
+**BILLING BLOCKER: GREEN. FREE-OPERATION COMPATIBLE at the inspected configuration.**
+Formal GitHub baseline before this report-only registration: `7e482d373e45020c1c3dae34357ce54499581ee9`. Local baseline `4f27c31e3419d7ba5e27e58418899a24e6c6e44a` has exactly the same tree. The president explicitly approved Dashboard browser fallback for read-only Billing inspection. Secure sign-in was completed through the browser authentication handoff; no credential value was retrieved or recorded. No API Keys, JWT Keys, Vault, Connect credentials, token store or Secret screen was opened.
+
+Observed organization: FieldRizeJapan, `epwwqilutwvhvcdskiyk`, Free Plan, exactly the existing two projects. Staging is `zjgmgwjeebphkbbqjbfi`; Production is `nmkcjtrllzkwjxmjromw`; both are ap-northeast-1. Dashboard main-branch “PRODUCTION” labels are branch labels and do not change the Staging project identity.
+
+| Requested item | Production | Staging | Read-only evidence / result |
+|---|---|---|---|
+|Organization Plan|Free|Free|Organization Billing explicitly displays Free Plan; GREEN|
+|Compute|NANO / t3.nano, $0/hour|NANO / t3.nano, $0/hour|Each Infrastructure page and project list agree; no paid Compute|
+|Paid Add-ons|None enabled among listed Add-ons|None enabled among listed Add-ons|Both Add-ons pages show all three entries DISABLED|
+|Dedicated IPv4|DISABLED|DISABLED|Actual project Add-ons status, not inferred from API omission|
+|PITR|DISABLED|DISABLED|Actual project Add-ons status|
+|Custom Domain|DISABLED; N/A for current Free entitlement|DISABLED; N/A for current Free entitlement|General settings explicitly require a Pro Plan add-on|
+|Read Replicas|None|None|Infrastructure displays No read replicas|
+|Paid Compute/disk scaling|N/A — Free Plan|N/A — Free Plan|Infrastructure explicitly says only available on Pro Plan and above|
+|Log Drains|N/A — Free Plan; not configured|N/A — Free Plan; not configured|Both pages require Pro, Team or Enterprise; no configured drain is displayed|
+|Spend Cap paid-plan control|N/A — Free Plan|N/A — Free Plan|Free entitlement is the governing boundary. Billing UI also renders “enabled” and explicitly states no extra usage charges; no toggle was opened|
+|Additional usage charges|No automatic paid overage at current Free configuration|Same organization boundary|Billing states included-quota limit and possible unresponsive/read-only behavior on exceeding quota|
+|Payment method|None (organization-wide)|Same|Billing explicitly displays No payment methods|
+|Billing amount|$0.00 recorded invoice|Same|One displayed past invoice, amount $0.00; invoice was not downloaded|
+
+Evidence pages: organization `/dashboard/org/epwwqilutwvhvcdskiyk/billing` and project `/settings/general`, `/settings/infrastructure`, `/settings/addons`, `/settings/log-drains` for both exact refs. Only page navigation and rendered UI reading occurred. No plan change, spend-cap change, paid feature activation, purchase, payment method change, settings save, restart, pause, replica creation or invoice download. Paid choices displayed in the Compute catalog are offerings, not active resources; they were not selected. No future paid dependency is authorized by this GREEN result. Normal operation must remain within Free quotas; exhaustion is an availability limit, never justification for upgrade.
+
+This section supersedes earlier “exact Billing config NOT VERIFIED” and Billing access-blocker statements. **PRODUCTION CUTOVER NOT READY** remains: live authenticated HTTP denial is still unverified, and official Staging migration history repair still requires authorized owner-local authentication. This Billing-only authorization did not authorize Auth fixtures, history repair or Production cutover. Existing race/compatibility proofs remain retained; none was replayed.
+
+Validation for this report-only registration: Node regression 89/89 PASS; git diff --check PASS; changed report credential/secret-pattern scan PASS. No code, migration, design or test file changed. Production DB/Auth/Secret/Function/ACL/history unchanged; no token data read. Google/OAuth/YouTube real calls, reconsent, upload, Deploy and billing actions all zero. Final GitHub SHA and full report readback SOURCE MATCH are reported after registration.
