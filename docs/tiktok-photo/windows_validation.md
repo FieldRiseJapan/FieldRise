@@ -238,3 +238,6 @@ PASS条件：検索コピー、保存復元、同名誤確定防止、複製再�
 
 ## 復旧操作のhidden表示修正（Windows実施待ち）
 [正式報告](../momoka/reports/tiktok_photo_storage_hidden_fix.md)。CSS修正版を同じChromeプロフィール・Originで起動しCtrl+F5。最初は保存状態文と復旧3操作の非表示、既存10件・ID・cafe維持だけを確認する。次に保存・再読込を個別に確認。データ初期化・削除・バックアップ削除は行わない。CSS表示確認を端末保存成功と混同しない。
+
+## バックアップ付きCSS適用・最終検証（未実施）
+[CSS適用手順](windows_css_apply.md)と[準備報告](../momoka/reports/tiktok_photo_css_windows_final_preparation.md)を参照。社長承認後に単一cmdスクリプトを実行し、PASS／ALREADY APPLIEDとCSS SHA-256を記録。適用はCSSだけで、Chrome保存領域を変更しない。その後Ctrl+F5、状態文、復旧3操作非表示、10件・ID・cafe保持、既存セット読込、承認された保存とF5復元を一操作ずつ確認する。二タブ競合は合成データの隔離環境を優先。実機未実施をPASSにしない。全条件が未達の間はCTO最終レビュー待ち。

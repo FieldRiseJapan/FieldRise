@@ -1,6 +1,6 @@
 # 最新報告
-[Creator Studio 復旧操作表示異常 修正報告](tiktok_photo_storage_hidden_fix.md)
+[保存保護CSS修正・Windows最終検証準備](tiktok_photo_css_windows_final_preparation.md)
 
-CSSがhidden属性の非表示を上書きする問題を最小修正。Node108件・Python7件・診断18項目PASS。Windows Chromeの今回版・保存正常性は未検証。本番利用／Production反映不可。
+バックアップ・重複防止・SHA確認付きのWindows単一ファイル適用スクリプトを準備。Node108件、Python12件、診断18項目PASS。社長PCでは未実行・承認待ち。Windows描画と保存は別判定でNOT TESTED。本番利用・Production反映不可。
 
-[前回の保存保護改修](tiktok_photo_storage_protection.md)
+[CSS表示異常の原因・修正](tiktok_photo_storage_hidden_fix.md)
