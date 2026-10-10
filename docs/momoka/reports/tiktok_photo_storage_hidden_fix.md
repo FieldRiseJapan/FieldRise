@@ -42,5 +42,5 @@ page.mjs、storage.mjs、JSON形式、SoundOn楽曲情報、保存データは�
 最初の確認は画面上部の「保存データ読込完了」と復旧3操作の非表示です。件数10・ID・cafeを維持すること。非表示確認だけで保存正常PASSとせず、その後必要な保存・再読込を別操作として確認します。警告が残る場合は状態文を確認し、再検証や初期化を安易に実行しません。バックアップ2本と元画像は保持します。
 
 ## Git・未解決事項・判定
-ブランチ: fix/tiktok-photo-storage-protection。Commit・Push結果はGit履歴と最終報告で確定します。
+ブランチ: fix/tiktok-photo-storage-protection。実装Commit: `bdcad90e3f61f02ee664ca50edb336bac7341780`。指定開発ブランチへのPush成功。報告追記の最終CommitはGit履歴と最終報告に記載。
 CSS表示異常は修正完了候補。社長PCでの修正版描画と保存正常性は未確認。Production反映不可／本番利用承認待ち。main・Pages・Production変更、TikTok実投稿、SoundOn情報変更はありません。
