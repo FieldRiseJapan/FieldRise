@@ -1,13 +1,15 @@
-# 最新報告：ZIP保存Windows実機検証記録
+# 最新報告：TikTok × SoundOn Studio音源連携 Phase 2
 
 2026-10-10 / GPT桃花 / feature/tiktok-photo-global-english
 
-[正式報告書](tiktok_photo_zip_export_safety.md) / [Windows検証手順](../../tiktok-photo/windows_validation.md)
+[正式報告](tiktok_soundon_studio_phase2.md) / [Windows手順](../../tiktok-photo/windows_validation.md) / [既存ZIP実機PASS記録](tiktok_photo_zip_export_safety.md)
 
-**ZIP保存機能：Windows実機検証PASS（社長確認）。Creator Studio全体：Production反映不可。**
+**開発完了候補・Production反映不可。** アーティスト名優先検索とコピー、5状態の本人照合記録、ジャケット／リリース・時間比較、下書き再編集保持、セット保存復元・複製再確認を追加。Studio本人照合は配信識別や収益確認と別管理。
 
-対象Commit：`bb4eb678e1df383fa34429d79d9272232317c945`。Windows Chrome・PythonローカルHTTPでJPG3枚の投入、3:4適用、ZIP保存・展開、連番001～003各900×1200、3枚正常表示、SoundOn未確認での出力を確認。保存セット10件は一覧・ID維持を確認。TikTok実投稿なし。
+社長実機：ビジネスアカウントRuna-Girl8215でcafe / Runa-Girl8215 / 00:59選択・TikTok下書き保存・再編集音源保持を確認。公開投稿なし。全楽曲・ISRC等の対応・収益・API指定は未確認。新UIのWindows確認は未実施。
 
-未検証：以前の直接停止原因、全形式、EXIF方向・位置情報削除、既存10件全フィールド一致、公式音源一致、ビジネスアカウント利用許可、TikTok投稿動作。今回のPASSは投稿・収益化承認ではない。
+Node93/93、Python7/7、診断17/17 PASS。8静的ファイルSHA-256全一致。JSON v1〜v6維持、既存データの削除・初期化なし。
 
-変更は正式報告・Windows手順・本ファイルのみ。コード変更・データ変更・main反映・Production公開・Pages変更・実投稿なし。過去の自動テストはNode83/83、Python7/7、診断17/17 PASS（今回再実行なし）。今回の文書検査結果と記録Commit SHAは最終回答およびGitHub履歴を参照。
+実装Commit `8d660fd944619f9fbfdfc01a221c9471722a1f08` は開発ブランチ反映確認済み。報告Commitの最終SHAはGit履歴／最終回答を参照。詳細な変更11ファイル・テスト範囲・社長の次操作は正式報告に記載。
+
+main変更、Production／Pages公開、実投稿、有料API、音源情報の推測補完なし。
