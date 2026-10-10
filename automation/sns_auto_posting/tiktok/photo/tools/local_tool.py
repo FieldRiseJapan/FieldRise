@@ -15,7 +15,7 @@ from urllib.parse import unquote, urlsplit
 
 PHOTO = Path(__file__).resolve().parents[1]
 ASSETS = ['index.html', 'style.css', 'page.mjs', 'core.mjs', 'batch.mjs', 'data.mjs', 'workflow.mjs', 'assist.mjs']
-BASE = '0838123cadbe43e2b948eb262fc33f2694dbf241'
+BASE = '201632fe9411b8408ac47c8ea2442f2e9e08585c'
 
 class IdParser(HTMLParser):
     def __init__(self):

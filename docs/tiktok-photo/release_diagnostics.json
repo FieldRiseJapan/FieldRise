@@ -1,6 +1,6 @@
 {
   "platform": "Linux",
-  "baseline": "0838123cadbe43e2b948eb262fc33f2694dbf241",
+  "baseline": "201632fe9411b8408ac47c8ea2442f2e9e08585c",
   "checks": [
     {
       "name": "required static assets",
@@ -117,7 +117,7 @@
     },
     {
       "name": "workflow.mjs",
-      "sha256": "3740d58e87f472b3d180fce788610ebfde4eb84b82db673486e3b92acbf6508d"
+      "sha256": "98c5d0661d4c6aae123ab59709d19b8e80dcf1191df852dbf5bcacefaf76c912"
     },
     {
       "name": "assist.mjs",

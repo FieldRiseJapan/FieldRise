@@ -49,7 +49,7 @@ export function captions(category,context,purpose,song,length='標準',custom=''
  const hasJapanese=s=>/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(s);
  const input=clean(context,500),free=clean(custom,120),feel=clean(mood,120);const c=hasJapanese(input)?'':input.replace(/[.!?]+$/,''),topic=hasJapanese(free)?'':free;
  const variant=Number.isSafeInteger(options.variant)?Math.abs(options.variant)%2:0;
- const moodText=/calm|relax|穏やか|ゆったり/i.test(feel)?'Keeping the mood calm.':/jazz|ジャズ/i.test(feel)?'A little jazz in the background.':feel&&!hasJapanese(feel)?'With a '+feel.replace(/[.!?]+$/,'')+' feel.':'';
+ const moodText=/calm|relax|穏やか|ゆったり/i.test(feel)?'Keeping the mood calm.':/jazz|ジャズ/i.test(feel)?'A little jazz in the background.':feel&&!hasJapanese(feel)?'Mood: '+feel.replace(/[.!?]+$/,'')+'.':'';
  return styles.map((style,i)=>{const phrase=bank[category][i][variant],prefix=length==='短め'?'':c?c+'. ':category==='その他'&&topic?topic+'. ':'';
  const music=options.mentionMusic||purpose==='楽曲を紹介'?` Soundtrack: “${song.title}” by ${song.artist}.`:'';
  return {style,title:(c||phrase.replace(/\.$/,'')).slice(0,90),description:(prefix+phrase+(length==='短め'?'':music)+(length==='長め'&&moodText?' '+moodText:'')).slice(0,1500),tags:englishTags(category,input,feel,purpose,song,options.brandTags===true)};});
