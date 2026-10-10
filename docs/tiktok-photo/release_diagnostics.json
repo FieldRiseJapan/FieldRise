@@ -1,6 +1,6 @@
 {
   "platform": "Linux",
-  "baseline": "1e6d74b2c981c51a24035c17102e99897c295626",
+  "baseline": "bcd0e375696fb70a5f5144055944ee370fe7717c",
   "checks": [
     {
       "name": "required static assets",
@@ -78,6 +78,11 @@
       "detail": ""
     },
     {
+      "name": "HTTP storage.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
       "name": "HTTP entry route",
       "status": "PASS",
       "detail": ""
@@ -93,7 +98,7 @@
   "assets": [
     {
       "name": "index.html",
-      "sha256": "4da6ff71d660ad38c57bcf9015c749d564568cf7a3ae1f279f5e73cbba25b98f"
+      "sha256": "71720900a335c4a64be0f610ff9e2933922ec4346d523fd81c56e7e4f3f293e4"
     },
     {
       "name": "style.css",
@@ -101,7 +106,7 @@
     },
     {
       "name": "page.mjs",
-      "sha256": "fc10aa903fc9ab5ff68e533d99d0a803a9359c9977d0a731132dbf8d52ab218b"
+      "sha256": "3a6086027662092c528ec76a00f64003b4993cb7a906bdd1a4ea68563ab9b232"
     },
     {
       "name": "core.mjs",
@@ -122,6 +127,10 @@
     {
       "name": "assist.mjs",
       "sha256": "ce3277d99e7d81bb0f52b3a9bdaa418e5278eca41b0f4651f42f5f5f17c1dab4"
+    },
+    {
+      "name": "storage.mjs",
+      "sha256": "6d6ace3900a05ef6c601254ad427c8745937b9dd526badb25a35f6f6d65bea64"
     }
   ]
 }

@@ -14,8 +14,8 @@ from urllib.request import urlopen
 from urllib.parse import unquote, urlsplit
 
 PHOTO = Path(__file__).resolve().parents[1]
-ASSETS = ['index.html', 'style.css', 'page.mjs', 'core.mjs', 'batch.mjs', 'data.mjs', 'workflow.mjs', 'assist.mjs']
-BASE = '1e6d74b2c981c51a24035c17102e99897c295626'
+ASSETS = ['index.html', 'style.css', 'page.mjs', 'core.mjs', 'batch.mjs', 'data.mjs', 'workflow.mjs', 'assist.mjs', 'storage.mjs']
+BASE = 'bcd0e375696fb70a5f5144055944ee370fe7717c'
 
 class IdParser(HTMLParser):
     def __init__(self):
