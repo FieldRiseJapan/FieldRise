@@ -70,8 +70,3 @@ CONDITIONAL：機能と全回帰はPASS、重大なテストFAILなし。一方�
 https://github.com/FieldRiseJapan/FieldRise/tree/feature/tiktok-photo-global-english
 
 Production反映・main Push・Pages設定変更・TikTok/YouTube実投稿/予約・課金・OAuth/Supabase変更・実データの無断削除：すべてなし。
-
-
-過去の報告：
-- [最終品質保証](tiktok_photo_global_final_readiness.md)
-- [英語版Windows確認](tiktok_photo_global_english_windows_validation.md)

@@ -62,3 +62,11 @@ Windows重大FAIL/データ消失/Secret混入/音源完了拒否の不具合が
 - 初期の未編集・未参照楽曲はプレビュー/明示確認でバックアップ情報へ採用可能。完全一致楽曲共用は全項目比較。その他競合は全体拒否。保存成功まで画面状態も変更しない。JSON v6のまま旧v1～v6互換を維持。移行手順はwindows_validation.md。
 - 読取HTTP確認：公式トップ `https://fieldrisejapan.github.io/FieldRise/` は200。写真ツール候補URLは404で、現時点で稼働確認できない。Pages公開APIは404のため公開元/設定は不明。現行トップ稼働はCreator Studio公開済みを意味しない。
 - 判定CONDITIONAL。公開前に実Windowsで移行・保存復元・JPEG表示/EXIFを確認し、管理者がPages公開元を確認。旧判定のJSON問題はコード修正済みだが実ユーザーバックアップでの検証は残る。
+
+## 最終公開判定時の音源/配信確認（2026-10-10）
+公開は依然CONDITIONAL。Windowsの単一確認表はwindows_validation.md先頭。公開APIではPages設定404、公式トップ200、写真ツール候補404を再確認。公開設定を推測しない。Creator Studioの公開準備と音源の実投稿利用承認は別に扱う。
+TikTok公式の商用音楽ガイドは、商業投稿でCML利用を推奨し、CML外/オリジナル音源では必要な権利の確認を求める。SoundOn配信済みだけでは対象アカウント・地域での商用利用可/印税発生を断定できない。本人はStudioで選択とプレビューまで確認し、SoundOnの配信識別・商用ライセンス設定を閲覧する。未確認の音源は未確認のまま、利用不可なら準備完了を拒否する。原本へ音声を埋め込んで回避したりアカウント種別を変更したりしない。
+参照（2026-10-10）：
+- https://support.tiktok.com/en/business-and-creator/creator-and-business-accounts/commercial-use-of-music-on-tiktok
+- https://ads.tiktok.com/resources/help/article/how-to-use-the-commercial-music-library?lang=en-GB
+- https://www.soundon.global/knowledge/faq?group=releasing_music&lang=en

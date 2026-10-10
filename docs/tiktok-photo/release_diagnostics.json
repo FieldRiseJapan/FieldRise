@@ -1,6 +1,6 @@
 {
   "platform": "Linux",
-  "baseline": "5f3c76bfea28146e8833bac6fc93076bda9772f9",
+  "baseline": "4c700b8e93dc6261bb327378cc5360c5cc829b85",
   "checks": [
     {
       "name": "required static assets",
@@ -93,7 +93,7 @@
   "assets": [
     {
       "name": "index.html",
-      "sha256": "8423676068bb0f83c531ceb0edad39b9f2cd4adec72978c57cf0579569288753"
+      "sha256": "22415d02921f044f89f02905b0f873bead542b5c8ba6199b9facecd28cc11ddd"
     },
     {
       "name": "style.css",
