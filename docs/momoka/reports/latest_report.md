@@ -1,3 +1,6 @@
 # 最新報告
-[Creator Studio 保存保護改修](tiktok_photo_storage_protection.md)
-専用ブランチ fix/tiktok-photo-storage-protection。元保存データを置換する保護解除を廃止し、再検証・タブ間競合保護へ変更。Windows実機は未検証。Production反映不可。
+[Creator Studio 復旧操作表示異常 修正報告](tiktok_photo_storage_hidden_fix.md)
+
+CSSがhidden属性の非表示を上書きする問題を最小修正。Node108件・Python7件・診断18項目PASS。Windows Chromeの今回版・保存正常性は未検証。本番利用／Production反映不可。
+
+[前回の保存保護改修](tiktok_photo_storage_protection.md)

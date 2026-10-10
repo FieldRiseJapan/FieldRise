@@ -6,3 +6,6 @@
 #storageStatus,#repeatWarning{color:#ffd394;font-weight:600}#saveCurrent,#downloadAll{font-weight:700}#contentHistory{max-height:480px;overflow:auto}#handoffInfo{padding:12px;border:1px solid #60A5FA;border-radius:10px}input[type=date]{color-scheme:dark}
 
 button:hover:not(:disabled),.button:hover:not([aria-disabled=true]){background:#1D4ED8;color:#FFFFFF}button:active:not(:disabled),.button:active:not([aria-disabled=true]){background:#1E40AF;color:#FFFFFF}select:focus-visible,textarea:focus-visible{outline-color:#93C5FD}
+
+/* Author display rules must never reveal controls marked hidden. */
+[hidden]{display:none!important}
