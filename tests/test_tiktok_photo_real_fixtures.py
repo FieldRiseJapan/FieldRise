@@ -28,3 +28,16 @@ class RealFixtures(unittest.TestCase):
     for i,n in enumerate(z.namelist()):
      raw=z.read(n);self.assertEqual(raw,Path(paths[i]).read_bytes());
      with Image.open(io.BytesIO(raw)) as im: im.load();self.assertEqual(im.size,sizes[i])
+ def test_three_portrait_jpegs_zip_exact_900_by_1200(self):
+  with tempfile.TemporaryDirectory() as d:
+   paths=[];sizes=[(900,1200)]*3
+   for i,size in enumerate(sizes):
+    p=Path(d)/f'{i}.jpg';Image.new('RGB',size,['red','green','blue'][i]).save(p,quality=92);paths.append(str(p))
+   out=Path(d)/'photos.zip'
+   code=f"import fs from 'node:fs';import {{zip,filename}} from {json.dumps(BATCH)};const p={json.dumps(paths)};const b=await zip(p.map((p,i)=>({{name:filename(i),blob:new Blob([fs.readFileSync(p)])}})));fs.writeFileSync({json.dumps(str(out))},new Uint8Array(await b.arrayBuffer()));"
+   subprocess.run(['node','--input-type=module','-e',code],check=True,capture_output=True,text=True)
+   with zipfile.ZipFile(out) as z:
+    self.assertIsNone(z.testzip());self.assertEqual(z.namelist(),[f'FieldRise_TikTok_{i+1:03}.jpg' for i in range(3)])
+    for i,n in enumerate(z.namelist()):
+     raw=z.read(n);self.assertEqual(raw,Path(paths[i]).read_bytes());
+     with Image.open(io.BytesIO(raw)) as im: im.load();self.assertEqual(im.size,sizes[i])
