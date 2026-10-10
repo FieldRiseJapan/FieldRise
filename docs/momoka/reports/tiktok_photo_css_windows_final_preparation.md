@@ -41,5 +41,5 @@ Windows今回版の保存正常性判定: NOT TESTED。
 - docs/momoka/reports/latest_report.md
 
 ## Git・判定
-開発ブランチ fix/tiktok-photo-storage-protection。Commit・Push結果は追記と最終報告で記録します。
+開発ブランチ fix/tiktok-photo-storage-protection。実装Commit: `eee512648702d642c875e05e412b2d44697ec873`。専用ブランチPush成功。報告追記後の最終CommitはGit履歴と最終報告に記載します。
 適用準備完了／実機未確認。Production・本番利用不可。main変更、Pages変更、TikTok・YouTube・Instagram実投稿、有料サービス、認証変更はありません。
