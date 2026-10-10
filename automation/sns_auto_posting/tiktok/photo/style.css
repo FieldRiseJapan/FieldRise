@@ -2,3 +2,5 @@
 #photoList{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.photo-card{border:1px solid #26384a;padding:8px;border-radius:8px;overflow-wrap:anywhere}.photo-card img{width:100%;height:90px;object-fit:contain}.photo-card button{font-size:12px;padding:7px}.set-panel{grid-column:1/-1}#photoErrors{color:#ffc857;white-space:pre-line}
 
 .set-row{padding:12px;margin:8px 0;border:1px solid #31516a;border-radius:10px}.set-row p{overflow-wrap:anywhere}#workflowProgress{font-weight:bold}#scheduleWarning{color:#ffd394}#captionCandidates p{padding:10px;border-left:3px solid #4bc4e8}
+
+#storageStatus,#repeatWarning{color:#ffd394;font-weight:600}#saveCurrent,#downloadAll{font-weight:700}#contentHistory{max-height:480px;overflow:auto}#handoffInfo{padding:12px;border:1px solid #4bc4e8;border-radius:10px}input[type=date]{color-scheme:dark}
