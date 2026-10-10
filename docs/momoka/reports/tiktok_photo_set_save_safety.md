@@ -71,6 +71,3 @@ windows_validation.md先頭に改修専用の7操作を追加。バックアッ�
 今回の9件生成の全経路は未確定。改修版Windows確認も残るため完成候補で、Production反映不可・公開判定CONDITIONALを維持します。Pages公開元/実音源利用可否等の前報告残条件も未解消です。
 SoundOn公式音源情報と拒否条件を維持し、音源利用/印税を未確認のまま保証しません。
 main Push・Production・Pages設定変更・TikTok/YouTube実投稿・課金・認証変更・既存データ無断整理：すべてなし。
-
-
-前報告：[最終公開判定](tiktok_photo_final_release_decision.md)
