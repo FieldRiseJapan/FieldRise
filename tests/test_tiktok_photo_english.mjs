@@ -11,3 +11,5 @@ test('v1 to v5 preserve existing edited Japanese text and sound snapshot, v6 ret
 test('unknown language/style rejected safely',()=>{assert.throws(()=>workflow({...set,language:'xx'}));assert.throws(()=>workflow({...set,captionStyle:'AI'}));assert.throws(()=>captions('その他','','',song,'標準','','',{language:'xx'}));});
 
 test('free-form English mood avoids incorrect indefinite articles',()=>{const out=captions('ファッション紹介','','日常を共有',song,'長め','','upbeat',{language:'en'});assert.ok(out.every(c=>c.description.includes('Mood: upbeat.')));assert.ok(out.every(c=>!c.description.includes('a upbeat')));});
+
+test('literal context repetition and known synonymous tag families are reduced',()=>{const out=captions('ファッション紹介','A few details from today’s outfit.','日常を共有',song,'標準','','',{language:'en'});assert.equal(out[0].description,'A few details from today’s outfit.');const tags=englishTags('カフェ・リラックス','coffee','','',song);assert.ok(tags.includes('#CoffeeTime'));assert.ok(!tags.split(' ').includes('#Coffee'));const fashion=englishTags('ファッション紹介','outfit','','',song);assert.ok(!fashion.includes('#Outfit'));});

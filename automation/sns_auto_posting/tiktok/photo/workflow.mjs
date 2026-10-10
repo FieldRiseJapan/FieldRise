@@ -32,7 +32,7 @@ export function englishTags(category,context='',mood='',purpose='',song={},brand
  if(/calm|relax|穏やか|ゆったり/.test(feel))tags.push('RelaxingMusic');else if(/jazz|ジャズ/.test(feel))tags.push('JazzVibes');
  if(purpose==='楽曲を紹介')tags.push('Music');
  if(brand){tags.splice(4);tags.push('FieldRise');const artist=String(song.artist||'').replace(/[^A-Za-z0-9_]/g,'');if(artist)tags.push(artist.slice(0,60));}
- const seen=new Set();return tags.filter(t=>{const key=t.toLocaleLowerCase();if(seen.has(key))return false;seen.add(key);return true;}).slice(0,6).map(t=>'#'+t).join(' ');
+ const seen=new Set();return tags.filter(t=>{const raw=t.toLocaleLowerCase(),key=({coffee:'coffee',coffeetime:'coffee',outfit:'style',dailystyle:'style'})[raw]||raw;if(seen.has(key))return false;seen.add(key);return true;}).slice(0,6).map(t=>'#'+t).join(' ');
 }
 export function captions(category,context,purpose,song,length='標準',custom='',mood='',options={}){
  const language=options.language||'ja';if(!['en','ja'].includes(language))throw Error('投稿言語が不正です');
@@ -50,7 +50,7 @@ export function captions(category,context,purpose,song,length='標準',custom=''
  const input=clean(context,500),free=clean(custom,120),feel=clean(mood,120);const c=hasJapanese(input)?'':input.replace(/[.!?]+$/,''),topic=hasJapanese(free)?'':free;
  const variant=Number.isSafeInteger(options.variant)?Math.abs(options.variant)%2:0;
  const moodText=/calm|relax|穏やか|ゆったり/i.test(feel)?'Keeping the mood calm.':/jazz|ジャズ/i.test(feel)?'A little jazz in the background.':feel&&!hasJapanese(feel)?'Mood: '+feel.replace(/[.!?]+$/,'')+'.':'';
- return styles.map((style,i)=>{const phrase=bank[category][i][variant],prefix=length==='短め'?'':c?c+'. ':category==='その他'&&topic?topic+'. ':'';
+ return styles.map((style,i)=>{const phrase=bank[category][i][variant],prefix=length==='短め'?'':c&&c.toLocaleLowerCase()!==phrase.replace(/[.!?]+$/,'').toLocaleLowerCase()?c+'. ':!c&&category==='その他'&&topic?topic+'. ':'';
  const music=options.mentionMusic||purpose==='楽曲を紹介'?` Soundtrack: “${song.title}” by ${song.artist}.`:'';
  return {style,title:(c||phrase.replace(/\.$/,'')).slice(0,90),description:(prefix+phrase+(length==='短め'?'':music)+(length==='長め'&&moodText?' '+moodText:'')).slice(0,1500),tags:englishTags(category,input,feel,purpose,song,options.brandTags===true)};});
 }

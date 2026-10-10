@@ -1,6 +1,6 @@
 {
   "platform": "Linux",
-  "baseline": "201632fe9411b8408ac47c8ea2442f2e9e08585c",
+  "baseline": "5f3c76bfea28146e8833bac6fc93076bda9772f9",
   "checks": [
     {
       "name": "required static assets",
@@ -101,7 +101,7 @@
     },
     {
       "name": "page.mjs",
-      "sha256": "2482b5bc4aeff10d8ce099b5f4d8f04b518f6a5a1c65c3919ff81283d6cc01e9"
+      "sha256": "5b19468183effdf408735a17b62c4b0130fdfe19038965bec33a72f4e2a38e3a"
     },
     {
       "name": "core.mjs",
@@ -113,11 +113,11 @@
     },
     {
       "name": "data.mjs",
-      "sha256": "d2f681549f4229b9040d64fbea43bb9e3afd26abce3598229bf886e95548c173"
+      "sha256": "47a8ccb0d468b7978ea6e8b6b1206859801fcb131ce1bfc3d6f6553e299cd1ea"
     },
     {
       "name": "workflow.mjs",
-      "sha256": "98c5d0661d4c6aae123ab59709d19b8e80dcf1191df852dbf5bcacefaf76c912"
+      "sha256": "67ee56725b3652cd7058654fc70ab9aa7d951f31305f32d5041b91ae69d6cb0e"
     },
     {
       "name": "assist.mjs",

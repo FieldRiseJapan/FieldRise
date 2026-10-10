@@ -57,3 +57,8 @@ Windows重大FAIL/データ消失/Secret混入/音源完了拒否の不具合が
 
 ## 英語版Windows結果反映（2026-10-10）
 社長確認11項目はwindows_validation.mdに記録。ZIP展開・3枚存在はPASSだが各JPEG表示は未確認。Pages公開APIの認証なしGETはHTTP 404で、現在設定・公開元は確認不能。不存在とは判定しない。設定変更は未実施。公開判定はCONDITIONAL。公開前にはWindows保存復元/実画像正常性、実JSONバックアップの重複安全移行、既存Pages公開元と8ファイルの配信先を確認する。移行が安全に確定しなければ公開を停止する。
+
+## 最終品質保証版（2026-10-10）
+- 初期の未編集・未参照楽曲はプレビュー/明示確認でバックアップ情報へ採用可能。完全一致楽曲共用は全項目比較。その他競合は全体拒否。保存成功まで画面状態も変更しない。JSON v6のまま旧v1～v6互換を維持。移行手順はwindows_validation.md。
+- 読取HTTP確認：公式トップ `https://fieldrisejapan.github.io/FieldRise/` は200。写真ツール候補URLは404で、現時点で稼働確認できない。Pages公開APIは404のため公開元/設定は不明。現行トップ稼働はCreator Studio公開済みを意味しない。
+- 判定CONDITIONAL。公開前に実Windowsで移行・保存復元・JPEG表示/EXIFを確認し、管理者がPages公開元を確認。旧判定のJSON問題はコード修正済みだが実ユーザーバックアップでの検証は残る。
