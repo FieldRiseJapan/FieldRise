@@ -1,7 +1,7 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {studioSound,postSet} from '../automation/sns_auto_posting/tiktok/photo/batch.mjs';
 import {migrate,music} from '../automation/sns_auto_posting/tiktok/photo/data.mjs';
-import {duplicate} from '../automation/sns_auto_posting/tiktok/photo/workflow.mjs';
+import {duplicate,transition} from '../automation/sns_auto_posting/tiktok/photo/workflow.mjs';
 const expected={id:'cafe-one',title:'cafe',artist:'Runa-Girl8215',duration:'0:59'};
 const confirmed={state:'確認済み',observedTitle:'cafe',observedArtist:'Runa-Girl8215',observedDuration:'00:59',jacket:'本人比較したジャケットの識別メモ',release:'SoundOnのリリース・分割1を本人確認',ownerCompared:true,reviewer:'検証用確認者',verifiedAt:'2026-10-10T17:00:00+09:00',draftRetained:true,draftVerifiedAt:'2026-10-10T17:02:00+09:00'};
 const base={id:'set-test',name:'Test',createdAt:'2026-10-10T00:00:00Z',updatedAt:'2026-10-10T00:00:00Z',photos:[],music:music(expected),title:'',description:''};
@@ -14,3 +14,5 @@ test('duplicate resets owner comparison and draft evidence without modifying sou
 test('input validation rejects malformed dates, secret-like text and null objects',()=>{assert.throws(()=>studioSound(null,expected));assert.throws(()=>studioSound({...confirmed,verifiedAt:'not-date'},expected));assert.throws(()=>studioSound({notes:'-----BEGIN PRIVATE KEY'},expected));});
 test('Japanese handoff guide exposes artist-first copy and no posting endpoint',()=>{const html=fs.readFileSync(new URL('../automation/sns_auto_posting/tiktok/photo/index.html',import.meta.url),'utf8');assert.match(html,/Runa-Girl8215で検索/);assert.match(html,/id="copySearch"/);assert.match(html,/下書き保存/);assert.match(html,/タイトルだけでは同一音源/);const page=fs.readFileSync(new URL('../automation/sns_auto_posting/tiktok/photo/page.mjs',import.meta.url),'utf8');assert.ok(!/fetch\(|XMLHttpRequest/.test(page));});
 test('candidate mismatch and unavailable evidence cannot make set ready',()=>{const prepared={...base,photos:[{id:'p',name:'photo.jpg',size:100,ratio:'3:4',x:50,y:50}],music:{...base.music,match:'確認済み',businessUse:'利用可（本人確認）'},title:'Title',description:'Description',ready:true,distributionChecked:true,finalSoundChecked:true};for(const state of ['未確認','候補あり','不一致','利用不可'])assert.equal(postSet({...prepared,studioSound:{state,notes:'本人の確認待ち'}}).ready,false);});
+
+test('ready and planned transitions require draft reedit retention without breaking legacy import',()=>{const source={...base,ready:true,distributionChecked:true,finalSoundChecked:true,music:{...base.music,match:'確認済み',businessUse:'利用可（本人確認）'},studioSound:{...confirmed,draftRetained:false,draftVerifiedAt:''}};assert.throws(()=>transition(source,{status:'準備完了'}),/下書き/);assert.throws(()=>transition(source,{status:'投稿予定',scheduledAt:'2026-10-11T10:00:00Z'}),/下書き/);assert.equal(transition({...source,studioSound:confirmed},{status:'準備完了'}).status,'準備完了');});
