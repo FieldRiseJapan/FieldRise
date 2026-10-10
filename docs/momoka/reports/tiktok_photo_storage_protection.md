@@ -27,7 +27,7 @@ Windows Chromeの今回版・実OS再起動・本物のWeb Locks二タブ競合�
 
 ## 変更ファイル・Git
 page.mjs、index.html、storage.mjs、tools/local_tool.py、tests/test_tiktok_photo_storage_protection.mjs、tests/test_tiktok_photo_storage_ui.mjs、tests/test_tiktok_photo_release_tools.py、release_diagnostics.json、windows_validation.md、latest_report.md、本報告書。
-専用ブランチ fix/tiktok-photo-storage-protection。Commit SHAはGit履歴と最終報告に記載します。
+専用ブランチ fix/tiktok-photo-storage-protection。実装Commit: `0f9243f0988a7a785f33017f24f68dbfc5b25048`。GitHubへ専用ブランチ反映済み。報告追記後の最終CommitはGit履歴と最終報告に記載します。
 
 ## 判定
 開発完了候補／Windows再検証待ち。Production反映不可。main、Pages、Production、TikTok実投稿は変更していません。SoundOn情報の推測・変更、実データ削除、バックアップ削除はしていません。
