@@ -1,6 +1,7 @@
 # 最新報告
-[保存保護CSS修正・Windows最終検証準備](tiktok_photo_css_windows_final_preparation.md)
 
-バックアップ・重複防止・SHA確認付きのWindows単一ファイル適用スクリプトを準備。Node108件、Python12件、診断18項目PASS。社長PCでは未実行・承認待ち。Windows描画と保存は別判定でNOT TESTED。本番利用・Production反映不可。
+[保存保護・Windows最終検証報告](tiktok_photo_storage_windows_final_review.md)
 
-[CSS表示異常の原因・修正](tiktok_photo_storage_hidden_fix.md)
+CSS ALREADY APPLIED・期待SHA一致・復旧操作非表示・10セット表示・対象ID読み込みは社長実機確認済み。AI合成/回帰：Node99件＋MP4 API9件、Python12件、診断18項目PASS。コード修正不要。Windows編集・保存・F5復元と実ブラウザ二タブ競合はNOT TESTED。本番運用・Production反映不可。
+
+[適用スクリプトと過去の準備記録](tiktok_photo_css_windows_final_preparation.md)（当時の未検証記述は最新結果で更新）
