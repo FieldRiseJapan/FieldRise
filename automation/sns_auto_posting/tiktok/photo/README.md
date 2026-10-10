@@ -45,3 +45,7 @@ JSON v4はv1/v2/v3を読込、重複IDは上書きせず拒否。従来の記録
 JSON v5はv1～v4読込。追加フィールドは内容/目的/雰囲気、ビジネス音源利用可否と根拠。識別IDの推測、AI画像認識、収益計算は行いません。利用不可は完了拒否、未確認はStudioで本人の最終照合を要求。
 端末保存失敗時はJSON退避と保存再試行。保存データが破損している場合は上書きを禁止し、元データを退避した後、画面の明示確認で保存再開できます。未保存編集で別セットを開く/新規開始する場合は確認。ページ離脱時はブラウザに警告を要求しますが環境により表示されないことがあります。
 起動：リポジトリのルートで `python -m http.server 8000 --bind 127.0.0.1`、PCブラウザで `http://127.0.0.1:8000/automation/sns_auto_posting/tiktok/photo/`。固定の同じブラウザ/URLを使用してください。Productionには反映していません。
+
+## Windows実機検証・公開準備
+Windows向け起動：`tools/start_windows.ps1`（追加インストールや実行ポリシー変更なし）。Python直接実行も利用可。ローカルサーバーは127.0.0.1のみで8静的資材を提供、.mjsのMIMEを固定。診断は実画像/実ブラウザ/OS保存の代替ではありません。
+手順：`docs/tiktok-photo/windows_validation.md`、公開/復旧計画：`docs/tiktok-photo/release_runbook.md`。Pages設定・本番は今回変更しません。

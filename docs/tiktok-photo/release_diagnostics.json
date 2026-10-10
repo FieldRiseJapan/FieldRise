@@ -1,0 +1,127 @@
+{
+  "platform": "Linux",
+  "baseline": "603f0f746894adcf87fdf4500a54d74c6b3b0910",
+  "checks": [
+    {
+      "name": "required static assets",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "unique HTML ids",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "static UI references",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "CSP network restriction",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no fetch/XHR/WebSocket API",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "known secret patterns",
+      "status": "PASS",
+      "detail": "Known patterns only; values are never printed."
+    },
+    {
+      "name": "Node syntax",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTTP index.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTTP style.css",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTTP page.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTTP core.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTTP batch.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTTP data.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTTP workflow.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTTP assist.mjs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTTP entry route",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "non-public local files blocked",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "windows_browser": "NOT TESTED",
+  "real_images_os_zip_clipboard": "NOT TESTED",
+  "assets": [
+    {
+      "name": "index.html",
+      "sha256": "10646382b587ac1420322d8347f41911c2eca2d9e529daec10a4a66bb90a8cd7"
+    },
+    {
+      "name": "style.css",
+      "sha256": "a224f99c14a76d728799f0939305e848b8c02ba0a3f4a26b6b89ca71405f064c"
+    },
+    {
+      "name": "page.mjs",
+      "sha256": "5a60ee18632edf26f4d0c21de345db4c072ed30d4af5192eb096edb590da1c53"
+    },
+    {
+      "name": "core.mjs",
+      "sha256": "4c2c42f9201732051ce85afbb532062032d3dfbc36bc8dd92ed8c35801a1e75b"
+    },
+    {
+      "name": "batch.mjs",
+      "sha256": "26586e3e859b33a04e20bba2b3066455383aa91ad4d5dd23137d4be40be53ede"
+    },
+    {
+      "name": "data.mjs",
+      "sha256": "706b1f04f0c370466a479edb193fcd5bd6c3b569d4c4d44b8b136be07cff5db9"
+    },
+    {
+      "name": "workflow.mjs",
+      "sha256": "c8ae3c0d6aa5b267b3422c6ca03b046b562f52a47213ac0c76c9e4c3645c359b"
+    },
+    {
+      "name": "assist.mjs",
+      "sha256": "ce3277d99e7d81bb0f52b3a9bdaa418e5278eca41b0f4651f42f5f5f17c1dab4"
+    }
+  ]
+}
