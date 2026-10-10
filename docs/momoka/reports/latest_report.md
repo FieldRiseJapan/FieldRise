@@ -1,15 +1,17 @@
-# 最新報告：UIブルー化・アーティストコピー修正
+# 最新報告：投稿データ方針・SoundOn音源検証
 
 2026-10-10 / GPT桃花 / feature/tiktok-photo-global-english
 
-[正式報告](tiktok_photo_blue_artist_copy_fix.md) / [Windows手順](../../tiktok-photo/windows_validation.md) / [Phase 2音源照合報告](tiktok_soundon_studio_phase2.md)
+[正式報告](tiktok_photo_data_policy_soundon_validation.md) / [管理方針](../../tiktok-photo/data_management_policy.md) / [Windows手順](../../tiktok-photo/windows_validation.md)
 
-**開発完了候補・Windows最終確認待ち・Production反映不可。**
+**調査・開発完了候補。識別一致・利用条件・収益対象は未確認。Production反映不可。**
 
-第1部はCSS色のみ変更。指定ブルー／白文字、Hover／Active／Focus／Disabledを調整。通常文字コントラスト5.17:1、Hover6.70:1、Active8.72:1、Disabled6.97:1。既存レイアウト・フォント・サイズ・警告色を維持。
+投稿完了を社長が確認した後のJSONバックアップは任意。下書き・予定・失敗・状態不明・音源未確認は保持。自動出力・自動削除・保存期間決定なし。
 
-第2部は、基準版にSTEP 4「検索キーワードをコピー」が存在したことを確認。既存ボタンをSTEP 2楽曲情報直下へ移し「アーティスト名をコピー」に改名、選択曲のartistをコピーする。保存・音源照合・下書き保持を変更しない。社長PCの旧ファイル／キャッシュの有無は未確定。
+下書き保持未確認時の準備完了拒否、本人の投稿完了確認、既存保存操作の容量失敗時データ保護を必要最小限修正。新しい削除・投稿機能は追加しない。ブルー・コピー・ZIP・音源5状態・旧JSONを維持。
 
-Node94/94、Python7/7、診断17/17 PASS。8静的ファイルSHA-256一致、差分・構文・既知Secret検査PASS。実装Commit `04bf876aafa7ba25fd9953dbdd5606cf1c05fc6d` のブランチ反映確認済み。報告Commit最終SHAはGit履歴／最終回答を参照。
+社長実機確認：ブルー、STEP 2コピー、Runa-Girl8215コピー、cafe選択・下書き再編集保持、JPG3枚ZIP等。今回の修正版全操作のWindows確認ではない。CML等の一般条件は公式資料を調査したが、当該曲のSoundOn識別・用途許可・写真投稿収益は未確認。
 
-社長は修正版同OriginをCtrl+F5し、ブルー配色とSTEP 2のボタン、コピー値・保存セット読込後の動作を確認。保存データ削除なし。main・Production・Pages反映・実投稿・課金なし。
+Node99/99、Python7/7、診断17/17 PASS、静的SHA-256 8/8一致。実装Commit `7ef7c2fbfad98188a1053fbba21f2fb6331808f1` のブランチ反映確認済み。正式報告Commitの最終SHAはGit履歴／最終回答を参照。
+
+社長の次操作：保持未確認の警告と投稿済み確認の取消を確認し、SoundOn対象リリースの識別情報・TikTok公式音源URL・用途／地域の利用条件を照合。未知は未確認のまま。main・Production・Pages変更、実投稿・課金・実データ削除なし。
