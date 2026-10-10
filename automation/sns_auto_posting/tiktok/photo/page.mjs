@@ -107,7 +107,7 @@ function editorState(){const current=sets.find(s=>s.id===activeSetId),dirty=last
 for(const k of ['setName','context','mood','customCategory','captionLength','brandTags','mentionMusic','captionStyle'])$(k).oninput=()=>{editorState();};
 if(!lastDraft)lastDraft=draftFingerprint();editorState();
 
-$('copySearch').onclick=async()=>{try{await navigator.clipboard.writeText($('studio_searchKeyword').value.trim()||song().artist||'Runa-Girl8215');notice('TikTok検索キーワードをコピーしました');}catch{notice('検索キーワードを手動コピーしてください');}};
+$('copySearch').onclick=async()=>{try{await navigator.clipboard.writeText(song().artist||'Runa-Girl8215');notice('アーティスト名をコピーしました');}catch{notice('コピーできません。選択中のアーティスト名を手動コピーしてください');}};
 $('validateStudio').onclick=()=>{try{const result=studioInput();$('studioResult').textContent='Studio本人照合：'+result.state+' / 下書き再編集保持：'+(result.draftRetained?'本人確認済み':'未確認')+'。保存するにはセットの変更を保存してください。配信識別・印税確認とは別の記録です';progress();}catch(e){$('studioResult').textContent=e.message;}};
 for(const k of studioFields)$('studio_'+k).oninput=progress;for(const k of ['ownerCompared','draftRetained'])$('studio_'+k).oninput=progress;
 studioDisplay();lastDraft=draftFingerprint();

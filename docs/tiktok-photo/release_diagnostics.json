@@ -1,6 +1,6 @@
 {
   "platform": "Linux",
-  "baseline": "d0931ac38a79b3f5e871b9b13b45b86483cfa0c5",
+  "baseline": "ca6040ef3a1acd0960d2ace666b1e4b5fa2f9f24",
   "checks": [
     {
       "name": "required static assets",
@@ -93,15 +93,15 @@
   "assets": [
     {
       "name": "index.html",
-      "sha256": "a33e422d5d5558ca46d2054a186dd028077bba4ee581a774f488a989aae2e770"
+      "sha256": "fbe5f88eb2d2b17e23608a5102624da225bced7f518d3cc30a01e7d582fcc0bd"
     },
     {
       "name": "style.css",
-      "sha256": "a224f99c14a76d728799f0939305e848b8c02ba0a3f4a26b6b89ca71405f064c"
+      "sha256": "20dab296d72709e0150ba5517ea8c9ecb59d4e5f1e104bad0471e11dcea4cb3b"
     },
     {
       "name": "page.mjs",
-      "sha256": "3a230c560973a4b6d3dadcd793a4276875481f8c22ed42c997fcde9eaa283120"
+      "sha256": "eb09bc4d6f1ffed84b82566ff9d1835c38ad41eb5221c7901806a488c60ad3df"
     },
     {
       "name": "core.mjs",
