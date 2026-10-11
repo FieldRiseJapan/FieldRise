@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-10-10T01:14:50+00:00",
+  "captured_at": "2026-10-11T00:16:07+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -140,7 +140,7 @@
     {
       "id": "hKi5pSwU_Cs",
       "title": "A Piece of Love   #music #winter #constellation",
-      "views": 344,
+      "views": 345,
       "age_label": "2024-10-08T13:04:20Z",
       "category": "winter"
     },
