@@ -410,3 +410,74 @@ Portalのスクリーンショットに表示されたApp icon（ヘッドホン
 
 ### 6. 今回の変更
 アプリ実装・Portal設定・登録画像・登録URLの変更、保存、再申請は行っていない。今回の変更は、この確認報告を `docs/momoka/reports/latest_report.md` に追記することのみ。
+
+---
+
+## 2026-10-11 TikTok Production審査準備・ストリームエラー復旧報告
+
+**最終判定: BLOCKED**  
+担当: GPT桃花 Astra Work（Codex）／監督: GPT彩花 CTO  
+対象App ID: 7664531024089532432  
+作業基準Commit: 1467d2192cbf33a0a56425c286879c9bbd82c366  
+専用ブランチ: docs/tiktok-production-review-prep-20261011  
+成果物入口: [TikTok審査準備資料](../tiktok_review/2026-10-11/README.md)
+
+### 1. 現在のTikTok申請状態
+**ライブ状態は未確認。** 今回のブラウザアクセスは対象App URLで「No access You need to login to access this page」。現在のProduction状態・Login Kit/Content Posting API設定・scope選択・説明文・review原文・動画登録状態を取得できなかった。
+先行報告の社長提供画面はDraftだが、現在の確定状態とは扱わない。申請日時・更新日時も未確認。
+
+### 2. 過去の審査指摘と対応
+過去Portal画面のScopes mismatchと製品/scopeの実演不足、review_fix_2026-09-21.mdの画質・Terms/Privacyアイコン・favicon指摘を整理した。新しいレビュー原文は未取得。
+アイコン以外のデモ不足は未解消。台本・対応表は準備済み。新しい操作動画は未撮影。
+
+### 3. アイコン修正
+社長指定どおり**完了扱い**。確認Commit 1467d2192cbf33a0a56425c286879c9bbd82c366、実装c96b19de13023dd80281360c2843bef8408d3096、Website b56d87dcd3e6956aaf75c596358c0655b5c0276bを既存証拠として引き継いだ。画像・faviconの再調査や修正なし。
+
+### 4. デモ動画の不足
+fieldrise_tiktok_test.mp4実ファイルを取得し、ffprobeと8フレームのサンプリングで確認。
+8.000秒、H.264、1080×1920、38,648 bytes。
+SHA-256: 6e02c5bb1177c2153199fa2141a827745960a5183917171ca20d2790c0cf7892。
+確認した画面はタイトルのみ。アプリ、OAuth認可、アカウント表示、MP4選択、同意、Inbox、Direct Post結果の実演がない。全フレーム目視再生は未実施。Portal登録ファイルとの同一性は未確認。
+別名の9月21日録画も存在し、68.586833秒・2560×1392・24,435,446 bytes。旧画面の素材として確認したが、現行全scopeの完成デモとは扱わない。
+
+### 5. デモ撮影台本
+[demo_script.md](../tiktok_review/2026-10-11/demo_script.md)へ保存。実操作・説明・結果・Sandbox識別・画質検証・未実演扱いを記載。
+Windowsローカル操作/録画はWorkから不可。社長が録画開始停止を担当する手順を準備。OAuth認可・Sandbox送信の別途承認前に送信しない。
+
+### 6. 日本語・英語の申請説明文
+[日本語草案](../tiktok_review/2026-10-11/application_ja.md)と[英語草案](../tiktok_review/2026-10-11/application_en.md)。
+社内専用、未検証事項、将来公開は未提供、SoundOn選択未実装を正直に扱う。現在のPortal原文の置換ではない。**現状では提出用完成文として貼付・保存しない。**
+
+### 7. video.upload / video.publish適合性
+Direct Postのvideo.publishは公式Content Sharing Guidelinesの内部/自社管理アカウント用途制限に抵触。
+Inboxのvideo.uploadはTikTok内で最終編集・公開する機能。Direct Post固有条項の適用を混同しないが、アプリ全体の社内専用条件は残る。
+追加のコード課題: frontendのapiCreatorはvideo.publish必須のQuery Creator Infoへ依存し、Inboxボタンもcreator情報取得が必要。video.publish削除だけではUpload専用UIが機能しない可能性がある。Upload専用アカウント表示/起動の分離を変更案として記録（実装なし）。
+user.info.basicの独立した実利用は追加確認必要。現行接続表示を当該scopeの証明と扱わない。
+
+### 8. 公式基準上の残る問題
+App Review Guidelinesはprivate/personal useのアプリを認めない。したがって内部用途のままUploadだけに絞ってもProduction適合を断定できない。将来公開計画、形式的公開、動画の改善は現在の利用目的不整合を解消しない。
+公式確認用英文草案を作成し未送信。外部クリエイターが実際に利用できる完成サービスへの移行条件は設計整理のみ。
+公式資料URLと確認日2026-10-11 JSTは成果物READMEへ記載。
+
+### 9. 作成ファイル・テスト・Commit・Push先
+新規資料7件:
+- README.md
+- demo_script.md
+- application_ja.md
+- application_en.md
+- scopes_and_changes.md
+- feedback_and_checklist.md
+- owner_steps.md
+
+保存ディレクトリ: docs/momoka/tiktok_review/2026-10-11/
+本報告は既存latest_report.mdを削除・上書きせず末尾追記。
+既存APIソースとapi.test.mjsを基準Commitから取り出し、外部通信をモックした既存9件を実行: **9 PASS**。新規実OAuth・TikTok呼出し・投稿なし。Production動作やuser.info.basicの証明ではない。
+文章内相対リンク・必要成果物・末尾追記・秘密値パターンを静的確認。コード変更がないため広範な再テストは行わない。
+Commitは専用ブランチの履歴で確認可能。GitHub Contents APIで同ブランチへ直接Commitし遠隔保存。mainへのCommit/mergeなし。
+中断直後の確認では専用ブランチは存在せず、資料作成・Commit・Push成功の履歴もなかった。保存前の取得補助ファイル/以前のローカルAPI検証ファイルは新規審査成果として数えない。
+
+### 10. 社長が次に行う操作
+[最小操作手順](../tiktok_review/2026-10-11/owner_steps.md)参照。
+最初はPortalの閲覧だけで対象状態・製品/scope・説明・feedback・登録動画を機密を除いて共有する。ログインのみで用途不整合は解消しない。
+続いて社内専用Uploadの公式条件確認を判断する。録画のOAuth/Sandbox実演、修正コード、Portal保存/変更、提出は別承認まで停止。
+今回、実投稿・Sandbox送信・Production変更・Portal保存/スコープ変更/申請提出・既存投稿セット変更・有料契約はいずれも行っていない。
