@@ -35,3 +35,12 @@ CSS ALREADY APPLIED・期待SHA一致・復旧操作非表示・10セット表�
 - Deployment：`appgdep_6acb102c52688191ad8e4742379897a1`。
 - GitHub CLIは認証情報なしでPush失敗。認証済みGitHubコネクターで同じ専用ブランチへ保存する。最終Commitは本報告を含むブランチ履歴で確認する。
 - 配備成功はホスト側の受付結果。実ブラウザでの画面・サインイン確認、TikTok実通信の成功とは区別する。Production審査の受付は未実施・未確認。
+
+
+### 2026-10-11 再開：Portal実確認
+
+安全なbrowserAuthでログイン成功。Production実表示はDraft。製品はLogin Kit/Content Posting API、スコープはuser.info.basic/video.publish/video.upload、Direct Post有効。URLとcallbackは旧GitHub Pages/既存Supabaseを参照。登録動画は2026-09-21のChrome操作録画であり、8秒タイトル動画ではない。Review commentsはScopes mismatch、各製品・スコープの実操作を明確に示す完全なデモの再提出要求。現行申請説明はMP4/Direct Post/Inboxの旧実装向けで、公開版との整合修正が必要。
+
+既存SandboxはFieldRise Analytics Test（7672943163761248273）、登録ユーザーruna_girl8215。既存設定は未変更。独立したFieldRise Public Inbox Testの新規作成フォームを準備したが、Confirmは未実行。新たな認証情報と公開版へのアクセス設定を伴うため、ブラウザの実行時確認ポリシーに従い社長確認待ち。候補スコープはuser.info.basic/video.upload、callbackは公開版の/api/tiktok/callback。既存Sandboxを複製せず、既存トークンを流用しない構成。
+
+Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申請は未完了。Production Save/Submitは未実行。前回利用上限によるログイン操作ブロックは今回のログイン成功で解消。
