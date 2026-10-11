@@ -370,3 +370,43 @@ TikTok、Instagram、OAuth設定、YouTubeのSupabase secrets・Edge Function設
 - OpenAPI 3.1を`@redocly/cli lint`で検証し、エラーなし。
 - Mermaid構成図のPNG render成功。単一H1・必須項目・静的安全条件の検査成功。
 - `git diff --check`成功。設計書と報告書の秘密値パターン検査に一致なし。
+
+---
+
+## 2026-10-11 TikTok App Icon・登録URL 再確認報告
+
+### 1. 結論
+ユーザー提供のTikTok Developer Portal「FieldRise Creator Studio / Production / Draft」のスクリーンショットと、GitHub現行ファイル・公開配信の調査結果を照合した。画面に表示されたWebsite、Terms、Privacyの登録URLはいずれもアイコン修正済みの公開ページを指しており、登録App iconもWeb共通画像と視覚的に一致する。今回確認したアイコン不統一について追加修正は不要と判断した。
+
+### 2. 登録URLの確認
+| 項目 | スクリーンショットで確認した登録URL | 確認結果 |
+|---|---|---|
+| Web/Desktop URL | https://fieldrisejapan.github.io/FieldRise/ | 修正済みトップページ |
+| Terms of Service URL | https://fieldrisejapan.github.io/FieldRise/terms.html | 修正済みルート版Terms |
+| Privacy Policy URL | https://fieldrisejapan.github.io/FieldRise/privacy.html | 修正済みルート版Privacy |
+
+登録URLは、アイコン・favicon指定がない `docs/terms.html`・`docs/privacy.html` を指していない。
+
+### 3. アイコンと公開配信の確認
+Portalのスクリーンショットに表示されたApp icon（ヘッドホンを着けた女性キャラクター、窓外の夜景、机上のノート）は、GitHubから取得して目視確認した `assets/fieldrise-creator-studio-icon.jpg` と人物・背景・構図が視覚的に一致する。
+
+2026-10-11の公開HTTP照合では、トップページ・Terms・Privacy・TikTok Creator StudioはいずれもHTTP 200。各公開HTMLの表示画像とfaviconは同じ正本JPEGへ解決する。正本画像もHTTP 200、Content-Type `image/jpeg`、228,022 bytesで、SHA-256は `ae4d0c8b1b9b00ca2be55bc017ac80b17026f94de984ae3e8081847776eb560e`。9月25日の既存報告値と一致した。
+
+### 4. 実装・コミットの証拠
+- 2026-09-21のレビュー記録: [review_fix_2026-09-21.md](../../../automation/sns_auto_posting/tiktok/review_fix_2026-09-21.md)。Terms・Privacyのアイコン欠落、favicon、デモ動画の画質に関する指摘を記録。
+- 2026-09-25の修正指示: [2026-09-25_tiktok_app_icon_consistency_fix.md](../instructions/2026-09-25_tiktok_app_icon_consistency_fix.md)。Portal女性画像とCreator StudioのFR表示の不一致を記録。
+- 3ページとfaviconの統一実装: [c96b19de13023dd80281360c2843bef8408d3096](https://github.com/FieldRiseJapan/FieldRise/commit/c96b19de13023dd80281360c2843bef8408d3096)。
+- 9月25日の公開確認報告: [4c5ca00df6610f3d63a7ac89d69219f92e4c9901](https://github.com/FieldRiseJapan/FieldRise/commit/4c5ca00df6610f3d63a7ac89d69219f92e4c9901)。
+- 2026-10-01の登録Websiteトップページへの画像・favicon追加: [b56d87dcd3e6956aaf75c596358c0655b5c0276b](https://github.com/FieldRiseJapan/FieldRise/commit/b56d87dcd3e6956aaf75c596358c0655b5c0276b)。
+- 調査時main: `f0665dab9284f61ec845340e35e151e54b5097f4`。同コミットの[Pages build/deploy](https://github.com/FieldRiseJapan/FieldRise/actions/runs/38098530591)は成功。
+
+### 5. 証拠の範囲・未確認事項
+- Portalの現在値はユーザー提供スクリーンショットで確認した。ログイン済み管理画面の直接操作・データ取得は実施していない。
+- 現在のPortal登録画像とのバイト単位の一致は未確認。今回の一致判定は視覚的照合であり、9月25日のハッシュ一致記録とは区別する。
+- 表示中の状態はProduction Draft。保存済み状態・過去に提出した版との一致、再申請・審査承認は今回確認していない。
+- faviconは公開HTML宣言と画像配信まで確認。通常ブラウザのタブ上の実表示・キャッシュ、今回の画面レイアウト・Consoleは未確認。
+- デモ動画の高画質化・提出状況は未確認。
+- `docs/terms.html`・`docs/privacy.html` は公開HTTP 200だが、アイコン・favicon指定がない。今回スクリーンショットで確認した登録URLの対象ではない。
+
+### 6. 今回の変更
+アプリ実装・Portal設定・登録画像・登録URLの変更、保存、再申請は行っていない。今回の変更は、この確認報告を `docs/momoka/reports/latest_report.md` に追記することのみ。
