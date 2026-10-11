@@ -1,0 +1,20 @@
+# 日本語申請説明文・草案
+**レビュー用草案。現行用途はBLOCKEDのためPortalへ貼付・保存・提出しない。**
+現在のPortal原文は未取得。以下は既存文の修正を保存したものではなく、確認できた実装と社長の利用方針を反映した新規草案。
+
+## 短いアプリ説明
+FieldRise社内でMP4動画を準備し、TikTokアカウント接続と動画共有の操作を行うWebツールです。
+
+## App Review説明
+FieldRise Creator Studioは、現在FieldRise内部で使用するWebツールです。現在、外部クリエイター向けの一般公開サービスとして提供していません。将来の一般公開は検討事項であり、今回の実装済み機能や利用者として申告しません。
+
+Web画面にはTikTok Login Kitによる接続開始、接続アカウント表示、MP4選択とプレビュー、投稿方法の選択、利用者の明示同意、API処理結果・投稿状態の表示が実装されています。サーバーにはMP4をTikTok inboxへ送る経路と、Direct Post経路があります。今回確認したコードでは、Inbox Uploadは動画のsource_infoだけを送信し、投稿文や公開設定はTikTok側で最終編集します。Direct Postは投稿文・ハッシュタグ、利用可能な公開範囲、インタラクション設定、商用/AI表示を利用者が確認してから送信する構成です。
+
+これらはコード確認の説明です。現在のProduction登録値、Supabaseデプロイ版との一致、全経路の最新実機検証は未確認です。過去のSandbox成功記録を今回の実演結果として扱いません。新しい操作デモはまだ撮影していません。TikTok公式Studio上の写真投稿と楽曲選択は、このアプリのAPI実績ではありません。
+
+user.info.basicはプロフィール取得用のスコープですが、今回確認したHTML/APIのアカウント表示はvideo.publishを必要とするCreator Info API由来です。user.info.basicの独立した実利用は既存OAuth実装で追加確認が必要です。video.uploadはMP4をinboxへ送りTikTok内で編集するため、video.publishはアプリからDirect Postするための経路に対応します。申請中のスコープはPortal確認後に確定します。
+
+現在の社内専用用途はApp Review Guidelinesのprivate/personal use条件、Direct PostのIntended Useと整合しないため、適合済みとして提出しません。Upload専用での審査対象可否について公式確認が必要です。将来、外部クリエイターが実際に利用できる完成サービスを提供する場合に、実態に基づき申請資料を改訂します。
+
+## フィードバックへの回答案
+アイコンは既存の確認Commit 1467d2192cbf33a0a56425c286879c9bbd82c366により完了扱いです。デモ画質とスコープ実演不足は未解消です。現行fieldrise_tiktok_test.mp4は8秒のタイトル映像で、操作デモには使用しません。新動画の撮影・検証後、実際に収録した機能とタイムコードを記載します。

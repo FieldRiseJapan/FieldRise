@@ -1,0 +1,15 @@
+// Local Workers/D1/R2 integration. Auth is substituted only in this test bundle.
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');
+const {Miniflare}=require(require.resolve('miniflare',{paths:[require.resolve('wrangler/package.json')]}));const {build}=require(require.resolve('esbuild',{paths:[require.resolve('vite/package.json')]}));
+test('Workers streams media to R2, persists D1 drafts, and rejects foreign owners',async()=>{
+ const built=await build({stdin:{contents:"import {handle} from './lib/server';export default {fetch(request){globalThis.__testOwner=request.headers.get('x-test-owner');return handle(request,new URL(request.url).pathname.slice(5).split('/'))}}",resolveDir:process.cwd(),sourcefile:'test-worker.ts'},bundle:true,write:false,format:'esm',platform:'browser',external:['cloudflare:workers'],plugins:[{name:'fake-auth-only-in-test',setup(b){b.onLoad({filter:/chatgpt-auth\.ts$/},()=>({contents:'export async function getChatGPTUser(){return globalThis.__testOwner?{userId:globalThis.__testOwner,displayName:"Test"}:null}',loader:'js'}))}}]});
+ const mf=new Miniflare({modules:true,script:built.outputFiles[0].text,compatibilityDate:'2026-05-15',compatibilityFlags:['nodejs_compat'],d1Databases:['DB'],r2Buckets:['BUCKET'],bindings:{SITE_ORIGIN:'http://localhost'}});
+ try{const db=await mf.getD1Database('DB');for(const sql of fs.readFileSync('drizzle/0000_clammy_captain_america.sql','utf8').split('--> statement-breakpoint').filter(x=>x.trim()))await db.prepare(sql).run();
+ async function req(p,method='GET',data,owner='alice',type='application/json'){const headers={Origin:'http://localhost','x-test-owner':owner};if(data){headers['Content-Type']=type;headers['Content-Length']=String(Buffer.byteLength(data))}return mf.dispatchFetch('http://localhost/api/'+p,{method,headers,body:data});}
+ assert.equal((await req('register','POST','{"consent":true}')).status,200);
+ const jpeg=fs.readFileSync('public/icon.jpg');const r=await req('assets','POST',jpeg,'alice','image/jpeg');assert.equal(r.status,200,await r.clone().text());const asset=await r.json();assert.equal((await req('assets/'+asset.id)).status,200);assert.equal(Buffer.from(await(await req('assets/'+asset.id)).arrayBuffer()).equals(jpeg),true);
+ await req('register','POST','{"consent":true}','bob');assert.equal((await req('assets/'+asset.id,'GET',undefined,'bob')).status,404);
+ const d={kind:'PHOTO',title:'Real worker test',description:'',assets:[asset.id],cover:0};const saved=await req('drafts','POST',JSON.stringify(d));assert.equal(saved.status,200);const draft=await saved.json();assert.equal((await req('assets/'+asset.id,'DELETE')).status,409);assert.equal((await req('drafts/'+draft.id,'DELETE')).status,200);assert.equal((await req('assets/'+asset.id,'DELETE')).status,200);assert.equal((await req('assets/'+asset.id)).status,404);
+ const bad=await req('assets','POST',Buffer.from('<html>invalid file</html>'),'alice','image/jpeg');assert.equal(bad.status,400);assert.equal((await db.prepare('SELECT COUNT(*) n FROM assets').first()).n,0);
+ }finally{await mf.dispose()}
+});

@@ -1,0 +1,5 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {draftInput,safeType,statusLabel} from '../lib/policy.mjs';
+const base={kind:'PHOTO',title:'',description:'',assets:[],cover:0};
+test('photo count and caption bounds are validated',()=>{assert.throws(()=>draftInput({...base,assets:Array.from({length:36},(_,i)=>'asset'+i)}));assert.throws(()=>draftInput({...base,title:'x'.repeat(91)}));assert.throws(()=>draftInput({...base,description:'x'.repeat(4001)}));assert.throws(()=>draftInput({...base,assets:['a','a']}));assert.throws(()=>draftInput({...base,cover:-1}));});
+test('magic signature rejects renamed files',()=>{assert.equal(safeType(new Uint8Array([255,216,255]),'image/jpeg'),true);assert.equal(safeType(new TextEncoder().encode('<html>bad'),'image/jpeg'),false);assert.equal(safeType(new Uint8Array([0,0,0,24,102,116,121,112]),'video/mp4'),true)});
+test('unknown API status cannot become published',()=>{assert.equal(statusLabel('NEW_STATUS'),'PROCESSING');assert.equal(statusLabel('SEND_TO_USER_INBOX'),'INBOX_SENT')});

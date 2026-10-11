@@ -1,0 +1,11 @@
+export const LIMITS = Object.freeze({photos:35, photoBytes:5*1024*1024, videoBytes:50*1024*1024, userBytes:100*1024*1024, globalBytes:1024*1024*1024, drafts:30, sends:5});
+export class AppError extends Error { constructor(code,status=400){super(code);this.status=status;} }
+export function check(ok,code,status=400){if(!ok)throw new AppError(code,status);}
+export function sameOrigin(request){const u=new URL(request.url);check(request.headers.get('origin')===u.origin,'ORIGIN_REJECTED',403);}
+export function identifier(value){check(typeof value==='string' && /^[a-zA-Z0-9_-]{1,100}$/.test(value),'INVALID_ID');return value;}
+export function draftInput(v){check(v && (v.kind==='PHOTO'||v.kind==='VIDEO'),'INVALID_MEDIA_KIND');check(typeof v.title==='string'&&v.title.length<=90,'TITLE_TOO_LONG');check(typeof v.description==='string'&&v.description.length<=4000,'DESCRIPTION_TOO_LONG');check(Array.isArray(v.assets)&&v.assets.length<=(v.kind==='PHOTO'?35:1),'INVALID_ASSET_COUNT');v.assets.forEach(identifier);check(new Set(v.assets).size===v.assets.length,'DUPLICATE_ASSET');check(Number.isInteger(v.cover)&&v.cover>=0&&v.cover<Math.max(1,v.assets.length),'INVALID_COVER');return {kind:v.kind,title:v.title,description:v.description,assets:v.assets,cover:v.cover,aigc:v.aigc===true};}
+export function inboxPayload(draft,urls){check(urls.length===draft.assets.length&&urls.length>0,'MISSING_MEDIA');if(draft.kind==='PHOTO')return {media_type:'PHOTO',post_mode:'MEDIA_UPLOAD',post_info:{title:draft.title,description:draft.description},source_info:{source:'PULL_FROM_URL',photo_images:urls,photo_cover_index:draft.cover},is_aigc:draft.aigc};return {source_info:{source:'PULL_FROM_URL',video_url:urls[0]}};}
+export function statusLabel(value){return ({SEND_TO_USER_INBOX:'INBOX_SENT',PUBLISH_COMPLETE:'PUBLISH_COMPLETE',FAILED:'FAILED'})[value]||'PROCESSING';}
+// Reused from internal core.mjs. No internal seed/music data is copied.
+export function crop(w,h,r,x=.5,y=.5){let sw=w,sh=h;if(w/h>r)sw=h*r;else sh=w/r;return {sx:(w-sw)*x,sy:(h-sh)*y,sw,sh};}
+export function safeType(bytes,type){if(type==='image/jpeg')return bytes[0]===255&&bytes[1]===216&&bytes[2]===255;if(type==='video/mp4')return String.fromCharCode(...bytes.slice(4,8))==='ftyp';return false;}
