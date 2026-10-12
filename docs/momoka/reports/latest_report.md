@@ -185,3 +185,20 @@ Status: CONDITIONAL; real OAuth success and root cause remain unconfirmed.
 - URL: https://fieldrise-creator-studio.wryrice16.chatgpt.site
 - No Secret/environment variable changes, Sandbox sends, posts, review submissions, paid contracts, internal app, Supabase Production or SoundOn changes.
 - Next: president opens canonical /studio in own Chrome, starts a fresh TikTok connection and approves the same two scopes. Do not reuse prior Callback URL or authorization code. Report only connected status, or fixed error/stage labels; no full Callback URL/screenshot containing secrets. Then inspect fixed-label diagnostics and repair the identified boundary. Diagnosis preparation complete; original incident is not declared fixed.
+
+
+## 2026-10-12 13:34 JST — TOKEN_EXCHANGE diagnosis update
+
+User's fresh OAuth failed OAUTH_CALLBACK_FAILED / TOKEN_EXCHANGE. Root cause not yet confirmed. Code inspection narrows the previous unexpected exception to fetch/response JSON parsing (ordinary OAuth API rejection would have returned TIKTOK_AUTH_FAILED).
+
+Official check: https://developers.tiktok.com/docs/en/oauth-user-access-token-management and https://developers.tiktok.com/docs/en/login-kit-web, checked 2026-10-12. POST endpoint, form Content-Type, client_key/client_secret/code/grant_type/redirect_uri match. URLSearchParams decodes authorization code once and form-encodes outgoing parameters; no additional decode or old-code reuse. Connect and exchange both use siteOrigin + /api/tiktok/callback. Current configuration is guarded against another host.
+
+Correct Sites project and Secret registration confirmed at revision18 for both client variables without retrieving their values. Whether the pair belongs to the same Sandbox cannot be proven from secret metadata; user registration record says FieldRise Public Inbox Test. Successful token exchange is still required to validate the pair.
+
+Changes: explicitly serialize form body; use manual redirect to distinguish unexpected redirects; classify timeout/transport, non-JSON response, invalid response, HTTP error and allowlisted OAuth error codes. Log only fixed event/category and HTTP status when available. Do not log error_description, log_id, request URL, Cookie, authorization code, token, Secret, raw exception or response body. No automatic retry of one-time code.
+
+Related 8 tests PASS including 3 new regression tests (failed before implementation); TypeScript and build PASS. Full existing 30 tests not rerun per user instruction. Synthetic tests are not live API success.
+
+GitHub changes: f4fa9af0fa435b7a8fd490955156b86a7bb65adf / cc36901650583475ab7d26e1a363eb6a22494a74 on feature/tiktok-public-inbox-20261011. Sites source 2cb886b3b422d0fe1ccd8b8ef10f9723027c8eb4, version6, deployment appgdep_6acc6337ebf8819183402a899c09a969 succeeded, env revision18 unchanged.
+
+Next: fresh connect in Chrome at https://fieldrise-creator-studio.wryrice16.chatgpt.site/studio. Report only new fixed error label or connected status, no full Callback URL. This prepares precise diagnosis; original OAuth failure is not declared fixed. No sends/posts/Production review/paid services/internal/Supabase/SoundOn changes.
