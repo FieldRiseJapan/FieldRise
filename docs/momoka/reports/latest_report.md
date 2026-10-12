@@ -345,3 +345,16 @@ Completionpartial: deployedrealvalidMP4HTTP200/fullhash/expiry stillNOTTESTED be
 Retention: preflightlease inaccessibleafter90sec; expiredrow may remain untilnextsameownerpreflight oraccountdeletion. Uploadedasset remains untilownerdeletesunusedasset/account; do not auto-deletecurrentasset or existingdrafts. Existingdeleteguardpreventsassetdeletewhileactivelease. No allaccountdelete requested.
 
 PreflightURL is validation-only and intentionallytoo short forTikTokdownloadwindow. ExistingInboxcodeunchanged anddoesnotreusepreflightURL; actualsend-readiness remainsNOTREADY. Futureapprovedsend must validate exactactualtransferURL forfullrequiredlifetime beforeAPIinit; do notsendusingexpired90secURL. Conditional1sendapproval preservedunused. No disconnect/send/post/review/scopes/fees/internal/Supabase/SoundOn/YouTube changes.
+
+
+## 2026-10-12 16:13 JST — President live media preflight PASS; transfer-URL alignment
+
+President WindowsChrome reports final screen “MP4全体取得・SHA-256一致・URL失効 PASS。TikTok送信なし。” Record deployed fullMP4 retrieval/fullSHA/90secondexpiry PASS, presidentobserved proof, distinct from automatedtests. No test rerun. Prior signedpreflightcode makes noTikTokrequest and createsnojob. No sendapproval consumed.
+
+ActualInbox URL construction inspected: canonicalSITE_ORIGIN + /api/media/pull/ + random256bitkey; storedleaseexpiresnow+7200. It lies under Productionverified root https://fieldrise-creator-studio.wryrice16.chatgpt.site/ confirmed by president. HTTPS/no redirect inhandler; anonymousmediahandler precedes auth. Twohourlease meets code-duration condition for TikTok onehourdownloadtimeout, but externalTikToknetwork success notguaranteed. Do not logcapabilitykey/fullURL.
+
+Importantdifference: signed90secondpreflight uses /api/media/preflight-pull/, while actualsend uses /api/media/pull/. Rootownershipcoversboth, but preflightPASS is not actualtransferURL fullGET/hashPASS. Existing /api/media/pull/ nonexistentroute reached anonymously previously; validfullobject proofstillpending. Current jobsPOST createsactualURL and sendsimmediately. Before conditionalapprovedsend canoccur, separate generation/reuse or in-process fullGET/hash verification of exactactualURL priorTikTokinit is needed. Do not calljobsPOST simply to obtainURL or pretend prior90secondtest verifiesdifferentURL.
+
+MEDIA_DOMAIN_VERIFIED registeredSecret; envrevision18 unchanged; rawvaluenotread. Lastknownfalse, authenticated /api/me boolean is available for runtimeconfirmation. Currentservergate rejectsjobs unless exactlytrue. Proposed separateapproval: set only publicSites MEDIA_DOMAIN_VERIFIED=true, preservesecretvisibility/otherenv/keys/modes, redeployexactcurrentsource, confirmruntimeboolean androllbackflag ifunexpectedproblem. This unlocksUI/servergate only; doesnot initiateTikToksend norresolveexactURLproof. ProductionURLVerified anduserreportedmediaPASS support requestingthissetting, notclaimingallconditional sendcriteria satisfied.
+
+No env/source/deploychanges thisstep; onlydedicatedGitHub report. OAuth connection maintained. Conditional1SandboxInboxsendapproval preservedunused. Publicpost/reviewsubmit/scopes/fees/internal/SoundOn/Supabase/YouTube untouched. ActualoperationreviewMP4 stillawaitsrecording; sourceassetMP4 is not appdemo.
