@@ -414,3 +414,19 @@ READY_FOR_ONE_SANDBOX_INBOX_SEND whilecurrentpreparedstate remains, contextuncha
 Correction to previousUIreport: currentfileinput stillhasnativevalue-reset expression; addedReactstoredmedia label resolves ambiguity but earlier assertionthatresetremoved was inaccurate. ExactfileverifiedviaSHA so thisnativeplaceholderdoesnotblocksend. No newupload/deletion warranted; do notrepeatselection merely tochangeplaceholder.
 
 No actualsend/publicpost/Productionreview/scopes/fees/internal/SoundOn/Supabase/YouTubemutation. Commitreportonlydedicatedbranch. Operationvideo notyetrecorded/finished.
+
+
+## 2026-10-12 17:07 JST — UNKNOWN履歴表示・安全な段階別診断修正
+
+- 社長承認範囲：履歴再取得・取得失敗明示・段階別診断のみ。新規送信・再送・状態初期化・予約解除・OAuth/Secret/環境変数変更は未実施。
+- 読み取り調査：2026-10-12 16:51:56 JST の POST /api/jobs は502。直前のメディアGETは200。D1ジョブ1件は STATUS_UNKNOWN / NETWORK_RESULT_UNKNOWN、受付ID未保存、冪等性キー保存済み。TikTok到達・受理はUNKNOWN。過去ログにない結果を今回の診断追加で確定させない。
+- 原因確認：UIのAPIヘルパーが非2xxで例外を投げ、従来の送信後refreshに到達しなかった。エラー後も履歴を読み取り再取得する。履歴取得失敗時は件数未確認を表示し、0件表示を抑制する。既存一覧は保持する。
+- 診断：BEFORE_API / COMMUNICATION_START / HTTP_RESPONSE / JSON_PARSE / D1_SAVE / D1_SAVED。ログ項目は固定event・stage・数値HTTPステータス・固定FAILEDのみ。ID・個人情報・秘密値・URL・応答本文・例外詳細は追加診断に含めない。
+- 関連模擬テスト：履歴3件、診断5件、曖昧通信時の再送阻止1件、計9件PASS。型チェックPASS、ビルドPASS、diff check PASS。成功・通信例外・非JSON・HTTPエラー・D1保存エラーを模擬。実TikTok通信は未実施。既存30件の全再実行なし。
+- 実装レビュー：変更4ファイルのみ。既存所有者認証・同意・1回制限・冪等性・メディア検証ゲート維持。DBマイグレーションなし。
+- GitHub専用ブランチ feature/tiktok-public-inbox-20261011：server e541cae97f1a63680fbc7ac7caccdc6cc7cae4d6、UI 9e8bb118d21543c31ab5d3e51b8f388aaf23450e、APIテスト 633d73a44389809b33d0e7adee863b923bb0c420、履歴テスト a3cc5e52d3bb2b535617c23f7d70aa6a740421b4。対象 apps/tiktok-public/lib/server.ts、app/studio/studio.tsx、tests/public-api.test.cjs、tests/history-recovery.test.cjs。
+- SitesソースCommit baa95c68671cbd9b241e2b716689a7ff774d1274、公開Version13、deployment appgdep_6acc9529f0648191b303f781a117b75b、2026-10-12 17:07:24 JST succeeded、env revision19維持。
+- デプロイ後D1読み取り比較：ジョブ1件とメディア予約2件は調査前と全フィールド一致。STATUS_UNKNOWN維持。削除・初期化なし。
+- Windows Chrome最終確認：未確認。社長がF5→送信履歴を開き、既存UNKNOWN1件の表示を確認する。送信ボタン・状態確認ボタンは押さない。
+- 追加非送信調査：既存D1・ログの再確認は可能。ただしpublish_id未保存のため現行TikTok status/fetchを安全に照会できない。新診断は過去結果を復元しない。必要ならTikTokサポートへの照会文案を準備（外部送信は別承認）。
+- 審査動画：実際の操作映像は未完成。今回素材MP4は送信試験素材であり操作デモではない。Inbox受信の実証が未完、今回1回承認は使用済み。再送承認を推定しない。Production審査提出未実施。
