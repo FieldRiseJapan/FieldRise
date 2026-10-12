@@ -66,3 +66,16 @@ test('callback token API error uses allowlisted error only',async()=>{
  apiResponse=()=>Response.json({error:'invalid_client',error_description:'synthetic-secret'}, {status:400});
  const r=await callbackAttempt();assert.equal(r.status,502);assert.deepEqual(await r.json(),{error:'TIKTOK_TOKEN_INVALID_CLIENT_400'});
 });
+function tokenSuccess(){return Response.json({access_token:'synthetic-access',refresh_token:'synthetic-refresh',open_id:'synthetic-open',expires_in:3600,scope:'user.info.basic,video.upload'});}
+test('callback user info non-JSON distinguishes HTTP failure without response content',async()=>{
+ apiResponse=url=>url.includes('/oauth/token/')?tokenSuccess():new Response('synthetic-sensitive-body',{status:403});
+ const r=await callbackAttempt();assert.equal(r.status,502);assert.deepEqual(await r.json(),{error:'TIKTOK_USER_INFO_NON_JSON_403'});assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM connections').get().n,0);
+});
+test('callback user info transport failure is distinct from persistence',async()=>{
+ apiResponse=url=>{if(url.includes('/oauth/token/'))return tokenSuccess();throw new TypeError('synthetic-token-secret')};
+ const r=await callbackAttempt();assert.equal(r.status,502);assert.deepEqual(await r.json(),{error:'TIKTOK_USER_INFO_TRANSPORT_ERROR'});
+});
+test('callback user info malformed success rejected before database bind',async()=>{
+ apiResponse=url=>url.includes('/oauth/token/')?tokenSuccess():Response.json({data:{user:{open_id:'synthetic-open'}},error:{code:'ok'}});
+ const r=await callbackAttempt();assert.equal(r.status,502);assert.deepEqual(await r.json(),{error:'TIKTOK_USER_INFO_INVALID_RESPONSE_200'});
+});
