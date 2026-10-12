@@ -124,3 +124,14 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - 一時診断3件テストPASS・型検査/ビルドPASS。30件と134ファイル照合は繰り返していない。
 - 一時診断版から元のsaved version1へ復元済み（appgdep_6acc52828c4c8191833f70480ba5a08a、envrevision12）。OFF/unconfiguredの実HTTP確認済み。現在の稼働版に診断追加は残していない。
 - 修正は未実施。社長直接再入力と既存暗号鍵復元を提案。暗号鍵を無断再生成しない。OAuth実機/送信/審査提出は未実施。
+
+
+## 2026-10-12 再登録資格情報の反映・トークン件数確認
+
+[詳細・新暗号化キーの安全な登録手順](tiktok_public_token_count_20261012.md)
+
+- 実Worker envrevision14でTIKTOK_CLIENT_KEY/TIKTOK_CLIENT_SECRETの空欄・基本形式エラー解消を確認。値は非出力。有効性はOAuth未実行につき未確認。
+- 公開版D1の暗号化済みtoken件数0（COUNTのみ、token値非取得）。旧キーによる既存token復号が不要のため新キー案が可能。
+- TOKEN_ENCRYPTION_KEYの64小文字hex形式不適合は継続。新規生成/登録は未実施、別途社長承認待ち。
+- 一時診断source8e951d4・savedversion3から稼働savedversion1へ復元済み：appgdep_6acc549b040481919ab6c54d50f28ada succeeded / envrevision14。OFF維持・Secret変更なし。
+- 既存30件・134ファイル照合の再実行なし。社内/Supabase/SoundOn変更・送信・投稿・審査提出・課金なし。
