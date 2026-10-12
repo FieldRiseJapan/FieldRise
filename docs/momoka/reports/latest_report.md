@@ -430,3 +430,13 @@ No actualsend/publicpost/Productionreview/scopes/fees/internal/SoundOn/Supabase/
 - Windows Chrome最終確認：未確認。社長がF5→送信履歴を開き、既存UNKNOWN1件の表示を確認する。送信ボタン・状態確認ボタンは押さない。
 - 追加非送信調査：既存D1・ログの再確認は可能。ただしpublish_id未保存のため現行TikTok status/fetchを安全に照会できない。新診断は過去結果を復元しない。必要ならTikTokサポートへの照会文案を準備（外部送信は別承認）。
 - 審査動画：実際の操作映像は未完成。今回素材MP4は送信試験素材であり操作デモではない。Inbox受信の実証が未完、今回1回承認は使用済み。再送承認を推定しない。Production審査提出未実施。
+
+
+## 2026-10-12 17:11 JST — Version 13 Windows Chrome履歴確認PASS（社長報告）
+- F5後、既存UNKNOWNジョブ1件が表示された。日時2026/10/12 16:51:56、表示「結果不明・再送せずInboxを確認」、NETWORK_RESULT_UNKNOWN、上部SANDBOX_SEND_LIMIT。
+- 状態確認ボタン未操作、新規送信・再送なし。履歴表示PASSと送信結果UNKNOWNを区別する。Sandbox1回承認は使用済み。
+- 今回は専用ブランチ資料追記のみ。D1ジョブ/冪等性キー/予約の変更なし。Sitesコード・環境・デプロイ変更なし。main・社内版・SoundOn・YouTube・Supabase変更なし。
+- 非送信調査：既存DB/ログの読み取りとInbox閲覧は可能。publish_id未保存により現行status/fetch照会不可。追加診断は過去結果を復元しない。問い合わせ文案を撮影チェックシートへ用意したが外部送信は未実施。
+- 撮影チェックシートを最新状態へ更新。送信なしの第一部（公開画面、既存接続プロフィール、保存済み素材プレビュー、UNKNOWN履歴）の2〜3分手順と日英字幕を用意。Windows直接操作不可のため社長の画面遷移と録画が必要。完成MP4未受領。素材テスト動画を操作デモと混同しない。
+- 保存先 docs/momoka/tiktok_review/2026-10-12/public_recording_checksheet.md。コード変更なしのためテスト再実行なし。
+- 残課題：実操作録画受領・編集・全編検証、認可画面の録画、Inbox受信実証、Portal最終整合性、社長最終承認。Production提出未実施。
