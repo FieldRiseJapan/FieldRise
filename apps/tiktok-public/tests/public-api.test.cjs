@@ -47,10 +47,22 @@ async function callbackAttempt(){
 }
 test('callback reports token exchange stage without leaking exception details',async()=>{
  apiResponse=()=>{throw new Error('synthetic-secret-code-token')};
- const r=await callbackAttempt();assert.equal(r.status,500);assert.deepEqual(await r.json(),{error:'OAUTH_CALLBACK_FAILED',stage:'TOKEN_EXCHANGE'});
+ const r=await callbackAttempt();assert.equal(r.status,502);assert.deepEqual(await r.json(),{error:'TIKTOK_TOKEN_TRANSPORT_ERROR'});
 });
 test('callback successful flow stores owner-bound encrypted credentials',async()=>{
  apiResponse=url=>url.includes('/oauth/token/')?Response.json({access_token:'synthetic-access',refresh_token:'synthetic-refresh',open_id:'synthetic-open',expires_in:3600,scope:'user.info.basic,video.upload'}):Response.json({data:{user:{open_id:'synthetic-open',display_name:'Tester',avatar_url:''}},error:{code:'ok'}});
  const r=await callbackAttempt();assert.equal(r.status,303);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM connections').get().n,1);
  const c=sqlite.prepare('SELECT secret FROM connections').get();assert(!c.secret.includes('synthetic-access'));assert.equal(JSON.parse(await security.crypt(c.secret,env.TOKEN_ENCRYPTION_KEY,'alice',true)).access_token,'synthetic-access');
+});
+test('callback non-JSON token response reports only HTTP status and fixed category',async()=>{
+ apiResponse=()=>new Response('synthetic-sensitive-response',{status:403});
+ const r=await callbackAttempt();assert.equal(r.status,502);assert.deepEqual(await r.json(),{error:'TIKTOK_TOKEN_NON_JSON_403'});
+});
+test('callback token transport failure hides raw exception',async()=>{
+ apiResponse=()=>{throw new TypeError('synthetic-sensitive-network-detail')};
+ const r=await callbackAttempt();assert.equal(r.status,502);assert.deepEqual(await r.json(),{error:'TIKTOK_TOKEN_TRANSPORT_ERROR'});
+});
+test('callback token API error uses allowlisted error only',async()=>{
+ apiResponse=()=>Response.json({error:'invalid_client',error_description:'synthetic-secret'}, {status:400});
+ const r=await callbackAttempt();assert.equal(r.status,502);assert.deepEqual(await r.json(),{error:'TIKTOK_TOKEN_INVALID_CLIENT_400'});
 });
