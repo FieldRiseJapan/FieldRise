@@ -317,3 +317,16 @@ Sites env metadata revision18 unchanged, mode and MEDIA_DOMAIN_VERIFIED bothSecr
 Remaining readiness conditions: valid MP4 capability URL anonymousHTTP200/exactbytes (not proven by TXT or nonexistentroute404), media flag enable approval, actual loaded draft/video match. No jobsPOST for preflight because it triggerssend. Current source lacks media-only capability generation; prepare isolated bounded preflight change for separate approval if needed. Production Verified property PASS already confirmed; no repeatownership action.
 
 Conditional proposal: publicSites MEDIA_DOMAIN_VERIFIED=true only after media readiness evidence, then exactMP4 one-time Sandbox Inboxsend to authorizedaccount with userconsent. These changes/sends remain unapproved. Original testfile not copied to publicroot or GitHub. No external media transfer, actualpost, reviewsubmit, connectiondisconnect, credentialchange or internal/Supabase/SoundOn changes. Review operationMP4 still pending actualrecording.
+
+
+## 2026-10-12 15:57 JST — Conditional one-time Sandbox send approval received
+
+President authorizes maximum1 Inbox send only after all stated readiness conditions, exact attachedfile, registeredSandbox Runa-Girl8215. No send has occurred; authorization not consumed. Filename fieldrise_tiktok_review_hq.mp4 SHA2562e200e8634de51bf1ae2116dce07d39e4914351596b4b22e9b615cf6bf1a98ee reidentified; original unchanged. Technical/visual checks recorded above; audio subjective review remains unperformed.
+
+Current Sites env revision18 and registeredSecret MEDIA_DOMAIN_VERIFIED metadata confirmed. Values not retrieved. Last known flagfalse; runtimeboolean via authenticated /api/me.mediaVerified remains to be confirmed. No implicit authorization to changeflag.
+
+Concrete code obstacle: media lease URL is generated inside jobs POST immediately before TikTok init; no independent preflight generation exists. Calling this endpoint now would violate condition2. Need minimal isolated preflight path to stage a selected owner-ownedasset and create bounded read-only anonymous capability without calling TikTok, followed by complete GET and SHA verification. Actualsend must reuse the same verifiedmedia URL/file, not silently generate a differentURL. Preserve authenticatedowner checks, explicitpreflightconsent, boundedexpiry, isolation, no jobcreation/send, no sensitiveURL logging, and tests for noTikTokcall/foreignassetdenial/expiry/identicalsource. Proposal only, not implemented or deployed.
+
+Remaining gates: audiofullreview; actualowner-authenticatedfile staging; preflightmechanism; validmedia fullGET/hash; runtime mediaflag confirmation and separatetruechange approval iffalse; immediate sandbox/account/scope confirmation before1send. Existing browsertransport unavailable and presidentChrome session separate; do not access tokens or spoofidentity.
+
+Next request narrowly scoped preflight implementation plus later conditional MEDIA_DOMAIN_VERIFIED=true change only when evidence complete. Current conditional sendapproval persists; do not ask for it again. No source/environment/connection/TikTok mutations this task; only dedicatedGitHub reportappend. Productionreview/publicpost/scopechanges/fees/internal/SoundOn/Supabase unaffected.
