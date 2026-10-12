@@ -79,3 +79,18 @@ test('callback user info malformed success rejected before database bind',async(
  apiResponse=url=>url.includes('/oauth/token/')?tokenSuccess():Response.json({data:{user:{open_id:'synthetic-open'}},error:{code:'ok'}});
  const r=await callbackAttempt();assert.equal(r.status,502);assert.deepEqual(await r.json(),{error:'TIKTOK_USER_INFO_INVALID_RESPONSE_200'});
 });
+test('preflight anonymous cannot issue URL',async()=>{owner=null;assert.equal((await req('media/preflight','POST',{assetId:'asset-a',consent:true})).status,401);assert.equal(calls.length,0)});
+test('preflight foreign asset cannot issue URL',async()=>{await register();env.TIKTOK_MODE='sandbox';sqlite.prepare('INSERT INTO assets VALUES(?,?,?,?,?,?)').run('foreign','bob',2971884,'video/mp4',1,0);assert.equal((await req('media/preflight','POST',{assetId:'foreign',consent:true})).status,404);assert.equal(calls.length,0)});
+test('preflight requires consent before exposing media',async()=>{await register();env.TIKTOK_MODE='sandbox';assert.equal((await req('media/preflight','POST',{assetId:'x',consent:false})).status,400)});
+test('preflight authentic signed full media and expiration without TikTok', {skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
+ await register();env.TIKTOK_MODE='sandbox';env.TOKEN_ENCRYPTION_KEY='11'.repeat(32);
+ const bytes=fs.readFileSync(process.env.FIELD_RISE_PREFLIGHT_FIXTURE);assert.equal(bytes.length,2971884);
+ sqlite.prepare('INSERT INTO assets VALUES(?,?,?,?,?,?)').run('target',owner,bytes.length,'video/mp4',1,0);
+ env.BUCKET.get=async()=>({body:bytes,size:bytes.length,arrayBuffer:async()=>bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)});
+ const r=await req('media/preflight','POST',{assetId:'target',consent:true});assert.equal(r.status,200);const p=await r.json();const u=new URL(p.url);owner=null;
+ const get=()=>handle(new Request(u),u.pathname.slice(5).split('/'));
+ assert.equal((await get()).status,200);assert.deepEqual(Buffer.from(await(await get()).arrayBuffer()),bytes);
+ const altered=new URL(u);altered.pathname=altered.pathname.slice(0,-1)+(altered.pathname.endsWith('a')?'b':'a');assert.equal((await handle(new Request(altered),altered.pathname.slice(5).split('/'))).status,404);
+ sqlite.prepare("UPDATE leases SET expires=0 WHERE job_id='preflight'").run();assert.equal((await get()).status,404);
+ assert.equal(calls.length,0);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM jobs').get().n,0);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM connections').get().n,0);
+});
