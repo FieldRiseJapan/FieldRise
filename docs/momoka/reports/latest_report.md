@@ -274,3 +274,16 @@ President approved only URL-property registration/verification for https://field
 Cloud browser initial inventory showed only about:blank. Opening exact app URL timed out after300seconds. Follow-up tab inventory also timed out; no further blind navigation or mutation attempted. Cannot confirm Portal state or successful registration. No signature received, no file fabricated, no Sites/env/source changes and no Verified claim.
 
 Minimum owner handoff: own Chrome opens app7664531024089532432, Production → URL properties → Verify properties → URL prefix → exact public root URL. Download official verification file and attach original file with the Portal-displayed placement path. If URL rejected, stop and report visible reason; no alternate domain. GPT then places exact file in public Sites and verifies HTTPS200/no redirect/content match. Portal Verify executed only after placement succeeds. Approval persists; do not request again. Existing OAuth connection maintained and MEDIA_DOMAIN_VERIFIED remainsfalse.
+
+
+## 2026-10-12 15:43 JST — Original TikTok ownership TXT published
+
+Original source libfile_d899bc7afbb08191a877d2c36edaf9a7 materialized with Library metadata. Exact filename tiktoknYMgzn2abygxcaQSkxWyX5fo0zAIZ7Ym.txt,68bytes. Copied unchanged to public/ in public Sites; no fabricated verification content.
+
+Public URL https://fieldrise-creator-studio.wryrice16.chatgpt.site/tiktoknYMgzn2abygxcaQSkxWyX5fo0zAIZ7Ym.txt independently fetched without authentication: HTTP200,0redirects, cmp original/retrieved PASS. SHA25624262871489b5059234f8304a1335016b7e9b2ceac2e450d607978f41a9fb3cd. GitHub fetched content matches exact local original.
+
+GitHub commit9746e5bc21b28a6591419572f1c8e4595139fb89 adds apps/tiktok-public/public/tiktoknYMgzn2abygxcaQSkxWyX5fo0zAIZ7Ym.txt on feature/tiktok-public-inbox-20261011. Sites source bbbd374c5e8ef85d523c8d846bfe1af386b045a7; saved version9; deploymentappgdep_6acc8189dad08191af3c8c50b1d32200 succeeded. Env revision18 unchanged. Build PASS, unrelated successful tests not repeated. Minimal source addition: one static verification file; authentication/OAuth/API unchanged.
+
+404 investigation: authenticated GitHub connector reads repository, exact branch and known support file successfully; after create exact TXT path also readable. Repository/branch/path for supplied correct links exist and current connector has access. Original failing URL/session not supplied, so specific previous404 cause remains unconfirmed; do not assert access denial or branch absence. TXT did not exist in this exact path before this addition.
+
+Next president opens existing URL-prefix verification dialog and clicks final Verify for exact public root. Must observe Verified/verification succeeded; screenshot/text proof required. GPT has not confirmed Portal Verified and does not declare ownership complete. MEDIA_DOMAIN_VERIFIED remainsfalse. No token/Secret access or env changes; no disconnect, Sandbox send, posts, review submit, fees, main/internal/Supabase/SoundOn/YouTube changes.
