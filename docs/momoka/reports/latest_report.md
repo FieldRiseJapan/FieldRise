@@ -157,3 +157,15 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - 社長操作：公開版Creator Studio→ChatGPTサインイン→規約確認/利用登録→TikTok接続。要求scope2件と対象runa_girl8215を確認して認証。送信操作は行わない。認可コード/state/tokenが見える中間URLは共有しない。
 - 実機OAuth/Callback成功、接続アカウント一致、token暗号化保存、認証状態/ログアウトはまだ未確認。成功表示後に追加検証へ続く。コード上のscope2件とPortal設定の確認済みを実API成功と混同しない。
 - 有効化は正常なため、ブラウザ保護だけを理由にロールバックしていない。送信・投稿・審査提出・課金は未実施。社内/Supabase/SoundOn/YouTube変更なし。
+
+
+## 2026-10-12 Portal取得資格情報再登録後・OAuth再試行準備
+
+- 社長がFieldRise Public Inbox Testから直接再登録。対象Sites appgprj_6acb0c3677d88191b7fc6ca303bcf3d7、envrevision18。資格情報・暗号鍵・SITE_ORIGINをAI側では変更/表示していない。
+- 一時診断savedversion4/source cb725f1ad9fce6b1fcbba7f4e3c7cd2686304c85で資格情報の空欄/周辺空白/引用符/代表的説明用placeholder、暗号鍵形式、origin形式を検証。診断エラーなし（ログ基盤の空issues配列省略）。TikTok側での認証有効性は未検証。
+- 通常版のインラインOAuth URL生成ロジックを等価な共通関数に切り出し、実接続と一時診断の両方で使用。実Workerで keyMatchesConfigured=true,scopeMatches=true,callbackMatches=true。URL/Client key/Secret/認可コード/state/tokenの値は出力なし。診断の固定stateは実OAuth試行/DB保存をしない。
+- 復元する通常savedversion1のコードも、config().TIKTOK_CLIENT_KEYを使い、2scopeと同Callback生成。説明用Keyのハードコードなしを確認。診断版の関数と元ロジックの構成一致。
+- 専用診断テスト5件PASS、型検査/ビルドPASS。既存30件/134ファイル照合は不要に再実行していない。
+- 通常savedversion1へ復元済み：appgdep_6acc5c12385c8191a2c4f6dc124d6f18 succeeded、envrevision18、2026-10-12T04:03:47.588201+00:00。一時診断を稼働版から除去。実HTTP tiktok=true,mode=sandbox。
+- OAuth再試行準備完了。社長Chromeで公開版を再読み込みし、新しい接続操作から認証（過去の認証URLを再利用しない）。実機OAuth/Callback/接続アカウント/暗号化保存/ログアウトは引き続き未確認。
+- トークン集計0、送信・投稿・審査提出・課金なし。社内/Supabase/SoundOn変更なし。
