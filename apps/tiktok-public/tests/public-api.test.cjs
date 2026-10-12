@@ -129,3 +129,7 @@ test('transfer prepared URL expiry blocks before any TikTok call',{skip:!process
 test('transfer partial response stops before TikTok init',{skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
  const x=await transferFixture();apiResponse=()=>new Response(x.bytes.subarray(0,100),{headers:{'Content-Length':String(x.bytes.length)}});assert.equal((await req('tiktok/prepare-inbox','POST',x.request)).status,502);assert.equal(calls.length,1);
 });
+test('transfer complete body with absent length header remains fully verified',{skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
+ const x=await transferFixture();apiResponse=()=>new Response(x.bytes);
+ const r=await req('tiktok/prepare-inbox','POST',x.request);assert.equal(r.status,200);assert.equal((await r.json()).size,x.bytes.length);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM jobs').get().n,0);
+});
