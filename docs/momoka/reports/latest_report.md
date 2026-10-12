@@ -596,3 +596,14 @@ No actualsend/publicpost/Productionreview/scopes/fees/internal/SoundOn/Supabase/
 - 原本SHA再照合一致。原本未変更、編集版MP4未出力。録画はVersion14新規撮影ではなく、撮影時の履歴0件を現在履歴へ合成しない。
 - 今回変更は専用GitHubブランチ資料のみ。アプリ/DB/予約/Secret/環境/公開版への変更なし。完了済みテスト再実行なし。送信/状態照会/削除/認証変更/Production提出なし。
 - 次の実行承認：データ削除安全対策の具体的なコード/DB変更、原本の編集作業。実送信/DB適用/Production提出はそれぞれ別承認として維持。
+
+
+## 2026-10-12 Version 14 新録画編集・品質報告
+
+社長撮影の「レコーディング 2026-10-12 224011.mp4」を優先し、前回原本も削除・上書きせず保全。日英字幕、不要部分カット、個人情報と内部識別情報のマスキングを実施した。
+
+完成第一部：fieldrise_v14_review_part1.mp4、123秒、2542×1440、30fps、H.264、無音字幕版、2,858,332 bytes。SHA-256：8063f2b5d169cf43b642d759a5ce735c09597261f6c52910688f2195645ad729。全編デコードPASS、代表フレームとマスク・字幕を目視確認。最後の実画面を10秒静止表示。
+
+SANDBOX_SEND_LIMIT、無効な送信操作、21:42:47のNETWORK_RESULT_UNKNOWN履歴を実際の状態として収録。Inbox成功画面は作成していない。user.info.basicとvideo.uploadの用途を説明。社長確認用MP4、SRT、品質報告を納品。
+
+判定：第一部編集完了／Production審査動画全体は未完成。実OAuth認可・Callbackの録画、video.upload成功応答、TikTok Inbox受信の実証、Portal最終照合が不足。今回TikTok送信・再送・状態確認・登録削除・認証変更・公開デプロイ・Production審査提出は未実施。既存ジョブ・予約・環境に変更なし。
