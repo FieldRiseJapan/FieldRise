@@ -574,3 +574,16 @@ No actualsend/publicpost/Productionreview/scopes/fees/internal/SoundOn/Supabase/
 - 実D1読み取り前後：21:42UNKNOWNジョブ1件、予約1件が全フィールド一致。冪等性キー/状態/予約に変更なし。新規送信/再送/状態照会/削除/復元なし。
 - 次の別承認：この専用ブランチ修正を公開版Sitesソースへ同期し、ビルド/保存Version/デプロイすること。Secret/環境変数/DB/スコープ変更なし。公開への反映後も実送信の承認を含めず、実通信による成功確認はNOT TESTEDとして維持。
 - Phase1完了。公開反映・TikTok実動作・Production提出は未実施。旧/新UNKNOWN結果を確定しない。
+
+
+## 2026-10-12 22:17 JST以降 — Phase2公開版通信修正反映
+- Phase1承認済み3ファイルだけをSites source helperで開いたVersion13ソースへ同期。GitHub専用ブランチ内容との3ファイル完全一致確認。変更は lib/server.ts、tests/public-api.test.cjs、tests/inbox-workers-phase1.test.cjs（apps/tiktok-publicの対応内容）。auth/env/schema/R2/UI変更なし。
+- 関連回帰9件/Workers互換5件PASS、型チェックPASS、diff check PASS、3ファイル範囲と固定ログ分類の安全検査PASS。ビルドPASS。TikTok実通信なし。
+- Sites公開ソースSHA b51be93f4bbd75877062530a49823c7243f02fc5。GitHubアプリ3ファイル内容と照合済み。ソースhelperがCommit/Push/パッケージ作成。
+- 公開Version14、version_id appgprj_6acb0c3677d88191b7fc6ca303bcf3d7~appgver_59ead86201e48191bd5d3f5d1f22365f。
+- Deployment appgdep_6accde9b243c819194554c0984de0805、2026-10-12 22:22:25 JST succeeded、env revision19維持、URL https://fieldrise-creator-studio.wryrice16.chatgpt.site。
+- 初回deploy応答が非構造化で保存できなかったため、既存VersionからDeployment IDを取得しstatus照会で成功を確認。二重デプロイ/切り戻しなし。
+- 公開画面：クラウドChromeで /studio のCreator Studioサインイン前画面を実表示確認。ログイン/再認証なし。コンテナのHTTP直接取得はHTTPErrorとなり、ブラウザとは経路が異なるため同結果でサイト異常とは断定しない。認証済みWindows送信履歴画面は本作業から直接確認不可、社長F5で既存UNKNOWN1件の表示確認が残る。
+- 公開前後D1読取比較：21:42:47 STATUS_UNKNOWNジョブ1件、leases1件とも全フィールド一致。冪等性キー/予約/状態変更なし。
+- 実通信 NOT TESTED。公開デプロイ成功をTikTok送信成功として扱わない。新規送信/再送/状態照会/削除/接続解除/復元/OAuth再認可/Secret変更/スコープ変更/Production申請なし。
+- 次工程：社長Chrome F5→履歴表示確認（状態確認/送信を押さない）。データ削除安全対策は具体修正案と別承認、審査動画編集とPortal最終照合、最終提出は別承認。新規送信承認を推定しない。
