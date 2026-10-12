@@ -217,3 +217,16 @@ Implemented dedicated userInfo helper only for callback; existing content postin
 GitHub commits: c133b5ea67505bce4c52028d33005be490380ee3 (code), 30ae223590d9f320faa453eb5a51087cee818150 (tests), branch feature/tiktok-public-inbox-20261011. Sites source 73bd53ec0b612a2e96ddbfd7fa141ef01bb3a53f, version7, deployment appgdep_6acc64b03ff08191a88128aae1697ff6 succeeded; env revision18 unchanged.
 
 Next: president starts fresh connect at https://fieldrise-creator-studio.wryrice16.chatgpt.site/studio, approves basic/upload, reports connected state or only fixed error/stage labels. Never reuse previous code/Callback URL. Exact cause and real OAuth completion require the fresh result. No credentials/encryption key changes, Sandbox sends, posts, Production review, paid contracts, internal/Supabase/SoundOn changes.
+
+
+## 2026-10-12 13:43 JST — Sandbox OAuth success (president Chrome confirmation)
+
+President confirmed connected Runa-Girl8215, normal Callback return and connected=1. No content sent or posted. This is real user-reported verification, distinct from synthetic tests. Version7 source 73bd53ec0b612a2e96ddbfd7fa141ef01bb3a53f deployed successfully.
+
+Code evidence: redirect is after owner-bound AES-GCM encryption and awaited D1 INSERT/UPDATE; connected UI obtains profile from D1 via /api/me. Thus reported normal return and display support successful encrypted save. Raw Secret/token/ciphertext not retrieved. D1 overview confirmed DB binding and connections table; row reader omitted because it cannot project out sensitive cells. Independent refresh/restart persistence still requires F5 display confirmation.
+
+Source comparison: GitHub branch and Sites checkout exact-match for lib/server.ts, lib/security.ts, tests/public-api.test.cjs. No whole 134-file recheck or existing test rerun. No new app code/environment/deployment changes this task. Different repository commit SHAs are not file differences; reports are GitHub-only.
+
+New preparation: docs/momoka/tiktok_review/2026-10-12/public_oauth_success_demo_preparation.md. Existing7 historical documents retained; old internal/Direct Post description must not be reused for public Inbox app. Added updated JA/EN draft, recording plan and disconnect/reconnect procedure. Local disconnect deletes D1 connection only, not TikTok-side authorization revocation. No actual disconnect occurred.
+
+Status: OAuth SUCCESS (president confirmed), review CONDITIONAL. Video not recorded, Inbox not sent/tested, production review not submitted. Next minimal owner operation F5 and confirm connection remains. Disconnect/reconnect, Sandbox send and final review submit need separate approval. No internal/Supabase/SoundOn changes or paid services.
