@@ -169,3 +169,19 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - 通常savedversion1へ復元済み：appgdep_6acc5c12385c8191a2c4f6dc124d6f18 succeeded、envrevision18、2026-10-12T04:03:47.588201+00:00。一時診断を稼働版から除去。実HTTP tiktok=true,mode=sandbox。
 - OAuth再試行準備完了。社長Chromeで公開版を再読み込みし、新しい接続操作から認証（過去の認証URLを再利用しない）。実機OAuth/Callback/接続アカウント/暗号化保存/ログアウトは引き続き未確認。
 - トークン集計0、送信・投稿・審査提出・課金なし。社内/Supabase/SoundOn変更なし。
+
+
+## 2026-10-12 04:28 UTC — Sandbox OAuth Callback SERVER_ERROR diagnosis
+
+Status: CONDITIONAL; real OAuth success and root cause remain unconfirmed.
+
+- User observed permission consent for Runa-Girl8215 with user.info.basic and video.upload, then SERVER_ERROR.
+- Confirmed server event: /api/tiktok/callback HTTP 500; existing handler suppressed exception details. No sensitive request values were displayed or copied into this report.
+- Synthetic callback success test passed through state consumption, token exchange, user-info lookup, owner-bound AES-GCM encryption and SQLite persistence. This is a test result, not real TikTok success or real D1 validation.
+- Added fixed-label callback diagnostics: SESSION, PROFILE_LOOKUP, STATE_VALIDATION, STATE_CONSUME, TOKEN_EXCHANGE, SCOPE_VALIDATION, ACCOUNT_LOOKUP, USER_INFO, ENCRYPTION, CONNECTION_SAVE. Unexpected failures return OAUTH_CALLBACK_FAILED with stage. Logs contain only fixed event and stage, never exception text, URL, headers, credentials or response body.
+- Related focused tests: 5 PASS (OAuth owner/cookie, state replay rejection, AES owner binding, callback safe failure, callback success). TypeScript noEmit and Sites build PASS. Existing 30-test suite was not unnecessarily rerun.
+- GitHub code commit: 34cbd80c79c6cd4e71d8ee305f7a422e254aef54; test commit: 1a5c1985f1858363b496349e1f4fcacbe0c12d70. Branch feature/tiktok-public-inbox-20261011 only.
+- Sites source SHA: d5ed0b0466d0f03b09bed203767202a65f319999; version 5; deployment appgdep_6acc61c5040c8191990ea9e43adc44aa succeeded, environment revision18 unchanged.
+- URL: https://fieldrise-creator-studio.wryrice16.chatgpt.site
+- No Secret/environment variable changes, Sandbox sends, posts, review submissions, paid contracts, internal app, Supabase Production or SoundOn changes.
+- Next: president opens canonical /studio in own Chrome, starts a fresh TikTok connection and approves the same two scopes. Do not reuse prior Callback URL or authorization code. Report only connected status, or fixed error/stage labels; no full Callback URL/screenshot containing secrets. Then inspect fixed-label diagnostics and repair the identified boundary. Diagnosis preparation complete; original incident is not declared fixed.
