@@ -18,11 +18,12 @@ type Diagnose=(stage:ApiStage,httpStatus?:number,outcome?:'FAILED')=>void;
 const diagnose:Diagnose=(stage,httpStatus,outcome)=>console.info(JSON.stringify({event:'FIELD_RISE_INBOX_STAGE',stage,...(httpStatus===undefined?{}:{httpStatus}),...(outcome?{outcome}:{})}));
 async function saveInboxResult(query:string,...values:any[]){diagnose('D1_SAVE');try{await run(query,...values);diagnose('D1_SAVED');}catch(e){diagnose('D1_SAVE',undefined,'FAILED');throw e;}}
 async function tiktok(path:string,token:string,payload?:unknown,trace?:Diagnose){
+ const inbox=path==='/v2/post/publish/inbox/video/init/';
  trace?.('BEFORE_API');let r:Response;
  trace?.('COMMUNICATION_START');
- try{r=await fetch('https://open.tiktokapis.com'+path,{method:payload?'POST':'GET',headers:{Authorization:'Bearer '+token,...(payload?{'Content-Type':'application/json'}:{})},body:payload?JSON.stringify(payload):undefined,redirect:'error',signal:AbortSignal.timeout(20000)});}
- catch(e){trace?.('COMMUNICATION_START',undefined,'FAILED');throw e;}
- trace?.('HTTP_RESPONSE',r.status);let d:any;
+ try{r=await fetch('https://open.tiktokapis.com'+path,{method:payload?'POST':'GET',headers:{Authorization:'Bearer '+token,...(payload?{'Content-Type':'application/json'}:{})},body:payload?JSON.stringify(payload):undefined,redirect:inbox?'manual':'error',signal:AbortSignal.timeout(20000)});}
+ catch(e){trace?.('COMMUNICATION_START',undefined,'FAILED');if(inbox){const name=e&&typeof e==='object'&&'name' in e?e.name:undefined;const category=name==='TimeoutError'?'TIMEOUT':name==='AbortError'?'ABORT':name==='TypeError'?'TYPE_ERROR':'OTHER';console.info(JSON.stringify({event:'FIELD_RISE_INBOX_STAGE',stage:'COMMUNICATION_START',category}));}throw e;}
+ trace?.('HTTP_RESPONSE',r.status);if(inbox&&r.status>=300&&r.status<400)throw new AppError('TIKTOK_UNEXPECTED_REDIRECT',502);let d:any;
  try{d=await r.json();trace?.('JSON_PARSE',r.status);}catch(e){trace?.('JSON_PARSE',r.status,'FAILED');throw e;}
  if(!r.ok||d?.error?.code!=='ok')throw new AppError('TIKTOK_'+String(d?.error?.code||'REQUEST_FAILED').replace(/[^a-zA-Z0-9_]/g,''),502);return d.data;
 }
