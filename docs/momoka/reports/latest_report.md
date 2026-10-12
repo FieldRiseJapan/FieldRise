@@ -558,3 +558,19 @@ No actualsend/publicpost/Productionreview/scopes/fees/internal/SoundOn/Supabase/
 - 今回アプリコード/公開デプロイ/環境/DB/ジョブ/予約を変更せず、通信再現はローカルモックのみ。既存成功テスト全再実行なし。
 - モック保存先 docs/momoka/tiktok_review/2026-10-12/inbox_communication_mock_review.cjs。専用ブランチのみ。
 - 次の承認候補：Inbox fetchのmanual＋3xx拒否と固定例外分類の限定実装/隔離検証/デプロイ、全削除保護の具体案、原本の編集。いずれも新規送信/再送/状態API/認証変更/Production提出を含めない。
+
+
+## 2026-10-12 22:10 JST以降 — Inbox通信互換性修正Phase1（未デプロイ）
+- 社長承認はコード修正/ローカル隔離検証/専用ブランチPushのみ。Sites稼働ソースを編集せずscratch隔離コピーで作業、公開デプロイなし。公開はVersion13、SHA baa95c68671cbd9b241e2b716689a7ff774d1274。
+- 実装対象 apps/tiktok-public/lib/server.ts。動画Inbox初期化パス完全一致の場合のみ redirect:manual。3xxはTIKTOK_UNEXPECTED_REDIRECT固定エラーで拒否し、Location読取/追従/再要求なし。既存catchによりSTATUS_UNKNOWN保存を維持。
+- 例外分類はTIMEOUT/ABORT/TYPE_ERROR/OTHER固定。例外nameをallowlistに照合、ログへname原文/raw message/stack/URL/token/body/個人情報を出力しない。Timeout期限は20秒のまま。写真Inbox/状態照会/その他endpointの通信条件は変更なし。
+- 送信制限/同意/所有者/冪等性/予約/UNKNOWN保存SQLに変更なし。全削除保護はPhase1対象外として未修正。
+- Workers互換実アプリバンドル隔離テスト5件PASS：HTTP200、302非追従、TypeError模擬通信例外、TimeoutError注入、AbortError注入。実D1互換ローカルDBへUNKNOWN保存、request_key/lease維持を検証。タイムアウトは合成例外を注入した検証で、本番20秒経過試験ではない。
+- すべてのoutboundServiceはローカル模擬応答へ固定。例外ケースはテスト専用fetch差し替え。TikTok外部ネットワークなし。合成認証値のみ、実Secret/token読取りなし。
+- 関連Nodeテスト9件PASS：既存段階診断/UNKNOWN保存/D1保存失敗/再送阻止/未検証メディアgateと新規manual/固定分類。型チェックPASS。全30件の不要な再試験なし。
+- 差分レビュー/漏洩検査PASS：追加ログは固定event/stage/category、例外全文なし。合成秘密値がログに入らないテストPASS。本番秘密値の収集なし。アプリ差分は通信ヘルパーのみ。
+- 新規回帰テストはまず未修正コードで失敗を確認し、修正後PASS。初期テストで写真fixtureを誤使用したためVIDEO隔離fixtureへ補正。公開セキュリティ条件を緩和していない。
+- GitHub Commit：server 10211d9e6d8ffb2949d7245e6969ba3e7a11cd1d、API tests 84ce9a80f5dbc3eb8db2658fccc6d2c948d405a6、Workers test 018335b7cd9f3d3dcb586a7f33b41dabf33c493b。ブランチfeature/tiktok-public-inbox-20261011。変更ファイル lib/server.ts、tests/public-api.test.cjs、tests/inbox-workers-phase1.test.cjs（apps/tiktok-public配下）。Push後3ファイルのGitHub内容と検証ソース完全一致PASS。
+- 実D1読み取り前後：21:42UNKNOWNジョブ1件、予約1件が全フィールド一致。冪等性キー/状態/予約に変更なし。新規送信/再送/状態照会/削除/復元なし。
+- 次の別承認：この専用ブランチ修正を公開版Sitesソースへ同期し、ビルド/保存Version/デプロイすること。Secret/環境変数/DB/スコープ変更なし。公開への反映後も実送信の承認を含めず、実通信による成功確認はNOT TESTEDとして維持。
+- Phase1完了。公開反映・TikTok実動作・Production提出は未実施。旧/新UNKNOWN結果を確定しない。
