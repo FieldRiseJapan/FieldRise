@@ -230,3 +230,16 @@ Source comparison: GitHub branch and Sites checkout exact-match for lib/server.t
 New preparation: docs/momoka/tiktok_review/2026-10-12/public_oauth_success_demo_preparation.md. Existing7 historical documents retained; old internal/Direct Post description must not be reused for public Inbox app. Added updated JA/EN draft, recording plan and disconnect/reconnect procedure. Local disconnect deletes D1 connection only, not TikTok-side authorization revocation. No actual disconnect occurred.
 
 Status: OAuth SUCCESS (president confirmed), review CONDITIONAL. Video not recorded, Inbox not sent/tested, production review not submitted. Next minimal owner operation F5 and confirm connection remains. Disconnect/reconnect, Sandbox send and final review submit need separate approval. No internal/Supabase/SoundOn changes or paid services.
+
+
+## 2026-10-12 13:46 JST — OAuth F5 persistence PASS
+
+President performed Chrome F5 and confirmed connected Runa-Girl8215 remained. Record OAuth persistence across page reload PASS, user-observed evidence. This does not prove browser restart/session expiry/token refresh. No ciphertext/token/Secret values retrieved.
+
+Evidence chain: prior fresh Sandbox consent basic/upload → token exchange/User Info → encrypted D1 save → connected=1 → profile display → F5 profile display retained. Code paths and current deployed version7 recorded above. Existing callback and cookie never copied.
+
+Reviewed current UI for recording alignment: fixed example tags, video captions not passed to inbox, user controls final music/publication, send disabled without verified media domain. Video selection uploads and validates metadata; separate playback preview not confirmed and cannot be claimed in submission. No Direct Post scope. Historical internal-app drafts retained but excluded from public application narrative.
+
+New recording sheet: docs/momoka/tiktok_review/2026-10-12/public_recording_checksheet.md. Actual video still NOT RECORDED. Work cannot control Windows recording; president must start/stop recording and provide MP4 for quality checks. Non-sending part can be recorded now; fresh authorization recording and Sandbox video.upload demonstration remain separate operations. Inbox sending needs domain validation and individual president approval; current media-domain gate preserved.
+
+Changes this task: GitHub branch docs only; Sites checkout clean, no source/env/deploy changes. Prior runtime fix range involved only lib/server.ts and tests/public-api.test.cjs. Existing internal/Supabase/SoundOn/YouTube unaffected. No disconnect/send/post/review/fees.
