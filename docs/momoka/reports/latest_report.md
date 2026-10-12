@@ -254,3 +254,14 @@ Minimal first capture: open public /studio in own Chrome, settings tab, Windows+
 After real recording supplied, GPT handles trim, subtitles, privacy masking, compression and playback/metadata verification using available ffmpeg/ffprobe. No fabricated app interaction or successful send. Final scope-complete video still requires OAuth permission-screen footage and individually approved Inbox send after domain readiness. Video not yet created. No Site/env/code/internal/Supabase/SoundOn modifications.
 
 Microsoft recording instructions verified https://support.microsoft.com/ja-jp/windows/apps/use-snipping-tool-to-capture-screenshots and https://support.microsoft.com/ja-jp/accessibility/windows/keyboard-shortcuts-in-windows on 2026-10-12.
+
+
+## 2026-10-12 15:17 JST — Resumed final review preparation
+
+Prior work retained; no repeated OAuth/F5 or tests. Support copy correction committed GitHub2680174edcb239e56a426a40cd845d92d2d7a9a2, Sites source e133670e11778b4ed915124f57586d09eecb5ffc. Deployment appgdep_6acc693792108191bacbf79696ff357b succeeded; env18 unchanged. Public /support HTTP200 and revised Sandbox/unverified Inbox status text confirmed. Source matches dedicated GitHub branch; checkout clean. TypeScript/build passed before deployment. Only support copy changed, no token or codeflow changes.
+
+Prepared prior document: docs/momoka/tiktok_review/2026-10-12/production_remaining_and_url_verification.md (commit9f62e34f9045d741d2d43e03f5cf39adb281f916). URL prefix candidate https://fieldrise-creator-studio.wryrice16.chatgpt.site/ covers public/legal/media paths. Official instructions specify Production URL properties verification; existing Production-change prohibition means approval is needed to add only this property and publish its signature file to public Sites. No scopes, secrets, auth, review submit or content sends included in this approval request. MEDIA_DOMAIN_VERIFIED staysfalse until verified ownership and media access are established and separate setting approval obtained.
+
+Video remains not recorded; no MP4 source received. Proposed minimize president recording to one complete operation capture after domain readiness and separately approved1Sandbox Inbox send. Editing/subtitles/privacy masking/MP4 QA are ready in Linux ffmpeg/ffprobe once real footage provided. No artificial successful UI or content results.
+
+Status CONDITIONAL; Production review not submitted. Immediate blocker URL-property authorization and signature file, then media accessibility and individualSandbox send approval. Internal/Supabase/SoundOn/YouTube/main unchanged.
