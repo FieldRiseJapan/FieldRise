@@ -399,3 +399,18 @@ Related7tests PASS includingnewabsentheaderregression(failedbeforefix), fullsucc
 GitHub commits2e42bdccef8d98779e6592e0abbbd18037b1b028 /8d958c1675b700bbbc97997fc74e31d54353914a /f6c70e6f1cf3fdcdef4f38c45edc3409f9738af9; fileslib/server.ts,app/studio/studio.tsx,tests/public-api.test.cjs. Dedicatedbranchfeature/tiktok-public-inbox-20261011 only. Sites source839c0058dd1a8f1e7ecd6f4e3fa9a81b9625128f version12, deploymentappgdep_6acc8e5044908191898b864c35ffdfad succeeded env19unchanged.
 
 Minimalpresidentcheck F5→openexistingsavedtargetvideodraft (avoidduplicateuploads)→observe保存済み動画→consent→実送信URLを検証（送信しない）. Ifnewfile-selectiontestneeded, selectexactMP4onceandconfirm選択・保存済みfilename. ReportPASS/error only. Do notpressInboxsend. Conditional1approvalunused. No OAuth/Secret/env/TikTokProduction/main/internal/SoundOn/Supabase/YouTubechanges, no sends/posts/fees.
+
+
+## 2026-10-12 16:49 JST — Exact live transfer URL PASS; conditional one-time send READY
+
+PresidentWindowsChrome confirms “実送信URL：全体取得・SHA-256一致 PASS。送信は未実施です。” targetRuna-Girl8215, Sandboxlabel andcheckedcontentconsent. Record liveexact /api/media/pull/ fullHTTP200/noredirect/full2971884bytes/SHA PASS fromsuccessfulpreparehandler, presidentobserved evidence. SuccessrequiresruntimeMEDIA_DOMAIN_VERIFIEDtrue,Sandbox,storedaccountdisplay andbasic/uploadscopes,R2originalfullhash,zeroexistingjobs. No repeatedtests orcurrentenv/code/deploychanges.
+
+Targetoriginal fieldrise_tiktok_review_hq.mp4 SHA2562e200e8634de51bf1ae2116dce07d39e4914351596b4b22e9b615cf6bf1a98ee,rightsPASSpresidentdeclaration. Fullhashmatching alsoidentifiesuploadedasset independentofnativefileinputtext. AuthorizedSandboxconnection nameconfirmedbyuser andserver; uniquenessidentity comes fromsameowner/open_idbinding (displayname alone isnotusernameproof).
+
+One-send readiness: approvedconditionalauthorization retained, notconsumed. Storedreadykeyboundtoowner/asset/draftrevision/open_id. Lease2hoursfromprepare; sendrequires>1hourremaining. Atactualclickserverrechecksconsent/revision/account/activelease/fullURLhash beforeTikTokinit, atomicallyreservesmax1job; UIconfirmSend explicit. SameverifiedURL reused. No publish/schedule/DirectPost. Failure/unknownresult MUSTstop,no resend orsecondrequestkey. Inboxnotificationarrival is notpublicpublication.
+
+READY_FOR_ONE_SANDBOX_INBOX_SEND whilecurrentpreparedstate remains, contextunchanged and>=1hourleaseleft. Do noteditdraft/reselectasset/changeaccount; ifexpiredorstatechanged, revalidateonly (notresend). GPT has notoperatedsend, has no sharedpresidentChrome session. Presidentcanrecordcurrentreadydisplay thenpressInboxsendonce underexistingapproval, capturehistory/result andTikTokInboxnotification, stopbeforepublic/schedule. Reportfinalstatus/errorwithoutToken/URL. Not claimactualsendSUCCESS orreviewREADYuntilrealresultsreceived.
+
+Correction to previousUIreport: currentfileinput stillhasnativevalue-reset expression; addedReactstoredmedia label resolves ambiguity but earlier assertionthatresetremoved was inaccurate. ExactfileverifiedviaSHA so thisnativeplaceholderdoesnotblocksend. No newupload/deletion warranted; do notrepeatselection merely tochangeplaceholder.
+
+No actualsend/publicpost/Productionreview/scopes/fees/internal/SoundOn/Supabase/YouTubemutation. Commitreportonlydedicatedbranch. Operationvideo notyetrecorded/finished.
