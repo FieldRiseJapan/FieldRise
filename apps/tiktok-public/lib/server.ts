@@ -14,7 +14,26 @@ function origin(request:Request){const o=new URL(request.url).origin;check(!conf
 async function body(request:Request){check(Number(request.headers.get('content-length')||0)<=20000,'REQUEST_TOO_LARGE',413);check(request.body,'INVALID_JSON');const reader=request.body!.getReader(),chunks:Uint8Array[]=[];let size=0;while(true){const p=await reader.read();if(p.done)break;size+=p.value.byteLength;if(size>20000){await reader.cancel();throw new AppError('REQUEST_TOO_LARGE',413);}chunks.push(p.value);}const b=new Uint8Array(size);let offset=0;for(const part of chunks){b.set(part,offset);offset+=part.length;}try{return JSON.parse(new TextDecoder().decode(b))}catch{throw new AppError('INVALID_JSON');}}
 
 async function tiktok(path:string,token:string,payload?:unknown){const r=await fetch('https://open.tiktokapis.com'+path,{method:payload?'POST':'GET',headers:{Authorization:'Bearer '+token,...(payload?{'Content-Type':'application/json'}:{})},body:payload?JSON.stringify(payload):undefined,redirect:'error',signal:AbortSignal.timeout(20000)});const d:any=await r.json();if(!r.ok||d.error?.code!=='ok')throw new AppError('TIKTOK_'+String(d.error?.code||'REQUEST_FAILED').replace(/[^a-zA-Z0-9_]/g,''),502);return d.data;}
-async function exchange(values:Record<string,string>){const c=config();const r=await fetch('https://open.tiktokapis.com/v2/oauth/token/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({client_key:c.TIKTOK_CLIENT_KEY!,client_secret:c.TIKTOK_CLIENT_SECRET!,...values}),redirect:'error',signal:AbortSignal.timeout(20000)});const d:any=await r.json();check(r.ok&&typeof d.access_token==='string'&&typeof d.refresh_token==='string'&&typeof d.open_id==='string'&&Number.isFinite(d.expires_in)&&d.expires_in>0,'TIKTOK_AUTH_FAILED',502);return d;}
+async function exchange(values:Record<string,string>){
+ const c=config();
+ const fail=(category:string,status?:number):never=>{
+  console.warn(JSON.stringify({event:'FIELD_RISE_TOKEN_EXCHANGE_FAILURE',category,...(status===undefined?{}:{httpStatus:status})}));
+  throw new AppError('TIKTOK_TOKEN_'+category+(status===undefined?'':'_'+status),502);
+ };
+ let r:Response;
+ try{r=await fetch('https://open.tiktokapis.com/v2/oauth/token/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({client_key:c.TIKTOK_CLIENT_KEY!,client_secret:c.TIKTOK_CLIENT_SECRET!,...values}).toString(),redirect:'manual',signal:AbortSignal.timeout(20000)});}
+ catch(e){return fail(e instanceof Error&&(e.name==='TimeoutError'||e.name==='AbortError')?'TIMEOUT':'TRANSPORT_ERROR');}
+ if(r.status>=300&&r.status<400)return fail('UNEXPECTED_REDIRECT',r.status);
+ let d:any;
+ try{d=await r.json();}catch{return fail('NON_JSON',r.status);}
+ if(!d||typeof d!=='object')return fail('INVALID_RESPONSE',r.status);
+ if(!r.ok||d.error){
+  const allowed:Record<string,string>={invalid_client:'INVALID_CLIENT',invalid_request:'INVALID_REQUEST',invalid_grant:'INVALID_GRANT',unauthorized_client:'UNAUTHORIZED_CLIENT',unsupported_grant_type:'UNSUPPORTED_GRANT_TYPE',invalid_scope:'INVALID_SCOPE',server_error:'SERVER_ERROR',temporarily_unavailable:'TEMPORARILY_UNAVAILABLE',access_denied:'ACCESS_DENIED'};
+  return fail(typeof d.error==='string'?(allowed[d.error]||'API_ERROR'):'HTTP_ERROR',r.status);
+ }
+ if(!(typeof d.access_token==='string'&&typeof d.refresh_token==='string'&&typeof d.open_id==='string'&&Number.isFinite(d.expires_in)&&d.expires_in>0))return fail('INVALID_RESPONSE',r.status);
+ return d;
+}
 async function connection(owner:string){gate();const c=await one('SELECT * FROM connections WHERE owner=?',owner);check(c,'TIKTOK_NOT_CONNECTED',409);check(c.scopes.split(',').includes('video.upload'),'UPLOAD_PERMISSION_REQUIRED',403);let secrets=JSON.parse(await crypt(c.secret,config().TOKEN_ENCRYPTION_KEY!,owner,true));if(c.expires<now()+120){
  const lock=now()+30;const a=await run('UPDATE connections SET lock=? WHERE owner=? AND lock<?',lock,owner,now());check(a.meta.changes===1,'TOKEN_REFRESH_BUSY',409);
  try{const n=await exchange({grant_type:'refresh_token',refresh_token:secrets.refresh_token});check(n.open_id===c.open_id,'ACCOUNT_MISMATCH',403);check((n.scope||c.scopes).split(',').includes('video.upload'),'UPLOAD_PERMISSION_REQUIRED',403);secrets={access_token:n.access_token,refresh_token:n.refresh_token};await run('UPDATE connections SET secret=?,expires=?,scopes=?,lock=0 WHERE owner=?',await crypt(JSON.stringify(secrets),config().TOKEN_ENCRYPTION_KEY!,owner),now()+n.expires_in,n.scope||c.scopes,owner);}finally{await run('UPDATE connections SET lock=0 WHERE owner=? AND lock=?',owner,lock);}
