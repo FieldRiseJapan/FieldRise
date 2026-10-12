@@ -134,8 +134,8 @@ test('transfer complete body with absent length header remains fully verified',{
  const r=await req('tiktok/prepare-inbox','POST',x.request);assert.equal(r.status,200);assert.equal((await r.json()).size,x.bytes.length);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM jobs').get().n,0);
 });
 
-async function diagnosedAttempt(response){
- const id=await enable();apiResponse=response;const logs=[];const original=console.info;console.info=value=>logs.push(JSON.parse(value));
+async function diagnosedAttempt(response,inbox=false){
+ const id=await enable();if(inbox){env.TIKTOK_MODE='isolated-test';sqlite.prepare('UPDATE assets SET type=?').run('video/mp4');sqlite.prepare('UPDATE drafts SET body=? WHERE id=?').run(JSON.stringify({...draft,kind:'VIDEO',assets:['asset-a']}),id)}apiResponse=response;const logs=[];const original=console.info;console.info=value=>logs.push(JSON.parse(value));
  try{return {response:await req('jobs','POST',{draftId:id,revision:1,requestKey:'diagnostic-once',consent:true}),logs};}finally{console.info=original;}
 }
 test('diagnostic success records stages only and saved history',async()=>{
@@ -164,4 +164,15 @@ test('diagnostic D1 result failure is distinct and preserves unknown record',asy
  const original=Query.prototype.run;let failed=false;
  Query.prototype.run=async function(){if(this.q.startsWith('UPDATE jobs SET state=?,publish_id=')&&!failed){failed=true;throw Error('private-db-detail')}return original.call(this)};
  try{const {response,logs}=await diagnosedAttempt(()=>Response.json({data:{publish_id:'private-id'},error:{code:'ok'}}));assert.equal(response.status,502);assert(logs.some(x=>x.stage==='D1_SAVE'&&x.outcome==='FAILED'));assert.equal((await(await req('jobs')).json())[0].state,'STATUS_UNKNOWN');assert.equal(calls.length,1);assert(!JSON.stringify(logs).includes('private-db-detail'));}finally{Query.prototype.run=original;}
+});
+test('Inbox phase1 manual redirect rejects 302 and preserves UNKNOWN',async()=>{
+ const {response}=await diagnosedAttempt((url,options)=>{assert.equal(options.redirect,'manual');return new Response(null,{status:302,headers:{Location:'https://synthetic.invalid/'}})},true);
+ assert.equal(response.status,502);assert.equal((await response.json()).error,'TIKTOK_UNEXPECTED_REDIRECT');assert.equal(calls.length,1);assert.equal(sqlite.prepare('SELECT state FROM jobs').get().state,'STATUS_UNKNOWN');
+});
+test('Inbox phase1 fixed categories hide raw exceptions',async()=>{
+ for(const name of ['TimeoutError','AbortError','TypeError','Error']){
+ const id=await enable();env.TIKTOK_MODE='isolated-test';sqlite.prepare('UPDATE assets SET type=?').run('video/mp4');sqlite.prepare('UPDATE drafts SET body=? WHERE id=?').run(JSON.stringify({...draft,kind:'VIDEO',assets:['asset-a']}),id);const logs=[];const old=console.info;console.info=x=>logs.push(JSON.parse(x));apiResponse=()=>{const e=new Error('synthetic-secret-url');e.name=name;throw e};
+ try{const r=await req('jobs','POST',{draftId:id,revision:1,requestKey:'phase1-'+name,consent:true});assert.equal((await r.json()).state,'STATUS_UNKNOWN');assert(logs.some(x=>x.category===({TimeoutError:'TIMEOUT',AbortError:'ABORT',TypeError:'TYPE_ERROR',Error:'OTHER'}[name])));assert(!JSON.stringify(logs).includes('synthetic-secret-url'));}finally{console.info=old}
+ sqlite.prepare('DELETE FROM jobs').run();sqlite.prepare('DELETE FROM connections').run();sqlite.prepare('DELETE FROM assets').run();sqlite.prepare('DELETE FROM drafts').run();
+ }
 });
