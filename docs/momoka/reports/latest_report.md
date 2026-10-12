@@ -243,3 +243,14 @@ Reviewed current UI for recording alignment: fixed example tags, video captions 
 New recording sheet: docs/momoka/tiktok_review/2026-10-12/public_recording_checksheet.md. Actual video still NOT RECORDED. Work cannot control Windows recording; president must start/stop recording and provide MP4 for quality checks. Non-sending part can be recorded now; fresh authorization recording and Sandbox video.upload demonstration remain separate operations. Inbox sending needs domain validation and individual president approval; current media-domain gate preserved.
 
 Changes this task: GitHub branch docs only; Sites checkout clean, no source/env/deploy changes. Prior runtime fix range involved only lib/server.ts and tests/public-api.test.cjs. Existing internal/Supabase/SoundOn/YouTube unaffected. No disconnect/send/post/review/fees.
+
+
+## 2026-10-12 13:50 JST — Windows recording capability check
+
+User authorized Windows recording. Available environment is Linux with ffmpeg/ffprobe installed; native desktop control is disabled. No enabled tool provides president's Windows screen control or capture. Cloud browser is a separate surface and cannot record user's existing Chrome session. Therefore direct recording and clicks on president's PC cannot be executed by GPT. Do not claim recording started or video completed.
+
+Minimal first capture: open public /studio in own Chrome, settings tab, Windows+Shift+R select browser content excluding address bar/private UI, Start, show connected account, F5, show retained connection, Stop, save MP4 and attach. Extra click/F5 required because remote app control is unavailable; cannot literally restrict president to Start/Stop only. No material send, disconnect or new OAuth needed for this segment.
+
+After real recording supplied, GPT handles trim, subtitles, privacy masking, compression and playback/metadata verification using available ffmpeg/ffprobe. No fabricated app interaction or successful send. Final scope-complete video still requires OAuth permission-screen footage and individually approved Inbox send after domain readiness. Video not yet created. No Site/env/code/internal/Supabase/SoundOn modifications.
+
+Microsoft recording instructions verified https://support.microsoft.com/ja-jp/windows/apps/use-snipping-tool-to-capture-screenshots and https://support.microsoft.com/ja-jp/accessibility/windows/keyboard-shortcuts-in-windows on 2026-10-12.
