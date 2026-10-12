@@ -135,3 +135,14 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - TOKEN_ENCRYPTION_KEYの64小文字hex形式不適合は継続。新規生成/登録は未実施、別途社長承認待ち。
 - 一時診断source8e951d4・savedversion3から稼働savedversion1へ復元済み：appgdep_6acc549b040481919ab6c54d50f28ada succeeded / envrevision14。OFF維持・Secret変更なし。
 - 既存30件・134ファイル照合の再実行なし。社内/Supabase/SoundOn変更・送信・投稿・審査提出・課金なし。
+
+
+## 2026-10-12 新TOKEN_ENCRYPTION_KEY生成・登録完了
+
+- 社長明示承認に基づき公開版SitesのTOKEN_ENCRYPTION_KEYのみ変更。OSの暗号学的乱数32bytes→小文字hex64文字。生成直後に形式検証し、非表示のオーケストレーション内でSitesネイティブSecretへ直接登録。値をtext/notify/チャット/ログ/ファイル/GitHub/報告書/スクリーンショットへ出力していない。
+- 環境revision15、is_secret=true。Client key/secret・SITE_ORIGIN・他の環境値は変更なし。生成値を永続ストアへ保存せず、Site Secretのみ保管。
+- 一時診断版で再デプロイ：appgdep_6acc555bed2881918dba1bc6e646a8f8 succeeded、envrevision15。実Worker診断イベントにTOKEN_ENCRYPTION_KEY形式エラー/資格情報空欄エラーなし。件数0のみ記録（ログ基盤は空のissues配列を省略）。値は取得しない。
+- 元の通常savedversion1へ復元：appgdep_6acc55b2ea508191b9ca2b2ce1056bd9 succeeded、envrevision15、2026-10-12T03:36:36.508388+00:00。一時診断は稼働版から除去。
+- healthのtiktok=false/mode=unconfiguredは意図したOFF維持。Secretの存在/基本形式を満たしたため設定面のOAuth準備は整ったが、TikTok資格情報有効性・実機OAuth/Callback/Refreshはまだ未検証。
+- 次段階：TIKTOK_ENABLED=true/TIKTOK_MODE=sandboxへの切替とOAuth実機検証。今回のOFF維持指示を解除する社長承認後に実施。Sandbox送信・実投稿・審査提出・課金は引き続き別承認。
+- 既存30件/134ファイル照合の不要な再実行なし。社内版・Supabase Production・SoundOn・YouTube変更なし。
