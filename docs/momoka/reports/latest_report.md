@@ -77,3 +77,14 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - 証跡スクリーンショットを保存（認証情報なし）：fieldrise-sandbox-target-confirmed-20261012.jpg。
 - 残ブロッカー：新SandboxのClient key/secretを、ブラウザ表示・チャット・GitHub・ログへ露出させずSites保護設定へ登録する経路が現在のツールにない。Sites update_environment_variablesは平文value引数のみ。別サービスのsecret-entryをSitesへ流用できる仕様は確認されておらず、移転・回避はしていない。
 - TIKTOK_ENABLED=falseを維持。未設定の接続を成功として扱わない。実投稿・Sandbox送信・審査提出・有料契約はなし。判定BLOCKED。
+
+
+## 2026-10-12 Sites正式Secret設定経路・デプロイ照合
+
+- 前回の「安全な経路がない」を訂正：モデル非露出の転送ツールはないが、正式な所有者設定画面は存在する。公式 https://learn.chatgpt.com/docs/sites の Configure runtime environment values に、Sites → More actions → Settingsからhosted variables / secrets登録、更新後に承認済みsaved version再デプロイと明記。
+- 新手順：[Sites Secret設定・OAuth再開手順](tiktok_public_sites_secret_setup_20261012.md)。値を取得・表示せず、社長がTIKTOK_CLIENT_KEY/TIKTOK_CLIENT_SECRETを直接入力。両項目をSecret扱い、既存暗号鍵とMEDIA_DOMAIN_VERIFIED=falseを維持。
+- Site owner権限とversion1を読み取り確認。環境revision1、TikTokの2資格情報は未登録。新たな資格情報取得・保存・送信はまだなし。
+- source SHA：Sites c68e93f0471c432d432aa1bccc6de2496afe5711、GitHub照合head 2926e4dabf02b5cf214b23edeb511c07c676bfbe。GitHub apps/tiktok-publicの134ファイルはSitesソースと全件一致。別履歴と報告書追記によるSHA差で、アプリの未同期差はなし。
+- OAuthコードはPortal Callback一致、2scope固定、認証owner/cookie/state単回使用・10分期限、サーバーtoken交換・AES-GCM owner結合を確認。既存テストの認証owner/未知state・token非露出の検証内容を読み取り確認。テスト再実行なし。
+- 資格情報未登録のため実API認証・刷新成功は未検証。Client keyはOAuth認証URLの公開client識別子で、Secretの非公開性と区別。Secret・tokenを公開応答/ブラウザコードへ含めない実装。プラットフォームログの機密URL処理は未検証。
+- 現在の必要操作は社長による正式設定画面への2項目入力。入力後メタデータだけ確認し、sandboxのOAuth有効化と承認済みversion再デプロイへ継続。Sandbox送信・実投稿・審査提出は禁止を維持。審査動画は送信許可と実API実演が揃うまで完成扱いしない。
