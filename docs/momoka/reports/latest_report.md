@@ -68,3 +68,12 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - PortalのClient key/secretはマスクのまま。現在のSitesコネクタは平文引数による設定のみで、この環境からPortal→Sitesへの秘匿転送経路は未確認。他のホスティングサービスへ移転・契約していない。
 - ブラウザ認証保護のため、この段階のスクリーンショット取得・保存は未実施。保存状態はAXの再描画で確認したもの。
 - 既存環境・Production・SoundOn・YouTubeへの変更、実投稿・Sandbox送信・審査提出なし。実機連携試験と審査動画は未完了。判定BLOCKEDを維持。
+
+
+## 2026-10-12 Target Users実機確認
+
+- 社長の設定後、新Sandbox `7695356222514235410` のTarget Usersに `runa_girl8215` 1件を確認。Portal表示の追加日時：Oct 12, 2026 11:45 AM（表示タイムゾーンは未特定）。対象アカウント登録は確認済み。
+- この登録はSandboxの試験許可であり、公開版からのOAuth/token取得/基本プロフィール取得/Token Refresh成功を意味しない。
+- 証跡スクリーンショットを保存（認証情報なし）：fieldrise-sandbox-target-confirmed-20261012.jpg。
+- 残ブロッカー：新SandboxのClient key/secretを、ブラウザ表示・チャット・GitHub・ログへ露出させずSites保護設定へ登録する経路が現在のツールにない。Sites update_environment_variablesは平文value引数のみ。別サービスのsecret-entryをSitesへ流用できる仕様は確認されておらず、移転・回避はしていない。
+- TIKTOK_ENABLED=falseを維持。未設定の接続を成功として扱わない。実投稿・Sandbox送信・審査提出・有料契約はなし。判定BLOCKED。
