@@ -202,3 +202,18 @@ Related 8 tests PASS including 3 new regression tests (failed before implementat
 GitHub changes: f4fa9af0fa435b7a8fd490955156b86a7bb65adf / cc36901650583475ab7d26e1a363eb6a22494a74 on feature/tiktok-public-inbox-20261011. Sites source 2cb886b3b422d0fe1ccd8b8ef10f9723027c8eb4, version6, deployment appgdep_6acc6337ebf8819183402a899c09a969 succeeded, env revision18 unchanged.
 
 Next: fresh connect in Chrome at https://fieldrise-creator-studio.wryrice16.chatgpt.site/studio. Report only new fixed error label or connected status, no full Callback URL. This prepares precise diagnosis; original OAuth failure is not declared fixed. No sends/posts/Production review/paid services/internal/Supabase/SoundOn changes.
+
+
+## 2026-10-12 13:40 JST — USER_INFO callback diagnosis and validation
+
+User reports fresh OAuth passed token exchange and failed OAUTH_CALLBACK_FAILED / USER_INFO. Based on code boundaries, encryption and CONNECTION_SAVE were not reached. Exact runtime cause is not yet confirmed; original unhandled fetch or JSON parsing exception remains possible. Do not declare OAuth fixed.
+
+Official specification checked 2026-10-12: https://developers.tiktok.com/docs/en/tiktok-api-v2-get-user-info and https://developers.tiktok.com/bulletin/user-info-scope-migration. Existing GET https://open.tiktokapis.com/v2/user/info/ with Bearer Authorization and fields=open_id,display_name,avatar_url is correct; all three fields are allowed by user.info.basic. No additional scope is needed.
+
+Implemented dedicated userInfo helper only for callback; existing content posting helper unchanged. Manual redirects classify 3xx without following token-bearing requests to another destination. Fixed-label diagnostics distinguish transport/timeout, unexpected redirect, non-JSON with HTTP status, allowlisted API code, missing/invalid response structure. Validate data.user and string fields before encryption/D1 binding. Errors never include raw response, message, log_id, token, code, Cookie, full Callback URL or Secret. Normal account open_id mismatch remains separately rejected. Missing fields are not fabricated.
+
+3 new regression tests failed before implementation and now pass: non-JSON HTTP403, transport exception, malformed success before D1 bind. Related 11 tests PASS; TypeScript noEmit and Sites build PASS. Successful synthetic callback is not actual TikTok or deployed D1 success. Existing 30 tests not unnecessarily repeated.
+
+GitHub commits: c133b5ea67505bce4c52028d33005be490380ee3 (code), 30ae223590d9f320faa453eb5a51087cee818150 (tests), branch feature/tiktok-public-inbox-20261011. Sites source 73bd53ec0b612a2e96ddbfd7fa141ef01bb3a53f, version7, deployment appgdep_6acc64b03ff08191a88128aae1697ff6 succeeded; env revision18 unchanged.
+
+Next: president starts fresh connect at https://fieldrise-creator-studio.wryrice16.chatgpt.site/studio, approves basic/upload, reports connected state or only fixed error/stage labels. Never reuse previous code/Callback URL. Exact cause and real OAuth completion require the fresh result. No credentials/encryption key changes, Sandbox sends, posts, Production review, paid contracts, internal/Supabase/SoundOn changes.
