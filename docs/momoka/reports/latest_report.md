@@ -265,3 +265,12 @@ Prepared prior document: docs/momoka/tiktok_review/2026-10-12/production_remaini
 Video remains not recorded; no MP4 source received. Proposed minimize president recording to one complete operation capture after domain readiness and separately approved1Sandbox Inbox send. Editing/subtitles/privacy masking/MP4 QA are ready in Linux ffmpeg/ffprobe once real footage provided. No artificial successful UI or content results.
 
 Status CONDITIONAL; Production review not submitted. Immediate blocker URL-property authorization and signature file, then media accessibility and individualSandbox send approval. Internal/Supabase/SoundOn/YouTube/main unchanged.
+
+
+## 2026-10-12 — URL property approval received; browser transport blocked
+
+President approved only URL-property registration/verification for https://fieldrise-creator-studio.wryrice16.chatgpt.site/ and official signature placement in public Sites. Approval does not cover scopes, credentials, posts, Sandbox sending or review submission.
+
+Cloud browser initial inventory showed only about:blank. Opening exact app URL timed out after300seconds. Follow-up tab inventory also timed out; no further blind navigation or mutation attempted. Cannot confirm Portal state or successful registration. No signature received, no file fabricated, no Sites/env/source changes and no Verified claim.
+
+Minimum owner handoff: own Chrome opens app7664531024089532432, Production → URL properties → Verify properties → URL prefix → exact public root URL. Download official verification file and attach original file with the Portal-displayed placement path. If URL rejected, stop and report visible reason; no alternate domain. GPT then places exact file in public Sites and verifies HTTPS200/no redirect/content match. Portal Verify executed only after placement succeeds. Approval persists; do not request again. Existing OAuth connection maintained and MEDIA_DOMAIN_VERIFIED remainsfalse.
