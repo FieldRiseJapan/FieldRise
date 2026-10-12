@@ -14,6 +14,14 @@ function origin(request:Request){const o=new URL(request.url).origin;check(!conf
 async function body(request:Request){check(Number(request.headers.get('content-length')||0)<=20000,'REQUEST_TOO_LARGE',413);check(request.body,'INVALID_JSON');const reader=request.body!.getReader(),chunks:Uint8Array[]=[];let size=0;while(true){const p=await reader.read();if(p.done)break;size+=p.value.byteLength;if(size>20000){await reader.cancel();throw new AppError('REQUEST_TOO_LARGE',413);}chunks.push(p.value);}const b=new Uint8Array(size);let offset=0;for(const part of chunks){b.set(part,offset);offset+=part.length;}try{return JSON.parse(new TextDecoder().decode(b))}catch{throw new AppError('INVALID_JSON');}}
 
 async function tiktok(path:string,token:string,payload?:unknown){const r=await fetch('https://open.tiktokapis.com'+path,{method:payload?'POST':'GET',headers:{Authorization:'Bearer '+token,...(payload?{'Content-Type':'application/json'}:{})},body:payload?JSON.stringify(payload):undefined,redirect:'error',signal:AbortSignal.timeout(20000)});const d:any=await r.json();if(!r.ok||d.error?.code!=='ok')throw new AppError('TIKTOK_'+String(d.error?.code||'REQUEST_FAILED').replace(/[^a-zA-Z0-9_]/g,''),502);return d.data;}
+const PREFLIGHT_SHA='2e200e8634de51bf1ae2116dce07d39e4914351596b4b22e9b615cf6bf1a98ee';
+async function mediaSignature(token:string,lease:any){
+ const secret=config().TOKEN_ENCRYPTION_KEY!;check(/^[a-f0-9]{64}$/.test(secret),'ENCRYPTION_NOT_CONFIGURED',503);
+ const material=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('FieldRise-media-preflight-v1:'+secret));
+ const key=await crypto.subtle.importKey('raw',material,{name:'HMAC',hash:'SHA-256'},false,['sign','verify']);
+ const data=new TextEncoder().encode(JSON.stringify([token,lease.owner,lease.asset_id,lease.expires]));
+ return {key,data};
+}
 async function userInfo(token:string){
  const fail=(category:string,status?:number):never=>{
   console.warn(JSON.stringify({event:'FIELD_RISE_USER_INFO_FAILURE',category,...(status===undefined?{}:{httpStatus:status})}));
@@ -73,6 +81,16 @@ export async function handle(request:Request,path:string[]){
 async function dispatch(request:Request,path:string[],diagnostic:{stage:string}){
  const route=path.join('/'),method=request.method;const url=new URL(request.url);const siteOrigin=origin(request);
  if(route==='health')return json({service:'FieldRise Creator Studio',tiktok:enabled(),mode:config().TIKTOK_MODE||'unconfigured'});
+ // Signed, narrowly scoped test-media route; no OAuth or TikTok calls.
+ if(path[0]==='media'&&path[1]==='preflight-pull'&&method==='GET'){
+  const token=identifier(path[2]),signature=identifier(path[3]);
+  check(/^[a-f0-9]{64}$/.test(token)&&/^[a-f0-9]{64}$/.test(signature),'MEDIA_EXPIRED',404);
+  const lease=await one("SELECT l.* FROM leases l JOIN profiles p ON p.owner=l.owner JOIN assets a ON a.owner=l.owner AND a.id=l.asset_id WHERE l.hash=? AND l.job_id='preflight' AND l.expires>? AND p.deleting=0 AND a.ready=1",await hash(token),now());
+  check(lease,'MEDIA_EXPIRED',404);const m=await mediaSignature(token,lease);
+  check(await crypto.subtle.verify('HMAC',m.key,new Uint8Array(signature.match(/../g)!.map((x:string)=>parseInt(x,16))),m.data),'MEDIA_EXPIRED',404);
+  const obj=await config().BUCKET.get(lease.owner+'/'+lease.asset_id);check(obj&&obj.size===2971884,'MEDIA_NOT_FOUND',404);
+  return new Response(obj!.body,{headers:{'Content-Type':'video/mp4','Content-Length':String(obj!.size),'Cache-Control':'no-store','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'}});
+ }
  // Capability URLs: read-only, time limited; never allow an arbitrary external URL.
  if(path[0]==='media'&&path[1]==='pull'&&method==='GET'){
  const key=identifier(path[2]);const a=await one('SELECT a.*,l.expires FROM leases l JOIN assets a ON a.id=l.asset_id AND a.owner=l.owner JOIN profiles p ON p.owner=a.owner WHERE l.hash=? AND l.expires>? AND a.ready=1 AND p.deleting=0',await hash(key),now());check(a,'MEDIA_EXPIRED',404);const obj=await config().BUCKET.get(a.owner+'/'+a.id);check(obj,'MEDIA_NOT_FOUND',404);return new Response(obj!.body,{headers:{'Content-Type':a.type,'Content-Length':String(obj!.size),'Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'}});
@@ -84,6 +102,19 @@ async function dispatch(request:Request,path:string[],diagnostic:{stage:string})
  if(route==='register'&&method==='POST'){const b=await body(request);check(b.consent===true,'CONSENT_REQUIRED');await run('INSERT OR IGNORE INTO profiles(owner,accepted) VALUES(?,?)',owner,now());return json({registered:true});}
  if(route==='account'&&method==='DELETE'){check(profile,'REGISTER_FIRST',403);await removeAccount(owner);return json({deleted:true});}
  check(profile&&!profile.deleting,'REGISTER_FIRST',403);
+ if(route==='media/preflight'&&method==='POST'){
+  const b=await body(request);check(b.consent===true,'CONSENT_REQUIRED');
+  check(config().TIKTOK_MODE==='sandbox','SANDBOX_REQUIRED',403);
+  const assetId=identifier(b.assetId);const a=await one('SELECT * FROM assets WHERE owner=? AND id=? AND ready=1',owner,assetId);check(a,'ASSET_NOT_FOUND',404);
+  check(a.type==='video/mp4'&&a.size===2971884,'PREFLIGHT_FILE_MISMATCH');
+  const obj=await config().BUCKET.get(owner+'/'+assetId);check(obj,'ASSET_NOT_FOUND',404);
+  const bytes=await obj!.arrayBuffer();const sha=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');check(sha===PREFLIGHT_SHA,'PREFLIGHT_FILE_MISMATCH');
+  await run("DELETE FROM leases WHERE owner=? AND job_id='preflight'",owner);
+  const token=random(),expires=now()+90,lease={owner,asset_id:assetId,expires};const m=await mediaSignature(token,lease);
+  const signature=Array.from(new Uint8Array(await crypto.subtle.sign('HMAC',m.key,m.data)),v=>v.toString(16).padStart(2,'0')).join('');
+  await run("INSERT INTO leases(hash,owner,asset_id,job_id,expires) VALUES(?,?,?,'preflight',?)",await hash(token),owner,assetId,expires);
+  return json({url:siteOrigin+'/api/media/preflight-pull/'+token+'/'+signature,sha256:sha,size:bytes.byteLength,expires,ttl:90});
+ }
  if(route==='drafts'&&method==='GET')return json(await all('SELECT id,body,revision,updated FROM drafts WHERE owner=? ORDER BY updated DESC',owner));
  if(route==='drafts'&&method==='POST'){const d=draftInput(await body(request));await assetList(owner,d.assets,d.kind);const id=crypto.randomUUID();const a=await run('INSERT INTO drafts(id,owner,body,updated) SELECT ?,?,?,? WHERE (SELECT COUNT(*) FROM drafts WHERE owner=?)<?',id,owner,JSON.stringify(d),now(),owner,LIMITS.drafts);check(a.meta.changes===1,'DRAFT_LIMIT',429);return json({id,revision:1});}
  if(path[0]==='drafts'&&path.length===2){const id=identifier(path[1]);const d=await one('SELECT * FROM drafts WHERE owner=? AND id=?',owner,id);check(d,'DRAFT_NOT_FOUND',404);if(method==='DELETE'){await run('DELETE FROM drafts WHERE owner=? AND id=?',owner,id);return json({deleted:true});}if(method==='PUT'){const b=await body(request),v=draftInput(b);await assetList(owner,v.assets,v.kind);const r=await run('UPDATE drafts SET body=?,revision=revision+1,updated=? WHERE owner=? AND id=? AND revision=?',JSON.stringify(v),now(),owner,id,b.revision);check(r.meta.changes===1,'DRAFT_CHANGED_RELOAD',409);return json({id,revision:d.revision+1});}}
