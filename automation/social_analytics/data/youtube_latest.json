@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-10-11T00:28:13+00:00",
+  "captured_at": "2026-10-12T00:37:17+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -21,7 +21,7 @@
     {
       "id": "kno0Vr_0CgU",
       "title": " Cafe  ",
-      "views": 18,
+      "views": 19,
       "age_label": "2026-03-14T23:46:39Z",
       "category": "cafe"
     },
