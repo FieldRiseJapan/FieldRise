@@ -384,3 +384,18 @@ Files lib/server.ts,app/studio/studio.tsx,tests/public-api.test.cjs. GitHubcommi
 LiveexactURLproofNOTYETCONFIRMED. PresidentChrome required: F5; existingapprovedVIDEOdraftopen/save; verifySandbox/Runa-Girl8215/file; checkconsent; click 実送信URLを検証（送信しない） only; reportPASS/error withoutURL. This safelyalso requiresruntimeMEDIA_DOMAIN_VERIFIEDtrue; do notpressInboxsend yet. No GPTauthenticatedsessionavailable, no spoofedidentity/tokensaccess. Max1conditionalactualsendauthorization retainedunused. Finalmanualaccount/file/userconsent/mediaflag check remains beforeanysend.
 
 No environment/OAuth/Secret/scopes/main/internal/SoundOn/Supabase/YouTubechanges. No liveInboxsend/publicpost/reviewsubmit/fees. Reviewoperationvideo remainsunfinished; testcontentMP4notreplacementforoperationrecording.
+
+
+## 2026-10-12 16:38 JST — MP4 selection display and transfer-size bug fix
+
+Confirmed sourcecause nativeinputdisplay: onChange unconditionally executed e.target.value='' immediately after dispatchingasyncselect; input therefore saidno file evenwhileReact d.assets displayedstoredmedia. Removedimmediatereset. Addedselectedfilename onlyaftersuccessfulselect/upload; reopened saveddraft explicitly says保存済み動画を使用中（再選択は不要です）. Newdraft/open resetfilename/preparedstate; no existingasset/draft/historydeletion. Nativefileinput doesnotrepresentpersistentR2state; videodisplayfromd.assets is independent. ActualWindowsstate stillrequiresverification.
+
+Transfer size originalfunction hadtwodistinctsame-codefailpoints: requiredContent-Lengthheaderexactly2971884 and bodybytesexactly2971884. Headerabsence withcorrectfullbytes reproducedfailure innewtest. Liveheaderabsence notdirectlyobserved, so exactincidentcause notasserted. Currentprepare verifiesR2fullSHA/size beforefetch; reachingTRANSFER_MEDIA_SIZE_MISMATCH implies priorR2approvedhashcheck passed inthatrequest, inference notindependentR2read.
+
+Fix boundedstreamfullbodyread: rejectoverflowas soonas >2971884; rejecttruncated/wrongtotal; requireHTTP200/noredirect/noauth/timeout; requirefullSHAapproved. Content-Length is framingmetadata, notmandatoryproof. No partialpass orhashbypass. Fixed-label BODY diagnostic records onlyreceived/expectedbytecounts, neverURL/tokens/body. Successfulresult returnssize/SHA/HTTPstatus/headerpresence, allsafe. Original2971884bytes SHA2e200e8634de51bf1ae2116dce07d39e4914351596b4b22e9b615cf6bf1a98ee preserved.
+
+Related7tests PASS includingnewabsentheaderregression(failedbeforefix), fullsuccess,redirect,wronghash,timeout,expiredlease,partial100bytesrejection. TypeScript/buildPASS. No unrelatedtestrepeat. Source reviewedforUIstate/resetandboundedread/securityinvariants. NativebrowserQAunavailable; neitherWindowsdisplay norliveactualtransferURLfullSHAdeclaredcomplete.
+
+GitHub commits2e42bdccef8d98779e6592e0abbbd18037b1b028 /8d958c1675b700bbbc97997fc74e31d54353914a /f6c70e6f1cf3fdcdef4f38c45edc3409f9738af9; fileslib/server.ts,app/studio/studio.tsx,tests/public-api.test.cjs. Dedicatedbranchfeature/tiktok-public-inbox-20261011 only. Sites source839c0058dd1a8f1e7ecd6f4e3fa9a81b9625128f version12, deploymentappgdep_6acc8e5044908191898b864c35ffdfad succeeded env19unchanged.
+
+Minimalpresidentcheck F5→openexistingsavedtargetvideodraft (avoidduplicateuploads)→observe保存済み動画→consent→実送信URLを検証（送信しない）. Ifnewfile-selectiontestneeded, selectexactMP4onceandconfirm選択・保存済みfilename. ReportPASS/error only. Do notpressInboxsend. Conditional1approvalunused. No OAuth/Secret/env/TikTokProduction/main/internal/SoundOn/Supabase/YouTubechanges, no sends/posts/fees.
