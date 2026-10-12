@@ -19,12 +19,16 @@ async function verifyTransferUrl(url:string){
  let r:Response;
  try{r=await fetch(url,{method:'GET',credentials:'omit',redirect:'manual',cache:'no-store',referrerPolicy:'no-referrer',signal:AbortSignal.timeout(20000)});}catch{throw new AppError('TRANSFER_MEDIA_FETCH_FAILED',502);}
  check(r.status===200&&!r.redirected,'TRANSFER_MEDIA_HTTP_FAILED',502);
- check(r.headers.get('content-length')==='2971884','TRANSFER_MEDIA_SIZE_MISMATCH',502);
- let bytes:ArrayBuffer;try{bytes=await r.arrayBuffer();}catch{throw new AppError('TRANSFER_MEDIA_FETCH_FAILED',502);}
- check(bytes.byteLength===2971884,'TRANSFER_MEDIA_SIZE_MISMATCH',502);
+ // Received body bytes are authoritative; transfer framing may omit Content-Length.
+ check(r.body,'TRANSFER_MEDIA_FETCH_FAILED',502);
+ const reader=r.body!.getReader(),parts:Uint8Array[]=[];let total=0;
+ try{while(true){const chunk=await reader.read();if(chunk.done)break;total+=chunk.value.byteLength;if(total>2971884){await reader.cancel();throw new AppError('TRANSFER_MEDIA_SIZE_MISMATCH',502);}parts.push(chunk.value);}}
+ catch(e){if(e instanceof AppError)throw e;throw new AppError('TRANSFER_MEDIA_FETCH_FAILED',502);}
+ if(total!==2971884){console.warn(JSON.stringify({event:'FIELD_RISE_TRANSFER_SIZE_FAILURE',stage:'BODY',receivedBytes:total,expectedBytes:2971884}));throw new AppError('TRANSFER_MEDIA_SIZE_MISMATCH',502);}
+ const bytes=new Uint8Array(total);let offset=0;for(const part of parts){bytes.set(part,offset);offset+=part.byteLength;}
  const digest=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
  check(digest===PREFLIGHT_SHA,'TRANSFER_MEDIA_HASH_MISMATCH',502);
- return {sha256:digest,size:bytes.byteLength};
+ return {sha256:digest,size:bytes.byteLength,httpStatus:200,lengthHeaderPresent:r.headers.has('content-length')};
 }
 async function mediaSignature(token:string,lease:any){
  const secret=config().TOKEN_ENCRYPTION_KEY!;check(/^[a-f0-9]{64}$/.test(secret),'ENCRYPTION_NOT_CONFIGURED',503);
