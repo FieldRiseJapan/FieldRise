@@ -88,3 +88,16 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - OAuthコードはPortal Callback一致、2scope固定、認証owner/cookie/state単回使用・10分期限、サーバーtoken交換・AES-GCM owner結合を確認。既存テストの認証owner/未知state・token非露出の検証内容を読み取り確認。テスト再実行なし。
 - 資格情報未登録のため実API認証・刷新成功は未検証。Client keyはOAuth認証URLの公開client識別子で、Secretの非公開性と区別。Secret・tokenを公開応答/ブラウザコードへ含めない実装。プラットフォームログの機密URL処理は未検証。
 - 現在の必要操作は社長による正式設定画面への2項目入力。入力後メタデータだけ確認し、sandboxのOAuth有効化と承認済みversion再デプロイへ継続。Sandbox送信・実投稿・審査提出は禁止を維持。審査動画は送信許可と実API実演が揃うまで完成扱いしない。
+
+
+## 2026-10-12 Secret登録後の再デプロイ・稼働検証
+
+- 社長直接入力後の環境revision10を確認。TIKTOK_CLIENT_KEY/TIKTOK_CLIENT_SECRETは両方is_secret=true。値は取得・表示しない。全7項目がSecret属性となっているため既存値はメタデータから確認できない。既存環境変数を変更していない。
+- GitHub head 4813db8e057ed2a4989b0c2457e4aab5be9922abとSites source c68e93f0471c432d432aa1bccc6de2496afe5711のアプリ134ファイル一致。既存version1をそのまま再デプロイ。
+- 再デプロイ：appgdep_6acc4efd5edc8191aa0b9fd2b3f10270、succeeded、env_set_revision10、2026-10-12T03:08:02.927986Z。URL https://fieldrise-creator-studio.wryrice16.chatgpt.site 。
+- 稼働HTTP /api/health：tiktok=false, mode=unconfigured。Secret登録だけではOAuthは有効になっていない。既存値変更禁止の指示を守り、TIKTOK_ENABLED/TIKTOK_MODEは変更していない。
+- 匿名 /api/me と /api/tiktok/callback はHTTP401 SIGN_IN_REQUIRED。no-store/no-referrerを確認。これは匿名拒否の実HTTP確認のみでOAuth成功証明ではない。
+- Callbackと2scopeのコード整合性は確認済み。実機OAuth開始・TikTok同意画面・Callback成功・プロフィール表示は有効化後に検証予定。Secret有効性（正しい値か）は未確認。
+- 必要な次の設定変更案：TIKTOK_ENABLED=true、TIKTOK_MODE=sandbox。MEDIA_DOMAIN_VERIFIEDは変更しない。これによりOAuth開始を許可し、現実装のInbox送信はドメイン検証ゲートで拒否される。既存値変更禁止の解除として、この2項目のみの社長承認が必要。
+- 審査録画は公開版起動/サインイン/登録/OAuth/プロフィール/写真・動画プレビュー/同意の実画面を用いる。送信結果は別途送信承認まで未撮影。既存タイトル動画・過去の実演結果を今回の成功として流用しない。
+- 30件テストの再実行なし。既存社内版・Supabase Production・SoundOn・YouTube変更、実投稿・Sandbox送信・審査提出・課金なし。判定CONNECTION DISABLED / 審査未提出。
