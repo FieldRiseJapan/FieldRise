@@ -133,3 +133,35 @@ test('transfer complete body with absent length header remains fully verified',{
  const x=await transferFixture();apiResponse=()=>new Response(x.bytes);
  const r=await req('tiktok/prepare-inbox','POST',x.request);assert.equal(r.status,200);assert.equal((await r.json()).size,x.bytes.length);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM jobs').get().n,0);
 });
+
+async function diagnosedAttempt(response){
+ const id=await enable();apiResponse=response;const logs=[];const original=console.info;console.info=value=>logs.push(JSON.parse(value));
+ try{return {response:await req('jobs','POST',{draftId:id,revision:1,requestKey:'diagnostic-once',consent:true}),logs};}finally{console.info=original;}
+}
+test('diagnostic success records stages only and saved history',async()=>{
+ const {response,logs}=await diagnosedAttempt(()=>Response.json({data:{publish_id:'private-id'},error:{code:'ok'}}));
+ assert.equal(response.status,200);assert.deepEqual(logs.map(x=>x.stage),['BEFORE_API','COMMUNICATION_START','HTTP_RESPONSE','JSON_PARSE','D1_SAVE','D1_SAVED']);
+ for(const log of logs)assert(Object.keys(log).every(k=>['event','stage','httpStatus','outcome'].includes(k)));
+ assert(!JSON.stringify(logs).includes('private-id'));assert.equal((await(await req('jobs')).json()).length,1);
+});
+test('diagnostic transport failure preserves unknown and never retries',async()=>{
+ const {response,logs}=await diagnosedAttempt(()=>{throw Error('private-response-token-url')});
+ assert.equal(response.status,502);assert.equal((await response.json()).state,'STATUS_UNKNOWN');
+ assert(logs.some(x=>x.stage==='COMMUNICATION_START'&&x.outcome==='FAILED'));assert(!logs.some(x=>x.stage==='HTTP_RESPONSE'));
+ assert(!JSON.stringify(logs).includes('private-response'));assert.equal(calls.length,1);
+ const rows=await(await req('jobs')).json();assert.equal(rows.length,1);assert.equal(rows[0].state,'STATUS_UNKNOWN');
+});
+test('diagnostic JSON failure distinguishes received HTTP response',async()=>{
+ const {response,logs}=await diagnosedAttempt(()=>new Response('private-response',{status:200}));
+ assert.equal(response.status,502);assert(logs.some(x=>x.stage==='HTTP_RESPONSE'&&x.httpStatus===200));
+ assert(logs.some(x=>x.stage==='JSON_PARSE'&&x.outcome==='FAILED'));assert(!JSON.stringify(logs).includes('private-response'));
+});
+test('diagnostic HTTP error records status without response body',async()=>{
+ const {response,logs}=await diagnosedAttempt(()=>Response.json({error:{code:'invalid_param',message:'private-content'}},{status:400}));
+ assert.equal(response.status,502);assert.equal((await response.json()).state,'FAILED');assert(logs.some(x=>x.stage==='HTTP_RESPONSE'&&x.httpStatus===400));assert(!JSON.stringify(logs).includes('private-content'));
+});
+test('diagnostic D1 result failure is distinct and preserves unknown record',async()=>{
+ const original=Query.prototype.run;let failed=false;
+ Query.prototype.run=async function(){if(this.q.startsWith('UPDATE jobs SET state=?,publish_id=')&&!failed){failed=true;throw Error('private-db-detail')}return original.call(this)};
+ try{const {response,logs}=await diagnosedAttempt(()=>Response.json({data:{publish_id:'private-id'},error:{code:'ok'}}));assert.equal(response.status,502);assert(logs.some(x=>x.stage==='D1_SAVE'&&x.outcome==='FAILED'));assert.equal((await(await req('jobs')).json())[0].state,'STATUS_UNKNOWN');assert.equal(calls.length,1);assert(!JSON.stringify(logs).includes('private-db-detail'));}finally{Query.prototype.run=original;}
+});
