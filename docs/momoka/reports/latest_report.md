@@ -101,3 +101,15 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - 必要な次の設定変更案：TIKTOK_ENABLED=true、TIKTOK_MODE=sandbox。MEDIA_DOMAIN_VERIFIEDは変更しない。これによりOAuth開始を許可し、現実装のInbox送信はドメイン検証ゲートで拒否される。既存値変更禁止の解除として、この2項目のみの社長承認が必要。
 - 審査録画は公開版起動/サインイン/登録/OAuth/プロフィール/写真・動画プレビュー/同意の実画面を用いる。送信結果は別途送信承認まで未撮影。既存タイトル動画・過去の実演結果を今回の成功として流用しない。
 - 30件テストの再実行なし。既存社内版・Supabase Production・SoundOn・YouTube変更、実投稿・Sandbox送信・審査提出・課金なし。判定CONNECTION DISABLED / 審査未提出。
+
+
+## 2026-10-12 OAuth有効化試行・承認条件によるロールバック
+
+- 社長明示承認でTIKTOK_ENABLED=true/TIKTOK_MODE=sandboxのみ設定（Secret属性維持）、環境revision11。資格情報・暗号鍵・他の環境値は変更/表示なし。
+- デプロイ appgdep_6acc4fcaeff88191bd45a2755e7b3458 succeeded、env_set_revision11、2026-10-12T03:11:24.093634Z。
+- 実HTTP /api/health は tiktok=false,mode=sandbox。設定反映自体はmodeで確認できたが、enabled()の必須条件が成立せずOAuth開始不可。アプリの条件は enabled==='true' と CLIENT_KEY/CLIENT_SECRET/TOKEN_ENCRYPTION_KEY/SITE_ORIGINの非空。どの条件が不成立かは値を読まず現APIだけでは特定できない。誤ったSecret・権限・TikTok側認証失敗と断定しない。
+- 不具合時は変更2項目を元へ戻す社長条件に従い、false/unconfiguredへ復元。環境revision12、デプロイ appgdep_6acc5006bf848191937890460f189539 succeeded、2026-10-12T03:12:24.349218Z。実HTTP tiktok=false,mode=unconfiguredで復元確認。
+- Secret登録メタデータは7項目の存在/is_secret=trueを再確認。項目の存在だけでは非空・ランタイム利用可否を証明しない。
+- OAuth/TikTokログイン/Callback成功/基本プロフィール/Refreshは未実施。2scopeのコード・Portal設定は確認済み、実際の同意/取得scopeは未検証。
+- 診断候補：4必須値の保存状態を所有者が非共有の設定画面で確認、または値を返さないowner限定の構成診断を追加する変更案。現行コードは改変していない。既存30件テストの不要な再実行なし。
+- 実投稿・Sandbox送信・審査提出・課金、既存社内/Supabase/SoundOn/YouTube変更なし。審査動画のOAuth以降の実演は設定不成立により未準備。結果BLOCKED/ROLLED BACK。
