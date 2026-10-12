@@ -57,3 +57,14 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - Client Secret / Client key はマスクのまま。取得・公開・GitHub保存・ランタイム登録は未実施。OAuth接続・プロフィール取得・Token Refreshの実機検証は未実施。
 - 実投稿、Sandbox送信、審査提出、既存Production/Supabase/SoundOn/YouTube変更は未実施。既存30件のテストは不要に再実行していない。
 - 判定：BLOCKED。公開版は準備機能のプレビューであり、TikTok連携済み・審査提出済みとは報告しない。新Sandbox設定保存、秘密情報の安全なランタイム登録、対象アカウント認証、実操作録画が残る。
+
+
+## 2026-10-12 アイコン登録後のSandbox設定保存
+
+- 社長による新Sandboxアイコン登録後、同じSandbox ID `7695356222514235410` の必須項目を補完し、Apply changesを実行。保存後の再描画で設定値が残り、未保存表示・検証エラーなしを確認。
+- 保存済み：Login Kit / Content Posting API、`user.info.basic` と `video.upload` のみ、Direct Post OFF。公開版Web/Terms/Privacyと `/api/tiktok/callback` を設定。
+- Target Users の Add account → Continueを開始したが、ブラウザネイティブ認証保護により新規接続画面の参照が拒否。アカウント登録完了は未確認、OAuth成功とは扱わない。手動引き継ぎを開いた。
+- 新Sitesの環境変数を読み取り確認：revision 1、TIKTOK_ENABLED=false、TIKTOK_MODE=unconfigured、MEDIA_DOMAIN_VERIFIED=false。Client key/secret未登録。暗号鍵はis_secret=trueで値は非表示。
+- PortalのClient key/secretはマスクのまま。現在のSitesコネクタは平文引数による設定のみで、この環境からPortal→Sitesへの秘匿転送経路は未確認。他のホスティングサービスへ移転・契約していない。
+- ブラウザ認証保護のため、この段階のスクリーンショット取得・保存は未実施。保存状態はAXの再描画で確認したもの。
+- 既存環境・Production・SoundOn・YouTubeへの変更、実投稿・Sandbox送信・審査提出なし。実機連携試験と審査動画は未完了。判定BLOCKEDを維持。
