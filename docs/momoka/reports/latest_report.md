@@ -358,3 +358,14 @@ Importantdifference: signed90secondpreflight uses /api/media/preflight-pull/, wh
 MEDIA_DOMAIN_VERIFIED registeredSecret; envrevision18 unchanged; rawvaluenotread. Lastknownfalse, authenticated /api/me boolean is available for runtimeconfirmation. Currentservergate rejectsjobs unless exactlytrue. Proposed separateapproval: set only publicSites MEDIA_DOMAIN_VERIFIED=true, preservesecretvisibility/otherenv/keys/modes, redeployexactcurrentsource, confirmruntimeboolean androllbackflag ifunexpectedproblem. This unlocksUI/servergate only; doesnot initiateTikToksend norresolveexactURLproof. ProductionURLVerified anduserreportedmediaPASS support requestingthissetting, notclaimingallconditional sendcriteria satisfied.
 
 No env/source/deploychanges thisstep; onlydedicatedGitHub report. OAuth connection maintained. Conditional1SandboxInboxsendapproval preservedunused. Publicpost/reviewsubmit/scopes/fees/internal/SoundOn/Supabase/YouTube untouched. ActualoperationreviewMP4 stillawaitsrecording; sourceassetMP4 is not appdemo.
+
+
+## 2026-10-12 16:16 JST — MEDIA_DOMAIN_VERIFIED approved single-setting update
+
+Before: envrevision18, deploymentappgdep_6acc868c54108191850a01297b30f98e succeeded, savedversionappgprj_6acb0c3677d88191b7fc6ca303bcf3d7~appgver_2a6e8c995ff48191af6a6d57ad2584c3, source165832a72f3c332050c84322d4f11750db524437. Rawpriorflagmasked; lastrecordedfalse. Rollbacktargetfalse per recordedbaseline, preserveis_secrettrue.
+
+ChangedonlyMEDIA_DOMAIN_VERIFIED totrue viaSites single-key update preservingSecretvisibility. Envrevision19. Re-deployedexactsame savedversion (no source/buildchanges). Newdeploymentappgdep_6acc89543e548191a3546dd90f9f704b succeeded, env19applied. Otherentries metadata unchanged and nativeupdateonlylistedkeys preserved values. Publichealth confirms serviceavailable, tiktoktrue,sandboxmode. Authenticated /api/me.mediaVerified /UI sendgate notyetobserved byGPT; presidentF5 needed. Do not sendtoverifygate. No failureobserved, rollbacknotperformed.
+
+Required remainingcodeapproval: immediately afteractual /api/media/pull/ lease creation but BEFORE TikTokinit, perform fixedsame-originURL fullHTTPGET withoutcredentials/redirects, check200, exact2971884bytes and approvedMP4SHA256. Use the exactsameURL for init only onPASS. Limit initialchange to SandboxVIDEO/exactapprovedfile; failclosedon wrongfile, downloadfailure/hashmismatch, no retry, no sensitiveURL/errorbodylogs. Check gate,scope,account,userconsent,revision/idempotency stillrequired. Keep twohourtransferlease (90secpreflightURLnotused). No codechanged now; proposed change requires separate approval under currentinstruction.
+
+Conditional1sendapproval unused; currentserverdoesnotyetvalidateexacttransferURLbeforesend. PresidentshouldnotpressInboxsend. Connectedstate expectedpreserved but no repeatedOAuth/F5claim. Source/Secret/encryptionkey/OAuth/scopes/main/internal/SoundOn/Supabase/YouTube unchanged; no posts/review/fees. DocumentonlyGitHubupdate.
