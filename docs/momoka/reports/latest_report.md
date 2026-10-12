@@ -146,3 +146,14 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - healthのtiktok=false/mode=unconfiguredは意図したOFF維持。Secretの存在/基本形式を満たしたため設定面のOAuth準備は整ったが、TikTok資格情報有効性・実機OAuth/Callback/Refreshはまだ未検証。
 - 次段階：TIKTOK_ENABLED=true/TIKTOK_MODE=sandboxへの切替とOAuth実機検証。今回のOFF維持指示を解除する社長承認後に実施。Sandbox送信・実投稿・審査提出・課金は引き続き別承認。
 - 既存30件/134ファイル照合の不要な再実行なし。社内版・Supabase Production・SoundOn・YouTube変更なし。
+
+
+## 2026-10-12 Sandbox OAuth有効化・実機操作引き継ぎ
+
+- 社長承認によりOFF維持解除。TIKTOK_ENABLED=true/TIKTOK_MODE=sandboxのみ変更。Client key/secret・暗号鍵・SITE_ORIGIN変更なし。
+- envrevision16、savedversion1再デプロイ appgdep_6acc56371ecc8191b8b1d03e1ef8d3c9 succeeded、2026-10-12T03:38:49.282315Z。
+- 実HTTP /api/health：tiktok=true,mode=sandbox。必要な非空設定と有効化条件成立を確認。ただし資格情報のTikTok側有効性の証明ではない。
+- 公開版UIへクラウドブラウザで遷移したが、ネイティブcredential protectionが観察を拒否。指定の新規タブ→新文書でも同じ制限。OAuthエラーとは断定せず、手動引き継ぎを開始。
+- 社長操作：公開版Creator Studio→ChatGPTサインイン→規約確認/利用登録→TikTok接続。要求scope2件と対象runa_girl8215を確認して認証。送信操作は行わない。認可コード/state/tokenが見える中間URLは共有しない。
+- 実機OAuth/Callback成功、接続アカウント一致、token暗号化保存、認証状態/ログアウトはまだ未確認。成功表示後に追加検証へ続く。コード上のscope2件とPortal設定の確認済みを実API成功と混同しない。
+- 有効化は正常なため、ブラウザ保護だけを理由にロールバックしていない。送信・投稿・審査提出・課金は未実施。社内/Supabase/SoundOn/YouTube変更なし。
