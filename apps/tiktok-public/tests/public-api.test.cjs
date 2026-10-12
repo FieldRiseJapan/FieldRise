@@ -39,3 +39,18 @@ test('crop reuses correct existing calculation without music seed',()=>{assert.d
 test('ambiguous network failure locks retry and is not success',async()=>{const id=await enable();apiResponse=()=>{throw Error('network timeout')};const b={draftId:id,revision:1,requestKey:'once',consent:true};const r=await req('jobs','POST',b);assert.equal(r.status,502);assert.equal((await r.json()).state,'STATUS_UNKNOWN');assert.equal((await req('jobs','POST',{...b,requestKey:'twice'})).status,429);assert.equal(calls.length,1)});
 test('expired token is refreshed and replacement token stays encrypted',async()=>{const id=await enable();sqlite.prepare('UPDATE connections SET expires=0').run();apiResponse=url=>url.includes('/oauth/token/')?Response.json({access_token:'new-access',refresh_token:'new-refresh',open_id:'open-alice',expires_in:3600,scope:'user.info.basic,video.upload'}):Response.json({data:{publish_id:'p'},error:{code:'ok'}});assert.equal((await req('jobs','POST',{draftId:id,revision:1,requestKey:'one',consent:true})).status,200);assert.equal(calls.length,2);const c=sqlite.prepare('SELECT secret,lock FROM connections').get();assert(!c.secret.includes('new-access'));assert.equal(c.lock,0);assert.equal(JSON.parse(await security.crypt(c.secret,env.TOKEN_ENCRYPTION_KEY,'alice',true)).refresh_token,'new-refresh')});
 test('verification gate prevents sending unverified media URLs',async()=>{const id=await enable();env.MEDIA_DOMAIN_VERIFIED='false';assert.equal((await req('jobs','POST',{draftId:id,revision:1,requestKey:'one',consent:true})).status,503);assert.equal(calls.length,0)});
+
+async function callbackAttempt(){
+ await enable();sqlite.prepare('DELETE FROM connections').run();
+ const started=await req('tiktok/connect','POST',{});const u=new URL((await started.json()).url);const state=u.searchParams.get('state');
+ return handle(new Request('https://studio.example/api/tiktok/callback?state='+state+'&code=synthetic-code',{headers:{Cookie:'fr_oauth='+state}}),['tiktok','callback']);
+}
+test('callback reports token exchange stage without leaking exception details',async()=>{
+ apiResponse=()=>{throw new Error('synthetic-secret-code-token')};
+ const r=await callbackAttempt();assert.equal(r.status,500);assert.deepEqual(await r.json(),{error:'OAUTH_CALLBACK_FAILED',stage:'TOKEN_EXCHANGE'});
+});
+test('callback successful flow stores owner-bound encrypted credentials',async()=>{
+ apiResponse=url=>url.includes('/oauth/token/')?Response.json({access_token:'synthetic-access',refresh_token:'synthetic-refresh',open_id:'synthetic-open',expires_in:3600,scope:'user.info.basic,video.upload'}):Response.json({data:{user:{open_id:'synthetic-open',display_name:'Tester',avatar_url:''}},error:{code:'ok'}});
+ const r=await callbackAttempt();assert.equal(r.status,303);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM connections').get().n,1);
+ const c=sqlite.prepare('SELECT secret FROM connections').get();assert(!c.secret.includes('synthetic-access'));assert.equal(JSON.parse(await security.crypt(c.secret,env.TOKEN_ENCRYPTION_KEY,'alice',true)).access_token,'synthetic-access');
+});
