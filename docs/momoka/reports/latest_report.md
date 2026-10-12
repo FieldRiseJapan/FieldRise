@@ -607,3 +607,18 @@ No actualsend/publicpost/Productionreview/scopes/fees/internal/SoundOn/Supabase/
 SANDBOX_SEND_LIMIT、無効な送信操作、21:42:47のNETWORK_RESULT_UNKNOWN履歴を実際の状態として収録。Inbox成功画面は作成していない。user.info.basicとvideo.uploadの用途を説明。社長確認用MP4、SRT、品質報告を納品。
 
 判定：第一部編集完了／Production審査動画全体は未完成。実OAuth認可・Callbackの録画、video.upload成功応答、TikTok Inbox受信の実証、Portal最終照合が不足。今回TikTok送信・再送・状態確認・登録削除・認証変更・公開デプロイ・Production審査提出は未実施。既存ジョブ・予約・環境に変更なし。
+
+
+## 2026-10-12 23:07 JST以降 — Production最終準備 Phase 2
+
+[最終審査要件・証跡・安全性・申請差分報告](../tiktok_review/2026-10-12/phase2_final_readiness.md)（資料Commit 8130a8be939eb4da8167f43122cfdc34d3c35066）。
+
+- 既存第一部を再利用し、プロフィールと履歴のみ拡大。最終MP4 123秒/2542×1440/H264/30fps/2,987,288 bytes/無音日英字幕。全編デコードPASS、変更場面の文字/字幕/マスク確認。原本・旧編集版保管。
+- MP4 SHA-256 2a9dad5e2903d5622965dba9610d6d81fa30b83a3f00bfd7e77efb292fedbc38、SRT SHA-256 fce0ab04b0f95b64b17cddfb863729640ac3172f64a6a2913879158dfa0018bf。
+- TikTok公式App Review/Login Kit/User Info/Upload資料取得。最大5動画/各50MB、全scope end-to-end、未承認はSandbox、同ドメイン、私的/未完成制限を整理。OAuth認可画面/Inbox受信独立指定とend-to-endからの推奨を区別。動画秒数/MP4/解像度は今回方針で、公式固定要件とは断定しない。
+- 現Portalはログイン画面へ遷移。現在Draft/申請値未確認。過去10/11の旧URL/Direct Post/3scope情報を現在値と断定せず、公開版候補URLと2scopeの差分案を用意。
+- 最新GitHub server読み取りでremoveAccountのjobs/leases削除とjobs件数依存ゲートを確認。承認台帳独立管理/アカウント単位の原子予約/削除と送信競合対策/最小保持方針を設計。コード/DB適用なし。
+- SitesメタデータVersion14/public/指定URL確認。SupportのURL未検証表記が古く、Privacy/Termsは削除保護導入時に整合修正が必要。Webコード変更なし。
+- 成功応答/publish_id/Inbox受信証拠は既存記録から確認できず。21:42UNKNOWNを維持。今回はライブD1/状態APIを再照会せず、接続成功・F5・URL所有権の再試験もなし。
+- 判定BLOCKED。第一部完成は審査全体READYではない。認可録画/送信・受信実証/削除安全対策/Portal最終照合/社長最終承認が残る。
+- 禁止事項遵守：送信/再送/状態確認/削除/再認証/Secret/環境/デプロイ/Production提出なし。main/社内版/SoundOn/YouTube/Supabase変更なし。
