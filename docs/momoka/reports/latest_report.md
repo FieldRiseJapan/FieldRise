@@ -304,3 +304,16 @@ Video actual progress: no real MP4 operation recording received/created; editing
 Next minimal path: president specifies/uploads selected MP4; separately approve only MEDIA_DOMAIN_VERIFIED=true in public Sites after media readiness review (Secret unchanged). Establish valid-media access safely without initiating transfer or request narrowly scoped preflight change if needed. Then present exact1Sandbox send/account/file/safety plan for individual approval. Capture one complete real operation session; edit/QA; present final review package for final submission approval.
 
 No source/env/deploy changes this step; GitHub dedicated-branch report only. No disconnect, contentsend/post, reviewsubmit, fees or internal/Supabase/SoundOn/YouTube changes.
+
+
+## 2026-10-12 15:53 JST — Attached MP4 inspected; conditional Inbox approval proposal
+
+Original fieldrise_tiktok_review_hq.mp4 from libfile_ec3e0e8933448191b0a0ea7f2c1acf24 materialized without alteration. Rights PASS (president declaration, not independent copyright investigation). SHA2562e200e8634de51bf1ae2116dce07d39e4914351596b4b22e9b615cf6bf1a98ee.
+
+Technical inspection:20seconds,2971884bytes,H2641080x1920,30fps,AAC audio. Full audio/video decoding PASS;600visual frames reviewed via6all-frame contact sheets plus1second overview. No app operation, secret/credential text or obvious prohibited visual content seen; illustrates headphone-wearing woman. Audio decoder PASS and peak-6.6dBFS; subjective listening/content transcription not performed, so do not claim full auditory review. This is upload-test content, not complete review operation demo.
+
+Sites env metadata revision18 unchanged, mode and MEDIA_DOMAIN_VERIFIED bothSecret fields with hidden values. No value retrieved. Last verified media flag false remains latest recorded value; current runtime gate not independently queried with authenticated session. Target proposed Runa-Girl8215 / FieldRise Public Inbox Test; recheck connected display and sandbox label immediately before any futuresend. Method video.upload + POST /v2/post/publish/inbox/video/init/ + PULL_FROM_URL, only1send of exactfile, no DirectPost, no automatic retry, stop on uncertain result and inspecthistory/inbox. Do not click TikTok Publish or schedule; Inbox flow is not SELF_ONLY publication and does not by itself prevent a human from publishing later.
+
+Remaining readiness conditions: valid MP4 capability URL anonymousHTTP200/exactbytes (not proven by TXT or nonexistentroute404), media flag enable approval, actual loaded draft/video match. No jobsPOST for preflight because it triggerssend. Current source lacks media-only capability generation; prepare isolated bounded preflight change for separate approval if needed. Production Verified property PASS already confirmed; no repeatownership action.
+
+Conditional proposal: publicSites MEDIA_DOMAIN_VERIFIED=true only after media readiness evidence, then exactMP4 one-time Sandbox Inboxsend to authorizedaccount with userconsent. These changes/sends remain unapproved. Original testfile not copied to publicroot or GitHub. No external media transfer, actualpost, reviewsubmit, connectiondisconnect, credentialchange or internal/Supabase/SoundOn changes. Review operationMP4 still pending actualrecording.
