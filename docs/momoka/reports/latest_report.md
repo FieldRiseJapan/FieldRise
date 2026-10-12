@@ -113,3 +113,14 @@ Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申�
 - OAuth/TikTokログイン/Callback成功/基本プロフィール/Refreshは未実施。2scopeのコード・Portal設定は確認済み、実際の同意/取得scopeは未検証。
 - 診断候補：4必須値の保存状態を所有者が非共有の設定画面で確認、または値を返さないowner限定の構成診断を追加する変更案。現行コードは改変していない。既存30件テストの不要な再実行なし。
 - 実投稿・Sandbox送信・審査提出・課金、既存社内/Supabase/SoundOn/YouTube変更なし。審査動画のOAuth以降の実演は設定不成立により未準備。結果BLOCKED/ROLLED BACK。
+
+
+## 2026-10-12 OAuth開始条件の実Worker診断完了
+
+[Secret非露出の診断結果・修正案](tiktok_public_oauth_config_diagnosis_20261012.md)
+
+- 実行環境でTIKTOK_CLIENT_KEY/TIKTOK_CLIENT_SECRETはEMPTY。これが開始拒否の原因。TOKEN_ENCRYPTION_KEYは64文字小文字hex形式不適合で、認証後の暗号化保存の追加ブロッカー。SITE_ORIGINは不足・形式エラーなし。
+- Secret値/長さ/hash/token/機密情報を出力せず、原因と変数名のみを管理ログで取得。既存Secretは変更なし。
+- 一時診断3件テストPASS・型検査/ビルドPASS。30件と134ファイル照合は繰り返していない。
+- 一時診断版から元のsaved version1へ復元済み（appgdep_6acc52828c4c8191833f70480ba5a08a、envrevision12）。OFF/unconfiguredの実HTTP確認済み。現在の稼働版に診断追加は残していない。
+- 修正は未実施。社長直接再入力と既存暗号鍵復元を提案。暗号鍵を無断再生成しない。OAuth実機/送信/審査提出は未実施。
