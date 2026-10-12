@@ -44,3 +44,16 @@ CSS ALREADY APPLIED・期待SHA一致・復旧操作非表示・10セット表�
 既存SandboxはFieldRise Analytics Test（7672943163761248273）、登録ユーザーruna_girl8215。既存設定は未変更。独立したFieldRise Public Inbox Testの新規作成フォームを準備したが、Confirmは未実行。新たな認証情報と公開版へのアクセス設定を伴うため、ブラウザの実行時確認ポリシーに従い社長確認待ち。候補スコープはuser.info.basic/video.upload、callbackは公開版の/api/tiktok/callback。既存Sandboxを複製せず、既存トークンを流用しない構成。
 
 Sandbox実送信、公開版OAuth実機試験、実操作動画、Production申請は未完了。Production Save/Submitは未実行。前回利用上限によるログイン操作ブロックは今回のログイン成功で解消。
+
+
+## 2026-10-12 Sandbox接続準備の再開・ブラウザ制限
+
+- 社長承認：新規Sandbox `FieldRise Public Inbox Test` と公開版への `user.info.basic` / `video.upload` テスト接続設定のみ。Sandbox送信、実投稿、Production変更、審査提出、有料契約は禁止を維持。
+- 作成済みSandbox ID：`7695356222514235410`。再作成していない。既存 `FieldRise Analytics Test` は変更なし。
+- 10月12日の再ログイン後、保存済みSandboxは初期状態（製品・スコープ・基本設定なし）。前回設定は未保存であり、完了とは扱わない。
+- 今回、未保存フォームに Login Kit / Content Posting API、2スコープのみ、Direct Post OFF、新公開版URL・規約・Privacy・Callbackを復元。Callback：`https://fieldrise-creator-studio.wryrice16.chatgpt.site/api/tiktok/callback`。
+- Apply changes は `App icon is required` で拒否。既存修正済みアイコンの再利用アップロードが必要。アイコンの追加修正・再調査はしていない。
+- ブラウザのネイティブ認証保護がファイル選択を `retained_data_restricted` で拒否。指定された新規タブでの復旧も `credential_observation_restricted`。手動引き継ぎを開始。
+- Client Secret / Client key はマスクのまま。取得・公開・GitHub保存・ランタイム登録は未実施。OAuth接続・プロフィール取得・Token Refreshの実機検証は未実施。
+- 実投稿、Sandbox送信、審査提出、既存Production/Supabase/SoundOn/YouTube変更は未実施。既存30件のテストは不要に再実行していない。
+- 判定：BLOCKED。公開版は準備機能のプレビューであり、TikTok連携済み・審査提出済みとは報告しない。新Sandbox設定保存、秘密情報の安全なランタイム登録、対象アカウント認証、実操作録画が残る。
