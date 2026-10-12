@@ -94,3 +94,38 @@ test('preflight authentic signed full media and expiration without TikTok', {ski
  sqlite.prepare("UPDATE leases SET expires=0 WHERE job_id='preflight'").run();assert.equal((await get()).status,404);
  assert.equal(calls.length,0);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM jobs').get().n,0);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM connections').get().n,0);
 });
+async function transferFixture(){
+ await enable();sqlite.prepare('UPDATE connections SET name=?').run('Runa-Girl8215');
+ const bytes=fs.readFileSync(process.env.FIELD_RISE_PREFLIGHT_FIXTURE);
+ sqlite.prepare('UPDATE assets SET size=?,type=?').run(bytes.length,'video/mp4');
+ env.BUCKET.get=async()=>({body:bytes,size:bytes.length,arrayBuffer:async()=>bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)});
+ const id=(await(await req('drafts','POST',{...draft,kind:'VIDEO',assets:['asset-a']})).json()).id;
+ apiResponse=(url)=>{assert(url.startsWith('https://studio.example/api/media/pull/'));return Promise.resolve(new Response(bytes,{headers:{'Content-Length':String(bytes.length)}}));};
+ return {id,bytes,request:{draftId:id,revision:1,consent:true}};
+}
+test('transfer prepare validates full actual URL without TikTok or job', {skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
+ const x=await transferFixture();const r=await req('tiktok/prepare-inbox','POST',x.request);assert.equal(r.status,200);const p=await r.json();assert.equal(p.verified,true);assert.equal(calls.length,1);assert.equal(calls[0].options.headers,undefined);assert.equal(calls[0].options.redirect,'manual');assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM jobs').get().n,0);
+});
+test('transfer prepare rejects redirect and never calls TikTok',{skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
+ const x=await transferFixture();apiResponse=()=>new Response(null,{status:302,headers:{Location:'https://evil.example'}});assert.equal((await req('tiktok/prepare-inbox','POST',x.request)).status,502);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM jobs').get().n,0);assert(calls.every(x=>x.url.startsWith('https://studio.example/')));
+});
+test('transfer prepare rejects wrong full hash and no automatic send',{skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
+ const x=await transferFixture();apiResponse=()=>new Response(new Uint8Array(x.bytes.length));assert.equal((await req('tiktok/prepare-inbox','POST',x.request)).status,502);assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM jobs').get().n,0);
+});
+test('transfer prepare stops timeout without retry',{skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
+ const x=await transferFixture();apiResponse=()=>{throw Error('synthetic sensitive timeout')};assert.equal((await req('tiktok/prepare-inbox','POST',x.request)).status,502);assert.equal(calls.length,1);
+});
+test('transfer send uses exact verified URL only after explicit action',{skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
+ const x=await transferFixture();const p=await(await req('tiktok/prepare-inbox','POST',x.request)).json();const verifiedUrl=calls[0].url;
+ const b={...x.request,requestKey:'approved-once',transferKey:p.transferKey};assert.equal((await req('jobs','POST',b)).status,403);assert.equal(calls.length,1);
+ apiResponse=url=>url.startsWith('https://studio.example/')?new Response(x.bytes,{headers:{'Content-Length':String(x.bytes.length)}}):Response.json({data:{publish_id:'synthetic-p'},error:{code:'ok'}});
+ assert.equal((await req('jobs','POST',{...b,confirmSend:true})).status,200);assert.equal(calls[1].url,verifiedUrl);assert.equal(JSON.parse(calls[2].options.body).source_info.video_url,verifiedUrl);
+ assert.equal((await req('jobs','POST',{...b,confirmSend:true,requestKey:'second'})).status,403);assert.equal(calls.length,3);
+});
+test('transfer prepared URL expiry blocks before any TikTok call',{skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
+ const x=await transferFixture();const p=await(await req('tiktok/prepare-inbox','POST',x.request)).json();sqlite.prepare("UPDATE leases SET expires=0 WHERE job_id LIKE 'ready:%'").run();
+ assert.equal((await req('jobs','POST',{...x.request,requestKey:'one',transferKey:p.transferKey,confirmSend:true})).status,403);assert.equal(calls.length,1);
+});
+test('transfer partial response stops before TikTok init',{skip:!process.env.FIELD_RISE_PREFLIGHT_FIXTURE},async()=>{
+ const x=await transferFixture();apiResponse=()=>new Response(x.bytes.subarray(0,100),{headers:{'Content-Length':String(x.bytes.length)}});assert.equal((await req('tiktok/prepare-inbox','POST',x.request)).status,502);assert.equal(calls.length,1);
+});
