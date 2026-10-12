@@ -528,3 +528,33 @@ No actualsend/publicpost/Productionreview/scopes/fees/internal/SoundOn/Supabase/
 - 必要安全対策案（未実施）：send fetch例外をTimeout/Abort/その他の固定分類だけへ安全に分ける診断、送信要求パラメータの安全な形式検査結果だけを区別、全削除と独立する承認消費記録・未確定処理保護。例外message/stack/Secret/token/URL/body/個人情報は出力しない。今回は追加コード変更承認なし、再現通信もなし。
 - 投稿制限は新ジョブの存在により再度機能するが、履歴削除による制限消失の設計課題は残る。登録データ全削除・接続解除をしない。
 - 本調査は読み取りと専用ブランチ報告追記のみ。新規送信/再送/状態確認/ジョブ削除/復元/環境/認証変更/Production提出なし。審査動画でInbox受信成功とは説明しない。
+
+
+## 2026-10-12 21:47 JST以降 — Inbox通信開始例外の隔離原因検証
+### レビューと公式照合
+- 実装先 https://open.tiktokapis.com/v2/post/publish/inbox/video/init/、POST、Bearer、application/json、PULL_FROM_URLのJSONはTikTok公式Upload仕様の例と整合。公式表はcharset=UTF-8を付記し、公式例はapplication/jsonも使用。charset欠落を即時通信例外の根拠にしない。
+- 20秒AbortSignal、fetch-handler内実行、リダイレクトerror、互換日2026-05-15/nodejs_compat。Secret/tokenの値は取得していない。
+- 公式Workers Request docsはfollow/error/manualを列挙している。一方、実ランタイム差異の検証が必要。出典 https://developers.cloudflare.com/workers/runtime-apis/request/ 、https://developers.cloudflare.com/workers/runtime-apis/fetch/ 、https://developers.tiktok.com/docs/en/content-posting-api-reference-upload-video （2026-10-12確認）。
+### TikTok通信なしのモック結果
+- 現行と同じ互換日/flagsのMiniflare/workerdを使用。outboundServiceを必ずローカル応答ハンドラーへ固定、合成トークン/素材URLのみ。TikTokネットワーク接続なし。公開ソースは変更せずscratch隔離スクリプトで実施。
+- redirect:error＋HTTP200予定のモック：TypeError、redirect関連分類、outbound mock呼び出し0回。応答前の例外を再現。
+- 同じURL/POST/header/body/timeoutでredirect:manualへ切替：HTTP200取得、mock1回。
+- manual＋302：HTTP302をそのまま取得、mock1回、別ドメインへ追従なし。
+- error＋302予定：同じTypeError、mock0回。実際の302応答を受け取って失敗したのではなく、モック呼出し前のredirect設定で失敗する。
+- 最終隔離テスト4/4 PASS。仮説「errorモードでも正常応答する」は初回検証で否定された。初回ハーネスのfetchMockインターフェース不一致を修正しoutboundServiceで隔離を確実にした。初回失敗を実APIの失敗と混同しない。
+- 最有力原因候補：現行redirect:errorと実行ランタイムの非互換。通信開始とFAILEDが同一時刻/HTTP_RESPONSEなしという21:42ログに一致する。ローカル再現の原因は絞れたが、本番の例外種別が未記録のため過去2試行の原因/受理を100%確定しない。Node標準fetchモックだけの旧テストでは実ランタイム差異を見逃した。
+### 修正/診断案（承認待ち・未実施）
+- Inbox専用にredirect:manualを用い、3xxは固定UNEXPECTED_REDIRECTとして拒否。Authorizationを他ドメインへ転送しない。followへ変えない。送信回数/ゲート/認証/予約は維持。
+- Request構築/COMMUNICATION_START/HTTP_RESPONSE/JSON_PARSE/D1_SAVEを分ける。例外nameはallowlist固定TIMEOUT/ABORT/TYPE_ERROR/OTHERへ分類し、raw message/stack/body/URL/tokenを出力しない。引数検査は固定HTTPSホスト/POST/Content-Type/必要header存在/JSONシリアライズ可否のbooleanのみ。異常時はUNKNOWNを維持、自動再送なし。
+- URL無効、header改行、JSONシリアライズ例外、AbortSignal API/実行context、外部ネットワーク制限等も候補だが、現在の固定URLと合成値でmanual成功。ライブtoken形式や本番ネットワークは未検証。新診断だけを目的とする再送はしない。
+### 全削除と試行制限
+- 登録削除/再登録でjob件数と同時に1回制限が失われる設計を切り離す。承認消費台帳と試行reservationをサーバーで原子的管理し、登録操作で追加許可を発行しない。現UNKNOWN処理を削除操作から保護する案を提示。
+- 退会時の個人情報削除と未確定の重複防止を整理。必要最小限の仮名記録にも目的/保持期限/削除条件を定め、永久保存や一律退会拒否にしない。D1 schema/UI変更は別承認。
+### 原本保全・編集準備
+- 既存原本のSHA再確認 a8569ef1b3e29c800545982d2551b548b88eb7f27271ac0942149be1b2c1a2a8、変更なし。
+- 編集候補：公開トップ/Terms/Privacy/Support、接続プロフィール表示、動画選択/保存プレビュー、送信なしURL検証、履歴0件。日英字幕は「検証成功、送信は未実施」とし、Inbox成功やLogin Kit認可の実演として使用しない。原本内の名前/素材識別子を必要に応じマスク。今回編集版出力は承認範囲外のため未実施。
+- 21:42UNKNOWNは録画外で、原本へ成功映像/架空履歴を挿入しない。Inbox実証不足、審査全体READYではない。
+### 保護と次の承認
+- 今回アプリコード/公開デプロイ/環境/DB/ジョブ/予約を変更せず、通信再現はローカルモックのみ。既存成功テスト全再実行なし。
+- モック保存先 docs/momoka/tiktok_review/2026-10-12/inbox_communication_mock_review.cjs。専用ブランチのみ。
+- 次の承認候補：Inbox fetchのmanual＋3xx拒否と固定例外分類の限定実装/隔離検証/デプロイ、全削除保護の具体案、原本の編集。いずれも新規送信/再送/状態API/認証変更/Production提出を含めない。
