@@ -687,3 +687,60 @@ R2/TikTokとD1に分散transaction保証はない。CAS後Worker停止は未確�
 Client Key fingerprint付きscope、用途分離HKDF/HMAC/key_version、30日review/最大90日purge/24h通常消去は暫定運用。削除後R2 cleanup locatorは24h最小保持でUI非表示。内部cleanup runnerは実装・試験済み、公開scheduler未設定。公開前に保持/Privacy・scheduler/監視・停止/移行・旧版rollback対策を承認・検証する必要がある。旧Version14は新controlを無視することをモック確認し、OFF停止を試験した（実env変更なし）。
 公開D1 Migration/既存UNKNOWNの非破壊移行/Sites反映は別承認。新実送信承認は未発行。OAuth認可動画・Inbox成功/受信証拠・Portal最終照合・Production提出承認は未完了。
 社長のWindows操作は今回不要。次は公開適用計画と保持・削除方針をご確認いただく段階。公開反映/実送信/審査提出は自動で実行しない。
+
+
+## 2026-10-14 Phase 5 — 公開適用前の最終安全審査
+**調査・運用設計・資料作成 COMPLETE / 公開適用 BLOCKED / Production提出 BLOCKED。**
+
+### 1. 基準・完了範囲
+基準および開始時branch head：3ea80f209e5797f6867dbda2e25982fdfab81ed7。一致、Phase4以降差分なし。Phase4 manifest17件はGitHub全文SHA-256/local一致を新規確認。102件PASS/型/buildはPhase4の記録上の実績として採用し、再実装・再試験なし。公開DB/Version/実ジョブ/予約は今日NOT VERIFIED。
+指定6資料、データ分類/起算点/例外/削除フロー、cleanup権限/頻度/件数/競合/監視、非破壊Migration順序、10障害の復旧、Privacy/Terms/Support提案、P01〜P15を作成・自己レビュー。
+
+### 2. 推奨保持・削除
+30日必要性review、90日以内原則消去、24h通常消去目標、24h cleanup locatorを目的限定案とする。法定期限と主張しない。HMACは匿名扱いせず、本人請求/法令/契約を評価する。未知結果を成功/失敗にせず期限消去、再登録/削除で承認を自動発行しない。legacyの移行日起算、UNKNOWNの24h待機、鍵異常時の削除救済には補修が必要。
+[PPC Q5-2](https://www.ppc.go.jp/all_faq_index/faq1-q5-2/)・[Q5-3](https://www.ppc.go.jp/all_faq_index/faq1-q5-3/)を2026-10-14確認。TikTok Guidelinesは取得、Developer Terms/Data Sharing Agreement本文全文は取得制限によりNOT VERIFIED。Research専用の30日期限を転用していない。法務承認なし。
+
+### 3. cleanup運用
+正規scheduled内部handler、15min清掃/日次reviewを推奨。公開HTTP triggerなし。bounded cursor、global/owner lock＋fencing、ユーザー削除との協調、固定集計ログ/heartbeat/alert/部分失敗明示を追加する設計。現runnerは全件/lock無し、scheduled未接続。Sites正式経路・無料budget・通知は未確認であり、Cronを設定していない。
+
+### 4. Migration・停止・復旧
+0001は加算4表/索引/trigger、既存table更新なし。直接再実行は失敗、Drizzle journalは0000のみ。正規executor/履歴/transaction/部分失敗の隔離検証が必要。
+凍結→旧/新全入口停止＋inflight静止→識別/backup→加算DDL→UNKNOWN全field不変比較→新safeVersion→停止検証→清掃監視の順序。haltedだけでは旧Version14が止まらない。OFF効力はPhase4mockの証拠で、全旧deploy/preview/実行中通信の保証とは別。正規境界が実証できるまでBLOCKED。
+rollbackは台帳を残したroll-forward優先。DB時点復元は承認消費/UNKNOWN/削除情報を巻き戻し得るため単独復旧を禁止。Cloudflare公式はFree7日/Paid30日の復旧範囲、in-place restoreは破壊的と説明。実Sitesプラン/backend/権限はNOT VERIFIED。
+出典：[Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)、[Limits](https://developers.cloudflare.com/d1/platform/limits/)、[Migrations](https://developers.cloudflare.com/d1/reference/migrations/)、[Cron](https://developers.cloudflare.com/workers/configuration/cron-triggers/)（確認2026-10-14）。
+
+### 5. P01〜P15判定
+|項目|判定|限定根拠・不足|
+|---|---|---|
+|P01 source一致|PASS|基準SHA/manifest17件全文一致|
+|P02非破壊DDL|PASS|読み取り＋Phase4隔離記録。公開executor未検証|
+|P03 UNKNOWN保護|BLOCKED|合成非破壊PASS、今日の実DB未確認|
+|P04送信停止|BLOCKED|旧/新全入口/inflight未保証|
+|P05旧版rollback|BLOCKED|運用強制境界未確認|
+|P06保持方針|BLOCKED|契約/法務/起算点不一致|
+|P07削除要求|BLOCKED|24h待機・鍵異常救済未整備|
+|P08 schedule|BLOCKED|lock/budget/handler/host経路未整備|
+|P09 cleanup障害|BLOCKED|複数実行/失敗監視未検証|
+|P10 HMAC管理|BLOCKED|合成PASS、実移行scope/鍵継続性未検証|
+|P11機密非露出|PASS|Phase4証拠/今回実秘密未取得。ホストログ別途未確認|
+|P12 backup|BLOCKED|実backend/期間/正規権限未確認|
+|P13公開順序|BLOCKED|停止/executor保証未解消|
+|P14 policy整合|BLOCKED|提案完成・未採用、現文面に差|
+|P15送信禁止維持|PASS|今回実通信/承認発行なし|
+
+### 6. 追加補修・次の承認
+B01 runner上限/lock/fencing/監視、B02通常情報早期削除/鍵異常救済、B03起算/期限清掃/証跡、B04正規停止境界、B05migration executor/履歴/復旧演習。問題箇所・条件・影響・候補・必要試験はチェックリストに記載。今回はコード修正なし。
+次の候補承認は専用ブランチ内B01〜B03/B05限定補修＋完全隔離試験、B04正規能力の読取調査、保持/policyの業務・契約・法務評価。公開DB接続/適用・Sites/cron設定・実送信/状態確認・審査提出を含めない。Windows操作は今回不要。彩花CTOの最終技術評価は提出待ち、桃花自己評価をCTO承認としない。
+
+### 7. 成果物・SHA-256
+- [phase5_cleanup_schedule.md](../tiktok_review/2026-10-14/phase5_cleanup_schedule.md)：`3f9ebea56bcd542745f1aec35c75fa375fabc5d0112e907226a85e8592d2cc76`
+- [phase5_rollback_recovery.md](../tiktok_review/2026-10-14/phase5_rollback_recovery.md)：`674c5fdc9dcf976db6b73f3fdef43da09f6bd9bd56ba434e772110b9722ac92d`
+- [phase5_preproduction_checklist.md](../tiktok_review/2026-10-14/phase5_preproduction_checklist.md)：`d83e79ec5851ab6cc6283d18cf32bd11c7fb438101c9d4418621b7906b47a3d2`
+- [phase5_policy_final_proposals.md](../tiktok_review/2026-10-14/phase5_policy_final_proposals.md)：`6a179a6f19f522956e8f6e58eff6ddd9a9bc37ec45c9b4e3f82011e4b62105d2`
+- [phase5_retention_deletion_review.md](../tiktok_review/2026-10-14/phase5_retention_deletion_review.md)：`6029a2a2766be5cffde1cf7fd5d792d3b83010720dea31fcc6502ac28581a3c0`
+- [phase5_migration_deployment_plan.md](../tiktok_review/2026-10-14/phase5_migration_deployment_plan.md)：`61d6703fdc28c2eb04dcc7bf2faba8f22cd4f4e029708cb82c99b0f30f86075f`
+資料Commit：66c34a29c971f72c80af4d8bf4cb7fe2e17cc754。
+Push先：feature/tiktok-public-inbox-20261011のみ、2commit予定（資料＋本追記）。最終Commit SHAは本報告を含むGitHub URLで確認できる。report自身の循環hashは生成せず、資料6件のhashを固定する。GitHub取得後に全文一致と変更pathを検証する。
+
+### 8. 禁止事項遵守
+公開D1への接続/SQL/更新/復元0、Sites/env/Secret/cron変更0、TikTok送信/状態API/Portal操作0、新承認発行0。既存UNKNOWN・予約・OAuth接続・採用動画に操作なし。main/社内版/SoundOn/YouTube/Supabase未変更。資料7ファイルのみGitHubへ保存。公開版Version14は既存記録、今日の実測ではない。
