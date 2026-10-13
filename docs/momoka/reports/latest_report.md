@@ -660,3 +660,30 @@ R2/TikTokとD1に分散transaction保証はない。CAS後Worker停止は未確�
 採用第一部動画/SRTは固定し、編集・再デコード・再作成なし。現在のUNKNOWN/key/lease、OAuth/Secret/環境/公開版/main/社内版/SoundOn/YouTube/Supabaseへ変更なし。
 今回はdocsだけCommit/Push。コード・DB変更、migration実行、デプロイ、TikTok通信/送信/再送/状態確認、削除/接続解除/再認証/審査提出/課金なし。
 社長のWindows操作は不要。次に設計/保持方針をご確認いただき、承認する場合は「専用ブランチの限定コード実装＋隔離試験のみ」を明示。公開デプロイ/DB適用/環境設定/実送信/審査提出は含めない。
+
+
+## 2026-10-13 Phase 4 — 限定コード実装・隔離試験
+判定：PHASE 4 PASS（限定実装・隔離試験）。公開反映 NOT APPROVED / Production審査 BLOCKED。
+
+### 完了と根拠
+- 4表 send_control/send_grants/send_attempts/delete_requests、加算Migration、独立した一回承認台帳、原子的受付/dispatch CAS、削除再開と有限保持、UI安全停止、Policy変更案を実装。
+- 全関連試験102 PASS / FAIL 0 / SKIP 0 / CANCEL 0。T01–T20と追加境界をMiniflare/workerd、一時D1/R2、合成鍵・素材・owner、ローカル通信モックで実測。
+- TypeScript型チェック PASS。確定ソース最終ビルド PASS（exit 0）。diff check PASS。機密canary試験 PASS、代表credentialパターン静的検査0件。
+- 独立レビューImportant4件を修正し再現・回帰試験PASS：遅延upload削除競合、削除後Callbackの再保存、未使用grant保持、dispatch途中停止時のUNKNOWN保護。
+- Token暗号化/実Secret/OAuthスコープは変更なし。Inbox manual redirect、3xx拒否、固定例外分類を維持。厳密exactly-onceや外部との分散transactionは保証しない。
+
+### 成果物・GitHub
+- [実装・実測・移行前条件・判断一覧](../tiktok_review/2026-10-13/phase4_implementation_results.md)
+- [変更成果物SHA-256一覧](../tiktok_review/2026-10-13/phase4_sha256.json)
+- Policy案：apps/tiktok-public/docs/PHASE4_POLICY_PROPOSALS.md（公開文面未変更）
+- 検証済みコード/資料Commit：a9b8dbdfbb9d8f922767e0f9f69aa69713bef3c4
+- Push先：feature/tiktok-public-inbox-20261011 のみ。mainマージなし。
+- この追記のCommit SHAは本報告を含む最終Commit URLで確認可能。manifestは循環hashを避け、latest_report自身とmanifest自身を対象外とする。
+
+### 保護・検証の限界
+実TikTok通信0、公開D1操作0、Sitesデプロイ0、Secret/env操作0。ライブUNKNOWN/job/key/leaseを照会・更新・削除していない。合成21:42UNKNOWN移行はjob/lease全フィールド不変PASS、16:51を架空復元していない。ライブ保全の新規照会結果とは区別する。社内版/SoundOn/YouTube/Supabase/採用第一部動画未変更。公開版Version14のまま、実通信 NOT TESTED。
+
+### 判断と次の承認
+Client Key fingerprint付きscope、用途分離HKDF/HMAC/key_version、30日review/最大90日purge/24h通常消去は暫定運用。削除後R2 cleanup locatorは24h最小保持でUI非表示。内部cleanup runnerは実装・試験済み、公開scheduler未設定。公開前に保持/Privacy・scheduler/監視・停止/移行・旧版rollback対策を承認・検証する必要がある。旧Version14は新controlを無視することをモック確認し、OFF停止を試験した（実env変更なし）。
+公開D1 Migration/既存UNKNOWNの非破壊移行/Sites反映は別承認。新実送信承認は未発行。OAuth認可動画・Inbox成功/受信証拠・Portal最終照合・Production提出承認は未完了。
+社長のWindows操作は今回不要。次は公開適用計画と保持・削除方針をご確認いただく段階。公開反映/実送信/審査提出は自動で実行しない。
