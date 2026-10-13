@@ -622,3 +622,41 @@ SANDBOX_SEND_LIMIT、無効な送信操作、21:42:47のNETWORK_RESULT_UNKNOWN�
 - 成功応答/publish_id/Inbox受信証拠は既存記録から確認できず。21:42UNKNOWNを維持。今回はライブD1/状態APIを再照会せず、接続成功・F5・URL所有権の再試験もなし。
 - 判定BLOCKED。第一部完成は審査全体READYではない。認可録画/送信・受信実証/削除安全対策/Portal最終照合/社長最終承認が残る。
 - 禁止事項遵守：送信/再送/状態確認/削除/再認証/Secret/環境/デプロイ/Production提出なし。main/社内版/SoundOn/YouTube/Supabase変更なし。
+
+
+
+## 2026-10-13 Phase 3 — Sandbox承認・UNKNOWN保護の実装計画完成
+判定：PLAN COMPLETE / IMPLEMENTATION NOT APPROVED / Production REVIEW BLOCKED。
+最新ブランチは開始時Phase2基準6d6503d3e596093e9980402765de3e7d8c14a8c1とidentical。server/UI/schema/policy/既存Workers試験を読み取り調査。公開版/D1状態の再試験はなし。
+
+### 完了成果物
+- [現行処理・原因分析](../tiktok_review/2026-10-13/phase3_current_flow.md)
+- [A/B比較・推奨設計・実装計画](../tiktok_review/2026-10-13/phase3_implementation_plan.md)
+- [DB案・非破壊移行・切り戻し](../tiktok_review/2026-10-13/phase3_db_migration.md)
+- [隔離テストT01–T14＋追加境界・承認チェック](../tiktok_review/2026-10-13/phase3_test_matrix.md)
+
+登録削除がjobs/leases/冪等性情報を消し、再登録後のCOUNT0でSandboxゲートが復活する原因をコードで確認。現行の原子的INSERT/UNIQUEによる通常同時受付保護は存在し、削除との競合/個人データ消去/別owner同account/Worker障害を区別。
+推奨：独立1回承認台帳（案A）＋原子的CAS受付（案Bの技術）。4追加表、既存job/leaseは移行時不変。承認発行は登録/prepare/利用者同意から切り離し、UNKNOWN/期限経過で自動補充・再送しない。新attempt/grant/job/leaseをD1 batchで整合させ、0行を成功扱いせず固定CHECK/constraintでrollback。
+R2/TikTokとD1に分散transaction保証はない。CAS後Worker停止は未確定として停止。Privacyは仮名台帳も個人情報になり得ると明記。30日review/最大90日purge/manifest完了24hは承認候補で法定値ではない。期間未承認なら公開適用不可。
+旧16:51は記録のみ、新21:42UNKNOWNは移行でもrawjob/key/lease不変、結果を書換えない。現在live DBを新規照会していない。
+
+### 成果物SHA-256
+|ファイル|SHA-256|
+|---|---|
+|phase3_current_flow.md|c2a65701c02508902660e7fb7243e7f1a1d0addccebedd31963cc078e570dc28|
+|phase3_implementation_plan.md|21c121c6b6737f6828e3160f671439fc825329789ff13b8ebb7c30d663a64b1d|
+|phase3_db_migration.md|44aad1c541c1c66424d38b1b6078da8cd925d60f3d1b8ea26e90a0582be4fbbf|
+|phase3_test_matrix.md|ea9b2cd75d62e8b593a40adad29fa6134b86b89b929c4e396d4aabc71df06d3b|
+
+資料Commit：3816653d6916ca80e10889f1684f0ebf53bbdb81 / 4ea81b07053a94ceb6022f372e2e8ada00493fb0 / 94a1586d8434615f2b6d883e457902cf6d0fc8dd / dc5206f20958faef3760650855d91d12d36fe284。Push先はfeature/tiktok-public-inbox-20261011のみ。
+
+### 検証区分と残課題
+設計自己レビュー：全指示A–G/必須T01–T14/競合・0行・Worker中断・R2再開・旧版切戻し・有限保持を照合。
+モックテスト/新DDL検証：DESIGNED / NOT RUN。既存完成テストは再実行していない。設計レビュー完了と外部CTO/社長のDB承認は区別。
+未完了：DB案の社長/CTO承認、保持期間/用途分離HMAC/keyversion承認、限定実装/隔離試験の承認、DB移行/停止設定/公開反映の個別承認。
+実送信検討には旧UNKNOWN扱いと重複リスク/対象・素材/新承認が必要。Production提出にはOAuth認可/Inbox実証・Portal現行値/最終資料/提出承認が必要。不足を明示しただけでREADYとはしない。
+
+### 保護と社長の次の操作
+採用第一部動画/SRTは固定し、編集・再デコード・再作成なし。現在のUNKNOWN/key/lease、OAuth/Secret/環境/公開版/main/社内版/SoundOn/YouTube/Supabaseへ変更なし。
+今回はdocsだけCommit/Push。コード・DB変更、migration実行、デプロイ、TikTok通信/送信/再送/状態確認、削除/接続解除/再認証/審査提出/課金なし。
+社長のWindows操作は不要。次に設計/保持方針をご確認いただき、承認する場合は「専用ブランチの限定コード実装＋隔離試験のみ」を明示。公開デプロイ/DB適用/環境設定/実送信/審査提出は含めない。
