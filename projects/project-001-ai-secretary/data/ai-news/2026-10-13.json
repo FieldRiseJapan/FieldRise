@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-10-13T11:36:31.576480+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIエージェントで「約7人に1人が法令違反リスク」 古いルールを参照させた代償とは",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/13/news029.html",
+      "published": "2026-10-13T11:00:00+09:00",
+      "summary": "KiteRaは、AIエージェントを利用または検証している企業のデータガバナンスに関する実態調査の結果を公表した。古い社内ルールや最新版かどうか分からないデータをAIエージェントが参照し、規定や法令に違反しそうになった、あるいは実際に違反した回答者が13.4％に上った。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Microsoft、第3世代AIチップ「Maia 300」を2027年に投入 GPU比で電力効率4割向上、自社サービスの主力推論基盤に",
+      "url": "https://www.itmedia.co.jp/news/article/2610/13/2000002200/",
+      "published": "2026-10-13T09:24:59+09:00",
+      "summary": "Microsoftは、自社設計AIアクセラレータ「Maia 300」を発表した。TSMCの2nmプロセスを採用し、HBM4を288GB搭載。推論処理に特化し、GPU基盤比で電力効率を向上させて前世代比最大7倍の処理能力を実現した。数ギガワット規模で展開し、自社サービスの中核に据える。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "新サービス「Gemini Agent」は企業向け、「Gemini Enterprise」加入者は追加料金なし 日本提供時期は未定",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/13/2000002199/",
+      "published": "2026-10-13T08:51:44+09:00",
+      "summary": ""
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OpenAI幹部が明かす“AI暴走事故”の教訓 “安全運転”のカギは",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/13/2000002180/",
+      "published": "2026-10-13T08:00:00+09:00",
+      "summary": "OpenAIのAIが起こした「Hugging Face」への侵入事案から約3カ月、OpenAI幹部のクリス・レヘイン氏にAI開発の安全対策の考え方などを聞いた。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Meta、同社最大のAIモデル「Muse Wonder」発表 記憶力と粘り強さを強化、AIエージェント「Muse」にも搭載へ",
+      "url": "https://www.itmedia.co.jp/news/article/2610/13/2000002197/",
+      "published": "2026-10-13T07:06:29+09:00",
+      "summary": "Metaは、最大かつ最強と位置付ける新AIモデル「Muse Wonder」と上位モデル「Muse Wonde Full」を発表した。会話をまたいで記憶を保持する機能や粘り強くタスクを遂行する機能を備え、エージェント用途に最適化した。APIやコーディングツールで提供を始めたほか、個人向けAIエージェント「Muse」にも順次搭載していく。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "企業向けAIは「大規模LLM」一択ではない Zohoが重視するコストとデータ保護",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/13/2000002172/",
+      "published": "2026-10-13T07:00:00+09:00",
+      "summary": "AI選択は、性能だけでなく、運用コストやデータ保護をどう両立するかが課題となる。用途に応じてAIモデルを使い分け、自社データの管理や判断根拠の説明にも配慮することが重要だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "3社に1社がトークン予算超過 コスト増を最大44％抑える方法とは【アクセンチュア調査】",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/08/news036.html",
+      "published": "2026-10-12T11:50:00+09:00",
+      "summary": "生成AIを使うほど増えるトークンの支出。アクセンチュアが調査したところ、その8割は明確な事業成果に結び付いているとはいえなかった。3社に1社が年間予算を既に超過する中、トークンを経営資源として管理する先進企業が実施している取り組みとは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "FDEが構築したAIエージェントの7割、企業が放棄へ Gartner予測",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/09/news042.html",
+      "published": "2026-10-12T11:15:00+09:00",
+      "summary": "ベンダーのエンジニアと直接協力して構築したAIエージェントを、2028年までに企業の7割が放棄する――。Gartnerはそう予測する。しかも、原因は技術の未熟さではなく、案件の「構造」にあるという。何が企業をつまずかせ、どうすれば避けられるのか。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Microsoft、新型AIチップ「Maia 300」 処理能力は最大7倍、2027年展開へ",
+      "url": "https://ascii.jp/elem/000/004/441/4441933/?rss",
+      "published": "2026-10-13T11:30:00+09:00",
+      "summary": "AIの動作を高速かつ低電力にするため、クラウド計算基盤そのものを自社設計する動きが進んでいる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "スーパーの冷蔵庫が遠隔操作され食品廃棄 仏約150店舗で温度上昇",
+      "url": "https://ascii.jp/elem/000/004/441/4441931/?rss",
+      "published": "2026-10-13T11:20:00+09:00",
+      "summary": "フランスのスーパーマーケット「Intermarché」などを運営するLes Mousquetairesは、冷蔵システムへのサイバー攻撃が約150店舗に及んだと明らかにした。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【Amazonプライム感謝祭攻略法】先行セール開始！ どうすれば得する？ この商品がオトク！ まずはこれを読めばOK！",
+      "url": "https://ascii.jp/elem/000/004/441/4441928/?rss",
+      "published": "2026-10-13T11:15:00+09:00",
+      "summary": "先行セールが開始された「Amazonプライム感謝祭」。Amazonプライム会員限定のセールですが、Apple製品や生活商品などなど、オトクな製品が盛りだくさん。得する買い物は早めが◎です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Microsoft 365 Family、最大6TBから共有2TBへ",
+      "url": "https://ascii.jp/elem/000/004/441/4441929/?rss",
+      "published": "2026-10-13T11:10:00+09:00",
+      "summary": "Microsoftは、Microsoft 365 FamilyとPremiumのストレージを、1人あたり1TBの個別枠から、最大6人で使う共有枠へ変更した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Meta、いきなりフロンティアAIモデル競争へ Opus 5.5やAstraを上回るベンチマークも",
+      "url": "https://ascii.jp/elem/000/004/441/4441895/?rss",
+      "published": "2026-10-13T11:00:00+09:00",
+      "summary": "Metaは10月12日、AIエージェント向けの新モデル「Muse Wonder」と「Muse Wonder Full」を発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "CORSAIR「iCUE LINK TITAN II RX」水冷CPUクーラー発表 5インチLCD搭載モデルと静音ファン登場",
+      "url": "https://ascii.jp/elem/000/004/441/4441873/?rss",
+      "published": "2026-10-13T11:00:00+09:00",
+      "summary": "CORSAIRの新型水冷CPUクーラー「iCUE LINK TITAN II RX LCD／RGB」と静音ファンなど計14製品が登場。5インチLCD搭載モデルや、既存のTITANシリーズに工具不要で装着できるLCD追加モジュールの特徴、価格、10月15日からの発売情報を紹介します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ファミマのクリーム、何が変わった？「無限クリーム」を開発担当者に聞いて食べて確かめた",
+      "url": "https://ascii.jp/elem/000/004/440/4440867/?rss",
+      "published": "2026-10-13T11:00:00+09:00",
+      "summary": "ファミリーマートのクリームが、本日から生まれ変わりました。その名も「無限クリーム」。定番シューもリニューアル。気になる名前の正体と、そのおいしさを探ってきました！"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【本日15時から】松屋「牛めし」20円値上げ！ 並盛480円ですき家と同額に",
+      "url": "https://ascii.jp/elem/000/004/441/4441894/?rss",
+      "published": "2026-10-13T10:30:00+09:00",
+      "summary": "牛めしの「松屋」は本日10月13日15時より、一部商品の価格を改定します。牛めしを20円値上げ"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta releases its first frontier model, Muse Wonder",
+      "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+      "published": "2026-10-13T02:56:56+09:00",
+      "summary": "Where Muse Spark aimed to be a lightweight model that could perform at low latency, the Wonder models are larger and said to be more capable, with higher benchmark scores and better results on complex"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "WindBorne wins a hefty US Air Force contract for its balloon data",
+      "url": "https://techcrunch.com/2026/10/12/windborne-wins-a-hefty-us-air-force-contract-for-its-balloon-data/",
+      "published": "2026-10-13T02:19:14+09:00",
+      "summary": "A Silicon Valley startup that uses weather balloons and AI to predict the weather won a U.S. military contract worth almost $50 million."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Honeyjar offers AI tools to improve PR and comms at every company",
+      "url": "https://techcrunch.com/2026/10/12/honeyjar-offers-ai-tools-to-improve-pr-and-comms-at-every-company/",
+      "published": "2026-10-13T00:45:00+09:00",
+      "summary": "Journalists, entrepreneurs, and even some public relations professionals will tell you that the PR process is broken. But could AI actually make things better?"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Microsoft president says UK is best placed to drive AI regulation",
+      "url": "https://techcrunch.com/2026/10/12/microsoft-president-says-uk-is-best-placed-to-drive-ai-regulation/",
+      "published": "2026-10-13T00:31:19+09:00",
+      "summary": "Microsoft president Brad Smith calls for urgent AI regulation, saying milk and washing machines have more oversight than AI companies."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "This AI startup says it can generate permit-ready blueprints in minutes",
+      "url": "https://techcrunch.com/2026/10/12/this-ai-startup-says-it-can-generate-permit-ready-blueprints-in-minutes/",
+      "published": "2026-10-13T00:27:59+09:00",
+      "summary": "Blueprints AI, a bootstrapped startup based in Santa Monica, developed software that produces code-compliant construction blueprints from a photo, PDF, or sketch."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "TechCrunch Disrupt 2026 starts tomorrow: Your final chance to secure up to $100 ticket savings",
+      "url": "https://techcrunch.com/2026/10/12/techcrunch-disrupt-2026-starts-tomorrow-your-final-chance-to-secure-up-to-100-ticket-savings/",
+      "published": "2026-10-12T23:00:00+09:00",
+      "summary": "Tomorrow at 8 a.m. PT, it all begins z— 10,000+ founders, investors, and tech operators will gather at San Francisco’s Moscone West for TechCrunch Disrupt 2026 for three days of ideas, connections, an"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Former Plaud exec raises $26M for AI app that listens to you in the background",
+      "url": "https://techcrunch.com/2026/10/12/former-plaud-exec-raises-26m-for-ai-app-that-listens-to-you-in-the-background/",
+      "published": "2026-10-12T21:47:59+09:00",
+      "summary": "One of the core promises of AI is that the more it knows about a person, the better it will be able to assist them with tasks and make appropriate suggestions, which, if you'll believe the tech compan"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Will the HomeView be Apple’s first smart home success?",
+      "url": "https://techcrunch.com/2026/10/11/will-the-homeview-be-apples-first-smart-home-success/",
+      "published": "2026-10-12T06:14:40+09:00",
+      "summary": "Over the past couple of years, we’ve seen multiple reports that Apple was working on a new smart home product, but now it seems the product has a name and a launch date."
+    }
+  ]
+}
