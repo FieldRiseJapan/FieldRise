@@ -1,0 +1,19 @@
+{
+  "apps/tiktok-public/app/studio/send-safety-view.tsx": "307209b56dedc4c783d7ff9865b5c50b34b5b8629e63d7a6aafbeaba8bc0dfec",
+  "apps/tiktok-public/app/studio/studio.tsx": "62535cd41a1a618d7e673c791d535ed00192fad80f8db0d7f2b2a169e329a5f2",
+  "apps/tiktok-public/db/schema.ts": "1cd4ce2070f4bc23fee1a1437cac5def894125fad6149825a4db9a614e69eb7f",
+  "apps/tiktok-public/docs/PHASE4_POLICY_PROPOSALS.md": "b8017c7da8af38d2a94bb8fccea3ded02c5a2e793e68a4928e46235169203b3e",
+  "apps/tiktok-public/drizzle/0001_send_safety.sql": "ce1a400fd11f28ff88a0110e6d103e4a5a6f365198aa4e6ead864e53f2c776b3",
+  "apps/tiktok-public/lib/send-safety.ts": "48012667e43c0b1cfc6dc00517ce7a3f1a06993d9b08cb5caefe055017c12aca",
+  "apps/tiktok-public/lib/send-ui.mjs": "b2055d08950f3adbe22f44208c33479c667109b0e12781d3f936ea0f26c3318e",
+  "apps/tiktok-public/lib/server.ts": "6e3e157d687b019c89f40a65fd2b03e654cb09eb721e2ce7354086113c7d578c",
+  "apps/tiktok-public/tests/fixtures/version14-server.fixture.txt": "888480d67aac53e72946492f5c59e3f1b79b28fd51475c6c078361b941e51cfe",
+  "apps/tiktok-public/tests/inbox-safety-fixture.cjs": "5cecb6b68c9c0f78f769fac2d54d99d7464cf78cb9d0a29af335fc89576e45c6",
+  "apps/tiktok-public/tests/inbox-workers-phase1.test.cjs": "cb99bc8704477d02dfdadf3d8e68aec5f56c3887d3a850b52c5300b157cc84cc",
+  "apps/tiktok-public/tests/public-api.test.cjs": "1801e98f7ea1384b049cdb51b35e4373706cc073ccbc458885538e68bfdcc681",
+  "apps/tiktok-public/tests/safety-fixture.cjs": "d70d1dfb09ef0b66fa7cd3f46f1f66fdbe11db01d4335a4d09a9940e29e170e1",
+  "apps/tiktok-public/tests/send-safety-workers.test.cjs": "09f35c826818846577a0ccfdc7891d1865b8d0c5ec31c9bee5eb095291c5d516",
+  "apps/tiktok-public/tests/send-ui.test.cjs": "0f01b9b3c4afa7a1ca9f676c47e312590ccf311144a06d44b930ce78d112687a",
+  "apps/tiktok-public/tests/workers-integration.test.cjs": "6ec08ef82251db71a69475c468a1f4a740af5c37cd462f1a859fe582962fc99e",
+  "docs/momoka/tiktok_review/2026-10-13/phase4_implementation_results.md": "c123e23729ab2bd6018c2fe6ca5c6073c54f5739f71898a4ea7cd7e4a636781c"
+}
