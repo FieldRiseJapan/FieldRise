@@ -77,24 +77,15 @@ export async function finishDeletionRows(db:D1Database,c:SafetyContext,now:numbe
 }
 export async function migrateUnknown(db:D1Database,c:SafetyContext,mediaSha:string,now:number){
  valid(c);const jobs=(await stmt(db,"SELECT id,request_key,created FROM jobs WHERE owner=? AND open_id=? AND state='STATUS_UNKNOWN'",c.owner,c.openId).all<any>()).results;
+ if(jobs.length>1)reject('LEGACY_ACCOUNT_REVIEW_REQUIRED');
  await stmt(db,"INSERT OR IGNORE INTO send_control VALUES('sandbox',?,1,1)",c.appScope).run();const control=await first(db,"SELECT halted FROM send_control WHERE environment='sandbox' AND app_scope=?",c.appScope);if(control?.halted!==1)reject('MIGRATION_REQUIRES_HALT');
  for(const j of jobs){if(await first(db,'SELECT 1 FROM send_attempts WHERE attempt_id=?',j.id))continue;const grant='legacy:'+j.id;await db.batch([
  stmt(db,"INSERT INTO send_grants VALUES(?,'sandbox',?,?,?,?,?,'legacy-record','LEGACY_CONSUMED',?,?,?)",grant,c.appScope,c.ownerKey,c.accountKey,1,mediaSha,j.created,j.created+1,j.created),
- stmt(db,"INSERT INTO send_attempts VALUES(?,?,'sandbox',?,?,?,?,?,?,'UNKNOWN','LEGACY_DB',?,?,1,?,?)",j.id,grant,c.appScope,c.ownerKey,c.accountKey,await digest(c.ownerKey+':'+j.request_key),await digest('legacy:'+j.id),mediaSha,j.created,now,now+30*DAY,now+90*DAY)
+ stmt(db,"INSERT INTO send_attempts VALUES(?,?,'sandbox',?,?,?,?,?,?,'UNKNOWN','LEGACY_DB',?,?,1,?,?)",j.id,grant,c.appScope,c.ownerKey,c.accountKey,await digest(c.ownerKey+':'+j.request_key),await digest('legacy:'+j.id),mediaSha,j.created,now,j.created+30*DAY,j.created+90*DAY)
  ]);}return {migrated:jobs.length};
 }
-export async function purgeSafety(db:D1Database,now:number){
- const count=await first(db,'SELECT COUNT(*) n FROM send_attempts WHERE review_at<=? AND purge_at>?',now,now);
- // Closed-by-default: removing finite-retention records never creates permission.
- await db.batch([stmt(db,"UPDATE send_grants SET state='EXPIRED' WHERE state='AVAILABLE' AND expires_at<=?",now),stmt(db,'DELETE FROM send_attempts WHERE purge_at<=?',now),stmt(db,"DELETE FROM send_grants WHERE state<>'AVAILABLE' AND NOT EXISTS(SELECT 1 FROM send_attempts a WHERE a.grant_id=send_grants.grant_id) AND COALESCE(consumed_at,issued_at)+?<=?",90*DAY,now),stmt(db,"DELETE FROM delete_requests WHERE state='COMPLETE' AND purge_at<=?",now)]);return {reviewDue:count?.n||0};
-}
-export async function processDeletionQueue(env:{DB:D1Database;BUCKET:R2Bucket;TOKEN_ENCRYPTION_KEY?:string;TIKTOK_CLIENT_KEY?:string;TIKTOK_MODE?:string},now:number){
- const rows=(await stmt(env.DB,'SELECT owner FROM profiles WHERE deleting=1').all<{owner:string}>()).results;let completed=0,failed=0;
- for(const row of rows){try{const c=await first(env.DB,'SELECT open_id FROM connections WHERE owner=?',row.owner);const context=await safetyContext(env,row.owner,c?.open_id||'unconnected');if(!await deletionReady(env.DB,context,now))continue;
- const assets=(await stmt(env.DB,'SELECT id FROM assets WHERE owner=?',row.owner).all<{id:string}>()).results;
- for(const a of assets)await env.BUCKET.delete(row.owner+'/'+a.id);
- await finishDeletionRows(env.DB,context,now);completed++;
- }catch{failed++;}}
- const tombstones=(await stmt(env.DB,'SELECT id,owner,created FROM assets WHERE ready=-1').all<{id:string;owner:string;created:number}>()).results;for(const a of tombstones){try{await env.BUCKET.delete(a.owner+'/'+a.id);if(now>=a.created+DAY)await stmt(env.DB,'DELETE FROM assets WHERE id=? AND owner=? AND ready=-1',a.id,a.owner).run();}catch{failed++;}}
- return {completed,failed};
-}
+export {boundedRetention as purgeSafety} from './maintenance';
+export async function processDeletionQueue(env:{DB:D1Database;BUCKET:R2Bucket},now:number){const start=Date.now();const r=await runMaintenanceInternal(env,()=>now+Math.floor((Date.now()-start)/1000));return {...r,completed:r.processed};}
+import {runMaintenance as runMaintenanceInternal} from './maintenance';
+export {acquireMaintenanceLock,maintenanceFence,requestDeletion,runMaintenance,finalizeDeletion,commitAssetCleanup,setMaintenancePaused,maintenanceStatus} from './maintenance';
+export {applyIsolatedMigration} from './migration-executor';

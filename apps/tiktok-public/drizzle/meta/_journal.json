@@ -8,6 +8,20 @@
       "when": 1791692334292,
       "tag": "0000_clammy_captain_america",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1791878400000,
+      "tag": "0001_send_safety",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791878401000,
+      "tag": "0002_maintenance_safety",
+      "breakpoints": true
     }
   ]
 }
