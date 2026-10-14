@@ -806,3 +806,48 @@ Push先 feature/tiktok-public-inbox-20261011のみ、mainマージなし。最�
 
 ### 10. 厳守事項
 公開DB/実UNKNOWN/予約/request key、Sites code/env/Secret/Cron、OAuth接続、採用第一部動画、社内版/SoundOn/YouTube/Supabaseへ変更なし。新承認発行/制限解除/実送信/状態API/Portal変更/審査提出/課金なし。Windows操作は今回不要。
+
+
+
+---
+# Phase 5-C 正規停止境界・公開移行能力確認（2026-10-14）
+
+## 判定
+調査・技術評価：完了。公開適用：BLOCKED。基準Commit 953df97ed3027dc1e7104706d7f674d64b24a723、専用ブランチ feature/tiktok-public-inbox-20261011。変更は本報告と8資料のみ。
+
+1. **B04**：全Version共通の受付拒否・実行中writer静止・Migration/rollback中の停止維持を、正規Sites資料/管理情報から保証できない。不存在と断定せずNOT VERIFIED、公開適用BLOCKED。
+2. **全送信入口**：POST /api/jobs、旧VIDEO/PHOTO direct fetch、status API、prepare、GET OAuth callback、登録・削除・素材/下書き等writerをsourceで分類。実疎通なし。旧/代替経路の到達不能確定は0件。
+3. **旧版・Preview**：保存Version1〜14は管理情報で存在確認。current_preview_url=nullは過去/版別URL無効の証明ではない。
+4. **inflight**：隔離drain MODEL PASSを再利用。実ホストの列挙・静止完了証拠は未確認。アプリtimeoutや時間経過だけで終了を証明しない。
+5. **Migration**：Sites正式workflowはWorker upload前にSQL/snapshot/journalを適用する。失敗deployでもDDL適用済みの場合がある。内部隔離executorと同一保証ではない。実履歴/適用状態NOT VERIFIED。
+6. **backup**：一般D1のTime Travelはプラン/backend依存（Free7日/Paid30日）。当Siteの権限/期間/復旧経路未確認。DB復元による承認巻戻り・削除済み情報復活を防ぐ保証なし、復旧BLOCKED。
+7. **Scheduler/監視**：Site automations0、tracked Worker fetchのみ。cloud taskとWorker Cronは同一ではない。正規定期起動・通知・停止経路NOT VERIFIED。保存query_countが実呼出数より1少ない既知保留は、hard budget超過とは別問題。公開監査利用前の限定補修を推奨、今回修正なし。
+8. **保持・削除**：30日レビュー/90日候補/24時間目標は未採用運用案、法定期限ではない。TikTok契約本文、実backup/log保持、例外/本人説明とPrivacy/Terms/Supportの採用が残る。
+9. **P01〜P15**：全15項目を別紙評価。P01/P02/P11/P15は範囲限定PASS、P07/P09は隔離PASS・公開未検証。P03/P10は実環境NOT VERIFIED、P04/P05/P06/P08/P12/P13/P14はBLOCKED。隔離PASSから公開READYへ変更しない。
+10. **次工程**：正規Sites提供元/管理者の全経路停止・drain・migration履歴/backup/Scheduler仕様回答を先に取得。外部への質問送信はしていない。A共通アクセス/B独立egress/C新host移行を比較し、迂回可能なproxy案は除外。
+11. **必要な承認**：正式能力確認後、必要な場合だけ公開DB非出力読取の個別承認。限定query_count補修、保持文面採用、停止・Migration・deploy・Schedulerはそれぞれ別承認。TikTok送信/状態API/審査提出も別承認。現時点で社長Windows操作は不要。
+12. **変更ファイル/SHA-256**：下表。採用済み動画・コードは変更しない。
+13. **保存先**：指定専用ブランチへのdocsのみCommit・Push。最終SHA・remote全文照合は完了報告で提示。以前の報告本文をそのまま維持して追記。
+14. **ブロッカー**：B04停止/drain、実DB保全/履歴、backup復旧、Scheduler、実鍵継続性、保持方針/文面採用。今回公開D1接続ゼロ、SQLゼロ、deployゼロ、env/Secret変更ゼロ、TikTok通信ゼロ、UNKNOWN状態変更ゼロ。
+
+## 新規管理情報の確認範囲
+2026-10-14 03:26 UTC（12:26 JST）直前〜同日12:28 JSTの管理情報読取。Site active/public、current user owner、access mode custom/public、live URL既知、preview null、latest Version14、automation0。
+Deployment appgdep_6accde9b243c819194554c0984de0805 succeeded、env revision19。provider source SHA b51be93f4bbd75877062530a49823c7243f02fc5、更新時刻2026-10-12T13:23:08Z。取得日時と最終更新日時を区別する。provider SHAとGitHub SHAは別履歴。HTTP実画面/DBを今回確認したという意味ではない。
+
+## 検証の扱い
+Phase5-B 139 PASS/FAIL0/SKIP0は既存報告の隔離実測を再利用し、再実行していない。Phase5-Cは資料・source・管理情報・公式仕様の照合を実施。一般Workers/D1の仕様を当Site独自の停止/復旧保証へ転用しない。Secret値・認可コード・Token・Cookie・実署名URLを取得/記載せず、管理応答は非機密項目のみ選択抽出。公開DBのUNKNOWN存在/全field不変は今日NOT VERIFIEDであり、実DB保全PASSと報告しない。
+
+|成果物|SHA-256|
+|---|---|
+|docs/momoka/tiktok_review/2026-10-14/phase5c_endpoint_inventory.md|75647d2cde3eabd240f319b6bb4fdf8947a3631c5716a2b284970febd9e51ac0|
+|docs/momoka/tiktok_review/2026-10-14/phase5c_host_stop_capability.md|73ad89884adc4e144b3724bd909e7faf6978ec5e85bc2739a0984f72f02044bc|
+|docs/momoka/tiktok_review/2026-10-14/phase5c_inflight_drain_review.md|b15bee67812fef5836b04d23e8527b384003491ceb9902b0cbe98ff9bbe85082|
+|docs/momoka/tiktok_review/2026-10-14/phase5c_migration_backup_capability.md|32a8cbdaa9b12d248b074a8ec5277241587192f4abd23e7973f0d80994a103e6|
+|docs/momoka/tiktok_review/2026-10-14/phase5c_policy_readiness.md|8566fa32b45011428a6671cefb2bb9064256855f0c0fe32fcc8bfddf0e614338|
+|docs/momoka/tiktok_review/2026-10-14/phase5c_preproduction_gate.md|82ed21e9d22d10661955c6f7c29414b4b156299b83ee8eb3da71a7c18295055a|
+|docs/momoka/tiktok_review/2026-10-14/phase5c_recommended_next_actions.md|bb05d6edbfb8d540b3698ea747fcee500b8d1f4cac5a78e9357ee82008c62522|
+|docs/momoka/tiktok_review/2026-10-14/phase5c_scheduler_monitoring.md|8207f1cb2db965c903d01e2471b21c2aa368fe9c7c66c7f1a76d6fabf16bf300|
+
+公式資料URL・確認日・証拠分類・P評価の詳細は各8資料参照。D1 batchの一般transaction仕様は公式Worker Binding API本文で確認（2026-10-14）。Sites migration全体やREST経路へ無条件に拡張しない。
+
+調査工程完了後は公開適用BLOCKEDを維持し、彩花CTOの評価と社長の次の指示を待つ。
