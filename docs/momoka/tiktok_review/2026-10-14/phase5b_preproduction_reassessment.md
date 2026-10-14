@@ -4,7 +4,7 @@
 
 |No.|判定|根拠と未確認の区別|
 |---|---|---|
-|P01 source一致|PASS条件：最終Push全文照合|基準f877940一致。最終Commit/全文照合は正式報告記録|
+|P01 source一致|PASS（source）|基準f877940一致。検証ソース23件のGitHub全文一致確認、最終報告でも再照合|
 |P02非破壊Migration|PASS（隔離）|0001不変、加算0002、journal/pipelineと全field比較。公開executor別未確認|
 |P03既存UNKNOWN|BLOCKED（公開）|合成旧job/lease/HMAC保護PASS。ライブDB未接続|
 |P04停止境界|BLOCKED|外側境界モデルPASS、ホスト全version/inflight保証なし|

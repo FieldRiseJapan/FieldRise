@@ -744,3 +744,65 @@ Push先：feature/tiktok-public-inbox-20261011のみ、2commit予定（資料＋
 
 ### 8. 禁止事項遵守
 公開D1への接続/SQL/更新/復元0、Sites/env/Secret/cron変更0、TikTok送信/状態API/Portal操作0、新承認発行0。既存UNKNOWN・予約・OAuth接続・採用動画に操作なし。main/社内版/SoundOn/YouTube/Supabase未変更。資料7ファイルのみGitHubへ保存。公開版Version14は既存記録、今日の実測ではない。
+
+
+## 2026-10-14 Phase 5-B — 公開前安全性補修・隔離試験
+**限定補修・隔離試験 COMPLETE / B04 hosted BLOCKED / 公開適用・Production提出 BLOCKED。**
+
+### 1. B01〜B05
+|ID|結果|根拠と限界|
+|---|---|---|
+|B01|限定実装・隔離PASS|owner2/R2最大10/SQL最大40/wall60s、global+owner lock/fence、巡回cursor、deadline、部分再開、固定監視、pause/generation|
+|B02|限定実装・隔離PASS|認証済みowner/profile、原子的受付receipt、202受領・通常情報早期消去、鍵/ledger不一致はreview例外とglobal halt。権限推定なし|
+|B03|限定実装・隔離PASS|legacy元作成日起算、30/90/24h候補、state/用途終了lease清掃、進行中lease保護、pause/世代、有限lock/cursor、権限自動補充なし|
+|B04|モデルPASS / hosted BLOCKED|旧新HTTP handler/3originで外側拒否・inflight drainを模擬。正規全URL/旧Worker/drain/writer凍結未確認|
+|B05|限定実装・隔離PASS|0001不変、0002加算、snapshot/journal、checksum/receipt/SQL定義比較、全pipeline/二重適用/失敗rollback/非破壊legacy/合成復元停止|
+
+### 2. 変更ファイル
+変更/追加22成果物の全path・SHAは[phase5b_sha256.json](../tiktok_review/2026-10-14/phase5b_sha256.json)参照。
+主なcode：lib/maintenance.ts・migration-executor.ts・send-safety.ts・server.ts・db/schema.ts。
+Migration：0002_maintenance_safety.sql、0001/0002 snapshot、journal。0000と承認済み0001 SQLは不変。
+試験：phase5b-workers/migration-pipeline、既存public-api/safety fixture/Workers integration等。公開policy/UI・.openai hostingを変更していない。
+
+### 3. 実測
+- 最終全体 **139 PASS / FAIL0 / SKIP0 / CANCEL0**。Phase4基準102件＋新規37件。必要な回帰を含む。
+- 削除の既存試験は202受付→bounded runner完了へ合わせて更新し、権限/同意/不明結果/再送防止を弱めていない。
+- TypeScript --noEmit --incremental false、最終framework build、git diff --check：PASS（exit0）。
+- 合成key/owner/open_id/token/素材、一時D1/R2、Miniflare/workerd。遅延serviceは明示local mock、その他外向きfetch遮断。
+- TikTok実通信0、公開DB接続0、Sites変更0。実環境の送信成功とは別。
+
+### 4. 保護・復旧
+合成UNKNOWN job/lease全fieldsとrequest key/owner不変をDDL/legacy移行で確認。異なるaccountの複数UNKNOWNは個別移行。同一account複数UNKNOWNは初回挿入前に拒否し元情報を保持。旧16:51を架空復元しない。実21:42 job/予約/keyは今回未照会・未操作。
+backup復元モデルではAVAILABLE復活をそのまま送信許可とせず、独立停止で拒否。実Cloudflare復元/backup確認はNOT TESTED。roll-forward優先、B04全停止保証がない公開復元・Migrationは実行不可。
+
+### 5. 独立レビュー・機密検査
+Critical0/Important6/Minor1。Important6は、受付0行成功、paused retention、cursor飢餓、形式正常の異なるledger鍵、SQLリテラルdrift、固定clock/R2deadline。再現RED→GREENの1修正パス後、全139件PASS。独立レビューは彩花CTO正式承認ではない。
+Minor保留：永続query_countがglobal release1操作を含まない。返却count/hard budgetは含むため上限保証には影響しない。厳密な請求/監査用途に使わない。
+固定診断/canary検査と代表credential静的pattern0件。実Secret/token/認可code/Cookie/署名URLを取得・報告していない。ホスト生URL/headerログの設定は別NOT VERIFIED。
+
+### 6. B04ホスト読取証跡
+Sites list versionsで最新保存Version14、source SHA b51be93f4bbd75877062530a49823c7243f02fc5。
+deployment appgdep_6accde9b243c819194554c0984de0805 succeeded、env revision19、既存更新2026-10-12T13:23:08Zを読取確認。Chrome/ライブD1実測ではない。新deploy/env/access/停止はなし。
+正規全旧URL/preview/Worker/inflight/writer凍結は確認不能でB04 BLOCKED。外側境界はtests内だけ。
+
+### 7. P01〜P15再評価
+P01 source PASS（GitHub全文一致）、P02加算DDL PASS隔離、P03公開UNKNOWN BLOCKED、P04停止BLOCKED、P05公開rollback BLOCKED、P06保持運用BLOCKED、P07削除PASS隔離・公開未検証、P08scheduler公開BLOCKED、P09障害PASS隔離・公開未検証、P10HMAC PASS合成・実移行未確認、P11機密PASS限定検査、P12実backup BLOCKED、P13公開順序BLOCKED、P14公開文面BLOCKED、P15実通信禁止PASS。
+[詳細表](../tiktok_review/2026-10-14/phase5b_preproduction_reassessment.md)。
+
+### 8. 技術判断と残課題
+0002加算/metadata補修、鍵救済のglobal停止、B04未確認時の公開停止、R2物理取消/exactly-once非保証、同account複数UNKNOWNの手動review、paused試験の明示resume、遅延旧Workerの最初の固定停止理由、巡回順への変更を記録。詳細と代償は結果書/ledgerで整理。
+未確認：ホスト正規停止/drain、実migration履歴/既適用metadata、backup期間/権限、scheduler/通知、保持・policyの業務/法務/TikTok契約適合。
+次に彩花CTOが再評価し、正規停止・移行運用の確認工程を検討。公開DBアクセス/適用、Sites/Cron/環境変更、実送信/状態確認、Production提出は別明示承認。
+
+### 9. 資料・SHA-256
+- [phase5b_cleanup_tests.md](../tiktok_review/2026-10-14/phase5b_cleanup_tests.md)：`601748ef7261884e5868c6fc9a41f1226857549c7016dbed7453660bc5e9b28f`
+- [phase5b_deletion_retention_tests.md](../tiktok_review/2026-10-14/phase5b_deletion_retention_tests.md)：`ca19712116f4689d625494325b87a73f6daf8cdc32fb633abaf910adf4b1bb99`
+- [phase5b_migration_recovery_tests.md](../tiktok_review/2026-10-14/phase5b_migration_recovery_tests.md)：`9a9dd83225b50861eb496859737ab1c4514d36c2733730baf1e2cb10fade77c1`
+- [phase5b_preproduction_reassessment.md](../tiktok_review/2026-10-14/phase5b_preproduction_reassessment.md)：`80f26b9cad8eba46be9943ef35370200912c9f4d42da2b5da6d7fa3e23ab5922`
+- [phase5b_remediation_results.md](../tiktok_review/2026-10-14/phase5b_remediation_results.md)：`284c8c595331e9640f3dd0699cde854b64c88937d5dc1dada8e7d4217856157e`
+- [phase5b_stop_boundary_review.md](../tiktok_review/2026-10-14/phase5b_stop_boundary_review.md)：`1b0128935dcb6b80b1c8c898a887d665cf6d72c8d3e7898803669b42de1ad05a`
+資料6件＋全codeのhashはmanifest参照。manifest/latest_report自身は循環hashを避けて除外。検証ソースCommit：d29dd01e23aba471c11d32896f982a247df155d4。最終報告CommitはこのファイルのGitHub URL/完了報告で提示。
+Push先 feature/tiktok-public-inbox-20261011のみ、mainマージなし。最終Push後も全内容・pathを照合する。
+
+### 10. 厳守事項
+公開DB/実UNKNOWN/予約/request key、Sites code/env/Secret/Cron、OAuth接続、採用第一部動画、社内版/SoundOn/YouTube/Supabaseへ変更なし。新承認発行/制限解除/実送信/状態API/Portal変更/審査提出/課金なし。Windows操作は今回不要。
