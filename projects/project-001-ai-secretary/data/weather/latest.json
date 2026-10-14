@@ -2,71 +2,71 @@
   "location": "香川県まんのう町",
   "latitude": 34.19,
   "longitude": 133.83,
-  "collected_at": "2026-10-14T09:36:19.077629+09:00",
+  "collected_at": "2026-10-15T08:58:14.399797+09:00",
   "source": "Open-Meteo (https://open-meteo.com/)",
   "forecast": [
     {
-      "date": "2026-10-14",
-      "weather": "雨",
-      "temp_max_c": 23.3,
-      "temp_min_c": 16.4,
-      "precipitation_mm": 9.8,
-      "precipitation_probability_pct": 100,
-      "wind_max_kmh": 14.0
-    },
-    {
       "date": "2026-10-15",
-      "weather": "一部曇り",
-      "temp_max_c": 21.9,
-      "temp_min_c": 14.0,
+      "weather": "晴れ",
+      "temp_max_c": 21.8,
+      "temp_min_c": 11.7,
       "precipitation_mm": 0.0,
       "precipitation_probability_pct": 0,
-      "wind_max_kmh": 6.9
+      "wind_max_kmh": 8.2
     },
     {
       "date": "2026-10-16",
-      "weather": "曇り",
-      "temp_max_c": 23.0,
-      "temp_min_c": 12.6,
+      "weather": "一部曇り",
+      "temp_max_c": 22.9,
+      "temp_min_c": 11.9,
       "precipitation_mm": 0.0,
       "precipitation_probability_pct": 0,
-      "wind_max_kmh": 7.9
+      "wind_max_kmh": 8.0
     },
     {
       "date": "2026-10-17",
-      "weather": "曇り",
-      "temp_max_c": 22.8,
-      "temp_min_c": 14.4,
+      "weather": "一部曇り",
+      "temp_max_c": 23.7,
+      "temp_min_c": 14.1,
       "precipitation_mm": 0.0,
       "precipitation_probability_pct": 0,
-      "wind_max_kmh": 16.6
+      "wind_max_kmh": 12.2
     },
     {
       "date": "2026-10-18",
       "weather": "曇り",
-      "temp_max_c": 26.3,
-      "temp_min_c": 12.9,
+      "temp_max_c": 27.2,
+      "temp_min_c": 13.4,
       "precipitation_mm": 0.0,
-      "precipitation_probability_pct": 37,
-      "wind_max_kmh": 14.0
+      "precipitation_probability_pct": 49,
+      "wind_max_kmh": 9.1
     },
     {
       "date": "2026-10-19",
-      "weather": "霧雨（弱）",
-      "temp_max_c": 27.7,
-      "temp_min_c": 19.1,
-      "precipitation_mm": 0.9,
-      "precipitation_probability_pct": 38,
-      "wind_max_kmh": 9.8
+      "weather": "霧雨",
+      "temp_max_c": 27.4,
+      "temp_min_c": 19.6,
+      "precipitation_mm": 1.8,
+      "precipitation_probability_pct": 49,
+      "wind_max_kmh": 10.1
     },
     {
       "date": "2026-10-20",
       "weather": "霧雨（弱）",
-      "temp_max_c": 25.2,
-      "temp_min_c": 19.9,
-      "precipitation_mm": 1.8,
-      "precipitation_probability_pct": 35,
-      "wind_max_kmh": 12.6
+      "temp_max_c": 26.2,
+      "temp_min_c": 19.2,
+      "precipitation_mm": 0.9,
+      "precipitation_probability_pct": 37,
+      "wind_max_kmh": 5.7
+    },
+    {
+      "date": "2026-10-21",
+      "weather": "霧雨（弱）",
+      "temp_max_c": 30.5,
+      "temp_min_c": 17.5,
+      "precipitation_mm": 1.2,
+      "precipitation_probability_pct": 30,
+      "wind_max_kmh": 23.4
     }
   ]
 }

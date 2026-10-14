@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-10-15T08:58:14.939483+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIデータセンターの電力問題、答えは「計算処理の引っ越し」か？ 日立など5社、横浜と北九州をつないで実証",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/14/news029.html",
+      "published": "2026-10-15T08:00:00+09:00",
+      "summary": "再生可能エネルギーの電力を使い切れない時間と場所に、AIの計算処理を移す。日立製作所や電源開発など5社が総務省の実証で試みるのは、発電状況に合わせてデータセンターの処理を動かす「ワークロードシフト」だ。横浜と北九州、さらに上越新幹線の沿線で、何を検証するのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIの安全性測る「物差し」を日本でも――AISI村上所長に聞く展望 相次ぐサイバー攻撃への対応は",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/15/2000002280/",
+      "published": "2026-10-15T08:00:00+09:00",
+      "summary": "AIの性能が飛躍的に高まり、安全性にも注目が集まる中、日本のAISI（AIセーフティ・インスティテュート）は何を担い、どのような課題に取り組んでいくのか。村上明子所長に聞いた。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "IFS最大イベントで新産業用AI発表 対話と自律実行で「眠る40％」を解き放つ",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/15/news017.html",
+      "published": "2026-10-15T06:30:00+09:00",
+      "summary": "IFSのフラグシップカンファレンス「IFS Unleashed 2026」が、米国オーランドで開幕した。同イベントに合わせて、産業用AIプラットフォームの新製品「IFS Intelligence」を発表。対話型機能、自律型エージェント、開発支援の3機能を通じて、企業内に眠る未活用データを引き出し、自律型AIで具体的なアクションへと導く。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "デジハリ大、「Claude」を全学導入へ──国内初、“回数気にせず”使い放題に",
+      "url": "https://www.itmedia.co.jp/news/article/2610/14/2000002278/",
+      "published": "2026-10-14T19:43:31+09:00",
+      "summary": "デジタルハリウッド大学は10月14日、米Anthropicの生成AI「Claude」を全学に導入し、11月から全学生・全教職員に提供すると発表した。Claudeの全学導入は国内の大学で初という。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Anthropic共同創業者「サイバー攻撃、オープンモデル悪用の可能性」",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/14/2000002272/",
+      "published": "2026-10-14T18:20:35+09:00",
+      "summary": "米Anthropicの共同創業者であるジャック・クラーク氏は、相次ぐ日本企業へのサイバー攻撃について、AIが使われている可能性もあるとの見方を示した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "日立が「木造データセンター」展開 “鉄とコンクリ”から木材へ、“見た目がオシャレ”以外の価値は？",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/14/news069.html",
+      "published": "2026-10-14T17:45:00+09:00",
+      "summary": "日立製作所が「木造データセンター」を販売する。あえて木造を使うことで、“見た目がオシャレ”以外の価値をどう引き出せるのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「AIがAIを作れるようになる確率は2027年に50%超」 Anthropic共同創業者が予測を前倒し、「ただし実行は“片道切符\"」",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/14/2000002262/",
+      "published": "2026-10-14T16:53:35+09:00",
+      "summary": "米Anthropic共同創業者のジャック・クラーク氏が東大で講演。AIが自らの後継を訓練できる確率を「2027年に50％超」と年初予測から前倒し。ただしRSIの実行は「片道切符」で、許すかは社会の選択だと強調した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "デンマークの880万人分流出、原因はパスワード「123456」 ハッカー「侵入は難しくなかった」 現地報道",
+      "url": "https://www.itmedia.co.jp/news/article/2610/14/2000002257/",
+      "published": "2026-10-14T14:58:28+09:00",
+      "summary": "デンマークの中央個人登録簿「CPR」から約880万人分の個人情報が流出した問題で、攻撃者を名乗る人物が同国紙Politikenに手口を明かした。侵入には、照会権限を持つ民間企業のパスワード「123456」を使ったという。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ASUS、4K・240Hz／フルHD・480Hz切替対応「ROG Strix OLED XG32UQWMS」など2機種を発売へ",
+      "url": "https://ascii.jp/elem/000/004/442/4442676/?rss",
+      "published": "2026-10-15T08:00:00+09:00",
+      "summary": "ASUS JAPANが、ROGブランドの新ゲーミングモニター2機種を10月16日から順次発売。4K/240HzとFHD/480Hzを切り替えられる32インチモデルと、QHD/240Hzの27インチモデルを展開する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「手作業での脆弱性管理はやがて破綻する」 日本IBMが示すフロンティアAI時代の自律型セキュリティ",
+      "url": "https://ascii.jp/elem/000/004/442/4442272/?rss",
+      "published": "2026-10-15T08:00:00+09:00",
+      "summary": "日本IBMは、フロンティア時代のセキュリティに関する説明会を開催。脆弱性管理・自動修復からOSSのパッチ提供、自律型セキュリティまで、AIを活用した包括的なソリューションを紹介した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "約970gで最大15.5時間駆動！ HP「OmniBook 7 Aero」がプライム感謝祭先行セールで13万3900円",
+      "url": "https://ascii.jp/elem/000/004/442/4442276/?rss",
+      "published": "2026-10-15T07:20:00+09:00",
+      "summary": "HPの13.3型ノートPC「OmniBook 7 Aero 13-bg（BF8H3PA-AAAA）」がAmazonのプライム感謝祭先行セール対象。プライム会員限定で、過去価格169,800円から21％オフの133,900円で販売中。約970gの軽量ボディーにRyzen AI 5 340、16GBメモリ、512GB SSDを搭載。最大15時間30分のバッテリー駆動にも対応し、持ち運びを重視する人にう"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "これが令和の最新版！「たまごっちパラダイス」が22％オフでお買い得",
+      "url": "https://ascii.jp/elem/000/004/442/4442608/?rss",
+      "published": "2026-10-15T07:00:00+09:00",
+      "summary": "Amazon.co.jpにて、バンダイのお世話玩具「たまごっちパラダイス」が22％オフセール中。お孫さんへのプレゼントとして好評を博し、いま売れています。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "コンタクトセンターの問い合わせ対応からデータ分析までを自動化するAIサービス",
+      "url": "https://ascii.jp/elem/000/004/442/4442219/?rss",
+      "published": "2026-10-15T07:00:00+09:00",
+      "summary": "株式会社フライルは10月7日、コンタクトセンターおよび顧客体験業務に向けたAIエージェントサービス群の提供を開始したと発表した。電話やチャットでの問い合わせ対応から応答品質の評価、顧客の声（VOC）の分析までを統合的に処理する仕組みを提供する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "AIによる翻訳・検証と人の目による確認を融合させた英文開示支援サービス",
+      "url": "https://ascii.jp/elem/000/004/441/4441171/?rss",
+      "published": "2026-10-15T07:00:00+09:00",
+      "summary": "株式会社Howlandは10月5日、企業の英文開示資料を対象としたマネージドAI翻訳サービス「HAVERA（ハヴェラ）」の提供を開始したと発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "オープンモデルは危険か？ AIの「民主化」と 安全性のジレンマ",
+      "url": "https://ascii.jp/elem/000/004/442/4442674/?rss",
+      "published": "2026-10-15T06:55:18+09:00",
+      "summary": "AIモデルをオープンにすべきか否か。その立場は、AIをめぐる議論全体でどちらの側に立つかに大きく左右される。安全性を懸念する人は悪用の危険を警告し、実用性を重視する人は権力の分散を訴える。全面禁止と無秩序な公開の間で、どこに線を引くべきなのか。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "廃業企業のメールやSlackがAI訓練に、「葬儀屋」ビジネスが活況",
+      "url": "https://ascii.jp/elem/000/004/442/4442675/?rss",
+      "published": "2026-10-15T06:33:56+09:00",
+      "summary": "事業を畳むスタートアップのコードやメール、Slackの履歴が、AIの訓練データとして売られている。仲介企業の1社は150件超の取引を手がけ、8月にはグーグルが破産手続き中のスピリット航空のデータを1000万ドルで購入した。だが、データには個人のプライベートな情報が潜み、弁護士は「AI訓練の無法地帯」と警鐘を鳴らす。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Flock CEO says its microphones detect ‘just gunshots’ — its website says different",
+      "url": "https://techcrunch.com/2026/10/14/flock-ceo-says-its-microphones-detect-just-gunshots-its-website-says-different/",
+      "published": "2026-10-15T06:30:33+09:00",
+      "summary": "Langley’s comments come amid mounting scrutiny of Flock from privacy advocates, including the ACLU, and members of the public who are concerned about the misuse of its technology."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "YouTube Music launches new labels as AI-generated music floods streaming platforms",
+      "url": "https://techcrunch.com/2026/10/14/youtube-music-launches-new-labels-as-ai-generated-music-floods-streaming-platforms/",
+      "published": "2026-10-15T03:23:46+09:00",
+      "summary": "The label will appear on the player page and include songs entirely generated by AI or partially, such as AI involved in composition and vocals."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Apate sends AI agents undercover to get scammed so they can gather fraud intelligence",
+      "url": "https://techcrunch.com/2026/10/14/apate-sends-ai-agents-undercover-to-get-scammed-so-they-can-gather-fraud-intelligence/",
+      "published": "2026-10-15T03:00:00+09:00",
+      "summary": "Most companies use AI agents to ship products faster or speed up workflows. Apate.ai sends them undercover to get scammed."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Deezer will soon let you filter out AI-generated music",
+      "url": "https://techcrunch.com/2026/10/14/deezer-will-soon-let-you-filter-out-ai-generated-music/",
+      "published": "2026-10-15T00:16:04+09:00",
+      "summary": "Deezer said that the new toggle will be rolled out by the end of the year."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Save 50% on your TechCrunch Disrupt 2026 ticket and join the last 2 days in San Francisco’s Moscone West",
+      "url": "https://techcrunch.com/2026/10/14/save-50-on-your-techcrunch-disrupt-2026-ticket-and-join-the-last-two-days-in-san-francisco/",
+      "published": "2026-10-15T00:13:24+09:00",
+      "summary": "Get a 50% discount on the last two days of TechCrunch Disrupt 2026, October 14-15, in San Francisco. Register now and join the rest of the startup ecosystem. Today, it's all about physical and softwar"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Zenzap raises $44M for its AI chat app that aims to replace WhatsApp in the workplace",
+      "url": "https://techcrunch.com/2026/10/14/zenzap-raises-44m-for-its-ai-chat-app-that-aims-to-replace-whatsapp-in-the-workplace/",
+      "published": "2026-10-15T00:08:00+09:00",
+      "summary": "Zenzap is used by organizations including Starbucks and Taco Bell."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Floqer’s AI agents research sales prospects so teams don’t have to",
+      "url": "https://techcrunch.com/2026/10/14/floqers-ai-agents-help-b2b-revenue-teams-research-customers/",
+      "published": "2026-10-15T00:00:00+09:00",
+      "summary": "The problem Floqer is trying to solve is familiar to anyone who has worked in sales or revenue operations."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "TechCrunch Disrupt 2026: Day 2",
+      "url": "https://techcrunch.com/2026/10/14/techcrunch-disrupt-2026-day-2/",
+      "published": "2026-10-14T23:30:00+09:00",
+      "summary": "Day 2 at TechCrunch Disrupt 2026, full of all themes across AI, as well as an investor-only session, more roundtables, Side Events, and more. Register to save 50% on your pass."
+    }
+  ]
+}
