@@ -851,3 +851,38 @@ Phase5-B 139 PASS/FAIL0/SKIP0は既存報告の隔離実測を再利用し、再
 公式資料URL・確認日・証拠分類・P評価の詳細は各8資料参照。D1 batchの一般transaction仕様は公式Worker Binding API本文で確認（2026-10-14）。Sites migration全体やREST経路へ無条件に拡張しない。
 
 調査工程完了後は公開適用BLOCKEDを維持し、彩花CTOの評価と社長の次の指示を待つ。
+
+
+---
+# Phase 5-D 正式技術照会準備（2026-10-14）
+
+判定：準備工程 COMPLETE。**DRAFT / NOT SENT。PROVIDER ANSWER NOT RECEIVED。B04・公開適用BLOCKEDを維持。**
+基準Commit710233fe80899374a210e47c34ecf9623d67f662と専用ブランチの一致をGitHub compareで新規確認（identical）。今回app/source/public管理設定は未変更。
+
+1. **提供元・窓口**：サービスChatGPT Sites、提供元OpenAI。正規入口はOpenAI SupportのHelp Center右下chat bubble。Sites技術担当への転送を依頼する文面を準備。UIのログイン・個別チケット発行可否は未実機確認、専用Sites email/API/GitHub IssuesはNOT VERIFIED。
+2. **公式資料**：https://learn.chatgpt.com/docs/sites?surface=app 、https://help.openai.com/en/articles/20001338-managing-chatgpt-sites-for-your-workspace 、https://help.openai.com/en/articles/6614161-how-can-i-contact-support の本文取得。確認日2026-10-14、21:29〜21:32 JST。Creating and using記事の直接取得はtimeout、検索文だけで保証しない。Sites skillは補助管理workflowとして区別。公式公開仕様のアクセス制限方法は全Version/drain保証ではない。
+3. **日本語照会**：phase5d_support_inquiry_ja.md。製品/目的、旧code内haltの限界、B04全経路停止/drain/rollback、Migration/backup、Scheduler/監視、正式資料と範囲・例外案内依頼を1通にまとめた。
+4. **英語照会**：phase5d_support_inquiry_en.md。同じ質問順・開示制限の対訳を作成。日英両方を重複送信する必要なし。
+5. **B04評価**：S01〜S08で全旧経路/例外/反映/inflight/producer/移行/rollback/Site適用を評価。VERIFIED/PARTIAL/NOT VERIFIED/BLOCKED、一般仕様とSite実証を分離。曖昧なsupport回答からREADYへ変更しない。
+6. **Migration/backup**：M01〜M06、R01〜R05。履歴/journal/transaction/失敗/再実行/backend/保持/権限/復旧整合/旧版を質問。公開DB接続ゼロ、実data添付なし。
+7. **Scheduler**：C01〜C09。scheduledとcloud taskの区別、pause/drain、concurrency、budget/追加課金なし、通知/heartbeat/ログを質問。既query_count保留は内部評価のまま、コード変更なし。
+8. **代替案**：A共通アクセス、B全旧code迂回不能egress、C旧host停止を含む新host移行。権限/費用/影響を比較。新proxyだけのB、旧hostを残すCは候補にしない。
+9. **未確認**：Site固有の全Version停止・drain・migration/backup/scheduler保証、supportのプラン/SLA/応答期限、個別Site適用。過去Version14/env19/139PASSを今日の実環境実測と扱わない。
+10. **社長承認**：OpenAI Supportへ日英どちらかの区切り線内本文を1通送信する承認が次の事項。初稿にSite URL/ID、Deployment ID、repo、利用者、UNKNOWN識別情報、Secretは含めない。必要時追加開示は用途と最小範囲を別承認。問い合わせはhost操作依頼ではない。
+11. **作成ファイル**：下表8件＋正式報告追記のみ。以前の正式報告本文を維持。
+12. **SHA-256**：下表。完成候補本文・資料について状態表示、質問対応、機密パターン検査、diff空白検査を実施。既139試験の不要な再実行なし。
+13. **GitHub**：feature/tiktok-public-inbox-20261011へ資料のみCommit・Push、最終SHAとremote全文照合は完了回答で提示。
+14. **未変更**：公開DB未接続、SQL/DB変更/backup復元/deploy/access/env/Secret/Cron/TikTok通信/状態API/OAuth/UNKNOWN変更/送信承認発行/審査提出/main/unrelated変更すべてゼロ。問い合わせ未送信、回答未取得。社長Windows操作は今は不要。
+
+|ファイル|SHA-256|
+|---|---|
+|docs/momoka/tiktok_review/2026-10-14/phase5d_alternative_options.md|c6f4ddaef7e18d83848c1a94c75084a928b6d8c16b1cb5721f6ace771d431e18|
+|docs/momoka/tiktok_review/2026-10-14/phase5d_b04_answer_evaluation.md|a9619c0748b82a97cc1cadfc46002fb3b7d298ccfc0569fc94e8d8f06b96e902|
+|docs/momoka/tiktok_review/2026-10-14/phase5d_migration_backup_questions.md|b7493cc8c451a3624eda80e42da36bbe25ed682895fab92bb11bfd1fd1d18ed9|
+|docs/momoka/tiktok_review/2026-10-14/phase5d_next_approval_items.md|1f6186a16d77b1450e3a88d57e85c3a128093ac4d475627a79889a8ec99edac5|
+|docs/momoka/tiktok_review/2026-10-14/phase5d_provider_contact_research.md|7d268f37968fb0df25608d037a0666f0574583740e2dfe70eb22633822353a50|
+|docs/momoka/tiktok_review/2026-10-14/phase5d_scheduler_questions.md|3b5f1328605ecb859a05cf82564ec4124bbcfeaa5f8bdc64ee64dc65aec4e911|
+|docs/momoka/tiktok_review/2026-10-14/phase5d_support_inquiry_en.md|9e918bdadf49371648c4ee026effb85240399a379769c569b6c4c2860af91def|
+|docs/momoka/tiktok_review/2026-10-14/phase5d_support_inquiry_ja.md|53c2aa3fe615528cfe231e9ccf3a1886c3159b4438cd2bfe42fa93161f4288ab|
+
+次工程：社長が[日本語照会](../tiktok_review/2026-10-14/phase5d_support_inquiry_ja.md)または[英語照会](../tiktok_review/2026-10-14/phase5d_support_inquiry_en.md)を確認→別途送信承認→正規窓口へ最小開示→正式回答を評価。実環境の非破壊確認や公開適用は別承認。彩花CTOへの評価用資料は作成済みで、他者へメッセージ送信していない。
