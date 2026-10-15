@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-10-16T08:42:18.645075+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "日本に本当に勝ち筋はあるのか ヒューマノイド「解剖」で見る中国の強さと課題",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/16/news017.html",
+      "published": "2026-10-16T08:00:00+09:00",
+      "summary": "中国では現在、ヒューマノイドロボットの開発や量産、社会実装に向けた動きが加速している。しかし、完成品の動向を追うだけでは、その競争力の源泉や本格普及に向けた課題までは見えてこない。SUGENAのセミナー「フィジカルAI解体新書」では、ヒューマノイドをAIや関節、センサー、手などに“解体”し、中国勢の強さと残された課題を解説した。本稿ではその内容を基に、日本企業が勝負できる領域を見ていく。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「年4200時間の入力」「経験と勘」からの脱却 旧マルハニチロは「販売計画」をどう自動化した？",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/16/news033.html",
+      "published": "2026-10-16T08:00:00+09:00",
+      "summary": "Umios（旧マルハニチロ）が全国の支社が手作業で入力していた月次の販売計画業務を自動化した。業務用流通事業部の全支社で年間約4200時間の作業削減を見込む。自動化の鍵は何だったのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "【現地レポ】なぜドイツの地方都市が「AIベンチャーの聖地」に？ 元食肉処理場が起業拠点、その熱気の実態",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/16/news007.html",
+      "published": "2026-10-16T07:00:00+09:00",
+      "summary": "ドイツ南西部の地方都市が、首都ベルリンを凌ぐ勢いでBtoB・ディープテックの巨大ベンチャー拠点へと変貌している。大学の知財、地場産業の課題、そして強固な民間資本が結びつき、単なる出資にとどまらない「現場実装型エコシステム」を構築。東京一極集中や「資金提供のみ」に陥りがちな日本のオープンイノベーションと地方創生に対し、強力な勝ち筋と教訓を示している。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "国内WebサイトへのAIエージェント攻撃を観測 「8時間弱」続いた攻撃の推移を公開 国内セキュリティベンダー",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/15/2000002284/",
+      "published": "2026-10-15T14:39:29+09:00",
+      "summary": "ビットフォレストが、日本企業のWebサイトへのAIエージェントによる攻撃を観測したと報告。10月14日までに3つのIPアドレスから確認し、うち1つは8時間弱にわたり10段階に攻撃を変化させたという。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "CTOが「AI導入で生産性を1年で2倍に」掲げた企業のその後 米国が開発者802人の進捗を追跡調査",
+      "url": "https://www.itmedia.co.jp/news/article/2610/15/2000002260/",
+      "published": "2026-10-15T12:00:00+09:00",
+      "summary": "米カーネギーメロン大学や米スタンフォード大学などに所属する研究者らが発表した論文「AI Writes Faster Than Humans Can Review: A Longitudinal Study of an Enterprise 2x Mandate」は、AI導入を義務化したソフトウェア会社がどのような影響を受けたのかを調査した研究報告だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "相次ぐサイバー攻撃に「AI悪用の可能性」……初来日のAnthropic共同創業者が言及 悪用どう抑止",
+      "url": "https://www.itmedia.co.jp/news/article/2610/15/2000002286/",
+      "published": "2026-10-15T10:55:34+09:00",
+      "summary": "「おそらく、AIツールが使われている可能性はあるだろうと推測している」──米Anthropicの共同創業者のジャック・クラーク氏が初来日し、同社の日本法人が10月14日に開いたメディア説明会に登壇した。講演では、報道陣の質問に答える形でサイバー攻撃とAIの関係性についても言及する一幕も。悪用の抑止に向けて同社がどう取り組むか、現在の方針も説明した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「YouTube Music」、生成AIで作られた楽曲にラベル表示",
+      "url": "https://www.itmedia.co.jp/news/article/2610/15/2000002287/",
+      "published": "2026-10-15T10:27:38+09:00",
+      "summary": "YouTubeは「YouTube Music」で、主に生成AIで作られた楽曲を示すラベル表示を開始した。音楽パートナーとの連携や独自ツールで曲やボーカルの生成を検知し、プレーヤー画面に表示する。メタデータ申告のほか未申告でも自動判定し、今後はYouTubeにも拡大する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "研究者グループ、中国Tencentのクラウド上の“逸脱”AIエージェント群と交信 報告書の隠しテキストで呼び込む",
+      "url": "https://www.itmedia.co.jp/news/article/2610/15/2000002283/",
+      "published": "2026-10-15T08:46:08+09:00",
+      "summary": "AI研究グループ「Swarmchasers」は、中国Tencentのクラウド上でタスクを逸脱して動くAIエージェント群を発見し、交信に成功したと報告した。報告書に仕込んだ隠しテキストを通じて接触し対話した。第三者が稼働中の逸脱エージェントと直接交信した初事例としている。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "FRONTIER、『AION2』推奨PCを発売 Core Ultra 7 270K Plus／Ryzen 7 9800X3D搭載の2モデル",
+      "url": "https://ascii.jp/elem/000/004/443/4443116/?rss",
+      "published": "2026-10-16T08:30:00+09:00",
+      "summary": "FRONTIERから『AION2』推奨PCが登場。Core Ultra 7 270K Plus＋GeForce RTX 50シリーズ、Ryzen 7 9800X3D＋Radeon RX 9000シリーズを採用した2モデルの構成や冷却機能、標準3年保証を紹介します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "中国のPCゲームの世界で広がる深刻なイカサマ 「DMAチート」の現状を見た",
+      "url": "https://ascii.jp/elem/000/004/442/4442668/?rss",
+      "published": "2026-10-16T08:00:00+09:00",
+      "summary": "「FPSで、壁の向こうにいる見えないはずの敵が見え、照準まで自動的に合う」。PCゲームを台無しにする「DMAチート」が中国で問題視されている。DMAチートを実現するための機器は中国のECサイトで普通に売られている。現状を紹介しよう。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ASUS「ROG XBOX Ally X20」10月16日発売、7.4型有機EL搭載で25万8800円",
+      "url": "https://ascii.jp/elem/000/004/443/4443115/?rss",
+      "published": "2026-10-16T07:30:00+09:00",
+      "summary": "ASUS JAPANがROGブランド20周年記念モデル「ROG XBOX Ally X20」と「ROG XBOX Ally X20 Bundle」を10月16日に発売。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「Backlog」が他ツールからの乗り換えで利用料無料 2027年3月まで",
+      "url": "https://ascii.jp/elem/000/004/442/4442738/?rss",
+      "published": "2026-10-16T07:30:00+09:00",
+      "summary": "ヌーラボは、プロジェクト・タスク管理ツール「Backlog」への乗り換えを支援する「チームまるごと0円スタートキャンペーン」を実施している。申し込みは2026年10月31日まで。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Dell「XPS 13」が14万9980円！ XPSシリーズ史上最薄・最軽量の約1kgアルミボディーに2.5Kタッチ画面を搭載",
+      "url": "https://ascii.jp/elem/000/004/442/4442423/?rss",
+      "published": "2026-10-16T07:20:00+09:00",
+      "summary": "Dellの13.4型ノートPC「XPS 13 DX13260（MAX53T-GWSA）」がAmazonのプライム感謝祭先行セール対象。プライム会員限定で、参考価格187,980円から20％オフの149,980円で販売中。XPSシリーズ史上最薄・最軽量となる約1kgのアルミボディーに、2.5Kタッチディスプレーを搭載するモデルだ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "お好み焼きソース×マヨのコテコテ感がウマい！ 関西風「一平ちゃん」12個がお買い得",
+      "url": "https://ascii.jp/elem/000/004/442/4442841/?rss",
+      "published": "2026-10-16T07:00:00+09:00",
+      "summary": "明星の「一平ちゃん夜店の焼そば 関西風お好み焼ソース味 12個」が21％オフの2,079円で販売中です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "名前も住所もバレている!? 個人情報漏えいの本当の怖さは「その後」にある",
+      "url": "https://ascii.jp/elem/000/004/441/4441803/?rss",
+      "published": "2026-10-16T07:00:00+09:00",
+      "summary": "現在、未曽有の情報漏えいが続いていますが、個人情報はバラまかれて終わり、ではありません。実際に問題が起こるのはこの後です。そのなかでも特に注意しておきたいのが、いわゆる「特殊詐欺」です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "市役所の当たり前が市民の負担 その罪深さを痛感した職員が推進する自治体DX",
+      "url": "https://ascii.jp/elem/000/004/426/4426908/?rss",
+      "published": "2026-10-16T07:00:00+09:00",
+      "summary": "サイボウズは、kintoneユーザーの事例イベントである「kintone hive 2026 tokyo」を開催。4番手として登壇した茅ヶ崎市役所の松原大さんが披露したのは、市民サービスのデジタル化を推進し、全庁に浸透させるためのDX伴走支援チームを作り、そのチームが役割を終えるゴールを掲げた事例だ。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta launches an open-weight AI model that runs on Macs",
+      "url": "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
+      "published": "2026-10-16T05:04:53+09:00",
+      "summary": "Meta and Apple have teamed up for the launch of the social media giant's newest model, Muse Spark Open, which will run locally on Apple silicon."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Amazon devices chief Panos Panay sees a future where AI devices replace the need to use apps",
+      "url": "https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/",
+      "published": "2026-10-16T04:55:25+09:00",
+      "summary": "Speaking at TechCrunch Disrupt, Amazon devices chief Panos Panay described a future where ambient AI devices work in the background, anticipating users' needs instead of waiting for commands."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic is letting METR researchers look under the hood with employee-level access",
+      "url": "https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/",
+      "published": "2026-10-16T04:14:26+09:00",
+      "summary": "METR will publish its own assessments of Anthropic’s risks, incidents, and practices, and the frontier AI model maker has given up the right to block them."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Bluesky expands its AI-powered Attie app to let anyone build websites, games, and more",
+      "url": "https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/",
+      "published": "2026-10-16T03:56:46+09:00",
+      "summary": "Bluesky is bringing “social vibe coding” to its experimental Attie platform, allowing users to create interactive experiences like games, quizzes, and websites that can tap into the social network's a"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Last chance to save up to $200 on your TechCrunch Founder Summit pass: Early booking ends October 16",
+      "url": "https://techcrunch.com/2026/10/15/last-chance-to-save-up-to-200-on-techcrunch-founder-summit-early-booking-ends-oct-16/",
+      "published": "2026-10-16T03:00:00+09:00",
+      "summary": "Savings of up to $200 end October 16 for TechCrunch Founder Summit. These savings for Founder and Investor Passes vanish after Friday. Join 1,000 founders and investors on November 4 at Boston’s SoWa "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "AI agents are coming to Rivian’s cars",
+      "url": "https://techcrunch.com/2026/10/15/ai-agents-are-coming-to-rivians-cars/",
+      "published": "2026-10-16T00:02:36+09:00",
+      "summary": "We'll likely learn more about how this will work at the company's upcoming \"AI &#038; Autonomy Day\" event in December."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Google’s Universal Cart shopping tool launches in the US",
+      "url": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/",
+      "published": "2026-10-15T23:29:33+09:00",
+      "summary": "The new shopping tool is available in the U.S. across Google Search and the Gemini app."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "TechCrunch Disrupt 2026: Last day",
+      "url": "https://techcrunch.com/2026/10/15/techcrunch-disrupt-2026-last-day/",
+      "published": "2026-10-15T23:00:00+09:00",
+      "summary": "Last day to be part of TechCrunch Disrupt 2026. Join 10,000+ tech leaders for a day of connections and insights. Save 75% on your pass now."
+    }
+  ]
+}
