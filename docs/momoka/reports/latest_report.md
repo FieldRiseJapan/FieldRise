@@ -988,3 +988,35 @@ AI Support要約はPhase5-Eの社長申告U1のまま。新しい提供元回答
 |docs/momoka/tiktok_review/2026-10-15/phase5f_tiktok_credential_revocation_review.md|e26141397626e5fd4b7892d4ddc7dd5fa8f983f09301a0847c6725a88895a180|
 
 完了は調査・文書工程のみ。無害化・資格失効・$0保証・採用・移行・審査提出は未完了/未承認。彩花CTOと社長の判断を待つ。
+
+
+---
+# Phase 5-G 正式照会の実行記録（2026-10-15）
+
+## 送信結果
+|対象|結果|受付/回答状況|
+|---|---|---|
+|OpenAI|**SENT（正規chat本文の送信表示を確認、1回）**|**INTAKE BLOCKED**：メール入力/ログイン要求。正式case受付/技術担当到達・番号は未確認|
+|Cloudflare|**NOT SENT / BLOCKED**|case窓口がログイン必須。本文未入力、番号/回答なし|
+
+1. 基準6b2654c6a278ddc9d4bc897b801d51165ce6eb69とbranchをGitHub compareでidentical確認。承認済み2本文を基準refから取得、範囲を拡大せず使用。
+2. OpenAI：https://help.openai.com/ja-jp の公式chat。ブラウザは未ログイン、履歴は“You don't have any past chats.”、既存社長スレッドへはアクセスできなかった。正規の新規chatで区切り線内の件名/本文だけを入力し、Send messageを1回操作。送信後You said欄に全文が表示され、入力欄が空になったことを確認。
+3. その後の受付要求原文：「続行するにはメールアドレスを入力してください」。メール欄/続行/ログイン案内が出た。社長認証/追加開示が必要なため入力せず停止。これは技術回答ではない。SENTはchat本文だけの事実で、正式チケット受付完了やエスカレーション成功とは報告しない。
+4. Cloudflare公式Support資料→Support case→Dashboard loginへ実際に遷移。Email/Password/Sign up表示で停止。既存認証なし、未登録者の無認証送信経路は今回未到達。本文未入力、新account/支払/契約なし、communityや別窓口へ重複送信なし。
+5. 正確なクリック/返信timestampはUIにない。OpenAI観測22:10〜22:14頃、Cloudflare22:13〜22:14頃JST（2026-10-15）。実行記録時刻13:14:33 UTCを取得した。秒単位の送信日時・ticket・担当者名・返信期限を創作しない。
+6. ブラウザtransportエラーが一時発生したが復帰し、OpenAI送信済み本文/追加情報要求とCloudflare正規loginを確認。エラーを再送理由にせず、新規送信はOpenAIの1回のみ。
+7. 返信原文に機密/個人情報はなく、受付要求だけを資料化。実メール、Site/Deployment ID、内部DB/Token/Cookie/Secret・添付を外部送信していない。操作証跡スクリーンショットを取得したが、指定GitHub資料以外の画像はPushしない。
+8. 回答評価：新OFFICIAL VERIFIED=0。技術回答未取得、B04/F01 BLOCKED、ZERO/F02構成全体BLOCKED、公開適用/移行/審査提出は不可のまま。過去AI回答を今回返信と混同しない。
+9. 次の社長対応：OpenAI追加メール開示または正規ログイン。Cloudflare既存accountがある場合のみ既存資格でcase利用可否を検討。accountなしなら新登録禁止のまま停止。認証情報をチャットで求めない。既存スレッド/他窓口へ無断再送しない。
+10. 公開Site/DB/R2/Token/OAuth/UNKNOWN/Grant/Lease/採用動画/課金/mainは操作・変更ゼロ。support送信以外の外部状態変更なし。公開DB保全や他者変更なしを実測した意味ではない。
+
+## 成果物とSHA-256
+|ファイル|SHA-256|
+|---|---|
+|docs/momoka/tiktok_review/2026-10-15/phase5g_b04_and_zero_cost_gate.md|ce05f8614b68b524ed6af9d626875113e3b00695ecf0e3ad7ced73812f685479|
+|docs/momoka/tiktok_review/2026-10-15/phase5g_cloudflare_submission_record.md|0f2544ff934a69e61d8fd90da065b46d39bb90c104f23518279daca16de3df86|
+|docs/momoka/tiktok_review/2026-10-15/phase5g_next_approval_items.md|f1e4cc14a637a1ef85471bbf797bbef4cb3c5b05efdf7111ae027863e60841c0|
+|docs/momoka/tiktok_review/2026-10-15/phase5g_openai_submission_record.md|0c68d8302053f618e1724d0c14f6f482d3aa66c7632de6dde165464bdfba2d8c|
+|docs/momoka/tiktok_review/2026-10-15/phase5g_provider_response_evaluation.md|74a049fc893860eedeea0aa9e3dc572d82851027bafec33f7c9154ca6b33ac92|
+
+5資料＋正式報告追記のみを feature/tiktok-public-inbox-20261011 へCommit/Push。機密パターン/空白検査、最終remote全文一致を確認し、最終SHAは完了回答に提示。今回は認証/追加開示のブロッカーが残るため、2社への正式受付完了とはしない。
