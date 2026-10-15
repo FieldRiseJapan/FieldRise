@@ -942,3 +942,49 @@ G0仕様→G1経路棚卸し→G2停止/drain審査→G3承認下の保全→G4�
 公開管理API/DB/TikTokへの接続・SQL・変更・実行・新account・課金・外部問い合わせは行っていない。これは今回の実行範囲の記録であり、公開環境の他者変更がないことや実DB保全を実測した意味ではない。第三者へのCTO報告メッセージは送信せず、評価用資料を保存。
 
 調査工程完了と公開READYを混同しない。彩花CTOと社長の次の判断を待つ。
+
+
+---
+# Phase 5-F 旧Sites無害化・Cloudflare課金防止（2026-10-15）
+
+## 判定と完了
+調査・指定9資料・照会2通・判断資料作成は完了。**F01/B04 BLOCKED、F02構成全体BLOCKED、公開適用/移行実行BLOCKED。**
+基準ea7c24f99e7018f8e187c0106c50f29bc2a1c55cと専用ブランチは新規compareでidentical。他者変更なしの範囲で資料のみ保存。
+
+1. **旧Sites候補**：A提供元のデータ保持型全停止を第一照会候補、B資格失効/C迂回不能egressを補完候補。D Delete siteは不可逆で復元不能、全旧経路/drain/DB保全同時成立の証拠なし。実行しない。
+2. **経路と必要証拠**：10経路を既source/過去記録/未確認に分離。全HTTP拒否、新TikTok拒否、全writer/drain、UNKNOWN保持、全資格失効、再認可/旧版再有効化防止、保存保全、rollback停止維持をE01〜08で別評価。未知経路を実在と断定せずURL probeなし。
+3. **TikTok資格**：公式OAuth v2 revoke経路の存在はVERIFIED。全access/refresh系列の厳密範囲、同時refresh、遅延、既外部fetch、再認可防止は未確認。Secret変更だけで既資格失効とはしない。
+4. **重要なsource所見**：基準apps/tiktok-public/lib/server.tsのtiktok/disconnectはlocal connections DELETEで、当handlerにrevoke呼出なし。UI接続解除と正式資格失効は別。refresh保存/directfetchも確認。稼働Version14のbundle/実通信を確認したとは主張しない。lib/tiktok.ts候補取得はエラーで根拠に使わない。
+5. **UNKNOWN保護**：16:51消失と21:42管理履歴を分離。現在の実DB完全性NOT VERIFIED。失効/削除/停止で過去受理を取消扱いせず、SUCCESS/FAILED推定、再送、新request key、grant/lease解除、承認巻戻りを禁止する設計。
+6. **ZERO条件**：Workers/D1 Freeのquota超過拒否は公式根拠あり。ZERO-01/02は当Free制限の範囲でVERIFIED、ZERO-03/実account全体は条件不足。R2は無料枠超過料金が明示されZERO-02に適合しない。hard cap/支払手段不要構成/ZERO-03はNOT VERIFIED。
+7. **R2課金**：subscription checkout、Standard無料枠、storage/A/B超過従量料金、budget通知≠cap、threshold徴収≠上限を確認。支払失敗/card削除は請求回避ではなくデータ/サービス制限リスク。account全体の他利用/既料金も対象となり得る。特定card必須を断定せず正式照会する。
+8. **その他**：Workers fail-openはquota超過時に迂回、安全境界はfail-closed要件。Free CPU10ms/MP4 hash性能未検証。D1復元はgrant/削除要求巻戻りを防がない。Cron/Queues/Logs/Actions/Secrets/domain/OAuthの条件はPhase5-E資料を再利用し、無料枠を構成全体保証にしない。商用契約適合は未確定、候補規約URL取得不可をPASSにしない。
+9. **照会**：OpenAI追加照会（日本語）、Cloudflare照会（正式support英語対応に合わせた英文＋日本語要旨）を作成。**DRAFT / NOT SENT**。Site/Deployment ID・実個人情報・DB内容・Secretなし。Cloudflare Free caseはbilling/account/registrar限定、未登録照会の利用可否未確認。
+10. **追加承認/次工程**：本文・正規窓口を確認後、2通それぞれの外部送信承認を取得。正式回答→Site適用条件/費用契約→非破壊実測計画の再審査。停止/失効/DB保全/migration/deploy/account/支払/実送信/状態API/審査提出は別承認。費用条件を無断緩和しない。現時点Windows操作不要。
+11. **SHA-256/ファイル**：下表。指定9資料＋本報告追記のみ。既報本文を維持。
+12. **Commit・検査・未変更範囲**：専用ブランチ feature/tiktok-public-inbox-20261011 へ保存。GitHub最終SHA/全文照合は完了報告に提示。機密パターン・9資料存在・diff空白を検査、既139隔離試験は不要再実施なし。コード修正ゼロ、公開DB/管理画面接続・TikTok API・実停止/削除/失効・設定/課金/新登録/外部送信すべてゼロ。これは本作業の操作範囲で、他者変更や公開実DB保全の実測保証ではない。
+
+## 主要公式根拠（2026-10-15本文確認）
+- TikTok User Access Token Management：https://developers.tiktok.com/docs/en/oauth-user-access-token-management
+- Sites削除：https://learn.chatgpt.com/docs/sites
+- Workers制限/価格：https://developers.cloudflare.com/workers/platform/limits/ 、https://developers.cloudflare.com/workers/platform/pricing/
+- D1超過：https://developers.cloudflare.com/d1/reference/faq/
+- R2開始/価格：https://developers.cloudflare.com/r2/get-started/ 、https://developers.cloudflare.com/r2/pricing/
+- Budget/Threshold：https://developers.cloudflare.com/billing/manage/budget-alerts/ 、https://developers.cloudflare.com/billing/threshold-billing/
+- 支払/撤去：https://developers.cloudflare.com/billing/understand/billing-policy/ 、https://developers.cloudflare.com/billing/troubleshoot/resolve-cannot-remove-payment-method/
+- Support：https://developers.cloudflare.com/support/contacting-cloudflare-support/
+AI Support要約はPhase5-Eの社長申告U1のまま。新しい提供元回答は未取得。一般仕様/SRC/隔離REC/INFを各資料で分離。
+
+|成果物|SHA-256|
+|---|---|
+|docs/momoka/tiktok_review/2026-10-15/phase5f_b04_stop_drain_evidence_requirements.md|a4d4b4cd91104ae7b3af06d5fef3313f1d1ec69a96be75e2bed2006fd293cd05|
+|docs/momoka/tiktok_review/2026-10-15/phase5f_cloudflare_r2_billing_risk.md|615e0f9d091f02043ed1d6cd133e13b48beea3329abe6c5dd0ea5d42de048fe5|
+|docs/momoka/tiktok_review/2026-10-15/phase5f_cloudflare_support_inquiry_draft.md|de9391a19aa9c729d831c7f050bf66f97f1b2ebe888b0a444270dda2d9a9e574|
+|docs/momoka/tiktok_review/2026-10-15/phase5f_cloudflare_zero_cost_conditions.md|87078fa58dc6213d38ae5663d65a64a7e0eb27ca7b2c516458c67ac52114c763|
+|docs/momoka/tiktok_review/2026-10-15/phase5f_final_gate_and_next_actions.md|a9551b0520e6b8d568740ba217ab17cb3d23ff4f3cb92d65f13a2ff84de896c6|
+|docs/momoka/tiktok_review/2026-10-15/phase5f_legacy_sites_execution_paths.md|80a10aff7d94457be16920d066e3f6f2b2694fa8bb22fb341314cc620f710b89|
+|docs/momoka/tiktok_review/2026-10-15/phase5f_legacy_sites_neutralization_options.md|ab3f2b218e3052a32b2f2d080e9aaf7d1fa23c496c7f6726d04771a71417b00b|
+|docs/momoka/tiktok_review/2026-10-15/phase5f_openai_support_followup_draft.md|2e5e938b1f1e2d9364da9fee0b98d9a0f8cad08a0c064243c26994588f8d5408|
+|docs/momoka/tiktok_review/2026-10-15/phase5f_tiktok_credential_revocation_review.md|e26141397626e5fd4b7892d4ddc7dd5fa8f983f09301a0847c6725a88895a180|
+
+完了は調査・文書工程のみ。無害化・資格失効・$0保証・採用・移行・審査提出は未完了/未承認。彩花CTOと社長の判断を待つ。
