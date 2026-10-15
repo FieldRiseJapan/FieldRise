@@ -886,3 +886,59 @@ Phase5-B 139 PASS/FAIL0/SKIP0は既存報告の隔離実測を再利用し、再
 |docs/momoka/tiktok_review/2026-10-14/phase5d_support_inquiry_ja.md|53c2aa3fe615528cfe231e9ccf3a1886c3159b4438cd2bfe42fa93161f4288ab|
 
 次工程：社長が[日本語照会](../tiktok_review/2026-10-14/phase5d_support_inquiry_ja.md)または[英語照会](../tiktok_review/2026-10-14/phase5d_support_inquiry_en.md)を確認→別途送信承認→正規窓口へ最小開示→正式回答を評価。実環境の非破壊確認や公開適用は別承認。彩花CTOへの評価用資料は作成済みで、他者へメッセージ送信していない。
+
+
+---
+# Phase 5-E Support正式評価・代替hosting比較（2026-10-15）
+
+## 1. 完了状況
+比較調査・指定8資料・正式報告を完成。**B04 BLOCKED／公開適用BLOCKED／移行実行不可**。採用hostは未確定。基準Commit feaee5e16f4077fc9c81300ad2a17fe937ebf311と専用ブランチのidenticalを新規GitHub compareで確認。他者の変更を上書きしない。
+
+## 2. Support証拠
+社長のPhase5-E指示書2.1〜2.3を一次申告U1として受領。AIサポートが公開資料を参照した要約であり、会話全文・正確な引用URL一覧・ticket・技術担当保証・送信時刻は未確認。以前のPhase5-D未取得記録を削除せず、今回「AI回答要約受領／個別保証未取得」を追記する。OpenAI公式Sites・enterprise/sites・automations資料を独立確認。Suspendのworkspace資料を個人Plusへ転用しない。Automations機能の存在とcleanup実行/drain/無料保証を区別。
+
+## 3. 調査hostとB04
+|方式|B04/採用判断|無料運用評価|
+|---|---|---|
+|A 現行Sites Plus|全Version/Preview停止・drain未確認、BLOCKED|既契約内Scheduler/復旧条件NOT VERIFIED|
+|B Cloudflare Workers/D1/R2|新host制御はPARTIAL、旧Sites無害化・静止証拠はBLOCKED|無料枠あり、R2従量課金とhard-zero-cost未解決|
+|C1 Vercel Hobby＋外部DB|FieldRise商用用途は無料採用不可、BLOCKED|Hobby非商用個人限定|
+|C2 GitHub Pages＋独立CF API|UI停止≠API停止。サービス本体の商用用途制限、BLOCKED|Pagesの事業/商用SaaS制限とbackend別費用|
+
+B04-01〜08を全方式で評価。CloudflareにはVersion URL無効化・Preview/Deployment管理の正規機能があるが、workers_dev=falseだけで全経路停止にはならない。新しいbranch Previewsと旧称previewのVersion URLsを分離。実HTTPに一律wall上限がないこと、観測に制限があることから時間待ち・ログ無表示だけをdrainとしない。
+
+## 4. 費用と推奨
+Bが既runtime/DB/storage APIとの整合から技術調査の第一候補。ただし採用を決定しない。Workers Free100000 req/日・CPU10ms、D1 Free read500万行/日・write10万行/日、1DB500MB/総5GB・Time Travel7日。R2 Standard無料枠の超過は従量課金で、budget alertは停止/capではない。支払手段・hard cap・商用契約適合・MP4全体hashのFree CPU/memory性能はNOT VERIFIED。無料枠を根拠に追加費用ゼロを保証しない。
+無料Cron/Queues/Logs/Actionsの条件も記録。Queues自動再試行をInbox再送に流用しない。Vercel/Pagesの制約を回避するため事業用途を偽らない。現在のHPは変更しない。
+
+## 5. 旧Sites無害化・UNKNOWN保護
+現行旧Sitesは今回一切操作せず、停止・資格喪失を実証できていない。新CFは旧Sitesを止めない。DNS/新鍵/UI変更では代替不可。元Token資格失効を検討する場合もSecret変更だけで旧Token失効と推定せず、正式仕様/個別承認が必要。
+16:51消失UNKNOWNを架空復元せず、21:42 UNKNOWN/job/request key/予約/承認消費/削除要求を保全する設計。今日の実DB存在/全fieldはNOT VERIFIED。restoreでAVAILABLE承認や削除情報を復活させず、両系停止・roll-forwardを優先。同素材の再送・新Idempotency-Key・lease解除は禁止。
+
+## 6. 非実行計画
+G0仕様→G1経路棚卸し→G2停止/drain審査→G3承認下の保全→G4合成隔離試験→G5host設計/費用審査→G6旧環境無害化→G7halt下移行/全field照合→G8callback/domain/文面→G9非送信検査→G10個別実証承認→G11審査最終承認。
+いずれも今回実行しない。旧Sites無害化不能ならG6以降実行不可。TikTok HTTPS callback/prefix検証と既session・鍵/HMAC継続を個別評価する。SoundOn収益/公式音源や既動画の意味を変更しない。
+
+## 7. 未確認・次の承認
+正式技術担当によるPlusの全経路停止/drain/backup回答、R2費用防止/支払/商用適合、実DB保全経路、adapter性能・認証移行が残る。
+次は必要性を具体化した追加照会・追加読み取り調査の承認を検討。外部問い合わせ、新規account/カード、DB読取/backup、隔離実装修正、停止/migration/deploy、OAuth/URL変更、実送信/状態API/審査提出はそれぞれ別承認。現時点でWindows操作は不要。
+
+## 8. 作成ファイルとSHA-256
+|ファイル|SHA-256|
+|---|---|
+|docs/momoka/tiktok_review/2026-10-15/phase5e_b04_safety_matrix.md|7897ce01b90fd9a12a586c9158aff20a6ce438858a2d72dbfce70e3451f874aa|
+|docs/momoka/tiktok_review/2026-10-15/phase5e_free_tier_cost_review.md|cc0d71efa002d0d0ff639c69bfadbcbdbd2e2b7956094f1b6a3af03bf4dbc383|
+|docs/momoka/tiktok_review/2026-10-15/phase5e_hosting_options_comparison.md|01014dc8ad3da4f8c5dd71c4e7882071212b10838801e951ac36cd8998f6414d|
+|docs/momoka/tiktok_review/2026-10-15/phase5e_migration_readiness_plan.md|6158d81b3f826e81c9eaddf62b37a07a364a19732101134409face6ac26db1c3|
+|docs/momoka/tiktok_review/2026-10-15/phase5e_next_approval_items.md|42c8c605f56289c915f3a25712ee44a76f440e23e7bb4ea69483e96bf2a9a116|
+|docs/momoka/tiktok_review/2026-10-15/phase5e_recommended_architecture.md|0b00a2acf12ee5c5576a4e093c681fb852d516c55d40ea79d975d3bde348b949|
+|docs/momoka/tiktok_review/2026-10-15/phase5e_support_answer_evidence.md|7248a0c90b3e604c9717025fbb0ca270e6c940a3ddf63bcb8c96585f39f30ce8|
+|docs/momoka/tiktok_review/2026-10-15/phase5e_unknown_data_protection.md|22f353f50ab3f7ac7214dad77001fd47c34ba57371d5a65fa2280802b11e6b36|
+
+公式URL・確認日・証拠分類は各資料に記載。2026-10-15に公式本文を取得して照合。U1に引用された正確なURLを確認したとは主張しない。
+
+## 9. 検査・Commit・保護
+指定8資料の存在/日付/停止判定/機密パターン、diff空白を確認。appコード・migration・採用動画は変更せず、既139PASSはPhase5-B隔離記録を再利用、再試験なし。今回のGitHub差分は8資料＋正式報告の追記のみ。専用ブランチ feature/tiktok-public-inbox-20261011 へCommit/Pushしremote全文照合、最終SHAは完了報告で提示。
+公開管理API/DB/TikTokへの接続・SQL・変更・実行・新account・課金・外部問い合わせは行っていない。これは今回の実行範囲の記録であり、公開環境の他者変更がないことや実DB保全を実測した意味ではない。第三者へのCTO報告メッセージは送信せず、評価用資料を保存。
+
+調査工程完了と公開READYを混同しない。彩花CTOと社長の次の判断を待つ。
