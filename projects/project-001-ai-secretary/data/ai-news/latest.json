@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-15T08:58:14.939483+09:00",
+  "collected_at": "2026-10-15T09:05:34.300486+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -75,6 +75,14 @@
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
+      "title": "攻撃者が侵入することを前提とした防御「サイバーデコイ」を実践する「FortiDeceptor」",
+      "url": "https://ascii.jp/elem/000/004/441/4441892/?rss",
+      "published": "2026-10-15T09:00:00+09:00",
+      "summary": "CISAはサイバーデコイを使用した検知と対応の強化を公開しました。これは、防御的デコイプロセスに特化した初のガイドです。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
       "title": "ASUS、4K・240Hz／フルHD・480Hz切替対応「ROG Strix OLED XG32UQWMS」など2機種を発売へ",
       "url": "https://ascii.jp/elem/000/004/442/4442676/?rss",
       "published": "2026-10-15T08:00:00+09:00",
@@ -129,12 +137,12 @@
       "summary": "AIモデルをオープンにすべきか否か。その立場は、AIをめぐる議論全体でどちらの側に立つかに大きく左右される。安全性を懸念する人は悪用の危険を警告し、実用性を重視する人は権力の分散を訴える。全面禁止と無秩序な公開の間で、どこに線を引くべきなのか。"
     },
     {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "廃業企業のメールやSlackがAI訓練に、「葬儀屋」ビジネスが活況",
-      "url": "https://ascii.jp/elem/000/004/442/4442675/?rss",
-      "published": "2026-10-15T06:33:56+09:00",
-      "summary": "事業を畳むスタートアップのコードやメール、Slackの履歴が、AIの訓練データとして売られている。仲介企業の1社は150件超の取引を手がけ、8月にはグーグルが破産手続き中のスピリット航空のデータを1000万ドルで購入した。だが、データには個人のプライベートな情報が潜み、弁護士は「AI訓練の無法地帯」と警鐘を鳴らす。"
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Gudea leverages AI to help organizations prevent social media crises before they erupt",
+      "url": "https://techcrunch.com/2026/10/14/gudea-leverages-ai-to-help-organizations-prevent-social-media-crises-before-they-erupt/",
+      "published": "2026-10-15T09:00:00+09:00",
+      "summary": "Every day, conversations unfold across social media and websites around the world. A seemingly insignificant post—whether it involves AI-generated misinformation, hate speech, or a damaging rumor—can "
     },
     {
       "source": "TechCrunch AI",
@@ -191,14 +199,6 @@
       "url": "https://techcrunch.com/2026/10/14/floqers-ai-agents-help-b2b-revenue-teams-research-customers/",
       "published": "2026-10-15T00:00:00+09:00",
       "summary": "The problem Floqer is trying to solve is familiar to anyone who has worked in sales or revenue operations."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "TechCrunch Disrupt 2026: Day 2",
-      "url": "https://techcrunch.com/2026/10/14/techcrunch-disrupt-2026-day-2/",
-      "published": "2026-10-14T23:30:00+09:00",
-      "summary": "Day 2 at TechCrunch Disrupt 2026, full of all themes across AI, as well as an investor-only session, more roundtables, Side Events, and more. Register to save 50% on your pass."
     }
   ]
 }
