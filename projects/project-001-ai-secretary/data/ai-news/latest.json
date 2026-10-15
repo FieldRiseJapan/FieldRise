@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-16T08:42:18.645075+09:00",
+  "collected_at": "2026-10-16T08:50:47.739966+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -139,6 +139,14 @@
     {
       "source": "TechCrunch AI",
       "lang": "en",
+      "title": "When it came to Cal AI’s viral success, a small army of influencers paid off",
+      "url": "https://techcrunch.com/2026/10/15/when-it-came-to-cal-ais-viral-success-a-small-army-of-influencers-paid-off/",
+      "published": "2026-10-16T08:44:56+09:00",
+      "summary": "The company generated over $30 million in revenue in two years and was acquired by MyFitness for an undisclosed amount of money in March."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
       "title": "Meta launches an open-weight AI model that runs on Macs",
       "url": "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
       "published": "2026-10-16T05:04:53+09:00",
@@ -191,14 +199,6 @@
       "url": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/",
       "published": "2026-10-15T23:29:33+09:00",
       "summary": "The new shopping tool is available in the U.S. across Google Search and the Gemini app."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "TechCrunch Disrupt 2026: Last day",
-      "url": "https://techcrunch.com/2026/10/15/techcrunch-disrupt-2026-last-day/",
-      "published": "2026-10-15T23:00:00+09:00",
-      "summary": "Last day to be part of TechCrunch Disrupt 2026. Join 10,000+ tech leaders for a day of connections and insights. Save 75% on your pass now."
     }
   ]
 }
