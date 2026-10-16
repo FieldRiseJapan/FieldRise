@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-10-15T23:50:56+00:00",
+  "captured_at": "2026-10-16T23:40:07+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -56,7 +56,7 @@
     {
       "id": "YStrRkObqCY",
       "title": "can you feel it  EDM　#edmmusic #edm #edmmix",
-      "views": 119,
+      "views": 120,
       "age_label": "2025-05-25T12:32:30Z",
       "category": "edm"
     },
@@ -140,7 +140,7 @@
     {
       "id": "hKi5pSwU_Cs",
       "title": "A Piece of Love   #music #winter #constellation",
-      "views": 345,
+      "views": 346,
       "age_label": "2024-10-08T13:04:20Z",
       "category": "winter"
     },

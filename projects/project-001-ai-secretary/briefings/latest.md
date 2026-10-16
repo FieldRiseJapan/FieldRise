@@ -1,6 +1,6 @@
-# 2026-10-16（金）朝の定時報告
+# 2026-10-17（土）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:50 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:40 JST
 
 ---
 
@@ -16,11 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-10-16（金） | 曇り | 22.4°C / 12.9°C | 0.0mm | 0% | 8.0km/h |
-| 2026-10-17（土） | 晴れ | 23.4°C / 15.4°C | 0.0mm | 0% | 11.6km/h |
-| 2026-10-18（日） | 曇り | 27.3°C / 15.3°C | 0.0mm | 33% | 8.5km/h |
-| 2026-10-19（月） | 曇り | 26.5°C / 18.8°C | 0.0mm | 22% | 10.3km/h |
-| 2026-10-20（火） | 晴れ | 27.9°C / 17.5°C | 0.0mm | 8% | 8.6km/h |
+| 2026-10-17（土） | 一部曇り | 23.4°C / 13.5°C | 0.0mm | 0% | 11.9km/h |
+| 2026-10-18（日） | 晴れ | 27.3°C / 14.9°C | 0.0mm | 18% | 11.8km/h |
+| 2026-10-19（月） | 霧雨（弱） | 27.6°C / 18.7°C | 0.4mm | 23% | 6.6km/h |
+| 2026-10-20（火） | 曇り | 27.0°C / 18.9°C | 0.0mm | 25% | 11.0km/h |
+| 2026-10-21（水） | にわか雨（弱） | 27.9°C / 17.7°C | 7.8mm | 75% | 29.3km/h |
 
 
 ---
@@ -29,21 +29,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [日本に本当に勝ち筋はあるのか ヒューマノイド「解剖」で見る中国の強さと課題](https://monoist.itmedia.co.jp/mn/articles/2610/16/news017.html) — ITmedia AI+
-- [「年4200時間の入力」「経験と勘」からの脱却 旧マルハニチロは「販売計画」をどう自動化した？](https://atmarkit.itmedia.co.jp/ait/articles/2610/16/news033.html) — ITmedia AI+
-- [【現地レポ】なぜドイツの地方都市が「AIベンチャーの聖地」に？ 元食肉処理場が起業拠点、その熱気の実態](https://www.itmedia.co.jp/business/articles/2610/16/news007.html) — ITmedia AI+
-- [国内WebサイトへのAIエージェント攻撃を観測 「8時間弱」続いた攻撃の推移を公開 国内セキュリティベンダー](https://www.itmedia.co.jp/aiplus/article/2610/15/2000002284/) — ITmedia AI+
-- [CTOが「AI導入で生産性を1年で2倍に」掲げた企業のその後 米国が開発者802人の進捗を追跡調査](https://www.itmedia.co.jp/news/article/2610/15/2000002260/) — ITmedia AI+
-- [相次ぐサイバー攻撃に「AI悪用の可能性」……初来日のAnthropic共同創業者が言及 悪用どう抑止](https://www.itmedia.co.jp/news/article/2610/15/2000002286/) — ITmedia AI+
+- [不正アクセス多発、Gartnerが日本企業に「7つのアクション」を緊急提言](https://www.itmedia.co.jp/enterprise/articles/2610/16/news048.html) — ITmedia AI+
+- [Meta、「米国製で最高性能」のオープンモデル「Muse Spark Open」発表 Apple Siliconに最適化、Mac Studio×2でローカル動作](https://www.itmedia.co.jp/aiplus/article/2610/16/2000002328/) — ITmedia AI+
+- [Microsoft、社内エンジニア数万人を対象に「Claude Code」「Copilot CLI」導入の影響を分析 生産性どう変わる](https://www.itmedia.co.jp/news/article/2610/16/2000002277/) — ITmedia AI+
+- [「今までが簡単すぎた」――声のAI利用に新指針、日俳連 事業者に求める対応は](https://www.itmedia.co.jp/aiplus/article/2610/16/2000002320/) — ITmedia AI+
+- [AIエージェントに「何を指示するか」より「何をさせないか」――NVIDIAが示す設計の原則](https://atmarkit.itmedia.co.jp/ait/articles/2610/16/news032.html) — ITmedia AI+
+- [TSMCが純利益68.7％増で最高益更新 魏会長「需要は極めて堅調」](https://www.itmedia.co.jp/business/articles/2610/16/news052.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [When it came to Cal AI’s viral success, a small army of influencers paid off](https://techcrunch.com/2026/10/15/when-it-came-to-cal-ais-viral-success-a-small-army-of-influencers-paid-off/) — TechCrunch AI
-- [Meta launches an open-weight AI model that runs on Macs](https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/) — TechCrunch AI
-- [Amazon devices chief Panos Panay sees a future where AI devices replace the need to use apps](https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/) — TechCrunch AI
-- [Anthropic is letting METR researchers look under the hood with employee-level access](https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/) — TechCrunch AI
-- [Bluesky expands its AI-powered Attie app to let anyone build websites, games, and more](https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/) — TechCrunch AI
-- [Last chance to save up to $200 on your TechCrunch Founder Summit pass: Early booking ends October 16](https://techcrunch.com/2026/10/15/last-chance-to-save-up-to-200-on-techcrunch-founder-summit-early-booking-ends-oct-16/) — TechCrunch AI
+- [Replit is no longer working with Anthropic, CEO says](https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/) — TechCrunch AI
+- [India becomes the latest country to report rogue AI agent activity](https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/) — TechCrunch AI
+- [An Nvidia insider-turned-VC on why robotics hasn’t hit its ChatGPT moment, yet](https://techcrunch.com/video/a-nvidia-insider-turned-vc-on-why-robotics-hasnt-hit-its-chatgpt-moment-yet/) — TechCrunch AI
+- [Physical AI is more than robots, says the Nvidia veteran now investing in it](https://techcrunch.com/podcast/physical-ai-is-more-than-robots-says-the-nvidia-veteran-now-investing-in-it/) — TechCrunch AI
+- [Elorian’s first AI model wants to reason with images, not just about them](https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/) — TechCrunch AI
+- [Jev is Vercel’s fastest-adopted AI model ever](https://techcrunch.com/2026/10/16/jev-is-vercels-fastest-adopted-ai-model-ever/) — TechCrunch AI
 
 
 ---
