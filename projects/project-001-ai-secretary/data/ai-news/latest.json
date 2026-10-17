@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-17T08:52:11.995361+09:00",
+  "collected_at": "2026-10-18T08:11:45.810779+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,14 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「そもそも親にAIなんて必要ない」 65歳以上の生成AI利用、子世代の7割が拒否する理由",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/17/news007.html",
+      "published": "2026-10-17T17:00:00+09:00",
+      "summary": "SHIFT AIが65歳以上の親を持つ全国の30～50代男女723人を対象とした「シニア×AIの意識調査」の結果を発表。親に生成AIを使ってほしくない子世代が69.3％に達したという結果とともに、その理由や自身の利用頻度、親に教える際の障壁などを示した。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -65,84 +73,92 @@
       "summary": "Amazonは、傘下BeeブランドのAIデバイス2機種を発表した。手首や衣服に着ける「Bee Frontier」とスマホ背面に貼る「Bee Eclipse」で、会話の要約やToDo作成を行う。「Alexa+」やAmazon.comとも連携し、音声や要約はNitro基盤の暗号化環境で保護される。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「Claude Haiku 5.5」は本当にコスパがいいのか？ 3つの日本語タスクで検証してみた",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2610/16/2000002313/",
-      "published": "2026-10-16T10:14:18+09:00",
-      "summary": "Anthropicの最軽量モデル「Claude Haiku 5.5」を、3つの日本語タスクで「Sonnet 5.5」「GPT-6 Luna」と比較検証。定型文書では上位モデルに迫る一方、自らの立場を把握した上での返答が必要な課題では回答が揺れた。"
+      "title": "RTX 5080搭載ゲーミングPCが9万円オフ！ パソコンショップSEVEN、10月18日限定セール",
+      "url": "https://ascii.jp/elem/000/004/442/4442683/?rss",
+      "published": "2026-10-18T00:00:00+09:00",
+      "summary": "パソコンショップSEVENを運営するセブンアールジャパンが、10月18日限定で最新のゲーミングPCやデスクトップPCを最大9万円オフで販売する24時間限定セールを実施する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ファーウェイ、イヤーカフ型のフラグシップモデル「HUAWEI FreeClip 2 S」の一般販売を開始",
-      "url": "https://ascii.jp/elem/000/004/443/4443511/?rss",
-      "published": "2026-10-17T08:30:00+09:00",
-      "summary": "ファーウェイ・ジャパンは、クラウドファンディングで先行販売していたイヤーカフ型イヤホンのフラグシップモデル「HUAWEI FreeClip 2 S」の一般販売を開始した。"
+      "title": "FMV直販で24万2000円！ 23.8型の一体型デスクトップPCがセール対象に",
+      "url": "https://ascii.jp/elem/000/004/443/4443092/?rss",
+      "published": "2026-10-17T22:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "原状回復しなくていい部屋を借りた 理想のアトリエを目指してDIY改装してみる",
-      "url": "https://ascii.jp/limit/group/ida/elem/000/004/441/4441903/?rss",
-      "published": "2026-10-17T07:00:00+09:00",
-      "summary": "新しく住む部屋をDIYで改装している。"
+      "title": "Apple「iPad Air」もプライム感謝祭で値下げ！ M4搭載の11型モデルが10％オフの11万6800円に",
+      "url": "https://ascii.jp/elem/000/004/443/4443121/?rss",
+      "published": "2026-10-17T21:50:00+09:00",
+      "summary": "Appleの11型タブレット「iPad Air（M4）」がAmazonのプライム感謝祭セール対象。プライム会員限定で、参考価格129,800円から10％オフの116,800円で販売中。M4チップ、11型Liquid Retinaディスプレー、128GBストレージを搭載したWi-Fiモデル。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「RTX Spark」でAI動画を生成したら爆速すぎだった＝ASUS「ProArt P14」実機レビュー＝3D性能はRTX5060レベル",
-      "url": "https://ascii.jp/elem/000/004/443/4443110/?rss",
-      "published": "2026-10-17T00:01:00+09:00",
-      "summary": "「NVIDIA RTX Spark」を搭載するノートPC「ProArt P14」で速度を計り、ローカルAIでムービーを生成してみました。"
+      "title": "FMV直販に注目！ 持ち運べる11.6型ノートPCが、なんと10万円台！",
+      "url": "https://ascii.jp/elem/000/004/443/4443088/?rss",
+      "published": "2026-10-17T21:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ゲーミングPCが最大18万7000円引き・送料無料！ パソコンショップSEVENの10月17日限定セール",
-      "url": "https://ascii.jp/elem/000/004/442/4442682/?rss",
-      "published": "2026-10-17T00:00:00+09:00",
-      "summary": "パソコンショップSEVENが10月17日に24時間限定セールを実施し、最新のゲーミングPCやデスクトップPCを最大187,000円オフで販売する内容だ。主力モデルの構成、価格、購入方法を整理する。"
+      "title": "Core Ultra 7 255U+16GBメモリー搭載のノートPCが、FMV直販で26万4000円！",
+      "url": "https://ascii.jp/elem/000/004/443/4443084/?rss",
+      "published": "2026-10-17T20:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "約1kgの軽量「GALLERIA」が14万9980円から！ Core Ultra 5搭載、ワコム製ペンタブレットも動作検証済み",
-      "url": "https://ascii.jp/elem/000/004/443/4443103/?rss",
-      "published": "2026-10-16T23:00:00+09:00",
-      "summary": "ドスパラでは、クリエイター向け14型ノートPC「GALLERIA NSC5L-IG-C4」を販売中。Core Ultra 5 125Uを搭載し、重量約1.0kgの軽量ボディーを採用する。16GBメモリモデルは14万9980円、32GBモデルは19万9980円。イラスト制作向けモデルもラインアップしている。"
+      "title": "アイドルらしからぬ「まさか」の写真も!? 元「ナナランド」の大場はるか、ファッションに振った1stフォトブック発売！",
+      "url": "https://ascii.jp/elem/000/004/441/4441860/?rss",
+      "published": "2026-10-17T19:00:00+09:00",
+      "summary": "アイドルグループ「ナナランド」の二代目リーダーとして活躍した大場はるか（おおば・はるか）さんが、1stフォトブック「SPECIAL FAN BOOK 大場はるか」の発売記念イベントを10月3日、ソフマップAKIBA アミューズメント館で開催した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "表参道でレコード体験に出会えるイベント「MEET RECORDS, MEET DENON.」が今週末に開催だ！",
-      "url": "https://ascii.jp/elem/000/004/443/4443502/?rss",
-      "published": "2026-10-16T22:17:00+09:00",
-      "summary": "デノンは10月17日と18日の2日間、表参道のLIGHT BOX ATELIERで、ポップアップイベント「MEET RECORDS, MEET DENON.」を開催する。入場料は無料。"
+      "title": "750万円の水素SUV「NEXO」フルモデルチェンジ！ EV時代にあえて燃料電池車を選ぶ理由はあるか？",
+      "url": "https://ascii.jp/elem/000/004/442/4442840/?rss",
+      "published": "2026-10-17T18:00:00+09:00",
+      "summary": "ヒョンデの燃料電池車（FCEV）「NEXO」がフルモデルチェンジし、航続距離1014kmを実現しました。充填時間はわずか3分で、滑らかな走りと高い静粛性、広い荷室が魅力です。一方で、全国141ヵ所しかない水素ステーションの少なさがネックとなり、長距離移動には依然として不安が残ります。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "iPhone Airが21％オフの14万9800円！ 6.5型なのにわずか165g【プライム感謝祭セール】",
-      "url": "https://ascii.jp/elem/000/004/443/4443028/?rss",
-      "published": "2026-10-16T22:10:00+09:00",
-      "summary": "Appleの「iPhone Air（256GB）」がAmazonのプライム感謝祭セール対象。プライム会員限定で、参考価格189,800円から21％オフの149,800円で販売中。6.5型の大画面を搭載しながら、厚さ5.64mm、重さ165gを実現。超薄型・超軽量でありながら、A19 Proのパワーも備えた一台だ。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "\"卵より軽い\"とうたう軽量ゲーミングマウス、プライム感謝祭セールで30％オフ！",
-      "url": "https://ascii.jp/elem/000/004/443/4443493/?rss",
-      "published": "2026-10-16T22:00:00+09:00",
-      "summary": "Amazon.co.jpにて、Pulsar Gaming Gearsのワイヤレスゲーミングマウス「X2N CrazyLight / Medium（Uyuni White）」が販売中だ。参考価格は1万6249円だが、プライム感謝祭セールにより、30％オフの1万1374円で購入可能だ（10月16日時点）。"
+      "title": "まるで「足元に置くエアコン」 温風＆冷風が出るフットレストを使ってみたら快適すぎた",
+      "url": "https://ascii.jp/elem/000/004/442/4442220/?rss",
+      "published": "2026-10-17T18:00:00+09:00",
+      "summary": "今回紹介するのは、山善の「足もと ホット＆クール」。名前のとおり、足元に温風や涼風を送れるうえ、フットレストとしても使えるアイテムです。"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Replit is no longer working with Anthropic, CEO says",
-      "url": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/",
-      "published": "2026-10-17T06:22:28+09:00",
-      "summary": "Masad said the decision was made for a number of different reasons, including cost. Replit announced a partnership with OpenAI in August, but there was never any indication that it was no longer with "
+      "title": "Meta removes language that raised scraping and AI training concerns",
+      "url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/",
+      "published": "2026-10-18T06:31:32+09:00",
+      "summary": "A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic says its workforce has become less junior and is spending more time in meetings",
+      "url": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/",
+      "published": "2026-10-18T05:21:19+09:00",
+      "summary": "The composition of Anthropic’s workforce and the type of work getting done have changed significantly in the past year."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Replit makes OpenAI its default over Anthropic, CEO says",
+      "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
+      "published": "2026-10-18T03:48:08+09:00",
+      "summary": "Over the weekend, Masad clarified that OpenAI would replace Anthropic as its default model provider. Claude will still be available to customers on the platform."
     },
     {
       "source": "TechCrunch AI",
@@ -183,22 +199,6 @@
       "url": "https://techcrunch.com/2026/10/16/jev-is-vercels-fastest-adopted-ai-model-ever/",
       "published": "2026-10-17T00:33:49+09:00",
       "summary": "The data comes from Vercel's AI gateway, a unified API service similar to OpenRouter."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Mark Wahlberg on using AI in film ‘the right way’ and being open to an AI clone carrying on his legacy",
-      "url": "https://techcrunch.com/2026/10/16/mark-wahlberg-on-using-ai-in-film-the-right-way-and-being-open-to-an-ai-clone-carrying-on-his-legacy/",
-      "published": "2026-10-16T23:26:51+09:00",
-      "summary": "Actor and angel investor Mark Wahlberg says he's OK with using AI in filmmaking, provided it's used \"to enhance what you're doing.\""
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Veritas expands its anti-counterfeit chip to jewelry, trophies, and fragrance bottles",
-      "url": "https://techcrunch.com/2026/10/16/veritas-is-building-a-chip-to-verify-luxury-goods/",
-      "published": "2026-10-16T23:00:00+09:00",
-      "summary": "Counterfeiters are getting better at replicating brands' marks and passing off dupes, known as \"superfakes,\" as genuine items. A startup called Veritas wants to tackle the problem with its own chip th"
     }
   ]
 }

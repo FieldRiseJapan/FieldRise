@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-10-18T08:11:45.810779+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「そもそも親にAIなんて必要ない」 65歳以上の生成AI利用、子世代の7割が拒否する理由",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/17/news007.html",
+      "published": "2026-10-17T17:00:00+09:00",
+      "summary": "SHIFT AIが65歳以上の親を持つ全国の30～50代男女723人を対象とした「シニア×AIの意識調査」の結果を発表。親に生成AIを使ってほしくない子世代が69.3％に達したという結果とともに、その理由や自身の利用頻度、親に教える際の障壁などを示した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "不正アクセス多発、Gartnerが日本企業に「7つのアクション」を緊急提言",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/16/news048.html",
+      "published": "2026-10-16T14:20:00+09:00",
+      "summary": "不正アクセスが相次ぐ中、日本企業が講じるべき対策とは。人間が数日から数週間かけていた攻撃の作業が、AIやエージェントの悪用によって、条件によっては数分に短縮される可能性がある中で、Gartnerが早急な実施を推奨する「7つのアクション」を紹介する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Meta、「米国製で最高性能」のオープンモデル「Muse Spark Open」発表 Apple Siliconに最適化、Mac Studio×2でローカル動作",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/16/2000002328/",
+      "published": "2026-10-16T14:14:11+09:00",
+      "summary": "Metaがオープンウェイトモデル「Muse Spark Open」を発表し、重みを公開。「米国製で過去最高性能」とうたい、M5 Ultra搭載のMac Studio 2台で動作するという。独自ライセンスで商用利用は条件付き。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Microsoft、社内エンジニア数万人を対象に「Claude Code」「Copilot CLI」導入の影響を分析 生産性どう変わる",
+      "url": "https://www.itmedia.co.jp/news/article/2610/16/2000002277/",
+      "published": "2026-10-16T12:00:00+09:00",
+      "summary": "米Microsoftに所属する研究者らが発表した論文「Adoption and Impact of Command-Line AI Coding Agents: A Study of Microsoft’s Early 2026 Rollout of Claude Code and GitHub Copilot CLI」は、社内の数万人のソフトウェアエンジニアを対象に、コマンドライン上で動くAIコ"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「今までが簡単すぎた」――声のAI利用に新指針、日俳連 事業者に求める対応は",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/16/2000002320/",
+      "published": "2026-10-16T11:26:00+09:00",
+      "summary": "声優・俳優の権利保護活動などを行う日本俳優連合は、「音声に関する生成AI利用ガイドライン」を発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIエージェントに「何を指示するか」より「何をさせないか」――NVIDIAが示す設計の原則",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/16/news032.html",
+      "published": "2026-10-16T11:00:00+09:00",
+      "summary": "AIエージェントが社内システムやデータを自律的に操作するようになるとき、どのようなセキュリティ対策が必要なのか。NVIDIAは、AIへの指示だけに頼らず、実行環境でのアクセス制御や権限管理、継続的な検証を組み合わせることの重要性を指摘する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "TSMCが純利益68.7％増で最高益更新 魏会長「需要は極めて堅調」",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/16/news052.html",
+      "published": "2026-10-16T10:30:00+09:00",
+      "summary": "【台北＝西見由章】半導体受託生産の世界最大手、台湾積体電路製造（TSMC）が15日発表した2026年7～9月期決算は、売上高が前年同期比50.9％増の1兆4942億台湾元（約7兆2900億円）、純利益は68.7％増の7630億台湾元だった。いずれも四半期として過去最高を更新した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Amazon、Beeの新AIデバイス2機種発表 リストバンド型とスマホ装着型、会話を要約し「Alexa+」と連携",
+      "url": "https://www.itmedia.co.jp/news/article/2610/16/2000002316/",
+      "published": "2026-10-16T10:27:57+09:00",
+      "summary": "Amazonは、傘下BeeブランドのAIデバイス2機種を発表した。手首や衣服に着ける「Bee Frontier」とスマホ背面に貼る「Bee Eclipse」で、会話の要約やToDo作成を行う。「Alexa+」やAmazon.comとも連携し、音声や要約はNitro基盤の暗号化環境で保護される。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "RTX 5080搭載ゲーミングPCが9万円オフ！ パソコンショップSEVEN、10月18日限定セール",
+      "url": "https://ascii.jp/elem/000/004/442/4442683/?rss",
+      "published": "2026-10-18T00:00:00+09:00",
+      "summary": "パソコンショップSEVENを運営するセブンアールジャパンが、10月18日限定で最新のゲーミングPCやデスクトップPCを最大9万円オフで販売する24時間限定セールを実施する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "FMV直販で24万2000円！ 23.8型の一体型デスクトップPCがセール対象に",
+      "url": "https://ascii.jp/elem/000/004/443/4443092/?rss",
+      "published": "2026-10-17T22:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Apple「iPad Air」もプライム感謝祭で値下げ！ M4搭載の11型モデルが10％オフの11万6800円に",
+      "url": "https://ascii.jp/elem/000/004/443/4443121/?rss",
+      "published": "2026-10-17T21:50:00+09:00",
+      "summary": "Appleの11型タブレット「iPad Air（M4）」がAmazonのプライム感謝祭セール対象。プライム会員限定で、参考価格129,800円から10％オフの116,800円で販売中。M4チップ、11型Liquid Retinaディスプレー、128GBストレージを搭載したWi-Fiモデル。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "FMV直販に注目！ 持ち運べる11.6型ノートPCが、なんと10万円台！",
+      "url": "https://ascii.jp/elem/000/004/443/4443088/?rss",
+      "published": "2026-10-17T21:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Core Ultra 7 255U+16GBメモリー搭載のノートPCが、FMV直販で26万4000円！",
+      "url": "https://ascii.jp/elem/000/004/443/4443084/?rss",
+      "published": "2026-10-17T20:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "アイドルらしからぬ「まさか」の写真も!? 元「ナナランド」の大場はるか、ファッションに振った1stフォトブック発売！",
+      "url": "https://ascii.jp/elem/000/004/441/4441860/?rss",
+      "published": "2026-10-17T19:00:00+09:00",
+      "summary": "アイドルグループ「ナナランド」の二代目リーダーとして活躍した大場はるか（おおば・はるか）さんが、1stフォトブック「SPECIAL FAN BOOK 大場はるか」の発売記念イベントを10月3日、ソフマップAKIBA アミューズメント館で開催した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "750万円の水素SUV「NEXO」フルモデルチェンジ！ EV時代にあえて燃料電池車を選ぶ理由はあるか？",
+      "url": "https://ascii.jp/elem/000/004/442/4442840/?rss",
+      "published": "2026-10-17T18:00:00+09:00",
+      "summary": "ヒョンデの燃料電池車（FCEV）「NEXO」がフルモデルチェンジし、航続距離1014kmを実現しました。充填時間はわずか3分で、滑らかな走りと高い静粛性、広い荷室が魅力です。一方で、全国141ヵ所しかない水素ステーションの少なさがネックとなり、長距離移動には依然として不安が残ります。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "まるで「足元に置くエアコン」 温風＆冷風が出るフットレストを使ってみたら快適すぎた",
+      "url": "https://ascii.jp/elem/000/004/442/4442220/?rss",
+      "published": "2026-10-17T18:00:00+09:00",
+      "summary": "今回紹介するのは、山善の「足もと ホット＆クール」。名前のとおり、足元に温風や涼風を送れるうえ、フットレストとしても使えるアイテムです。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta removes language that raised scraping and AI training concerns",
+      "url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/",
+      "published": "2026-10-18T06:31:32+09:00",
+      "summary": "A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic says its workforce has become less junior and is spending more time in meetings",
+      "url": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/",
+      "published": "2026-10-18T05:21:19+09:00",
+      "summary": "The composition of Anthropic’s workforce and the type of work getting done have changed significantly in the past year."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Replit makes OpenAI its default over Anthropic, CEO says",
+      "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
+      "published": "2026-10-18T03:48:08+09:00",
+      "summary": "Over the weekend, Masad clarified that OpenAI would replace Anthropic as its default model provider. Claude will still be available to customers on the platform."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "India becomes the latest country to report rogue AI agent activity",
+      "url": "https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/",
+      "published": "2026-10-17T02:52:24+09:00",
+      "summary": "The agents got in through credentials and connection settings left exposed in app configurations, public code repositories, and overly permissive cloud roles."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "An Nvidia insider-turned-VC on why robotics hasn’t hit its ChatGPT moment, yet",
+      "url": "https://techcrunch.com/video/a-nvidia-insider-turned-vc-on-why-robotics-hasnt-hit-its-chatgpt-moment-yet/",
+      "published": "2026-10-17T01:30:00+09:00",
+      "summary": "Amulya Vishwanath, who spent seven years leading product marketing for NVIDIA’s robotics platforms, says robotics is currently in its “Lego era,” with the basic building blocks like actuators, robotic"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Physical AI is more than robots, says the Nvidia veteran now investing in it",
+      "url": "https://techcrunch.com/podcast/physical-ai-is-more-than-robots-says-the-nvidia-veteran-now-investing-in-it/",
+      "published": "2026-10-17T01:30:00+09:00",
+      "summary": "Amulya Vishwanath, who spent seven years leading product marketing for NVIDIA’s robotics platforms, says robotics is currently in its “Lego era,” with the basic building blocks like actuators, robotic"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Elorian’s first AI model wants to reason with images, not just about them",
+      "url": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/",
+      "published": "2026-10-17T01:01:37+09:00",
+      "summary": "According to Elorian's evaluations, Glimpse outperforms even GPT-6 Astra on scientific chart reasoning and short-form video captioning, with competitive results on other visual reasoning tasks."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Jev is Vercel’s fastest-adopted AI model ever",
+      "url": "https://techcrunch.com/2026/10/16/jev-is-vercels-fastest-adopted-ai-model-ever/",
+      "published": "2026-10-17T00:33:49+09:00",
+      "summary": "The data comes from Vercel's AI gateway, a unified API service similar to OpenRouter."
+    }
+  ]
+}
