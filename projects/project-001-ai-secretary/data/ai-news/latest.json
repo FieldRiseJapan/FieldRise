@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-18T08:24:10.831131+09:00",
+  "collected_at": "2026-10-19T08:20:29.674389+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,22 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「言い訳文化」から脱却のNECが足立区に伝授した生成AI活用術とは データ活用“逆算”の鉄則",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/19/2000002342/",
+      "published": "2026-10-19T07:00:00+09:00",
+      "summary": "生成AIを実業務に定着させるには、明確な目的設定とデータの整備・統合が不可欠だ。NECと東京都足立区の事例を通じて、AIエージェントによるデータ分析・施策立案の実践と、統合的なAI基盤を活用した持続的な業務変革の要点を解説する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「11回止めたのに本番DBが消えた」 AIエージェント“6つの暴走”と、人間の承認を増やしても防げない理由",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/18/news004.html",
+      "published": "2026-10-18T08:00:00+09:00",
+      "summary": "AIコーディングエージェントの自律性が高まる一方、本番データベースの削除といった事故も起こっています。では、「人間の承認」を増やせば事故は防げるのでしょうか。事例と対策から、事故を起こさないAIエージェントの設計について考えます。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -57,84 +73,84 @@
       "summary": "AIエージェントが社内システムやデータを自律的に操作するようになるとき、どのようなセキュリティ対策が必要なのか。NVIDIAは、AIへの指示だけに頼らず、実行環境でのアクセス制御や権限管理、継続的な検証を組み合わせることの重要性を指摘する。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "TSMCが純利益68.7％増で最高益更新 魏会長「需要は極めて堅調」",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/16/news052.html",
-      "published": "2026-10-16T10:30:00+09:00",
-      "summary": "【台北＝西見由章】半導体受託生産の世界最大手、台湾積体電路製造（TSMC）が15日発表した2026年7～9月期決算は、売上高が前年同期比50.9％増の1兆4942億台湾元（約7兆2900億円）、純利益は68.7％増の7630億台湾元だった。いずれも四半期として過去最高を更新した。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "Amazon、Beeの新AIデバイス2機種発表 リストバンド型とスマホ装着型、会話を要約し「Alexa+」と連携",
-      "url": "https://www.itmedia.co.jp/news/article/2610/16/2000002316/",
-      "published": "2026-10-16T10:27:57+09:00",
-      "summary": "Amazonは、傘下BeeブランドのAIデバイス2機種を発表した。手首や衣服に着ける「Bee Frontier」とスマホ背面に貼る「Bee Eclipse」で、会話の要約やToDo作成を行う。「Alexa+」やAmazon.comとも連携し、音声や要約はNitro基盤の暗号化環境で保護される。"
+      "title": "サンワサプライ、65WノートPC用ACアダプタ「ACA-DC116ML」発売 変換プラグ6種付属",
+      "url": "https://ascii.jp/elem/000/004/443/4443586/?rss",
+      "published": "2026-10-19T08:00:00+09:00",
+      "summary": "サンワサプライが、最大65W出力のノートPC用ACアダプタ「ACA-DC116ML」を発売。6種類の変換プラグが付属し、各社の対応ノートPCで使用可能。電源プラグ一体型のコンパクト設計で、出張時の持ち運びや自宅・オフィスの予備用に便利。価格は6,820円。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "RTX 5080搭載ゲーミングPCが9万円オフ！ パソコンショップSEVEN、10月18日限定セール",
-      "url": "https://ascii.jp/elem/000/004/442/4442683/?rss",
-      "published": "2026-10-18T00:00:00+09:00",
-      "summary": "パソコンショップSEVENを運営するセブンアールジャパンが、10月18日限定で最新のゲーミングPCやデスクトップPCを最大9万円オフで販売する24時間限定セールを実施する。"
+      "title": "Webサイトのデータベースを狙う攻撃が顕著に増加／情シス担当の半数が転職意向、背後にある変化／AI業務活用、実態は“AIオペレーター”？、ほか",
+      "url": "https://ascii.jp/elem/000/004/443/4443530/?rss",
+      "published": "2026-10-19T08:00:00+09:00",
+      "summary": "今回（2026年10月10日～10月16日）は、ランサムウェア攻撃や国家支援型APT攻撃の最新動向、Webサイトに対する攻撃の急増やそこに見られる変化、情報システム担当者の転職意向とその背景、企画／マーケティング職のAI活用実態と得られた／得られなかったものについてのデータを紹介します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "FMV直販で24万2000円！ 23.8型の一体型デスクトップPCがセール対象に",
-      "url": "https://ascii.jp/elem/000/004/443/4443092/?rss",
-      "published": "2026-10-17T22:00:00+09:00",
-      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+      "title": "GPT-4o級モデルが自宅のPCで動いた！ ローカルAIの常識を変える「Strata」",
+      "url": "https://ascii.jp/elem/000/004/443/4443584/?rss",
+      "published": "2026-10-19T07:30:00+09:00",
+      "summary": "ローカルLLMの推論エンジン「Strata」を実機で検証。GPU・RAM・SSDを活用して巨大モデルを動かし、検索や画像生成へ拡張できる一方、社内運用ではRAM容量と複数人利用時の待ち時間が課題となった。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "Apple「iPad Air」もプライム感謝祭で値下げ！ M4搭載の11型モデルが10％オフの11万6800円に",
-      "url": "https://ascii.jp/elem/000/004/443/4443121/?rss",
-      "published": "2026-10-17T21:50:00+09:00",
-      "summary": "Appleの11型タブレット「iPad Air（M4）」がAmazonのプライム感謝祭セール対象。プライム会員限定で、参考価格129,800円から10％オフの116,800円で販売中。M4チップ、11型Liquid Retinaディスプレー、128GBストレージを搭載したWi-Fiモデル。"
+      "title": "日本企業の「AI業務実装の壁」を打ち破る ― RPAのパイオニアが「AI×RPA×人」の統合基盤を国内展開",
+      "url": "https://ascii.jp/elem/000/004/443/4443113/?rss",
+      "published": "2026-10-19T07:30:00+09:00",
+      "summary": "SS&C Blue Prismは、2026年10月7日、業務自動化プラットフォーム「WorkHQ」の日本語版を提供開始した。これは、AIエージェントやRPA、人を適材適所でつなぎ、部分最適な自動化を全体最適へと発展させるための基盤である。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "FMV直販に注目！ 持ち運べる11.6型ノートPCが、なんと10万円台！",
-      "url": "https://ascii.jp/elem/000/004/443/4443088/?rss",
-      "published": "2026-10-17T21:00:00+09:00",
-      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+      "title": "スマホ10万円時代対策！ お手頃アンドロイドの買い方＆オススメ機種教えますの巻：スマホ総研定例会394",
+      "url": "https://ascii.jp/elem/000/004/443/4443583/?rss",
+      "published": "2026-10-19T07:00:00+09:00",
+      "summary": "スマホの価格がどんどん上昇する中、Androidスマホならお手頃価格でもまだ入手が可能です！ では、どんな点に注意して選べばいいのか、オススメ製品はどれか、わかりやすく紹介します！"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "Core Ultra 7 255U+16GBメモリー搭載のノートPCが、FMV直販で26万4000円！",
-      "url": "https://ascii.jp/elem/000/004/443/4443084/?rss",
-      "published": "2026-10-17T20:00:00+09:00",
-      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+      "title": "「アスキーグルメNEWS」生放送（2026年10月23日号）",
+      "url": "https://ascii.jp/elem/000/004/443/4443442/?rss",
+      "published": "2026-10-19T07:00:00+09:00",
+      "summary": "巷で話題のおいしいグルメ情報を生放送でご紹介します。ぜひ、お昼ごはんを楽しみながらどうぞ！"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "アイドルらしからぬ「まさか」の写真も!? 元「ナナランド」の大場はるか、ファッションに振った1stフォトブック発売！",
-      "url": "https://ascii.jp/elem/000/004/441/4441860/?rss",
-      "published": "2026-10-17T19:00:00+09:00",
-      "summary": "アイドルグループ「ナナランド」の二代目リーダーとして活躍した大場はるか（おおば・はるか）さんが、1stフォトブック「SPECIAL FAN BOOK 大場はるか」の発売記念イベントを10月3日、ソフマップAKIBA アミューズメント館で開催した。"
+      "title": "難リサイクルの複合プラを再生材へ、独自技術で安定供給と利用開拓を推進",
+      "url": "https://ascii.jp/elem/000/004/443/4443421/?rss",
+      "published": "2026-10-19T07:00:00+09:00",
+      "summary": "株式会社esaは10月13日、資金調達と合わせてこれまで分別や再資源化が困難とされてきた複合プラスチックを再生ペレット化し供給する循環型技術の事業化加速を発表した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "750万円の水素SUV「NEXO」フルモデルチェンジ！ EV時代にあえて燃料電池車を選ぶ理由はあるか？",
-      "url": "https://ascii.jp/elem/000/004/442/4442840/?rss",
-      "published": "2026-10-17T18:00:00+09:00",
-      "summary": "ヒョンデの燃料電池車（FCEV）「NEXO」がフルモデルチェンジし、航続距離1014kmを実現しました。充填時間はわずか3分で、滑らかな走りと高い静粛性、広い荷室が魅力です。一方で、全国141ヵ所しかない水素ステーションの少なさがネックとなり、長距離移動には依然として不安が残ります。"
+      "title": "自作PCトーク『ジサトラKTU』生放送～RTX Spark N1Xの性能やいかに!? Surface Laptop Ultraベンチマーク～",
+      "url": "https://ascii.jp/elem/000/004/443/4443414/?rss",
+      "published": "2026-10-19T07:00:00+09:00",
+      "summary": "RTX Spark N1Xの性能やいかに!? Surface Laptop Ultraベンチマーク。木曜20:00から放送スタート！"
     },
     {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "まるで「足元に置くエアコン」 温風＆冷風が出るフットレストを使ってみたら快適すぎた",
-      "url": "https://ascii.jp/elem/000/004/442/4442220/?rss",
-      "published": "2026-10-17T18:00:00+09:00",
-      "summary": "今回紹介するのは、山善の「足もと ホット＆クール」。名前のとおり、足元に温風や涼風を送れるうえ、フットレストとしても使えるアイテムです。"
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’",
+      "url": "https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/",
+      "published": "2026-10-19T05:37:40+09:00",
+      "summary": "Anthropic said that it will commit 5% of its shares to the fund."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Disney agrees to hire the majority of Character.AI’s workforce",
+      "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/",
+      "published": "2026-10-19T01:30:00+09:00",
+      "summary": "The filing also says that the “vast majority” of Character.AI employees who were offered jobs at Disney accepted them. However, this is a stalking horse bid, so another company could come forward with"
     },
     {
       "source": "TechCrunch AI",
@@ -183,22 +199,6 @@
       "url": "https://techcrunch.com/podcast/physical-ai-is-more-than-robots-says-the-nvidia-veteran-now-investing-in-it/",
       "published": "2026-10-17T01:30:00+09:00",
       "summary": "Amulya Vishwanath, who spent seven years leading product marketing for NVIDIA’s robotics platforms, says robotics is currently in its “Lego era,” with the basic building blocks like actuators, robotic"
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Elorian’s first AI model wants to reason with images, not just about them",
-      "url": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/",
-      "published": "2026-10-17T01:01:37+09:00",
-      "summary": "According to Elorian's evaluations, Glimpse outperforms even GPT-6 Astra on scientific chart reasoning and short-form video captioning, with competitive results on other visual reasoning tasks."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Jev is Vercel’s fastest-adopted AI model ever",
-      "url": "https://techcrunch.com/2026/10/16/jev-is-vercels-fastest-adopted-ai-model-ever/",
-      "published": "2026-10-17T00:33:49+09:00",
-      "summary": "The data comes from Vercel's AI gateway, a unified API service similar to OpenRouter."
     }
   ]
 }

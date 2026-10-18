@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-10-17T23:24:25+00:00",
+  "captured_at": "2026-10-18T23:20:40+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -14,7 +14,7 @@
     {
       "id": "-iI8Cd_38cI",
       "title": "cafe（A couple gazing into each other's eyes）",
-      "views": 79,
+      "views": 80,
       "age_label": "2026-03-15T00:00:47Z",
       "category": "cafe"
     },
