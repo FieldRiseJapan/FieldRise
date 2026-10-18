@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-19T08:20:29.674389+09:00",
+  "collected_at": "2026-10-19T08:39:01.879445+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,22 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Anthropic、社内でAIエージェントの稼働時間が人間の6倍に 技術系初級職の採用比率は27％→9％に激減",
+      "url": "https://www.itmedia.co.jp/news/article/2610/19/2000002353/",
+      "published": "2026-10-19T08:02:13+09:00",
+      "summary": "Anthropicは、社内雇用の変化と一般市民とのAI予測格差に関する調査を公開した。AnthropicではAI稼働時間が人間を上回り、技術系初級職の採用比率が急減した。自身の業務の自動化予測は、Anthropic従業員の75％に対し、米労働者は28％と大きな開きが出たが、自動化と失業率上昇を結びつける労働観は共通していた。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Newオンプレミス、RAG、SREはもう“幻滅期” 2026年、「過度な期待」のピークにある5項目とは？",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/19/news029.html",
+      "published": "2026-10-19T08:00:00+09:00",
+      "summary": "ガートナーが、2026年の日本におけるクラウドとAIのハイプサイクルを発表。Newオンプレミス、RAG、SREが“幻滅期”に入る一方で、“過度な期待”のピークに立つ5項目が示された。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -55,22 +71,6 @@
       "url": "https://www.itmedia.co.jp/news/article/2610/16/2000002277/",
       "published": "2026-10-16T12:00:00+09:00",
       "summary": "米Microsoftに所属する研究者らが発表した論文「Adoption and Impact of Command-Line AI Coding Agents: A Study of Microsoft’s Early 2026 Rollout of Claude Code and GitHub Copilot CLI」は、社内の数万人のソフトウェアエンジニアを対象に、コマンドライン上で動くAIコ"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "「今までが簡単すぎた」――声のAI利用に新指針、日俳連 事業者に求める対応は",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2610/16/2000002320/",
-      "published": "2026-10-16T11:26:00+09:00",
-      "summary": "声優・俳優の権利保護活動などを行う日本俳優連合は、「音声に関する生成AI利用ガイドライン」を発表した。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "AIエージェントに「何を指示するか」より「何をさせないか」――NVIDIAが示す設計の原則",
-      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/16/news032.html",
-      "published": "2026-10-16T11:00:00+09:00",
-      "summary": "AIエージェントが社内システムやデータを自律的に操作するようになるとき、どのようなセキュリティ対策が必要なのか。NVIDIAは、AIへの指示だけに頼らず、実行環境でのアクセス制御や権限管理、継続的な検証を組み合わせることの重要性を指摘する。"
     },
     {
       "source": "ASCII.jp AI",
