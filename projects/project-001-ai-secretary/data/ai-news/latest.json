@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-20T09:38:30.141268+09:00",
+  "collected_at": "2026-10-21T08:57:02.367628+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,194 +11,194 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "米国土安全保障省、中国DeepSeek製品を連邦民間機関から排除する命令",
-      "url": "https://www.itmedia.co.jp/news/article/2610/20/2000002405/",
-      "published": "2026-10-20T07:07:09+09:00",
-      "summary": "米国土安全保障省は、中国DeepSeekの製品および関連サービスを連邦民間機関の調達とITシステムから排除する命令を官報で公示した。自社製だけでなく、同社の実装を用いた第三者製品も排除対象とする。連邦調達サプライチェーン安全法に基づく措置で、勧告と証拠を検討した上で発令された。"
+      "title": "予算がついても、製品を入れても止まる――ゼロトラストを止めている「組織摩擦」の正体",
+      "url": "https://mag.executive.itmedia.co.jp/executive/article/2610/21/2000002352/",
+      "published": "2026-10-21T08:00:00+09:00",
+      "summary": "予算をつけ、製品を入れても、ゼロトラストの移行が止まっている企業は少なくありません。米国の調査会社は、米国連邦機関が失敗する理由に資金と専門人材の不足を挙げました。一方、日本の公的な調査には、インシデントを経験した後でも対策を強化しない組織の姿が表れています。止めているのは技術でも予算でもなく、どこにも数字として出てこない「組織の摩擦」ではないか。250社を超える企業のゼロトラスト実装ワークショッ"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「データセンター×発電設備」一体開発がトレンド？ 日立・東京ガスが九州で計画、JERAは千葉で 狙いは",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news051.html",
-      "published": "2026-10-20T07:00:00+09:00",
-      "summary": "日立製作所や東京ガスなど4社が、データセンターと電源設備を一体開発するため協業した。関東と九州でデータセンター開発計画を策定する。発電大手JERAも、発電所一体型データセンターを建設中だ。一体型が増える背景には何があるのか。"
+      "title": "工作機械の不具合対応を生成AIが支援、DMG森精機が新サービス",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/21/news034.html",
+      "published": "2026-10-21T07:45:00+09:00",
+      "summary": "DMG森精機は、ユーザー専用のポータルサイト「my DMG MORI」において、生成AI（人工知能）を活用した新機能「サービスエージェント」の提供を開始したと発表した。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「税金で動かす以上……」 政府18万人が使うAI「源内」の「コストに関する工夫」とは",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news012.html",
-      "published": "2026-10-20T07:00:00+09:00",
-      "summary": "デジタル庁は、全府省庁の職員約18万人に生成AI「源内」を提供する。情報の機密性、税金で運用するAIのコスト感など解決しなければならない課題も多い。AI活用にどう取り組むのか。"
+      "title": "「PC市場の成長ストップ」で苦戦のインテル 「半導体の崖」突破できるか、社長が語る変革への道筋",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/21/news013.html",
+      "published": "2026-10-21T07:00:00+09:00",
+      "summary": "かつて“半導体の巨人”と呼ばれていたIntelは、PC市場の成長鈍化などを受け不調の中にある。AI時代で半導体需要が高まる中、“最大の経営課題”を解決して変革を起こせるか。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "AI活用で「年3万5000時間削減」の江戸川区 「配って終わり」にさせないコツは？ 5年で培った実践知を聞く",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news011.html",
-      "published": "2026-10-20T07:00:00+09:00",
-      "summary": "江戸川区がAI活用によって年3万5000時間の削減に成功した。約5年でさまざまな活用事例を蓄積。「ツールを配って終わり」にさせない導入のポイントとは。"
+      "title": "PFNとTenstorrentがタッグ、生成AI特化プロセッサ開発へ 超高メモリ帯域幅、光電融合技術を実装",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/21/2000002438/",
+      "published": "2026-10-21T07:00:00+09:00",
+      "summary": "Preferred Networks（以下、PFN）と米Tenstorrentが、AIの学習・推論を高性能・高効率に実行可能な生成AI向けプロセッサを含むシステム開発を共同で始めた。CPUの開発は米Tenstorrentが担い、米NVIDIAのGPUがデファクトスタンダードとなっている「AIプロセッサ」の開発はPFNが担う。光電融合技術と最先端パッケージング技術を活用し、AIプロセッサのシステム化"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "“テスラ超え”狙う――チューリング「完全自動運転」までの道 「GPUより速いチップ」使った開発のウラ側",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news017.html",
-      "published": "2026-10-20T07:00:00+09:00",
-      "summary": "「テスラ超え」を掲げる自動運転スタートアップのTuringは、AI技術の開発を加速させている。しかし「GPUを増やすだけでは開発スピードが上がらなかった」という。この課題をどう乗り越えたのか。"
+      "title": "「6億台のコネクテッドカー」動かす光技術 IOWNは欧州のデータセンター危機を救うか？",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/21/news044.html",
+      "published": "2026-10-21T07:00:00+09:00",
+      "summary": "生成AIの需要爆発で欧州データセンターの空き容量が逼迫する中、NTTが提唱する次世代光技術「IOWN」が脚光を浴びている。電力危機を打破する切り札として期待が高まる光通信革命の最前線を、オランダ現地取材から追う。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「日本を愛している。見過ごせない」――“100億円配布”のセキュリティ支援策、トレンドマイクロCEOが見せた危機感",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news041.html",
-      "published": "2026-10-20T06:40:00+09:00",
-      "summary": "相次ぐセキュリティ事案を受けて、トレンドマイクロが100億規模の「緊急支援」を打ち出した。国内法人のセキュリティ対策ツール導入などを支援する。会見でCEOが語ったのは、この状況に対する危機感だった。"
+      "title": "Rapidusで製造できるか、推論特化2nm世代半導体で医用画像処理システムを開発",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/21/news045.html",
+      "published": "2026-10-21T06:30:00+09:00",
+      "summary": "LSTCと北海道大学、富士フイルム、GEヘルスケア・ジャパン、imecが、推論に特化した2nm世代半導体を活用する医用画像処理システムの開発プロジェクトについて説明。現行GPUと比較して画像処理速度5倍以上、画像処理のエネルギー効率10倍以上の達成を目指す中で、2nm世代半導体の製造はRapidusが望ましいものの現時点では未定とした。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「保守的な日本の現場に合う」導入2500時間の壁を壊す倉庫AI、IFS Softeonの真価",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/20/news044.html",
-      "published": "2026-10-20T06:30:00+09:00",
-      "summary": "IFSとIFS Softeonは、倉庫向けAIの新機能「Fulfillment Flow」を発表した。6つの現場特化型AIエージェントが連携し、「部分最適のしわ寄せ」を解消する。同社 最高収益責任者（CRO）のメイリー氏へのインタビューを交え、あえてシステムを統合しない独自戦略や、保守的な日本の現場に適合するAIの姿と今後の展望をひもとく。"
+      "title": "会議の記録を残さない人が50.2％ AI議事録が便利でも企業に浸透しない理由",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/21/2000002415/",
+      "published": "2026-10-21T06:00:00+09:00",
+      "summary": "会議の内容を記録していない人は50.2％に上る一方、議事録作成ツールの利用者では73.2％が負担軽減を実感している。なぜツールの活用は進まないのか。調査結果から、議事録作成の実態とAI活用の可能性、導入に向けた課題を探る。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "高性能AIによるゼロデイ攻撃にどう備える？ サイバー防御の鍵を握る「ハーネス」とは",
-      "url": "https://kn.itmedia.co.jp/kn/article/2610/20/2000002396/",
-      "published": "2026-10-20T06:00:00+09:00",
-      "summary": "高性能AIの登場により、未知の脆弱性の発見から攻撃の実行までを自律的に進めるサイバー攻撃が現実となった。攻撃と防御の鍵を握る「ハーネス」の役割と、被害を最小限に抑えるための4つの対策を解説する。"
+      "title": "GMO、生成AIの「答えるだけ問題」を解消へ 社内ナレッジを業務フローにつなぐ",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/21/2000002373/",
+      "published": "2026-10-21T06:00:00+09:00",
+      "summary": "生成AIに社内規定やマニュアルを参照させても、その後の申請やデータ登録は人手に頼る場合がある。GMOプライム・ストラテジーとGMO AIコネクトは、RAGと業務自動化基盤を連携し、社内ルールに沿った判断から業務処理までの自動化を目指す。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "サンコー「ゲーミング手甲ヒーター」発売 手のひらを覆わないUSBヒーター手袋、3480円",
-      "url": "https://ascii.jp/elem/000/004/443/4443914/?rss",
-      "published": "2026-10-20T09:30:00+09:00",
-      "summary": "サンコーのUSBヒーター手袋「ゲーミング手甲ヒーター」が発売。手のひらを覆わず、手の甲から手首を温める構造で、冬のPC作業やゲーム、楽器練習時の冷え対策に。温度は3段階で調整でき、価格は3480円。"
+      "title": "SDもCFexpressもSSDも1台に集約！ ラトックシステム「RS-MR48EX」、10Gbps対応リーダーライター",
+      "url": "https://ascii.jp/elem/000/004/444/4444341/?rss",
+      "published": "2026-10-21T08:15:00+09:00",
+      "summary": "ラトックシステムが、SDカードやCFexpress、SSDなど多様なメディアに対応したUSB3.2 Gen2接続のプロメディア向けリーダーライター「RS-MR48EX」を10月下旬に発売する。複数メディアの同時アクセスやWindows 11向けHotPlugツールに対応し、映像制作など業務用途での活用を想定する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「Key」の人気クリエイター・麻枝准氏が咽頭がん 緩和ケアを選択、「ヘブバン」の制作状況も説明",
-      "url": "https://ascii.jp/elem/000/004/443/4443916/?rss",
-      "published": "2026-10-20T09:15:00+09:00",
-      "summary": "ビジュアルアーツは10月19日、所属クリエイターの麻枝准氏が咽頭がんと診断され、緩和ケアを中心とした療養を選択したと公表した。"
+      "title": "【Nothing Phone (4b)】 5万円台でFeliCa＆大容量バッテリー！ コスト高騰に抗う最強ミドルスマホ",
+      "url": "https://ascii.jp/elem/000/004/443/4443905/?rss",
+      "published": "2026-10-21T08:00:00+09:00",
+      "summary": "Nothingから5万9800円の新型スマホ「Nothing Phone (4b)」が登場しました。プラスチックユニボディの美しい透明デザインと光るGlyphバーを継承。FeliCaや同社史上最大の5200mAhバッテリーを備え、日常使いに最適な実用性と個性を両立した1台です。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ニフティに不正アクセス、最大54万件漏えいの可能性",
-      "url": "https://ascii.jp/elem/000/004/443/4443915/?rss",
-      "published": "2026-10-20T09:10:00+09:00",
-      "summary": "abstract"
+      "title": "乗れたらラッキー！ ANA「ちいかわジェット」は機内までかわいい、特別仕様を大紹介",
+      "url": "https://ascii.jp/elem/000/004/443/4443904/?rss",
+      "published": "2026-10-21T07:30:00+09:00",
+      "summary": "ANAと「ちいかわ」がコラボした特別デザイン機「ちいかわジェット」が10月19日、国内線で運航を開始しました。初便の様子とともに、運航路線や限定グッズなど、ファン必見の情報を紹介します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ソフトバンク、不正アクセスの試みを検知 「My SoftBank」などサービス停止",
-      "url": "https://ascii.jp/elem/000/004/443/4443913/?rss",
-      "published": "2026-10-20T09:05:00+09:00",
-      "summary": "ソフトバンクは10月19日、会員サイト「My SoftBank」の一部システムへの不正アクセスの試みを確認し、顧客情報の安全措置として「My SoftBank」「My Y!mobile」「My Menu」のウェブサイトを一時停止していると発表した。"
+      "title": "乱立するイノベーション活動をどう束ねるか。人材開発から始まる大企業の組織づくり",
+      "url": "https://ascii.jp/elem/000/004/442/4442106/?rss",
+      "published": "2026-10-21T07:30:00+09:00",
+      "summary": "新規事業に向いている人材は、どう見極め、育てればいいのか。コニカミノルタの宮木俊明氏と『新規事業の本質』著者の羽山友治氏が、人材開発やチームづくり、出島型組織の経験をもとに、大企業で乱立する新規事業をどう束ね、組織全体のイノベーションにつなげるかを議論した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "日本企業を狙ったAIサイバー攻撃の実態が判明 GMO調査",
-      "url": "https://ascii.jp/elem/000/004/443/4443912/?rss",
-      "published": "2026-10-20T09:00:00+09:00",
-      "summary": "GMOサイバーセキュリティ byイエラエは10月19日、日本企業を狙った不正アクセスの攻撃基盤を調べ、自律型のセキュリティ検証システム「ARTEX」が使われていることを確認したと発表した。"
+      "title": "AIが着こなしを自動再現。商品の寸法からシルエットの違いまでささげ業務を効率化",
+      "url": "https://ascii.jp/elem/000/004/443/4443867/?rss",
+      "published": "2026-10-21T07:00:00+09:00",
+      "summary": "グラムス株式会社は10月15日、ECサイト出品に必要な「ささげ業務」（撮影・採寸・原稿作成）を効率化するツール「SASAGE.APP」において、商品の実寸値を反映したモデル着用画像をつくる新機能「Virtual Try On Version 2（VTO2）」の提供を開始した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「営業電話が消えた」 ―― LINE WORKSの“電話番AI”は人手不足の中小企業を救うか",
-      "url": "https://ascii.jp/elem/000/004/443/4443582/?rss",
-      "published": "2026-10-20T09:00:00+09:00",
-      "summary": "今なお業務コミュニケーションの主役である「電話」。人手不足の多くの中小企業が、電話対応をやめられず、頻繁な業務中断に悩まされ続けているのが現状だ。"
+      "title": "ヤマトの宅配網を活用した対面マーケ支援。ネット広告が届かない層へ直接アプローチ",
+      "url": "https://ascii.jp/elem/000/004/443/4443866/?rss",
+      "published": "2026-10-21T07:00:00+09:00",
+      "summary": "株式会社パートナープロップは10月14日、ヤマト運輸株式会社と連携し、セールスドライバーの対面接点を活用したマーケティング支援サービス「こねこのお便り」の実証実験を開始したと発表した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "思った以上にいいことだらけ！ 録音できるAIリング「Vocci」に可能性を感じた！",
-      "url": "https://ascii.jp/elem/000/004/442/4442648/?rss",
-      "published": "2026-10-20T09:00:00+09:00",
-      "summary": "Gyges Labsが開発したリングデバイス「Vocci」は、持ち運びしやすい録音機です。AIによる「速く正確な文字起こし」だけでなく、ライフログを取り、記録の先にある思考や行動をサポートするデバイスとして要注目です。"
+      "title": "「ニューラル・ネットは読み解ける」主張、元オープンAI研究者に真意を聞く",
+      "url": "https://ascii.jp/elem/000/004/444/4444339/?rss",
+      "published": "2026-10-21T06:46:51+09:00",
+      "summary": "AIの解釈可能性研究を切り開いてきたグッドファイアの研究者ニック・カマラタのブログ投稿は、AIは理解できるという「良い知らせ」として熱狂的に受け止められた。だが本人は「何もかもが良い知らせというわけではありません」と言う。主張の核心は、完全な理解が不可能ではないという点だ。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "サンワサプライ、壁面・デスク下に設置できる19インチHUB収納キャビネット「CP-HBシリーズ」発売",
-      "url": "https://ascii.jp/elem/000/004/443/4443908/?rss",
-      "published": "2026-10-20T08:00:00+09:00",
-      "summary": "サンワサプライが、デスク下や壁面に省スペースで設置できる19インチHUB収納キャビネット「CP-HBシリーズ」6サイズを発売。アクリル窓、放熱スリット、鍵付き構造などを備え、配線整理と機器保護を両立する製品だ。"
+      "title": "AIブームに沸くサムスンの巨大半導体拠点、ピョンテクの建設現場を歩く",
+      "url": "https://ascii.jp/elem/000/004/444/4444340/?rss",
+      "published": "2026-10-21T06:37:25+09:00",
+      "summary": "韓国・ピョンテクでは、サムスンが水田の隣に巨大な半導体製造拠点を建設している。AIブームでメモリーチップの需要が急増する中、数千人の作業員が安全第一を掲げながら新たなファブの建設を進めている。"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Nscale and Anthropic are reportedly in talks for yet another $45 billion compute deal",
-      "url": "https://techcrunch.com/2026/10/19/nscale-and-anthropic-are-reportedly-in-talks-for-yet-another-45-billion-compute-deal/",
-      "published": "2026-10-20T08:39:38+09:00",
-      "summary": "In August, Nscale and Anthropic announced a $45 billion compute deal. The two companies are reportedly discussing yet another deal of the same magnitude."
+      "title": "Anthropic pitches AI safety bill that may block a model if 50+ people could be killed",
+      "url": "https://techcrunch.com/2026/10/20/anthropic-pitches-ai-safety-bill-that-may-block-a-model-if-50-people-could-be-killed/",
+      "published": "2026-10-21T08:01:23+09:00",
+      "summary": "The proposed policy seems to offer protections against AI run amok but actually forbids federal agencies from blocking a model's release without the permission of a judge."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Embedded AI evaluators won’t be an easy solution, Hugging Face’s policy chief says",
-      "url": "https://techcrunch.com/2026/10/19/embedded-ai-evaluators-wont-be-an-easy-solution-hugging-faces-policy-chief-says/",
-      "published": "2026-10-20T07:49:27+09:00",
-      "summary": "AI labs have staked their reputations on model benchmarking — the supposedly neutral and accurate system of evaluations that are designed to measure whether one AI product is better than another. Howe"
+      "title": "Hugging Face CEO warns that Netflix’s OpenAI hack documentary isn’t accurate",
+      "url": "https://techcrunch.com/2026/10/20/hugging-face-ceo-warns-that-netflixs-openai-hack-documentary-isnt-accurate/",
+      "published": "2026-10-21T07:24:02+09:00",
+      "summary": "Before you share the Netflix documentary \"AI Gone Rogue\" take note. Clem Delangue, Hugging Face's co-founder who is featured in the film, says it went \"full doomer mode\" and isn't accurate."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Microsoft says AI agents are like insider threats as ‘frontier models can’t be trusted’",
-      "url": "https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/",
-      "published": "2026-10-20T07:04:28+09:00",
-      "summary": "Microsoft wants enterprises to closely watch the agents employees use with systems not controlled by AI labs like OpenAI and Anthropic."
+      "title": "Anthropic’s cloud partnerships are getting messy",
+      "url": "https://techcrunch.com/2026/10/20/anthropics-cloud-partnerships-are-getting-messy/",
+      "published": "2026-10-21T06:25:22+09:00",
+      "summary": "Anthropic is reportedly struggling to secure enough compute from cloud providers that increasingly view it as a competitor, even as its infrastructure spending balloons ahead of a planned November IPO"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Amazon is taking its biggest shot at Nvidia yet with new TorchNeuron dev tool",
-      "url": "https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/",
-      "published": "2026-10-20T05:09:24+09:00",
-      "summary": "Amazon wants to break Nvidia’s hold on PyTorch, the free toolkit used to build most AI apps, so that more developers run their apps on alternative chips like its own."
+      "title": "SpaceX’s AI business is beating expectations",
+      "url": "https://techcrunch.com/2026/10/20/spacexs-ai-business-is-beating-expectations/",
+      "published": "2026-10-21T05:40:41+09:00",
+      "summary": "SpaceX hit profitably in the third-quarter, with net income of $4.4 billion. AI was the engine."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts",
-      "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
-      "published": "2026-10-20T04:28:34+09:00",
-      "summary": "OpenCode is an open source AI coding agent that's become a popular alternative to Claude Code and Cursor. But hackers got into part of its online platform and stole some users’ API keys, and the AI to"
+      "title": "OpenAI acquires startup Orchestra Bio⁠ to beef up its biotech business",
+      "url": "https://techcrunch.com/2026/10/20/openai-acquires-startup-orchestra-bio%e2%81%a0-to-beef-up-its-biotech-business/",
+      "published": "2026-10-21T05:35:10+09:00",
+      "summary": "OpenAI says it's adding Orchestra's team and technology to work on Rosalind, its AI model for life sciences research, and to its related Rosalind Workbench tool, a harness that aims to help researcher"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Tolan snags $30M for its AI companion that helps users navigate life",
-      "url": "https://techcrunch.com/2026/10/19/tolan-snags-30m-for-its-ai-companion-that-helps-users-navigate-life/",
-      "published": "2026-10-20T04:00:12+09:00",
-      "summary": "AI companion app Tolan has raised another $30 million after attracting more than 250,000 active users."
+      "title": "Google has joined Amazon in attacking Nvidia’s stronghold with AI app developers",
+      "url": "https://techcrunch.com/2026/10/20/google-has-joined-amazon-in-attacking-nvidias-stronghold-with-ai-app-developers/",
+      "published": "2026-10-21T03:38:24+09:00",
+      "summary": "Google has joined Amazon in releasing a developer tool that makes it easy for PyTorch users to move their apps off Nvidia GPUs."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Replika’s founder built the AI assistant she pitched at Disrupt 12 years ago",
-      "url": "https://techcrunch.com/2026/10/19/replikas-founder-built-the-ai-assistant-she-pitched-at-disrupt-12-years-ago/",
-      "published": "2026-10-20T03:49:04+09:00",
-      "summary": "Eugenia Kuyda's newest startup Wabi is positioned to take advantage of an idea she had more than a decade ago. Wabi offers a personal AI assistant with a twist, free and downloadable to anyone today."
+      "title": "ChatGPT now lets you lock your chats",
+      "url": "https://techcrunch.com/2026/10/20/chatgpt-now-lets-you-lock-your-chats/",
+      "published": "2026-10-21T03:36:53+09:00",
+      "summary": "The company says the feature is designed for situations where users might be discussing something personal or planning a surprise and want to keep those conversations private when handing their device"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Tenstorrent hits $6.2B valuation to scale open-weight AI chips",
-      "url": "https://techcrunch.com/2026/10/19/tenstorrent-hits-6-2b-valuation-to-scale-open-weight-ai-chips/",
-      "published": "2026-10-20T03:37:27+09:00",
-      "summary": "After drawing acquisition interest earlier this year, the Nvidia challenger raised $1.5 billion to remain independent."
+      "title": "Eric Schmidt reportedly owns about half as much of Anthropic as CEO Dario Amodei",
+      "url": "https://techcrunch.com/2026/10/20/eric-schmidt-reportedly-owns-about-half-as-much-of-anthropic-as-ceo-dario-amodei/",
+      "published": "2026-10-21T02:55:12+09:00",
+      "summary": "The former Google CEO owns about 1% stake in the leading AI lab, Bloomberg reported."
     }
   ]
 }
