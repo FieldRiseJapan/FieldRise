@@ -1,6 +1,6 @@
-# 2026-10-19（月）朝の定時報告
+# 2026-10-20（火）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:39 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:25 JST
 
 ---
 
@@ -16,14 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-10-19（月） | 雨 | 26.1°C / 18.9°C | 6.2mm | 73% | 6.8km/h |
-| 2026-10-20（火） | 一部曇り | 25.9°C / 20.2°C | 0.0mm | 20% | 7.2km/h |
-| 2026-10-21（水） | 霧雨 | 28.6°C / 15.7°C | 1.6mm | 96% | 17.9km/h |
-| 2026-10-22（木） | 一部曇り | 20.7°C / 14.1°C | 0.0mm | 2% | 12.9km/h |
-| 2026-10-23（金） | 霧雨（弱） | 21.9°C / 13.0°C | 0.6mm | 44% | 17.9km/h |
-
-**【農業アラート】**
-- 降水確率70%以上。屋外作業の予定調整をおすすめします。
+| 2026-10-20（火） | 一部曇り | 24.3°C / 20.2°C | 0.0mm | 10% | 8.1km/h |
+| 2026-10-21（水） | 雨（弱） | 28.5°C / 16.3°C | 2.8mm | 98% | 17.4km/h |
+| 2026-10-22（木） | 晴れ | 20.9°C / 13.6°C | 0.0mm | 16% | 7.4km/h |
+| 2026-10-23（金） | にわか雨 | 21.9°C / 13.1°C | 12.4mm | 70% | 17.6km/h |
+| 2026-10-24（土） | にわか雨 | 21.1°C / 17.7°C | 36.9mm | 88% | 10.5km/h |
 
 
 ---
@@ -32,21 +29,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [Anthropic、社内でAIエージェントの稼働時間が人間の6倍に 技術系初級職の採用比率は27％→9％に激減](https://www.itmedia.co.jp/news/article/2610/19/2000002353/) — ITmedia AI+
-- [Newオンプレミス、RAG、SREはもう“幻滅期” 2026年、「過度な期待」のピークにある5項目とは？](https://atmarkit.itmedia.co.jp/ait/articles/2610/19/news029.html) — ITmedia AI+
-- [「言い訳文化」から脱却のNECが足立区に伝授した生成AI活用術とは データ活用“逆算”の鉄則](https://kn.itmedia.co.jp/kn/article/2610/19/2000002342/) — ITmedia AI+
-- [「11回止めたのに本番DBが消えた」 AIエージェント“6つの暴走”と、人間の承認を増やしても防げない理由](https://atmarkit.itmedia.co.jp/ait/articles/2610/18/news004.html) — ITmedia AI+
-- [「そもそも親にAIなんて必要ない」 65歳以上の生成AI利用、子世代の7割が拒否する理由](https://atmarkit.itmedia.co.jp/ait/articles/2610/17/news007.html) — ITmedia AI+
-- [不正アクセス多発、Gartnerが日本企業に「7つのアクション」を緊急提言](https://www.itmedia.co.jp/enterprise/articles/2610/16/news048.html) — ITmedia AI+
+- [米国土安全保障省、中国DeepSeek製品を連邦民間機関から排除する命令](https://www.itmedia.co.jp/news/article/2610/20/2000002405/) — ITmedia AI+
+- [「データセンター×発電設備」一体開発がトレンド？ 日立・東京ガスが九州で計画、JERAは千葉で 狙いは](https://www.itmedia.co.jp/business/articles/2610/20/news051.html) — ITmedia AI+
+- [「税金で動かす以上……」 政府18万人が使うAI「源内」の「コストに関する工夫」とは](https://www.itmedia.co.jp/business/articles/2610/20/news012.html) — ITmedia AI+
+- [AI活用で「年3万5000時間削減」の江戸川区 「配って終わり」にさせないコツは？ 5年で培った実践知を聞く](https://www.itmedia.co.jp/business/articles/2610/20/news011.html) — ITmedia AI+
+- [“テスラ超え”狙う――チューリング「完全自動運転」までの道 「GPUより速いチップ」使った開発のウラ側](https://www.itmedia.co.jp/business/articles/2610/20/news017.html) — ITmedia AI+
+- [「日本を愛している。見過ごせない」――“100億円配布”のセキュリティ支援策、トレンドマイクロCEOが見せた危機感](https://www.itmedia.co.jp/business/articles/2610/20/news041.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’](https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/) — TechCrunch AI
-- [Disney agrees to hire the majority of Character.AI’s workforce](https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/) — TechCrunch AI
-- [Meta removes language that raised scraping and AI training concerns](https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/) — TechCrunch AI
-- [Anthropic says its workforce has become less junior and is spending more time in meetings](https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/) — TechCrunch AI
-- [Replit makes OpenAI its default over Anthropic, CEO says](https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/) — TechCrunch AI
-- [India becomes the latest country to report rogue AI agent activity](https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/) — TechCrunch AI
+- [Nscale and Anthropic are reportedly in talks for yet another $45 billion compute deal](https://techcrunch.com/2026/10/19/nscale-and-anthropic-are-reportedly-in-talks-for-yet-another-45-billion-compute-deal/) — TechCrunch AI
+- [Embedded AI evaluators won’t be an easy solution, Hugging Face’s policy chief says](https://techcrunch.com/2026/10/19/embedded-ai-evaluators-wont-be-an-easy-solution-hugging-faces-policy-chief-says/) — TechCrunch AI
+- [Microsoft says AI agents are like insider threats as ‘frontier models can’t be trusted’](https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/) — TechCrunch AI
+- [Amazon is taking its biggest shot at Nvidia yet with new TorchNeuron dev tool](https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/) — TechCrunch AI
+- [Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts](https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/) — TechCrunch AI
+- [Tolan snags $30M for its AI companion that helps users navigate life](https://techcrunch.com/2026/10/19/tolan-snags-30m-for-its-ai-companion-that-helps-users-navigate-life/) — TechCrunch AI
 
 
 ---
@@ -65,7 +62,7 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 ## 4. 本日のワンポイントコメント
 
 🌾 **農業**
-雨の予報です。屋外作業の予定調整をおすすめします。
+良好な天気が予想されます。農作業を進めるのに適した一日です。
 
 🎵 **音楽**
 朝です。Cafeシリーズのコンセプト整理に集中するのに適した時間帯です。

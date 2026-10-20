@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-10-20T09:25:27.642477+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "米国土安全保障省、中国DeepSeek製品を連邦民間機関から排除する命令",
+      "url": "https://www.itmedia.co.jp/news/article/2610/20/2000002405/",
+      "published": "2026-10-20T07:07:09+09:00",
+      "summary": "米国土安全保障省は、中国DeepSeekの製品および関連サービスを連邦民間機関の調達とITシステムから排除する命令を官報で公示した。自社製だけでなく、同社の実装を用いた第三者製品も排除対象とする。連邦調達サプライチェーン安全法に基づく措置で、勧告と証拠を検討した上で発令された。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「データセンター×発電設備」一体開発がトレンド？ 日立・東京ガスが九州で計画、JERAは千葉で 狙いは",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news051.html",
+      "published": "2026-10-20T07:00:00+09:00",
+      "summary": "日立製作所や東京ガスなど4社が、データセンターと電源設備を一体開発するため協業した。関東と九州でデータセンター開発計画を策定する。発電大手JERAも、発電所一体型データセンターを建設中だ。一体型が増える背景には何があるのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「税金で動かす以上……」 政府18万人が使うAI「源内」の「コストに関する工夫」とは",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news012.html",
+      "published": "2026-10-20T07:00:00+09:00",
+      "summary": "デジタル庁は、全府省庁の職員約18万人に生成AI「源内」を提供する。情報の機密性、税金で運用するAIのコスト感など解決しなければならない課題も多い。AI活用にどう取り組むのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AI活用で「年3万5000時間削減」の江戸川区 「配って終わり」にさせないコツは？ 5年で培った実践知を聞く",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news011.html",
+      "published": "2026-10-20T07:00:00+09:00",
+      "summary": "江戸川区がAI活用によって年3万5000時間の削減に成功した。約5年でさまざまな活用事例を蓄積。「ツールを配って終わり」にさせない導入のポイントとは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "“テスラ超え”狙う――チューリング「完全自動運転」までの道 「GPUより速いチップ」使った開発のウラ側",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news017.html",
+      "published": "2026-10-20T07:00:00+09:00",
+      "summary": "「テスラ超え」を掲げる自動運転スタートアップのTuringは、AI技術の開発を加速させている。しかし「GPUを増やすだけでは開発スピードが上がらなかった」という。この課題をどう乗り越えたのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「日本を愛している。見過ごせない」――“100億円配布”のセキュリティ支援策、トレンドマイクロCEOが見せた危機感",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/20/news041.html",
+      "published": "2026-10-20T06:40:00+09:00",
+      "summary": "相次ぐセキュリティ事案を受けて、トレンドマイクロが100億規模の「緊急支援」を打ち出した。国内法人のセキュリティ対策ツール導入などを支援する。会見でCEOが語ったのは、この状況に対する危機感だった。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「保守的な日本の現場に合う」導入2500時間の壁を壊す倉庫AI、IFS Softeonの真価",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/20/news044.html",
+      "published": "2026-10-20T06:30:00+09:00",
+      "summary": "IFSとIFS Softeonは、倉庫向けAIの新機能「Fulfillment Flow」を発表した。6つの現場特化型AIエージェントが連携し、「部分最適のしわ寄せ」を解消する。同社 最高収益責任者（CRO）のメイリー氏へのインタビューを交え、あえてシステムを統合しない独自戦略や、保守的な日本の現場に適合するAIの姿と今後の展望をひもとく。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "高性能AIによるゼロデイ攻撃にどう備える？ サイバー防御の鍵を握る「ハーネス」とは",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/20/2000002396/",
+      "published": "2026-10-20T06:00:00+09:00",
+      "summary": "高性能AIの登場により、未知の脆弱性の発見から攻撃の実行までを自律的に進めるサイバー攻撃が現実となった。攻撃と防御の鍵を握る「ハーネス」の役割と、被害を最小限に抑えるための4つの対策を解説する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「Key」の人気クリエイター・麻枝准氏が咽頭がん 緩和ケアを選択、「ヘブバン」の制作状況も説明",
+      "url": "https://ascii.jp/elem/000/004/443/4443916/?rss",
+      "published": "2026-10-20T09:15:00+09:00",
+      "summary": "ビジュアルアーツは10月19日、所属クリエイターの麻枝准氏が咽頭がんと診断され、緩和ケアを中心とした療養を選択したと公表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ニフティに不正アクセス、最大54万件漏えいの可能性",
+      "url": "https://ascii.jp/elem/000/004/443/4443915/?rss",
+      "published": "2026-10-20T09:10:00+09:00",
+      "summary": "abstract"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ソフトバンク、不正アクセスの試みを検知 「My SoftBank」などサービス停止",
+      "url": "https://ascii.jp/elem/000/004/443/4443913/?rss",
+      "published": "2026-10-20T09:05:00+09:00",
+      "summary": "ソフトバンクは10月19日、会員サイト「My SoftBank」の一部システムへの不正アクセスの試みを確認し、顧客情報の安全措置として「My SoftBank」「My Y!mobile」「My Menu」のウェブサイトを一時停止していると発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "日本企業を狙ったAIサイバー攻撃の実態が判明 GMO調査",
+      "url": "https://ascii.jp/elem/000/004/443/4443912/?rss",
+      "published": "2026-10-20T09:00:00+09:00",
+      "summary": "GMOサイバーセキュリティ byイエラエは10月19日、日本企業を狙った不正アクセスの攻撃基盤を調べ、自律型のセキュリティ検証システム「ARTEX」が使われていることを確認したと発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「営業電話が消えた」 ―― LINE WORKSの“電話番AI”は人手不足の中小企業を救うか",
+      "url": "https://ascii.jp/elem/000/004/443/4443582/?rss",
+      "published": "2026-10-20T09:00:00+09:00",
+      "summary": "今なお業務コミュニケーションの主役である「電話」。人手不足の多くの中小企業が、電話対応をやめられず、頻繁な業務中断に悩まされ続けているのが現状だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "思った以上にいいことだらけ！ 録音できるAIリング「Vocci」に可能性を感じた！",
+      "url": "https://ascii.jp/elem/000/004/442/4442648/?rss",
+      "published": "2026-10-20T09:00:00+09:00",
+      "summary": "Gyges Labsが開発したリングデバイス「Vocci」は、持ち運びしやすい録音機です。AIによる「速く正確な文字起こし」だけでなく、ライフログを取り、記録の先にある思考や行動をサポートするデバイスとして要注目です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "サンワサプライ、壁面・デスク下に設置できる19インチHUB収納キャビネット「CP-HBシリーズ」発売",
+      "url": "https://ascii.jp/elem/000/004/443/4443908/?rss",
+      "published": "2026-10-20T08:00:00+09:00",
+      "summary": "サンワサプライが、デスク下や壁面に省スペースで設置できる19インチHUB収納キャビネット「CP-HBシリーズ」6サイズを発売。アクリル窓、放熱スリット、鍵付き構造などを備え、配線整理と機器保護を両立する製品だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "最大5000ポイント獲得！ Suicaの新決済「teppay」開始、20％還元キャンペーンの条件と注意点",
+      "url": "https://ascii.jp/elem/000/004/443/4443821/?rss",
+      "published": "2026-10-20T07:00:00+09:00",
+      "summary": "JR東日本のコード決済「teppay」の機能と導入手順を解説します。Suicaの2万円上限を超える支払い、送金、ポイント連携に対応し、20％還元キャンペーンの条件や期間限定ポイントの注意点も紹介。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nscale and Anthropic are reportedly in talks for yet another $45 billion compute deal",
+      "url": "https://techcrunch.com/2026/10/19/nscale-and-anthropic-are-reportedly-in-talks-for-yet-another-45-billion-compute-deal/",
+      "published": "2026-10-20T08:39:38+09:00",
+      "summary": "In August, Nscale and Anthropic announced a $45 billion compute deal. The two companies are reportedly discussing yet another deal of the same magnitude."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Embedded AI evaluators won’t be an easy solution, Hugging Face’s policy chief says",
+      "url": "https://techcrunch.com/2026/10/19/embedded-ai-evaluators-wont-be-an-easy-solution-hugging-faces-policy-chief-says/",
+      "published": "2026-10-20T07:49:27+09:00",
+      "summary": "AI labs have staked their reputations on model benchmarking — the supposedly neutral and accurate system of evaluations that are designed to measure whether one AI product is better than another. Howe"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Microsoft says AI agents are like insider threats as ‘frontier models can’t be trusted’",
+      "url": "https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/",
+      "published": "2026-10-20T07:04:28+09:00",
+      "summary": "Microsoft wants enterprises to closely watch the agents employees use with systems not controlled by AI labs like OpenAI and Anthropic."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Amazon is taking its biggest shot at Nvidia yet with new TorchNeuron dev tool",
+      "url": "https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/",
+      "published": "2026-10-20T05:09:24+09:00",
+      "summary": "Amazon wants to break Nvidia’s hold on PyTorch, the free toolkit used to build most AI apps, so that more developers run their apps on alternative chips like its own."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts",
+      "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+      "published": "2026-10-20T04:28:34+09:00",
+      "summary": "OpenCode is an open source AI coding agent that's become a popular alternative to Claude Code and Cursor. But hackers got into part of its online platform and stole some users’ API keys, and the AI to"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Tolan snags $30M for its AI companion that helps users navigate life",
+      "url": "https://techcrunch.com/2026/10/19/tolan-snags-30m-for-its-ai-companion-that-helps-users-navigate-life/",
+      "published": "2026-10-20T04:00:12+09:00",
+      "summary": "AI companion app Tolan has raised another $30 million after attracting more than 250,000 active users."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Replika’s founder built the AI assistant she pitched at Disrupt 12 years ago",
+      "url": "https://techcrunch.com/2026/10/19/replikas-founder-built-the-ai-assistant-she-pitched-at-disrupt-12-years-ago/",
+      "published": "2026-10-20T03:49:04+09:00",
+      "summary": "Eugenia Kuyda's newest startup Wabi is positioned to take advantage of an idea she had more than a decade ago. Wabi offers a personal AI assistant with a twist, free and downloadable to anyone today."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Tenstorrent hits $6.2B valuation to scale open-weight AI chips",
+      "url": "https://techcrunch.com/2026/10/19/tenstorrent-hits-6-2b-valuation-to-scale-open-weight-ai-chips/",
+      "published": "2026-10-20T03:37:27+09:00",
+      "summary": "After drawing acquisition interest earlier this year, the Nvidia challenger raised $1.5 billion to remain independent."
+    }
+  ]
+}
