@@ -1,0 +1,144 @@
+{
+  "collected_at": "2026-10-22T09:02:27.899066+09:00",
+  "total_items": 16,
+  "errors": [
+    {
+      "source": "ASCII.jp AI",
+      "error": "HTTP Error 503: Service Temporarily Unavailable"
+    },
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIで“ゴジラになって”街破壊 富士通が体験型展示 「体操の採点システム」活用",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/22/2000002364/",
+      "published": "2026-10-22T08:00:00+09:00",
+      "summary": "AIで“ゴジラになって”街を破壊する――富士通が「CEATEC 2026」で公開した体験型展示「GODZILLA in Motion」の狙いとは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIカメラで「最後の砦は人」を脱却、レンゴーとキリンビールの工場安全DX",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/22/news017.html",
+      "published": "2026-10-22T08:00:00+09:00",
+      "summary": "「ファクトリーイノベーションWeeK2026秋」において、特別講演「【工場の安全対策】AI／デジタルICTで従業員の安全を守るには」が行われ、レンゴーとキリンビールが登壇した。AIやIoT、ウェアラブル機器などを活用した安全対策に関する両社の講演を抜粋して紹介する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "なぜルネサスは、TSMCに勝てなかったのか “電子立国ニッポン”当時を知る日立のキーマンが語る",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/22/news021.html",
+      "published": "2026-10-22T07:00:00+09:00",
+      "summary": "業績が好調な半導体大手のTSMC。かつては日本も半導体が強い時期があった。なぜルネサスは勝てなかったのか。当時を知る日立製作所のキーマンが語った。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "クレーム対応ばかりでオペレーターが辞めていく 「カスハラ義務化」時代にAIはどう現場を守る？",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/22/news033.html",
+      "published": "2026-10-22T07:00:00+09:00",
+      "summary": "簡単な問い合わせをAIに任せた結果、現場に難解なクレームだけが残りオペレーターが疲弊する――。AI導入で起きるコンタクトセンターの皮肉な逆転現象と、カスハラ対策義務化に企業はどう向き合うべきか。世界大手Genesysのアジア太平洋営業責任者に、業務支援AIによる現場防衛術や「65％は人間と話したい」という顧客心理、そしてコスト削減の自動化からCX向上へシフトする運用の要諦を聞いた。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "SynopsysとAnsysの技術統合が切り開く、AI時代の新たな設計／解析プロセス",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/22/news029.html",
+      "published": "2026-10-22T07:00:00+09:00",
+      "summary": "アンシス・ジャパンは、年次イベント「Ansys Simulation World 2026 Japan」を開催した。基調講演と特別セッションでは、SynopsysとAnsysの技術統合によって進む半導体からシステム全体までを対象とした設計／解析環境の進化や、AIと物理シミュレーションを組み合わせたエンジニアリングの将来像を紹介。さらに、AIエージェントによる解析業務の効率化、デジタルツインやフィジ"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "なぜ上場を捨ててまでAIに賭けたのか？ カオナビが非公開化して進める「脱・勘と経験の人事」",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/22/news032.html",
+      "published": "2026-10-22T07:00:00+09:00",
+      "summary": "人事データを可視化しても「勘と経験と社内政治」で決まる日本の人事。タレントマネジメント大手カオナビはこの課題に終止符を打つべく、株式非公開化という重い決断を下した。四半期決算の呪縛を断ち、5年間をAIと人事データの融合にあてる。同社が掲げる「タレントインテリジェンス」構想の全貌とは。2030年の再上場を見据えた佐藤寛之CEOの背水の変革戦略に迫る。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "旧世代NVIDIAを循環利用、クラウド接続の「自社専用AI基盤」を1GPUから提供",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/22/news039.html",
+      "published": "2026-10-22T06:45:00+09:00",
+      "summary": "エクストリームーDら3社は、中古GPUを活用したAIインフラサービス「Raplase RCA」を開始した。最短即日かつ1GPUから定額利用でき、柔軟な構成変更にも対応する。機密データを扱う製造業が求める「プライベートAI」を低コストで実現する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "三菱電機、ヒューマノイドと工作機械が連携して加工 JIMTOF20226でデモ",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/21/news073.html",
+      "published": "2026-10-22T06:15:00+09:00",
+      "summary": "三菱電機は、フィジカルAIを介してヒューマノイドロボットとCNC工作機械が連携する加工システムを開発した。自然言語の指示から加工タスクを自動生成し、現場の省人化に貢献する。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Blackstone’s Jas Khaira says fears over AI-buildout debt are overblown",
+      "url": "https://techcrunch.com/2026/10/21/blackstones-jas-khaira-says-fears-over-ai-buildout-debt-are-overblown/",
+      "published": "2026-10-22T07:51:22+09:00",
+      "summary": "Blackstone’s AI head on why the PE giant isn't panicked by market jitters."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "TechCrunch Founder Summit 2026: Everything you need to know",
+      "url": "https://techcrunch.com/2026/10/21/techcrunch-founder-summit-2026-everything-you-need-to-know/",
+      "published": "2026-10-22T06:16:20+09:00",
+      "summary": "TechCrunch Founder Summit is a full-day gathering in Boston on November 4 where founders across all stages connect with top VCs and experienced entrepreneurs to gain tactical insights on building and "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta says Muse has over 10M users, with shopping a top activity",
+      "url": "https://techcrunch.com/2026/10/21/meta-says-muse-has-over-10m-users-with-shopping-a-top-activity/",
+      "published": "2026-10-22T06:14:19+09:00",
+      "summary": "Meta Muse users are adopting the app for shopping and personal productivity, the company said during Q3 earnings. The AI app now has over 10M users."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Recursive launches Flint, a laptop coding model it says was largely built by AI",
+      "url": "https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/",
+      "published": "2026-10-22T05:27:41+09:00",
+      "summary": "Startup Recursive has released Flint, a free, laptop-sized coding model built largely by its own AI research system, as an early test of AI that improves itself."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "While Amazon blocks AI agents, Walmart rolls out the welcome mat",
+      "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/",
+      "published": "2026-10-22T04:30:00+09:00",
+      "summary": "As Amazon blocks AI agents from shopping on its site, Walmart is taking the opposite approach, introducing new technology that lets AI agents make purchases on customers' behalf, with controls over sp"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "PHP Armageddon: OpenAI, Google’s Wiz find ancient holes, panicking the internet",
+      "url": "https://techcrunch.com/2026/10/21/php-armageddon-openai-googles-wiz-find-ancient-holes-panicking-the-internet/",
+      "published": "2026-10-22T02:59:12+09:00",
+      "summary": "This is the kind of security issue that was found and prevented by AI, but is also a high risk because of AI."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Blacksmith hits unicorn valuation after Sequoia leads Series C",
+      "url": "https://techcrunch.com/2026/10/21/blacksmith-hits-unicorn-valuation-after-sequoia-leads-series-c/",
+      "published": "2026-10-22T02:18:27+09:00",
+      "summary": "Blacksmith, a platform that lets companies build and test AI code more effectively, just announced a $66 million Series C round led by Sequoia that values the company at $1 billion."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "AI promises productivity, but for managers, it’s mostly a headache for now",
+      "url": "https://techcrunch.com/2026/10/21/ai-promises-productivity-but-for-managers-its-mostly-a-headache-for-now-says-new-survey/",
+      "published": "2026-10-21T23:00:00+09:00",
+      "summary": "More than 50% of managers say they're finding it harder to evaluate employees' work after adopting AI, according to a new survey."
+    }
+  ]
+}
