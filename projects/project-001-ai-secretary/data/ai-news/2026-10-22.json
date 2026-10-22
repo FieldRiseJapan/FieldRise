@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-22T09:02:27.899066+09:00",
+  "collected_at": "2026-10-22T09:11:49.224970+09:00",
   "total_items": 16,
   "errors": [
     {
@@ -12,6 +12,14 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Google Cloudに「Astra」含むOpenAIのモデルが追加 「主要3社のクローズドモデル使える唯一のハイパースケーラー」に",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/22/2000002487/",
+      "published": "2026-10-22T08:52:59+09:00",
+      "summary": "Google CloudのModel GardenにOpenAIの「GPT-6 Astra」「GPT-6.1 Sol」「GPT-6 Luna」が追加された。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -67,14 +75,6 @@
       "url": "https://monoist.itmedia.co.jp/mn/articles/2610/22/news039.html",
       "published": "2026-10-22T06:45:00+09:00",
       "summary": "エクストリームーDら3社は、中古GPUを活用したAIインフラサービス「Raplase RCA」を開始した。最短即日かつ1GPUから定額利用でき、柔軟な構成変更にも対応する。機密データを扱う製造業が求める「プライベートAI」を低コストで実現する。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "三菱電機、ヒューマノイドと工作機械が連携して加工 JIMTOF20226でデモ",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/21/news073.html",
-      "published": "2026-10-22T06:15:00+09:00",
-      "summary": "三菱電機は、フィジカルAIを介してヒューマノイドロボットとCNC工作機械が連携する加工システムを開発した。自然言語の指示から加工タスクを自動生成し、現場の省人化に貢献する。"
     },
     {
       "source": "TechCrunch AI",

@@ -1,6 +1,6 @@
 # 2026-10-22（木）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:02 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:12 JST
 
 ---
 
@@ -32,12 +32,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [Google Cloudに「Astra」含むOpenAIのモデルが追加 「主要3社のクローズドモデル使える唯一のハイパースケーラー」に](https://www.itmedia.co.jp/aiplus/article/2610/22/2000002487/) — ITmedia AI+
 - [AIで“ゴジラになって”街破壊 富士通が体験型展示 「体操の採点システム」活用](https://www.itmedia.co.jp/aiplus/article/2610/22/2000002364/) — ITmedia AI+
 - [AIカメラで「最後の砦は人」を脱却、レンゴーとキリンビールの工場安全DX](https://monoist.itmedia.co.jp/mn/articles/2610/22/news017.html) — ITmedia AI+
 - [なぜルネサスは、TSMCに勝てなかったのか “電子立国ニッポン”当時を知る日立のキーマンが語る](https://www.itmedia.co.jp/business/articles/2610/22/news021.html) — ITmedia AI+
 - [クレーム対応ばかりでオペレーターが辞めていく 「カスハラ義務化」時代にAIはどう現場を守る？](https://www.itmedia.co.jp/business/articles/2610/22/news033.html) — ITmedia AI+
 - [SynopsysとAnsysの技術統合が切り開く、AI時代の新たな設計／解析プロセス](https://monoist.itmedia.co.jp/mn/articles/2610/22/news029.html) — ITmedia AI+
-- [なぜ上場を捨ててまでAIに賭けたのか？ カオナビが非公開化して進める「脱・勘と経験の人事」](https://www.itmedia.co.jp/business/articles/2610/22/news032.html) — ITmedia AI+
 
 **海外AIニュース**
 
