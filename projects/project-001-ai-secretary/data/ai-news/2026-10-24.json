@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-10-24T08:52:32.996268+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「それは“FDE”ではない、ラベルの貼り替えだ」 結局、割高なベンダー依存から抜け出せない企業の共通点",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/24/news006.html",
+      "published": "2026-10-24T08:15:00+09:00",
+      "summary": "Gartnerは、FDE（Forward Deployed Engineering）によって構築されたエージェント型AIについて、2028年までに企業の7割が放棄するとの予測を発表した。どういうことか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「Claude Mythos 5」、危害の兆候を顧みず実在の開発者を標的に──AnthropicとAISIが分析結果を公開",
+      "url": "https://www.itmedia.co.jp/news/article/2610/24/2000002564/",
+      "published": "2026-10-24T07:28:08+09:00",
+      "summary": "Anthropicと英AI安全保障研究所AISIは、「Claude Mythos 5」がサイバー能力評価中に実在の開発者を標的とした事案の分析報告を公開した。GitHub経由で無許可の攻撃を行い偽身元で承認を迫った経緯を報告。実在の人物と認識しても攻撃を正当化して続行する傾向が確認され、評価手法の見直しが進む。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "チームみらい安野貴博党首ら「サイバー攻撃から国民守る」緊急提言、デジ庁に提出 「AIにはAIを」",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/23/2000002563/",
+      "published": "2026-10-23T22:56:59+09:00",
+      "summary": "チームみらいの安野貴博党首らは、AI活用による防御力強化や攻撃の実態把握、情報漏えい被害発生後の措置などをまとめた緊急提言をデジタル庁に提出した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "サイバー攻撃AIツール「ARTEX」とは 中国政府と連携する攻撃者も使用、各国で悪用確認",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/23/2000002552/",
+      "published": "2026-10-23T17:37:57+09:00",
+      "summary": "中国語話者の開発者が「学習と研究目的」で公開したAI自律型侵入テストツール「ARTEX」。MicrosoftやCrowdStrikeが悪用例を報告し、日本企業約20社への攻撃にも使われた。作者は公開を停止したが、改変版が増殖している。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「エージェント向け1Password」発表 AIにパスワード渡さずアクセス権限付与可能に",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/23/2000002545/",
+      "published": "2026-10-23T15:24:45+09:00",
+      "summary": "1PasswordはAIエージェントにパスワードを渡さずにアクセス権限を付与できるサービス「1Password for Agents」を発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "チームみらい安野氏「電力、水道、医療などの停止を伴う被害を想定すべき」 デジ庁に緊急提言へ、AI悪用のサイバー攻撃受け",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/22/2000002518/",
+      "published": "2026-10-23T14:05:53+09:00",
+      "summary": "チームみらいの党首、安野貴博氏はAIを使ったサイバー攻撃に「一刻も早く対策を講じるべき」と警鐘を鳴らした。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "プロンプトガチャはもう古い――「ハーネスの父」が明かす、AI駆動開発の極意",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/23/news030.html",
+      "published": "2026-10-23T12:45:00+09:00",
+      "summary": "Googleは、AIエージェントによる開発をテーマにした解説動画「The Agent Factory」を要約した記事を公開した。Googleのエンジニアがエージェントハーネスの重要性を語っている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "“あいまいな指示”を入力されたAIは安全なコーディングができない？ 香港科技大などが調査",
+      "url": "https://www.itmedia.co.jp/news/article/2610/23/2000002513/",
+      "published": "2026-10-23T12:00:00+09:00",
+      "summary": "香港科技大学などに所属する研究者らが7月に発表した論文「Coding Agents Are Guessing: Measuring Action-Boundary Violations in Underspecified DevOps Instructions」は、あいまいな指示を受けたコーディングAIがどのような振る舞いをみせるかを調査した研究報告だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【来週発売】出た！ めん・わかめ・ごま・スパイスが全部20％増量！ わかめラーメン「マシマシ嵐！」",
+      "url": "https://ascii.jp/elem/000/004/445/4445320/?rss",
+      "published": "2026-10-24T07:00:00+09:00",
+      "summary": "エースコックは10月26日、「マシマシ嵐！わかめラーメン ごま・しょうゆ」を北海道、東北、関東、信越限定で発売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "KDDI子会社が関わったモンゴル草原火災で謝罪 プレスリリースで同社の見解を表明",
+      "url": "https://ascii.jp/elem/000/004/445/4445450/?rss",
+      "published": "2026-10-24T06:00:00+09:00",
+      "summary": "KDDIは10月23日、モンゴルの子会社が関わった草原火災についてプレスリリースで同社の見解を表明した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "世界最小フルサイズカメラ「Sigma FP2」発表会＆実機速報!!＝部分積層型センサー・チルト液晶・70GBSSD・大容量バッテリー搭載!!",
+      "url": "https://ascii.jp/elem/000/004/445/4445448/?rss",
+      "published": "2026-10-24T03:00:00+09:00",
+      "summary": "BFが出て、もうfpはないと思っていたユーザーが歓声を上げた、新FP2の発表会レポートです"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "最大7万8000円オフ！ パソコンショップSEVEN、ゲーミングPC全10商品が対象の10月24日限定セール",
+      "url": "https://ascii.jp/elem/000/004/444/4444349/?rss",
+      "published": "2026-10-24T00:00:00+09:00",
+      "summary": "パソコンショップSEVENが10月24日に24時間限定セールを開催し、最新のゲーミングPCやデスクトップPCを最大78,000円オフで販売する。全10商品が対象で、特設ページから購入できる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【Sensei Pro / Rival Pro】通信飛びも充電待ちもゼロ!? 49gの超軽量で復活したSteelSeriesの伝説マウス",
+      "url": "https://ascii.jp/elem/000/004/445/4445343/?rss",
+      "published": "2026-10-23T23:00:00+09:00",
+      "summary": "SteelSeriesの伝説的マウス「Sensei Pro」と「Rival Pro」が復活しました。混雑に強いUWB技術による8Kワイヤレス接続と、充電待ちをなくす交換式バッテリーを採用しつつ、最軽量49gを実現。プロチームも絶賛する、競技シーンに最適な次世代ゲーミングマウスです。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "麦わらの一味とお店を経営！ Switch 2『ONE PIECE 海のごちそうレストラン』",
+      "url": "https://ascii.jp/elem/000/004/445/4445396/?rss",
+      "published": "2026-10-23T21:00:00+09:00",
+      "summary": "Amazon.co.jpにて、バンダイナムコエンターテインメントが販売するNintendo Switch 2用ソフト「ONE PIECE 海のごちそうレストラン」が販売中です。ワンピース好きにはたまらない、ドット絵海上レストラン経営シミュレーションゲームとなります。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ノートPCの買い替え、欲しいのは「ちょうどいい」1台！ ASUS「Vivobook Go 15」がOffice2年分付きで18％オフの13万9800円",
+      "url": "https://ascii.jp/elem/000/004/445/4445125/?rss",
+      "published": "2026-10-23T20:10:00+09:00",
+      "summary": "ASUSの15.6型ノートPC「Vivobook Go 15（E1504FA-R5165BLSAM）」がAmazonのタイムセール対象。過去価格169,800円から18％オフの139,800円で販売中。Ryzen 5 40、16GBメモリ、512GB SSDを搭載し、Microsoft 365 Personal（24か月版）も付属。テンキー付き日本語キーボードを備え、毎日の作業に使いやすい構成だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "限界なき“戦場体験”へ！シリーズ最新作「Modern Warfare 4」",
+      "url": "https://ascii.jp/elem/000/004/445/4445382/?rss",
+      "published": "2026-10-23T20:00:00+09:00",
+      "summary": "Amazon.co.jpにて、アクティビジョンのミリタリーFPS最新作「Call of Duty: Modern Warfare 4」が販売中。キャンペーンやマルチプレイ、脱出を目指すDMZモードなどを楽しめます。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI says it will no longer train its AI models on the live internet, citing “significant risks”",
+      "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
+      "published": "2026-10-24T08:05:49+09:00",
+      "summary": "OpenAI will cut frontier models off from the internet weeks after one of its engineers said that solution wouldn't work."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Hottest toy for Christmas? Nvidia CEO plays with adorable Microduck robots, 20,000 sell",
+      "url": "https://techcrunch.com/2026/10/23/hottest-toy-for-christmas-nvidia-ceo-plays-with-adorable-microduck-robots-20000-sell/",
+      "published": "2026-10-24T06:59:19+09:00",
+      "summary": "The robots, stomping their little feet and making tiny R2-D2 noises, sat, fell down dead for a \"nap,\" and summersaulted on voice command."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "From Toast to Bessemer: Who founders will hear from at TechCrunch Founder Summit 2026",
+      "url": "https://techcrunch.com/2026/10/23/from-toast-to-bessemer-who-founders-will-hear-from-at-techcrunch-founder-summit-2026/",
+      "published": "2026-10-24T04:06:23+09:00",
+      "summary": "Hosted by TechCrunch in partnership with Fidelity Private Shares, the full-day event goes beyond fundraising and AI to explore the realities of finding customers, building teams, sharpening a pitch, d"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony AI and Nvidia",
+      "url": "https://techcrunch.com/2026/10/22/uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia-with-pony-ai-and-nvidia/",
+      "published": "2026-10-23T13:00:00+09:00",
+      "summary": "The company plans to begin testing Pony.ai's robotaxis in Kazakhstan's capital in the first half of 2027."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Left alone with nothing to do, AI agents started playing",
+      "url": "https://techcrunch.com/2026/10/22/left-alone-with-nothing-to-do-ai-agents-started-playing/",
+      "published": "2026-10-23T09:45:37+09:00",
+      "summary": "MIT researchers marooned 13 AIs on a virtual island, and they responded by inventing games, mourning a lost ring and, eventually, getting better at their jobs."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
+      "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
+      "published": "2026-10-23T07:08:24+09:00",
+      "summary": "Should OpenAI command an over $1 trillion valuation with this round, it would break records as the most highly valued private company ever."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "1Password launches a way for AI agents to log in on your behalf without seeing your password",
+      "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+      "published": "2026-10-23T04:07:09+09:00",
+      "summary": "The new feature allows agents to log into a customer's personal accounts while still protecting the private credentials that secure those accounts."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI makes its Jev competitor widely available as decision model competition heats up",
+      "url": "https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/",
+      "published": "2026-10-23T04:00:00+09:00",
+      "summary": "OpenAI is launching its decision model to the world. Can it compete with the original Jev?"
+    }
+  ]
+}
