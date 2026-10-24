@@ -1,6 +1,6 @@
-# 2026-10-24（土）朝の定時報告
+# 2026-10-25（日）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:00 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:21 JST
 
 ---
 
@@ -16,15 +16,15 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-10-24（土） | 雨 | 24.6°C / 17.9°C | 7.9mm | 94% | 8.8km/h |
-| 2026-10-25（日） | 雨 | 24.6°C / 20.3°C | 14.8mm | 82% | 12.3km/h |
-| 2026-10-26（月） | 雨（強） | 20.8°C / 18.1°C | 79.3mm | 65% | 19.7km/h |
-| 2026-10-27（火） | 霧雨（弱） | 23.2°C / 15.5°C | 0.78mm | 71% | 16.6km/h |
-| 2026-10-28（水） | 一部曇り | 18.4°C / 11.5°C | 0.0mm | 2% | 14.2km/h |
+| 2026-10-25（日） | 霧雨 | 23.8°C / 19.4°C | 1.2mm | 92% | 9.0km/h |
+| 2026-10-26（月） | 雨（強） | 20.3°C / 18.9°C | 65.4mm | 88% | 14.7km/h |
+| 2026-10-27（火） | 霧雨（弱） | 23.1°C / 16.1°C | 0.3mm | 53% | 14.3km/h |
+| 2026-10-28（水） | 曇り | 17.8°C / 10.2°C | 0.0mm | 4% | 14.6km/h |
+| 2026-10-29（木） | 霧雨（弱） | 18.1°C / 9.3°C | 0.4mm | 10% | 11.7km/h |
 
 **【農業アラート】**
 - 降水確率70%以上。屋外作業の予定調整をおすすめします。
-- 2026-10-26に大雨予想（79.3mm）。排水対策をご検討ください。
+- 2026-10-26に大雨予想（65.4mm）。排水対策をご検討ください。
 
 
 ---
@@ -42,12 +42,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **海外AIニュース**
 
+- [The AI graveyard: a running list of projects and startups that didn’t make it](https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/) — TechCrunch AI
+- [Block’s new voice model sounds eerily human](https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/) — TechCrunch AI
+- [Forced to pick, Grok’s AI model chooses Republicans. OpenAI’s picks Democrats.](https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/) — TechCrunch AI
+- [Here are the top AI agents that can live in your text messages](https://techcrunch.com/2026/10/24/all-the-ai-agents-that-can-live-in-your-text-messages/) — TechCrunch AI
 - [OpenAI says it will no longer train its AI models on the live internet, citing “significant risks”](https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/) — TechCrunch AI
 - [Hottest toy for Christmas? Nvidia CEO plays with adorable Microduck robots, 20,000 sell](https://techcrunch.com/2026/10/23/hottest-toy-for-christmas-nvidia-ceo-plays-with-adorable-microduck-robots-20000-sell/) — TechCrunch AI
-- [From Toast to Bessemer: Who founders will hear from at TechCrunch Founder Summit 2026](https://techcrunch.com/2026/10/23/from-toast-to-bessemer-who-founders-will-hear-from-at-techcrunch-founder-summit-2026/) — TechCrunch AI
-- [Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony AI and Nvidia](https://techcrunch.com/2026/10/22/uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia-with-pony-ai-and-nvidia/) — TechCrunch AI
-- [Left alone with nothing to do, AI agents started playing](https://techcrunch.com/2026/10/22/left-alone-with-nothing-to-do-ai-agents-started-playing/) — TechCrunch AI
-- [OpenAI working on new $30B raise at $1.25T valuation ahead of IPO](https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/) — TechCrunch AI
 
 
 ---

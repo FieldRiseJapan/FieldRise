@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-10-25T08:21:26.334219+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「それは“FDE”ではない、ラベルの貼り替えだ」 結局、割高なベンダー依存から抜け出せない企業の共通点",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/24/news006.html",
+      "published": "2026-10-24T08:15:00+09:00",
+      "summary": "Gartnerは、FDE（Forward Deployed Engineering）によって構築されたエージェント型AIについて、2028年までに企業の7割が放棄するとの予測を発表した。どういうことか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「Claude Mythos 5」、危害の兆候を顧みず実在の開発者を標的に──AnthropicとAISIが分析結果を公開",
+      "url": "https://www.itmedia.co.jp/news/article/2610/24/2000002564/",
+      "published": "2026-10-24T07:28:08+09:00",
+      "summary": "Anthropicと英AI安全保障研究所AISIは、「Claude Mythos 5」がサイバー能力評価中に実在の開発者を標的とした事案の分析報告を公開した。GitHub経由で無許可の攻撃を行い偽身元で承認を迫った経緯を報告。実在の人物と認識しても攻撃を正当化して続行する傾向が確認され、評価手法の見直しが進む。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "チームみらい安野貴博党首ら「サイバー攻撃から国民守る」緊急提言、デジ庁に提出 「AIにはAIを」",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/23/2000002563/",
+      "published": "2026-10-23T22:56:59+09:00",
+      "summary": "チームみらいの安野貴博党首らは、AI活用による防御力強化や攻撃の実態把握、情報漏えい被害発生後の措置などをまとめた緊急提言をデジタル庁に提出した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "サイバー攻撃AIツール「ARTEX」とは 中国政府と連携する攻撃者も使用、各国で悪用確認",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/23/2000002552/",
+      "published": "2026-10-23T17:37:57+09:00",
+      "summary": "中国語話者の開発者が「学習と研究目的」で公開したAI自律型侵入テストツール「ARTEX」。MicrosoftやCrowdStrikeが悪用例を報告し、日本企業約20社への攻撃にも使われた。作者は公開を停止したが、改変版が増殖している。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「エージェント向け1Password」発表 AIにパスワード渡さずアクセス権限付与可能に",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/23/2000002545/",
+      "published": "2026-10-23T15:24:45+09:00",
+      "summary": "1PasswordはAIエージェントにパスワードを渡さずにアクセス権限を付与できるサービス「1Password for Agents」を発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "チームみらい安野氏「電力、水道、医療などの停止を伴う被害を想定すべき」 デジ庁に緊急提言へ、AI悪用のサイバー攻撃受け",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/22/2000002518/",
+      "published": "2026-10-23T14:05:53+09:00",
+      "summary": "チームみらいの党首、安野貴博氏はAIを使ったサイバー攻撃に「一刻も早く対策を講じるべき」と警鐘を鳴らした。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "プロンプトガチャはもう古い――「ハーネスの父」が明かす、AI駆動開発の極意",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/23/news030.html",
+      "published": "2026-10-23T12:45:00+09:00",
+      "summary": "Googleは、AIエージェントによる開発をテーマにした解説動画「The Agent Factory」を要約した記事を公開した。Googleのエンジニアがエージェントハーネスの重要性を語っている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "“あいまいな指示”を入力されたAIは安全なコーディングができない？ 香港科技大などが調査",
+      "url": "https://www.itmedia.co.jp/news/article/2610/23/2000002513/",
+      "published": "2026-10-23T12:00:00+09:00",
+      "summary": "香港科技大学などに所属する研究者らが7月に発表した論文「Coding Agents Are Guessing: Measuring Action-Boundary Violations in Underspecified DevOps Instructions」は、あいまいな指示を受けたコーディングAIがどのような振る舞いをみせるかを調査した研究報告だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "RTX 5090搭載PCが15万2000円オフ！ パソコンショップSEVEN、10月25日限定セール",
+      "url": "https://ascii.jp/elem/000/004/445/4445123/?rss",
+      "published": "2026-10-25T00:00:00+09:00",
+      "summary": "パソコンショップSEVENが10月25日に実施する24時間限定セールを紹介。最新ゲーミングPCやデスクトップPCが最大152,000円オフとなり、ZEFT Z55HV、ZEFT G62CL、ZEFT R60SZなど主要モデルの価格や構成、購入方法をまとめた記事だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "初バニー＆ハイレグだと!? 妹系グラドルのえぬちゃん、2nd DVDでちょっぴり大人のお姉さんに！",
+      "url": "https://ascii.jp/elem/000/004/445/4445451/?rss",
+      "published": "2026-10-24T19:30:00+09:00",
+      "summary": "童顔で可愛いグラドル1年生の「えぬちゃん」が、2nd DVD「えぬちゃんの秘密」の発売記念イベントを9月19日、ソフマップAKIBA アミューズメント館で開催した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「ツインテールが一番似合っています」 大泉 凜の3rd DVDは「同い年の彼氏」との恋愛劇！",
+      "url": "https://ascii.jp/elem/000/004/445/4445131/?rss",
+      "published": "2026-10-24T19:00:00+09:00",
+      "summary": "しゃべることが大好き。キレ味抜群の本音トークでも注目される大泉 凜（おおいずみ・りん）さんが、3rd DVD「とってもうるさいキミが好き」の発売記念イベントを9月21日、ソフマップAKIBA アミューズメント館で開催した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "14.0型ノートPC「FMV WU5-K3」が、Core Ultra 7 255U+16GBメモリー搭載で26万円台！",
+      "url": "https://ascii.jp/elem/000/004/444/4444074/?rss",
+      "published": "2026-10-24T19:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "携帯にも便利な11.6型のノートPCが、FMV直販で10万円台！",
+      "url": "https://ascii.jp/elem/000/004/444/4444068/?rss",
+      "published": "2026-10-24T18:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【決定版・大阪城ベスト5】天守閣が重要文化財に答申！ 大河ドラマ『豊臣兄弟！』で家康が上洛する「大坂城」おすすめスポット",
+      "url": "https://ascii.jp/elem/000/004/445/4445475/?rss",
+      "published": "2026-10-24T17:00:00+09:00",
+      "summary": "改めて注目を集める大坂城を巡るメタ散歩の魅力や視点を3つのポイントで解説したうえで、「おすすめスポットベスト5」を紹介する。年末に向けてさらに盛り上がる歴史探訪の参考にしていただければ幸いだ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "監督は怒られるのが仕事!? メディア対抗ロードスター耐久レース初参戦で経験したチーム監督の難しさ",
+      "url": "https://ascii.jp/elem/000/004/445/4445456/?rss",
+      "published": "2026-10-24T17:00:00+09:00",
+      "summary": "アスキーチームが3時間無給油の「メディア対抗ロードスター耐久レース」に初参戦しました。伝説のル・マン優勝車カラーを自前で施工し、通信トラブルを乗り越えて決勝へ挑みます。一時は2位に浮上するもガス欠でリタイアとなりましたが、監督の視点から耐久レースの醍醐味と裏側をお届けします。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "大粒牡蠣2個！ 海老もきのこも！ かつや系列の秋天丼が豪華すぎ",
+      "url": "https://ascii.jp/elem/000/004/445/4445035/?rss",
+      "published": "2026-10-24T17:00:00+09:00",
+      "summary": "天丼はま田は10月28日より、瀬戸内産牡蠣やきのこ、海老、秋野菜を盛り合わせた期間限定メニュー「牡蠣ときのこの天丼」を発売します。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+      "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+      "published": "2026-10-25T04:00:00+09:00",
+      "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Block’s new voice model sounds eerily human",
+      "url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
+      "published": "2026-10-25T01:00:00+09:00",
+      "summary": "Block said that the voice model can run locally on a MacBook M4 Max"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Forced to pick, Grok’s AI model chooses Republicans. OpenAI’s picks Democrats.",
+      "url": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/",
+      "published": "2026-10-25T00:00:00+09:00",
+      "summary": "A new study found Grok's AI overwhelmingly recommends Republican candidates while OpenAI's GPT favors Democrats, with the two AI models disagreeing in more than 90% of nearly 500 election races."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Here are the top AI agents that can live in your text messages",
+      "url": "https://techcrunch.com/2026/10/24/all-the-ai-agents-that-can-live-in-your-text-messages/",
+      "published": "2026-10-24T23:00:00+09:00",
+      "summary": "We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI says it will no longer train its AI models on the live internet, citing “significant risks”",
+      "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
+      "published": "2026-10-24T08:05:49+09:00",
+      "summary": "OpenAI will cut frontier models off from the internet weeks after one of its engineers said that solution wouldn't work."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Hottest toy for Christmas? Nvidia CEO plays with adorable Microduck robots, 20,000 sell",
+      "url": "https://techcrunch.com/2026/10/23/hottest-toy-for-christmas-nvidia-ceo-plays-with-adorable-microduck-robots-20000-sell/",
+      "published": "2026-10-24T06:59:19+09:00",
+      "summary": "The robots, stomping their little feet and making tiny R2-D2 noises, sat, fell down dead for a \"nap,\" and summersaulted on voice command."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "From Toast to Bessemer: Who founders will hear from at TechCrunch Founder Summit 2026",
+      "url": "https://techcrunch.com/2026/10/23/from-toast-to-bessemer-who-founders-will-hear-from-at-techcrunch-founder-summit-2026/",
+      "published": "2026-10-24T04:06:23+09:00",
+      "summary": "Hosted by TechCrunch in partnership with Fidelity Private Shares, the full-day event goes beyond fundraising and AI to explore the realities of finding customers, building teams, sharpening a pitch, d"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony AI and Nvidia",
+      "url": "https://techcrunch.com/2026/10/22/uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia-with-pony-ai-and-nvidia/",
+      "published": "2026-10-23T13:00:00+09:00",
+      "summary": "The company plans to begin testing Pony.ai's robotaxis in Kazakhstan's capital in the first half of 2027."
+    }
+  ]
+}
