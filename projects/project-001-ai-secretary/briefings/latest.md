@@ -1,6 +1,6 @@
-# 2026-10-26（月）朝の定時報告
+# 2026-10-27（火）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 08:32 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:33 JST
 
 ---
 
@@ -16,15 +16,14 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-10-26（月） | 雨（強） | 20.8°C / 19.2°C | 45.5mm | 100% | 15.1km/h |
-| 2026-10-27（火） | 霧雨（弱） | 22.8°C / 15.5°C | 0.5mm | 57% | 13.7km/h |
-| 2026-10-28（水） | 曇り | 17.4°C / 10.1°C | 0.0mm | 0% | 12.6km/h |
-| 2026-10-29（木） | 曇り | 17.8°C / 9.7°C | 0.0mm | 9% | 12.6km/h |
-| 2026-10-30（金） | 雨（弱） | 18.8°C / 14.4°C | 11.7mm | 75% | 14.7km/h |
+| 2026-10-27（火） | 霧雨（弱） | 23.5°C / 15.5°C | 0.2mm | 88% | 15.2km/h |
+| 2026-10-28（水） | 晴れ | 17.6°C / 11.2°C | 0.0mm | 2% | 10.9km/h |
+| 2026-10-29（木） | 霧雨 | 18.2°C / 9.2°C | 0.7mm | 6% | 10.0km/h |
+| 2026-10-30（金） | にわか雨（弱） | 20.3°C / 14.6°C | 6.8mm | 84% | 12.1km/h |
+| 2026-10-31（土） | 霧雨（弱） | 20.6°C / 12.3°C | 1.0mm | 77% | 19.7km/h |
 
 **【農業アラート】**
 - 降水確率70%以上。屋外作業の予定調整をおすすめします。
-- 2026-10-26に大雨予想（45.5mm）。排水対策をご検討ください。
 
 
 ---
@@ -33,21 +32,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [「それは“FDE”ではない、ラベルの貼り替えだ」 結局、割高なベンダー依存から抜け出せない企業の共通点](https://atmarkit.itmedia.co.jp/ait/articles/2610/24/news006.html) — ITmedia AI+
-- [「Claude Mythos 5」、危害の兆候を顧みず実在の開発者を標的に──AnthropicとAISIが分析結果を公開](https://www.itmedia.co.jp/news/article/2610/24/2000002564/) — ITmedia AI+
-- [チームみらい安野貴博党首ら「サイバー攻撃から国民守る」緊急提言、デジ庁に提出 「AIにはAIを」](https://www.itmedia.co.jp/aiplus/article/2610/23/2000002563/) — ITmedia AI+
-- [サイバー攻撃AIツール「ARTEX」とは 中国政府と連携する攻撃者も使用、各国で悪用確認](https://www.itmedia.co.jp/aiplus/article/2610/23/2000002552/) — ITmedia AI+
-- [「エージェント向け1Password」発表 AIにパスワード渡さずアクセス権限付与可能に](https://www.itmedia.co.jp/aiplus/article/2610/23/2000002545/) — ITmedia AI+
-- [チームみらい安野氏「電力、水道、医療などの停止を伴う被害を想定すべき」 デジ庁に緊急提言へ、AI悪用のサイバー攻撃受け](https://www.itmedia.co.jp/aiplus/article/2610/22/2000002518/) — ITmedia AI+
+- [大企業はAIコストを管理できていない サイボウズ調査で浮かび上がった「3割の壁」](https://www.itmedia.co.jp/enterprise/articles/2610/26/news032.html) — ITmedia AI+
+- [京都府庁、職員7000人の事務効率化で「Copilotだけに頼らない」と決めた理由](https://kn.itmedia.co.jp/kn/article/2610/27/2000002599/) — ITmedia AI+
+- [熊本地震「避難状況マップ」秘話 2日で開発も「こんなの使えない」と突き返され……](https://www.itmedia.co.jp/business/articles/2610/27/news014.html) — ITmedia AI+
+- [AIで「月○○時間削減」それ本当？ 浮いた時間はどこに消えたのか](https://www.itmedia.co.jp/business/articles/2610/27/news016.html) — ITmedia AI+
+- [中小企業、Windows更新「利用者任せ」が4割超 SCS評価制度で問われる管理体制](https://kn.itmedia.co.jp/kn/article/2610/27/2000002584/) — ITmedia AI+
+- [「遅延なきネットワーク」ソブリンAIの鍵に NTT川添氏が語る「IOWN」実装後の社会](https://www.itmedia.co.jp/business/articles/2610/27/news024.html) — ITmedia AI+
 
 **海外AIニュース**
 
+- [Anthropic’s IPO filing reveals its strategy for keeping enterprise customers hooked](https://techcrunch.com/2026/10/26/anthropics-ipo-filing-reveals-its-strategy-for-keeping-enterprise-customers-hooked/) — TechCrunch AI
+- [SpaceX locks in $40B GPU financing deal with Apollo](https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/) — TechCrunch AI
+- [Anthropic officially files for its public debut](https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/) — TechCrunch AI
 - [Grok releases the first seven minutes of its AI-generated ‘Odyssey’](https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/) — TechCrunch AI
 - [AI delivers ‘zero financial payoff’ to most companies, Apollo economist says](https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/) — TechCrunch AI
 - [The hottest AI wearables and gadgets you should know about](https://techcrunch.com/2026/10/25/the-hottest-ai-wearables-and-gadgets-you-should-know-about/) — TechCrunch AI
-- [The AI graveyard: a running list of projects and startups that didn’t make it](https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/) — TechCrunch AI
-- [Block’s new voice model sounds eerily human](https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/) — TechCrunch AI
-- [Forced to pick, Grok’s AI model chooses Republicans. OpenAI’s picks Democrats.](https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/) — TechCrunch AI
 
 
 ---

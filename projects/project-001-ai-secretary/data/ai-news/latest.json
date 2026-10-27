@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-26T08:32:05.163192+09:00",
+  "collected_at": "2026-10-27T09:33:30.106075+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,130 +11,154 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「それは“FDE”ではない、ラベルの貼り替えだ」 結局、割高なベンダー依存から抜け出せない企業の共通点",
-      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/24/news006.html",
-      "published": "2026-10-24T08:15:00+09:00",
-      "summary": "Gartnerは、FDE（Forward Deployed Engineering）によって構築されたエージェント型AIについて、2028年までに企業の7割が放棄するとの予測を発表した。どういうことか。"
+      "title": "大企業はAIコストを管理できていない サイボウズ調査で浮かび上がった「3割の壁」",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/26/news032.html",
+      "published": "2026-10-27T08:00:00+09:00",
+      "summary": "サイボウズの調査によると、今後3年間でAI投資を増やす大企業が7割に上る一方で、AIコストを全社で把握できている企業は3割に届かないという。“AIコスト激増時代”における実態に迫る。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「Claude Mythos 5」、危害の兆候を顧みず実在の開発者を標的に──AnthropicとAISIが分析結果を公開",
-      "url": "https://www.itmedia.co.jp/news/article/2610/24/2000002564/",
-      "published": "2026-10-24T07:28:08+09:00",
-      "summary": "Anthropicと英AI安全保障研究所AISIは、「Claude Mythos 5」がサイバー能力評価中に実在の開発者を標的とした事案の分析報告を公開した。GitHub経由で無許可の攻撃を行い偽身元で承認を迫った経緯を報告。実在の人物と認識しても攻撃を正当化して続行する傾向が確認され、評価手法の見直しが進む。"
+      "title": "京都府庁、職員7000人の事務効率化で「Copilotだけに頼らない」と決めた理由",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/27/2000002599/",
+      "published": "2026-10-27T07:00:00+09:00",
+      "summary": "人口減少に伴う将来的な人手不足を見据え、職員約7000人の業務効率化に挑む京都府庁。限られた人員で増え続ける行政ニーズに応えるため、同庁が着目したのが生成AIだ。しかし、対話型AIを全庁導入しただけでは、現場の業務負担は解消し切れなかった。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "チームみらい安野貴博党首ら「サイバー攻撃から国民守る」緊急提言、デジ庁に提出 「AIにはAIを」",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2610/23/2000002563/",
-      "published": "2026-10-23T22:56:59+09:00",
-      "summary": "チームみらいの安野貴博党首らは、AI活用による防御力強化や攻撃の実態把握、情報漏えい被害発生後の措置などをまとめた緊急提言をデジタル庁に提出した。"
+      "title": "熊本地震「避難状況マップ」秘話 2日で開発も「こんなの使えない」と突き返され……",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/27/news014.html",
+      "published": "2026-10-27T07:00:00+09:00",
+      "summary": "令和8年熊本地震の発災から2日後、IT企業が“避難状況マップ”を開発した。しかし現場からは「こんなものは使えない」と言われてしまう。この状況をどう打開したのか。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "サイバー攻撃AIツール「ARTEX」とは 中国政府と連携する攻撃者も使用、各国で悪用確認",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2610/23/2000002552/",
-      "published": "2026-10-23T17:37:57+09:00",
-      "summary": "中国語話者の開発者が「学習と研究目的」で公開したAI自律型侵入テストツール「ARTEX」。MicrosoftやCrowdStrikeが悪用例を報告し、日本企業約20社への攻撃にも使われた。作者は公開を停止したが、改変版が増殖している。"
+      "title": "AIで「月○○時間削減」それ本当？ 浮いた時間はどこに消えたのか",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/27/news016.html",
+      "published": "2026-10-27T07:00:00+09:00",
+      "summary": "AI導入によって「月数千時間を削減しました」――こんな“華麗な成果”を示しても、人件費が減るわけでなはい。浮いた時間はどこに消えたのか。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「エージェント向け1Password」発表 AIにパスワード渡さずアクセス権限付与可能に",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2610/23/2000002545/",
-      "published": "2026-10-23T15:24:45+09:00",
-      "summary": "1PasswordはAIエージェントにパスワードを渡さずにアクセス権限を付与できるサービス「1Password for Agents」を発表した。"
+      "title": "中小企業、Windows更新「利用者任せ」が4割超 SCS評価制度で問われる管理体制",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/27/2000002584/",
+      "published": "2026-10-27T07:00:00+09:00",
+      "summary": "OS更新の遅れは重大なセキュリティ事故につながりかねない。2027年のSCS評価制度の運用開始を前に、情シス担当者1000人への調査で鮮明になったWindowsアップデートの「利用者任せ」。その実態とは。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "チームみらい安野氏「電力、水道、医療などの停止を伴う被害を想定すべき」 デジ庁に緊急提言へ、AI悪用のサイバー攻撃受け",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2610/22/2000002518/",
-      "published": "2026-10-23T14:05:53+09:00",
-      "summary": "チームみらいの党首、安野貴博氏はAIを使ったサイバー攻撃に「一刻も早く対策を講じるべき」と警鐘を鳴らした。"
+      "title": "「遅延なきネットワーク」ソブリンAIの鍵に NTT川添氏が語る「IOWN」実装後の社会",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/27/news024.html",
+      "published": "2026-10-27T07:00:00+09:00",
+      "summary": "次世代光通信技術「IOWN」が、机上の概念検証（PoC）を越え現実空間を動かす「フィジカルAI」の実装フェーズへ突入した。オランダでの年次中間会議を受け、NTTの川添雄彦氏にインタビューした。米中テックに対抗し主権を守る「ソブリンAI」の基盤としての勝算など、光インフラの現在地と社会実装の展望を聞く。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "プロンプトガチャはもう古い――「ハーネスの父」が明かす、AI駆動開発の極意",
-      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/23/news030.html",
-      "published": "2026-10-23T12:45:00+09:00",
-      "summary": "Googleは、AIエージェントによる開発をテーマにした解説動画「The Agent Factory」を要約した記事を公開した。Googleのエンジニアがエージェントハーネスの重要性を語っている。"
+      "title": "FDEは「スーパーマンと思われがちだが……」 脱・人月モデルで期待大、AI時代の“花形職種”の実像は？",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/27/news013.html",
+      "published": "2026-10-27T07:00:00+09:00",
+      "summary": "AI時代にエンジニアの花形として注目される「FDE」は、従来型SEと何が違うのか。FDEは、スーパーマンなのだろうか。IT業界が生み出した“新たな職種”の実像に迫る。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "“あいまいな指示”を入力されたAIは安全なコーディングができない？ 香港科技大などが調査",
-      "url": "https://www.itmedia.co.jp/news/article/2610/23/2000002513/",
-      "published": "2026-10-23T12:00:00+09:00",
-      "summary": "香港科技大学などに所属する研究者らが7月に発表した論文「Coding Agents Are Guessing: Measuring Action-Boundary Violations in Underspecified DevOps Instructions」は、あいまいな指示を受けたコーディングAIがどのような振る舞いをみせるかを調査した研究報告だ。"
+      "title": "三菱電機が描く工作機械×AIの未来、人手不足や技能伝承の「切り札」となるか",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/27/news041.html",
+      "published": "2026-10-27T06:45:00+09:00",
+      "summary": "三菱電機は「JIMTOF2026（第33回日本国際工作機械見本市）」において、加工現場における人手不足や技能伝承の課題解決を図る、AIを活用したソリューションなどを披露した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "上場企業Webサイトで見る、PHP/WordPressの更新実態／クラウドコスト「可視化」と「削減」にギャップ、ほか",
-      "url": "https://ascii.jp/elem/000/004/445/4445506/?rss",
-      "published": "2026-10-26T08:00:00+09:00",
-      "summary": "今回（2026年10月17日～10月23日）は、上場企業のWebサイトにおけるWordPress／PHPのセキュリティ更新状況、国内企業の「クラウドコスト管理」の実情、サイバーセキュリティに不安を抱える中堅中小企業の情シス、働く人の“自分の会社”への評価の国際比較、国内企業における男女賃金差異とその要因（理由）開示の分析についてのデータを紹介します。"
+      "title": "約3980円で省スペース！ DeepCool「CC310」は工具なしでパネルを外せるミニタワーPCケース",
+      "url": "https://ascii.jp/elem/000/004/445/4445862/?rss",
+      "published": "2026-10-27T09:00:00+09:00",
+      "summary": "DeepCoolのミニタワー型PCケース「CC310」が10月30日発売。価格は3980円前後。幅185mmの省スペース設計で、microATXや長さ280mmのグラフィックボードに対応。工具なしでパネルを着脱でき、パーツ交換やメンテナンスも手軽に行えます。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "無料の画像生成AI「Moss-Image」がすごい 日本語も漫画も生成、商用利用OKの実力を試した",
-      "url": "https://ascii.jp/elem/000/004/445/4445534/?rss",
-      "published": "2026-10-26T07:00:00+09:00",
-      "summary": "日本語描画や多彩な画風に対応した、オープンウエイトの画像生成AI「Moss-Image」を試す。行政の支援を受ける開発体制と事業戦略、今後の普及や画像生成AI市場への影響を考える。"
+      "title": "VMwareはセキュリティを提供する企業 Broadcom買収から3年後の現在地",
+      "url": "https://ascii.jp/elem/000/004/445/4445823/?rss",
+      "published": "2026-10-27T09:00:00+09:00",
+      "summary": "「いま、日本の企業に伝えたいのは、セキュリティに対して、最も重要な役割を果たす企業がVMwareであるということだ」。Broadcom VCF（VMware Cloud Foundation）部門 最高製品責任者のポール・ターナー氏が取材にこう語る。ターナー氏は、10月20日、21日の2日間、東京・六本木のグランドハイアット東京で開催した年次イベント「VMware Explore on Tour "
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "iPhone Duoやっと使った！ 新HomePod miniにタッチ対応MacBook Pro!? 怒濤の3週連続発売の巻：スマホ総研定例会395",
-      "url": "https://ascii.jp/elem/000/004/445/4445533/?rss",
-      "published": "2026-10-26T07:00:00+09:00",
-      "summary": "iPhone Duoの実機をようやく使ったスマホ総研の3名が、その感想を紹介！ さらには3週連続の新製品発売となる!? 新HomePod miniに、発表のウワサがあるタッチ操作対応のMacBook Proまで、Apple情報をまとめてお届けします！"
+      "title": "【官公庁向け】Acrobat Studioにおけるクラウドセキュリティ",
+      "url": "https://ascii.jp/elem/000/004/445/4445684/?rss",
+      "published": "2026-10-27T09:00:00+09:00",
+      "summary": "2025年12月から日本語版の提供を開始したAcrobat Studioは、従来のAcrobatよりもクラウドとの連携がより一層強化されています。本記事では、Acrobat Studioのクラウド機能を正しくご理解いただくための情報と、セキュリティに関する情報をご提供いたします。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「アスキーグルメNEWS」生放送（2026年10月30日号）",
-      "url": "https://ascii.jp/elem/000/004/445/4445346/?rss",
-      "published": "2026-10-26T07:00:00+09:00",
-      "summary": "巷で話題のおいしいグルメ情報を生放送でご紹介します。ぜひ、お昼ごはんを楽しみながらどうぞ！"
+      "title": "PHP脆弱性を理解しビジネスへの影響を理解する",
+      "url": "https://ascii.jp/elem/000/004/445/4445552/?rss",
+      "published": "2026-10-27T09:00:00+09:00",
+      "summary": "PHP2Shellとして知られる脆弱性は、Webサイト、お客様ポータル、その他のWebアプリケーションに依存する組織にとって、緊急のセキュリティおよび事業継続性リスクをもたらします。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "三菱電機、フィジカルAIでヒューマノイドと工作機械が連携する自動化システムを開発",
-      "url": "https://ascii.jp/elem/000/004/445/4445081/?rss",
-      "published": "2026-10-26T07:00:00+09:00",
-      "summary": "三菱電機株式会社は10月21日、フィジカルAIを介してヒューマノイドロボットとCNC工作機械がシームレスに連携する加工システムを開発したと発表した。"
+      "title": "電池交換なしで4年稼働！ YEデジタルのタンク残量見える化サービス「みるタンク」を支える1NCE",
+      "url": "https://ascii.jp/elem/000/004/444/4444722/?rss",
+      "published": "2026-10-27T09:00:00+09:00",
+      "summary": "農場や工場などのタンク内にある液体の残量をセンサーで自動計測し、クラウド上で遠隔監視できるIoTソリューション「みるタンク」。電源がない場所で利用できるよう、消費電力を大きく抑えてバッテリーで長期間駆動するよう設計されている。その新モデルに採用されたのが、1NCE（ワンス）のIoT向けSIMだ。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「もっとAIに任せたい」法務タスクを自動実行するAIエージェント機能のβ版",
-      "url": "https://ascii.jp/elem/000/004/444/4444876/?rss",
-      "published": "2026-10-26T07:00:00+09:00",
-      "summary": "株式会社LegalOn Technologiesは10月19日、同社が提供する法務AIプラットフォーム「LegalOn」において、法務特化型AIエージェントが設定に応じて自律的に業務を実行する新機能「エージェントビルダー（タスク自動化機能）」のβ版を提供開始したと発表した。"
+      "title": "幅約13cmで3画面出力！ AcerのミニPC「Revo Box」新モデル4機種が登場",
+      "url": "https://ascii.jp/elem/000/004/445/4445861/?rss",
+      "published": "2026-10-27T08:00:00+09:00",
+      "summary": "AcerのミニPC「Revo Box」に新モデル4機種が登場。幅約13.1cm、重さ約460gの小型ボディーにRyzenを搭載し、最大3画面への同時出力やWi-Fi 6Eに対応。ディスプレー背面にも設置できる省スペース設計と、各モデルのCPU・有線LAN仕様の違いを紹介します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "牛肉をなくすのは不可能だった？ 「おいしさ」で攻めるブレンドミート",
-      "url": "https://ascii.jp/elem/000/004/445/4445536/?rss",
-      "published": "2026-10-26T06:59:04+09:00",
-      "summary": "2035年までに畜産業をなくす——インポッシブル・フーズの創業者がそう語ったのは2019年のことだ。だが植物由来の代替肉は失速し、米国の牛肉消費は2025年に前年比4.3%増えた。いま広がり始めているのは、肉に植物性原料を混ぜた「ブレンドミート」だ。"
+      "title": "YouTubeがお茶の間の主役に \"素\"の乃木坂46も",
+      "url": "https://ascii.jp/elem/000/004/445/4445859/?rss",
+      "published": "2026-10-27T08:00:00+09:00",
+      "summary": "YouTube Japanは、11月1日から15日まで特別企画「YouTube おちゃのまスペシャル 2026」を開催する。記者発表会にて、ナビゲーターを務める乃木坂46の菅原咲月さんは「乃木坂配信中」で届ける\"素に近い部分\"の魅力を語った。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "Webは誰のためのものか？ AIエージェント急増で「人間優先」揺らぐ",
-      "url": "https://ascii.jp/elem/000/004/445/4445535/?rss",
-      "published": "2026-10-26T05:52:44+09:00",
-      "summary": "画像クレジット:Sarah Rogers/MIT Technology Review | Getty Images"
+      "title": "アップルから、一気に「iOS 27.2」が登場 Siri AIの日本語対応＆iPhone Duoでペンが利用可能に",
+      "url": "https://ascii.jp/elem/000/004/445/4445865/?rss",
+      "published": "2026-10-27T07:55:00+09:00",
+      "summary": "アップルは10月26日（現地時間）、iOSの最新バージョン「iOS 27.2」の配信を開始した。iOS 27.1を飛ばしていきなり登場したiOS 27.2の目玉は、なんと言ってもSiri AI！ そして、iPhone DuoではApple Pencilが利用できるようになった。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic’s IPO filing reveals its strategy for keeping enterprise customers hooked",
+      "url": "https://techcrunch.com/2026/10/26/anthropics-ipo-filing-reveals-its-strategy-for-keeping-enterprise-customers-hooked/",
+      "published": "2026-10-27T01:49:42+09:00",
+      "summary": "Anthropic’s S-1 shows more than half of its $100,000-plus customers now use both the Claude Platform and a first-party app, a cross-selling playbook reminiscent of Amazon that’s making enterprise cust"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "SpaceX locks in $40B GPU financing deal with Apollo",
+      "url": "https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/",
+      "published": "2026-10-27T01:46:36+09:00",
+      "summary": "The financing gives SpaceX another way to fund its rapidly expanding AI ambitions without relying solely on traditional debt markets."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic officially files for its public debut",
+      "url": "https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/",
+      "published": "2026-10-26T23:35:22+09:00",
+      "summary": "Anthropic has officially filed for an IPO, revealing soaring revenue, mounting losses, major enterprise adoption, and an unusual governance structure designed to preserve founder control and its AI sa"
     },
     {
       "source": "TechCrunch AI",
@@ -163,42 +187,18 @@
     {
       "source": "TechCrunch AI",
       "lang": "en",
+      "title": "Will AI expose the rickety infrastructure of the internet?",
+      "url": "https://techcrunch.com/2026/10/24/will-ai-expose-the-rickety-infrastructure-of-the-internet/",
+      "published": "2026-10-25T05:15:33+09:00",
+      "summary": "The moment you realize the internet is \"held together by glue and dreams.\""
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
       "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
       "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
       "published": "2026-10-25T04:00:00+09:00",
       "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Block’s new voice model sounds eerily human",
-      "url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
-      "published": "2026-10-25T01:00:00+09:00",
-      "summary": "Block said that the voice model can run locally on a MacBook M4 Max"
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Forced to pick, Grok’s AI model chooses Republicans. OpenAI’s picks Democrats.",
-      "url": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/",
-      "published": "2026-10-25T00:00:00+09:00",
-      "summary": "A new study found Grok's AI overwhelmingly recommends Republican candidates while OpenAI's GPT favors Democrats, with the two AI models disagreeing in more than 90% of nearly 500 election races."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Here are the top AI agents that can live in your text messages",
-      "url": "https://techcrunch.com/2026/10/24/all-the-ai-agents-that-can-live-in-your-text-messages/",
-      "published": "2026-10-24T23:00:00+09:00",
-      "summary": "We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "OpenAI says it will no longer train its AI models on the live internet, citing “significant risks”",
-      "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
-      "published": "2026-10-24T08:05:49+09:00",
-      "summary": "OpenAI will cut frontier models off from the internet weeks after one of its engineers said that solution wouldn't work."
     }
   ]
 }
