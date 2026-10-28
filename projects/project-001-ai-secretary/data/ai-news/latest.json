@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-28T09:33:17.582746+09:00",
+  "collected_at": "2026-10-28T09:43:57.154886+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,22 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "360度カメラの映像から高精細な3Dモデルを生成、東電PGの建物保全業務に導入",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/28/news009.html",
+      "published": "2026-10-28T09:00:00+09:00",
+      "summary": "リコーとリコージャパンは、360度カメラで撮影した映像から、欠損の少ない高精細な3Dモデルを生成する技術を東京電力パワーグリッドの建物保全業務に導入し、運用を開始した。独自の位置推定技術とAIを組み合わせ、画像上の特徴が少ない壁面や床面などの形状も補完する。高精細な3Dモデルを半日程度で生成できるという。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "NVIDIAとAMD、MetaとのAI分野での提携拡大を発表 「Muse」の強化や次世代インフラ構築で協力",
+      "url": "https://www.itmedia.co.jp/news/article/2610/28/2000002651/",
+      "published": "2026-10-28T08:55:26+09:00",
+      "summary": "NVIDIAとAMDは、MetaとのAI分野における戦略的提携拡大をそれぞれ発表した。AIエージェント「Muse」の開発・運用支援や次世代インフラ構築で協力し、Metaへの出資（NVIDIAが30億ドル、AMDが10億ドル）も表明。Metaは自社チップ開発と外部調達の両輪でインフラを強化する。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -55,22 +71,6 @@
       "url": "https://www.itmedia.co.jp/news/article/2610/27/2000002644/",
       "published": "2026-10-27T20:30:12+09:00",
       "summary": "米Anthropicは10月26日（現地時間）、IPOの目論見書（Form S-1）を米SECに提出した。社内コードの9割超をAIが書き、AI利用額が人件費を上回るといった活用の実態から、AIが人類にもたらし得るリスクまで、多岐にわたって言及している。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "京都府庁、職員7000人の事務効率化で「Copilotだけに頼らない」と決めた理由",
-      "url": "https://kn.itmedia.co.jp/kn/article/2610/27/2000002599/",
-      "published": "2026-10-27T18:21:04+09:00",
-      "summary": "人口減少に伴う将来的な人手不足を見据え、職員約7000?8000人の業務効率化に挑む京都府庁。限られた人員で増え続ける行政ニーズに応えるため、同庁が着目したのが生成AIだ。しかし、対話型AIを全庁導入しただけでは、現場の業務負担は解消し切れなかった。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "メアドを検索→AIで“その人専用フィッシングメール”を生成する手法、クリック率が約2.7倍に 7000人以上で実験",
-      "url": "https://www.itmedia.co.jp/news/article/2610/27/2000002550/",
-      "published": "2026-10-27T12:00:00+09:00",
-      "summary": "ドイツのベルリン工科大学などに所属する研究者らが発表した論文「A Large-Scale Study of Personalized Phishing using Large Language Models」は、AIが生成するスピアフィッシング攻撃の有効性を検証した研究報告だ。"
     },
     {
       "source": "ASCII.jp AI",

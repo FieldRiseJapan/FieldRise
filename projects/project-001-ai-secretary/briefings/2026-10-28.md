@@ -1,6 +1,6 @@
 # 2026-10-28（水）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:33 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:44 JST
 
 ---
 
@@ -16,8 +16,8 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-10-28（水） | 晴れ | 18.3°C / 11.5°C | 0.0mm | 0% | 12.0km/h |
-| 2026-10-29（木） | 曇り | 19.6°C / 10.4°C | 0.0mm | 5% | 7.0km/h |
+| 2026-10-28（水） | 晴れ | 18.6°C / 11.6°C | 0.0mm | 0% | 12.0km/h |
+| 2026-10-29（木） | 曇り | 19.6°C / 10.3°C | 0.0mm | 5% | 7.7km/h |
 | 2026-10-30（金） | 雨（強） | 19.2°C / 15.2°C | 20.2mm | 80% | 6.9km/h |
 | 2026-10-31（土） | 霧雨（強） | 20.5°C / 13.7°C | 2.32mm | 67% | 19.3km/h |
 | 2026-11-01（日） | 曇り | 18.4°C / 9.2°C | 0.0mm | 2% | 10.2km/h |
@@ -29,12 +29,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [360度カメラの映像から高精細な3Dモデルを生成、東電PGの建物保全業務に導入](https://monoist.itmedia.co.jp/mn/articles/2610/28/news009.html) — ITmedia AI+
+- [NVIDIAとAMD、MetaとのAI分野での提携拡大を発表 「Muse」の強化や次世代インフラ構築で協力](https://www.itmedia.co.jp/news/article/2610/28/2000002651/) — ITmedia AI+
 - [「AIデータセンター」どこに作る？ 工場跡地、廃校、洋上、宇宙――ユニークな立地戦略の狙いは](https://www.itmedia.co.jp/business/articles/2610/28/news039.html) — ITmedia AI+
 - [「AI開発、“外注”しても大丈夫？」──丸投げで失敗するケースも 絶対に「手放してはいけないもの」とは](https://www.itmedia.co.jp/business/articles/2610/28/news011.html) — ITmedia AI+
 - [日本取引所、金融市場の取引システム運用監視にAIを導入 精度97％を実現した方法](https://kn.itmedia.co.jp/kn/article/2610/28/2000002621/) — ITmedia AI+
 - [Google DeepMind、ワールドモデル「Genie 4」発表 音声や会話もリアルタイム生成、Geminiと連携](https://www.itmedia.co.jp/news/article/2610/28/2000002648/) — ITmedia AI+
-- [【Pythonで学ぶデータ分析】ベイズ統計で重回帰分析 ～ 株価のファンダメンタルズ分析を行う](https://atmarkit.itmedia.co.jp/ait/articles/2610/28/news006.html) — ITmedia AI+
-- [IPO目論見書に「AIは人類の存亡リスク」「コードの9割はClaude製」 Anthropicが示した規格外の見立て](https://www.itmedia.co.jp/news/article/2610/27/2000002644/) — ITmedia AI+
 
 **海外AIニュース**
 
