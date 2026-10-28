@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-27T09:48:35.355457+09:00",
+  "collected_at": "2026-10-28T09:33:17.582746+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,194 +11,194 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "大企業はAIコストを管理できていない サイボウズ調査で浮かび上がった「3割の壁」",
-      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/26/news032.html",
-      "published": "2026-10-27T08:00:00+09:00",
-      "summary": "サイボウズの調査によると、今後3年間でAI投資を増やす大企業が7割に上る一方で、AIコストを全社で把握できている企業は3割に届かないという。“AIコスト激増時代”における実態に迫る。"
+      "title": "「AIデータセンター」どこに作る？ 工場跡地、廃校、洋上、宇宙――ユニークな立地戦略の狙いは",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/28/news039.html",
+      "published": "2026-10-28T07:00:00+09:00",
+      "summary": "国内で「AIデータセンター」の建設が相次いでいる。その立地は、工場跡地、廃校、洋上などさまざまだ。ユニークな立地戦略の狙いを考察する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「AI開発、“外注”しても大丈夫？」──丸投げで失敗するケースも 絶対に「手放してはいけないもの」とは",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/28/news011.html",
+      "published": "2026-10-28T07:00:00+09:00",
+      "summary": "AI開発を外注したら、委託先の試験では90点なのに社内では使い物にならない――こんな悩みをどう解決すればよいのか。そもそも、外注してもよいのか。失敗しないAI導入のコツを整理する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "日本取引所、金融市場の取引システム運用監視にAIを導入 精度97％を実現した方法",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/28/2000002621/",
+      "published": "2026-10-28T07:00:00+09:00",
+      "summary": "システムの複雑化に伴い、障害対応の属人化が深刻化している。そうした中、JPXと日立は金融市場における取引システムの運用監視業務にAIの本格適用を開始した。ミッションクリティカルなシステム運用にAIを組み込む上で最大の障壁となるハルシネーションのリスクにどのように向き合っているのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Google DeepMind、ワールドモデル「Genie 4」発表 音声や会話もリアルタイム生成、Geminiと連携",
+      "url": "https://www.itmedia.co.jp/news/article/2610/28/2000002648/",
+      "published": "2026-10-28T06:53:37+09:00",
+      "summary": "Google DeepMindは、対話型の仮想世界をリアルタイム生成するAI「Genie 4」を発表した。映像品質や物理演算が向上し、環境音や会話音声の同時生成に対応。人物の自然な動作やテキストによる環境操作が可能となった。まずは研究プレビューとして提供し、順次「Google AI Ultra」加入者等へ展開する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "【Pythonで学ぶデータ分析】ベイズ統計で重回帰分析 ～ 株価のファンダメンタルズ分析を行う",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/28/news006.html",
+      "published": "2026-10-28T05:00:00+09:00",
+      "summary": "株価の分析手法には、収益力や成長性など、企業の財務指標などを基に分析するファンダメンタルズ分析と、上昇や下降の傾向などの値動きを基に分析するテクニカル分析があります。今回は、重回帰分析の適用例として、ファンダメンタルズ分析のごく簡単な例を取り上げます。『社会人1年生から学ぶやさしいデータ分析』ベイズ統計編（第11回）です。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "IPO目論見書に「AIは人類の存亡リスク」「コードの9割はClaude製」 Anthropicが示した規格外の見立て",
+      "url": "https://www.itmedia.co.jp/news/article/2610/27/2000002644/",
+      "published": "2026-10-27T20:30:12+09:00",
+      "summary": "米Anthropicは10月26日（現地時間）、IPOの目論見書（Form S-1）を米SECに提出した。社内コードの9割超をAIが書き、AI利用額が人件費を上回るといった活用の実態から、AIが人類にもたらし得るリスクまで、多岐にわたって言及している。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
       "title": "京都府庁、職員7000人の事務効率化で「Copilotだけに頼らない」と決めた理由",
       "url": "https://kn.itmedia.co.jp/kn/article/2610/27/2000002599/",
-      "published": "2026-10-27T07:00:00+09:00",
-      "summary": "人口減少に伴う将来的な人手不足を見据え、職員約7000人の業務効率化に挑む京都府庁。限られた人員で増え続ける行政ニーズに応えるため、同庁が着目したのが生成AIだ。しかし、対話型AIを全庁導入しただけでは、現場の業務負担は解消し切れなかった。"
+      "published": "2026-10-27T18:21:04+09:00",
+      "summary": "人口減少に伴う将来的な人手不足を見据え、職員約7000?8000人の業務効率化に挑む京都府庁。限られた人員で増え続ける行政ニーズに応えるため、同庁が着目したのが生成AIだ。しかし、対話型AIを全庁導入しただけでは、現場の業務負担は解消し切れなかった。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "熊本地震「避難状況マップ」秘話 2日で開発も「こんなの使えない」と突き返され……",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/27/news014.html",
-      "published": "2026-10-27T07:00:00+09:00",
-      "summary": "令和8年熊本地震の発災から2日後、IT企業が“避難状況マップ”を開発した。しかし現場からは「こんなものは使えない」と言われてしまう。この状況をどう打開したのか。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "AIで「月○○時間削減」それ本当？ 浮いた時間はどこに消えたのか",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/27/news016.html",
-      "published": "2026-10-27T07:00:00+09:00",
-      "summary": "AI導入によって「月数千時間を削減しました」――こんな“華麗な成果”を示しても、人件費が減るわけでなはい。浮いた時間はどこに消えたのか。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "中小企業、Windows更新「利用者任せ」が4割超 SCS評価制度で問われる管理体制",
-      "url": "https://kn.itmedia.co.jp/kn/article/2610/27/2000002584/",
-      "published": "2026-10-27T07:00:00+09:00",
-      "summary": "OS更新の遅れは重大なセキュリティ事故につながりかねない。2027年のSCS評価制度の運用開始を前に、情シス担当者1000人への調査で鮮明になったWindowsアップデートの「利用者任せ」。その実態とは。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "「遅延なきネットワーク」ソブリンAIの鍵に NTT川添氏が語る「IOWN」実装後の社会",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/27/news024.html",
-      "published": "2026-10-27T07:00:00+09:00",
-      "summary": "次世代光通信技術「IOWN」が、机上の概念検証（PoC）を越え現実空間を動かす「フィジカルAI」の実装フェーズへ突入した。オランダでの年次中間会議を受け、NTTの川添雄彦氏にインタビューした。米中テックに対抗し主権を守る「ソブリンAI」の基盤としての勝算など、光インフラの現在地と社会実装の展望を聞く。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "FDEは「スーパーマンと思われがちだが……」 脱・人月モデルで期待大、AI時代の“花形職種”の実像は？",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/27/news013.html",
-      "published": "2026-10-27T07:00:00+09:00",
-      "summary": "AI時代にエンジニアの花形として注目される「FDE」は、従来型SEと何が違うのか。FDEは、スーパーマンなのだろうか。IT業界が生み出した“新たな職種”の実像に迫る。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "三菱電機が描く工作機械×AIの未来、人手不足や技能伝承の「切り札」となるか",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/27/news041.html",
-      "published": "2026-10-27T06:45:00+09:00",
-      "summary": "三菱電機は「JIMTOF2026（第33回日本国際工作機械見本市）」において、加工現場における人手不足や技能伝承の課題解決を図る、AIを活用したソリューションなどを披露した。"
+      "title": "メアドを検索→AIで“その人専用フィッシングメール”を生成する手法、クリック率が約2.7倍に 7000人以上で実験",
+      "url": "https://www.itmedia.co.jp/news/article/2610/27/2000002550/",
+      "published": "2026-10-27T12:00:00+09:00",
+      "summary": "ドイツのベルリン工科大学などに所属する研究者らが発表した論文「A Large-Scale Study of Personalized Phishing using Large Language Models」は、AIが生成するスピアフィッシング攻撃の有効性を検証した研究報告だ。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "約3980円で省スペース！ DeepCool「CC310」は工具なしでパネルを外せるミニタワーPCケース",
-      "url": "https://ascii.jp/elem/000/004/445/4445862/?rss",
-      "published": "2026-10-27T09:00:00+09:00",
-      "summary": "DeepCoolのミニタワー型PCケース「CC310」が10月30日発売。価格は3980円前後。幅185mmの省スペース設計で、microATXや長さ280mmのグラフィックボードに対応。工具なしでパネルを着脱でき、パーツ交換やメンテナンスも手軽に行えます。"
+      "title": "「その入力項目は次の売上につながるか？」 トップセールスの暗黙知まで取り込める商談記録アプリへのブラッシュアップ",
+      "url": "https://ascii.jp/elem/000/004/430/4430113/?rss",
+      "published": "2026-10-28T09:30:00+09:00",
+      "summary": "サイボウズは、kintoneユーザーの事例イベントである「kintone hive 2026 tokyo」を開催。6番手として登壇したベーカリーシステム研究所の渡邊拓也さんが披露したのは、検索しにくく、振り返りがままならないExcelでの過去の商談記録をkintoneに置き換えただけでなく、フィールドの見直しなどを経て、次のアクションにつなげられる仕組みに作り替えた事例だ。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "VMwareはセキュリティを提供する企業 Broadcom買収から3年後の現在地",
-      "url": "https://ascii.jp/elem/000/004/445/4445823/?rss",
-      "published": "2026-10-27T09:00:00+09:00",
-      "summary": "「いま、日本の企業に伝えたいのは、セキュリティに対して、最も重要な役割を果たす企業がVMwareであるということだ」。Broadcom VCF（VMware Cloud Foundation）部門 最高製品責任者のポール・ターナー氏が取材にこう語る。ターナー氏は、10月20日、21日の2日間、東京・六本木のグランドハイアット東京で開催した年次イベント「VMware Explore on Tour "
+      "title": "AMDとインテルがPyTorchのx86最適化で協業、「oneDNN」に統合してエコシステムの分断解消へ",
+      "url": "https://ascii.jp/elem/000/004/446/4446223/?rss",
+      "published": "2026-10-28T09:00:00+09:00",
+      "summary": "米AMDと米インテルは現地時間、x86 CPU向けPyTorchの最適化作業をオープンソースライブラリー「oneDNN」に統合することで協業すると発表した。AIエコシステムにおける分断の解消を目指す。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "【官公庁向け】Acrobat Studioにおけるクラウドセキュリティ",
-      "url": "https://ascii.jp/elem/000/004/445/4445684/?rss",
-      "published": "2026-10-27T09:00:00+09:00",
-      "summary": "2025年12月から日本語版の提供を開始したAcrobat Studioは、従来のAcrobatよりもクラウドとの連携がより一層強化されています。本記事では、Acrobat Studioのクラウド機能を正しくご理解いただくための情報と、セキュリティに関する情報をご提供いたします。"
+      "title": "Wi-Fi 7／AI駆動型アプリケーション時代に向けたイーサネットスイッチシャーシシステム「FortiSwitch AX9000Gシリーズ」",
+      "url": "https://ascii.jp/elem/000/004/445/4445575/?rss",
+      "published": "2026-10-28T09:00:00+09:00",
+      "summary": "フォーティネットは同社初のモジュラーイーサネットスイッチシャーシシステム「FortiSwitch AX9000Gシリーズ」を発表した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "PHP脆弱性を理解しビジネスへの影響を理解する",
-      "url": "https://ascii.jp/elem/000/004/445/4445552/?rss",
-      "published": "2026-10-27T09:00:00+09:00",
-      "summary": "PHP2Shellとして知られる脆弱性は、Webサイト、お客様ポータル、その他のWebアプリケーションに依存する組織にとって、緊急のセキュリティおよび事業継続性リスクをもたらします。"
+      "title": "秋葉原UDXの定礎の裏側のまったく使わない隙間に、シチリア島の紋章“トリナクリア”が彫ってある！",
+      "url": "https://ascii.jp/elem/000/004/444/4444590/?rss",
+      "published": "2026-10-28T09:00:00+09:00",
+      "summary": "秋葉原に詳しいつもりでいた著者が、秋葉原UDXの定礎の裏に彫られたシチリア島の象徴であるトリナクリアの謎を追う。ITと新しい文化の拠点として作られたビルの定礎になぜそれはあるのか？ その事情を知るのは5、6人だけだった。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "電池交換なしで4年稼働！ YEデジタルのタンク残量見える化サービス「みるタンク」を支える1NCE",
-      "url": "https://ascii.jp/elem/000/004/444/4444722/?rss",
-      "published": "2026-10-27T09:00:00+09:00",
-      "summary": "農場や工場などのタンク内にある液体の残量をセンサーで自動計測し、クラウド上で遠隔監視できるIoTソリューション「みるタンク」。電源がない場所で利用できるよう、消費電力を大きく抑えてバッテリーで長期間駆動するよう設計されている。その新モデルに採用されたのが、1NCE（ワンス）のIoT向けSIMだ。"
+      "title": "ユナイテッド航空が大進化！ アプリは完全日本語化、機内Wi-Fiも無料＆高速に",
+      "url": "https://ascii.jp/elem/000/004/445/4445854/?rss",
+      "published": "2026-10-28T07:30:00+09:00",
+      "summary": "ユナイテッド航空がサービスを大幅にアップデート。公式アプリの完全日本語化と日本円決済への対応をはじめ、無料で使えるStarlinkの高速機内Wi-Fi、新しい個室型ビジネスクラスなど、日本人旅行者にうれしい最新サービスをまとめました。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "幅約13cmで3画面出力！ AcerのミニPC「Revo Box」新モデル4機種が登場",
-      "url": "https://ascii.jp/elem/000/004/445/4445861/?rss",
-      "published": "2026-10-27T08:00:00+09:00",
-      "summary": "AcerのミニPC「Revo Box」に新モデル4機種が登場。幅約13.1cm、重さ約460gの小型ボディーにRyzenを搭載し、最大3画面への同時出力やWi-Fi 6Eに対応。ディスプレー背面にも設置できる省スペース設計と、各モデルのCPU・有線LAN仕様の違いを紹介します。"
+      "title": "【本日発売】肉汁じゅわっ！ 松のやの「メンチかつ」が帰ってくる！ うまトマ＆濃厚デミも",
+      "url": "https://ascii.jp/elem/000/004/446/4446003/?rss",
+      "published": "2026-10-28T07:00:00+09:00",
+      "summary": "松のやでは10月28日15時より、「メンチかつ」を販売します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "YouTubeがお茶の間の主役に \"素\"の乃木坂46も",
-      "url": "https://ascii.jp/elem/000/004/445/4445859/?rss",
-      "published": "2026-10-27T08:00:00+09:00",
-      "summary": "YouTube Japanは、11月1日から15日まで特別企画「YouTube おちゃのまスペシャル 2026」を開催する。記者発表会にて、ナビゲーターを務める乃木坂46の菅原咲月さんは「乃木坂配信中」で届ける\"素に近い部分\"の魅力を語った。"
+      "title": "国の無電柱化計画を進める3D設計・図面作成を自動化",
+      "url": "https://ascii.jp/elem/000/004/445/4445703/?rss",
+      "published": "2026-10-28T07:00:00+09:00",
+      "summary": "Terra Drone株式会社は10月13日、道路下に電線などをまとめて収める「電線共同溝」の3D設計を支援するツール「TerraDuct3D」の提供を開始したと発表した。本ツールはAutoCAD、IJCAD、ARESに対応しており、現場で導入済みのCADソフトウェアに機能を追加する形で利用できる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "アップルから、一気に「iOS 27.2」が登場 Siri AIの日本語対応＆iPhone Duoでペンが利用可能に",
-      "url": "https://ascii.jp/elem/000/004/445/4445865/?rss",
-      "published": "2026-10-27T07:55:00+09:00",
-      "summary": "アップルは10月26日（現地時間）、iOSの最新バージョン「iOS 27.2」の配信を開始した。iOS 27.1を飛ばしていきなり登場したiOS 27.2の目玉は、なんと言ってもSiri AI！ そして、iPhone DuoではApple Pencilが利用できるようになった。"
+      "title": "AIが賢くなるだけでは企業は変わらない AIエージェントが仕事をする時代、企業のデータはどう守り、どう使うのか？",
+      "url": "https://ascii.jp/elem/000/004/442/4442670/?rss",
+      "published": "2026-10-28T07:00:00+09:00",
+      "summary": "AIエージェントが人間に代わって業務を実行する時代、企業が持つデータをどのように管理し、活用していくべきなのか。CEATEC 2026では、AI・データ基盤を提供する企業と、データ戦略を推進する企業の双方が登壇し、「Agentic AIとデータ基盤の未来－Open Data Spacesが拓く、AIネイティブ経営のための技術戦略」と題したセッションが開催された。"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Anthropic’s IPO filing reveals its strategy for keeping enterprise customers hooked",
-      "url": "https://techcrunch.com/2026/10/26/anthropics-ipo-filing-reveals-its-strategy-for-keeping-enterprise-customers-hooked/",
-      "published": "2026-10-27T01:49:42+09:00",
-      "summary": "Anthropic’s S-1 shows more than half of its $100,000-plus customers now use both the Claude Platform and a first-party app, a cross-selling playbook reminiscent of Amazon that’s making enterprise cust"
+      "title": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication",
+      "url": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
+      "published": "2026-10-28T08:34:27+09:00",
+      "summary": "A family is suing OpenAI, saying ChatGPT coached their daughter to quietly taper off her seizure medication and keep it from her doctors before she died in February."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "SpaceX locks in $40B GPU financing deal with Apollo",
-      "url": "https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/",
-      "published": "2026-10-27T01:46:36+09:00",
-      "summary": "The financing gives SpaceX another way to fund its rapidly expanding AI ambitions without relying solely on traditional debt markets."
+      "title": "The data center boom has an upside: innovation for the US grid",
+      "url": "https://techcrunch.com/2026/10/27/the-data-center-boom-has-an-upside-innovation-for-the-us-grid/",
+      "published": "2026-10-28T07:55:41+09:00",
+      "summary": "As the AI boom stresses the existing power grid, all sorts of new opportunities for grid modernization are also emerging as a result, industry insiders say."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Anthropic officially files for its public debut",
-      "url": "https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/",
-      "published": "2026-10-26T23:35:22+09:00",
-      "summary": "Anthropic has officially filed for an IPO, revealing soaring revenue, mounting losses, major enterprise adoption, and an unusual governance structure designed to preserve founder control and its AI sa"
+      "title": "Bank of America kindly asks that you don’t share your banking password with your AI assistant",
+      "url": "https://techcrunch.com/2026/10/27/bank-of-america-kindly-asks-that-you-dont-share-your-banking-password-with-your-ai-assistant/",
+      "published": "2026-10-28T06:44:34+09:00",
+      "summary": "The banking giant reminds customers that \"you're responsible for activity\" resulting from your AI agents' access."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Grok releases the first seven minutes of its AI-generated ‘Odyssey’",
-      "url": "https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/",
-      "published": "2026-10-26T06:31:16+09:00",
-      "summary": "The footage looks okay, as long as you're not seeking artistry, inspiration, or human interest."
+      "title": "Who’s really in charge at Anthropic after the IPO?",
+      "url": "https://techcrunch.com/2026/10/27/whos-really-in-charge-at-anthropic-after-the-ipo/",
+      "published": "2026-10-28T06:38:28+09:00",
+      "summary": "Here's a clear explanation of Anthropic's incredibly complex governance structure."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "AI delivers ‘zero financial payoff’ to most companies, Apollo economist says",
-      "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
-      "published": "2026-10-26T01:57:32+09:00",
-      "summary": "\"Despite massive investments and widespread hype around artificial intelligence, the technology has delivered zero financial payoff to corporate America outside of tech.\""
+      "title": "Disruptive raises $10B fund to make big bets on at least 10 companies",
+      "url": "https://techcrunch.com/2026/10/27/disruptive-raises-10b-fund-to-make-big-bets-on-at-least-10-companies/",
+      "published": "2026-10-28T03:55:35+09:00",
+      "summary": "Disruptive has made headlines in recent years for pouring money into companies like chip startup Groq and the AI voice-generation startup ElevenLabs."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "The hottest AI wearables and gadgets you should know about",
-      "url": "https://techcrunch.com/2026/10/25/the-hottest-ai-wearables-and-gadgets-you-should-know-about/",
-      "published": "2026-10-25T23:10:00+09:00",
-      "summary": "We compiled a list of all the hottest AI wearables, including Muse Charm, Bee, Friend, Plaud, and more."
+      "title": "Frontier AI labs say their models refuted the Exponential Time Hypothesis. What does that mean?",
+      "url": "https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/",
+      "published": "2026-10-28T02:08:08+09:00",
+      "summary": "TechCrunch spoke to the MIT computer scientist charged with explaining OpenAI's latest mind-bending discovery."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Will AI expose the rickety infrastructure of the internet?",
-      "url": "https://techcrunch.com/2026/10/24/will-ai-expose-the-rickety-infrastructure-of-the-internet/",
-      "published": "2026-10-25T05:15:33+09:00",
-      "summary": "The moment you realize the internet is \"held together by glue and dreams.\""
+      "title": "Google’s Genie 4 world model adds audio, more realistic worlds, and real-time steering",
+      "url": "https://techcrunch.com/2026/10/27/googles-genie-4-world-model-adds-audio-more-realistic-worlds-and-real-time-steering/",
+      "published": "2026-10-28T01:30:57+09:00",
+      "summary": "Genie 4 can maintain a consistent scene for up to two minutes, double Genie 3's limit, and offers better physics and more humanlike characters."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
-      "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
-      "published": "2026-10-25T04:00:00+09:00",
-      "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations."
+      "title": "Meta AI director Rohit Patel leaves to take on Microsoft Office and Google Workspace",
+      "url": "https://techcrunch.com/2026/10/27/meta-ai-director-rohit-patel-leaves-to-take-on-microsoft-office-and-google-workspace/",
+      "published": "2026-10-27T23:59:09+09:00",
+      "summary": "Rohit Patel is departing Meta after eight years working on AI evaluations and reinforcement learning, TechCrunch has exclusively learned. His startup, Ndoc, aims to take on Microsoft Office Suite."
     }
   ]
 }
