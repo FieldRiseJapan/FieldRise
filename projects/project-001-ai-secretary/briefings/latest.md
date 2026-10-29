@@ -1,6 +1,6 @@
-# 2026-10-28（水）朝の定時報告
+# 2026-10-29（木）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:44 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:02 JST
 
 ---
 
@@ -16,11 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-10-28（水） | 晴れ | 18.6°C / 11.6°C | 0.0mm | 0% | 12.0km/h |
-| 2026-10-29（木） | 曇り | 19.6°C / 10.3°C | 0.0mm | 5% | 7.7km/h |
-| 2026-10-30（金） | 雨（強） | 19.2°C / 15.2°C | 20.2mm | 80% | 6.9km/h |
-| 2026-10-31（土） | 霧雨（強） | 20.5°C / 13.7°C | 2.32mm | 67% | 19.3km/h |
-| 2026-11-01（日） | 曇り | 18.4°C / 9.2°C | 0.0mm | 2% | 10.2km/h |
+| 2026-10-29（木） | 曇り | 20.2°C / 11.3°C | 0.0mm | 16% | 7.6km/h |
+| 2026-10-30（金） | 霧雨（強） | 21.6°C / 16.5°C | 5.1mm | 90% | 13.0km/h |
+| 2026-10-31（土） | 晴れ | 20.1°C / 13.4°C | 0.0mm | 53% | 14.3km/h |
+| 2026-11-01（日） | 曇り | 18.1°C / 8.5°C | 0.0mm | 3% | 9.0km/h |
+| 2026-11-02（月） | 霧雨（強） | 21.2°C / 10.7°C | 4.5mm | 74% | 21.2km/h |
 
 
 ---
@@ -29,21 +29,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [360度カメラの映像から高精細な3Dモデルを生成、東電PGの建物保全業務に導入](https://monoist.itmedia.co.jp/mn/articles/2610/28/news009.html) — ITmedia AI+
-- [NVIDIAとAMD、MetaとのAI分野での提携拡大を発表 「Muse」の強化や次世代インフラ構築で協力](https://www.itmedia.co.jp/news/article/2610/28/2000002651/) — ITmedia AI+
-- [「AIデータセンター」どこに作る？ 工場跡地、廃校、洋上、宇宙――ユニークな立地戦略の狙いは](https://www.itmedia.co.jp/business/articles/2610/28/news039.html) — ITmedia AI+
-- [「AI開発、“外注”しても大丈夫？」──丸投げで失敗するケースも 絶対に「手放してはいけないもの」とは](https://www.itmedia.co.jp/business/articles/2610/28/news011.html) — ITmedia AI+
-- [日本取引所、金融市場の取引システム運用監視にAIを導入 精度97％を実現した方法](https://kn.itmedia.co.jp/kn/article/2610/28/2000002621/) — ITmedia AI+
-- [Google DeepMind、ワールドモデル「Genie 4」発表 音声や会話もリアルタイム生成、Geminiと連携](https://www.itmedia.co.jp/news/article/2610/28/2000002648/) — ITmedia AI+
+- [AIエージェントは「増やせば賢くなる」のか Metaとハーバード大の研究が示す“分業の条件”](https://www.itmedia.co.jp/aiplus/article/2610/29/2000002632/) — ITmedia AI+
+- [KDDI傘下、社内のAI活用事例113件を無料公開 「Gemini Notebook」で稟議データのチェック支援も](https://www.itmedia.co.jp/aiplus/article/2610/29/2000002685/) — ITmedia AI+
+- [製造業のAIネイティブ化の道筋は？ 将来のAIの役割から「逆算」で診断するサービスが登場](https://www.itmedia.co.jp/enterprise/articles/2610/29/news011.html) — ITmedia AI+
+- [Google、「Gemini 4 Carbon」発表 「Argon」公開から2週間、サイバー防御能力などを強化](https://www.itmedia.co.jp/news/article/2610/29/2000002690/) — ITmedia AI+
+- [20年前は“門前払い”？ デル社長が語る、日本企業の今昔 「IT後進国」から抜け出せたのか](https://www.itmedia.co.jp/business/articles/2610/29/news023.html) — ITmedia AI+
+- [月末に「600行の承認作業」が集中……「紙とハンコ」「現金手渡し」の経費申請を変えた、老舗メーカーの経理DX](https://www.itmedia.co.jp/business/articles/2610/29/news033.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication](https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/) — TechCrunch AI
-- [The data center boom has an upside: innovation for the US grid](https://techcrunch.com/2026/10/27/the-data-center-boom-has-an-upside-innovation-for-the-us-grid/) — TechCrunch AI
-- [Bank of America kindly asks that you don’t share your banking password with your AI assistant](https://techcrunch.com/2026/10/27/bank-of-america-kindly-asks-that-you-dont-share-your-banking-password-with-your-ai-assistant/) — TechCrunch AI
-- [Who’s really in charge at Anthropic after the IPO?](https://techcrunch.com/2026/10/27/whos-really-in-charge-at-anthropic-after-the-ipo/) — TechCrunch AI
-- [Disruptive raises $10B fund to make big bets on at least 10 companies](https://techcrunch.com/2026/10/27/disruptive-raises-10b-fund-to-make-big-bets-on-at-least-10-companies/) — TechCrunch AI
-- [Frontier AI labs say their models refuted the Exponential Time Hypothesis. What does that mean?](https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/) — TechCrunch AI
+- [Microsoft just shared Azure’s actual revenue in dollars: $33.2 billion](https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/) — TechCrunch AI
+- [Google expands AI Search ads globally as core ad growth slows](https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/) — TechCrunch AI
+- [Microsoft recorded $10 billion in revenue from OpenAI](https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/) — TechCrunch AI
+- [Microsoft hits 10 quarters of record-breaking revenue in a row](https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/) — TechCrunch AI
+- [Anthropic just launched tools to show companies what their AI spending is buying](https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/) — TechCrunch AI
+- [Wiz’s CTO on PHP2Shell and the coming ‘vulnpocalypse’](https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/) — TechCrunch AI
 
 
 ---

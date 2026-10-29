@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-10-29T10:02:11.576838+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIエージェントは「増やせば賢くなる」のか Metaとハーバード大の研究が示す“分業の条件”",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002632/",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "AIエージェントは増やせば増やすほど賢くなるのか。米Metaや米ハーバード大学などの研究者による論文を基に、AI同士の分業が力を発揮する条件や、分業を企業に取り入れる際のポイントなどを解説する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "KDDI傘下、社内のAI活用事例113件を無料公開 「Gemini Notebook」で稟議データのチェック支援も",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002685/",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "KDDIグループのKDDIアイレットが、社内のAI活用事例113件をまとめた特設サイトを無料で公開している。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "製造業のAIネイティブ化の道筋は？ 将来のAIの役割から「逆算」で診断するサービスが登場",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/29/news011.html",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "AI活用を個人タスクの効率化にとどまらず、価値創出の仕組みをAI中心に再設計する「AIネイティブ企業」が現れ始めた。製造業はどのような姿を目指し、何から取り組むべきか。将来のAIの役割から「逆算」して各社の道筋を描く診断サービスとは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Google、「Gemini 4 Carbon」発表 「Argon」公開から2週間、サイバー防御能力などを強化",
+      "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002690/",
+      "published": "2026-10-29T07:13:47+09:00",
+      "summary": "Googleは、フロンティアAIモデル「Gemini 4 Carbon」を発表した。サイバーセキュリティや長時間に及ぶ自律作業能力を強化し、ベンチマーク首位を獲得。ハルシネーションや不正操作への耐性も向上させた。まず一部のサイバー防御組織に限定提供し、順次公開範囲を広げる方針だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "20年前は“門前払い”？ デル社長が語る、日本企業の今昔 「IT後進国」から抜け出せたのか",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/29/news023.html",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "日本企業は、IT導入で「遅れている」と言われがちだった。しかし、AIの登場で状況が変わっている。デル・テクノロジーズ社長が、その実態を語った。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "月末に「600行の承認作業」が集中……「紙とハンコ」「現金手渡し」の経費申請を変えた、老舗メーカーの経理DX",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/29/news033.html",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "属人化しがちな経理業務。創業90年超のメーカーは、欠員をきっかけにIT導入を決断し、今では経費申請の約9割をAIが承認している。同社の“堅実な取り組み”に迫る。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AI導入から成果創出へ デル・テクノロジーズ新社長が示す日本市場の事業戦略",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/29/news032.html",
+      "published": "2026-10-29T06:30:00+09:00",
+      "summary": "デル・テクノロジーズは、2026年8月に代表取締役社長に就任したジョン・ロボトム氏の記者会見を開催した。ロボトム氏は、日本企業のAI活用が導入段階から成果創出へと移行しつつあるとの認識を示し、AIインフラやデータ基盤の整備、人材育成、パートナーとの共創を通じて、日本企業のAI活用を支援する方針を明らかにした。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「高度なAIスキル」だけではもう食えない？ IT人材が答えた「これからの必須スキル」",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/29/2000002688/",
+      "published": "2026-10-29T06:00:00+09:00",
+      "summary": "2027年度以降、IT国家試験の大幅な刷新が予定されている。企業のIT現場はこの変化をどう見ているのか。読者調査から、制度刷新への期待と懸念、資格取得意向の変化、AI・セキュリティなど今後重視されるスキルを探る。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「効率化の先に、何を生み出すか」――VURA、企業再定義と未来価値創造力を可視化する経営診断を提供",
+      "url": "https://ascii.jp/elem/000/004/446/4446688/?rss",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "「効率化の先に、何を生み出すか」――VURA、企業再定義と未来価値創造力を可視化する経営診断を提供"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "株式会社HQ、顧客向けダッシュボードを埋め込み型へ刷新ーCodatum導入事例を公開",
+      "url": "https://ascii.jp/elem/000/004/446/4446687/?rss",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "株式会社HQ、顧客向けダッシュボードを埋め込み型へ刷新ーCodatum導入事例を公開"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "電力も原料も分散する。エネルギー転換で日本の産業はどう変わるか",
+      "url": "https://ascii.jp/elem/000/004/441/4441169/?rss",
+      "published": "2026-10-29T07:30:00+09:00",
+      "summary": "再生可能エネルギーの拡大で電源は各地に分散し、化学原料や燃料の選択肢も増えていく。複雑になるエネルギーと資源の流れをどう制御し、既存インフラをどう生かすのか。その変化が日本企業の競争力や産業立地に与える影響を、この先10年の視点で考える。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ディーモ、「Deemo LegalBase＋」サービス資料を公開",
+      "url": "https://ascii.jp/elem/000/004/446/4446689/?rss",
+      "published": "2026-10-29T07:20:00+09:00",
+      "summary": "ディーモ、「Deemo LegalBase＋」サービス資料を公開"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「未来」の現在：「あと数年」が10年以上続いた全固体電池、実用化は？",
+      "url": "https://ascii.jp/elem/000/004/446/4446681/?rss",
+      "published": "2026-10-29T07:00:43+09:00",
+      "summary": "液体電解質を固体に置き換える全固体電池は、充電時間の短縮や長寿命化、発熱の抑制が期待される。トヨタは10分以下の充電で最大約1200キロメートル走れる車を目指す。進捗度は10段階で7。実現可能性は示されたが、何が未知かも分からない「未知の未知」が残る。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "キャリア開発を組織開発につなげるには？データと対話から成長する組織づくりを考える無料オンラインセミナーを11月13日に開催",
+      "url": "https://ascii.jp/elem/000/004/446/4446691/?rss",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "キャリア開発を組織開発につなげるには？データと対話から成長する組織づくりを考える無料オンラインセミナーを11月13日に開催"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "札幌市職員460人が参加した生成AI研修に、代表の茨木が登壇",
+      "url": "https://ascii.jp/elem/000/004/446/4446690/?rss",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "札幌市職員460人が参加した生成AI研修に、代表の茨木が登壇"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "PayPay、10月30日・31日は一部銀行からチャージ不可に チャージ忘れに要注意",
+      "url": "https://ascii.jp/elem/000/004/446/4446610/?rss",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "PayPayは10月23日、一部銀行を対象としたシステムメンテナンスの実施予定を公表した。期間は2026年10月30日23時から10月31日23時59分まで。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Microsoft just shared Azure’s actual revenue in dollars: $33.2 billion",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/",
+      "published": "2026-10-29T06:58:32+09:00",
+      "summary": "Microsoft has never disclosed Azure's quarterly revenue in dollars. But for the first time, we can see just how close it is getting to besting the biggest competitor in the market, AWS."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Google expands AI Search ads globally as core ad growth slows",
+      "url": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/",
+      "published": "2026-10-29T06:48:37+09:00",
+      "summary": "The announcement came alongside parent company Alphabet's third-quarter earnings report, which saw revenue grow 25% year over year to $127.6 billion."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Microsoft recorded $10 billion in revenue from OpenAI",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+      "published": "2026-10-29T06:34:30+09:00",
+      "summary": "Microsoft said it made $10 billion in revenue from commercial arrangements with OpenAI, including revenue-sharing payments, in the quarter ending September 30. It underscores the still-enormous financ"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Microsoft hits 10 quarters of record-breaking revenue in a row",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/",
+      "published": "2026-10-29T06:25:30+09:00",
+      "summary": "Whatever the future of AI might be, the current situation is still very good for Microsoft. The tech giant reported yet another record for quarterly revenue on Wednesday: $92.3 billion, a 19% increase"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic just launched tools to show companies what their AI spending is buying",
+      "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
+      "published": "2026-10-29T04:19:58+09:00",
+      "summary": "The frontier lab is lifting the curtain on how users spend money on its models ahead of a planned IPO."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Wiz’s CTO on PHP2Shell and the coming ‘vulnpocalypse’",
+      "url": "https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/",
+      "published": "2026-10-29T04:05:46+09:00",
+      "summary": "The PHP scare may have faded from your feed, but the cleanup is far from over. Last week, two critical bugs in the open source language behind roughly 70% of websites left organizations scrambling to "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "The ‘Vulnpocalypse’ is coming for the internet’s aging code, says Wiz’s CTO",
+      "url": "https://techcrunch.com/podcast/the-vulnpocalypse-is-coming-for-the-internets-aging-code-says-wizs-cto/",
+      "published": "2026-10-29T03:50:39+09:00",
+      "summary": "The PHP scare may have faded from your feed, but the cleanup is far from over. Last week, two critical bugs in the open source language behind roughly 70% of websites left organizations scrambling to "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Chrome’s AI-powered Autofill can now dig through your Gmail to fill out forms",
+      "url": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/",
+      "published": "2026-10-29T02:00:00+09:00",
+      "summary": "The autofill update lets Chrome pull flight confirmations, tracking info, order details, and other information from your inbox, with your permission."
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-28T09:43:57.154886+09:00",
+  "collected_at": "2026-10-29T10:02:11.576838+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,194 +11,194 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "360度カメラの映像から高精細な3Dモデルを生成、東電PGの建物保全業務に導入",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/28/news009.html",
-      "published": "2026-10-28T09:00:00+09:00",
-      "summary": "リコーとリコージャパンは、360度カメラで撮影した映像から、欠損の少ない高精細な3Dモデルを生成する技術を東京電力パワーグリッドの建物保全業務に導入し、運用を開始した。独自の位置推定技術とAIを組み合わせ、画像上の特徴が少ない壁面や床面などの形状も補完する。高精細な3Dモデルを半日程度で生成できるという。"
+      "title": "AIエージェントは「増やせば賢くなる」のか Metaとハーバード大の研究が示す“分業の条件”",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002632/",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "AIエージェントは増やせば増やすほど賢くなるのか。米Metaや米ハーバード大学などの研究者による論文を基に、AI同士の分業が力を発揮する条件や、分業を企業に取り入れる際のポイントなどを解説する。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "NVIDIAとAMD、MetaとのAI分野での提携拡大を発表 「Muse」の強化や次世代インフラ構築で協力",
-      "url": "https://www.itmedia.co.jp/news/article/2610/28/2000002651/",
-      "published": "2026-10-28T08:55:26+09:00",
-      "summary": "NVIDIAとAMDは、MetaとのAI分野における戦略的提携拡大をそれぞれ発表した。AIエージェント「Muse」の開発・運用支援や次世代インフラ構築で協力し、Metaへの出資（NVIDIAが30億ドル、AMDが10億ドル）も表明。Metaは自社チップ開発と外部調達の両輪でインフラを強化する。"
+      "title": "KDDI傘下、社内のAI活用事例113件を無料公開 「Gemini Notebook」で稟議データのチェック支援も",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002685/",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "KDDIグループのKDDIアイレットが、社内のAI活用事例113件をまとめた特設サイトを無料で公開している。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「AIデータセンター」どこに作る？ 工場跡地、廃校、洋上、宇宙――ユニークな立地戦略の狙いは",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/28/news039.html",
-      "published": "2026-10-28T07:00:00+09:00",
-      "summary": "国内で「AIデータセンター」の建設が相次いでいる。その立地は、工場跡地、廃校、洋上などさまざまだ。ユニークな立地戦略の狙いを考察する。"
+      "title": "製造業のAIネイティブ化の道筋は？ 将来のAIの役割から「逆算」で診断するサービスが登場",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/29/news011.html",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "AI活用を個人タスクの効率化にとどまらず、価値創出の仕組みをAI中心に再設計する「AIネイティブ企業」が現れ始めた。製造業はどのような姿を目指し、何から取り組むべきか。将来のAIの役割から「逆算」して各社の道筋を描く診断サービスとは。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「AI開発、“外注”しても大丈夫？」──丸投げで失敗するケースも 絶対に「手放してはいけないもの」とは",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/28/news011.html",
-      "published": "2026-10-28T07:00:00+09:00",
-      "summary": "AI開発を外注したら、委託先の試験では90点なのに社内では使い物にならない――こんな悩みをどう解決すればよいのか。そもそも、外注してもよいのか。失敗しないAI導入のコツを整理する。"
+      "title": "Google、「Gemini 4 Carbon」発表 「Argon」公開から2週間、サイバー防御能力などを強化",
+      "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002690/",
+      "published": "2026-10-29T07:13:47+09:00",
+      "summary": "Googleは、フロンティアAIモデル「Gemini 4 Carbon」を発表した。サイバーセキュリティや長時間に及ぶ自律作業能力を強化し、ベンチマーク首位を獲得。ハルシネーションや不正操作への耐性も向上させた。まず一部のサイバー防御組織に限定提供し、順次公開範囲を広げる方針だ。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "日本取引所、金融市場の取引システム運用監視にAIを導入 精度97％を実現した方法",
-      "url": "https://kn.itmedia.co.jp/kn/article/2610/28/2000002621/",
-      "published": "2026-10-28T07:00:00+09:00",
-      "summary": "システムの複雑化に伴い、障害対応の属人化が深刻化している。そうした中、JPXと日立は金融市場における取引システムの運用監視業務にAIの本格適用を開始した。ミッションクリティカルなシステム運用にAIを組み込む上で最大の障壁となるハルシネーションのリスクにどのように向き合っているのか。"
+      "title": "20年前は“門前払い”？ デル社長が語る、日本企業の今昔 「IT後進国」から抜け出せたのか",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/29/news023.html",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "日本企業は、IT導入で「遅れている」と言われがちだった。しかし、AIの登場で状況が変わっている。デル・テクノロジーズ社長が、その実態を語った。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "Google DeepMind、ワールドモデル「Genie 4」発表 音声や会話もリアルタイム生成、Geminiと連携",
-      "url": "https://www.itmedia.co.jp/news/article/2610/28/2000002648/",
-      "published": "2026-10-28T06:53:37+09:00",
-      "summary": "Google DeepMindは、対話型の仮想世界をリアルタイム生成するAI「Genie 4」を発表した。映像品質や物理演算が向上し、環境音や会話音声の同時生成に対応。人物の自然な動作やテキストによる環境操作が可能となった。まずは研究プレビューとして提供し、順次「Google AI Ultra」加入者等へ展開する。"
+      "title": "月末に「600行の承認作業」が集中……「紙とハンコ」「現金手渡し」の経費申請を変えた、老舗メーカーの経理DX",
+      "url": "https://www.itmedia.co.jp/business/articles/2610/29/news033.html",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "属人化しがちな経理業務。創業90年超のメーカーは、欠員をきっかけにIT導入を決断し、今では経費申請の約9割をAIが承認している。同社の“堅実な取り組み”に迫る。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "【Pythonで学ぶデータ分析】ベイズ統計で重回帰分析 ～ 株価のファンダメンタルズ分析を行う",
-      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2610/28/news006.html",
-      "published": "2026-10-28T05:00:00+09:00",
-      "summary": "株価の分析手法には、収益力や成長性など、企業の財務指標などを基に分析するファンダメンタルズ分析と、上昇や下降の傾向などの値動きを基に分析するテクニカル分析があります。今回は、重回帰分析の適用例として、ファンダメンタルズ分析のごく簡単な例を取り上げます。『社会人1年生から学ぶやさしいデータ分析』ベイズ統計編（第11回）です。"
+      "title": "AI導入から成果創出へ デル・テクノロジーズ新社長が示す日本市場の事業戦略",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/29/news032.html",
+      "published": "2026-10-29T06:30:00+09:00",
+      "summary": "デル・テクノロジーズは、2026年8月に代表取締役社長に就任したジョン・ロボトム氏の記者会見を開催した。ロボトム氏は、日本企業のAI活用が導入段階から成果創出へと移行しつつあるとの認識を示し、AIインフラやデータ基盤の整備、人材育成、パートナーとの共創を通じて、日本企業のAI活用を支援する方針を明らかにした。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "IPO目論見書に「AIは人類の存亡リスク」「コードの9割はClaude製」 Anthropicが示した規格外の見立て",
-      "url": "https://www.itmedia.co.jp/news/article/2610/27/2000002644/",
-      "published": "2026-10-27T20:30:12+09:00",
-      "summary": "米Anthropicは10月26日（現地時間）、IPOの目論見書（Form S-1）を米SECに提出した。社内コードの9割超をAIが書き、AI利用額が人件費を上回るといった活用の実態から、AIが人類にもたらし得るリスクまで、多岐にわたって言及している。"
+      "title": "「高度なAIスキル」だけではもう食えない？ IT人材が答えた「これからの必須スキル」",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/29/2000002688/",
+      "published": "2026-10-29T06:00:00+09:00",
+      "summary": "2027年度以降、IT国家試験の大幅な刷新が予定されている。企業のIT現場はこの変化をどう見ているのか。読者調査から、制度刷新への期待と懸念、資格取得意向の変化、AI・セキュリティなど今後重視されるスキルを探る。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「その入力項目は次の売上につながるか？」 トップセールスの暗黙知まで取り込める商談記録アプリへのブラッシュアップ",
-      "url": "https://ascii.jp/elem/000/004/430/4430113/?rss",
-      "published": "2026-10-28T09:30:00+09:00",
-      "summary": "サイボウズは、kintoneユーザーの事例イベントである「kintone hive 2026 tokyo」を開催。6番手として登壇したベーカリーシステム研究所の渡邊拓也さんが披露したのは、検索しにくく、振り返りがままならないExcelでの過去の商談記録をkintoneに置き換えただけでなく、フィールドの見直しなどを経て、次のアクションにつなげられる仕組みに作り替えた事例だ。"
+      "title": "「効率化の先に、何を生み出すか」――VURA、企業再定義と未来価値創造力を可視化する経営診断を提供",
+      "url": "https://ascii.jp/elem/000/004/446/4446688/?rss",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "「効率化の先に、何を生み出すか」――VURA、企業再定義と未来価値創造力を可視化する経営診断を提供"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "AMDとインテルがPyTorchのx86最適化で協業、「oneDNN」に統合してエコシステムの分断解消へ",
-      "url": "https://ascii.jp/elem/000/004/446/4446223/?rss",
-      "published": "2026-10-28T09:00:00+09:00",
-      "summary": "米AMDと米インテルは現地時間、x86 CPU向けPyTorchの最適化作業をオープンソースライブラリー「oneDNN」に統合することで協業すると発表した。AIエコシステムにおける分断の解消を目指す。"
+      "title": "株式会社HQ、顧客向けダッシュボードを埋め込み型へ刷新ーCodatum導入事例を公開",
+      "url": "https://ascii.jp/elem/000/004/446/4446687/?rss",
+      "published": "2026-10-29T08:00:00+09:00",
+      "summary": "株式会社HQ、顧客向けダッシュボードを埋め込み型へ刷新ーCodatum導入事例を公開"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "Wi-Fi 7／AI駆動型アプリケーション時代に向けたイーサネットスイッチシャーシシステム「FortiSwitch AX9000Gシリーズ」",
-      "url": "https://ascii.jp/elem/000/004/445/4445575/?rss",
-      "published": "2026-10-28T09:00:00+09:00",
-      "summary": "フォーティネットは同社初のモジュラーイーサネットスイッチシャーシシステム「FortiSwitch AX9000Gシリーズ」を発表した。"
+      "title": "電力も原料も分散する。エネルギー転換で日本の産業はどう変わるか",
+      "url": "https://ascii.jp/elem/000/004/441/4441169/?rss",
+      "published": "2026-10-29T07:30:00+09:00",
+      "summary": "再生可能エネルギーの拡大で電源は各地に分散し、化学原料や燃料の選択肢も増えていく。複雑になるエネルギーと資源の流れをどう制御し、既存インフラをどう生かすのか。その変化が日本企業の競争力や産業立地に与える影響を、この先10年の視点で考える。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "秋葉原UDXの定礎の裏側のまったく使わない隙間に、シチリア島の紋章“トリナクリア”が彫ってある！",
-      "url": "https://ascii.jp/elem/000/004/444/4444590/?rss",
-      "published": "2026-10-28T09:00:00+09:00",
-      "summary": "秋葉原に詳しいつもりでいた著者が、秋葉原UDXの定礎の裏に彫られたシチリア島の象徴であるトリナクリアの謎を追う。ITと新しい文化の拠点として作られたビルの定礎になぜそれはあるのか？ その事情を知るのは5、6人だけだった。"
+      "title": "ディーモ、「Deemo LegalBase＋」サービス資料を公開",
+      "url": "https://ascii.jp/elem/000/004/446/4446689/?rss",
+      "published": "2026-10-29T07:20:00+09:00",
+      "summary": "ディーモ、「Deemo LegalBase＋」サービス資料を公開"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ユナイテッド航空が大進化！ アプリは完全日本語化、機内Wi-Fiも無料＆高速に",
-      "url": "https://ascii.jp/elem/000/004/445/4445854/?rss",
-      "published": "2026-10-28T07:30:00+09:00",
-      "summary": "ユナイテッド航空がサービスを大幅にアップデート。公式アプリの完全日本語化と日本円決済への対応をはじめ、無料で使えるStarlinkの高速機内Wi-Fi、新しい個室型ビジネスクラスなど、日本人旅行者にうれしい最新サービスをまとめました。"
+      "title": "「未来」の現在：「あと数年」が10年以上続いた全固体電池、実用化は？",
+      "url": "https://ascii.jp/elem/000/004/446/4446681/?rss",
+      "published": "2026-10-29T07:00:43+09:00",
+      "summary": "液体電解質を固体に置き換える全固体電池は、充電時間の短縮や長寿命化、発熱の抑制が期待される。トヨタは10分以下の充電で最大約1200キロメートル走れる車を目指す。進捗度は10段階で7。実現可能性は示されたが、何が未知かも分からない「未知の未知」が残る。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "【本日発売】肉汁じゅわっ！ 松のやの「メンチかつ」が帰ってくる！ うまトマ＆濃厚デミも",
-      "url": "https://ascii.jp/elem/000/004/446/4446003/?rss",
-      "published": "2026-10-28T07:00:00+09:00",
-      "summary": "松のやでは10月28日15時より、「メンチかつ」を販売します。"
+      "title": "キャリア開発を組織開発につなげるには？データと対話から成長する組織づくりを考える無料オンラインセミナーを11月13日に開催",
+      "url": "https://ascii.jp/elem/000/004/446/4446691/?rss",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "キャリア開発を組織開発につなげるには？データと対話から成長する組織づくりを考える無料オンラインセミナーを11月13日に開催"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "国の無電柱化計画を進める3D設計・図面作成を自動化",
-      "url": "https://ascii.jp/elem/000/004/445/4445703/?rss",
-      "published": "2026-10-28T07:00:00+09:00",
-      "summary": "Terra Drone株式会社は10月13日、道路下に電線などをまとめて収める「電線共同溝」の3D設計を支援するツール「TerraDuct3D」の提供を開始したと発表した。本ツールはAutoCAD、IJCAD、ARESに対応しており、現場で導入済みのCADソフトウェアに機能を追加する形で利用できる。"
+      "title": "札幌市職員460人が参加した生成AI研修に、代表の茨木が登壇",
+      "url": "https://ascii.jp/elem/000/004/446/4446690/?rss",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "札幌市職員460人が参加した生成AI研修に、代表の茨木が登壇"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "AIが賢くなるだけでは企業は変わらない AIエージェントが仕事をする時代、企業のデータはどう守り、どう使うのか？",
-      "url": "https://ascii.jp/elem/000/004/442/4442670/?rss",
-      "published": "2026-10-28T07:00:00+09:00",
-      "summary": "AIエージェントが人間に代わって業務を実行する時代、企業が持つデータをどのように管理し、活用していくべきなのか。CEATEC 2026では、AI・データ基盤を提供する企業と、データ戦略を推進する企業の双方が登壇し、「Agentic AIとデータ基盤の未来－Open Data Spacesが拓く、AIネイティブ経営のための技術戦略」と題したセッションが開催された。"
+      "title": "PayPay、10月30日・31日は一部銀行からチャージ不可に チャージ忘れに要注意",
+      "url": "https://ascii.jp/elem/000/004/446/4446610/?rss",
+      "published": "2026-10-29T07:00:00+09:00",
+      "summary": "PayPayは10月23日、一部銀行を対象としたシステムメンテナンスの実施予定を公表した。期間は2026年10月30日23時から10月31日23時59分まで。"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication",
-      "url": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
-      "published": "2026-10-28T08:34:27+09:00",
-      "summary": "A family is suing OpenAI, saying ChatGPT coached their daughter to quietly taper off her seizure medication and keep it from her doctors before she died in February."
+      "title": "Microsoft just shared Azure’s actual revenue in dollars: $33.2 billion",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/",
+      "published": "2026-10-29T06:58:32+09:00",
+      "summary": "Microsoft has never disclosed Azure's quarterly revenue in dollars. But for the first time, we can see just how close it is getting to besting the biggest competitor in the market, AWS."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "The data center boom has an upside: innovation for the US grid",
-      "url": "https://techcrunch.com/2026/10/27/the-data-center-boom-has-an-upside-innovation-for-the-us-grid/",
-      "published": "2026-10-28T07:55:41+09:00",
-      "summary": "As the AI boom stresses the existing power grid, all sorts of new opportunities for grid modernization are also emerging as a result, industry insiders say."
+      "title": "Google expands AI Search ads globally as core ad growth slows",
+      "url": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/",
+      "published": "2026-10-29T06:48:37+09:00",
+      "summary": "The announcement came alongside parent company Alphabet's third-quarter earnings report, which saw revenue grow 25% year over year to $127.6 billion."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Bank of America kindly asks that you don’t share your banking password with your AI assistant",
-      "url": "https://techcrunch.com/2026/10/27/bank-of-america-kindly-asks-that-you-dont-share-your-banking-password-with-your-ai-assistant/",
-      "published": "2026-10-28T06:44:34+09:00",
-      "summary": "The banking giant reminds customers that \"you're responsible for activity\" resulting from your AI agents' access."
+      "title": "Microsoft recorded $10 billion in revenue from OpenAI",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+      "published": "2026-10-29T06:34:30+09:00",
+      "summary": "Microsoft said it made $10 billion in revenue from commercial arrangements with OpenAI, including revenue-sharing payments, in the quarter ending September 30. It underscores the still-enormous financ"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Who’s really in charge at Anthropic after the IPO?",
-      "url": "https://techcrunch.com/2026/10/27/whos-really-in-charge-at-anthropic-after-the-ipo/",
-      "published": "2026-10-28T06:38:28+09:00",
-      "summary": "Here's a clear explanation of Anthropic's incredibly complex governance structure."
+      "title": "Microsoft hits 10 quarters of record-breaking revenue in a row",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/",
+      "published": "2026-10-29T06:25:30+09:00",
+      "summary": "Whatever the future of AI might be, the current situation is still very good for Microsoft. The tech giant reported yet another record for quarterly revenue on Wednesday: $92.3 billion, a 19% increase"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Disruptive raises $10B fund to make big bets on at least 10 companies",
-      "url": "https://techcrunch.com/2026/10/27/disruptive-raises-10b-fund-to-make-big-bets-on-at-least-10-companies/",
-      "published": "2026-10-28T03:55:35+09:00",
-      "summary": "Disruptive has made headlines in recent years for pouring money into companies like chip startup Groq and the AI voice-generation startup ElevenLabs."
+      "title": "Anthropic just launched tools to show companies what their AI spending is buying",
+      "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
+      "published": "2026-10-29T04:19:58+09:00",
+      "summary": "The frontier lab is lifting the curtain on how users spend money on its models ahead of a planned IPO."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Frontier AI labs say their models refuted the Exponential Time Hypothesis. What does that mean?",
-      "url": "https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/",
-      "published": "2026-10-28T02:08:08+09:00",
-      "summary": "TechCrunch spoke to the MIT computer scientist charged with explaining OpenAI's latest mind-bending discovery."
+      "title": "Wiz’s CTO on PHP2Shell and the coming ‘vulnpocalypse’",
+      "url": "https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/",
+      "published": "2026-10-29T04:05:46+09:00",
+      "summary": "The PHP scare may have faded from your feed, but the cleanup is far from over. Last week, two critical bugs in the open source language behind roughly 70% of websites left organizations scrambling to "
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Google’s Genie 4 world model adds audio, more realistic worlds, and real-time steering",
-      "url": "https://techcrunch.com/2026/10/27/googles-genie-4-world-model-adds-audio-more-realistic-worlds-and-real-time-steering/",
-      "published": "2026-10-28T01:30:57+09:00",
-      "summary": "Genie 4 can maintain a consistent scene for up to two minutes, double Genie 3's limit, and offers better physics and more humanlike characters."
+      "title": "The ‘Vulnpocalypse’ is coming for the internet’s aging code, says Wiz’s CTO",
+      "url": "https://techcrunch.com/podcast/the-vulnpocalypse-is-coming-for-the-internets-aging-code-says-wizs-cto/",
+      "published": "2026-10-29T03:50:39+09:00",
+      "summary": "The PHP scare may have faded from your feed, but the cleanup is far from over. Last week, two critical bugs in the open source language behind roughly 70% of websites left organizations scrambling to "
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Meta AI director Rohit Patel leaves to take on Microsoft Office and Google Workspace",
-      "url": "https://techcrunch.com/2026/10/27/meta-ai-director-rohit-patel-leaves-to-take-on-microsoft-office-and-google-workspace/",
-      "published": "2026-10-27T23:59:09+09:00",
-      "summary": "Rohit Patel is departing Meta after eight years working on AI evaluations and reinforcement learning, TechCrunch has exclusively learned. His startup, Ndoc, aims to take on Microsoft Office Suite."
+      "title": "Chrome’s AI-powered Autofill can now dig through your Gmail to fill out forms",
+      "url": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/",
+      "published": "2026-10-29T02:00:00+09:00",
+      "summary": "The autofill update lets Chrome pull flight confirmations, tracking info, order details, and other information from your inbox, with your permission."
     }
   ]
 }
