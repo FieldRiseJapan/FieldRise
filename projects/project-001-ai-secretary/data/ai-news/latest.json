@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-29T10:13:11.861070+09:00",
+  "collected_at": "2026-10-30T10:07:28.570231+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,194 +11,194 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "AIエージェントは「増やせば賢くなる」のか Metaとハーバード大の研究が示す“分業の条件”",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002632/",
-      "published": "2026-10-29T08:00:00+09:00",
-      "summary": "AIエージェントは増やせば増やすほど賢くなるのか。米Metaや米ハーバード大学などの研究者による論文を基に、AI同士の分業が力を発揮する条件や、分業を企業に取り入れる際のポイントなどを解説する。"
+      "title": "OpenAI、AIの行動指針「Model Spec」を改定 “記憶”の使い方や人間による監督を明記",
+      "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002735/",
+      "published": "2026-10-30T08:24:32+09:00",
+      "summary": "OpenAIは、AIの振る舞い指針「Model Spec」の改定版を公開した。全体を5つの価値観に沿って再構成し、メモリや会話履歴の適切な扱い、エージェント自律動作時の人間による監督への服従などを規定。一方で人格設定や詳細な文体規定の大半を削除し、モデル呼称を「the assistant」から「GPT」に改めた。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "KDDI傘下、社内のAI活用事例113件を無料公開 「Gemini Notebook」で稟議データのチェック支援も",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002685/",
-      "published": "2026-10-29T08:00:00+09:00",
-      "summary": "KDDIグループのKDDIアイレットが、社内のAI活用事例113件をまとめた特設サイトを無料で公開している。"
+      "title": "AIは「組織能力の増幅器」、パナソニック新CAIOが描く人とAIの共進化",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/30/news053.html",
+      "published": "2026-10-30T08:00:00+09:00",
+      "summary": "パナソニック ホールディングスでは、2026年4月にグループCAIO（Chief AI Officer）に就任した、執行役員 榊原彰氏が合同取材に応じ、グループ内のAI活用の展望について説明した。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "製造業のAIネイティブ化の道筋は？ 将来のAIの役割から「逆算」で診断するサービスが登場",
-      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/29/news011.html",
-      "published": "2026-10-29T08:00:00+09:00",
-      "summary": "AI活用を個人タスクの効率化にとどまらず、価値創出の仕組みをAI中心に再設計する「AIネイティブ企業」が現れ始めた。製造業はどのような姿を目指し、何から取り組むべきか。将来のAIの役割から「逆算」して各社の道筋を描く診断サービスとは。"
+      "title": "物理ソルバーからMODSIM、AIへ SIMULIAが描く次世代の設計／シミュレーション",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/30/news004.html",
+      "published": "2026-10-30T07:00:00+09:00",
+      "summary": "ダッソー・システムズは「SIMULIA Community Conference Japan 2026」を開催した。基調講演では、SIMULIAブランドの戦略を支える物理ソルバー、MODSIM、AIの3層構造を紹介。エンジニアと協働するAI「バーチャルコンパニオン」や生成型設計、NVIDIAとの協業などを通じて、設計／シミュレーションの将来像を示した。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "Google、「Gemini 4 Carbon」発表 「Argon」公開から2週間、サイバー防御能力などを強化",
-      "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002690/",
-      "published": "2026-10-29T07:13:47+09:00",
-      "summary": "Googleは、フロンティアAIモデル「Gemini 4 Carbon」を発表した。サイバーセキュリティや長時間に及ぶ自律作業能力を強化し、ベンチマーク首位を獲得。ハルシネーションや不正操作への耐性も向上させた。まず一部のサイバー防御組織に限定提供し、順次公開範囲を広げる方針だ。"
+      "title": "見積書100枚超をどうさばく？ 「半日仕事」を約30分にした建設会社のAI活用",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/30/2000002725/",
+      "published": "2026-10-30T06:00:00+09:00",
+      "summary": "協力会社ごとに書式が異なる見積書の転記作業に、建設現場は多くの時間を費やしてきた。沖縄県の福地組はAI文書処理サービスを活用し、見積書1枚当たりの処理時間を10?15分から約1分に短縮した。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "20年前は“門前払い”？ デル社長が語る、日本企業の今昔 「IT後進国」から抜け出せたのか",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/29/news023.html",
-      "published": "2026-10-29T07:00:00+09:00",
-      "summary": "日本企業は、IT導入で「遅れている」と言われがちだった。しかし、AIの登場で状況が変わっている。デル・テクノロジーズ社長が、その実態を語った。"
+      "title": "ChatGPTのPro・Businessプランで「API利用」可能に 月最大500ドル分",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002728/",
+      "published": "2026-10-29T17:46:39+09:00",
+      "summary": "米OpenAIは「ChatGPT」のProおよびBusinessプランに、同社のAPIを利用できる特典を追加すると発表した。月最大500ドル分（約7万9000円、1ドル158円換算）の利用枠を付与する。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "月末に「600行の承認作業」が集中……「紙とハンコ」「現金手渡し」の経費申請を変えた、老舗メーカーの経理DX",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/29/news033.html",
-      "published": "2026-10-29T07:00:00+09:00",
-      "summary": "属人化しがちな経理業務。創業90年超のメーカーは、欠員をきっかけにIT導入を決断し、今では経費申請の約9割をAIが承認している。同社の“堅実な取り組み”に迫る。"
+      "title": "今、最も使われているプログラミング言語は？ AIコーディングでPython超えて急成長",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002719/",
+      "published": "2026-10-29T16:16:51+09:00",
+      "summary": "Githubは年次レポート「GitHub Octoverse 2026」を公開。開発者が多いプログラミング言語のランキングが発表された。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "AI導入から成果創出へ デル・テクノロジーズ新社長が示す日本市場の事業戦略",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/29/news032.html",
-      "published": "2026-10-29T06:30:00+09:00",
-      "summary": "デル・テクノロジーズは、2026年8月に代表取締役社長に就任したジョン・ロボトム氏の記者会見を開催した。ロボトム氏は、日本企業のAI活用が導入段階から成果創出へと移行しつつあるとの認識を示し、AIインフラやデータ基盤の整備、人材育成、パートナーとの共創を通じて、日本企業のAI活用を支援する方針を明らかにした。"
+      "title": "AIチャットが勧める広告商品、選択率が約3倍に こっそり他商品けなし誘導 米研究者らが検証",
+      "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002680/",
+      "published": "2026-10-29T12:00:00+09:00",
+      "summary": "米プリンストン大学に所属する研究者らが4月に発表した論文「Commercial Persuasion in AI-Mediated Conversations」は、オンラインショッピングなどにおける対話型AIによる説得が消費者の選択をどれほど操作できるかを検証した研究報告だ。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「高度なAIスキル」だけではもう食えない？ IT人材が答えた「これからの必須スキル」",
-      "url": "https://kn.itmedia.co.jp/kn/article/2610/29/2000002688/",
-      "published": "2026-10-29T06:00:00+09:00",
-      "summary": "2027年度以降、IT国家試験の大幅な刷新が予定されている。企業のIT現場はこの変化をどう見ているのか。読者調査から、制度刷新への期待と懸念、資格取得意向の変化、AI・セキュリティなど今後重視されるスキルを探る。"
+      "title": "AIが人間に“闇バイト”を発注？ AIが物理的労働を買う求人サイト「RentAHuman」の実態",
+      "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002679/",
+      "published": "2026-10-29T12:00:00+09:00",
+      "summary": "独立研究者のPulak MehtaさんとAryan Deshkumarさんが発表した論文「Security Risks of AI Agents Hiring Humans: An Empirical Marketplace Study」は、2026年2月に開設した、AIエージェントが人間を雇うことを目的に設計された人材雇用マーケットプレース「RentAHuman」の求人情報を分析し、悪用されてい"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "お帰りパジェロ！ 7年ぶりに大復活した新型パジェロは全長4.9m超の堂々ボディに最新ディーゼルターボ搭載！",
-      "url": "https://ascii.jp/elem/000/004/446/4446672/?rss",
-      "published": "2026-10-29T10:00:00+09:00",
-      "summary": "約7年ぶりに復活する三菱「パジェロ」の詳細レポートです。悪路走破性に上質さを加え、4代目よりボディを拡大して室内長を240mm延長。新開発の2.4Lディーゼルターボと8速AT、S-AWCを搭載し、快適な3列目や大型ディスプレイなどフラッグシップにふさわしい装備を備えています。"
+      "title": "Linuxに深刻度9.8の脆弱性、認証なしでroot権限奪取 AnthropicのAIが攻撃を実証",
+      "url": "https://ascii.jp/elem/000/004/447/4447103/?rss",
+      "published": "2026-10-30T10:00:00+09:00",
+      "summary": "Anthropicは10月27日、Linuxカーネルの脆弱性「CVE-2026-98432」を悪用し、遠隔から管理者権限でコマンドを実行する攻撃を実証したと発表した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "異常探索アクションADV『アノマリス／ANOMALITH』が本日発売！Steamではローンチセールを実施",
-      "url": "https://ascii.jp/elem/000/004/446/4446670/?rss",
-      "published": "2026-10-29T10:00:00+09:00",
-      "summary": "フリューは、PlayStation 5／Nintendo Switch 2／PC（Steam）向けソフト『アノマリス／ANOMALITH』を、本日2026年10月29日に発売。本作の通常版の価格は、パッケージ版／ダウンロード版ともに8580円となる。"
+      "title": "遅延最大34％低減をうたうWi-Fi 8ルーター ASUS「ROG Rapture GT-BN98」がAmazon限定発売",
+      "url": "https://ascii.jp/elem/000/004/447/4447093/?rss",
+      "published": "2026-10-30T10:00:00+09:00",
+      "summary": "ASUSのWi-Fi 8ゲーミングルーター「ROG Rapture GT-BN98」がAmazon限定発売。遅延を最大34％低減するとうたうAI Game Boostやデュアル10Gポートを搭載し、対戦ゲームや配信時の安定した通信を追求する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "『亰都ザナドゥ -桜花幻舞-』の体験版が本日10月29日よりSwitch／PS5／Steamで配信開始！",
-      "url": "https://ascii.jp/elem/000/004/446/4446669/?rss",
-      "published": "2026-10-29T10:00:00+09:00",
-      "summary": "日本ファルコムは、Nintendo Switch 2／Nintendo Switch／PlayStation 5／PC（Steam）で発売中の『亰都ザナドゥ -桜花幻舞-』について、無料体験版を本日2026年10月29日より配信。"
+      "title": "【本日】肉・麺・飯の背徳コンボ！ 大阪王将「悪魔の肉雪崩」がすごそう",
+      "url": "https://ascii.jp/elem/000/004/447/4447002/?rss",
+      "published": "2026-10-30T10:00:00+09:00",
+      "summary": "大阪王将は10月30日から、肉のボリューム感が特徴の期間限定メニュー「悪魔の肉雪崩！禁断のWポークまぜそば」を販売します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "2つのPCを1ケースに！ OZgaming「CAPO X」採用モデル登場、ゲームと配信を別環境で",
-      "url": "https://ascii.jp/elem/000/004/446/4446229/?rss",
-      "published": "2026-10-29T10:00:00+09:00",
-      "summary": "ソフマップがOZgamingの「CAPO X」採用ゲーミングPC全4モデルを発売。1つのケースに独立した2つのPCシステムを搭載でき、ゲームと配信、AI処理など用途別に運用可能。RTX 5070 Ti搭載モデルなど、構成や特徴を紹介する。"
+      "title": "AI エージェントの VM から IoT デバイスは見えるか：Meta Muse と SORACOM Arc の検証記録",
+      "url": "https://ascii.jp/elem/000/004/447/4447096/?rss",
+      "published": "2026-10-30T09:45:00+09:00",
+      "summary": "AI エージェントの VM から IoT デバイスは見えるか：Meta Muse と SORACOM Arc の検証記録"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「効率化の先に、何を生み出すか」――VURA、企業再定義と未来価値創造力を可視化する経営診断を提供",
-      "url": "https://ascii.jp/elem/000/004/446/4446688/?rss",
-      "published": "2026-10-29T08:00:00+09:00",
-      "summary": "「効率化の先に、何を生み出すか」――VURA、企業再定義と未来価値創造力を可視化する経営診断を提供"
+      "title": "ASUS ROG、発熱と電力の偏りを抑えるケーブル付属のPC電源5製品 1200W／1000Wを展開",
+      "url": "https://ascii.jp/elem/000/004/447/4447089/?rss",
+      "published": "2026-10-30T09:00:00+09:00",
+      "summary": "ASUS JAPANがROGブランドの電源ユニット新モデル5製品を10月30日に発売。ROGイコライザーケーブルを標準付属し、1200Wと1000Wの高出力モデルを展開する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "株式会社HQ、顧客向けダッシュボードを埋め込み型へ刷新ーCodatum導入事例を公開",
-      "url": "https://ascii.jp/elem/000/004/446/4446687/?rss",
-      "published": "2026-10-29T08:00:00+09:00",
-      "summary": "株式会社HQ、顧客向けダッシュボードを埋め込み型へ刷新ーCodatum導入事例を公開"
+      "title": "【本日】総重量600g、肉2倍盛りも！ 牛ハラミ×豚バラの豪快焼肉丼がすた丼に",
+      "url": "https://ascii.jp/elem/000/004/446/4446614/?rss",
+      "published": "2026-10-30T09:00:00+09:00",
+      "summary": "「伝説のすた丼屋」は本日10月30日より、新商品「牛ハラミ豚バラすたみな焼肉丼」を期間限定で販売します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "電力も原料も分散する。エネルギー転換で日本の産業はどう変わるか",
-      "url": "https://ascii.jp/elem/000/004/441/4441169/?rss",
-      "published": "2026-10-29T07:30:00+09:00",
-      "summary": "再生可能エネルギーの拡大で電源は各地に分散し、化学原料や燃料の選択肢も増えていく。複雑になるエネルギーと資源の流れをどう制御し、既存インフラをどう生かすのか。その変化が日本企業の競争力や産業立地に与える影響を、この先10年の視点で考える。"
+      "title": "生成AIに入れちゃダメな情報、わかってますか？ 不正アクセスだけじゃない情報漏洩の原因",
+      "url": "https://ascii.jp/elem/000/004/445/4445971/?rss",
+      "published": "2026-10-30T09:00:00+09:00",
+      "summary": "本連載は生成AIをこれから活用しようとしている方たちのために、生成AIの基本やコピペしてそのまま使えるプロンプトなどを紹介。兎にも角にも生成AIに触り始めることで、AIに対する理解を深め、AIスキルを身につけて欲しい。第77回は、生成AIへの入力やアップロードによる情報漏洩の事例から、生成AIに入力してはいけない情報について解説する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ディーモ、「Deemo LegalBase＋」サービス資料を公開",
-      "url": "https://ascii.jp/elem/000/004/446/4446689/?rss",
-      "published": "2026-10-29T07:20:00+09:00",
-      "summary": "ディーモ、「Deemo LegalBase＋」サービス資料を公開"
+      "title": "「LPWA」って何？ 少ない電力で遠くまで届くIoT向け通信の仕組み",
+      "url": "https://ascii.jp/elem/000/004/441/4441389/?rss",
+      "published": "2026-10-30T09:00:00+09:00",
+      "summary": "IoTに関連する専門用語の数々をわかりやすく解説していきます。今回は「LPWA（エルピーダブリューエー）」をご紹介"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Microsoft just shared Azure’s actual revenue in dollars: $33.2 billion",
-      "url": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/",
-      "published": "2026-10-29T06:58:32+09:00",
-      "summary": "Microsoft has never disclosed Azure's quarterly revenue in dollars. But for the first time, we can see just how close it is getting to besting the biggest competitor in the market, AWS."
+      "title": "AWS will be a $1T business, Jassy says. But first, it will spend big.",
+      "url": "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/",
+      "published": "2026-10-30T08:42:22+09:00",
+      "summary": "Amazon wants to be the king of AI cloud computing and become the first $1 trillion revenue business. But to do that it will have to continue on its capex spending spree, its CEO said Thursday."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Google expands AI Search ads globally as core ad growth slows",
-      "url": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/",
-      "published": "2026-10-29T06:48:37+09:00",
-      "summary": "The announcement came alongside parent company Alphabet's third-quarter earnings report, which saw revenue grow 25% year over year to $127.6 billion."
+      "title": "As search traffic dries up, Reddit announces it’s shifting to a logged-in experience",
+      "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
+      "published": "2026-10-30T05:08:31+09:00",
+      "summary": "As AI transforms how people find information online, Reddit is rethinking its open-web roots to protect its audience and business."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Microsoft recorded $10 billion in revenue from OpenAI",
-      "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
-      "published": "2026-10-29T06:34:30+09:00",
-      "summary": "Microsoft said it made $10 billion in revenue from commercial arrangements with OpenAI, including revenue-sharing payments, in the quarter ending September 30. It underscores the still-enormous financ"
+      "title": "Rivian expands joint venture with VW to include AI assistant",
+      "url": "https://techcrunch.com/2026/10/29/rivian-expands-joint-venture-with-vw-to-include-ai-assistant/",
+      "published": "2026-10-30T05:05:47+09:00",
+      "summary": "Rivian doesn't disclose if the value of its $5.8 billion joint venture will expand as a result."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Microsoft hits 10 quarters of record-breaking revenue in a row",
-      "url": "https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/",
-      "published": "2026-10-29T06:25:30+09:00",
-      "summary": "Whatever the future of AI might be, the current situation is still very good for Microsoft. The tech giant reported yet another record for quarterly revenue on Wednesday: $92.3 billion, a 19% increase"
+      "title": "OpenAI-backed Thrive Holdings acquires ADT",
+      "url": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/",
+      "published": "2026-10-30T04:56:19+09:00",
+      "summary": "OpenAI-backed Thrive Holdings is buying ADT in a $15.3 billion deal, with plans to bring AI to the home security business."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Anthropic just launched tools to show companies what their AI spending is buying",
-      "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
-      "published": "2026-10-29T04:19:58+09:00",
-      "summary": "The frontier lab is lifting the curtain on how users spend money on its models ahead of a planned IPO."
+      "title": "Meta quietly launches an AI fashion app called Style Sketch",
+      "url": "https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/",
+      "published": "2026-10-30T04:14:36+09:00",
+      "summary": "The app connects to Instagram to build a virtual closet from photos you’ve already shared, or lets you add items manually by snapping a photo, recording a quick video, or uploading images from your ca"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Wiz’s CTO on PHP2Shell and the coming ‘vulnpocalypse’",
-      "url": "https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/",
-      "published": "2026-10-29T04:05:46+09:00",
-      "summary": "The PHP scare may have faded from your feed, but the cleanup is far from over. Last week, two critical bugs in the open source language behind roughly 70% of websites left organizations scrambling to "
+      "title": "Granola crunches up a dictation feature to compete with Wispr",
+      "url": "https://techcrunch.com/2026/10/29/granola-crunches-up-a-dictation-feature-to-compete-with-wispr/",
+      "published": "2026-10-30T02:54:38+09:00",
+      "summary": "Uno reverse! After Wispr added meeting notes to its dictation app, Granola is adding dictation to its meeting notetaker. The voice AI wars are getting interesting."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "The ‘Vulnpocalypse’ is coming for the internet’s aging code, says Wiz’s CTO",
-      "url": "https://techcrunch.com/podcast/the-vulnpocalypse-is-coming-for-the-internets-aging-code-says-wizs-cto/",
-      "published": "2026-10-29T03:50:39+09:00",
-      "summary": "The PHP scare may have faded from your feed, but the cleanup is far from over. Last week, two critical bugs in the open source language behind roughly 70% of websites left organizations scrambling to "
+      "title": "Mistral releases weights for its trillion-parameter AI model, targeting cybersecurity",
+      "url": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/",
+      "published": "2026-10-30T02:00:00+09:00",
+      "summary": "Mistral says its new model can afford organizations a kind of control over its cyber defenses that closed models can't."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Chrome’s AI-powered Autofill can now dig through your Gmail to fill out forms",
-      "url": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/",
-      "published": "2026-10-29T02:00:00+09:00",
-      "summary": "The autofill update lets Chrome pull flight confirmations, tracking info, order details, and other information from your inbox, with your permission."
+      "title": "US investigated Chinese spy plot aimed at Nvidia CEO",
+      "url": "https://techcrunch.com/2026/10/29/u-s-investigated-chinese-spy-plot-aimed-at-nvidia-ceo/",
+      "published": "2026-10-30T01:42:32+09:00",
+      "summary": "A top executive of a Singapore AI cloud company that was accused of illegally selling Nvidia chips to China could also have been a Chinese spy, sources have told the New York Times."
     }
   ]
 }

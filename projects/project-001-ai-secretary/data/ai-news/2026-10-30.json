@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-10-30T10:07:28.570231+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OpenAI、AIの行動指針「Model Spec」を改定 “記憶”の使い方や人間による監督を明記",
+      "url": "https://www.itmedia.co.jp/news/article/2610/30/2000002735/",
+      "published": "2026-10-30T08:24:32+09:00",
+      "summary": "OpenAIは、AIの振る舞い指針「Model Spec」の改定版を公開した。全体を5つの価値観に沿って再構成し、メモリや会話履歴の適切な扱い、エージェント自律動作時の人間による監督への服従などを規定。一方で人格設定や詳細な文体規定の大半を削除し、モデル呼称を「the assistant」から「GPT」に改めた。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIは「組織能力の増幅器」、パナソニック新CAIOが描く人とAIの共進化",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/30/news053.html",
+      "published": "2026-10-30T08:00:00+09:00",
+      "summary": "パナソニック ホールディングスでは、2026年4月にグループCAIO（Chief AI Officer）に就任した、執行役員 榊原彰氏が合同取材に応じ、グループ内のAI活用の展望について説明した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "物理ソルバーからMODSIM、AIへ SIMULIAが描く次世代の設計／シミュレーション",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/30/news004.html",
+      "published": "2026-10-30T07:00:00+09:00",
+      "summary": "ダッソー・システムズは「SIMULIA Community Conference Japan 2026」を開催した。基調講演では、SIMULIAブランドの戦略を支える物理ソルバー、MODSIM、AIの3層構造を紹介。エンジニアと協働するAI「バーチャルコンパニオン」や生成型設計、NVIDIAとの協業などを通じて、設計／シミュレーションの将来像を示した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "見積書100枚超をどうさばく？ 「半日仕事」を約30分にした建設会社のAI活用",
+      "url": "https://kn.itmedia.co.jp/kn/article/2610/30/2000002725/",
+      "published": "2026-10-30T06:00:00+09:00",
+      "summary": "協力会社ごとに書式が異なる見積書の転記作業に、建設現場は多くの時間を費やしてきた。沖縄県の福地組はAI文書処理サービスを活用し、見積書1枚当たりの処理時間を10?15分から約1分に短縮した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ChatGPTのPro・Businessプランで「API利用」可能に 月最大500ドル分",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002728/",
+      "published": "2026-10-29T17:46:39+09:00",
+      "summary": "米OpenAIは「ChatGPT」のProおよびBusinessプランに、同社のAPIを利用できる特典を追加すると発表した。月最大500ドル分（約7万9000円、1ドル158円換算）の利用枠を付与する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "今、最も使われているプログラミング言語は？ AIコーディングでPython超えて急成長",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/29/2000002719/",
+      "published": "2026-10-29T16:16:51+09:00",
+      "summary": "Githubは年次レポート「GitHub Octoverse 2026」を公開。開発者が多いプログラミング言語のランキングが発表された。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIチャットが勧める広告商品、選択率が約3倍に こっそり他商品けなし誘導 米研究者らが検証",
+      "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002680/",
+      "published": "2026-10-29T12:00:00+09:00",
+      "summary": "米プリンストン大学に所属する研究者らが4月に発表した論文「Commercial Persuasion in AI-Mediated Conversations」は、オンラインショッピングなどにおける対話型AIによる説得が消費者の選択をどれほど操作できるかを検証した研究報告だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIが人間に“闇バイト”を発注？ AIが物理的労働を買う求人サイト「RentAHuman」の実態",
+      "url": "https://www.itmedia.co.jp/news/article/2610/29/2000002679/",
+      "published": "2026-10-29T12:00:00+09:00",
+      "summary": "独立研究者のPulak MehtaさんとAryan Deshkumarさんが発表した論文「Security Risks of AI Agents Hiring Humans: An Empirical Marketplace Study」は、2026年2月に開設した、AIエージェントが人間を雇うことを目的に設計された人材雇用マーケットプレース「RentAHuman」の求人情報を分析し、悪用されてい"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Linuxに深刻度9.8の脆弱性、認証なしでroot権限奪取 AnthropicのAIが攻撃を実証",
+      "url": "https://ascii.jp/elem/000/004/447/4447103/?rss",
+      "published": "2026-10-30T10:00:00+09:00",
+      "summary": "Anthropicは10月27日、Linuxカーネルの脆弱性「CVE-2026-98432」を悪用し、遠隔から管理者権限でコマンドを実行する攻撃を実証したと発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "遅延最大34％低減をうたうWi-Fi 8ルーター ASUS「ROG Rapture GT-BN98」がAmazon限定発売",
+      "url": "https://ascii.jp/elem/000/004/447/4447093/?rss",
+      "published": "2026-10-30T10:00:00+09:00",
+      "summary": "ASUSのWi-Fi 8ゲーミングルーター「ROG Rapture GT-BN98」がAmazon限定発売。遅延を最大34％低減するとうたうAI Game Boostやデュアル10Gポートを搭載し、対戦ゲームや配信時の安定した通信を追求する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【本日】肉・麺・飯の背徳コンボ！ 大阪王将「悪魔の肉雪崩」がすごそう",
+      "url": "https://ascii.jp/elem/000/004/447/4447002/?rss",
+      "published": "2026-10-30T10:00:00+09:00",
+      "summary": "大阪王将は10月30日から、肉のボリューム感が特徴の期間限定メニュー「悪魔の肉雪崩！禁断のWポークまぜそば」を販売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "AI エージェントの VM から IoT デバイスは見えるか：Meta Muse と SORACOM Arc の検証記録",
+      "url": "https://ascii.jp/elem/000/004/447/4447096/?rss",
+      "published": "2026-10-30T09:45:00+09:00",
+      "summary": "AI エージェントの VM から IoT デバイスは見えるか：Meta Muse と SORACOM Arc の検証記録"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ASUS ROG、発熱と電力の偏りを抑えるケーブル付属のPC電源5製品 1200W／1000Wを展開",
+      "url": "https://ascii.jp/elem/000/004/447/4447089/?rss",
+      "published": "2026-10-30T09:00:00+09:00",
+      "summary": "ASUS JAPANがROGブランドの電源ユニット新モデル5製品を10月30日に発売。ROGイコライザーケーブルを標準付属し、1200Wと1000Wの高出力モデルを展開する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【本日】総重量600g、肉2倍盛りも！ 牛ハラミ×豚バラの豪快焼肉丼がすた丼に",
+      "url": "https://ascii.jp/elem/000/004/446/4446614/?rss",
+      "published": "2026-10-30T09:00:00+09:00",
+      "summary": "「伝説のすた丼屋」は本日10月30日より、新商品「牛ハラミ豚バラすたみな焼肉丼」を期間限定で販売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "生成AIに入れちゃダメな情報、わかってますか？ 不正アクセスだけじゃない情報漏洩の原因",
+      "url": "https://ascii.jp/elem/000/004/445/4445971/?rss",
+      "published": "2026-10-30T09:00:00+09:00",
+      "summary": "本連載は生成AIをこれから活用しようとしている方たちのために、生成AIの基本やコピペしてそのまま使えるプロンプトなどを紹介。兎にも角にも生成AIに触り始めることで、AIに対する理解を深め、AIスキルを身につけて欲しい。第77回は、生成AIへの入力やアップロードによる情報漏洩の事例から、生成AIに入力してはいけない情報について解説する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「LPWA」って何？ 少ない電力で遠くまで届くIoT向け通信の仕組み",
+      "url": "https://ascii.jp/elem/000/004/441/4441389/?rss",
+      "published": "2026-10-30T09:00:00+09:00",
+      "summary": "IoTに関連する専門用語の数々をわかりやすく解説していきます。今回は「LPWA（エルピーダブリューエー）」をご紹介"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "AWS will be a $1T business, Jassy says. But first, it will spend big.",
+      "url": "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/",
+      "published": "2026-10-30T08:42:22+09:00",
+      "summary": "Amazon wants to be the king of AI cloud computing and become the first $1 trillion revenue business. But to do that it will have to continue on its capex spending spree, its CEO said Thursday."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "As search traffic dries up, Reddit announces it’s shifting to a logged-in experience",
+      "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
+      "published": "2026-10-30T05:08:31+09:00",
+      "summary": "As AI transforms how people find information online, Reddit is rethinking its open-web roots to protect its audience and business."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Rivian expands joint venture with VW to include AI assistant",
+      "url": "https://techcrunch.com/2026/10/29/rivian-expands-joint-venture-with-vw-to-include-ai-assistant/",
+      "published": "2026-10-30T05:05:47+09:00",
+      "summary": "Rivian doesn't disclose if the value of its $5.8 billion joint venture will expand as a result."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI-backed Thrive Holdings acquires ADT",
+      "url": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/",
+      "published": "2026-10-30T04:56:19+09:00",
+      "summary": "OpenAI-backed Thrive Holdings is buying ADT in a $15.3 billion deal, with plans to bring AI to the home security business."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta quietly launches an AI fashion app called Style Sketch",
+      "url": "https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/",
+      "published": "2026-10-30T04:14:36+09:00",
+      "summary": "The app connects to Instagram to build a virtual closet from photos you’ve already shared, or lets you add items manually by snapping a photo, recording a quick video, or uploading images from your ca"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Granola crunches up a dictation feature to compete with Wispr",
+      "url": "https://techcrunch.com/2026/10/29/granola-crunches-up-a-dictation-feature-to-compete-with-wispr/",
+      "published": "2026-10-30T02:54:38+09:00",
+      "summary": "Uno reverse! After Wispr added meeting notes to its dictation app, Granola is adding dictation to its meeting notetaker. The voice AI wars are getting interesting."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Mistral releases weights for its trillion-parameter AI model, targeting cybersecurity",
+      "url": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/",
+      "published": "2026-10-30T02:00:00+09:00",
+      "summary": "Mistral says its new model can afford organizations a kind of control over its cyber defenses that closed models can't."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "US investigated Chinese spy plot aimed at Nvidia CEO",
+      "url": "https://techcrunch.com/2026/10/29/u-s-investigated-chinese-spy-plot-aimed-at-nvidia-ceo/",
+      "published": "2026-10-30T01:42:32+09:00",
+      "summary": "A top executive of a Singapore AI cloud company that was accused of illegally selling Nvidia chips to China could also have been a Chinese spy, sources have told the New York Times."
+    }
+  ]
+}
