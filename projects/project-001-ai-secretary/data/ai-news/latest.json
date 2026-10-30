@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-30T10:07:28.570231+09:00",
+  "collected_at": "2026-10-30T10:20:52.033476+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -75,6 +75,14 @@
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
+      "title": "映画監督も絶賛する作業効率。MSI、クリエイター向け最新AIステーション＆34インチQD-OLEDモニターを発表",
+      "url": "https://ascii.jp/elem/000/004/447/4447029/?rss",
+      "published": "2026-10-30T10:15:00+09:00",
+      "summary": "エムエスアイコンピュータージャパン（MSI）は10月28日、新製品発表会を開催した。本発表会では、急速に拡大するローカルAI需要とプロのクリエイティブワークに応える最新ハードウェアがお披露目された。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
       "title": "Linuxに深刻度9.8の脆弱性、認証なしでroot権限奪取 AnthropicのAIが攻撃を実証",
       "url": "https://ascii.jp/elem/000/004/447/4447103/?rss",
       "published": "2026-10-30T10:00:00+09:00",
@@ -129,12 +137,12 @@
       "summary": "本連載は生成AIをこれから活用しようとしている方たちのために、生成AIの基本やコピペしてそのまま使えるプロンプトなどを紹介。兎にも角にも生成AIに触り始めることで、AIに対する理解を深め、AIスキルを身につけて欲しい。第77回は、生成AIへの入力やアップロードによる情報漏洩の事例から、生成AIに入力してはいけない情報について解説する。"
     },
     {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "「LPWA」って何？ 少ない電力で遠くまで届くIoT向け通信の仕組み",
-      "url": "https://ascii.jp/elem/000/004/441/4441389/?rss",
-      "published": "2026-10-30T09:00:00+09:00",
-      "summary": "IoTに関連する専門用語の数々をわかりやすく解説していきます。今回は「LPWA（エルピーダブリューエー）」をご紹介"
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "You don’t need to believe in a god to get a religious exemption from using AI at work",
+      "url": "https://techcrunch.com/2026/10/29/you-dont-need-to-believe-in-a-god-to-get-a-religious-exemption-from-using-ai-at-work/",
+      "published": "2026-10-30T10:20:48+09:00",
+      "summary": "David Durman, a University of Kentucky administrator, recently earned a religious exemption from using AI in the workplace."
     },
     {
       "source": "TechCrunch AI",
@@ -191,14 +199,6 @@
       "url": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/",
       "published": "2026-10-30T02:00:00+09:00",
       "summary": "Mistral says its new model can afford organizations a kind of control over its cyber defenses that closed models can't."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "US investigated Chinese spy plot aimed at Nvidia CEO",
-      "url": "https://techcrunch.com/2026/10/29/u-s-investigated-chinese-spy-plot-aimed-at-nvidia-ceo/",
-      "published": "2026-10-30T01:42:32+09:00",
-      "summary": "A top executive of a Singapore AI cloud company that was accused of illegally selling Nvidia chips to China could also have been a Chinese spy, sources have told the New York Times."
     }
   ]
 }
