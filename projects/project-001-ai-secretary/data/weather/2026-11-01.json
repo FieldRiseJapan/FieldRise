@@ -2,7 +2,7 @@
   "location": "香川県まんのう町",
   "latitude": 34.19,
   "longitude": 133.83,
-  "collected_at": "2026-11-01T09:11:17.573871+09:00",
+  "collected_at": "2026-11-01T09:25:42.750020+09:00",
   "source": "Open-Meteo (https://open-meteo.com/)",
   "forecast": [
     {
@@ -34,39 +34,39 @@
     },
     {
       "date": "2026-11-04",
-      "weather": "霧雨（弱）",
-      "temp_max_c": 18.7,
-      "temp_min_c": 9.3,
-      "precipitation_mm": 0.2,
+      "weather": "霧",
+      "temp_max_c": 18.9,
+      "temp_min_c": 9.5,
+      "precipitation_mm": 0.0,
       "precipitation_probability_pct": 21,
-      "wind_max_kmh": 15.6
+      "wind_max_kmh": 15.4
     },
     {
       "date": "2026-11-05",
-      "weather": "雨（弱）",
-      "temp_max_c": 20.9,
-      "temp_min_c": 13.7,
-      "precipitation_mm": 8.8,
+      "weather": "にわか雨（弱）",
+      "temp_max_c": 22.3,
+      "temp_min_c": 13.9,
+      "precipitation_mm": 9.2,
       "precipitation_probability_pct": 68,
-      "wind_max_kmh": 10.8
+      "wind_max_kmh": 10.5
     },
     {
       "date": "2026-11-06",
-      "weather": "霧雨（弱）",
-      "temp_max_c": 20.6,
-      "temp_min_c": 13.1,
-      "precipitation_mm": 0.9,
+      "weather": "霧雨",
+      "temp_max_c": 20.2,
+      "temp_min_c": 13.6,
+      "precipitation_mm": 2.5,
       "precipitation_probability_pct": 55,
-      "wind_max_kmh": 21.5
+      "wind_max_kmh": 23.2
     },
     {
       "date": "2026-11-07",
       "weather": "曇り",
-      "temp_max_c": 14.8,
+      "temp_max_c": 14.5,
       "temp_min_c": 6.2,
       "precipitation_mm": 0.0,
       "precipitation_probability_pct": 0,
-      "wind_max_kmh": 17.5
+      "wind_max_kmh": 19.2
     }
   ]
 }
