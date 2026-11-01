@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-31T10:02:10.358673+09:00",
+  "collected_at": "2026-11-01T09:11:18.348832+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,14 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AI学習への利用拒否をrobots.txtで一括指定へ OpenAIやGoogleなどが対応表明",
+      "url": "https://www.itmedia.co.jp/news/article/2611/01/2000002776/",
+      "published": "2026-11-01T08:31:07+09:00",
+      "summary": "OpenAI、Google、Microsoftは、Webサイト運営者がAI学習へのコンテンツ利用に関する意向を一括で指定できる共通の仕組みへの対応を発表した。Anthropicも担当者が個人名義で実装を表明している。robots.txtに共通トークンを記述するだけで、AI各社のAIクローラーを一元管理できるようになる。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -65,76 +73,108 @@
       "summary": "Geminiとのチャット内で直接、PDFやスライドなどを生成、プレビュー、編集できるようになった。ITmedia AI＋編集部の環境で同機能を試した結果をお届けする。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "東京と台北を「17ミリ秒」で結ぶIOWN アンリツCTOが語るデータセンター相互接続と日本の勝機",
-      "url": "https://www.itmedia.co.jp/business/articles/2610/30/news038.html",
-      "published": "2026-10-30T12:30:00+09:00",
-      "summary": "アンリツ（神奈川県厚木市）の計測事業グループCTO（最高技術責任者）、ジョナサン・ボリル氏に日本の光通信技術が再び世界を制する可能性について聞いた。"
+      "title": "印象が強い円形筐体を持つスピーカー「Beosoud A9」をフィーチャーした展示会に潜入",
+      "url": "https://ascii.jp/elem/000/004/447/4447547/?rss",
+      "published": "2026-11-01T09:00:00+09:00",
+      "summary": "Beosoud A9 Sienna Brownを中心に据えつつ、ギャラリー形式の新製品展示会「Rediscover Beosound A9」が、東京・広尾で10月27日に開催された。Beosound A9をキャンバスに見立てたアートプロジェクト「Art of the A9」の成果の一つとして、ソウルを拠点に活躍するアーティスト、ウ・クウォン氏の作品をプリントしたスペシャルエディションも展示されてい"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "これからの季節も足元ぽかぽか！ アイリスオーヤマの折りたたみデスクパネルヒーター",
-      "url": "https://ascii.jp/elem/000/004/447/4447407/?rss",
-      "published": "2026-10-31T09:00:00+09:00",
-      "summary": "Amazon.co.jpでアイリスオーヤマの「パネルヒーター」が売れています。足元をじんわり温めてくれる冷え対策グッズが、7690円となります。"
+      "title": "最大20％ポイント還元！PayPay自治体キャンペーン 2026年11月開始分は岩手と群馬がアツい",
+      "url": "https://ascii.jp/elem/000/004/446/4446507/?rss",
+      "published": "2026-11-01T07:30:00+09:00",
+      "summary": "PayPayのポイント還元率が大幅アップする「あなたのまちを応援プロジェクト」。この記事では2026年11月開始分の参加自治体をご紹介します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "この価格で冬の寒さ対策！ チャンピオンの暖かいボアフリースジャケットに注目",
-      "url": "https://ascii.jp/elem/000/004/447/4447388/?rss",
-      "published": "2026-10-31T09:00:00+09:00",
-      "summary": "Amazon.co.jpでチャンピオンのボアフリース「ジップフーデッドジャケット」がセール中です。メンズ向けのふわふわで軽いジャケットが、37％オフで買えます。"
+      "title": "「未来」の現在：「永遠の化学物質」は消せるか？ PFAS除去の進捗",
+      "url": "https://ascii.jp/elem/000/004/447/4447549/?rss",
+      "published": "2026-11-01T05:49:22+09:00",
+      "summary": "フライパンのコーティングから泡消火剤まで使われてきたPFASは、がんや不妊リスクとの関連が指摘され、人の血液や南極の雪からも見つかっている。水から捕捉・分解する技術は着実に進んでいる。進捗度は10段階で6。ただ、大本の「蛇口」を閉めなければ、除去の努力は無駄になる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "【日曜まで】肉ピザがほぼ半額！ 2205円→1129円 ピザハットの「肉の日」日曜まで開催中",
-      "url": "https://ascii.jp/elem/000/004/447/4447316/?rss",
-      "published": "2026-10-31T07:00:00+09:00",
-      "summary": "ピザハットは、期間限定の「肉の日キャンペーン」を11月1日まで開催中。肉系ハーフ＆ハーフピザを持ち帰り1129円から販売します。"
+      "title": "RTX 5070 Ti搭載PCが7万円オフ！ RTX 5080搭載モデルも値下げ、11月1日限定",
+      "url": "https://ascii.jp/elem/000/004/447/4447095/?rss",
+      "published": "2026-11-01T00:00:00+09:00",
+      "summary": "パソコンショップSEVENを運営するセブンアールジャパンが、11月1日限定で「2026/11/1 24時間限定セール」を開催する。最大86,000円オフのBTOパソコンセールとして、RTX 5080搭載モデルなど全10商品が対象となる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "AMD Ryzen 9 9950X3D×RX 9070 XT搭載PCが10万7000円引き！ パソコンショップSEVENの10月31日限定セール",
-      "url": "https://ascii.jp/elem/000/004/447/4447094/?rss",
-      "published": "2026-10-31T00:00:00+09:00",
-      "summary": "パソコンショップSEVENを運営するセブンアールジャパンが、10月31日限定で最新ゲーミングPCやデスクトップPCを最大107,000円オフで販売する24時間限定セールを実施する。"
+      "title": "もはや“デスクトップ並み”に快適、ROG20周年のポータブルゲーミングPC「ROG Xbox Ally X20」",
+      "url": "https://ascii.jp/elem/000/004/445/4445700/?rss",
+      "published": "2026-10-31T22:20:00+09:00",
+      "summary": "「ROG Xbox Ally X20」は、ROGブランド誕生20周年を記念して作られたプレミアムなポータブルゲーミングPCです。ポータブル機の枠を軽々と飛び越え、デスクトップPCに迫る圧倒的なパフォーマンスと最高の操作性を実現。Windows 11搭載で、Xbox Game PassなどのPCゲームライブラリをどこへでも持ち運んで遊べちゃいます"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "10万円でお釣りがくる！ Core 5＋16GBメモリ搭載のLenovo「IdeaPad Slim 3」が21％オフの9万4800円",
-      "url": "https://ascii.jp/elem/000/004/444/4444327/?rss",
-      "published": "2026-10-30T22:50:00+09:00",
-      "summary": "Lenovoの15.3型ノートPC「IdeaPad Slim 3（83RR00BXJP）」がAmazonのタイムセール対象。過去価格99,800円から5％オフの94,800円で販売中。Core 5 320、16GBメモリ、512GB SSDを搭載し、15.3型WUXGA IPS液晶を採用。テンキー付き日本語キーボードや指紋認証も備え、10万円を切る価格でこれらの装備を選べるのがポイントだ。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "直販サイトで23万円台！ Core Ultra 5搭載14.0型モバイルノート「FMV WU2-L3」",
-      "url": "https://ascii.jp/elem/000/004/447/4447033/?rss",
-      "published": "2026-10-30T22:00:00+09:00",
+      "title": "FMV直販に注目！ Core Ultra 5搭載14.0型モバイルノート「FMV WU2-L3」が23万円台！",
+      "url": "https://ascii.jp/elem/000/004/447/4447034/?rss",
+      "published": "2026-10-31T22:00:00+09:00",
       "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "中身はハイエンド、姿はタブレット！ 64GBメモリー搭載のASUS「ROG Flow Z13」が5万円引き",
-      "url": "https://ascii.jp/elem/000/004/447/4447090/?rss",
-      "published": "2026-10-30T21:50:00+09:00",
-      "summary": "ASUSの13.4型ゲーミングPC「ROG Flow Z13（GZ302EA-AI916C64G）」がAmazonのタイムセール対象。参考価格509,800円から10％オフの459,800円で販売中。Ryzen AI MAX+ 395と64GBメモリーを搭載し、キーボードを取り外せばタブレットとしても使える。ハイエンドな構成ながら、ノートPCにもタブレットにもなる欲張りなモデルだ。"
+      "title": "16GB→32GBへの変更が9696円！ ドスパラのブラックフライデー先取りキャンペーンが熱い",
+      "url": "https://ascii.jp/elem/000/004/447/4447339/?rss",
+      "published": "2026-10-31T21:30:00+09:00",
+      "summary": "ドスパラでは現在、ブラックフライデー先取りキャンペーンを開催中。対象の新品パソコンで、16GBから32GBへのメモリ変更が9,696円、500GBから1TBへのSSD変更が19,696円など、指定カスタマイズを特別価格で利用できる。ゲーミングPCやクリエイター向けPC、スタンダードPCなどが対象となっている。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ゴジラとコラボしたFMVノートPCが、直販サイトで10%オフに！",
-      "url": "https://ascii.jp/elem/000/004/447/4447035/?rss",
-      "published": "2026-10-30T21:30:00+09:00",
+      "title": "ファンなら絶対手に入れたい！ ゴジラ仕様のノートPCが、FMV直販で10%オフ！",
+      "url": "https://ascii.jp/elem/000/004/447/4447036/?rss",
+      "published": "2026-10-31T21:30:00+09:00",
       "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+      "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+      "published": "2026-11-01T06:41:00+09:00",
+      "summary": "Apple's new CEO defended the company's current position in the AI landscape."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "4 days left: How TechCrunch Founder Summit helps you make more useful connections to scale",
+      "url": "https://techcrunch.com/2026/10/31/4-days-left-how-techcrunch-founder-summit-helps-you-make-more-useful-connections-to-scale/",
+      "published": "2026-11-01T06:36:07+09:00",
+      "summary": "On November 4 at Boston’s SoWa Power Station, get ready for a full day packed with meaningful networking opportunities, actionable insights, and connections that could change the trajectory of your id"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+      "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+      "published": "2026-11-01T06:17:03+09:00",
+      "summary": "An NAACP lawsuit accuses the SpaceX-owned AI company of violating the Clean Air Act."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI reportedly lowers funding target for new round",
+      "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+      "published": "2026-11-01T01:12:55+09:00",
+      "summary": "OpenAI’s latest funding round doesn't seem to be living up to expectations."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia",
+      "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+      "published": "2026-10-31T10:20:05+09:00",
+      "summary": "When investors get nervous about AI spending, it helps to have the chipmaker that sells the chips offer to cosign the loan."
     },
     {
       "source": "TechCrunch AI",
@@ -159,46 +199,6 @@
       "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
       "published": "2026-10-31T06:52:03+09:00",
       "summary": "Blackstone's forecast is just a prediction, but naturally, a high junk rating would make it more difficult and costlier for Anthropic to raise the money to keep funding its massive spending that has u"
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Last-minute Halloween costumes for tech nerds",
-      "url": "https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/",
-      "published": "2026-10-31T06:26:59+09:00",
-      "summary": "No Halloween costume? Just be a deceptively cute AI agent icon, a PHP vulnerability, or sleepy time Bryan Johnson."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Cracks are emerging in the AI spending boom",
-      "url": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/",
-      "published": "2026-10-31T06:17:40+09:00",
-      "summary": "Big Tech is pouring billions into AI infrastructure, but mounting debt, negative cash flow, and growing investor skepticism are raising questions about the sustainability of the AI spending boom."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Zest’s new AI agent finds restaurants and books reservations over text",
-      "url": "https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/",
-      "published": "2026-10-31T02:47:12+09:00",
-      "summary": "Can't agree on where to eat? Zest's AI concierge can combine everyone's tastes, put restaurant options to a vote, and make the reservation."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Google’s first data center satellite is online and writing poetry",
-      "url": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
-      "published": "2026-10-31T02:00:00+09:00",
-      "summary": "The first TPU in space is running a Google DeepMind Gemma 4 model and writing cheesy poetry."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Theranos whistleblower Tyler Shultz warns that the AI boom is ‘a great opportunity to go deceive people’",
-      "url": "https://techcrunch.com/2026/10/30/theranos-whistleblower-tyler-shultz-warns-that-the-ai-boom-is-a-great-opportunity-to-go-deceive-people/",
-      "published": "2026-10-31T01:03:45+09:00",
-      "summary": "The cautionary Theranos tale takes on a new significance in the AI era, when companies that have never turned a profit are raising capital at trillion-dollar valuations."
     }
   ]
 }
