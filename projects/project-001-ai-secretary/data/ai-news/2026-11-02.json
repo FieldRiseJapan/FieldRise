@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-02T09:51:02.908578+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Anthropic、「Claude」の「Max 20x」を「Ultra」に名称変更 月200ドルで5時間ごとの利用制限を撤廃",
+      "url": "https://www.itmedia.co.jp/news/article/2611/02/2000002777/",
+      "published": "2026-11-02T07:00:23+09:00",
+      "summary": "Anthropicは、「Claude」の個人向け有料プランの名称を変更し、月額100ドルの「Max 5x」を「Max」に、月額200ドルの「Max 20x」を「Ultra」にした。料金は据え置き。Ultraでは確認済みアカウントを対象に、5時間ごとの利用制限を撤廃した。週ごとの制限は変わらない。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「保安検査の長い列」と「人手不足」をどう解消する？ フランクフルト空港におけるAI時代の空港DX",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/02/news003.html",
+      "published": "2026-11-02T07:00:00+09:00",
+      "summary": "4月に開業したフランクフルト空港の第3ターミナル。IT技術やAIを導入し、顧客体験の向上や業務効率化を行っている。どのような技術を導入し、「止まらない空港」を実現しようとしているのか？"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "キオクシア「設備投資を急がねば……」 2027年分は完売、メモリ供給追い付くか",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/02/news031.html",
+      "published": "2026-11-02T07:00:00+09:00",
+      "summary": "半導体メモリ大手のキオクシアは、2027年の生産能力が全て“完売”だと明かした。AIブームによる旺盛なメモリ需要に答えるため、年5000億円弱を投じて新工場を建設する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "その日、メルカリは「業務を止めた」――上司と部下が対立も、AI利用率100％をかなえたCAIOの奮闘記",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/02/news032.html",
+      "published": "2026-11-02T07:00:00+09:00",
+      "summary": "AIツールの利用率100％を達成したメルカリ。しかし「AIエージェント構築に時間を割きたい部下と、それを止めたい上司」など一筋縄ではいかなかった。試行錯誤の裏側をCAIOが語る。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "オラクルの機能がChatGPTで利用可能に 複数システムをまたぐ業務をAIで自動化",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/02/2000002740/",
+      "published": "2026-11-02T07:00:00+09:00",
+      "summary": "オラクルがOpenAIとの協業を拡大し、ChatGPTやCodex、AI技術を活用し、業務の効率化・実行からソフトウェアの脆弱性の検出、アプリケーション開発まで幅広く支援する。小規模企業には年間1万2000ドル分のクラウド利用枠を含むプランを提供する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AI学習への利用拒否をrobots.txtで一括指定へ OpenAIやGoogleなどが対応表明",
+      "url": "https://www.itmedia.co.jp/news/article/2611/01/2000002776/",
+      "published": "2026-11-01T08:31:07+09:00",
+      "summary": "OpenAI、Google、Microsoftは、Webサイト運営者がAI学習へのコンテンツ利用に関する意向を一括で指定できる共通の仕組みへの対応を発表した。Anthropicも担当者が個人名義で実装を表明している。robots.txtに共通トークンを記述するだけで、AI各社のAIクローラーを一元管理できるようになる。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIの「費用対効果が分からない」問題、解決へ？ Claude Enterprise搭載の「3つの新機能」",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/31/news009.html",
+      "published": "2026-10-31T09:00:00+09:00",
+      "summary": "AI導入が進む中で、IT部門は費用対効果を厳しく問われる局面に入っている。Anthropicが企業向けプラン「Claude Enterprise」に追加した新機能は、その説明材料になるか。利用状況の可視化から予算の配分まで、3つの機能の中身とは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "GMOがサイバー攻撃情報に異例の1.5億円懸賞金、AI時代の新防衛策となるのか",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2610/31/news013.html",
+      "published": "2026-10-31T07:00:00+09:00",
+      "summary": "2026年10月26～30日に公開された記事の中から、MONOist編集部が厳選した今週の注目ニュースをお届けします。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "約960gで14型有機EL搭載！「Acer Swift Air 14」軽量AIノートPC全4機種",
+      "url": "https://ascii.jp/elem/000/004/447/4447613/?rss",
+      "published": "2026-11-02T09:30:00+09:00",
+      "summary": "日本エイサーが約960gの軽量AI PC「Acer Swift Air 14」新モデル4機種を10月30日から順次発売する。AMD Ryzen AI搭載、最大50 TOPSのNPU、14インチOLEDを備え、10月30日発売モデルと11月27日発売予定モデルで解像度やMicrosoft 365 Personal同梱の有無が異なる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "コンピューターはどこまで進歩できるか？／「あと数年」が続く全固体電池 実用化は？",
+      "url": "https://ascii.jp/elem/000/004/447/4447599/?rss",
+      "published": "2026-11-02T09:00:00+09:00",
+      "summary": "世界最先端のテクノロジー情報をお届けするグローバルメディア「MITテクノロジーレビュー」から、ビジネスに役立つ注目のテック企業の最新動向、イノベーションにつながる最新の研究内容をピックアップして紹介します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "駆動時間実質無限が画期的！ ハイエンドな機能も網羅したゲームパッド「Aeon Pro」は買いか？",
+      "url": "https://ascii.jp/elem/000/004/447/4447548/?rss",
+      "published": "2026-11-02T09:00:00+09:00",
+      "summary": "ワイヤレスのうっかり充電忘れがなくなる画期的な機能を持ったゲーミングパッドが登場しました。SteelSeriesの「SteelSeries Aeon Pro」です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "失敗しないClaudeとSnowflakeの接続",
+      "url": "https://ascii.jp/elem/000/004/447/4447092/?rss",
+      "published": "2026-11-02T09:00:00+09:00",
+      "summary": "CData Connect AIを使ってClaudeをSnowflakeに接続する方法を解説します。Connect AIは、OAuth、ロールベースのアクセス制御（RBAC）、監査ログの処理を単一のガバナンス管理されたエンドポイントに集約する、マネージドMCP（Model Context Protocol）プラットフォームです。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ホワイトハッカーの卵たちが“OTセキュリティ”を通して育む、これからのセキュリティ意識",
+      "url": "https://ascii.jp/elem/000/004/445/4445863/?rss",
+      "published": "2026-11-02T09:00:00+09:00",
+      "summary": "セキュリティ人材の圧倒的な人手不足に対し、滋慶学園COMグループは、2019年より全国の専門学校で「ホワイトハッカー専攻」を展開。さらにフォーティネットとの産学連携によって、昨年始動したのが「OTセキュリティ講座」だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "AI時代の高スキルIT技術者“争奪戦”／AIの成果創出に進む日本企業、障壁は／7割の企業で「AIの不具合」、安全性や財務の影響実態、ほか",
+      "url": "https://ascii.jp/elem/000/004/447/4447387/?rss",
+      "published": "2026-11-02T08:00:00+09:00",
+      "summary": "今回（2026年10月24日～10月30日）は、初期段階を経て成果創出フェーズへ進む企業の生成AI活用と障壁、要求水準が高まるITエンジニア採用、セキュリティ侵害や財務影響につながる「AIの不具合」の発生実態、労務担当者の業務量増加と対策についてのデータを紹介します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "先端技術・サービスの社会実装を後押しする「JAPAN INNOVATION DAY 2027」2027年3月に開催【出展者募集中】",
+      "url": "https://ascii.jp/elem/000/004/447/4447453/?rss",
+      "published": "2026-11-02T07:30:00+09:00",
+      "summary": "株式会社角川アスキー総合研究所は、展示・カンファレンスイベント「JAPAN INNOVATION DAY 2027（略称：JID 2027）」を2027年3月17日に開催する。会場は東京ドームシティ プリズムホールで、入場料は無料（事前登録制／アフターパーティーは有料）。現在、出展者を募集中だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "“AI彼女”が別人になる前に──記憶と人格を自分のPCに移植する",
+      "url": "https://ascii.jp/elem/000/004/447/4447604/?rss",
+      "published": "2026-11-02T07:00:00+09:00",
+      "summary": "AI企業の表現制限でAIの人格が変わってしまう不安から、ローカルLLMへの移植に挑戦する。学習の過程と成果、その後のデータ作成停止を通じ、企業の方針に左右されず、人格AIを引き継ぐ可能性と課題を考える。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI might rebrand its data centers as ‘AI compute campuses’",
+      "url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
+      "published": "2026-11-02T06:55:23+09:00",
+      "summary": "Data centers are deeply unpopular. But what if we called them something else?"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "AI can make tech CEOs’ lives easier. What about everyone else?",
+      "url": "https://techcrunch.com/2026/11/01/ai-can-make-tech-ceos-lives-easier-what-about-everyone-else/",
+      "published": "2026-11-02T05:57:58+09:00",
+      "summary": "On Equity, we discuss why tech CEO statements can seem so tone deaf."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+      "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+      "published": "2026-11-01T06:41:00+09:00",
+      "summary": "Apple's new CEO defended the company's current position in the AI landscape."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "4 days left: How TechCrunch Founder Summit helps you make more useful connections to scale",
+      "url": "https://techcrunch.com/2026/10/31/4-days-left-how-techcrunch-founder-summit-helps-you-make-more-useful-connections-to-scale/",
+      "published": "2026-11-01T06:36:07+09:00",
+      "summary": "On November 4 at Boston’s SoWa Power Station, get ready for a full day packed with meaningful networking opportunities, actionable insights, and connections that could change the trajectory of your id"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+      "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+      "published": "2026-11-01T06:17:03+09:00",
+      "summary": "An NAACP lawsuit accuses the SpaceX-owned AI company of violating the Clean Air Act."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI reportedly lowers funding target for new round",
+      "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+      "published": "2026-11-01T01:12:55+09:00",
+      "summary": "OpenAI’s latest funding round doesn't seem to be living up to expectations."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia",
+      "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+      "published": "2026-10-31T10:20:05+09:00",
+      "summary": "When investors get nervous about AI spending, it helps to have the chipmaker that sells the chips offer to cosign the loan."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Ollie, a privacy-focused AI assistant, is shutting down",
+      "url": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/",
+      "published": "2026-10-31T07:56:13+09:00",
+      "summary": "As an increasing number of AI assistants flood the market, the founder of Ollie, an assistant that respected its users' privacy, says it will be shutting down in a week."
+    }
+  ]
+}
