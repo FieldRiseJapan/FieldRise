@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-03T11:56:49.929736+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Anthropic、IPO申請書を修正 7?9月売上高は約170億ドル、インフラ契約額は約8954億ドル",
+      "url": "https://www.itmedia.co.jp/news/article/2611/03/2000002831/",
+      "published": "2026-11-03T08:20:20+09:00",
+      "summary": "Anthropicは、証券取引委員会（SEC）にIPOに向けた登録届出書の修正版を提出した。第3四半期の売上高は前年同期比約12.3倍の約169億ドルに拡大した一方、営業損益は赤字に転落。また、AI計算資源やインフラに関する将来の支出約束額が約8954億ドルに上ることも明らかにした。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Marvell、光通信技術のLumentumを約18兆円で買収 AIデータセンターの高速化に対応",
+      "url": "https://www.itmedia.co.jp/news/article/2611/03/2000002830/",
+      "published": "2026-11-03T07:07:56+09:00",
+      "summary": "半導体大手のMarvell Technologyは、光通信関連製品を手掛けるLumentum Holdingsを買収することで合意したと発表した。買収額は約1150億ドル。AIデータセンターで急増するデータ通信需要に対応するため、自社の半導体技術とLumentumの光通信技術を統合し、次世代AI接続技術の提供を目指す。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "富士通とNECのCFOが語る、2026年下期以降の「ITサービス需要動向」",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/02/news053.html",
+      "published": "2026-11-02T15:00:00+09:00",
+      "summary": "サイバー攻撃への緊急対応、膨らむAIコスト、部材の高騰といった不安要素が重なる中、ITサービス需要はどうなるのか。富士通とNECの受注状況と決算会見での発言から今後の需要動向を探る。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "キオクシア、2桁成長に“急ブレーキ”？ Q3「売上収益1％増」、決算説明会で幹部らが語ったこと",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/02/news048.html",
+      "published": "2026-11-02T12:00:00+09:00",
+      "summary": "キオクシアHDは、2027年3月期Q3の見通しを「売上収益が2兆5000億円」と発表した。しかし前期比1.0％増にとどまっており、2桁成長からの転換について投資家から質問が上がった。質疑応答の内容を紹介する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ChatGPTの「Chat」と「Work」統合へ 利用制限はCodexと共通化",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/02/2000002781/",
+      "published": "2026-11-02T10:50:32+09:00",
+      "summary": "OpenAIはChatGPT Workのエージェント機能をChatGPTに統合する予定とし、CodexとChatGPTで有料プランの利用量制限が共通化されると発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "建設現場の「古い図面」問題 紙とデジタルのズレが招く「手戻り」と「工事遅延」、日本HPはどう解消した？",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/02/news006.html",
+      "published": "2026-11-02T10:00:00+09:00",
+      "summary": "急速なデジタル化が進む建築・建設業界。一方で、現場が参照しているのは、依然として紙やPDFの図面が中心。デジタルと紙、オフィスと現場で異なる媒体で情報が参照されていると、最新の図面の共有が遅れ、手戻りや施工ミス、工事の遅延などにつながりかねない。この課題を日本HPの新サービスはどう解消するのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Anthropic、「Claude」の「Max 20x」を「Ultra」に名称変更 月200ドルで5時間ごとの利用制限を撤廃",
+      "url": "https://www.itmedia.co.jp/news/article/2611/02/2000002777/",
+      "published": "2026-11-02T07:00:23+09:00",
+      "summary": "Anthropicは、「Claude」の個人向け有料プランの名称を変更し、月額100ドルの「Max 5x」を「Max」に、月額200ドルの「Max 20x」を「Ultra」にした。料金は据え置き。Ultraでは確認済みアカウントを対象に、5時間ごとの利用制限を撤廃した。週ごとの制限は変わらない。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「保安検査の長い列」と「人手不足」をどう解消する？ フランクフルト空港におけるAI時代の空港DX",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/02/news003.html",
+      "published": "2026-11-02T07:00:00+09:00",
+      "summary": "4月に開業したフランクフルト空港の第3ターミナル。IT技術やAIを導入し、顧客体験の向上や業務効率化を行っている。どのような技術を導入し、「止まらない空港」を実現しようとしているのか？"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "AIでデザインが簡単になっても残る仕事 AIで変わる4人のクリエイターの仕事と人生",
+      "url": "https://ascii.jp/elem/000/004/444/4444030/?rss",
+      "published": "2026-11-03T11:00:00+09:00",
+      "summary": "2026年9月5日、動画編集アプリ「CapCut（キャップカット）」は、初のグローバルコミュニティイベント「CapCut World」をシンガポールのCapella Singaporeで開催した。今回は、個別に取材した日本のISSEIさんに加え、メディアセッションに登壇した日本のしまやすさん、インドネシアのErinatiさん、シンガポールのHenri Kangさんの話を紹介する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【本日】ファミマに「銀だらの煮付け」登場！ 30円引きで買えるぞ",
+      "url": "https://ascii.jp/elem/000/004/447/4447830/?rss",
+      "published": "2026-11-03T10:00:00+09:00",
+      "summary": "ファミリーマートは11月3日より、「甘辛いたれで煮付けた 銀だらの煮付け」を発売。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "最大3174円おトク！ 銀だこの「ぜったいお得な回数券」が11月8日発売",
+      "url": "https://ascii.jp/elem/000/004/447/4447393/?rss",
+      "published": "2026-11-03T09:00:00+09:00",
+      "summary": "築地銀だこは11月8日から、たこ焼8個入りと交換できる「ぜったいお得な回数券」を数量・期間限定で販売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "オフィスビジョン設置先従業員の55.4％が「ふるさと納税を毎年実施」、経験者は70.6％ 設置先従業員500名調査",
+      "url": "https://ascii.jp/elem/000/004/448/4448005/?rss",
+      "published": "2026-11-03T08:10:00+09:00",
+      "summary": "オフィスビジョン設置先従業員の55.4％が「ふるさと納税を毎年実施」、経験者は70.6％ 設置先従業員500名調査"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "誰が、どの工程を担うか。ショート動画屋さんFC「縦型動画制作学校」が4コースのカリキュラムを更新",
+      "url": "https://ascii.jp/elem/000/004/448/4448006/?rss",
+      "published": "2026-11-03T08:00:00+09:00",
+      "summary": "誰が、どの工程を担うか。ショート動画屋さんFC「縦型動画制作学校」が4コースのカリキュラムを更新"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "株式会社YORISOI、Z世代と他世代の仕事観・育成環境を独自分析。α世代を見据えた採用・マネジメントのあり方",
+      "url": "https://ascii.jp/elem/000/004/448/4448007/?rss",
+      "published": "2026-11-03T07:50:00+09:00",
+      "summary": "株式会社YORISOI、Z世代と他世代の仕事観・育成環境を独自分析。α世代を見据えた採用・マネジメントのあり方"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "1兆円の仮想通貨盗難、FBIが北朝鮮の犯行と指摘 狙われたのは社員のPCか",
+      "url": "https://ascii.jp/limit/group/ida/elem/000/004/447/4447863/?rss",
+      "published": "2026-11-03T07:00:00+09:00",
+      "summary": "世界最大の暗号資産（仮想通貨）の取引所バイナンスから、1兆円相当の仮想通貨が盗まれた。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「teppay」最大35％還元は本当にお得？ ビックカメラの新キャンペーンをぶっちゃけ検証",
+      "url": "https://ascii.jp/elem/000/004/447/4447849/?rss",
+      "published": "2026-11-03T07:00:00+09:00",
+      "summary": "ビックカメラとteppayの最大35%還元キャンペーンを解説。2つの特典の条件や上限、購入金額別の還元例を紹介し、参加に必要なカードと普段の決済の使い分け方法についてもぶっちゃけて教えます。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Apple may try to increase revenue by doing…something with third-party AI apps",
+      "url": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/",
+      "published": "2026-11-03T10:49:52+09:00",
+      "summary": "Apple hinted at ways that it could spur revenue through third-party \"opportunities\" during its Monday night earnings call."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Y Combinator’s Garry Tan uses AI agents so much, he spends up to $200K a year on tokens",
+      "url": "https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/",
+      "published": "2026-11-03T09:35:52+09:00",
+      "summary": "Y Combinator Garry Tan has jokingly admitted that he's suffered from \"cyber psychosis” and barely sleeps sometimes because he’s so excited to be working with his AI agents. On a new episode of Walter "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Trajectory raises $45M to make AI model training accessible to nontechnical experts",
+      "url": "https://techcrunch.com/2026/11/02/trajectory-raises-45m-to-make-ai-model-training-accessible-to-nontechnical-experts/",
+      "published": "2026-11-03T08:13:53+09:00",
+      "summary": "The one-year-old startup is now valued at $300 million."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
+      "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+      "published": "2026-11-03T07:14:50+09:00",
+      "summary": "RSI is the point at which AI grows so good at training itself that it spawns a dramatic acceleration of AI capabilities. To the AI doomers, RSI represents the cataclysm from which there is no return."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Web host Squarespace lays off 19% of its employees",
+      "url": "https://techcrunch.com/2026/11/02/web-host-squarespace-lays-off-19-of-its-employees/",
+      "published": "2026-11-03T04:25:59+09:00",
+      "summary": "The website builder said that the job losses are part of a broader restructuring of its organization."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "New York Times and other outlets sue web browser Brave over alleged content scraping",
+      "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
+      "published": "2026-11-03T04:19:17+09:00",
+      "summary": "The New York Times is suing privacy-focused web browser company Brave for allegedly scraping the outlet’s copyrighted content and unlawfully distributing it to its own customers, like Anthropic and Pe"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "42AI comes out of stealth with $62.5M and a world model that can ‘predict human behavior’",
+      "url": "https://techcrunch.com/2026/11/02/42ai-comes-out-of-stealth-with-62-5m-and-a-world-model-that-can-predict-human-behavior/",
+      "published": "2026-11-03T01:30:00+09:00",
+      "summary": "Here's a question straight out of sci-fi: What if AI could predict what you were going to do before you decided to, even in a completely new situation?"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Elon Musk throttles Grok Bot limits due to ‘unsustainably high’ costs",
+      "url": "https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/",
+      "published": "2026-11-03T01:23:21+09:00",
+      "summary": "Musk recently referred to Grok Bot as having \"the fastest growth of a product that I've ever seen in my life.\""
+    }
+  ]
+}
