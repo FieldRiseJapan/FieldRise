@@ -1,6 +1,6 @@
-# 2026-11-03（火）朝の定時報告
+# 2026-11-04（水）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 12:03 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:28 JST
 
 ---
 
@@ -16,11 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-03（火） | 晴れ | 19.1°C / 12.8°C | 0.0mm | 4% | 8.2km/h |
-| 2026-11-04（水） | 曇り | 19.4°C / 11.2°C | 0.0mm | 30% | 13.8km/h |
-| 2026-11-05（木） | 霧雨（強） | 21.1°C / 14.3°C | 2.0mm | 51% | 10.5km/h |
-| 2026-11-06（金） | 霧雨 | 20.8°C / 12.9°C | 1.45mm | 71% | 20.6km/h |
-| 2026-11-07（土） | 晴れ | 15.4°C / 8.7°C | 0.0mm | 0% | 16.9km/h |
+| 2026-11-04（水） | 霧雨（強） | 18.5°C / 14.4°C | 2.0mm | 21% | 14.5km/h |
+| 2026-11-05（木） | 雨（弱） | 22.4°C / 14.1°C | 4.2mm | 82% | 11.0km/h |
+| 2026-11-06（金） | 一部曇り | 20.4°C / 13.0°C | 0.0mm | 80% | 14.3km/h |
+| 2026-11-07（土） | 一部曇り | 15.6°C / 9.1°C | 0.0mm | 2% | 20.4km/h |
+| 2026-11-08（日） | 曇り | 15.0°C / 6.1°C | 0.0mm | 0% | 11.3km/h |
 
 
 ---
@@ -29,21 +29,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [Anthropic、IPO申請書を修正 7?9月売上高は約170億ドル、インフラ契約額は約8954億ドル](https://www.itmedia.co.jp/news/article/2611/03/2000002831/) — ITmedia AI+
-- [Marvell、光通信技術のLumentumを約18兆円で買収 AIデータセンターの高速化に対応](https://www.itmedia.co.jp/news/article/2611/03/2000002830/) — ITmedia AI+
-- [富士通とNECのCFOが語る、2026年下期以降の「ITサービス需要動向」](https://www.itmedia.co.jp/enterprise/articles/2611/02/news053.html) — ITmedia AI+
-- [キオクシア、2桁成長に“急ブレーキ”？ Q3「売上収益1％増」、決算説明会で幹部らが語ったこと](https://www.itmedia.co.jp/business/articles/2611/02/news048.html) — ITmedia AI+
-- [ChatGPTの「Chat」と「Work」統合へ 利用制限はCodexと共通化](https://www.itmedia.co.jp/aiplus/article/2611/02/2000002781/) — ITmedia AI+
-- [建設現場の「古い図面」問題 紙とデジタルのズレが招く「手戻り」と「工事遅延」、日本HPはどう解消した？](https://www.itmedia.co.jp/business/articles/2611/02/news006.html) — ITmedia AI+
+- [Apple、刷新版「Siri AI」を全開発者に開放 アプリ連携で予約や注文などの操作が可能に](https://www.itmedia.co.jp/news/article/2611/04/2000002855/) — ITmedia AI+
+- [「海外モデルでも自前サーバで動かせば100％安全」ではない――チームみらい安野氏が指摘、国産モデルの必要性を強調](https://www.itmedia.co.jp/aiplus/article/2611/04/2000002853/) — ITmedia AI+
+- [3D CADデータ×AIで造船設計を支援、設計情報の確認作業を効率化へ](https://monoist.itmedia.co.jp/mn/articles/2611/04/news020.html) — ITmedia AI+
+- [Google、学校の生徒向けAI機能を原則オフへ 「AIなしのGoogle検索」は選べず批判も](https://www.itmedia.co.jp/news/article/2611/04/2000002849/) — ITmedia AI+
+- [資料作成の「手直し地獄」がちょっと楽になる、Gemini新機能発表まとめ](https://kn.itmedia.co.jp/kn/article/2611/04/2000002816/) — ITmedia AI+
+- [東北大とアイシンがSTT-MRAM搭載AIチップを開発、16nmプロセスでは世界初](https://monoist.itmedia.co.jp/mn/articles/2611/04/news046.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Apple may try to increase revenue by doing…something with third-party AI apps](https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/) — TechCrunch AI
-- [Y Combinator’s Garry Tan uses AI agents so much, he spends up to $200K a year on tokens](https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/) — TechCrunch AI
-- [Trajectory raises $45M to make AI model training accessible to nontechnical experts](https://techcrunch.com/2026/11/02/trajectory-raises-45m-to-make-ai-model-training-accessible-to-nontechnical-experts/) — TechCrunch AI
-- [Anthropic warns that it’s very close to RSI capability, aka self-building AI](https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/) — TechCrunch AI
-- [Web host Squarespace lays off 19% of its employees](https://techcrunch.com/2026/11/02/web-host-squarespace-lays-off-19-of-its-employees/) — TechCrunch AI
-- [New York Times and other outlets sue web browser Brave over alleged content scraping](https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/) — TechCrunch AI
+- [Anthropic is working on a system to prove AI models’ identity](https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/) — TechCrunch AI
+- [Data centers are turning to old jet engines as the wait for power grows](https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows/) — TechCrunch AI
+- [Ted Schlein’s Ballistic Ventures seeks $490M for new funds amid AI-driven cybersecurity boom](https://techcrunch.com/2026/11/03/ted-schleins-ballistic-ventures-seeks-490m-for-new-funds-amid-ai-driven-cybersecurity-boom/) — TechCrunch AI
+- [Hiding inside Palantir’s skyrocketing quarter is a foreboding signal](https://techcrunch.com/2026/11/03/hiding-inside-palantirs-skyrocketing-quarter-is-a-foreboding-signal/) — TechCrunch AI
+- [AI inference startup Fal doubles its valuation to $16B as demand surges](https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/) — TechCrunch AI
+- [Netflix’s new AI Discover tab helps you find something to watch based on your mood](https://techcrunch.com/2026/11/03/netflixs-new-ai-discover-tab-helps-you-find-something-to-watch-based-on-your-mood/) — TechCrunch AI
 
 
 ---
