@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-05T10:29:51.106569+09:00",
+  "collected_at": "2026-11-05T10:46:58.850856+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,14 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AI生成画像の「99％を検出」するChrome拡張機能が登場 米スタートアップ",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/05/2000002892/",
+      "published": "2026-11-05T09:58:31+09:00",
+      "summary": ""
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -65,12 +73,12 @@
       "summary": "国内大手が出資するAI企業Noetraは、テックブログを開設した。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "製造業の「秘伝のタレ」はAIに奪われるのか、競争力の源泉はどこにある？",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/04/news064.html",
-      "published": "2026-11-04T14:00:00+09:00",
-      "summary": "ヤマザキマザックは「JIMTOF2026」において、ブース内セミナーを開催。本稿では、その中で政策研究大学院大学 特任教授の西垣淳子氏と、ヤマザキマザック 上席執行役員 商品開発本部 副本部長の澤田洋祐氏が行った「製造業の『秘伝のタレ』はどこにあるのか？」の内容を紹介する。"
+      "title": "今日まで！ローソンで「ハッシュドポテト」100円セール",
+      "url": "https://ascii.jp/elem/000/004/448/4448599/?rss",
+      "published": "2026-11-05T10:25:00+09:00",
+      "summary": "ローソンは通常価格140円の「ハッシュドポテト」を100円で開催するセールを11月3日から開催しています。本日11月5日が最終日。"
     },
     {
       "source": "ASCII.jp AI",
@@ -129,20 +137,20 @@
       "summary": "はま寿司は11月4日より、「はま寿司のみなみまぐろ大とろとデカねた祭り」を開催。目玉商品は、みなみまぐろ大とろ110円です。"
     },
     {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "36分が生死を分ける——米軍が開発急ぐ、常温保存の人工血液",
-      "url": "https://ascii.jp/elem/000/004/448/4448581/?rss",
-      "published": "2026-11-05T06:01:10+09:00",
-      "summary": "アフガニスタンでの戦闘負傷の研究によれば、輸血が必要な負傷者は36分以内に輸血を受ければ生存の見込みが大きく高まる。だが血液は長く保存できない。米国防総省の米国国防先端研究計画局（DARPA）は、常温保存できる血液製剤を2029年までに戦場へ配備しようとしている。"
-    },
-    {
       "source": "TechCrunch AI",
       "lang": "en",
       "title": "Apple is reportedly cutting budgets for its internal AI usage",
       "url": "https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/",
       "published": "2026-11-05T10:26:22+09:00",
       "summary": "The company is said to be significantly dropping the amount it's spending on AI for its engineering teams."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "After the midterms, a bigger clash over data centers could be coming",
+      "url": "https://techcrunch.com/2026/11/04/after-the-midterms-a-bigger-clash-over-data-centers-could-be-coming/",
+      "published": "2026-11-05T10:02:14+09:00",
+      "summary": "Data center opposition crossed party lines in Tuesday’s midterms."
     },
     {
       "source": "TechCrunch AI",
@@ -191,14 +199,6 @@
       "url": "https://techcrunch.com/video/open-source-ai-is-booming-hugging-face-explains-who-profits/",
       "published": "2026-11-05T04:30:04+09:00",
       "summary": "Open source models are becoming more mainstream as enterprises, governments and startups alike rely on the promise of lower costs, more control, and more flexibility. But as increasingly capable model"
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "DuckDuckGo pitches itself to schools amid backlash over Google’s AI policy",
-      "url": "https://techcrunch.com/2026/11/04/duckduckgo-pitches-itself-to-schools-amid-backlash-over-googles-ai-policy/",
-      "published": "2026-11-05T04:29:52+09:00",
-      "summary": "DuckDuckGo is courting schools frustrated by Google's AI restrictions, pointing educators to its search engine and options to disable AI features."
     }
   ]
 }

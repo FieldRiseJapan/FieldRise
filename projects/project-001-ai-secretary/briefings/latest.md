@@ -1,6 +1,6 @@
 # 2026-11-05（木）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:30 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:47 JST
 
 ---
 
@@ -32,21 +32,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [AI生成画像の「99％を検出」するChrome拡張機能が登場 米スタートアップ](https://www.itmedia.co.jp/aiplus/article/2611/05/2000002892/) — ITmedia AI+
 - [設計図面や熟練技術者のノウハウをAIで活用、リコーと川崎重工が連携](https://monoist.itmedia.co.jp/mn/articles/2611/05/news011.html) — ITmedia AI+
 - [「トイレ」に凝ったらAI需要で大躍進――TOTO、利益の7割かせぐ「半導体」ビジネスの正体](https://www.itmedia.co.jp/business/articles/2611/05/news018.html) — ITmedia AI+
 - [GPT-6モデルはAstra、Sol、それともLuna？ OpenAIが教える、Codex爆速開発の鉄則](https://kn.itmedia.co.jp/kn/article/2611/05/2000002770/) — ITmedia AI+
 - [予算止める側だったのに「増額」進言 現場の「伸びそう」応援する“CFOの右腕”設置、MIXIに何が起きた？](https://www.itmedia.co.jp/business/articles/2611/05/news025.html) — ITmedia AI+
 - [深刻な「中国依存」を脱せるか 老舗問屋が動いた「空気を使った肥料づくり」とAI農業とは？](https://www.itmedia.co.jp/business/articles/2611/05/news019.html) — ITmedia AI+
-- [OSSは「プルリクエストを送る」から「自分用に直す」へ？ AI時代のメンテナーがPR受付を閉じると宣言した理由](https://atmarkit.itmedia.co.jp/ait/articles/2611/05/news004.html) — ITmedia AI+
 
 **海外AIニュース**
 
 - [Apple is reportedly cutting budgets for its internal AI usage](https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/) — TechCrunch AI
+- [After the midterms, a bigger clash over data centers could be coming](https://techcrunch.com/2026/11/04/after-the-midterms-a-bigger-clash-over-data-centers-could-be-coming/) — TechCrunch AI
 - [AI PACs spent millions trying to shape Congress — here’s how they fared](https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/) — TechCrunch AI
 - [Nothing CEO says company’s mysterious AI-first device is dropping next month](https://techcrunch.com/2026/11/04/nothing-ceo-says-companys-mysterious-ai-first-device-is-dropping-next-month/) — TechCrunch AI
 - [Almost no one uses AI agents to book their Uber, company says](https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/) — TechCrunch AI
 - [OpenAI is already trying to shape the 2028 election](https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/) — TechCrunch AI
-- [Meta acquires AI coding startup Conductor](https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/) — TechCrunch AI
 
 
 ---
