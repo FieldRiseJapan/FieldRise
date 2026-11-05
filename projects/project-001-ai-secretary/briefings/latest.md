@@ -1,6 +1,6 @@
-# 2026-11-04（水）朝の定時報告
+# 2026-11-05（木）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:39 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:30 JST
 
 ---
 
@@ -16,11 +16,14 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-04（水） | 霧雨（強） | 18.5°C / 14.4°C | 2.0mm | 21% | 14.5km/h |
-| 2026-11-05（木） | 雨（弱） | 22.4°C / 14.1°C | 4.2mm | 82% | 11.0km/h |
-| 2026-11-06（金） | 一部曇り | 20.4°C / 13.0°C | 0.0mm | 80% | 14.3km/h |
-| 2026-11-07（土） | 一部曇り | 15.6°C / 9.1°C | 0.0mm | 2% | 20.4km/h |
-| 2026-11-08（日） | 曇り | 15.0°C / 6.1°C | 0.0mm | 0% | 11.3km/h |
+| 2026-11-05（木） | 雨（強） | 23.5°C / 13.2°C | 24.1mm | 82% | 15.2km/h |
+| 2026-11-06（金） | 晴れ | 20.0°C / 13.0°C | 0.0mm | 75% | 16.8km/h |
+| 2026-11-07（土） | 快晴 | 15.3°C / 8.4°C | 0.0mm | 0% | 12.4km/h |
+| 2026-11-08（日） | 曇り | 14.6°C / 6.4°C | 0.0mm | 0% | 12.4km/h |
+| 2026-11-09（月） | 曇り | 16.3°C / 10.6°C | 0.0mm | 35% | 14.0km/h |
+
+**【農業アラート】**
+- 降水確率70%以上。屋外作業の予定調整をおすすめします。
 
 
 ---
@@ -29,21 +32,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [Apple、刷新版「Siri AI」を全開発者に開放 アプリ連携で予約や注文などの操作が可能に](https://www.itmedia.co.jp/news/article/2611/04/2000002855/) — ITmedia AI+
-- [「海外モデルでも自前サーバで動かせば100％安全」ではない――チームみらい安野氏が指摘、国産モデルの必要性を強調](https://www.itmedia.co.jp/aiplus/article/2611/04/2000002853/) — ITmedia AI+
-- [3D CADデータ×AIで造船設計を支援、設計情報の確認作業を効率化へ](https://monoist.itmedia.co.jp/mn/articles/2611/04/news020.html) — ITmedia AI+
-- [Google、学校の生徒向けAI機能を原則オフへ 「AIなしのGoogle検索」は選べず批判も](https://www.itmedia.co.jp/news/article/2611/04/2000002849/) — ITmedia AI+
-- [資料作成の「手直し地獄」がちょっと楽になる、Gemini新機能発表まとめ](https://kn.itmedia.co.jp/kn/article/2611/04/2000002816/) — ITmedia AI+
-- [東北大とアイシンがSTT-MRAM搭載AIチップを開発、16nmプロセスでは世界初](https://monoist.itmedia.co.jp/mn/articles/2611/04/news046.html) — ITmedia AI+
+- [設計図面や熟練技術者のノウハウをAIで活用、リコーと川崎重工が連携](https://monoist.itmedia.co.jp/mn/articles/2611/05/news011.html) — ITmedia AI+
+- [「トイレ」に凝ったらAI需要で大躍進――TOTO、利益の7割かせぐ「半導体」ビジネスの正体](https://www.itmedia.co.jp/business/articles/2611/05/news018.html) — ITmedia AI+
+- [GPT-6モデルはAstra、Sol、それともLuna？ OpenAIが教える、Codex爆速開発の鉄則](https://kn.itmedia.co.jp/kn/article/2611/05/2000002770/) — ITmedia AI+
+- [予算止める側だったのに「増額」進言 現場の「伸びそう」応援する“CFOの右腕”設置、MIXIに何が起きた？](https://www.itmedia.co.jp/business/articles/2611/05/news025.html) — ITmedia AI+
+- [深刻な「中国依存」を脱せるか 老舗問屋が動いた「空気を使った肥料づくり」とAI農業とは？](https://www.itmedia.co.jp/business/articles/2611/05/news019.html) — ITmedia AI+
+- [OSSは「プルリクエストを送る」から「自分用に直す」へ？ AI時代のメンテナーがPR受付を閉じると宣言した理由](https://atmarkit.itmedia.co.jp/ait/articles/2611/05/news004.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Anthropic is working on a system to prove AI models’ identity](https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/) — TechCrunch AI
-- [Data centers are turning to old jet engines as the wait for power grows](https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows/) — TechCrunch AI
-- [Ted Schlein’s Ballistic Ventures seeks $490M for new funds amid AI-driven cybersecurity boom](https://techcrunch.com/2026/11/03/ted-schleins-ballistic-ventures-seeks-490m-for-new-funds-amid-ai-driven-cybersecurity-boom/) — TechCrunch AI
-- [Hiding inside Palantir’s skyrocketing quarter is a foreboding signal](https://techcrunch.com/2026/11/03/hiding-inside-palantirs-skyrocketing-quarter-is-a-foreboding-signal/) — TechCrunch AI
-- [AI inference startup Fal doubles its valuation to $16B as demand surges](https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/) — TechCrunch AI
-- [Netflix’s new AI Discover tab helps you find something to watch based on your mood](https://techcrunch.com/2026/11/03/netflixs-new-ai-discover-tab-helps-you-find-something-to-watch-based-on-your-mood/) — TechCrunch AI
+- [Apple is reportedly cutting budgets for its internal AI usage](https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/) — TechCrunch AI
+- [AI PACs spent millions trying to shape Congress — here’s how they fared](https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/) — TechCrunch AI
+- [Nothing CEO says company’s mysterious AI-first device is dropping next month](https://techcrunch.com/2026/11/04/nothing-ceo-says-companys-mysterious-ai-first-device-is-dropping-next-month/) — TechCrunch AI
+- [Almost no one uses AI agents to book their Uber, company says](https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/) — TechCrunch AI
+- [OpenAI is already trying to shape the 2028 election](https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/) — TechCrunch AI
+- [Meta acquires AI coding startup Conductor](https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/) — TechCrunch AI
 
 
 ---
@@ -62,7 +65,7 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 ## 4. 本日のワンポイントコメント
 
 🌾 **農業**
-良好な天気が予想されます。農作業を進めるのに適した一日です。
+雨の予報です。屋外作業の予定調整をおすすめします。
 
 🎵 **音楽**
 朝です。Cafeシリーズのコンセプト整理に集中するのに適した時間帯です。

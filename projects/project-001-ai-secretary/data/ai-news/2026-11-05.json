@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-05T10:29:51.106569+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "設計図面や熟練技術者のノウハウをAIで活用、リコーと川崎重工が連携",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/05/news011.html",
+      "published": "2026-11-05T09:00:00+09:00",
+      "summary": "リコーと川崎重工業は、AIを活用した設計業務の知識資産活用に向け、戦略的パートナーシップを構築した。設計文書や図面に蓄積された知識に加え、熟練技術者の経験やノウハウなどの暗黙知をAIで整理／可視化し、技術継承と設計業務の生産性向上を目指す。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「トイレ」に凝ったらAI需要で大躍進――TOTO、利益の7割かせぐ「半導体」ビジネスの正体",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/05/news018.html",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "“トイレの会社”として知られるTOTOが、半導体ビジネスで化けている。半導体製造装置に使う材料が、営業利益の7割をかせぐまでに成長している。急成長の裏側を社長が語った。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "GPT-6モデルはAstra、Sol、それともLuna？ OpenAIが教える、Codex爆速開発の鉄則",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/05/2000002770/",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "AIエージェントの導入を検討する企業とって大きな懸念となるのがトークン消費に伴うAPI利用コストだろう。高性能な最上位モデルを全工程で走らせれば予算を圧迫し、安価なモデルを一律で選定すれば修正ループが増えて手戻りが発生する。限られた予算枠の中で開発スピードと品質を両立させるためにはどうしたらいいのか。OpenAI Japanの石田修平氏が解説する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "予算止める側だったのに「増額」進言 現場の「伸びそう」応援する“CFOの右腕”設置、MIXIに何が起きた？",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/05/news025.html",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "MIXIが財務経理の改革に注力している。経営企画から「CFOの右腕」を切り出し、予算配分について進言。芽がある事業への予算増額を実現した。改革の裏側をCFOが語る。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "深刻な「中国依存」を脱せるか 老舗問屋が動いた「空気を使った肥料づくり」とAI農業とは？",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/05/news019.html",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "中国が輸出の蛇口を少し締めるだけで、日本の田畑からみずみずしい作物が消え失せかねない──。化学肥料原料のほぼ全量を海外に握られた日本の農業。この食料安全保障の急所に立ち向かうのは、売上高500億円を誇る「100年続く資材問屋」だ。湯気立つ牛ふんにプラズマを当てて空気から肥料を錬成し、熟練農家の「30年の眼」をAIに移植する。裏方の商人が自らリスクを取り、輸入依存を打破する勝算に迫る。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OSSは「プルリクエストを送る」から「自分用に直す」へ？ AI時代のメンテナーがPR受付を閉じると宣言した理由",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/05/news004.html",
+      "published": "2026-11-05T05:00:00+09:00",
+      "summary": "AIが生成するプルリクエストの増加を受け、あるOSS開発者が「今後公開するコードではPRの受付をやめ、改変は自由にする」と宣言した。変更を上流に送るのではなく、各自が自分用にカスタマイズする「リミックスモデル」の中身と、その賛否を整理する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "国産AI開発のNoetra、テックブログ開設 「開発現場での試行錯誤や工夫」も発信",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/04/2000002886/",
+      "published": "2026-11-04T18:45:50+09:00",
+      "summary": "国内大手が出資するAI企業Noetraは、テックブログを開設した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "製造業の「秘伝のタレ」はAIに奪われるのか、競争力の源泉はどこにある？",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/04/news064.html",
+      "published": "2026-11-04T14:00:00+09:00",
+      "summary": "ヤマザキマザックは「JIMTOF2026」において、ブース内セミナーを開催。本稿では、その中で政策研究大学院大学 特任教授の西垣淳子氏と、ヤマザキマザック 上席執行役員 商品開発本部 副本部長の澤田洋祐氏が行った「製造業の『秘伝のタレ』はどこにあるのか？」の内容を紹介する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "第11世代Core i5ノートが36,980円！ 中古PC・iPhoneセールは11月8日まで",
+      "url": "https://ascii.jp/elem/000/004/448/4448550/?rss",
+      "published": "2026-11-05T10:00:00+09:00",
+      "summary": "第11世代Core i5搭載の中古ノートPC「Latitude 5320」が36,980円、レッツノートQV9が52,980円。iPhone 15 Pro 256GBも対象の中古SPECIAL SALEを11月8日まで開催。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Woodstock、世界の著名投資家の「機関投資家の動向」を確認できる新機能を提供開始",
+      "url": "https://ascii.jp/elem/000/004/448/4448586/?rss",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "Woodstock、世界の著名投資家の「機関投資家の動向」を確認できる新機能を提供開始"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "富裕層マーケティングのaffluentが経営体制強化へ、新取締役就任のお知らせ",
+      "url": "https://ascii.jp/elem/000/004/448/4448585/?rss",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "富裕層マーケティングのaffluentが経営体制強化へ、新取締役就任のお知らせ"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "生活者の脱炭素行動を国の認証クレジットに交換できるアプリβ版がリリース。個人の環境活動を価値化",
+      "url": "https://ascii.jp/elem/000/004/448/4448475/?rss",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "日本GXグループ株式会社（JGX）は10月27日、電源開発株式会社（Jパワー）と共同で、生活者の脱炭素行動を促すアプリ「C：マイカーボンクレジット獲得アプリ」のβ版をリリースしたと発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "無人喪服レンタルのノウハウを応用、24時間試着・持ち出しができる「スーツレスキュー」が登場",
+      "url": "https://ascii.jp/elem/000/004/448/4448472/?rss",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "喪服レスキュー株式会社は10月29日、スマートフォンでの決済・試着予約に対応した無人店舗型のビジネススーツレンタルサービスを発表した。2026年11月5日より東京都渋谷区に第1号店を開設し、サービス提供を開始する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "4E幅広で締めつけ無し！ニューバランスのゴアテックスシューズ「DynaSoft Nitrel v6」",
+      "url": "https://ascii.jp/elem/000/004/448/4448394/?rss",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "Amazon.co.jpでニューバランスのゴアテックスシューズ「DynaSoft Nitrel v6」がセール中です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【開催中】大とろが110円！ サーモンや牛たん握りも！「デカねた祭り」11月4日スタート",
+      "url": "https://ascii.jp/elem/000/004/448/4448339/?rss",
+      "published": "2026-11-05T07:00:00+09:00",
+      "summary": "はま寿司は11月4日より、「はま寿司のみなみまぐろ大とろとデカねた祭り」を開催。目玉商品は、みなみまぐろ大とろ110円です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "36分が生死を分ける——米軍が開発急ぐ、常温保存の人工血液",
+      "url": "https://ascii.jp/elem/000/004/448/4448581/?rss",
+      "published": "2026-11-05T06:01:10+09:00",
+      "summary": "アフガニスタンでの戦闘負傷の研究によれば、輸血が必要な負傷者は36分以内に輸血を受ければ生存の見込みが大きく高まる。だが血液は長く保存できない。米国防総省の米国国防先端研究計画局（DARPA）は、常温保存できる血液製剤を2029年までに戦場へ配備しようとしている。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Apple is reportedly cutting budgets for its internal AI usage",
+      "url": "https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/",
+      "published": "2026-11-05T10:26:22+09:00",
+      "summary": "The company is said to be significantly dropping the amount it's spending on AI for its engineering teams."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "AI PACs spent millions trying to shape Congress — here’s how they fared",
+      "url": "https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/",
+      "published": "2026-11-05T07:45:09+09:00",
+      "summary": "AI industry PACs spent millions influencing the 2026 midterms, with mixed results. Political groups are already looking toward the next election cycle."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nothing CEO says company’s mysterious AI-first device is dropping next month",
+      "url": "https://techcrunch.com/2026/11/04/nothing-ceo-says-companys-mysterious-ai-first-device-is-dropping-next-month/",
+      "published": "2026-11-05T07:13:16+09:00",
+      "summary": "While it's not yet clear what kind of product the smartphone startup is cooking up, Nothing's CEO said the product is designed to leverage AI for productivity gains."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Almost no one uses AI agents to book their Uber, company says",
+      "url": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/",
+      "published": "2026-11-05T06:56:01+09:00",
+      "summary": "During its busiest week last quarter, Uber said only four people booked a ride using an AI agent."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI is already trying to shape the 2028 election",
+      "url": "https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/",
+      "published": "2026-11-05T06:25:44+09:00",
+      "summary": "OpenAI’s Chris Lehane wants AI to define the 2028 election, proposing a new social contract that could benefit Americans while also advancing the AI giant’s own business interests."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta acquires AI coding startup Conductor",
+      "url": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/",
+      "published": "2026-11-05T06:10:56+09:00",
+      "summary": "The startup allows software engineers to deploy teams of agents to work on various aspects of a project simultaneously."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Open source AI is booming. Hugging Face explains who profits.",
+      "url": "https://techcrunch.com/video/open-source-ai-is-booming-hugging-face-explains-who-profits/",
+      "published": "2026-11-05T04:30:04+09:00",
+      "summary": "Open source models are becoming more mainstream as enterprises, governments and startups alike rely on the promise of lower costs, more control, and more flexibility. But as increasingly capable model"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "DuckDuckGo pitches itself to schools amid backlash over Google’s AI policy",
+      "url": "https://techcrunch.com/2026/11/04/duckduckgo-pitches-itself-to-schools-amid-backlash-over-googles-ai-policy/",
+      "published": "2026-11-05T04:29:52+09:00",
+      "summary": "DuckDuckGo is courting schools frustrated by Google's AI restrictions, pointing educators to its search engine and options to disable AI features."
+    }
+  ]
+}

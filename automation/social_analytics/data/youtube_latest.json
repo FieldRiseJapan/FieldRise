@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-11-04T01:39:20+00:00",
+  "captured_at": "2026-11-05T01:30:03+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -70,7 +70,7 @@
     {
       "id": "BALaupsyad4",
       "title": "If wishes come true　#music #lovesong #winterslove #love",
-      "views": 311,
+      "views": 312,
       "age_label": "2025-01-12T16:22:32Z",
       "category": "winter"
     },
