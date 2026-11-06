@@ -1,6 +1,6 @@
 # 2026-11-06（金）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:37 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:47 JST
 
 ---
 
@@ -32,12 +32,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [ピザーラ、アニメ「Dr.STONE」のコラボCMに関して謝罪 許諾なく“AI広告”配信](https://www.itmedia.co.jp/aiplus/article/2611/06/2000002937/) — ITmedia AI+
 - [AIで過去図面を検索、資料探索を平均4.5分に短縮し年間工数90％削減へ](https://monoist.itmedia.co.jp/mn/articles/2611/06/news005.html) — ITmedia AI+
 - [エンタープライズSaaSにもバイブコーディングの波 三井住友系が顧客ごとのカスタマイズに活用 安定性をどう確保？](https://www.itmedia.co.jp/aiplus/article/2611/06/2000002933/) — ITmedia AI+
 - [Anthropic、「Claude」に家計管理機能「Personal Finance」 銀行口座と連携、米国でβ提供](https://www.itmedia.co.jp/news/article/2611/06/2000002935/) — ITmedia AI+
 - [「給与維持の週休3日制」AI効率化で実現 しかし社員が喜ばず……なぜ？ 「ライザAI」提供企業で起きたこと](https://www.itmedia.co.jp/news/article/2611/06/2000002867/) — ITmedia AI+
 - [OpenAI、サイバーセキュリティ特化型「GPT-6 Cyber」発表 Firefoxの未知の脆弱性81件を発見](https://www.itmedia.co.jp/news/article/2611/06/2000002931/) — ITmedia AI+
-- [OpenAI、データセンター立地地域への約束と政策提言を発表 電力費の全額負担や公職者とのNDA不使用など](https://www.itmedia.co.jp/news/article/2611/06/2000002928/) — ITmedia AI+
 
 **海外AIニュース**
 

@@ -1,17 +1,21 @@
 {
-  "collected_at": "2026-11-06T10:36:45.830566+09:00",
-  "total_items": 16,
+  "collected_at": "2026-11-06T10:47:30.081096+09:00",
+  "total_items": 24,
   "errors": [
-    {
-      "source": "ASCII.jp AI",
-      "error": "HTTP Error 500: Internal Server Error"
-    },
     {
       "source": "VentureBeat AI",
       "error": "HTTP Error 429: Too Many Requests"
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ピザーラ、アニメ「Dr.STONE」のコラボCMに関して謝罪 許諾なく“AI広告”配信",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/06/2000002937/",
+      "published": "2026-11-06T10:17:35+09:00",
+      "summary": ""
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -69,12 +73,68 @@
       "summary": "SaaSの増加に伴い、台帳の突合や手動管理に追われる情シスは多い。クラシルはSaaS管理台帳を「zooba」へ集約し、ツール費用を24％削減した。しかし同社の真の目的はコスト削減ではなかった。クラシルの情シスが考える、AI時代のIT資産管理戦略とは。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "デキるプログラマーほど「AI任せ」を嫌う、エージェント型開発のちょっと怖い話：904th Lap",
-      "url": "https://kn.itmedia.co.jp/kn/article/2611/06/2000002925/",
-      "published": "2026-11-06T06:00:00+09:00",
-      "summary": "AIに実装を任せ、コードもテストも自動で進む「エージェント型開発」。効率化への期待が高まる一方、経験豊富な開発者ほど導入に慎重だ。コードが動けばそれでいい、とはいかないらしい。彼らが警戒するのは、動作確認だけでは分からない、その先のリスクだ。"
+      "title": "【本日】寿司食べ放題、中とろ・うにも！ 上野に「きづなすし」新店、120種以上が楽しめる",
+      "url": "https://ascii.jp/elem/000/004/449/4449089/?rss",
+      "published": "2026-11-06T10:30:00+09:00",
+      "summary": "「きづなすし 上野店」が、本日11月6日11時にオープンします。寿司食べ放題4800円から！ 中とろ・うには5800円"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ASUS、ROG20周年記念チェアと逆折り式傘を発表 遮音パネル搭載＆水滴対策も",
+      "url": "https://ascii.jp/elem/000/004/449/4449088/?rss",
+      "published": "2026-11-06T10:30:00+09:00",
+      "summary": "ASUS JAPANがROG20周年記念ゲーミングチェアと逆折り式の折りたたみ傘を発表。チェアは遮音パネルや調整可能なアームレストを搭載。傘は直径113cmで、濡れた面を内側に収納する。価格はチェア15万5980円、傘4800円。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【ミドルクラス最強コスパ】ハイエンド級なカメラが使えるスマホがスゴい シャオミがまたやってくれた",
+      "url": "https://ascii.jp/elem/000/004/449/4449058/?rss",
+      "published": "2026-11-06T10:30:00+09:00",
+      "summary": "スマートフォンを選ぶとき、「写真はきれいに撮りたい」「バッテリーは長持ちしてほしい」「でも高いお金は出したくない」と悩むことはありませんか？ そんな欲張りな願いをすべて叶えてくれるかもしれない1台が、シャオミから登場しました。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "18型4K＋・120Hzの大画面！ MSI「Raider A18 HX A9W」、RTX 5090／5080搭載",
+      "url": "https://ascii.jp/elem/000/004/449/4449072/?rss",
+      "published": "2026-11-06T10:00:00+09:00",
+      "summary": "MSIがRyzen 9 9955HX3DとGeForce RTX 5090/5080 Laptop GPUを搭載した18型ゲーミングノート「Raider A18 HX A9W」シリーズを11月12日に発売する。4K+ Mini LED、最大64GBメモリ、2TB SSDなどを備え、ゲーム、制作、ローカルAI用途までカバーするウルトラハイエンド機だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "あの人気シリーズの全部入りアンドロイドが登場！ 2026年モデルもしっかりいいか確認",
+      "url": "https://ascii.jp/elem/000/004/449/4449057/?rss",
+      "published": "2026-11-06T10:00:00+09:00",
+      "summary": "OPPO「Reno15 A」は、約8mmの薄型ボディに7000mAh大容量バッテリーを備えた全部入りミドルスマホです。最高等級IP69の防水防塵、AI編集対応の5000万画素カメラ、おサイフケータイを網羅。実売5万円以下でも買える、普段使いに最適な1台です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "導入済み生成AIから建築の工程管理を直接操作、作業集計や日程変更に対応するMCPサーバー",
+      "url": "https://ascii.jp/elem/000/004/448/4448970/?rss",
+      "published": "2026-11-06T10:00:00+09:00",
+      "summary": "株式会社KENCOPAは11月2日、同社が提供する建設業務特化型AI「Kencopa工程AIエージェント」の新機能として、AIと外部サービスを接続する標準規格MCP（Model Context Protocol）に対応した外部連携機能の提供を開始した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "かつやの「クリスマス」が豪快！ チキン4枚＋海老フライ4本で1501円、これでいいじゃん",
+      "url": "https://ascii.jp/elem/000/004/448/4448945/?rss",
+      "published": "2026-11-06T10:00:00+09:00",
+      "summary": "かつやは11月1日より、「クリスマスボックス」の予約受付を開始します。販売期間は12月18日～25日です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「スマホは6万円のこれで十分です」確かにそう言える「AQUOS sense10」",
+      "url": "https://ascii.jp/elem/000/004/449/4449056/?rss",
+      "published": "2026-11-06T09:30:00+09:00",
+      "summary": "最近のスマートフォン、高すぎると感じませんか？ 「性能が良いのはわかるけど、10万円、15万円も出せない」そんな悩める多くの人にとって、救世主とも言えるのがシャープの「AQUOS sense10」です。"
     },
     {
       "source": "TechCrunch AI",
