@@ -1,7 +1,11 @@
 {
-  "collected_at": "2026-11-05T10:46:58.850856+09:00",
-  "total_items": 24,
+  "collected_at": "2026-11-06T10:36:45.830566+09:00",
+  "total_items": 16,
   "errors": [
+    {
+      "source": "ASCII.jp AI",
+      "error": "HTTP Error 500: Internal Server Error"
+    },
     {
       "source": "VentureBeat AI",
       "error": "HTTP Error 429: Too Many Requests"
@@ -11,194 +15,130 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "AI生成画像の「99％を検出」するChrome拡張機能が登場 米スタートアップ",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/05/2000002892/",
-      "published": "2026-11-05T09:58:31+09:00",
-      "summary": ""
+      "title": "AIで過去図面を検索、資料探索を平均4.5分に短縮し年間工数90％削減へ",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/06/news005.html",
+      "published": "2026-11-06T09:00:00+09:00",
+      "summary": "空研工業とRecursiveは、OpenAI APIを活用した「AIナレッジ基盤システム」を共同開発した。過去の図面や技術資料から必要な情報を検索する「図面検索」と、複数の資料の整合性を確認する「図面チェック」の2機能を備える。試用段階では、従来数十分から半日を要していた図面探しが平均4.5分で完了したという。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "設計図面や熟練技術者のノウハウをAIで活用、リコーと川崎重工が連携",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/05/news011.html",
-      "published": "2026-11-05T09:00:00+09:00",
-      "summary": "リコーと川崎重工業は、AIを活用した設計業務の知識資産活用に向け、戦略的パートナーシップを構築した。設計文書や図面に蓄積された知識に加え、熟練技術者の経験やノウハウなどの暗黙知をAIで整理／可視化し、技術継承と設計業務の生産性向上を目指す。"
+      "title": "エンタープライズSaaSにもバイブコーディングの波 三井住友系が顧客ごとのカスタマイズに活用 安定性をどう確保？",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/06/2000002933/",
+      "published": "2026-11-06T08:52:51+09:00",
+      "summary": "三井住友ファイナンス＆リースは、米Replitの開発環境を活用した開発手法「エンタープライズ バイブコーディング」と、それを用いた企業向けSaaSを発表した。なぜリース会社が開発サービスを手掛けるのか。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「トイレ」に凝ったらAI需要で大躍進――TOTO、利益の7割かせぐ「半導体」ビジネスの正体",
-      "url": "https://www.itmedia.co.jp/business/articles/2611/05/news018.html",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "“トイレの会社”として知られるTOTOが、半導体ビジネスで化けている。半導体製造装置に使う材料が、営業利益の7割をかせぐまでに成長している。急成長の裏側を社長が語った。"
+      "title": "Anthropic、「Claude」に家計管理機能「Personal Finance」 銀行口座と連携、米国でβ提供",
+      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002935/",
+      "published": "2026-11-06T08:49:28+09:00",
+      "summary": "Anthropicは、AI「Claude」に個人の財務状況を把握できる新機能「Personal Finance」β版を追加した。Plaid経由で銀行やカード口座を連携し、支出のカテゴリ分けや家計分析を自然言語で行える。データは読み取り専用で資金移動はできず、学習にも使われない。米国の有料プラン向けに順次提供される。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "GPT-6モデルはAstra、Sol、それともLuna？ OpenAIが教える、Codex爆速開発の鉄則",
-      "url": "https://kn.itmedia.co.jp/kn/article/2611/05/2000002770/",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "AIエージェントの導入を検討する企業とって大きな懸念となるのがトークン消費に伴うAPI利用コストだろう。高性能な最上位モデルを全工程で走らせれば予算を圧迫し、安価なモデルを一律で選定すれば修正ループが増えて手戻りが発生する。限られた予算枠の中で開発スピードと品質を両立させるためにはどうしたらいいのか。OpenAI Japanの石田修平氏が解説する。"
+      "title": "「給与維持の週休3日制」AI効率化で実現 しかし社員が喜ばず……なぜ？ 「ライザAI」提供企業で起きたこと",
+      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002867/",
+      "published": "2026-11-06T08:30:00+09:00",
+      "summary": "「給与維持の週休3日制」をAI効率化で実現した国内のAIスタートアップ。喜ばれると思ったものの、実際には社員は不安げだったという。いったいなぜ？"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "予算止める側だったのに「増額」進言 現場の「伸びそう」応援する“CFOの右腕”設置、MIXIに何が起きた？",
-      "url": "https://www.itmedia.co.jp/business/articles/2611/05/news025.html",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "MIXIが財務経理の改革に注力している。経営企画から「CFOの右腕」を切り出し、予算配分について進言。芽がある事業への予算増額を実現した。改革の裏側をCFOが語る。"
+      "title": "OpenAI、サイバーセキュリティ特化型「GPT-6 Cyber」発表 Firefoxの未知の脆弱性81件を発見",
+      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002931/",
+      "published": "2026-11-06T07:57:34+09:00",
+      "summary": "OpenAIは、サイバーセキュリティ特化型AI「GPT-6 Cyber」を発表した。汎用モデル「Astra」をベースに脆弱性発見や攻撃コード開発能力を大幅に強化。提供先は厳格な審査を通過した防御者に限定され、高度なAIによる攻撃が普及する前に、防御側が重要インフラの保護やシステム修正を迅速に行えるよう支援する狙いだ。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "深刻な「中国依存」を脱せるか 老舗問屋が動いた「空気を使った肥料づくり」とAI農業とは？",
-      "url": "https://www.itmedia.co.jp/business/articles/2611/05/news019.html",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "中国が輸出の蛇口を少し締めるだけで、日本の田畑からみずみずしい作物が消え失せかねない──。化学肥料原料のほぼ全量を海外に握られた日本の農業。この食料安全保障の急所に立ち向かうのは、売上高500億円を誇る「100年続く資材問屋」だ。湯気立つ牛ふんにプラズマを当てて空気から肥料を錬成し、熟練農家の「30年の眼」をAIに移植する。裏方の商人が自らリスクを取り、輸入依存を打破する勝算に迫る。"
+      "title": "OpenAI、データセンター立地地域への約束と政策提言を発表 電力費の全額負担や公職者とのNDA不使用など",
+      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002928/",
+      "published": "2026-11-06T07:03:55+09:00",
+      "summary": "OpenAIは、AI向けデータセンター（Compute Campusと呼び方を変更）の建設・運営に関する地域社会への約束と、政府向けの政策提言を発表した。電力や関連インフラ費用の全額負担、公職者との原則的なNDA不使用を盛り込むとともに、大口電力利用者への追加負担など、業界共通のルール作りを政府に求めている。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "OSSは「プルリクエストを送る」から「自分用に直す」へ？ AI時代のメンテナーがPR受付を閉じると宣言した理由",
-      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/05/news004.html",
-      "published": "2026-11-05T05:00:00+09:00",
-      "summary": "AIが生成するプルリクエストの増加を受け、あるOSS開発者が「今後公開するコードではPRの受付をやめ、改変は自由にする」と宣言した。変更を上流に送るのではなく、各自が自分用にカスタマイズする「リミックスモデル」の中身と、その賛否を整理する。"
+      "title": "SaaSの「ツギハギ管理」に悩んだクラシル、管理費24％を削減したAI時代のツール集約",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/06/2000002909/",
+      "published": "2026-11-06T07:00:00+09:00",
+      "summary": "SaaSの増加に伴い、台帳の突合や手動管理に追われる情シスは多い。クラシルはSaaS管理台帳を「zooba」へ集約し、ツール費用を24％削減した。しかし同社の真の目的はコスト削減ではなかった。クラシルの情シスが考える、AI時代のIT資産管理戦略とは。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "国産AI開発のNoetra、テックブログ開設 「開発現場での試行錯誤や工夫」も発信",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/04/2000002886/",
-      "published": "2026-11-04T18:45:50+09:00",
-      "summary": "国内大手が出資するAI企業Noetraは、テックブログを開設した。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "今日まで！ローソンで「ハッシュドポテト」100円セール",
-      "url": "https://ascii.jp/elem/000/004/448/4448599/?rss",
-      "published": "2026-11-05T10:25:00+09:00",
-      "summary": "ローソンは通常価格140円の「ハッシュドポテト」を100円で開催するセールを11月3日から開催しています。本日11月5日が最終日。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "第11世代Core i5ノートが36,980円！ 中古PC・iPhoneセールは11月8日まで",
-      "url": "https://ascii.jp/elem/000/004/448/4448550/?rss",
-      "published": "2026-11-05T10:00:00+09:00",
-      "summary": "第11世代Core i5搭載の中古ノートPC「Latitude 5320」が36,980円、レッツノートQV9が52,980円。iPhone 15 Pro 256GBも対象の中古SPECIAL SALEを11月8日まで開催。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "Woodstock、世界の著名投資家の「機関投資家の動向」を確認できる新機能を提供開始",
-      "url": "https://ascii.jp/elem/000/004/448/4448586/?rss",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "Woodstock、世界の著名投資家の「機関投資家の動向」を確認できる新機能を提供開始"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "富裕層マーケティングのaffluentが経営体制強化へ、新取締役就任のお知らせ",
-      "url": "https://ascii.jp/elem/000/004/448/4448585/?rss",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "富裕層マーケティングのaffluentが経営体制強化へ、新取締役就任のお知らせ"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "生活者の脱炭素行動を国の認証クレジットに交換できるアプリβ版がリリース。個人の環境活動を価値化",
-      "url": "https://ascii.jp/elem/000/004/448/4448475/?rss",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "日本GXグループ株式会社（JGX）は10月27日、電源開発株式会社（Jパワー）と共同で、生活者の脱炭素行動を促すアプリ「C：マイカーボンクレジット獲得アプリ」のβ版をリリースしたと発表した。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "無人喪服レンタルのノウハウを応用、24時間試着・持ち出しができる「スーツレスキュー」が登場",
-      "url": "https://ascii.jp/elem/000/004/448/4448472/?rss",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "喪服レスキュー株式会社は10月29日、スマートフォンでの決済・試着予約に対応した無人店舗型のビジネススーツレンタルサービスを発表した。2026年11月5日より東京都渋谷区に第1号店を開設し、サービス提供を開始する。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "4E幅広で締めつけ無し！ニューバランスのゴアテックスシューズ「DynaSoft Nitrel v6」",
-      "url": "https://ascii.jp/elem/000/004/448/4448394/?rss",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "Amazon.co.jpでニューバランスのゴアテックスシューズ「DynaSoft Nitrel v6」がセール中です。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "【開催中】大とろが110円！ サーモンや牛たん握りも！「デカねた祭り」11月4日スタート",
-      "url": "https://ascii.jp/elem/000/004/448/4448339/?rss",
-      "published": "2026-11-05T07:00:00+09:00",
-      "summary": "はま寿司は11月4日より、「はま寿司のみなみまぐろ大とろとデカねた祭り」を開催。目玉商品は、みなみまぐろ大とろ110円です。"
+      "title": "デキるプログラマーほど「AI任せ」を嫌う、エージェント型開発のちょっと怖い話：904th Lap",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/06/2000002925/",
+      "published": "2026-11-06T06:00:00+09:00",
+      "summary": "AIに実装を任せ、コードもテストも自動で進む「エージェント型開発」。効率化への期待が高まる一方、経験豊富な開発者ほど導入に慎重だ。コードが動けばそれでいい、とはいかないらしい。彼らが警戒するのは、動作確認だけでは分からない、その先のリスクだ。"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Apple is reportedly cutting budgets for its internal AI usage",
-      "url": "https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/",
-      "published": "2026-11-05T10:26:22+09:00",
-      "summary": "The company is said to be significantly dropping the amount it's spending on AI for its engineering teams."
+      "title": "Airbnb says it’s launching an AI travel agent in the first half of 2027",
+      "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+      "published": "2026-11-06T07:40:55+09:00",
+      "summary": "Airbnb says its upcoming AI agent will help travelers plan trips, compare options, manage bookings, and get assistance throughout their stay."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "After the midterms, a bigger clash over data centers could be coming",
-      "url": "https://techcrunch.com/2026/11/04/after-the-midterms-a-bigger-clash-over-data-centers-could-be-coming/",
-      "published": "2026-11-05T10:02:14+09:00",
-      "summary": "Data center opposition crossed party lines in Tuesday’s midterms."
+      "title": "Meta says US users can now video chat with their Muse AI avatar",
+      "url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/",
+      "published": "2026-11-06T04:48:28+09:00",
+      "summary": "Meta's AI agent can now take calls as a customizable animated avatar, ahead of the launch of a Tamagotchi-like wearable designed to bring Muse to life."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "AI PACs spent millions trying to shape Congress — here’s how they fared",
-      "url": "https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/",
-      "published": "2026-11-05T07:45:09+09:00",
-      "summary": "AI industry PACs spent millions influencing the 2026 midterms, with mixed results. Political groups are already looking toward the next election cycle."
+      "title": "Meta warns that election backlash against data centers could make AI expansion harder",
+      "url": "https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/",
+      "published": "2026-11-06T04:12:39+09:00",
+      "summary": "Meta warns that growing political opposition to data centers could threaten future AI investments, as communities push back against massive infrastructure projects."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Nothing CEO says company’s mysterious AI-first device is dropping next month",
-      "url": "https://techcrunch.com/2026/11/04/nothing-ceo-says-companys-mysterious-ai-first-device-is-dropping-next-month/",
-      "published": "2026-11-05T07:13:16+09:00",
-      "summary": "While it's not yet clear what kind of product the smartphone startup is cooking up, Nothing's CEO said the product is designed to leverage AI for productivity gains."
+      "title": "OpenAI released a new cybersecurity model. Is that enough?",
+      "url": "https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/",
+      "published": "2026-11-06T04:06:12+09:00",
+      "summary": "OpenAI's newest cybersecurity model comes out as AI labs face scrutiny of their work to protect digital infrastructure."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Almost no one uses AI agents to book their Uber, company says",
-      "url": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/",
-      "published": "2026-11-05T06:56:01+09:00",
-      "summary": "During its busiest week last quarter, Uber said only four people booked a ride using an AI agent."
+      "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027",
+      "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+      "published": "2026-11-06T03:02:27+09:00",
+      "summary": "Speaking at a Wall Street Journal tech conference on Wednesday, the executive touted how the company had been gaining ground in the enterprise market, where rival Anthropic had already successfully ma"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "OpenAI is already trying to shape the 2028 election",
-      "url": "https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/",
-      "published": "2026-11-05T06:25:44+09:00",
-      "summary": "OpenAI’s Chris Lehane wants AI to define the 2028 election, proposing a new social contract that could benefit Americans while also advancing the AI giant’s own business interests."
+      "title": "Claude can now analyze your spending with its new Personal Finance tool",
+      "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
+      "published": "2026-11-06T03:00:00+09:00",
+      "summary": "With Personal Finance in Claude, users can connect their bank and card accounts through Plaid and ask questions about their finances."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Meta acquires AI coding startup Conductor",
-      "url": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/",
-      "published": "2026-11-05T06:10:56+09:00",
-      "summary": "The startup allows software engineers to deploy teams of agents to work on various aspects of a project simultaneously."
+      "title": "Axiom Math wants to keep AI slop out of mathematics",
+      "url": "https://techcrunch.com/2026/11/05/axiom-math-wants-to-keep-ai-slop-out-of-mathematics/",
+      "published": "2026-11-06T01:16:45+09:00",
+      "summary": "As AI floods math with unchecked proofs, Axiom Math is betting on verification. The startup’s AI agents just formally verified the Stacks Project, one of the field’s biggest libraries."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Open source AI is booming. Hugging Face explains who profits.",
-      "url": "https://techcrunch.com/video/open-source-ai-is-booming-hugging-face-explains-who-profits/",
-      "published": "2026-11-05T04:30:04+09:00",
-      "summary": "Open source models are becoming more mainstream as enterprises, governments and startups alike rely on the promise of lower costs, more control, and more flexibility. But as increasingly capable model"
+      "title": "Dropbox acquires Tigris Data for $350M to bolster its AI infrastructure",
+      "url": "https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/",
+      "published": "2026-11-06T00:19:05+09:00",
+      "summary": "The deal is expected to support the development of DBX Agent Cloud, a new storage platform aimed at developers building AI models and agents."
     }
   ]
 }
