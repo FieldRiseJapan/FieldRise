@@ -1,6 +1,6 @@
-# 2026-11-06（金）朝の定時報告
+# 2026-11-07（土）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:47 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 09:58 JST
 
 ---
 
@@ -16,14 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-06（金） | 霧雨 | 19.9°C / 12.3°C | 0.8mm | 94% | 15.5km/h |
-| 2026-11-07（土） | 快晴 | 15.9°C / 8.6°C | 0.0mm | 0% | 12.2km/h |
-| 2026-11-08（日） | 曇り | 14.7°C / 6.3°C | 0.0mm | 0% | 9.2km/h |
-| 2026-11-09（月） | 霧雨（弱） | 15.9°C / 9.7°C | 0.9mm | 33% | 7.8km/h |
-| 2026-11-10（火） | 霧雨（弱） | 15.1°C / 7.7°C | 0.5mm | 29% | 15.2km/h |
-
-**【農業アラート】**
-- 降水確率70%以上。屋外作業の予定調整をおすすめします。
+| 2026-11-07（土） | 晴れ | 16.0°C / 9.6°C | 0.0mm | 0% | 12.2km/h |
+| 2026-11-08（日） | 一部曇り | 15.7°C / 6.5°C | 0.0mm | 0% | 10.3km/h |
+| 2026-11-09（月） | 雨（弱） | 16.9°C / 11.3°C | 6.3mm | 49% | 7.4km/h |
+| 2026-11-10（火） | 雨（弱） | 15.2°C / 7.4°C | 4.23mm | 61% | 20.7km/h |
+| 2026-11-11（水） | 快晴 | 14.7°C / 3.7°C | 0.0mm | 0% | 5.8km/h |
 
 
 ---
@@ -32,21 +29,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [ピザーラ、アニメ「Dr.STONE」のコラボCMに関して謝罪 許諾なく“AI広告”配信](https://www.itmedia.co.jp/aiplus/article/2611/06/2000002937/) — ITmedia AI+
-- [AIで過去図面を検索、資料探索を平均4.5分に短縮し年間工数90％削減へ](https://monoist.itmedia.co.jp/mn/articles/2611/06/news005.html) — ITmedia AI+
-- [エンタープライズSaaSにもバイブコーディングの波 三井住友系が顧客ごとのカスタマイズに活用 安定性をどう確保？](https://www.itmedia.co.jp/aiplus/article/2611/06/2000002933/) — ITmedia AI+
-- [Anthropic、「Claude」に家計管理機能「Personal Finance」 銀行口座と連携、米国でβ提供](https://www.itmedia.co.jp/news/article/2611/06/2000002935/) — ITmedia AI+
-- [「給与維持の週休3日制」AI効率化で実現 しかし社員が喜ばず……なぜ？ 「ライザAI」提供企業で起きたこと](https://www.itmedia.co.jp/news/article/2611/06/2000002867/) — ITmedia AI+
-- [OpenAI、サイバーセキュリティ特化型「GPT-6 Cyber」発表 Firefoxの未知の脆弱性81件を発見](https://www.itmedia.co.jp/news/article/2611/06/2000002931/) — ITmedia AI+
+- [AI面接を導入したのに、応募者情報は手入力？ 採用現場の「二度手間」を解消へ](https://kn.itmedia.co.jp/kn/article/2611/07/2000002951/) — ITmedia AI+
+- [「ChatGPTの回答にリンクがない＝見られていない」 実は違うAIの情報収集](https://kn.itmedia.co.jp/kn/article/2611/07/2000002948/) — ITmedia AI+
+- [AIで営業は効率化した、でもなぜ売れない？ 成果を出す人が大切にしていること](https://kn.itmedia.co.jp/kn/article/2611/07/2000002945/) — ITmedia AI+
+- [2D図面をAIで3Dモデル化、編集可能なフィーチャー履歴も再構築](https://monoist.itmedia.co.jp/mn/articles/2611/06/news072.html) — ITmedia AI+
+- [国内GPUサーバでオープンモデルを利用可能に フィックスターズが新サービス まずは「DeepSeek-V4.1-Flash-1017」から](https://www.itmedia.co.jp/aiplus/article/2611/06/2000002955/) — ITmedia AI+
+- [AIに自販機経営を1年任せてみた 指示は“利益の最大化”だけ 米ハーバード大などがシミュレーション](https://www.itmedia.co.jp/news/article/2611/06/2000002899/) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Airbnb says it’s launching an AI travel agent in the first half of 2027](https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/) — TechCrunch AI
-- [Meta says US users can now video chat with their Muse AI avatar](https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/) — TechCrunch AI
-- [Meta warns that election backlash against data centers could make AI expansion harder](https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/) — TechCrunch AI
-- [OpenAI released a new cybersecurity model. Is that enough?](https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/) — TechCrunch AI
-- [OpenAI president Greg Brockman says company could be IPO ready in 2027](https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/) — TechCrunch AI
-- [Claude can now analyze your spending with its new Personal Finance tool](https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/) — TechCrunch AI
+- [OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation](https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/) — TechCrunch AI
+- [Hundreds of Artex AI hacking tools found publicly exposed to the web](https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/) — TechCrunch AI
+- [Meta introduces Spaces, a new way to collaborate with your Muse agent](https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/) — TechCrunch AI
+- [How a Blue Wave midterm might reshape the AI industry](https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/) — TechCrunch AI
+- [After the midterms, is the AI industry in for a rough two years?](https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/) — TechCrunch AI
+- [Ramp data shows AI spending stalling just as Anthropic nears its IPO](https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/) — TechCrunch AI
 
 
 ---
@@ -65,7 +62,7 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 ## 4. 本日のワンポイントコメント
 
 🌾 **農業**
-雨の予報です。屋外作業の予定調整をおすすめします。
+良好な天気が予想されます。農作業を進めるのに適した一日です。
 
 🎵 **音楽**
 週末です。Cafeシリーズのアイデアを整理するのに適した一日です。

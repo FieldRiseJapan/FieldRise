@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-11-06T01:47:42+00:00",
+  "captured_at": "2026-11-07T00:58:23+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -70,7 +70,7 @@
     {
       "id": "BALaupsyad4",
       "title": "If wishes come true　#music #lovesong #winterslove #love",
-      "views": 313,
+      "views": 314,
       "age_label": "2025-01-12T16:22:32Z",
       "category": "winter"
     },
@@ -168,7 +168,7 @@
     {
       "id": "BJUp4hV2Ms8",
       "title": "Snow Bunny　#music #snow #bunnygirl",
-      "views": 65,
+      "views": 66,
       "age_label": "2024-09-25T13:53:09Z",
       "category": "winter"
     },

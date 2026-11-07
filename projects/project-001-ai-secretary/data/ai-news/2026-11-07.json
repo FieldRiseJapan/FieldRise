@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-07T09:58:10.178893+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AI面接を導入したのに、応募者情報は手入力？ 採用現場の「二度手間」を解消へ",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002951/",
+      "published": "2026-11-07T07:00:00+09:00",
+      "summary": "AI面接の導入で面接業務を効率化できても、応募者情報の登録や選考結果の転記など、採用担当者の手作業は残りがちだ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「ChatGPTの回答にリンクがない＝見られていない」 実は違うAIの情報収集",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002948/",
+      "published": "2026-11-07T07:00:00+09:00",
+      "summary": "ChatGPTやClaudeなどの生成AIに自社サイトが引用されていない場合、AIに情報を参照されていないと考えがちだ。だが、回答に表示されるリンクだけでは、AIがどのWebサイトを参考にしたのか分からない。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIで営業は効率化した、でもなぜ売れない？ 成果を出す人が大切にしていること",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002945/",
+      "published": "2026-11-07T07:00:00+09:00",
+      "summary": "AIで提案書の作成や情報収集は効率化できても、それだけで営業成績は上がるのか。AIを導入した営業現場で今、問われているのは、ツールを使いこなす力だけではない。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "2D図面をAIで3Dモデル化、編集可能なフィーチャー履歴も再構築",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/06/news072.html",
+      "published": "2026-11-06T16:00:00+09:00",
+      "summary": "WOGOは、機械設計における図面や3D CAD作業を自律実行する「Hacadly AIエージェント」の提供を開始した。大規模言語モデルと独自の図面／3D形状処理技術を組み合わせ、2D図面からの3Dモデル生成や、履歴のないCADデータからのフィーチャー再構築などを支援する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "国内GPUサーバでオープンモデルを利用可能に フィックスターズが新サービス まずは「DeepSeek-V4.1-Flash-1017」から",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/06/2000002955/",
+      "published": "2026-11-06T13:21:45+09:00",
+      "summary": "ソフトウェア開発企業のフィックスターズは、国内のGPUサーバでオープンウェイトモデルを利用できるサービスを始めたと発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIに自販機経営を1年任せてみた 指示は“利益の最大化”だけ 米ハーバード大などがシミュレーション",
+      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002899/",
+      "published": "2026-11-06T12:00:00+09:00",
+      "summary": "米ハーバード・ビジネス・スクールとAI評価企業Andon Labsに所属する研究者らが発表した論文「Robber Bots: Autonomous AI Agents Mirroring the Darker Side of Human Commerce」は、利益の最大化だけを命じられた自律型AIエージェントにビジネスを任せるとどうなるかを検証した研究報告だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ピザーラ、アニメ「Dr.STONE」のコラボCMに関して謝罪 許諾なく“AI広告”配信",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/06/2000002937/",
+      "published": "2026-11-06T11:08:13+09:00",
+      "summary": "宅配ピザチェーン「ピザーラ」を運営するフォーシーズが、TVアニメ「Dr.STONE」のコラボCMについて謝罪した。「TikTok」上でAIを活用した広告の自動生成機能が有効になっていた結果、同アニメ製作委員会の事前監修・許諾を得ていない動画を配信していたという。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "MetaのAIエージェント「Muse」に音声対話機能 表情豊かなアバターと会話、まず米国で提供",
+      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002939/",
+      "published": "2026-11-06T10:39:30+09:00",
+      "summary": "Metaは、AIエージェント「Muse」にリアルタイム音声対話とアバター機能を追加すると発表した。米国で先行提供する。音声で作業を依頼できるほか、新技術により会話に合わせて表情や身ぶりが変わるアバターとの対面対話を可能にした。声は数百種類から選べ、今後はAIグラスなどへの展開も予定している。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "登場モンスターは500種以上！ 発売1ヵ月前の『ドラゴンクエストモンスターズ４』Switch 2版が14％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449391/?rss",
+      "published": "2026-11-07T09:00:00+09:00",
+      "summary": "Amazon.co.jpにて、スクウェア・エニックスが12月3日に発売する「ドラゴンクエストモンスターズ４ 枯れ木の国のビアンカ・フローラ」が予約受付中です。いまならなんと14％オフでお買い得！"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Amazonを騙るフィッシング詐欺だけで3万件超！ 報告件数も増えて9万4661件に",
+      "url": "https://ascii.jp/elem/000/004/447/4447998/?rss",
+      "published": "2026-11-07T09:00:00+09:00",
+      "summary": "フィッシング対策協議会が発表した、2026年9月分の「フィッシング報告状況」によれば、「報告件数」は前月から1万2323件増加して、9万4661件でした（約15.0％増）。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ファーウェイ、8000円台で高性能ノイキャン＆LDAC対応＆80時間バッテリーのイヤホン「HUAWEI FreeBuds SE 5 MAX」発売",
+      "url": "https://ascii.jp/elem/000/004/449/4449490/?rss",
+      "published": "2026-11-07T08:00:00+09:00",
+      "summary": "ファーウェイ・ジャパンは、ケース込みで最大80時間の長時間バッテリーが特長の完全ワイヤレスイヤホン「HUAWEI FreeBuds SE 5 MAX」を発表した。価格は8580円。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "RTX 5090搭載PCも対象！ パソコンショップSEVEN、最大17万8000円オフの24時間限定セール",
+      "url": "https://ascii.jp/elem/000/004/448/4448583/?rss",
+      "published": "2026-11-07T00:00:00+09:00",
+      "summary": "パソコンショップSEVENが11月7日、24時間限定セールを開催。ゲーミングPCなど全10商品が最大17万8000円オフに。GeForce RTX 5090やRyzen 7 9800X3D搭載モデルなど、注目機種の価格とスペックを紹介する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "XBOX版『GTA6』を遊ぶ前に用意しよう！ PowerAの公認有線コントローラーがスマイルセールで3980円",
+      "url": "https://ascii.jp/elem/000/004/449/4449392/?rss",
+      "published": "2026-11-06T23:00:00+09:00",
+      "summary": "Amazon.co.jpにて、PowerAのXBOXコントローラー「PowerA Wired Controller for Xbox Series X|S」が販売中だ。参考価格は5500円だが、スマイルセールにより28％オフの3980円で購入できる（11月6日時点）。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "眼精疲労や睡眠不足に悩むゲーマーに。プロeスポーツチーム開発監修のアイマスクがスマイルセールで20％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449384/?rss",
+      "published": "2026-11-06T22:45:00+09:00",
+      "summary": "Amazon.co.jpにて、REJECTのアイマスク「BLACKOUT」が販売中だ。参考価格は2480円だが、スマイルセールにより20％オフの1980円で購入できる（11月6日時点）。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ポケットに入るSwitch 2・PC対応の多機能ゲームコントローラーがスマイルセールで14％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449358/?rss",
+      "published": "2026-11-06T22:15:00+09:00",
+      "summary": "Amazon.co.jpにて、「AceGamer ポケットコントローラー」が販売中だ。過去価格は2899円だが、スマイルセールにより14％オフの2499円で購入できる（11月6日時点）。持ち運べるゲームコントローラーを探している人、いかが？"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「アミューズメント エキスポ 2026」がいよいよ開催！会場の模様をレポート",
+      "url": "https://ascii.jp/elem/000/004/449/4449485/?rss",
+      "published": "2026-11-06T22:00:00+09:00",
+      "summary": "一般社団法人日本アミューズメント産業協会は本日11月6日より東京ビッグサイトにて、「アミューズメント エキスポ 2026」を開催。本日はビジネスデーとなり、ユーザーデーは明日の11月7日となる。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+      "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+      "published": "2026-11-07T07:53:46+09:00",
+      "summary": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
+      "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
+      "published": "2026-11-07T03:44:38+09:00",
+      "summary": "Security researchers found hundreds of servers hosting the penetration testing tool Artex exposed to the internet, allowing anyone access to the hacking tool."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+      "url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+      "published": "2026-11-07T03:44:20+09:00",
+      "summary": "Meta's Muse agents continue to get new features and integrations. Spaces promises to be a new way to interact with the AI helpers."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "How a Blue Wave midterm might reshape the AI industry",
+      "url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
+      "published": "2026-11-07T03:00:00+09:00",
+      "summary": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday — in all but one, the "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "After the midterms, is the AI industry in for a rough two years?",
+      "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+      "published": "2026-11-07T02:23:52+09:00",
+      "summary": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday — in all but one, the "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
+      "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+      "published": "2026-11-07T00:54:47+09:00",
+      "summary": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "After blocking Muse, Amazon now lets users text Alexa to help them shop",
+      "url": "https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/",
+      "published": "2026-11-06T23:10:00+09:00",
+      "summary": "Amazon said that the feature will roll out to millions of users in coming weeks."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Underdog shows off a 32MB speech model in new demo",
+      "url": "https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/",
+      "published": "2026-11-06T22:02:16+09:00",
+      "summary": "Despite its small size, Underdog's new model can generate both speech and music."
+    }
+  ]
+}

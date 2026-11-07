@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-06T10:47:30.081096+09:00",
+  "collected_at": "2026-11-07T09:58:10.178893+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,194 +11,194 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
+      "title": "AI面接を導入したのに、応募者情報は手入力？ 採用現場の「二度手間」を解消へ",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002951/",
+      "published": "2026-11-07T07:00:00+09:00",
+      "summary": "AI面接の導入で面接業務を効率化できても、応募者情報の登録や選考結果の転記など、採用担当者の手作業は残りがちだ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「ChatGPTの回答にリンクがない＝見られていない」 実は違うAIの情報収集",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002948/",
+      "published": "2026-11-07T07:00:00+09:00",
+      "summary": "ChatGPTやClaudeなどの生成AIに自社サイトが引用されていない場合、AIに情報を参照されていないと考えがちだ。だが、回答に表示されるリンクだけでは、AIがどのWebサイトを参考にしたのか分からない。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIで営業は効率化した、でもなぜ売れない？ 成果を出す人が大切にしていること",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002945/",
+      "published": "2026-11-07T07:00:00+09:00",
+      "summary": "AIで提案書の作成や情報収集は効率化できても、それだけで営業成績は上がるのか。AIを導入した営業現場で今、問われているのは、ツールを使いこなす力だけではない。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "2D図面をAIで3Dモデル化、編集可能なフィーチャー履歴も再構築",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/06/news072.html",
+      "published": "2026-11-06T16:00:00+09:00",
+      "summary": "WOGOは、機械設計における図面や3D CAD作業を自律実行する「Hacadly AIエージェント」の提供を開始した。大規模言語モデルと独自の図面／3D形状処理技術を組み合わせ、2D図面からの3Dモデル生成や、履歴のないCADデータからのフィーチャー再構築などを支援する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "国内GPUサーバでオープンモデルを利用可能に フィックスターズが新サービス まずは「DeepSeek-V4.1-Flash-1017」から",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/06/2000002955/",
+      "published": "2026-11-06T13:21:45+09:00",
+      "summary": "ソフトウェア開発企業のフィックスターズは、国内のGPUサーバでオープンウェイトモデルを利用できるサービスを始めたと発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIに自販機経営を1年任せてみた 指示は“利益の最大化”だけ 米ハーバード大などがシミュレーション",
+      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002899/",
+      "published": "2026-11-06T12:00:00+09:00",
+      "summary": "米ハーバード・ビジネス・スクールとAI評価企業Andon Labsに所属する研究者らが発表した論文「Robber Bots: Autonomous AI Agents Mirroring the Darker Side of Human Commerce」は、利益の最大化だけを命じられた自律型AIエージェントにビジネスを任せるとどうなるかを検証した研究報告だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
       "title": "ピザーラ、アニメ「Dr.STONE」のコラボCMに関して謝罪 許諾なく“AI広告”配信",
       "url": "https://www.itmedia.co.jp/aiplus/article/2611/06/2000002937/",
-      "published": "2026-11-06T10:17:35+09:00",
-      "summary": ""
+      "published": "2026-11-06T11:08:13+09:00",
+      "summary": "宅配ピザチェーン「ピザーラ」を運営するフォーシーズが、TVアニメ「Dr.STONE」のコラボCMについて謝罪した。「TikTok」上でAIを活用した広告の自動生成機能が有効になっていた結果、同アニメ製作委員会の事前監修・許諾を得ていない動画を配信していたという。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "AIで過去図面を検索、資料探索を平均4.5分に短縮し年間工数90％削減へ",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/06/news005.html",
-      "published": "2026-11-06T09:00:00+09:00",
-      "summary": "空研工業とRecursiveは、OpenAI APIを活用した「AIナレッジ基盤システム」を共同開発した。過去の図面や技術資料から必要な情報を検索する「図面検索」と、複数の資料の整合性を確認する「図面チェック」の2機能を備える。試用段階では、従来数十分から半日を要していた図面探しが平均4.5分で完了したという。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "エンタープライズSaaSにもバイブコーディングの波 三井住友系が顧客ごとのカスタマイズに活用 安定性をどう確保？",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/06/2000002933/",
-      "published": "2026-11-06T08:52:51+09:00",
-      "summary": "三井住友ファイナンス＆リースは、米Replitの開発環境を活用した開発手法「エンタープライズ バイブコーディング」と、それを用いた企業向けSaaSを発表した。なぜリース会社が開発サービスを手掛けるのか。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "Anthropic、「Claude」に家計管理機能「Personal Finance」 銀行口座と連携、米国でβ提供",
-      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002935/",
-      "published": "2026-11-06T08:49:28+09:00",
-      "summary": "Anthropicは、AI「Claude」に個人の財務状況を把握できる新機能「Personal Finance」β版を追加した。Plaid経由で銀行やカード口座を連携し、支出のカテゴリ分けや家計分析を自然言語で行える。データは読み取り専用で資金移動はできず、学習にも使われない。米国の有料プラン向けに順次提供される。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "「給与維持の週休3日制」AI効率化で実現 しかし社員が喜ばず……なぜ？ 「ライザAI」提供企業で起きたこと",
-      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002867/",
-      "published": "2026-11-06T08:30:00+09:00",
-      "summary": "「給与維持の週休3日制」をAI効率化で実現した国内のAIスタートアップ。喜ばれると思ったものの、実際には社員は不安げだったという。いったいなぜ？"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "OpenAI、サイバーセキュリティ特化型「GPT-6 Cyber」発表 Firefoxの未知の脆弱性81件を発見",
-      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002931/",
-      "published": "2026-11-06T07:57:34+09:00",
-      "summary": "OpenAIは、サイバーセキュリティ特化型AI「GPT-6 Cyber」を発表した。汎用モデル「Astra」をベースに脆弱性発見や攻撃コード開発能力を大幅に強化。提供先は厳格な審査を通過した防御者に限定され、高度なAIによる攻撃が普及する前に、防御側が重要インフラの保護やシステム修正を迅速に行えるよう支援する狙いだ。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "OpenAI、データセンター立地地域への約束と政策提言を発表 電力費の全額負担や公職者とのNDA不使用など",
-      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002928/",
-      "published": "2026-11-06T07:03:55+09:00",
-      "summary": "OpenAIは、AI向けデータセンター（Compute Campusと呼び方を変更）の建設・運営に関する地域社会への約束と、政府向けの政策提言を発表した。電力や関連インフラ費用の全額負担、公職者との原則的なNDA不使用を盛り込むとともに、大口電力利用者への追加負担など、業界共通のルール作りを政府に求めている。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "SaaSの「ツギハギ管理」に悩んだクラシル、管理費24％を削減したAI時代のツール集約",
-      "url": "https://kn.itmedia.co.jp/kn/article/2611/06/2000002909/",
-      "published": "2026-11-06T07:00:00+09:00",
-      "summary": "SaaSの増加に伴い、台帳の突合や手動管理に追われる情シスは多い。クラシルはSaaS管理台帳を「zooba」へ集約し、ツール費用を24％削減した。しかし同社の真の目的はコスト削減ではなかった。クラシルの情シスが考える、AI時代のIT資産管理戦略とは。"
+      "title": "MetaのAIエージェント「Muse」に音声対話機能 表情豊かなアバターと会話、まず米国で提供",
+      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002939/",
+      "published": "2026-11-06T10:39:30+09:00",
+      "summary": "Metaは、AIエージェント「Muse」にリアルタイム音声対話とアバター機能を追加すると発表した。米国で先行提供する。音声で作業を依頼できるほか、新技術により会話に合わせて表情や身ぶりが変わるアバターとの対面対話を可能にした。声は数百種類から選べ、今後はAIグラスなどへの展開も予定している。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "【本日】寿司食べ放題、中とろ・うにも！ 上野に「きづなすし」新店、120種以上が楽しめる",
-      "url": "https://ascii.jp/elem/000/004/449/4449089/?rss",
-      "published": "2026-11-06T10:30:00+09:00",
-      "summary": "「きづなすし 上野店」が、本日11月6日11時にオープンします。寿司食べ放題4800円から！ 中とろ・うには5800円"
+      "title": "登場モンスターは500種以上！ 発売1ヵ月前の『ドラゴンクエストモンスターズ４』Switch 2版が14％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449391/?rss",
+      "published": "2026-11-07T09:00:00+09:00",
+      "summary": "Amazon.co.jpにて、スクウェア・エニックスが12月3日に発売する「ドラゴンクエストモンスターズ４ 枯れ木の国のビアンカ・フローラ」が予約受付中です。いまならなんと14％オフでお買い得！"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ASUS、ROG20周年記念チェアと逆折り式傘を発表 遮音パネル搭載＆水滴対策も",
-      "url": "https://ascii.jp/elem/000/004/449/4449088/?rss",
-      "published": "2026-11-06T10:30:00+09:00",
-      "summary": "ASUS JAPANがROG20周年記念ゲーミングチェアと逆折り式の折りたたみ傘を発表。チェアは遮音パネルや調整可能なアームレストを搭載。傘は直径113cmで、濡れた面を内側に収納する。価格はチェア15万5980円、傘4800円。"
+      "title": "Amazonを騙るフィッシング詐欺だけで3万件超！ 報告件数も増えて9万4661件に",
+      "url": "https://ascii.jp/elem/000/004/447/4447998/?rss",
+      "published": "2026-11-07T09:00:00+09:00",
+      "summary": "フィッシング対策協議会が発表した、2026年9月分の「フィッシング報告状況」によれば、「報告件数」は前月から1万2323件増加して、9万4661件でした（約15.0％増）。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "【ミドルクラス最強コスパ】ハイエンド級なカメラが使えるスマホがスゴい シャオミがまたやってくれた",
-      "url": "https://ascii.jp/elem/000/004/449/4449058/?rss",
-      "published": "2026-11-06T10:30:00+09:00",
-      "summary": "スマートフォンを選ぶとき、「写真はきれいに撮りたい」「バッテリーは長持ちしてほしい」「でも高いお金は出したくない」と悩むことはありませんか？ そんな欲張りな願いをすべて叶えてくれるかもしれない1台が、シャオミから登場しました。"
+      "title": "ファーウェイ、8000円台で高性能ノイキャン＆LDAC対応＆80時間バッテリーのイヤホン「HUAWEI FreeBuds SE 5 MAX」発売",
+      "url": "https://ascii.jp/elem/000/004/449/4449490/?rss",
+      "published": "2026-11-07T08:00:00+09:00",
+      "summary": "ファーウェイ・ジャパンは、ケース込みで最大80時間の長時間バッテリーが特長の完全ワイヤレスイヤホン「HUAWEI FreeBuds SE 5 MAX」を発表した。価格は8580円。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "18型4K＋・120Hzの大画面！ MSI「Raider A18 HX A9W」、RTX 5090／5080搭載",
-      "url": "https://ascii.jp/elem/000/004/449/4449072/?rss",
-      "published": "2026-11-06T10:00:00+09:00",
-      "summary": "MSIがRyzen 9 9955HX3DとGeForce RTX 5090/5080 Laptop GPUを搭載した18型ゲーミングノート「Raider A18 HX A9W」シリーズを11月12日に発売する。4K+ Mini LED、最大64GBメモリ、2TB SSDなどを備え、ゲーム、制作、ローカルAI用途までカバーするウルトラハイエンド機だ。"
+      "title": "RTX 5090搭載PCも対象！ パソコンショップSEVEN、最大17万8000円オフの24時間限定セール",
+      "url": "https://ascii.jp/elem/000/004/448/4448583/?rss",
+      "published": "2026-11-07T00:00:00+09:00",
+      "summary": "パソコンショップSEVENが11月7日、24時間限定セールを開催。ゲーミングPCなど全10商品が最大17万8000円オフに。GeForce RTX 5090やRyzen 7 9800X3D搭載モデルなど、注目機種の価格とスペックを紹介する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "あの人気シリーズの全部入りアンドロイドが登場！ 2026年モデルもしっかりいいか確認",
-      "url": "https://ascii.jp/elem/000/004/449/4449057/?rss",
-      "published": "2026-11-06T10:00:00+09:00",
-      "summary": "OPPO「Reno15 A」は、約8mmの薄型ボディに7000mAh大容量バッテリーを備えた全部入りミドルスマホです。最高等級IP69の防水防塵、AI編集対応の5000万画素カメラ、おサイフケータイを網羅。実売5万円以下でも買える、普段使いに最適な1台です。"
+      "title": "XBOX版『GTA6』を遊ぶ前に用意しよう！ PowerAの公認有線コントローラーがスマイルセールで3980円",
+      "url": "https://ascii.jp/elem/000/004/449/4449392/?rss",
+      "published": "2026-11-06T23:00:00+09:00",
+      "summary": "Amazon.co.jpにて、PowerAのXBOXコントローラー「PowerA Wired Controller for Xbox Series X|S」が販売中だ。参考価格は5500円だが、スマイルセールにより28％オフの3980円で購入できる（11月6日時点）。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "導入済み生成AIから建築の工程管理を直接操作、作業集計や日程変更に対応するMCPサーバー",
-      "url": "https://ascii.jp/elem/000/004/448/4448970/?rss",
-      "published": "2026-11-06T10:00:00+09:00",
-      "summary": "株式会社KENCOPAは11月2日、同社が提供する建設業務特化型AI「Kencopa工程AIエージェント」の新機能として、AIと外部サービスを接続する標準規格MCP（Model Context Protocol）に対応した外部連携機能の提供を開始した。"
+      "title": "眼精疲労や睡眠不足に悩むゲーマーに。プロeスポーツチーム開発監修のアイマスクがスマイルセールで20％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449384/?rss",
+      "published": "2026-11-06T22:45:00+09:00",
+      "summary": "Amazon.co.jpにて、REJECTのアイマスク「BLACKOUT」が販売中だ。参考価格は2480円だが、スマイルセールにより20％オフの1980円で購入できる（11月6日時点）。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "かつやの「クリスマス」が豪快！ チキン4枚＋海老フライ4本で1501円、これでいいじゃん",
-      "url": "https://ascii.jp/elem/000/004/448/4448945/?rss",
-      "published": "2026-11-06T10:00:00+09:00",
-      "summary": "かつやは11月1日より、「クリスマスボックス」の予約受付を開始します。販売期間は12月18日～25日です。"
+      "title": "ポケットに入るSwitch 2・PC対応の多機能ゲームコントローラーがスマイルセールで14％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449358/?rss",
+      "published": "2026-11-06T22:15:00+09:00",
+      "summary": "Amazon.co.jpにて、「AceGamer ポケットコントローラー」が販売中だ。過去価格は2899円だが、スマイルセールにより14％オフの2499円で購入できる（11月6日時点）。持ち運べるゲームコントローラーを探している人、いかが？"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「スマホは6万円のこれで十分です」確かにそう言える「AQUOS sense10」",
-      "url": "https://ascii.jp/elem/000/004/449/4449056/?rss",
-      "published": "2026-11-06T09:30:00+09:00",
-      "summary": "最近のスマートフォン、高すぎると感じませんか？ 「性能が良いのはわかるけど、10万円、15万円も出せない」そんな悩める多くの人にとって、救世主とも言えるのがシャープの「AQUOS sense10」です。"
+      "title": "「アミューズメント エキスポ 2026」がいよいよ開催！会場の模様をレポート",
+      "url": "https://ascii.jp/elem/000/004/449/4449485/?rss",
+      "published": "2026-11-06T22:00:00+09:00",
+      "summary": "一般社団法人日本アミューズメント産業協会は本日11月6日より東京ビッグサイトにて、「アミューズメント エキスポ 2026」を開催。本日はビジネスデーとなり、ユーザーデーは明日の11月7日となる。"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Airbnb says it’s launching an AI travel agent in the first half of 2027",
-      "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
-      "published": "2026-11-06T07:40:55+09:00",
-      "summary": "Airbnb says its upcoming AI agent will help travelers plan trips, compare options, manage bookings, and get assistance throughout their stay."
+      "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+      "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+      "published": "2026-11-07T07:53:46+09:00",
+      "summary": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Meta says US users can now video chat with their Muse AI avatar",
-      "url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/",
-      "published": "2026-11-06T04:48:28+09:00",
-      "summary": "Meta's AI agent can now take calls as a customizable animated avatar, ahead of the launch of a Tamagotchi-like wearable designed to bring Muse to life."
+      "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
+      "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
+      "published": "2026-11-07T03:44:38+09:00",
+      "summary": "Security researchers found hundreds of servers hosting the penetration testing tool Artex exposed to the internet, allowing anyone access to the hacking tool."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Meta warns that election backlash against data centers could make AI expansion harder",
-      "url": "https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/",
-      "published": "2026-11-06T04:12:39+09:00",
-      "summary": "Meta warns that growing political opposition to data centers could threaten future AI investments, as communities push back against massive infrastructure projects."
+      "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+      "url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+      "published": "2026-11-07T03:44:20+09:00",
+      "summary": "Meta's Muse agents continue to get new features and integrations. Spaces promises to be a new way to interact with the AI helpers."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "OpenAI released a new cybersecurity model. Is that enough?",
-      "url": "https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/",
-      "published": "2026-11-06T04:06:12+09:00",
-      "summary": "OpenAI's newest cybersecurity model comes out as AI labs face scrutiny of their work to protect digital infrastructure."
+      "title": "How a Blue Wave midterm might reshape the AI industry",
+      "url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
+      "published": "2026-11-07T03:00:00+09:00",
+      "summary": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday — in all but one, the "
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027",
-      "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
-      "published": "2026-11-06T03:02:27+09:00",
-      "summary": "Speaking at a Wall Street Journal tech conference on Wednesday, the executive touted how the company had been gaining ground in the enterprise market, where rival Anthropic had already successfully ma"
+      "title": "After the midterms, is the AI industry in for a rough two years?",
+      "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+      "published": "2026-11-07T02:23:52+09:00",
+      "summary": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday — in all but one, the "
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Claude can now analyze your spending with its new Personal Finance tool",
-      "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
-      "published": "2026-11-06T03:00:00+09:00",
-      "summary": "With Personal Finance in Claude, users can connect their bank and card accounts through Plaid and ask questions about their finances."
+      "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
+      "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+      "published": "2026-11-07T00:54:47+09:00",
+      "summary": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Axiom Math wants to keep AI slop out of mathematics",
-      "url": "https://techcrunch.com/2026/11/05/axiom-math-wants-to-keep-ai-slop-out-of-mathematics/",
-      "published": "2026-11-06T01:16:45+09:00",
-      "summary": "As AI floods math with unchecked proofs, Axiom Math is betting on verification. The startup’s AI agents just formally verified the Stacks Project, one of the field’s biggest libraries."
+      "title": "After blocking Muse, Amazon now lets users text Alexa to help them shop",
+      "url": "https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/",
+      "published": "2026-11-06T23:10:00+09:00",
+      "summary": "Amazon said that the feature will roll out to millions of users in coming weeks."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Dropbox acquires Tigris Data for $350M to bolster its AI infrastructure",
-      "url": "https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/",
-      "published": "2026-11-06T00:19:05+09:00",
-      "summary": "The deal is expected to support the development of DBX Agent Cloud, a new storage platform aimed at developers building AI models and agents."
+      "title": "Underdog shows off a 32MB speech model in new demo",
+      "url": "https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/",
+      "published": "2026-11-06T22:02:16+09:00",
+      "summary": "Despite its small size, Underdog's new model can generate both speech and music."
     }
   ]
 }
