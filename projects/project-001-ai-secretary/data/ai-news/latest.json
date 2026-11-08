@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-07T10:11:35.472136+09:00",
+  "collected_at": "2026-11-08T09:44:25.568312+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,14 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "【図解あり】マルチエージェント設計「15のパターン」 GitHub、Google、Siemensの知見を一気に整理",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/08/news001.html",
+      "published": "2026-11-08T08:00:00+09:00",
+      "summary": "AIエージェントの一般化に伴い、複数のAIエージェントを連携させるマルチエージェントシステムが注目されています。GitHub、Google、Siemensが紹介した15のデザインパターンを、設計上の課題や具体的な活用場面とともに解説します。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -65,76 +73,92 @@
       "summary": "宅配ピザチェーン「ピザーラ」を運営するフォーシーズが、TVアニメ「Dr.STONE」のコラボCMについて謝罪した。「TikTok」上でAIを活用した広告の自動生成機能が有効になっていた結果、同アニメ製作委員会の事前監修・許諾を得ていない動画を配信していたという。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "MetaのAIエージェント「Muse」に音声対話機能 表情豊かなアバターと会話、まず米国で提供",
-      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002939/",
-      "published": "2026-11-06T10:39:30+09:00",
-      "summary": "Metaは、AIエージェント「Muse」にリアルタイム音声対話とアバター機能を追加すると発表した。米国で先行提供する。音声で作業を依頼できるほか、新技術により会話に合わせて表情や身ぶりが変わるアバターとの対面対話を可能にした。声は数百種類から選べ、今後はAIグラスなどへの展開も予定している。"
+      "title": "「悪事は割に合わない」をAIにも、逆ゲーム理論で探る安全対策",
+      "url": "https://ascii.jp/elem/000/004/449/4449539/?rss",
+      "published": "2026-11-08T06:43:28+09:00",
+      "summary": "ケーキを切る人と先に選ぶ人を分ければ、切る側は均等に切ろうとする。こうした仕組みを設計する「逆ゲーム理論」を、AIの安全対策に応用する研究が出てきた。AIの内部が分からなくても、ルールを守るほうが得になる仕組みを作ればよいという発想だ。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "DVDドライブ、まだ付いてます！ Ryzen 5に16GBメモリ、Officeも備えた富士通の15.6型ノートPCが13万4700円",
-      "url": "https://ascii.jp/elem/000/004/449/4449075/?rss",
-      "published": "2026-11-07T10:00:00+09:00",
-      "summary": "富士通の15.6型ノートPC「FMV WA1-L1」がAmazonスマイルSALE対象。参考価格149,800円から10％オフの134,700円で販売中。Ryzen 5 5625Uと16GBメモリ、512GB SSDを搭載し、DVDスーパーマルチドライブやOfficeも備える。DVDドライブを内蔵したノートPCが欲しい人には、気になる選択肢だ。"
+      "title": "RTX 5080搭載PCが7万2000円引き！ パソコンショップSEVEN、11月8日限定セール",
+      "url": "https://ascii.jp/elem/000/004/448/4448584/?rss",
+      "published": "2026-11-08T00:00:00+09:00",
+      "summary": "パソコンショップSEVENが11月8日、全10商品を対象に24時間限定セールを開催。Ryzen 9 9950X3DとRTX 5080搭載PCが7万2000円引き、RTX 5070搭載PCが4万8000円引きに。対象モデルの構成や価格を紹介する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "登場モンスターは500種以上！ 発売1ヵ月前の『ドラゴンクエストモンスターズ４』Switch 2版が14％オフ",
-      "url": "https://ascii.jp/elem/000/004/449/4449391/?rss",
-      "published": "2026-11-07T09:00:00+09:00",
-      "summary": "Amazon.co.jpにて、スクウェア・エニックスが12月3日に発売する「ドラゴンクエストモンスターズ４ 枯れ木の国のビアンカ・フローラ」が予約受付中です。いまならなんと14％オフでお買い得！"
+      "title": "RTX 5060 Ti＆水冷搭載のGALLERIA、メモリ32GB化が9696円！ ドスパラのブラックフライデー先取りキャンペーン",
+      "url": "https://ascii.jp/elem/000/004/449/4449121/?rss",
+      "published": "2026-11-07T22:30:00+09:00",
+      "summary": "ドスパラでは現在、「ブラックフライデー先取りキャンペーン」を開催中。対象の新品パソコンで、指定カスタマイズを特別価格で利用できる。16GBから32GBへのメモリ変更は9,696円、ナノダイヤモンドグリスへの変更は960円。対象となるカスタマイズはPCによって異なる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "Amazonを騙るフィッシング詐欺だけで3万件超！ 報告件数も増えて9万4661件に",
-      "url": "https://ascii.jp/elem/000/004/447/4447998/?rss",
-      "published": "2026-11-07T09:00:00+09:00",
-      "summary": "フィッシング対策協議会が発表した、2026年9月分の「フィッシング報告状況」によれば、「報告件数」は前月から1万2323件増加して、9万4661件でした（約15.0％増）。"
+      "title": "iPhone Duoは最初から完成度高くて驚いた！ 実際に使うとわかったアップル製品ならではの体験",
+      "url": "https://ascii.jp/elem/000/004/448/4448575/?rss",
+      "published": "2026-11-07T22:30:00+09:00",
+      "summary": "アップル初となる折りたたみスマホ「iPhone Duo」の実機レビューです。5.4型から7.6型の大画面へ展開し、2台持ちの煩わしさを解消します。約36万円からと高価ですが、初代らしからぬ圧倒的な完成度を誇る1台です。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ファーウェイ、8000円台で高性能ノイキャン＆LDAC対応＆80時間バッテリーのイヤホン「HUAWEI FreeBuds SE 5 MAX」発売",
-      "url": "https://ascii.jp/elem/000/004/449/4449490/?rss",
-      "published": "2026-11-07T08:00:00+09:00",
-      "summary": "ファーウェイ・ジャパンは、ケース込みで最大80時間の長時間バッテリーが特長の完全ワイヤレスイヤホン「HUAWEI FreeBuds SE 5 MAX」を発表した。価格は8580円。"
+      "title": "『ゼルダの伝説 時のオカリナ』を外出先で！ Switch 2をドック不要で出力できる14型モバイルディスプレーが30％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449456/?rss",
+      "published": "2026-11-07T19:30:00+09:00",
+      "summary": "Amazon.co.jpにて、cocoparの14型モバイルディスプレー「C-14QH」が販売中だ。参考価格は2万2999円だが、スマイルセールにより30％オフの1万5999円で購入できる（11月6日時点）。Switch 2をType-Cケーブル一本、ドック不要で画面出力できるのが魅力。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "RTX 5090搭載PCも対象！ パソコンショップSEVEN、最大17万8000円オフの24時間限定セール",
-      "url": "https://ascii.jp/elem/000/004/448/4448583/?rss",
-      "published": "2026-11-07T00:00:00+09:00",
-      "summary": "パソコンショップSEVENが11月7日、24時間限定セールを開催。ゲーミングPCなど全10商品が最大17万8000円オフに。GeForce RTX 5090やRyzen 7 9800X3D搭載モデルなど、注目機種の価格とスペックを紹介する。"
+      "title": "失敗しない軽量ワイヤレスゲーミングマウスと言えば1ヵ月で400点以上購入されたRazerのアイツがスマイルセールで36％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449453/?rss",
+      "published": "2026-11-07T19:00:00+09:00",
+      "summary": "Amazon.co.jpにて、Razerのワイヤレスゲーミングマウス「Razer DeathAdder V3 HyperSpeed」が販売中だ。参考価格は1万7280円だが、スマイルセールにより36％オフの1万980円で購入できる（11月6日時点）。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "XBOX版『GTA6』を遊ぶ前に用意しよう！ PowerAの公認有線コントローラーがスマイルセールで3980円",
-      "url": "https://ascii.jp/elem/000/004/449/4449392/?rss",
-      "published": "2026-11-06T23:00:00+09:00",
-      "summary": "Amazon.co.jpにて、PowerAのXBOXコントローラー「PowerA Wired Controller for Xbox Series X|S」が販売中だ。参考価格は5500円だが、スマイルセールにより28％オフの3980円で購入できる（11月6日時点）。"
+      "title": "お悩み相談にも応じます！ アイドルだらけの新番組「石田萌依の萌えドル放送局！」誕生",
+      "url": "https://ascii.jp/elem/000/004/447/4447995/?rss",
+      "published": "2026-11-07T19:00:00+09:00",
+      "summary": "ソフマップAKIBA アミューズメント館の新トークショー「石田萌依の萌えドル放送局！ vol.1」が10月21日に開催され、石田萌依（いしだ・もえ）さん、さたんさん、瀬戸くるみ（せと・くるみ）さん、空乃もね（そらの・もね）さん、堀内 玲（ほりうち・れい）さん、桃井友彩（ももい・ゆうあ）さんの6人が登場した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "眼精疲労や睡眠不足に悩むゲーマーに。プロeスポーツチーム開発監修のアイマスクがスマイルセールで20％オフ",
-      "url": "https://ascii.jp/elem/000/004/449/4449384/?rss",
-      "published": "2026-11-06T22:45:00+09:00",
-      "summary": "Amazon.co.jpにて、REJECTのアイマスク「BLACKOUT」が販売中だ。参考価格は2480円だが、スマイルセールにより20％オフの1980円で購入できる（11月6日時点）。"
+      "title": "ゴジラとコラボしたFMVノートPCが、直販サイトで10%オフに！",
+      "url": "https://ascii.jp/elem/000/004/449/4449509/?rss",
+      "published": "2026-11-07T18:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
     },
     {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "ポケットに入るSwitch 2・PC対応の多機能ゲームコントローラーがスマイルセールで14％オフ",
-      "url": "https://ascii.jp/elem/000/004/449/4449358/?rss",
-      "published": "2026-11-06T22:15:00+09:00",
-      "summary": "Amazon.co.jpにて、「AceGamer ポケットコントローラー」が販売中だ。過去価格は2899円だが、スマイルセールにより14％オフの2499円で購入できる（11月6日時点）。持ち運べるゲームコントローラーを探している人、いかが？"
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
+      "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
+      "published": "2026-11-08T07:07:22+09:00",
+      "summary": "On Equity, we unpacked what the midterms mean for the tech industry."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+      "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+      "published": "2026-11-08T06:17:08+09:00",
+      "summary": "A memo circulated earlier this year reportedly claimed that China’s Ministry of State Security recruited a female technology executive to spy on Nvidia's CEO."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Crusoe sells troubled Wyoming data center project to Google",
+      "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+      "published": "2026-11-07T10:40:28+09:00",
+      "summary": "The deal highlights the challenges of developing massive AI data centers."
     },
     {
       "source": "TechCrunch AI",
@@ -175,30 +199,6 @@
       "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
       "published": "2026-11-07T02:23:52+09:00",
       "summary": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday — in all but one, the "
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
-      "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
-      "published": "2026-11-07T00:54:47+09:00",
-      "summary": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "After blocking Muse, Amazon now lets users text Alexa to help them shop",
-      "url": "https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/",
-      "published": "2026-11-06T23:10:00+09:00",
-      "summary": "Amazon said that the feature will roll out to millions of users in coming weeks."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Underdog shows off a 32MB speech model in new demo",
-      "url": "https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/",
-      "published": "2026-11-06T22:02:16+09:00",
-      "summary": "Despite its small size, Underdog's new model can generate both speech and music."
     }
   ]
 }

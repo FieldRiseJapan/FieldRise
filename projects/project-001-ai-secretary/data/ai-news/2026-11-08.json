@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-08T09:44:25.568312+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "【図解あり】マルチエージェント設計「15のパターン」 GitHub、Google、Siemensの知見を一気に整理",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/08/news001.html",
+      "published": "2026-11-08T08:00:00+09:00",
+      "summary": "AIエージェントの一般化に伴い、複数のAIエージェントを連携させるマルチエージェントシステムが注目されています。GitHub、Google、Siemensが紹介した15のデザインパターンを、設計上の課題や具体的な活用場面とともに解説します。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AI面接を導入したのに、応募者情報は手入力？ 採用現場の「二度手間」を解消へ",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002951/",
+      "published": "2026-11-07T07:00:00+09:00",
+      "summary": "AI面接の導入で面接業務を効率化できても、応募者情報の登録や選考結果の転記など、採用担当者の手作業は残りがちだ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「ChatGPTの回答にリンクがない＝見られていない」 実は違うAIの情報収集",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002948/",
+      "published": "2026-11-07T07:00:00+09:00",
+      "summary": "ChatGPTやClaudeなどの生成AIに自社サイトが引用されていない場合、AIに情報を参照されていないと考えがちだ。だが、回答に表示されるリンクだけでは、AIがどのWebサイトを参考にしたのか分からない。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIで営業は効率化した、でもなぜ売れない？ 成果を出す人が大切にしていること",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002945/",
+      "published": "2026-11-07T07:00:00+09:00",
+      "summary": "AIで提案書の作成や情報収集は効率化できても、それだけで営業成績は上がるのか。AIを導入した営業現場で今、問われているのは、ツールを使いこなす力だけではない。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "2D図面をAIで3Dモデル化、編集可能なフィーチャー履歴も再構築",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/06/news072.html",
+      "published": "2026-11-06T16:00:00+09:00",
+      "summary": "WOGOは、機械設計における図面や3D CAD作業を自律実行する「Hacadly AIエージェント」の提供を開始した。大規模言語モデルと独自の図面／3D形状処理技術を組み合わせ、2D図面からの3Dモデル生成や、履歴のないCADデータからのフィーチャー再構築などを支援する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "国内GPUサーバでオープンモデルを利用可能に フィックスターズが新サービス まずは「DeepSeek-V4.1-Flash-1017」から",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/06/2000002955/",
+      "published": "2026-11-06T13:21:45+09:00",
+      "summary": "ソフトウェア開発企業のフィックスターズは、国内のGPUサーバでオープンウェイトモデルを利用できるサービスを始めたと発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIに自販機経営を1年任せてみた 指示は“利益の最大化”だけ 米ハーバード大などがシミュレーション",
+      "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002899/",
+      "published": "2026-11-06T12:00:00+09:00",
+      "summary": "米ハーバード・ビジネス・スクールとAI評価企業Andon Labsに所属する研究者らが発表した論文「Robber Bots: Autonomous AI Agents Mirroring the Darker Side of Human Commerce」は、利益の最大化だけを命じられた自律型AIエージェントにビジネスを任せるとどうなるかを検証した研究報告だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ピザーラ、アニメ「Dr.STONE」のコラボCMに関して謝罪 許諾なく“AI広告”配信",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/06/2000002937/",
+      "published": "2026-11-06T11:08:13+09:00",
+      "summary": "宅配ピザチェーン「ピザーラ」を運営するフォーシーズが、TVアニメ「Dr.STONE」のコラボCMについて謝罪した。「TikTok」上でAIを活用した広告の自動生成機能が有効になっていた結果、同アニメ製作委員会の事前監修・許諾を得ていない動画を配信していたという。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「悪事は割に合わない」をAIにも、逆ゲーム理論で探る安全対策",
+      "url": "https://ascii.jp/elem/000/004/449/4449539/?rss",
+      "published": "2026-11-08T06:43:28+09:00",
+      "summary": "ケーキを切る人と先に選ぶ人を分ければ、切る側は均等に切ろうとする。こうした仕組みを設計する「逆ゲーム理論」を、AIの安全対策に応用する研究が出てきた。AIの内部が分からなくても、ルールを守るほうが得になる仕組みを作ればよいという発想だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "RTX 5080搭載PCが7万2000円引き！ パソコンショップSEVEN、11月8日限定セール",
+      "url": "https://ascii.jp/elem/000/004/448/4448584/?rss",
+      "published": "2026-11-08T00:00:00+09:00",
+      "summary": "パソコンショップSEVENが11月8日、全10商品を対象に24時間限定セールを開催。Ryzen 9 9950X3DとRTX 5080搭載PCが7万2000円引き、RTX 5070搭載PCが4万8000円引きに。対象モデルの構成や価格を紹介する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "RTX 5060 Ti＆水冷搭載のGALLERIA、メモリ32GB化が9696円！ ドスパラのブラックフライデー先取りキャンペーン",
+      "url": "https://ascii.jp/elem/000/004/449/4449121/?rss",
+      "published": "2026-11-07T22:30:00+09:00",
+      "summary": "ドスパラでは現在、「ブラックフライデー先取りキャンペーン」を開催中。対象の新品パソコンで、指定カスタマイズを特別価格で利用できる。16GBから32GBへのメモリ変更は9,696円、ナノダイヤモンドグリスへの変更は960円。対象となるカスタマイズはPCによって異なる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "iPhone Duoは最初から完成度高くて驚いた！ 実際に使うとわかったアップル製品ならではの体験",
+      "url": "https://ascii.jp/elem/000/004/448/4448575/?rss",
+      "published": "2026-11-07T22:30:00+09:00",
+      "summary": "アップル初となる折りたたみスマホ「iPhone Duo」の実機レビューです。5.4型から7.6型の大画面へ展開し、2台持ちの煩わしさを解消します。約36万円からと高価ですが、初代らしからぬ圧倒的な完成度を誇る1台です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "『ゼルダの伝説 時のオカリナ』を外出先で！ Switch 2をドック不要で出力できる14型モバイルディスプレーが30％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449456/?rss",
+      "published": "2026-11-07T19:30:00+09:00",
+      "summary": "Amazon.co.jpにて、cocoparの14型モバイルディスプレー「C-14QH」が販売中だ。参考価格は2万2999円だが、スマイルセールにより30％オフの1万5999円で購入できる（11月6日時点）。Switch 2をType-Cケーブル一本、ドック不要で画面出力できるのが魅力。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "失敗しない軽量ワイヤレスゲーミングマウスと言えば1ヵ月で400点以上購入されたRazerのアイツがスマイルセールで36％オフ",
+      "url": "https://ascii.jp/elem/000/004/449/4449453/?rss",
+      "published": "2026-11-07T19:00:00+09:00",
+      "summary": "Amazon.co.jpにて、Razerのワイヤレスゲーミングマウス「Razer DeathAdder V3 HyperSpeed」が販売中だ。参考価格は1万7280円だが、スマイルセールにより36％オフの1万980円で購入できる（11月6日時点）。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "お悩み相談にも応じます！ アイドルだらけの新番組「石田萌依の萌えドル放送局！」誕生",
+      "url": "https://ascii.jp/elem/000/004/447/4447995/?rss",
+      "published": "2026-11-07T19:00:00+09:00",
+      "summary": "ソフマップAKIBA アミューズメント館の新トークショー「石田萌依の萌えドル放送局！ vol.1」が10月21日に開催され、石田萌依（いしだ・もえ）さん、さたんさん、瀬戸くるみ（せと・くるみ）さん、空乃もね（そらの・もね）さん、堀内 玲（ほりうち・れい）さん、桃井友彩（ももい・ゆうあ）さんの6人が登場した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ゴジラとコラボしたFMVノートPCが、直販サイトで10%オフに！",
+      "url": "https://ascii.jp/elem/000/004/449/4449509/?rss",
+      "published": "2026-11-07T18:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
+      "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
+      "published": "2026-11-08T07:07:22+09:00",
+      "summary": "On Equity, we unpacked what the midterms mean for the tech industry."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+      "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+      "published": "2026-11-08T06:17:08+09:00",
+      "summary": "A memo circulated earlier this year reportedly claimed that China’s Ministry of State Security recruited a female technology executive to spy on Nvidia's CEO."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Crusoe sells troubled Wyoming data center project to Google",
+      "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+      "published": "2026-11-07T10:40:28+09:00",
+      "summary": "The deal highlights the challenges of developing massive AI data centers."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+      "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+      "published": "2026-11-07T07:53:46+09:00",
+      "summary": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
+      "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
+      "published": "2026-11-07T03:44:38+09:00",
+      "summary": "Security researchers found hundreds of servers hosting the penetration testing tool Artex exposed to the internet, allowing anyone access to the hacking tool."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+      "url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+      "published": "2026-11-07T03:44:20+09:00",
+      "summary": "Meta's Muse agents continue to get new features and integrations. Spaces promises to be a new way to interact with the AI helpers."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "How a Blue Wave midterm might reshape the AI industry",
+      "url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
+      "published": "2026-11-07T03:00:00+09:00",
+      "summary": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday — in all but one, the "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "After the midterms, is the AI industry in for a rough two years?",
+      "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+      "published": "2026-11-07T02:23:52+09:00",
+      "summary": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday — in all but one, the "
+    }
+  ]
+}
