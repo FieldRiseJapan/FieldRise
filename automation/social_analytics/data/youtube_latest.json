@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-11-08T00:54:15+00:00",
+  "captured_at": "2026-11-09T00:59:42+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -21,7 +21,7 @@
     {
       "id": "kno0Vr_0CgU",
       "title": " Cafe  ",
-      "views": 19,
+      "views": 20,
       "age_label": "2026-03-14T23:46:39Z",
       "category": "cafe"
     },
@@ -238,7 +238,7 @@
     {
       "id": "Le6KreUNtnY",
       "title": "冬恋",
-      "views": 149,
+      "views": 150,
       "age_label": "2024-08-25T08:00:43Z",
       "category": "other"
     },
