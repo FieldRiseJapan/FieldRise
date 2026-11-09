@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-09T09:59:28.243258+09:00",
+  "collected_at": "2026-11-09T10:12:09.011868+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -75,6 +75,22 @@
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
+      "title": "NVIDIAジェンスン・ファンCEO、不倫を認め謝罪 外国の情報工作の標的になった疑惑で独立調査",
+      "url": "https://ascii.jp/elem/000/004/449/4449591/?rss",
+      "published": "2026-11-09T10:05:00+09:00",
+      "summary": "NVIDIAの取締役会は米国時間11月8日、創業者でCEOのジェンスン・ファン氏が外国の情報工作の標的になったとする報道を受け、独立調査に着手すると発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "16GB GDDR7と3連ファン搭載 Colorful「RTX 5070 Ti Battle AX SFF」発売",
+      "url": "https://ascii.jp/elem/000/004/449/4449580/?rss",
+      "published": "2026-11-09T10:00:00+09:00",
+      "summary": "Colorfulの「GeForce RTX 5070 Ti Battle AX SFF 16GB-V」が登場。16GB GDDR7メモリとトリプルファンを搭載し、低負荷時はファンを停止するセミファンレス機能に対応。予価は23万4800円前後で、保証期間は2年。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
       "title": "GIGABYTE「WRX90 AI TOP」発売 最大2TBメモリ・PCIe 5.0×7基のAI開発向けマザーボード",
       "url": "https://ascii.jp/elem/000/004/449/4449579/?rss",
       "published": "2026-11-09T09:00:00+09:00",
@@ -119,22 +135,6 @@
       "url": "https://ascii.jp/elem/000/004/449/4449576/?rss",
       "published": "2026-11-09T07:00:00+09:00",
       "summary": "画像生成AI「P-H3-Image」を検証。参照画像による人物の一貫性、アニメ表現やポーズ指定の性能などを紹介し、課題についてもふれる。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "新型iPad miniは美麗OLED＆最新パワフルCPU、そして薄型軽量化で完全体に！の巻：スマホ総研定例会396",
-      "url": "https://ascii.jp/elem/000/004/449/4449494/?rss",
-      "published": "2026-11-09T07:00:00+09:00",
-      "summary": "発売されたばかりのiPad miniが登場。価格はかなり上昇したものの、動画を存分に楽しめる美麗なOLEDに最新CPUの「A20 Pro」。そして薄型軽量化と大幅にパワーアップ。日本で人気の小型iPadがどこまで進化したかチェックします！"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "『今週のASCII.jp注目ニュース』生放送（11/7～11/13ぶん）",
-      "url": "https://ascii.jp/elem/000/004/449/4449353/?rss",
-      "published": "2026-11-09T07:00:00+09:00",
-      "summary": "アスキーのNEWSメディア『ASCII.jp』で注目を集めたこの1週間の記事をランキング形式でお届け！ ASCII.jp編集部のオカモト、ムラリン、MCつばさの3人が、自由におしゃべりします。"
     },
     {
       "source": "TechCrunch AI",
