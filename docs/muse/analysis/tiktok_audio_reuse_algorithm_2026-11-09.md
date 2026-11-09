@@ -51,3 +51,9 @@ TikTokの「おすすめ」への露出と「音源の採用」は別の結果�
 - **投稿時間に関する観測:** Metricoolの推奨時間帯データは取得できたが、これはアルゴリズムの内部重みやヒットの保証を表すものではない。TikTokでは午前10時付近／18時付近、YouTubeでは16時付近（いずれもJST）を**実験の候補**とし、固定曜日・同程度の動画を比較して初めて採否を判断する。YouTubeの推奨時間帯はアカウント固有の視聴者データではなく一般的な活動傾向。出典: https://help.metricool.com/best-time-to-post-on-social-media-in-metricool-w7ll9
 - **重要な分析境界:** TikTokの自社アカウントのフォロワーや投稿再生数から、外部クリエイターがCafe音源を採用した総数・理由を推定してはいけない。SoundOn音源ID別指標を別途必要とする。
 - **次回更新条件:** 投稿別行の取得、SoundOn同一区間の比較、実験条件を満たす投稿時刻ABテストが可能になった時点で事実と仮説を再評価する。新しい推薦アルゴリズムの内部仕様が判明したわけではない。
+
+
+### 関連するYouTube公開ベースラインと旧運用の識別リスク
+- 2026-11-09更新の[YouTube公開統計レポート](../../../automation/social_analytics/reports/youtube_full_analysis.md)は、正しいYouTubeチャンネル `UCHmI-5eV-xPLSVtcO8QOd7A` を対象とする。音源の第三者使用数とは別単位の、チャンネルの公開動画再生数を示す。
+- [既存SNS自動レポートの入口](../../../automation/social_analytics/reports/latest_report.md)では、TikTokの対象が `@fieldrizejapan` のまま。一方、今回Metricoolで確認された音楽アーティストのTikTokは `@runa_girl8215`。**同じアカウントとみなして集計してはいけない**。既存ワークフローや朝報告の参照先を変更する際はソースコードと正式運用の確認が必要。
+- YouTubeの再生数上位タイトルとCafe公開動画の比較は関連性の観察にとどめる。楽曲の機能性、BGM採用率、推薦アルゴリズムを結論づけない。旧レポートのチャンネル集計結果を新しいMetricoolの所有者指標と混合する場合は、取得日・対象ID・期間・累計/期間値を揃える。
