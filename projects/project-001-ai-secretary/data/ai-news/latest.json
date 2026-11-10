@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-09T10:12:09.011868+09:00",
+  "collected_at": "2026-11-10T12:38:18.133308+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,194 +11,194 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "情報漏えい続出でフィッシングに変化？ “その人専用詐欺メール”登場の懸念",
-      "url": "https://www.itmedia.co.jp/news/article/2611/09/2000002926/",
-      "published": "2026-11-09T08:00:00+09:00",
-      "summary": "9月末から企業を標的とした不正アクセスが相次いでおり、ユーザーなどの個人情報がそこかしこで漏えいしている。詐欺メールの報告件数などに動きはあるのか。推移を監視する企業や組織に聞いてみた。"
+      "title": "なぜ、三井化学は1.8兆円で「半導体材料メーカー」を買ったのか JSR買収の狙い、市村社長が語る",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/10/news029.html",
+      "published": "2026-11-10T12:00:00+09:00",
+      "summary": "三井化学が、半導体材料大手JSRを約1.8兆円で買収する。市村社長は「単なるM＆Aではない」と説明する。巨額を投じた買収の狙いは。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "ローカルLLM利用のクリニックを受診してみた PCマニアの院長が自力で構築、その導入効果は？",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/09/2000002916/",
-      "published": "2026-11-09T08:00:00+09:00",
-      "summary": "院内のローカルLLMで診療情報を処理していると話題になった本郷真砂ハートクリニック。院長が「Claude Code」で自作したシステムは、受付から次回予約までの流れをどう変えたのか。患者役として模擬受診し、導入効果を聞いた。"
+      "title": "「探す」という呪縛から設計者が解放される日",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/10/news008.html",
+      "published": "2026-11-10T12:00:00+09:00",
+      "summary": "設計を始める前の“付帯業務”の負担が軽減されることを願います。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "AIに業務を任せる大企業は6割へ 人材育成に投資しない企業はどうなる？",
-      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/06/news023.html",
-      "published": "2026-11-09T08:00:00+09:00",
-      "summary": "AI予算を何に投資すべきか。IDCは、ある分野への投資を2029年までに怠った企業は、投資した企業に比べて収益成長率が50％低くなると予測する。収益成長率に直結する投資分野は何か。"
+      "title": "AdobeとDisneyが戦略的提携 「Firefly Foundry」でDisney専用の生成AIモデル開発へ",
+      "url": "https://www.itmedia.co.jp/news/article/2611/10/2000003050/",
+      "published": "2026-11-10T11:10:07+09:00",
+      "summary": "AdobeとWalt Disneyは、複数年にわたる戦略的提携を発表した。Adobeは公式AIパートナーとして、生成AI「Firefly Foundry」などの技術を提供。両社は共同でDisneyの作風に特化した安全なカスタムAIモデルを開発し、映像制作からテーマパーク開発まで幅広いクリエイティブ工程を支援していく。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "“おいしい魚”を届けられないかも──スシロー、漁業の危機にどう挑む？ 富士通とタッグ、AIで「海を解剖」するワケ",
-      "url": "https://www.itmedia.co.jp/business/articles/2611/09/news039.html",
-      "published": "2026-11-09T07:00:00+09:00",
-      "summary": "スシロー、クロシオ水産、富士通などが手を組み、海洋テックを生かした養殖に挑戦している。舞台は、高知県の宿毛湾。異業種連携で、水産業の課題を解決できるのか。"
+      "title": "“何でもリバースエンジニアリング”生成AIで広がる ソフトウェアもスマート家電も手軽に改造……ブームに潜む危険",
+      "url": "https://www.itmedia.co.jp/news/article/2611/10/2000002975/",
+      "published": "2026-11-10T11:00:00+09:00",
+      "summary": "AIを使ってスマート家電のOSに手を加え、AIに生成させたコードに入れ替えて、広告を消したり自分好みの機能を付け加えたりする行為がちょっとしたブームになっている。ソフトウェアの改造が手軽にできるとうたった“何でもリバースエンジニアリング”（REA）というツールもGitHubで注目を集めているが、セキュリティ上のリスクも懸念されている。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「勝手に社外AIを使う」エース社員に困っています……どうすべき？",
-      "url": "https://www.itmedia.co.jp/business/articles/2611/09/news038.html",
-      "published": "2026-11-09T07:00:00+09:00",
-      "summary": "「会社の“公認AI”では物足りない」――社員が「シャドーAI」を使っている場合、“禁止令”を出すだけで解決する問題なのか。AI活用を推進するために企業はどう対応すればよいのか。"
+      "title": "なぜAgodaは「単独で勝てない」と認めたのか？ ANAや星野リゾートと組んだ狙い",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/10/news020.html",
+      "published": "2026-11-10T10:45:00+09:00",
+      "summary": "星野リゾートやANAとの提携を加速させるオンライン旅行大手Agoda。「日本では単独で成功できない」と言い切る同社は、なぜ現地企業との連携を急ぐのか。背景には「1人泊不可・夕食付き」というような日本市場特有の旅館文化やポイント経済圏など、グローバル標準とは異なる商慣習があった。外資系メガOTAが挑むローカライズの裏側と日本市場攻略の勝算を、ダミアン・フィルシュCCOに聞いた。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "意思疎通に難？ 技術が分かるから強い？――研究者に事業開発させるべきか否か、NEC・イビデンの回答は……",
-      "url": "https://www.itmedia.co.jp/business/articles/2611/09/news040.html",
-      "published": "2026-11-09T07:00:00+09:00",
-      "summary": "技術はあるのに「事業化の壁」を越えられない……。この課題に直面したNECとイビデンは、独自の取り組みで成長領域を模索している。AIをどう生かすか。研究者に事業開発を任せるべきか。両社のキーパーソンが語り合った。"
+      "title": "「オープンなAIモデル」に関する資料を無料公開、NII 「LLM-jp」の開発手法など解説",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/10/2000003046/",
+      "published": "2026-11-10T10:30:52+09:00",
+      "summary": "国立情報学研究所（NII）は、オープンなAIモデルに関する講演資料を公開した。11月5日に開催したイベント「第2回オープン大規模言語モデルシンポジウム」で使われたもの。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "コクヨが開発部門の「資料散乱」をAIでゼロに 「Notion」をどう使ったか？",
-      "url": "https://kn.itmedia.co.jp/kn/article/2611/09/2000002973/",
-      "published": "2026-11-09T06:00:00+09:00",
-      "summary": "社内に情報は蓄積されているのに、必要な資料が見つからない、十分に活用できない。こうした課題は開発組織でも起こりがちだ。コクヨはNotionとAIエージェントを組み合わせ、情報管理から文書レビューまでを効率化する仕組みづくりに取り組んだ。"
+      "title": "島津製作所が半導体製造装置向けTMPのめっきライン増設、生産能力2倍に",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/10/news043.html",
+      "published": "2026-11-10T10:00:00+09:00",
+      "summary": "島津製作所は、本社三条工場において半導体製造装置向けターボ分子ポンプのめっき加工ラインを増設し、2026年9月に稼働を開始した。2027年夏にも追加増設を予定しており、サプライチェーン全体で生産体制を強化する。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "【図解あり】マルチエージェント設計「15のパターン」 GitHub、Google、Siemensの知見を一気に整理",
-      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/08/news001.html",
-      "published": "2026-11-08T08:00:00+09:00",
-      "summary": "AIエージェントの一般化に伴い、複数のAIエージェントを連携させるマルチエージェントシステムが注目されています。GitHub、Google、Siemensが紹介した15のデザインパターンを、設計上の課題や具体的な活用場面とともに解説します。"
+      "title": "Meta、最小・低コストのAIモデル「Muse Ember」発表 「Muse Spark 1.3」に迫る性能を約17分の1のコストで",
+      "url": "https://www.itmedia.co.jp/news/article/2611/10/2000003044/",
+      "published": "2026-11-10T09:06:40+09:00",
+      "summary": "Metaは、AIモデル「Muse」ファミリーの最小モデル「Muse Ember」を発表した。AIエージェントの反復タスクに特化しており、上位モデル「Muse Spark 1.3」に迫る性能を約17分の1のコストで実現している。同日から開発者向けAPI等で提供を開始しており、大量の反復処理を低コストで担う。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "NVIDIAジェンスン・ファンCEO、不倫を認め謝罪 外国の情報工作の標的になった疑惑で独立調査",
-      "url": "https://ascii.jp/elem/000/004/449/4449591/?rss",
-      "published": "2026-11-09T10:05:00+09:00",
-      "summary": "NVIDIAの取締役会は米国時間11月8日、創業者でCEOのジェンスン・ファン氏が外国の情報工作の標的になったとする報道を受け、独立調査に着手すると発表した。"
+      "title": "ハーゲンダッツの本気きた！約500円の「じゅわっと苺」、贅沢すぎる",
+      "url": "https://ascii.jp/elem/000/004/449/4449792/?rss",
+      "published": "2026-11-10T12:35:00+09:00",
+      "summary": "ハーゲンダッツ ジャパンはハーゲンダッツ「じゅわっと苺」（497円）を12月8日より期間限定にて全国で発売します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "16GB GDDR7と3連ファン搭載 Colorful「RTX 5070 Ti Battle AX SFF」発売",
-      "url": "https://ascii.jp/elem/000/004/449/4449580/?rss",
-      "published": "2026-11-09T10:00:00+09:00",
-      "summary": "Colorfulの「GeForce RTX 5070 Ti Battle AX SFF 16GB-V」が登場。16GB GDDR7メモリとトリプルファンを搭載し、低負荷時はファンを停止するセミファンレス機能に対応。予価は23万4800円前後で、保証期間は2年。"
+      "title": "ロボットの通信から更新まで一括支援 ソラコム「SORACOM フィジカルAI Suite」",
+      "url": "https://ascii.jp/elem/000/004/449/4449980/?rss",
+      "published": "2026-11-10T12:30:00+09:00",
+      "summary": "ソラコムの「SORACOM フィジカルAI Suite」は、ロボットや自律走行モビリティの通信・セキュリティ・運用を一括支援。閉域網接続や証明書の自動更新、遠隔でのモデル更新を支え、有線・Wi-Fi・衛星通信にも対応する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "GIGABYTE「WRX90 AI TOP」発売 最大2TBメモリ・PCIe 5.0×7基のAI開発向けマザーボード",
-      "url": "https://ascii.jp/elem/000/004/449/4449579/?rss",
-      "published": "2026-11-09T09:00:00+09:00",
-      "summary": "GIGABYTEがワークステーション向けE-ATXマザーボード「WRX90 AI TOP」を11月6日に発売した。AMD WRX90チップセット、最大2TB DDR5対応、PCIe 5.0拡張、USB4、10GbE LAN、IPMI対応BMCなどを備え、AI開発や高負荷業務を支える高機能モデルだ。"
+      "title": "ソラコム、IoT・フィジカルAIのセキュリティ診断開始 対策実装・再検証まで支援",
+      "url": "https://ascii.jp/elem/000/004/449/4449979/?rss",
+      "published": "2026-11-10T12:30:00+09:00",
+      "summary": "ソラコムがIoT・フィジカルAI向けのセキュリティ診断・堅牢化サービスを11月10日に開始。脆弱性診断から対策の設計・実装・再検証までを支援し、料金は個別見積もりとなる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "コンピューターはどこまで進歩できるか？／全固体電池、実用化はいつ？",
-      "url": "https://ascii.jp/elem/000/004/449/4449572/?rss",
-      "published": "2026-11-09T09:00:00+09:00",
-      "summary": "世界最先端のテクノロジー情報をお届けするグローバルメディア「MITテクノロジーレビュー」から、ビジネスに役立つ注目のテック企業の最新動向、イノベーションにつながる最新の研究内容をピックアップして紹介します。"
+      "title": "RTX 5070が26万円台、RTX 5080も！ ドスパラのブラックフライデー注目PC",
+      "url": "https://ascii.jp/elem/000/004/449/4449880/?rss",
+      "published": "2026-11-10T12:30:00+09:00",
+      "summary": "ドスパラでは現在、「ブラックフライデー先取りキャンペーン」を開催中。対象の新品パソコンで、メモリやSSD、CPUグリスなどの指定カスタマイズを特別価格で利用できる。また、Ryzen 7とGeForce RTX 5070を搭載したモデルをはじめ、GeForce RTX 5080搭載モデルなど、ブラックフライデー2026モデルもラインアップしている。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "感染したシステムをリモート制御可能なプロキシノードに変えるマルウェア「ClingSTUN」",
-      "url": "https://ascii.jp/elem/000/004/449/4449120/?rss",
-      "published": "2026-11-09T09:00:00+09:00",
-      "summary": "FortiGuard Labsでは、「ClingSTUN」と名付けたLinuxマルウェアの亜種を追跡しています。本マルウェアは、インターネットに接続されたデバイスに存在する既知の修正されていない脆弱性を悪用して、永続的な足場を築きます。"
+      "title": "てんやの「たれづけ天丼」に冬の新作！ 海鮮4種で990円、うまそ！",
+      "url": "https://ascii.jp/elem/000/004/449/4449457/?rss",
+      "published": "2026-11-10T12:15:00+09:00",
+      "summary": "てんやは11月12日から、海老、大いか、鹿児島県産「白姫えび」、きす半身の4種類を盛り合わせた冬限定メニュー「たれづけ海鮮づくし天丼」を販売します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「プログラミングを学ぶ」検索数が1年で半減／ガートナーの2027年注目技術トップ10／DDoS攻撃、世界は半減・日本は倍増、ほか",
-      "url": "https://ascii.jp/elem/000/004/449/4449518/?rss",
-      "published": "2026-11-09T08:00:00+09:00",
-      "summary": "今回（2026年10月31日～11月6日）は、「AIの制御と信頼」というテーマが見られるガートナーの2027年予測、Google検索で「プログラミングを学ぶ」検索が半減、ランサムウェア攻撃と被害のトレンド、日本だけ倍増したDDoS攻撃の現状についてのデータを紹介します。"
+      "title": "任天堂「マリオパーティ」ソフト1本で最大4人遊べるように！ Switch 2の無料アプデで「おすそわけ通信」が大幅進化",
+      "url": "https://ascii.jp/elem/000/004/449/4449977/?rss",
+      "published": "2026-11-10T12:00:00+09:00",
+      "summary": "任天堂はNintendo Switch 2用ソフト「スーパー マリオパーティ ジャンボリー Nintendo Switch 2 Edition ＋ ジャンボリーTV」の無料アップデートを配信。「おすそわけ」機能を強化している。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "バイブコーディング＋FDE伴走で“パーソナライズSaaS” SMFLが「Replit」で個別開発を高速化",
-      "url": "https://ascii.jp/elem/000/004/449/4449534/?rss",
-      "published": "2026-11-09T07:30:00+09:00",
-      "summary": "三井住友ファイナンス＆リースは、バイブコーディングの手法を用いて企業の要件に合わせたSaaSを高速開発する「企業向けパーソナライズ型SaaS」の提供を開始した。"
+      "title": "ABEMA運営のAbemaTV、動画レビュー時間が半分以下に Dropbox Replayで制作効率化",
+      "url": "https://ascii.jp/elem/000/004/449/4449976/?rss",
+      "published": "2026-11-10T12:00:00+09:00",
+      "summary": "ABEMAを運営するAbemaTVがDropboxとDropbox Replayを導入し、動画レビュー時間を半分以下に短縮。4K映像など大容量ファイルの共有や確認・承認作業の一元化、安全性と制作効率を両立する取り組みを紹介する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "無料の画像生成AI「P-H3-Image」がすごい 参照画像1枚で同じ人物を自在に再現",
-      "url": "https://ascii.jp/elem/000/004/449/4449576/?rss",
-      "published": "2026-11-09T07:00:00+09:00",
-      "summary": "画像生成AI「P-H3-Image」を検証。参照画像による人物の一貫性、アニメ表現やポーズ指定の性能などを紹介し、課題についてもふれる。"
+      "title": "1本6000円、わずか1万本！ 「山崎」の原酒樽で熟成させた特別なビール、その製法を工場で聞いた",
+      "url": "https://ascii.jp/elem/000/004/444/4444186/?rss",
+      "published": "2026-11-10T12:00:00+09:00",
+      "summary": "サントリーは「マスターズドリーム〈山崎原酒樽熟成〉2026」を11月10日に数量限定発売。価格は6000円（税別）、販売本数はわずか1万本。その特別なビールはどのように生まれるのか。武蔵野ビール工場で開発者に聞きました。"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Nvidia will investigate CEO Jensen Huang’s relationship with possible Chinese spy",
-      "url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/",
-      "published": "2026-11-09T06:00:11+09:00",
-      "summary": "In a memo to the company, Huang admitted that he had an affair."
+      "title": "Anthropic reportedly plans to move forward with IPO plans",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-reportedly-plans-to-move-forward-with-ipo-plans/",
+      "published": "2026-11-10T10:27:12+09:00",
+      "summary": "The AI company is expected to set its valuation range this week, the Wall Street Journal reported."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
-      "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
-      "published": "2026-11-08T07:07:22+09:00",
-      "summary": "On Equity, we unpacked what the midterms mean for the tech industry."
+      "title": "Jensen Huang reportedly engaged a PR firm with a history of handling high-profile sex scandals a year ago",
+      "url": "https://techcrunch.com/2026/11/09/jensen-huang-reportedly-engaged-a-pr-firm-with-a-history-of-handling-high-profile-sex-scandals-a-year-ago/",
+      "published": "2026-11-10T08:28:37+09:00",
+      "summary": "The PR firm was enlisted shortly after an October 2025 New York Times report described Alice Huang's business dealings with Jensen Huang, Wired reported."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
-      "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
-      "published": "2026-11-08T06:17:08+09:00",
-      "summary": "A memo circulated earlier this year reportedly claimed that China’s Ministry of State Security recruited a female technology executive to spy on Nvidia's CEO."
+      "title": "A short seller flagged Nvidia CEO’s ties to a suspected Chinese spy six months before the scandal",
+      "url": "https://techcrunch.com/2026/11/09/a-short-seller-flagged-nvidia-ceos-ties-to-a-suspected-chinese-spy-six-months-before-the-scandal/",
+      "published": "2026-11-10T07:46:09+09:00",
+      "summary": "Six months before Nvidia's spy scandal erupted, Culper Research was already questioning Jensen Huang's unusually close relationship with a Chinese executive."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Crusoe sells troubled Wyoming data center project to Google",
-      "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
-      "published": "2026-11-07T10:40:28+09:00",
-      "summary": "The deal highlights the challenges of developing massive AI data centers."
+      "title": "The race is on to sue Nvidia",
+      "url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
+      "published": "2026-11-10T07:23:42+09:00",
+      "summary": "Nvidia’s stock slid more than 4% after its board opened an investigation into Jensen Huang’s relationship with a suspected Chinese spy, and one securities law expert says the company’s earlier insiste"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
-      "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
-      "published": "2026-11-07T07:53:46+09:00",
-      "summary": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks."
+      "title": "Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy",
+      "url": "https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/",
+      "published": "2026-11-10T05:09:06+09:00",
+      "summary": "The Nvidia CEO also pulled out of an Anthropic event earlier."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
-      "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
-      "published": "2026-11-07T03:44:38+09:00",
-      "summary": "Security researchers found hundreds of servers hosting the penetration testing tool Artex exposed to the internet, allowing anyone access to the hacking tool."
+      "title": "Anthropic releases new Mythos and Fable models amid RSI concerns",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+      "published": "2026-11-10T04:24:51+09:00",
+      "summary": "Anthropic says the new models \"show improvements in areas like coding, reasoning, and vision,\" as well as in communicating more clearly with users."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
-      "url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
-      "published": "2026-11-07T03:44:20+09:00",
-      "summary": "Meta's Muse agents continue to get new features and integrations. Spaces promises to be a new way to interact with the AI helpers."
+      "title": "Jensen Huang’s affair with alleged Chinese spy puts Nvidia’s China ambitions under scrutiny",
+      "url": "https://techcrunch.com/2026/11/09/jensen-huangs-affair-with-alleged-chinese-spy-puts-nvidias-china-ambitions-under-scrutiny/",
+      "published": "2026-11-10T03:09:52+09:00",
+      "summary": "Jensen Huang’s alleged affair with a suspected Chinese spy threatens to complicate Nvidia’s lobbying efforts to loosen U.S. chip export restrictions and maintain access to China’s lucrative AI market."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "How a Blue Wave midterm might reshape the AI industry",
-      "url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
-      "published": "2026-11-07T03:00:00+09:00",
-      "summary": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday — in all but one, the "
+      "title": "Meta releases Muse Ember, a new lightweight model for agent execution",
+      "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+      "published": "2026-11-10T03:00:00+09:00",
+      "summary": "At 10 cents per million input tokens, Ember is significantly cheaper than frontier competitors like Haiku and Luna."
     }
   ]
 }
