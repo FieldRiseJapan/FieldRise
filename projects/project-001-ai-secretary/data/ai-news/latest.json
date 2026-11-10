@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-10T12:38:18.133308+09:00",
+  "collected_at": "2026-11-10T12:47:58.928159+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -75,6 +75,22 @@
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
+      "title": "アップル「iOS 27.2.1」配信開始 iMessageやBluetoothの脆弱性など9件を修正",
+      "url": "https://ascii.jp/elem/000/004/450/4450066/?rss",
+      "published": "2026-11-10T12:40:00+09:00",
+      "summary": "アップルは11月9日、「iOS 27.2.1」の配信を開始した。CVEベースで9件の脆弱性に対処している。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "スタバから「飲むポテトスープ」登場！ ふわふわ泡、芋の甘み、おいしそうだね",
+      "url": "https://ascii.jp/elem/000/004/449/4449903/?rss",
+      "published": "2026-11-10T12:40:00+09:00",
+      "summary": "スターバックス コーヒーは11月13日から、カプチーノ仕立ての温かいスープ「ポテト スープチーノ」を発売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
       "title": "ハーゲンダッツの本気きた！約500円の「じゅわっと苺」、贅沢すぎる",
       "url": "https://ascii.jp/elem/000/004/449/4449792/?rss",
       "published": "2026-11-10T12:35:00+09:00",
@@ -119,22 +135,6 @@
       "url": "https://ascii.jp/elem/000/004/449/4449977/?rss",
       "published": "2026-11-10T12:00:00+09:00",
       "summary": "任天堂はNintendo Switch 2用ソフト「スーパー マリオパーティ ジャンボリー Nintendo Switch 2 Edition ＋ ジャンボリーTV」の無料アップデートを配信。「おすそわけ」機能を強化している。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "ABEMA運営のAbemaTV、動画レビュー時間が半分以下に Dropbox Replayで制作効率化",
-      "url": "https://ascii.jp/elem/000/004/449/4449976/?rss",
-      "published": "2026-11-10T12:00:00+09:00",
-      "summary": "ABEMAを運営するAbemaTVがDropboxとDropbox Replayを導入し、動画レビュー時間を半分以下に短縮。4K映像など大容量ファイルの共有や確認・承認作業の一元化、安全性と制作効率を両立する取り組みを紹介する。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "1本6000円、わずか1万本！ 「山崎」の原酒樽で熟成させた特別なビール、その製法を工場で聞いた",
-      "url": "https://ascii.jp/elem/000/004/444/4444186/?rss",
-      "published": "2026-11-10T12:00:00+09:00",
-      "summary": "サントリーは「マスターズドリーム〈山崎原酒樽熟成〉2026」を11月10日に数量限定発売。価格は6000円（税別）、販売本数はわずか1万本。その特別なビールはどのように生まれるのか。武蔵野ビール工場で開発者に聞きました。"
     },
     {
       "source": "TechCrunch AI",
