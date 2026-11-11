@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-11T10:17:12.073962+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「Claude」に共同編集の「Sheets」「Whiteboards」 外部アプリもClaude内で開いて作業可能に",
+      "url": "https://www.itmedia.co.jp/news/article/2611/11/2000003089/",
+      "published": "2026-11-11T09:33:03+09:00",
+      "summary": "Anthropicは、「Claude」に共同編集可能な「Claude Sheets」と「Claude Whiteboards」をβ版として追加した。また「Claude Dashboards」を「Claude Data」に改称し、一般提供を開始。さらに外部アプリをClaude内で直接操作できる「インタラクティブコネクタ」の拡張も発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ChatGPTでビジネスを展開できる新機能 自社サイトのクリック数集計、顧客へのAIチャット提供など 一部機能は米国から",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/11/2000003088/",
+      "published": "2026-11-11T09:27:17+09:00",
+      "summary": "OpenAIは、企業がChatGPT上でのWebサイトのクリック数を集計したり、顧客にAIチャット機能を提供したりできる新機能「Businesses in ChatGPT」のβ版を発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "過去の組立順序をAIが学習、自社ノウハウを生かした組立案を生成",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/11/news018.html",
+      "published": "2026-11-11T09:00:00+09:00",
+      "summary": "Sceneは、3D手順書作成ソリューション「3D Docs」において、過去の組立順序（M-BOM）をAIに学習させる新機能の提供を開始した。自社の組立ノウハウを反映したM-BOMを生成することで、新製品の組立検討や生産準備の前倒し、技術継承を支援する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "動画や文書を“雑に”入れてAIが知識化、マニュアル自動更新で現場の負担を解消",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/10/news083.html",
+      "published": "2026-11-11T08:30:00+09:00",
+      "summary": "スタディストは、新プロダクト「Teachme Knowledge」と、Teachmeシリーズの新構想「Connect」の発表会を開催した。現場の動画や文書を事前の仕分けなしに投入することででAIが要約／構造化を行う仕組みを提供し、熟練者の暗黙知の形式知化を支援する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「“できる人”ばかり質問されがち」から脱却し、年4400時間削減――紀陽銀行の「社内知識」集約術とは",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/11/news029.html",
+      "published": "2026-11-11T08:00:00+09:00",
+      "summary": "マニュアルがあっても、必要な情報が見つからなければ社内の問い合わせは減らない。従業員が自力で疑問を解消できるようにするために、情報を見つける仕組みをどう見直せばよいのか。紀陽銀行の取り組みに学ぶ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "SCM変革の「壁」をAIでどう突破するか、o9とTDKが語るレガシー脱却の道",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/11/news024.html",
+      "published": "2026-11-11T07:30:00+09:00",
+      "summary": "o9ソリューションズ・ジャパンは、AI時代の新たなサプライチェーン像を提示する「o9 Connect Japan 2026」を開催した。講演ではTDKが取り組んだ、現場主導でレガシー脱却の壁を越える実践的なプロセスも紹介された。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Google、「Gemini 4 Carbon」一般提供開始 Geminiアプリでは最上位「AI Ultra」限定",
+      "url": "https://www.itmedia.co.jp/news/article/2611/11/2000003083/",
+      "published": "2026-11-11T07:03:30+09:00",
+      "summary": "Googleは、最上位AIモデル「Gemini 4 Carbon」の提供を開始した。一般ユーザーは月額1万4500円の「Google AI Ultra」契約で利用可能となる。複雑な推論や高度なコーディングに特化しており、開発者向けAPIや新機能「/swarm」のプレビュー提供も始まった。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Gemini Notebookで規定探しの手間をゼロにする、「問い合わせ効率化」超入門",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/11/2000003077/",
+      "published": "2026-11-11T07:00:00+09:00",
+      "summary": "「同じ質問に何度も答えている」「引き継ぎに手間がかかる」といったあるあるの悩み。Gemini Notebookなら既存のマニュアルを読み込ませるだけで、根拠付きで回答する専用AIを素早く構築できる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "レノボ、7色から選べる「IdeaPad Vibe Gen 12」とRTX Spark搭載「Yoga 9n 2-in-1 Gen 11」を発表",
+      "url": "https://ascii.jp/elem/000/004/450/4450364/?rss",
+      "published": "2026-11-11T09:30:00+09:00",
+      "summary": "レノボが7色展開の「IdeaPad Vibe Gen 12」と、RTX Spark N1X・64GBメモリ搭載の「Yoga 9n 2-in-1 Gen 11」を発表。画面サイズやOLEDディスプレイなどの特徴、発売日、価格を紹介する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "AI時代のAcrobatはPDFツールから企業の知識を活用する文書プラットフォームへ",
+      "url": "https://ascii.jp/elem/000/004/441/4441167/?rss",
+      "published": "2026-11-11T09:00:00+09:00",
+      "summary": "PDFとチャットすることで、要約や文書の分析などを可能にする「Acrobat AIアシスタント」。最新のユーザー事例や利活用のアイデア、そして今後の機能強化についてアドビでDocument Cloud プロダクトマーケティングディレクターを務める山本 晶子氏に話を伺った。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "パナソニックEWがお客様価値向上のためFlyleを活用し、高精度AI分析で年間約60万件の顧客の声を商品企画の「使える」データに。",
+      "url": "https://ascii.jp/elem/000/004/450/4450370/?rss",
+      "published": "2026-11-11T08:30:00+09:00",
+      "summary": "パナソニックEWがお客様価値向上のためFlyleを活用し、高精度AI分析で年間約60万件の顧客の声を商品企画の「使える」データに。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "GIGABYTE「神鷹凛」コラボPCが数量限定で受注開始 白基調のRTX 5060搭載モデル",
+      "url": "https://ascii.jp/elem/000/004/450/4450363/?rss",
+      "published": "2026-11-11T08:30:00+09:00",
+      "summary": "アークは、GIGABYTE「神鷹凛」デザインの限定BTOゲーミングPCの受注を開始。白基調のピラーレスケースにRyzen 7 9700X、GeForce RTX 5060、32GBメモリー、1TB SSDを搭載する。価格は44万9800円。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「16タイプ性格診断」を累計1億PVの「就活の教科書」が提供開始",
+      "url": "https://ascii.jp/elem/000/004/450/4450371/?rss",
+      "published": "2026-11-11T08:20:00+09:00",
+      "summary": "「16タイプ性格診断」を累計1億PVの「就活の教科書」が提供開始"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "加工業の技能伝承ガイドを無料公開。標準書では引き継げない、ベテランの「判断」をどう残すか。",
+      "url": "https://ascii.jp/elem/000/004/450/4450372/?rss",
+      "published": "2026-11-11T08:10:00+09:00",
+      "summary": "加工業の技能伝承ガイドを無料公開。標準書では引き継げない、ベテランの「判断」をどう残すか。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【新発売】Siri AI対応、ネット障害時も家電操作が可能！リンクジャパン、独自BTメッシュ技術搭載のスマートリモコン「リンクREMO」を発売",
+      "url": "https://ascii.jp/elem/000/004/450/4450386/?rss",
+      "published": "2026-11-11T08:00:00+09:00",
+      "summary": "【新発売】Siri AI対応、ネット障害時も家電操作が可能！リンクジャパン、独自BTメッシュ技術搭載のスマートリモコン「リンクREMO」を発売"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "英高級オーディオ「ruarkaudio」、ブランド初となるブラックフライデーセールを自社サイトで開催",
+      "url": "https://ascii.jp/elem/000/004/450/4450385/?rss",
+      "published": "2026-11-11T08:00:00+09:00",
+      "summary": "英高級オーディオ「ruarkaudio」、ブランド初となるブラックフライデーセールを自社サイトで開催"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI acquires Odessia, travel startup created by Sonder founder",
+      "url": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
+      "published": "2026-11-11T06:08:52+09:00",
+      "summary": "OpenAI has not yet said what its plans are for the future of travel. But Sonder founder Francis Davidson is a well-known figure in the travel industry."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI, Anthropic face new oversight as New York’s AI safety law takes effect",
+      "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+      "published": "2026-11-11T05:52:13+09:00",
+      "summary": "New York is preparing to enforce its sweeping AI safety law, requiring major developers like OpenAI and Anthropic to register, disclose safety practices, and report critical incidents or face fines."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "All 7 Anthropic founders will each cash out about $250M in IPO",
+      "url": "https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/",
+      "published": "2026-11-11T04:57:52+09:00",
+      "summary": "Each of the seven co-founders plans to sell exactly the same number of shares in the IPO, which would bring each of them about $250 million in cash at the midpoint of the price range while leaving the"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Oura to acquire AI-native primary care startup Counsel Health for $625M",
+      "url": "https://techcrunch.com/2026/11/10/oura-to-acquire-ai-native-primary-care-startup-counsel-health-for-625m/",
+      "published": "2026-11-11T04:23:34+09:00",
+      "summary": "The deal comes a few weeks after Oura postponed its up to $2.2 billion IPO indefinitely, citing “uncertainty in the IPO market.”"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "PSI is trying to make a business out of AI-driven scientific discovery",
+      "url": "https://techcrunch.com/2026/11/10/psi-is-trying-to-make-a-business-out-of-ai-driven-scientific-discovery/",
+      "published": "2026-11-11T04:03:52+09:00",
+      "summary": "PSI used an unreleased Anthropic model to answer a fundamental question about quantum computing that scientists have pursued for nearly two decades."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google",
+      "url": "https://techcrunch.com/2026/11/10/openai-rolls-out-new-business-profiles-making-chatgpt-just-a-little-bit-more-like-google/",
+      "published": "2026-11-11T03:49:52+09:00",
+      "summary": "OpenAI is looking to make ChatGPT a more robust consumer discovery engine, and a host of new features seek to empower businesses to help it do that."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic launches Claude Meetings to turn workplace discussions into plans and tasks",
+      "url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/",
+      "published": "2026-11-11T02:30:00+09:00",
+      "summary": "As participants talk, Claude can draft the plan being discussed, map out a timeline on a whiteboard, answer questions in the meeting chat, and access connected work apps to retrieve information, such "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia CEO Jensen Huang’s affair with alleged Chinese spy: a timeline",
+      "url": "https://techcrunch.com/2026/11/10/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "published": "2026-11-11T02:04:19+09:00",
+      "summary": "The affair could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-# 2026-11-10（火）朝の定時報告
+# 2026-11-11（水）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 12:48 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:17 JST
 
 ---
 
@@ -16,14 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-10（火） | 雨 | 15.4°C / 8.3°C | 11.9mm | 100% | 13.5km/h |
-| 2026-11-11（水） | 快晴 | 16.4°C / 5.8°C | 0.0mm | 0% | 7.7km/h |
-| 2026-11-12（木） | 一部曇り | 18.5°C / 8.3°C | 0.0mm | 0% | 8.0km/h |
-| 2026-11-13（金） | 曇り | 19.7°C / 8.8°C | 0.0mm | 2% | 10.0km/h |
-| 2026-11-14（土） | 曇り | 20.4°C / 9.9°C | 0.0mm | 25% | 7.2km/h |
-
-**【農業アラート】**
-- 降水確率70%以上。屋外作業の予定調整をおすすめします。
+| 2026-11-11（水） | 晴れ | 16.3°C / 6.2°C | 0.0mm | 0% | 8.2km/h |
+| 2026-11-12（木） | 一部曇り | 18.8°C / 8.1°C | 0.0mm | 0% | 8.2km/h |
+| 2026-11-13（金） | 一部曇り | 19.7°C / 11.4°C | 0.0mm | 2% | 9.0km/h |
+| 2026-11-14（土） | 曇り | 18.9°C / 9.8°C | 0.0mm | 10% | 7.4km/h |
+| 2026-11-15（日） | にわか雨（弱） | 16.2°C / 13.7°C | 14.1mm | 90% | 6.2km/h |
 
 
 ---
@@ -32,21 +29,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [なぜ、三井化学は1.8兆円で「半導体材料メーカー」を買ったのか JSR買収の狙い、市村社長が語る](https://www.itmedia.co.jp/business/articles/2611/10/news029.html) — ITmedia AI+
-- [「探す」という呪縛から設計者が解放される日](https://monoist.itmedia.co.jp/mn/articles/2611/10/news008.html) — ITmedia AI+
-- [AdobeとDisneyが戦略的提携 「Firefly Foundry」でDisney専用の生成AIモデル開発へ](https://www.itmedia.co.jp/news/article/2611/10/2000003050/) — ITmedia AI+
-- [“何でもリバースエンジニアリング”生成AIで広がる ソフトウェアもスマート家電も手軽に改造……ブームに潜む危険](https://www.itmedia.co.jp/news/article/2611/10/2000002975/) — ITmedia AI+
-- [なぜAgodaは「単独で勝てない」と認めたのか？ ANAや星野リゾートと組んだ狙い](https://www.itmedia.co.jp/business/articles/2611/10/news020.html) — ITmedia AI+
-- [「オープンなAIモデル」に関する資料を無料公開、NII 「LLM-jp」の開発手法など解説](https://www.itmedia.co.jp/aiplus/article/2611/10/2000003046/) — ITmedia AI+
+- [「Claude」に共同編集の「Sheets」「Whiteboards」 外部アプリもClaude内で開いて作業可能に](https://www.itmedia.co.jp/news/article/2611/11/2000003089/) — ITmedia AI+
+- [ChatGPTでビジネスを展開できる新機能 自社サイトのクリック数集計、顧客へのAIチャット提供など 一部機能は米国から](https://www.itmedia.co.jp/aiplus/article/2611/11/2000003088/) — ITmedia AI+
+- [過去の組立順序をAIが学習、自社ノウハウを生かした組立案を生成](https://monoist.itmedia.co.jp/mn/articles/2611/11/news018.html) — ITmedia AI+
+- [動画や文書を“雑に”入れてAIが知識化、マニュアル自動更新で現場の負担を解消](https://monoist.itmedia.co.jp/mn/articles/2611/10/news083.html) — ITmedia AI+
+- [「“できる人”ばかり質問されがち」から脱却し、年4400時間削減――紀陽銀行の「社内知識」集約術とは](https://atmarkit.itmedia.co.jp/ait/articles/2611/11/news029.html) — ITmedia AI+
+- [SCM変革の「壁」をAIでどう突破するか、o9とTDKが語るレガシー脱却の道](https://monoist.itmedia.co.jp/mn/articles/2611/11/news024.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Anthropic reportedly plans to move forward with IPO plans](https://techcrunch.com/2026/11/09/anthropic-reportedly-plans-to-move-forward-with-ipo-plans/) — TechCrunch AI
-- [Jensen Huang reportedly engaged a PR firm with a history of handling high-profile sex scandals a year ago](https://techcrunch.com/2026/11/09/jensen-huang-reportedly-engaged-a-pr-firm-with-a-history-of-handling-high-profile-sex-scandals-a-year-ago/) — TechCrunch AI
-- [A short seller flagged Nvidia CEO’s ties to a suspected Chinese spy six months before the scandal](https://techcrunch.com/2026/11/09/a-short-seller-flagged-nvidia-ceos-ties-to-a-suspected-chinese-spy-six-months-before-the-scandal/) — TechCrunch AI
-- [The race is on to sue Nvidia](https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/) — TechCrunch AI
-- [Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy](https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/) — TechCrunch AI
-- [Anthropic releases new Mythos and Fable models amid RSI concerns](https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/) — TechCrunch AI
+- [OpenAI acquires Odessia, travel startup created by Sonder founder](https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/) — TechCrunch AI
+- [OpenAI, Anthropic face new oversight as New York’s AI safety law takes effect](https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/) — TechCrunch AI
+- [All 7 Anthropic founders will each cash out about $250M in IPO](https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/) — TechCrunch AI
+- [Oura to acquire AI-native primary care startup Counsel Health for $625M](https://techcrunch.com/2026/11/10/oura-to-acquire-ai-native-primary-care-startup-counsel-health-for-625m/) — TechCrunch AI
+- [PSI is trying to make a business out of AI-driven scientific discovery](https://techcrunch.com/2026/11/10/psi-is-trying-to-make-a-business-out-of-ai-driven-scientific-discovery/) — TechCrunch AI
+- [OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google](https://techcrunch.com/2026/11/10/openai-rolls-out-new-business-profiles-making-chatgpt-just-a-little-bit-more-like-google/) — TechCrunch AI
 
 
 ---
@@ -65,7 +62,7 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 ## 4. 本日のワンポイントコメント
 
 🌾 **農業**
-雨の予報です。屋外作業の予定調整をおすすめします。
+良好な天気が予想されます。農作業を進めるのに適した一日です。
 
 🎵 **音楽**
 朝です。Cafeシリーズのコンセプト整理に集中するのに適した時間帯です。
