@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-12T11:17:42.460847+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ユナイテッド航空、外部のAIアシスタントによる航空券の予約などを禁止へ 「チェックインには人間の確認が必要」",
+      "url": "https://www.itmedia.co.jp/news/article/2611/12/2000003127/",
+      "published": "2026-11-12T10:49:56+09:00",
+      "summary": "United Airlinesは、サードパーティ製AIエージェントによる自社サービスの利用を禁止すると発表した。機密情報の漏えいや意図しないアカウント操作、航空当局の規制違反の恐れを理由としている。米国ではMetaのAIエージェント「Muse」公開以降、小売りや金融業界でも外部AIを制限する動きが相次いでいる。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Amazon、AWSのAPIを手元で再現する「AWS Emulator」を無償公開 コードはすべてAIエージェントが記述",
+      "url": "https://www.itmedia.co.jp/news/article/2611/12/2000003126/",
+      "published": "2026-11-12T09:56:17+09:00",
+      "summary": "AWSは、クラウド環境を使わずにローカルでAWS APIを再現できるツール「AWS Emulator」を無料で公開した。すべてのコードが自律型AIエージェントによって記述されており、人間のレビューは介在していない。開発者はAWSアカウント不要で、アプリの構築やCI/CDでの統合テストなどを手元で実行できる。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "会社員の仕事に「Claude Fable 5.2」は必要か？ 調査、要約、資料作成でOpus／Sonnetと比較してみた",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/12/2000003113/",
+      "published": "2026-11-12T08:00:00+09:00",
+      "summary": "会社員の仕事に「Claude Fable 5.2」は必要か。白書の要約と資料作成、取材前の調査で「Opus 5.5」「Sonnet 5.5」と出力のクオリティや利用コストを比較した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Google、選択肢から答えを選ぶことに特化した「Gemini Decisions API」発表 回答を生成せず確率で返す",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/12/2000003123/",
+      "published": "2026-11-12T07:03:58+09:00",
+      "summary": "Googleは、ツールの選択や条件判定など選択肢から答えを選ぶ用途に特化した「Gemini Decisions API」を発表した。専用モデルを用い、テキストや画像などのマルチモーダル入力を1回の推論で評価し、確率と信頼度スコアを返す。従来のモデルより高速かつ安価に動作し、他社が先行する判断特化型AI市場への本格参入となる。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AWSで「ChatGPT Enterprise」を購入可能に AWSアカウントで一括管理するメリットは",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/12/2000003080/",
+      "published": "2026-11-12T07:00:00+09:00",
+      "summary": "OpenAIは「ChatGPT Enterprise」をAWS Marketplaceで提供開始した。企業は既存のAWSアカウントや契約枠でChatGPT Enterpriseを購入・管理できる。企業のAI調達はどう変わるのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「非言語系AI」はLLMの弱点を補えるか？ Gartner「2027年の戦略的テクノロジのトップ・トレンド」",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/11/news089.html",
+      "published": "2026-11-12T07:00:00+09:00",
+      "summary": "AIの議論は「何ができるか」から「どう統制するか」へ――。Gartnerは2027年のトップ・トレンド10項目の大半を、自律型エージェントの統制と変化に耐える基盤の設計に充てた。一方で同社が「まだ不足している」とする、AIの頭脳に当たる3つの技術とは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Claude Enterpriseがセキュリティと管理機能を強化 DLP・EDR連携など新機能の全容は",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/12/2000003082/",
+      "published": "2026-11-12T07:00:00+09:00",
+      "summary": "Anthropicは「Claude Enterprise」のセキュリティと管理機能の拡充を発表した。設定状況の一覧化やDLP連携、個人アカウントの遮断などによって、企業のAI統制とシャドーIT対策を支援する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「成果志向のBIM」とは何か？ Autodeskが描くAI時代の鉄道インフラ",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/12/news016.html",
+      "published": "2026-11-12T07:00:00+09:00",
+      "summary": "米Autodeskは、イタリア・ローマで鉄道業界向けの年次カンファレンス「Autodesk Rail Summit 2026」を開催した。設計情報のモデル化や共有にとどまらず、AIと人間が協働して目標とする成果の実現を目指す「成果志向のBIM」を提唱。鉄道インフラの設計から運用／維持管理までをデータでつなぐ戦略や、イタリアの鉄道グループによるAI活用事例などが紹介された。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "14型で約990g、16型でも約1.18kg！ Acer「Swift」シリーズに新製品6機種",
+      "url": "https://ascii.jp/elem/000/004/450/4450797/?rss",
+      "published": "2026-11-12T11:00:00+09:00",
+      "summary": "日本エイサーが「Swift Air 14」「Swift Lite 16」計6機種を発売。14型は約990gの軽量ボディーに有機ELを搭載したCopilot+ PC。16型は大画面ながら約1.18kgを実現し、Ryzen 5／7を採用する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "50インチで45,980円、PCなしで動画再生も JAPANNEXT「JN-V50F-M」発売",
+      "url": "https://ascii.jp/elem/000/004/450/4450420/?rss",
+      "published": "2026-11-12T11:00:00+09:00",
+      "summary": "JAPANNEXTの50インチフルHDモニター「JN-V50F-M」が11月12日発売。直販価格45,980円で、PC不要のUSBメモリ再生に対応。高コントラストのVAパネルやHDMI 3系統を備え、会議室や屋内サイネージにも活用できる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "JAPANNEXT、75インチ4Kモニターが199,980円 IPS採用「JN-IPS75U」発売",
+      "url": "https://ascii.jp/elem/000/004/450/4450389/?rss",
+      "published": "2026-11-12T11:00:00+09:00",
+      "summary": "JAPANNEXTの75インチ4K液晶モニター「JN-IPS75U」が11月12日発売。直販価格199,980円で、広視野角のIPSパネルを採用。HDMIとDisplayPortを各2基備え、会議の資料共有やサイネージ、映画視聴に対応する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "仕事にもゲームにも120Hz JAPANNEXT、65W給電対応モニターを17,980円で発売",
+      "url": "https://ascii.jp/elem/000/004/450/4450388/?rss",
+      "published": "2026-11-12T11:00:00+09:00",
+      "summary": "JAPANNEXTの21.5型フルHDモニター「JN-215V120F2-HSPC6」は、17,980円で120Hz表示とUSB-C最大65W給電に対応。ケーブル1本で対応ノートPCの映像接続と充電をまとめられ、高さ調整や縦表示も可能。仕様や特徴を紹介する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "15,980円で65W給電＆120Hz JAPANNEXTの21.5型USB-Cモニター登場",
+      "url": "https://ascii.jp/elem/000/004/450/4450368/?rss",
+      "published": "2026-11-12T11:00:00+09:00",
+      "summary": "JAPANNEXTの21.5型フルHDモニター「JN-215V120F2-C6」が11月12日発売。15,980円で120Hz表示と最大65WのUSB-C給電に対応し、対応ノートPCならケーブル1本で映像出力と充電が可能。スピーカーも内蔵する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "1万2980円で120Hz対応！ JAPANNEXTの21.5型フルHDモニター「JN-215V120F2」",
+      "url": "https://ascii.jp/elem/000/004/450/4450223/?rss",
+      "published": "2026-11-12T11:00:00+09:00",
+      "summary": "JAPANNEXTの「JN-215V120F2」は、直販価格1万2980円の21.5型フルHDモニター。120Hz駆動、コントラスト比3000:1のVAパネル、HDRに対応。HDMIとDisplayPortの両方で120Hz入力をサポートし、11月12日に発売する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "島根にいながら長野のネットワークトラブルを解決 ヤマハの「YNO」は情シスとエンジニアの働き方を変えた",
+      "url": "https://ascii.jp/elem/000/004/446/4446056/?rss",
+      "published": "2026-11-12T11:00:00+09:00",
+      "summary": "トラブル発生時にも遠隔から迅速に対応できるヤマハのクラウド型ネットワーク機器管理サービス「YNO（Yamaha Network Organizer）」。現場への駆けつけが当たり前だったネットワーク保守やトラブル対応を大きく変革し、情シスやエンジニアの働き方を改善している。島根にいながら長野のネットワークトラブルを解決している保守サービスの実例をシステムインテグレーターであるアズムの担当者に聞いてみ"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【本日発売】コメダに「ムッシュコメダ」登場！ チーズとろ～り、一部店舗で販売",
+      "url": "https://ascii.jp/elem/000/004/450/4450813/?rss",
+      "published": "2026-11-12T10:50:00+09:00",
+      "summary": "「コメダ珈琲店」は本日11月12日から、一部店舗にて「ムッシュコメダ」をレギュラーメニューとして発売します。コメダおじさん＝ムッシュ？"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "The unfolding Jensen Huang scandal: a timeline",
+      "url": "https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "published": "2026-11-12T08:50:00+09:00",
+      "summary": "The affair could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia’s stock drops as board reportedly preps to oust CEO Jensen Huang",
+      "url": "https://techcrunch.com/2026/11/11/nvidias-stock-drops-as-board-reportedly-preps-to-oust-ceo-jensen-huang/",
+      "published": "2026-11-12T08:28:45+09:00",
+      "summary": "As soon as Wednesday evening, Nvidia's board could decide to remove its founder and CEO of 33 years."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Jensen Huang accused of having another affair — with an Nvidia exec",
+      "url": "https://techcrunch.com/2026/11/11/jensen-huang-accused-of-having-another-affair-with-a-nvidia-exec/",
+      "published": "2026-11-12T08:17:05+09:00",
+      "summary": "Jensen Huang, who has come under fire for admitting to an affair with a woman accused of being a Chinese intelligence agent, has been accused of having a separate affair with an Nvidia subordinate."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Why the data center you dread might never even be built",
+      "url": "https://techcrunch.com/video/why-the-data-center-you-dread-might-never-even-be-built/",
+      "published": "2026-11-12T05:15:15+09:00",
+      "summary": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electricity.&#160;Before those challenges even come into pla"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Meta is losing its longtime head of infrastructure",
+      "url": "https://techcrunch.com/2026/11/11/meta-is-losing-its-longtime-head-of-infrastructure/",
+      "published": "2026-11-12T05:12:01+09:00",
+      "summary": "Santosh Janardhan, who originally joined the company in 2009, will be stepping down from his role."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "How backlash and red tape continue to slow data centers post-Blue Wave",
+      "url": "https://techcrunch.com/podcast/how-backlash-and-red-tape-continue-to-slow-data-centers-post-blue-wave/",
+      "published": "2026-11-12T05:02:14+09:00",
+      "summary": "The data center boom is running into serious real-world obstacles, from widespread local opposition and permitting delays to a scramble for electricity.&#160;Before those challenges even come into pla"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "CoreWeave turns to customer prepayments, shorter contracts to fund AI growth",
+      "url": "https://techcrunch.com/2026/11/11/coreweave-turns-to-customer-prepayments-shorter-contracts-to-fund-ai-growth/",
+      "published": "2026-11-12T04:54:00+09:00",
+      "summary": "CoreWeave is increasingly asking customers to pay up front, borrowing against specific contracts, and even looking to short-term deals that could lead to higher prices, according to the company’s thir"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "With $720M round, Britain’s Fractile gets a leg up in the race for AI chips",
+      "url": "https://techcrunch.com/2026/11/11/with-720m-round-britains-fractile-gets-a-leg-up-in-the-race-for-ai-chips/",
+      "published": "2026-11-12T04:34:55+09:00",
+      "summary": "Fractile has now become one of the top-funded players in the race for purpose-built AI chips."
+    }
+  ]
+}

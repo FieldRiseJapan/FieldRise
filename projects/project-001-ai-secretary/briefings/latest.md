@@ -1,6 +1,6 @@
-# 2026-11-11（水）朝の定時報告
+# 2026-11-12（木）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:28 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 11:17 JST
 
 ---
 
@@ -16,11 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-11（水） | 晴れ | 16.3°C / 6.2°C | 0.0mm | 0% | 8.2km/h |
-| 2026-11-12（木） | 一部曇り | 18.8°C / 8.1°C | 0.0mm | 0% | 8.2km/h |
-| 2026-11-13（金） | 一部曇り | 19.7°C / 11.4°C | 0.0mm | 2% | 9.0km/h |
-| 2026-11-14（土） | 曇り | 18.9°C / 9.8°C | 0.0mm | 10% | 7.4km/h |
-| 2026-11-15（日） | にわか雨（弱） | 16.2°C / 13.7°C | 14.1mm | 90% | 6.2km/h |
+| 2026-11-12（木） | 曇り | 18.8°C / 10.6°C | 0.0mm | 0% | 7.9km/h |
+| 2026-11-13（金） | 曇り | 20.1°C / 12.0°C | 0.0mm | 2% | 8.6km/h |
+| 2026-11-14（土） | 曇り | 20.4°C / 10.9°C | 0.0mm | 14% | 7.9km/h |
+| 2026-11-15（日） | 雨（弱） | 17.7°C / 13.9°C | 9.1mm | 88% | 6.0km/h |
+| 2026-11-16（月） | 霧雨（弱） | 18.4°C / 12.1°C | 1.9mm | 55% | 12.1km/h |
 
 
 ---
@@ -29,21 +29,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [「Claude」に共同編集の「Sheets」「Whiteboards」 外部アプリもClaude内で開いて作業可能に](https://www.itmedia.co.jp/news/article/2611/11/2000003089/) — ITmedia AI+
-- [ChatGPTでビジネスを展開できる新機能 自社サイトのクリック数集計、顧客へのAIチャット提供など 一部機能は米国から](https://www.itmedia.co.jp/aiplus/article/2611/11/2000003088/) — ITmedia AI+
-- [過去の組立順序をAIが学習、自社ノウハウを生かした組立案を生成](https://monoist.itmedia.co.jp/mn/articles/2611/11/news018.html) — ITmedia AI+
-- [動画や文書を“雑に”入れてAIが知識化、マニュアル自動更新で現場の負担を解消](https://monoist.itmedia.co.jp/mn/articles/2611/10/news083.html) — ITmedia AI+
-- [「“できる人”ばかり質問されがち」から脱却し、年4400時間削減――紀陽銀行の「社内知識」集約術とは](https://atmarkit.itmedia.co.jp/ait/articles/2611/11/news029.html) — ITmedia AI+
-- [SCM変革の「壁」をAIでどう突破するか、o9とTDKが語るレガシー脱却の道](https://monoist.itmedia.co.jp/mn/articles/2611/11/news024.html) — ITmedia AI+
+- [ユナイテッド航空、外部のAIアシスタントによる航空券の予約などを禁止へ 「チェックインには人間の確認が必要」](https://www.itmedia.co.jp/news/article/2611/12/2000003127/) — ITmedia AI+
+- [Amazon、AWSのAPIを手元で再現する「AWS Emulator」を無償公開 コードはすべてAIエージェントが記述](https://www.itmedia.co.jp/news/article/2611/12/2000003126/) — ITmedia AI+
+- [会社員の仕事に「Claude Fable 5.2」は必要か？ 調査、要約、資料作成でOpus／Sonnetと比較してみた](https://www.itmedia.co.jp/aiplus/article/2611/12/2000003113/) — ITmedia AI+
+- [Google、選択肢から答えを選ぶことに特化した「Gemini Decisions API」発表 回答を生成せず確率で返す](https://www.itmedia.co.jp/aiplus/article/2611/12/2000003123/) — ITmedia AI+
+- [AWSで「ChatGPT Enterprise」を購入可能に AWSアカウントで一括管理するメリットは](https://kn.itmedia.co.jp/kn/article/2611/12/2000003080/) — ITmedia AI+
+- [「非言語系AI」はLLMの弱点を補えるか？ Gartner「2027年の戦略的テクノロジのトップ・トレンド」](https://www.itmedia.co.jp/enterprise/articles/2611/11/news089.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [OpenAI acquires Odessia, travel startup created by Sonder founder](https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/) — TechCrunch AI
-- [OpenAI, Anthropic face new oversight as New York’s AI safety law takes effect](https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/) — TechCrunch AI
-- [All 7 Anthropic founders will each cash out about $250M in IPO](https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/) — TechCrunch AI
-- [Oura to acquire AI-native primary care startup Counsel Health for $625M](https://techcrunch.com/2026/11/10/oura-to-acquire-ai-native-primary-care-startup-counsel-health-for-625m/) — TechCrunch AI
-- [PSI is trying to make a business out of AI-driven scientific discovery](https://techcrunch.com/2026/11/10/psi-is-trying-to-make-a-business-out-of-ai-driven-scientific-discovery/) — TechCrunch AI
-- [OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google](https://techcrunch.com/2026/11/10/openai-rolls-out-new-business-profiles-making-chatgpt-just-a-little-bit-more-like-google/) — TechCrunch AI
+- [The unfolding Jensen Huang scandal: a timeline](https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/) — TechCrunch AI
+- [Nvidia’s stock drops as board reportedly preps to oust CEO Jensen Huang](https://techcrunch.com/2026/11/11/nvidias-stock-drops-as-board-reportedly-preps-to-oust-ceo-jensen-huang/) — TechCrunch AI
+- [Jensen Huang accused of having another affair — with an Nvidia exec](https://techcrunch.com/2026/11/11/jensen-huang-accused-of-having-another-affair-with-a-nvidia-exec/) — TechCrunch AI
+- [Why the data center you dread might never even be built](https://techcrunch.com/video/why-the-data-center-you-dread-might-never-even-be-built/) — TechCrunch AI
+- [Meta is losing its longtime head of infrastructure](https://techcrunch.com/2026/11/11/meta-is-losing-its-longtime-head-of-infrastructure/) — TechCrunch AI
+- [How backlash and red tape continue to slow data centers post-Blue Wave](https://techcrunch.com/podcast/how-backlash-and-red-tape-continue-to-slow-data-centers-post-blue-wave/) — TechCrunch AI
 
 
 ---
