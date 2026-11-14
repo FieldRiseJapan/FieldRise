@@ -1,6 +1,6 @@
-# 2026-11-13（金）朝の定時報告
+# 2026-11-14（土）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 11:07 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:29 JST
 
 ---
 
@@ -16,11 +16,14 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-13（金） | 一部曇り | 19.7°C / 12.4°C | 0.0mm | 0% | 8.7km/h |
-| 2026-11-14（土） | 霧雨（弱） | 17.4°C / 12.6°C | 0.5mm | 83% | 7.1km/h |
-| 2026-11-15（日） | 雨 | 16.8°C / 14.5°C | 18.2mm | 100% | 7.3km/h |
-| 2026-11-16（月） | 霧雨（弱） | 19.1°C / 11.8°C | 0.1mm | 10% | 14.6km/h |
-| 2026-11-17（火） | 霧雨（弱） | 17.4°C / 10.1°C | 0.9mm | 54% | 18.1km/h |
+| 2026-11-14（土） | 霧雨 | 17.9°C / 12.4°C | 1.1mm | 90% | 7.9km/h |
+| 2026-11-15（日） | 雨 | 17.3°C / 14.0°C | 15.3mm | 100% | 6.8km/h |
+| 2026-11-16（月） | 曇り | 19.0°C / 11.5°C | 0.0mm | 4% | 15.1km/h |
+| 2026-11-17（火） | 霧雨（弱） | 18.1°C / 10.3°C | 0.3mm | 36% | 17.3km/h |
+| 2026-11-18（水） | 霧雨 | 18.4°C / 10.9°C | 5.7mm | 70% | 26.6km/h |
+
+**【農業アラート】**
+- 降水確率70%以上。屋外作業の予定調整をおすすめします。
 
 
 ---
@@ -29,21 +32,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [NVIDIAをつくった男、ジェンスン・フアン “デニーズの皿洗い“から“AI時代の主役“へ、激動の半生](https://www.itmedia.co.jp/business/articles/2611/14/news008.html) — ITmedia AI+
+- [Googleの社内専用コーディングAI「GfG」、その全容 Geminiに社内データ1兆トークン学習させ開発 所要時間半減の業務も](https://www.itmedia.co.jp/news/article/2611/13/2000003110/) — ITmedia AI+
+- [「好機が来た」――なぜ今Sakana AIは、イチからAIモデルを作るのか “新たな一手”のねらいを聞いた](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003141/) — ITmedia AI+
 - [「AI処理、データ非保持が守られず」――Notionが委託先の問題指摘、漏えいの恐れ巡り](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003172/) — ITmedia AI+
 - [M365障害、ChatGPT／Claudeのコネクタにも影響 「ほとんどのリクエストで動作しない」](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003164/) — ITmedia AI+
 - [Google、高速で低価格の「Gemini 4 Hydrogen」発表 無料ユーザーも利用可能](https://www.itmedia.co.jp/news/article/2611/13/2000003162/) — ITmedia AI+
-- [NECがデータカタログ1435個を1年で整備 AIによる意思決定支援への挑戦](https://www.itmedia.co.jp/enterprise/articles/2610/30/news006.html) — ITmedia AI+
-- [「好機が来た」――なぜ今Sakana AIは、イチからAIモデルを作るのか “新たな一手”のねらいを聞いた](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003141/) — ITmedia AI+
-- [設計／製造から工場運用へ、オートデスクが描く工場全体の最適化戦略](https://monoist.itmedia.co.jp/mn/articles/2611/13/news012.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Democrats launch Nvidia investigation, write scathing letter on Huang’s ‘scheme’ with Trump](https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/) — TechCrunch AI
-- [Muse can now place calls to US businesses — if you pay](https://techcrunch.com/2026/11/12/muse-can-now-place-calls-to-u-s-businesses-if-you-pay/) — TechCrunch AI
-- [The unfolding Jensen Huang scandal: a timeline](https://techcrunch.com/2026/11/12/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/) — TechCrunch AI
-- [Nebius tests the neocloud playbook with $40 billion in planned spending](https://techcrunch.com/2026/11/12/nebius-tests-the-neocloud-playbook-with-40-billion-in-planned-spending/) — TechCrunch AI
-- [Jensen Huang was having a third affair, Reuters reports](https://techcrunch.com/2026/11/12/jensen-huang-was-having-a-third-affair-reuters-reports/) — TechCrunch AI
-- [Google’s latest Search upgrade promises better answers to your most complicated questions](https://techcrunch.com/2026/11/12/googles-latest-search-upgrade-promises-better-answers-to-your-most-complicated-questions/) — TechCrunch AI
+- [Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say](https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/) — TechCrunch AI
+- [AI agent startup LangChain hits $3B valuation](https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/) — TechCrunch AI
+- [Export-banned Nvidia chips are behind China’s most powerful AI models — uh-oh, Jensen!](https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/) — TechCrunch AI
+- [ChatGPT’s new Wallet lets AI agents shop and check out for you](https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/) — TechCrunch AI
+- [The unfolding Jensen Huang scandal: a timeline](https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/) — TechCrunch AI
+- [ElevenLabs’ new app combines meeting note-taking and dictation for teams](https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/) — TechCrunch AI
 
 
 ---
@@ -62,7 +65,7 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 ## 4. 本日のワンポイントコメント
 
 🌾 **農業**
-良好な天気が予想されます。農作業を進めるのに適した一日です。
+雨の予報です。屋外作業の予定調整をおすすめします。
 
 🎵 **音楽**
 週末です。Cafeシリーズのアイデアを整理するのに適した一日です。

@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-14T10:29:27.359199+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "NVIDIAをつくった男、ジェンスン・フアン “デニーズの皿洗い“から“AI時代の主役“へ、激動の半生",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/14/news008.html",
+      "published": "2026-11-14T07:30:00+09:00",
+      "summary": "ダイナーの一角から、AI時代の主役「NVIDIA」を生み出したジェンスン・フアン氏。“皿洗い”から億万長者へと至った半生を振り返る。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Googleの社内専用コーディングAI「GfG」、その全容 Geminiに社内データ1兆トークン学習させ開発 所要時間半減の業務も",
+      "url": "https://www.itmedia.co.jp/news/article/2611/13/2000003110/",
+      "published": "2026-11-13T12:00:00+09:00",
+      "summary": "米Googleなどに所属する研究者らが10月に発表した論文「Customizing an LLM for Enterprise Software Engineering」は、AIに企業独自の膨大な開発データを学習させ、社内システム開発に特化したコーディングモデルを構築する手法とその実用効果をまとめた研究報告だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「好機が来た」――なぜ今Sakana AIは、イチからAIモデルを作るのか “新たな一手”のねらいを聞いた",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/13/2000003141/",
+      "published": "2026-11-13T10:44:00+09:00",
+      "summary": "既存モデルの活用に注力してきたSakana AIが、自社で一からAIモデルの開発を始めた。なぜ今なのか。背景や狙いを聞いた。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「AI処理、データ非保持が守られず」――Notionが委託先の問題指摘、漏えいの恐れ巡り",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/13/2000003172/",
+      "published": "2026-11-13T10:22:05+09:00",
+      "summary": "クラウド型ワークスペース「Notion」のAI機能「Notion AI」のチャット記録が漏えいした恐れがある事案を巡り、Notion運営の米Notion Labsは、法人向けプランでZDR（ゼロデータ保持）を利用するーユーザーでも漏えいした可能性があることを明らかにした。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "M365障害、ChatGPT／Claudeのコネクタにも影響 「ほとんどのリクエストで動作しない」",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/13/2000003164/",
+      "published": "2026-11-13T09:08:39+09:00",
+      "summary": "「Microsoft 365」の複数サービスで障害が発生しており、OpenAIの「ChatGPT」とAnthropicの「Claude」のMicrosoft 365コネクタも正常に動作していないと両社が報告している。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Google、高速で低価格の「Gemini 4 Hydrogen」発表 無料ユーザーも利用可能",
+      "url": "https://www.itmedia.co.jp/news/article/2611/13/2000003162/",
+      "published": "2026-11-13T08:04:46+09:00",
+      "summary": "Googleは、AIエージェントによる作業や日常的なコーディングに向けた高速・高効率の新モデル「Gemini 4 Hydrogen」を発表した。「Gemini 3.8 Flash」の約2.5倍の速さでタスクを終え、推論の深さを4段階から選べる。APIやGeminiアプリなどで同日から順次提供している。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "NECがデータカタログ1435個を1年で整備 AIによる意思決定支援への挑戦",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/30/news006.html",
+      "published": "2026-11-13T08:00:00+09:00",
+      "summary": "NECは5年間でデータ基盤を整え、従業員から経営トップまでが同じダッシュボードで判断する文化を定着させた。だが、AIで経営の意思決定を支援する段階に進もうとしたとき、人の利用を前提に整備したデータカタログだけでは「足りない」ことに気付いたという。何が足りず、どう補おうとしているのか。同社の関徳昭氏が講演で語った。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "設計／製造から工場運用へ、オートデスクが描く工場全体の最適化戦略",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/13/news012.html",
+      "published": "2026-11-13T08:00:00+09:00",
+      "summary": "オートデスクは、製品の設計／製造から工場の計画／設計、シミュレーション、設備保全まで支援領域を広げている。「JIMTOF2026」の開催にあわせて来日した米国本社の幹部2人に、M&Aを通じた事業領域の拡大や、工場全体の最適化に向けた構想、AI活用の方向性などについて話を聞いた。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "安楽亭、3278円のチーズ食べ放題！ 価格そのままで4品追加",
+      "url": "https://ascii.jp/elem/000/004/451/4451550/?rss",
+      "published": "2026-11-14T10:00:00+09:00",
+      "summary": "安楽亭は11月13日から、サムギョプサル食べ放題コースに期間限定で4種類のチーズメニューを追加します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "機動する文具って何だ!? 「超合金」のノウハウを生かしたバンダイの変形名刺ケース",
+      "url": "https://ascii.jp/elem/000/004/451/4451173/?rss",
+      "published": "2026-11-14T10:00:00+09:00",
+      "summary": "バンダイスピリッツの「機動文具 自動変形名刺ケース」がAmazonで割引対象。参考価格3,300円から16％オフの2,780円で販売中。ボタンを押すとケースが自動変形し、名刺を180度回転させて相手に差し出す仕組み。「超合金」のノウハウを生かした、遊び心あふれる名刺ケースだ。名刺を渡すだけなのに、ここまでやるかと思わずツッコミたくなる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【本日から】不二家でケーキ半額！ モンブランが約270円とオトク、3日間限定",
+      "url": "https://ascii.jp/elem/000/004/451/4451523/?rss",
+      "published": "2026-11-14T09:00:00+09:00",
+      "summary": "不二家「創業祭セール」で、「ふんわりスフレチーズケーキ」「マロンモンブラン」など人気ケーキ4種類が半額に。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "雨の日も安心、濡れない＆滑らない！ アディダスのゴアテックスシューズが25％オフ",
+      "url": "https://ascii.jp/elem/000/004/451/4451513/?rss",
+      "published": "2026-11-14T09:00:00+09:00",
+      "summary": "Amazon.co.jpにて、アディダスの「テレックス トレースロッカー 2 GORE-TEX NKA14トレイルランニングシューズ」がセール中。雨の日も安心なゴアテックス素材です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【月曜から】バーガーキングが300円引き！ 人気セット5種が対象、これはうれしい",
+      "url": "https://ascii.jp/elem/000/004/451/4451353/?rss",
+      "published": "2026-11-14T07:00:00+09:00",
+      "summary": "バーガーキングは11月16日～20日の5日間、人気のワッパーセット5種がクーポンで300円引きになるキャンペーンを実施します（一部店舗を除く）。300円引きはうれしい"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "AMD Ryzen 9 9900X＋RTX 5070 Ti搭載PCが6万4000円引き！ パソコンショップSEVEN、11月14日限定セール",
+      "url": "https://ascii.jp/elem/000/004/450/4450801/?rss",
+      "published": "2026-11-14T00:00:00+09:00",
+      "summary": "パソコンショップSEVENが11月14日0時～23時59分に24時間限定セールを開催。Ryzen 9 9900X＋RTX 5070 Ti搭載PCが6万4000円引き、RTX 5060 Ti 16GB搭載PCが5万円引きに。ゲーミングPCなど全10商品が対象。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "家の寒さの「犯人」はどこだ？ スマホに挿すだけで熱が見える20gの赤外線カメラ",
+      "url": "https://ascii.jp/elem/000/004/447/4447921/?rss",
+      "published": "2026-11-13T22:30:00+09:00",
+      "summary": "HIKMICROのスマホ用サーマルカメラ「MiniE」がAmazonプライム会員限定で割引販売中。参考価格19,990円から15％オフの16,990円で販売中。スマホに接続すると、温度の高い場所と低い場所を色分けして画面に表示できる。家の断熱チェックや電気設備の点検にも使える。普段は見えない熱の分布を、自分のスマホで確認できるのが魅力だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "これは欲しいぞ！ ゴジラとコラボしたFMVノートPCが直販で10%オフ！",
+      "url": "https://ascii.jp/elem/000/004/451/4451504/?rss",
+      "published": "2026-11-13T22:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say",
+      "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
+      "published": "2026-11-14T07:43:00+09:00",
+      "summary": "Nvidia poured tens of billions into AI startups under Huang. Without him at the helm, founders and VCs are bracing for smaller checks and lower valuations."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "AI agent startup LangChain hits $3B valuation",
+      "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
+      "published": "2026-11-14T04:37:57+09:00",
+      "summary": "LangChain now claims 7,000 customers of its model and platform agnostic agent management tool LangSmith."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Export-banned Nvidia chips are behind China’s most powerful AI models — uh-oh, Jensen!",
+      "url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/",
+      "published": "2026-11-14T03:40:30+09:00",
+      "summary": "New research shows the most advanced AI models from China were trained on banned Nvidia chips."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+      "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+      "published": "2026-11-14T01:00:12+09:00",
+      "summary": "ChatGPT Wallet lets AI agents shop and check out on users' behalf, starting with a limited rollout to U.S. Pro subscribers."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "The unfolding Jensen Huang scandal: a timeline",
+      "url": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "published": "2026-11-14T00:58:00+09:00",
+      "summary": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
+      "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+      "published": "2026-11-13T23:44:48+09:00",
+      "summary": "ElevenAI is a new meeting notetaker and dictation app aimed at teams and enterprises."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Israel’s VCs see opportunity for challengers in Nvidia’s turmoil",
+      "url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
+      "published": "2026-11-13T21:52:19+09:00",
+      "summary": "Given Nvidia’s stronghold on AI and its importance in Israel, many in the country's startup ecosystem are worried about the impact of his departure."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Jensen Huang didn’t show confidence in his successor, report says",
+      "url": "https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/",
+      "published": "2026-11-13T21:28:23+09:00",
+      "summary": "Huang described Kress as a \"deer in the headlights\" during a meeting in summer."
+    }
+  ]
+}
