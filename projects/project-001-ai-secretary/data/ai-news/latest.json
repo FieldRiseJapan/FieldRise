@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-14T10:45:35.892146+09:00",
+  "collected_at": "2026-11-15T10:05:48.585562+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,14 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "【追記あり】M365障害、ChatGPT／Claudeのコネクタにも影響 「ほとんどのリクエストで動作しない」",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/13/2000003164/",
+      "published": "2026-11-14T20:35:45+09:00",
+      "summary": "「Microsoft 365」の複数サービスで障害が発生しており、OpenAIの「ChatGPT」とAnthropicの「Claude」のMicrosoft 365コネクタも正常に動作していないと両社が報告している。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -43,14 +51,6 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "M365障害、ChatGPT／Claudeのコネクタにも影響 「ほとんどのリクエストで動作しない」",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/13/2000003164/",
-      "published": "2026-11-13T09:08:39+09:00",
-      "summary": "「Microsoft 365」の複数サービスで障害が発生しており、OpenAIの「ChatGPT」とAnthropicの「Claude」のMicrosoft 365コネクタも正常に動作していないと両社が報告している。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
       "title": "Google、高速で低価格の「Gemini 4 Hydrogen」発表 無料ユーザーも利用可能",
       "url": "https://www.itmedia.co.jp/news/article/2611/13/2000003162/",
       "published": "2026-11-13T08:04:46+09:00",
@@ -75,66 +75,98 @@
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "安楽亭、3278円のチーズ食べ放題！ 価格そのままで4品追加",
-      "url": "https://ascii.jp/elem/000/004/451/4451550/?rss",
-      "published": "2026-11-14T10:00:00+09:00",
-      "summary": "安楽亭は11月13日から、サムギョプサル食べ放題コースに期間限定で4種類のチーズメニューを追加します。"
+      "title": "Windows 11に標準で用意されているバックアップ機能を解説する",
+      "url": "https://ascii.jp/elem/000/004/451/4451572/?rss",
+      "published": "2026-11-15T10:00:00+09:00",
+      "summary": "Windows 11には標準でさまざまなバックアップ機能が用意されており、ユーザーデータや設定情報、あるいは起動ドライブなどを保存し、エラーなどが発生する前の状態を記録してくれる。今回は、このバックアップ機能を整理する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "機動する文具って何だ!? 「超合金」のノウハウを生かしたバンダイの変形名刺ケース",
-      "url": "https://ascii.jp/elem/000/004/451/4451173/?rss",
-      "published": "2026-11-14T10:00:00+09:00",
-      "summary": "バンダイスピリッツの「機動文具 自動変形名刺ケース」がAmazonで割引対象。参考価格3,300円から16％オフの2,780円で販売中。ボタンを押すとケースが自動変形し、名刺を180度回転させて相手に差し出す仕組み。「超合金」のノウハウを生かした、遊び心あふれる名刺ケースだ。名刺を渡すだけなのに、ここまでやるかと思わずツッコミたくなる。"
+      "title": "密輸対策のチップ位置確認は可能、エヌビディアが議員に非公開で説明",
+      "url": "https://ascii.jp/elem/000/004/451/4451604/?rss",
+      "published": "2026-11-15T07:14:28+09:00",
+      "summary": "中国への高性能AI半導体の密輸対策としてチップの所在地確認を義務付ける米法案をめぐり、エヌビディアの担当者が非公開の場で技術的に対応可能との見解を米下院議員に伝えていたという。取材に応じた議員が明らかにした。ジェンスンCEOの辞任とスパイ疑惑を受け、この法案が改めて注目を浴びている。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "【本日から】不二家でケーキ半額！ モンブランが約270円とオトク、3日間限定",
-      "url": "https://ascii.jp/elem/000/004/451/4451523/?rss",
-      "published": "2026-11-14T09:00:00+09:00",
-      "summary": "不二家「創業祭セール」で、「ふんわりスフレチーズケーキ」「マロンモンブラン」など人気ケーキ4種類が半額に。"
+      "title": "4Kで、最大10倍ズームで、バッテリー式。それで1万5980円？ Ringの新型屋外カメラ",
+      "url": "https://ascii.jp/elem/000/004/450/4450961/?rss",
+      "published": "2026-11-14T21:50:00+09:00",
+      "summary": "Amazonの新型屋外カメラ「Ring Outdoor Cam 4K Plus Battery」が予約受付中。価格は15,980円で、11月17日発売予定。高精細なRetinal 4K映像と最大10倍ズームに対応し、Ringの4Kカメラとして初めてバッテリー給電を採用した。玄関の軒下から裏庭のフェンスまで、設置場所の自由度が広がる新モデルだ。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "雨の日も安心、濡れない＆滑らない！ アディダスのゴアテックスシューズが25％オフ",
-      "url": "https://ascii.jp/elem/000/004/451/4451513/?rss",
-      "published": "2026-11-14T09:00:00+09:00",
-      "summary": "Amazon.co.jpにて、アディダスの「テレックス トレースロッカー 2 GORE-TEX NKA14トレイルランニングシューズ」がセール中。雨の日も安心なゴアテックス素材です。"
+      "title": "タブレットに変形する「VAIO T」が発売記念で3万3000円オフに。手に入れるなら、いまだ！",
+      "url": "https://ascii.jp/elem/000/004/451/4451456/?rss",
+      "published": "2026-11-14T20:00:00+09:00",
+      "summary": "VAIO直販に注目。「VAIO T ;Copilot+ PC」が「発売記念特別価格」として、3万3000円の値引きが適用され、34万1000円で購入できる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "【月曜から】バーガーキングが300円引き！ 人気セット5種が対象、これはうれしい",
-      "url": "https://ascii.jp/elem/000/004/451/4451353/?rss",
-      "published": "2026-11-14T07:00:00+09:00",
-      "summary": "バーガーキングは11月16日～20日の5日間、人気のワッパーセット5種がクーポンで300円引きになるキャンペーンを実施します（一部店舗を除く）。300円引きはうれしい"
+      "title": "4K動画編集にも使えるRTX 5070 Ti搭載デスクトップPCが、なんと11万円オフ！",
+      "url": "https://ascii.jp/elem/000/004/451/4451453/?rss",
+      "published": "2026-11-14T20:00:00+09:00",
+      "summary": "マウスコンピューターがハロウィンセールを実施中。4K動画編集にも使えるRTX 5070 Ti搭載デスクトップPC「DAIV FM-A9G7T」が、なんと11万円オフ！"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "AMD Ryzen 9 9900X＋RTX 5070 Ti搭載PCが6万4000円引き！ パソコンショップSEVEN、11月14日限定セール",
-      "url": "https://ascii.jp/elem/000/004/450/4450801/?rss",
-      "published": "2026-11-14T00:00:00+09:00",
-      "summary": "パソコンショップSEVENが11月14日0時～23時59分に24時間限定セールを開催。Ryzen 9 9900X＋RTX 5070 Ti搭載PCが6万4000円引き、RTX 5060 Ti 16GB搭載PCが5万円引きに。ゲーミングPCなど全10商品が対象。"
+      "title": "レノボ「ThinkPad X1 Carbon Gen 13」が、まさかの“49%オフ”に！",
+      "url": "https://ascii.jp/elem/000/004/451/4451429/?rss",
+      "published": "2026-11-14T20:00:00+09:00",
+      "summary": "レノボ・ジャパンが「BLACK FRIDAY ThinkPadセール」を開催中。 対象モデルの「ThinkPad X1 Carbon Gen 13」は、まさかの“49%オフ”に！"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "家の寒さの「犯人」はどこだ？ スマホに挿すだけで熱が見える20gの赤外線カメラ",
-      "url": "https://ascii.jp/elem/000/004/447/4447921/?rss",
-      "published": "2026-11-13T22:30:00+09:00",
-      "summary": "HIKMICROのスマホ用サーマルカメラ「MiniE」がAmazonプライム会員限定で割引販売中。参考価格19,990円から15％オフの16,990円で販売中。スマホに接続すると、温度の高い場所と低い場所を色分けして画面に表示できる。家の断熱チェックや電気設備の点検にも使える。普段は見えない熱の分布を、自分のスマホで確認できるのが魅力だ。"
+      "title": "買うしかねえ。ゲーミングPCの「32GBメモリー」へのアップグレードが、わずか1万6500円だ！",
+      "url": "https://ascii.jp/elem/000/004/449/4449765/?rss",
+      "published": "2026-11-14T20:00:00+09:00",
+      "summary": "BTOパソコンメーカーのSTORM（ストーム）では、対象パソコンのメモリカスタマイズ費用を25%オフにするキャンペーンを実施している。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "これは欲しいぞ！ ゴジラとコラボしたFMVノートPCが直販で10%オフ！",
-      "url": "https://ascii.jp/elem/000/004/451/4451504/?rss",
-      "published": "2026-11-13T22:00:00+09:00",
+      "title": "23.8型の一体型デスクトップPCがFMV直販で24万4200円！ さらにクーポン利用で2200円オフ",
+      "url": "https://ascii.jp/elem/000/004/451/4451424/?rss",
+      "published": "2026-11-14T19:00:00+09:00",
       "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Where was Nvidia’s security team?",
+      "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
+      "published": "2026-11-15T09:08:07+09:00",
+      "summary": "Nvidia’s security chief quietly left in August, and now that CEO Jensen Huang has stepped down over his relationships, including one with an executive at a company suspected of funneling chips to Chin"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
+      "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/",
+      "published": "2026-11-15T06:41:22+09:00",
+      "summary": "The petition had attracted more than 115,000 signatures as of Saturday afternoon."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+      "url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+      "published": "2026-11-15T02:30:00+09:00",
+      "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Asian governments react to Nvidia CEO Jensen Huang’s exit",
+      "url": "https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/",
+      "published": "2026-11-15T01:34:15+09:00",
+      "summary": "Some governments moved to confirm chip supply commitments, while others are monitoring the impact on local projects or addressing ongoing investigations."
     },
     {
       "source": "TechCrunch AI",
@@ -167,38 +199,6 @@
       "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
       "published": "2026-11-14T01:00:12+09:00",
       "summary": "ChatGPT Wallet lets AI agents shop and check out on users' behalf, starting with a limited rollout to U.S. Pro subscribers."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "The unfolding Jensen Huang scandal: a timeline",
-      "url": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
-      "published": "2026-11-14T00:58:00+09:00",
-      "summary": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
-      "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
-      "published": "2026-11-13T23:44:48+09:00",
-      "summary": "ElevenAI is a new meeting notetaker and dictation app aimed at teams and enterprises."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Israel’s VCs see opportunity for challengers in Nvidia’s turmoil",
-      "url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
-      "published": "2026-11-13T21:52:19+09:00",
-      "summary": "Given Nvidia’s stronghold on AI and its importance in Israel, many in the country's startup ecosystem are worried about the impact of his departure."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Jensen Huang didn’t show confidence in his successor, report says",
-      "url": "https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/",
-      "published": "2026-11-13T21:28:23+09:00",
-      "summary": "Huang described Kress as a \"deer in the headlights\" during a meeting in summer."
     }
   ]
 }

@@ -1,6 +1,6 @@
-# 2026-11-14（土）朝の定時報告
+# 2026-11-15（日）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:45 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:06 JST
 
 ---
 
@@ -16,11 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-14（土） | 霧雨 | 17.9°C / 12.4°C | 1.1mm | 90% | 7.9km/h |
-| 2026-11-15（日） | 雨 | 17.3°C / 14.0°C | 15.3mm | 100% | 6.8km/h |
-| 2026-11-16（月） | 曇り | 18.9°C / 11.5°C | 0.0mm | 4% | 17.4km/h |
-| 2026-11-17（火） | 曇り | 17.8°C / 9.2°C | 0.0mm | 36% | 17.8km/h |
-| 2026-11-18（水） | 霧雨 | 19.8°C / 12.3°C | 3.2mm | 70% | 29.0km/h |
+| 2026-11-15（日） | 雨（弱） | 16.9°C / 14.3°C | 16.0mm | 100% | 8.0km/h |
+| 2026-11-16（月） | 曇り | 18.1°C / 12.5°C | 0.0mm | 4% | 8.9km/h |
+| 2026-11-17（火） | 霧雨（弱） | 16.6°C / 11.8°C | 1.0mm | 36% | 13.9km/h |
+| 2026-11-18（水） | にわか雨 | 19.5°C / 11.3°C | 8.58mm | 70% | 20.8km/h |
+| 2026-11-19（木） | 霧雨 | 13.7°C / 7.7°C | 2.0mm | 67% | 27.9km/h |
 
 **【農業アラート】**
 - 降水確率70%以上。屋外作業の予定調整をおすすめします。
@@ -32,21 +32,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [【追記あり】M365障害、ChatGPT／Claudeのコネクタにも影響 「ほとんどのリクエストで動作しない」](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003164/) — ITmedia AI+
 - [NVIDIAをつくった男、ジェンスン・フアン “デニーズの皿洗い“から“AI時代の主役“へ、激動の半生](https://www.itmedia.co.jp/business/articles/2611/14/news008.html) — ITmedia AI+
 - [Googleの社内専用コーディングAI「GfG」、その全容 Geminiに社内データ1兆トークン学習させ開発 所要時間半減の業務も](https://www.itmedia.co.jp/news/article/2611/13/2000003110/) — ITmedia AI+
 - [「好機が来た」――なぜ今Sakana AIは、イチからAIモデルを作るのか “新たな一手”のねらいを聞いた](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003141/) — ITmedia AI+
 - [「AI処理、データ非保持が守られず」――Notionが委託先の問題指摘、漏えいの恐れ巡り](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003172/) — ITmedia AI+
-- [M365障害、ChatGPT／Claudeのコネクタにも影響 「ほとんどのリクエストで動作しない」](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003164/) — ITmedia AI+
 - [Google、高速で低価格の「Gemini 4 Hydrogen」発表 無料ユーザーも利用可能](https://www.itmedia.co.jp/news/article/2611/13/2000003162/) — ITmedia AI+
 
 **海外AIニュース**
 
+- [Where was Nvidia’s security team?](https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/) — TechCrunch AI
+- [Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang](https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/) — TechCrunch AI
+- [The AI graveyard: a running list of projects and startups that didn’t make it](https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/) — TechCrunch AI
+- [Asian governments react to Nvidia CEO Jensen Huang’s exit](https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/) — TechCrunch AI
 - [Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say](https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/) — TechCrunch AI
 - [AI agent startup LangChain hits $3B valuation](https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/) — TechCrunch AI
-- [Export-banned Nvidia chips are behind China’s most powerful AI models — uh-oh, Jensen!](https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/) — TechCrunch AI
-- [ChatGPT’s new Wallet lets AI agents shop and check out for you](https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/) — TechCrunch AI
-- [The unfolding Jensen Huang scandal: a timeline](https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/) — TechCrunch AI
-- [ElevenLabs’ new app combines meeting note-taking and dictation for teams](https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/) — TechCrunch AI
 
 
 ---
