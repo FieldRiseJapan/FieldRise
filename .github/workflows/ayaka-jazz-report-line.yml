@@ -3,7 +3,6 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/ayaka-jazz-report-line.yml'
       - 'docs/ayaka/market-research/jazz/weekly/*.md'
       - 'docs/ayaka/market-research/jazz/monthly/*.md'
   workflow_dispatch:
@@ -48,8 +47,6 @@ jobs:
                   env["BEFORE_SHA"], sha, "--", base,
               ], text=True).splitlines()
               messages = []
-              if subprocess.check_output(["git", "diff", "--name-only", env["BEFORE_SHA"], sha, "--", ".github/workflows/ayaka-jazz-report-line.yml"], text=True).strip():
-                  messages.append(("test:" + sha, "【彩花Work・テスト】Jazz市場分析のLINE通知テストです。"))
               for path in paths:
                   if re.fullmatch(base + r"/weekly/\d{4}-\d{2}-\d{2}\.md", path):
                       label = "週報"
