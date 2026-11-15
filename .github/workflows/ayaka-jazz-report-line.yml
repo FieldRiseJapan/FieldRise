@@ -1,0 +1,83 @@
+name: 彩花 Jazz市場分析 LINE通知
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/ayaka/market-research/jazz/weekly/*.md'
+      - 'docs/ayaka/market-research/jazz/monthly/*.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: 分析の保存をLINEで通知
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_TARGET: ${{ secrets.LINE_TARGET_ID }}
+          BEFORE_SHA: ${{ github.event.before }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          import subprocess
+          import urllib.error
+          import urllib.request
+          import uuid
+
+          env = os.environ
+          repo = env["GITHUB_REPOSITORY"]
+          sha = env["GITHUB_SHA"]
+          base = "docs/ayaka/market-research/jazz"
+          if env["GITHUB_EVENT_NAME"] == "workflow_dispatch":
+              messages = [("test:" + env["GITHUB_RUN_ID"], "【彩花Work・テスト】Jazz市場分析のLINE通知テストです。")]
+          else:
+              paths = subprocess.check_output([
+                  "git", "diff", "--name-only", "--diff-filter=A",
+                  env["BEFORE_SHA"], sha, "--", base,
+              ], text=True).splitlines()
+              messages = []
+              for path in paths:
+                  if re.fullmatch(base + r"/weekly/\d{4}-\d{2}-\d{2}\.md", path):
+                      label = "週報"
+                  elif re.fullmatch(base + r"/monthly/\d{4}-\d{2}\.md", path):
+                      label = "月報"
+                  else:
+                      continue
+                  url = f"https://github.com/{repo}/blob/{sha}/{path}"
+                  messages.append((path, f"【彩花Work】Jazz市場分析の{label}を保存しました。Sunoプロンプト案も掲載しています。\n{url}"))
+
+          for key, message in messages:
+              if not env["LINE_TOKEN"] or not env["LINE_TARGET"]:
+                  raise SystemExit("LINEの送信設定が不足しています。")
+              body = {"to": env["LINE_TARGET"], "messages": [{"type": "text", "text": message}]}
+              request = urllib.request.Request(
+                  "https://api.line.me/v2/bot/message/push",
+                  data=json.dumps(body).encode(),
+                  headers={
+                      "Authorization": "Bearer " + env["LINE_TOKEN"],
+                      "Content-Type": "application/json",
+                      "X-Line-Retry-Key": str(uuid.uuid5(uuid.NAMESPACE_URL, f"{repo}:{key}")),
+                  },
+              )
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      print(f"LINE accepted the request (HTTP {response.status}).")
+              except urllib.error.HTTPError as error:
+                  if error.code == 409 and error.headers.get("x-line-accepted-request-id"):
+                      print("LINE already accepted this request.")
+                  else:
+                      raise SystemExit(f"LINE request failed (HTTP {error.code}).")
+              except urllib.error.URLError:
+                  raise SystemExit("LINE connection failed.")
+          PY
