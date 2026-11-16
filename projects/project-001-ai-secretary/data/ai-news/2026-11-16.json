@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-16T10:06:52.699668+09:00",
+  "collected_at": "2026-11-16T10:22:30.443371+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -8,6 +8,22 @@
     }
   ],
   "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OpenAI、AIエージェントが代わりに支払う「ChatGPT Wallet」 カード番号は渡さず、購入ごとに生体認証",
+      "url": "https://www.itmedia.co.jp/news/article/2611/16/2000003208/",
+      "published": "2026-11-16T09:49:03+09:00",
+      "summary": "OpenAIは、AIエージェント「dot」による決済機能「ChatGPT Wallet」を発表した。実際のカード情報を店舗に渡さず、購入ごとに生体認証を求める仕組みで安全性を確保する。米国のChatGPT Pro加入者向けに提供を開始した。将来は事前承認に基づく自律決済にも対応する計画。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "エージェントが「安全に支払いを代行」する「ChatGPT Wallet」登場 OpenAIが決済大手と提携し開発 提供は米国から",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/16/2000003211/",
+      "published": "2026-11-16T09:44:05+09:00",
+      "summary": "OpenAIはエージェントがユーザーのカード情報にアクセスせずに支払いを代行する機能「ChatGPT Wallet」を発表した。"
+    },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
@@ -23,14 +39,6 @@
       "url": "https://monoist.itmedia.co.jp/mn/articles/2611/16/news037.html",
       "published": "2026-11-16T08:30:00+09:00",
       "summary": "ダッソー・システムズは、3D設計開発ソリューション「SOLIDWORKS」の最新バージョン「SOLIDWORKS 2027」を発表した。製品バリエーションの検討やボルト締結解析、データ管理に関する機能強化に加え、AIによるアセンブリのパフォーマンス分析やモデルの軽量化、設計変更に伴う影響範囲の確認など、設計業務を支援する機能を拡充した。"
-    },
-    {
-      "source": "ITmedia AI+",
-      "lang": "ja",
-      "title": "OpenAI、AIエージェントが代わりに支払う「ChatGPT Wallet」 カード番号は渡さず、購入ごとに生体認証",
-      "url": "https://www.itmedia.co.jp/news/article/2611/16/2000003208/",
-      "published": "2026-11-16T08:00:07+09:00",
-      "summary": "OpenAIは、AIエージェント「dot」による決済機能「ChatGPT Wallet」を発表した。実際のカード情報を店舗に渡さず、購入ごとに生体認証を求める仕組みで安全性を確保する。米国のChatGPT Pro加入者向けに提供を開始した。将来は事前承認に基づく自律決済にも対応する計画。"
     },
     {
       "source": "ITmedia AI+",
@@ -65,12 +73,12 @@
       "summary": "オートバックスセブンは2032年度の売上高5000億円を目指してGoogle WorkspaceとGeminiを導入した。従来の表計算ソフトからの移行とAI活用の全社展開を図る。"
     },
     {
-      "source": "ITmedia AI+",
+      "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "AIモデリングもできる無償3D CAD「SolidCraft」を試してみた！",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/16/news011.html",
-      "published": "2026-11-16T07:00:00+09:00",
-      "summary": "無償で利用できるオープンソースのパラメトリック3D CAD「SolidCraft」を紹介する。Webブラウザとデスクトップアプリに対応し、後者では生成AIとの対話によるモデリングも可能だ。筆者が実際に操作して分かった基本機能の使い勝手や、AI連携の可能性と課題を探る。"
+      "title": "スノーピーク、個人情報流出か 銀行口座情報も対象",
+      "url": "https://ascii.jp/elem/000/004/451/4451661/?rss",
+      "published": "2026-11-16T10:05:00+09:00",
+      "summary": "アウトドア用品を手がけるスノーピークは11月13日、リユース買取サービス、イベント予約システム、コミュニティアプリで不正アクセスによる個人情報の流出が発生したと発表した。"
     },
     {
       "source": "ASCII.jp AI",
@@ -127,14 +135,6 @@
       "url": "https://ascii.jp/elem/000/004/451/4451644/?rss",
       "published": "2026-11-16T07:10:00+09:00",
       "summary": "AIを使って、約10日で自作した3Dコンサートアプリ「百夜ステージ」を紹介。動画から抽出した1242個のモーションや自動演出、VRMモデルを組み合わせ、10年来の構想を実現した。"
-    },
-    {
-      "source": "ASCII.jp AI",
-      "lang": "ja",
-      "title": "Xiaomi 18 Pro Max実機登場！ 背面ディスプレーに最速スナドラ、ライカカメラと楽しすぎるスマホの巻：スマホ総研定例会398",
-      "url": "https://ascii.jp/elem/000/004/451/4451627/?rss",
-      "published": "2026-11-16T07:00:00+09:00",
-      "summary": "今回はなんと！ 正式発表直前のシャオミの新ハイエンドモデル「Xiaomi 18 Pro Max」の実機が登場。最速スナドラにデュアル2億画素のライカカメラ、背面ディスプレー、カメラ部がフラットなデザイン、さらにはFeliCa搭載と楽しすぎるスマホ。これは要注目すぎです！"
     },
     {
       "source": "TechCrunch AI",

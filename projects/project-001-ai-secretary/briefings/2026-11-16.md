@@ -1,6 +1,6 @@
 # 2026-11-16（月）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:07 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:22 JST
 
 ---
 
@@ -29,12 +29,12 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
+- [OpenAI、AIエージェントが代わりに支払う「ChatGPT Wallet」 カード番号は渡さず、購入ごとに生体認証](https://www.itmedia.co.jp/news/article/2611/16/2000003208/) — ITmedia AI+
+- [エージェントが「安全に支払いを代行」する「ChatGPT Wallet」登場 OpenAIが決済大手と提携し開発 提供は米国から](https://www.itmedia.co.jp/aiplus/article/2611/16/2000003211/) — ITmedia AI+
 - [CAD図面内の品名や注記をAIで検索、DWG／DXF形式に対応](https://monoist.itmedia.co.jp/mn/articles/2611/16/news016.html) — ITmedia AI+
 - [AIが設計データの分析からCAD操作まで支援する「SOLIDWORKS 2027」](https://monoist.itmedia.co.jp/mn/articles/2611/16/news037.html) — ITmedia AI+
-- [OpenAI、AIエージェントが代わりに支払う「ChatGPT Wallet」 カード番号は渡さず、購入ごとに生体認証](https://www.itmedia.co.jp/news/article/2611/16/2000003208/) — ITmedia AI+
 - [自信がなければ「分かりません」──足立区が議会答弁AIにかけた“ガード” 「情報間違えれば区民に影響」の思い](https://www.itmedia.co.jp/aiplus/article/2611/16/2000003196/) — ITmedia AI+
 - [ガートナーが考えるフィジカルAI実装のロードマップと人の役割](https://monoist.itmedia.co.jp/mn/articles/2611/16/news050.html) — ITmedia AI+
-- [DMG森精機が進める工作機械部品へのAM活用、自社イベントで最新5軸機も展示](https://monoist.itmedia.co.jp/mn/articles/2611/17/news012.html) — ITmedia AI+
 
 **海外AIニュース**
 
