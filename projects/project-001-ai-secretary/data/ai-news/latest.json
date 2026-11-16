@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-15T10:18:43.631892+09:00",
+  "collected_at": "2026-11-16T10:06:52.699668+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,130 +11,154 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "【追記あり】M365障害、ChatGPT／Claudeのコネクタにも影響 「ほとんどのリクエストで動作しない」",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/13/2000003164/",
-      "published": "2026-11-14T20:35:45+09:00",
-      "summary": "「Microsoft 365」の複数サービスで障害が発生しており、OpenAIの「ChatGPT」とAnthropicの「Claude」のMicrosoft 365コネクタも正常に動作していないと両社が報告している。"
+      "title": "CAD図面内の品名や注記をAIで検索、DWG／DXF形式に対応",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/16/news016.html",
+      "published": "2026-11-16T09:00:00+09:00",
+      "summary": "StockはAIナレッジツール「ナレカン」において、DWG／DXF形式のCADファイルをキーワード検索とAI検索の対象に追加した。図面内に記載された品名や仕様、注記などのテキストを基に目的の図面を探せる他、AIによる要約記事の自動作成も可能になった。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "NVIDIAをつくった男、ジェンスン・フアン “デニーズの皿洗い“から“AI時代の主役“へ、激動の半生",
-      "url": "https://www.itmedia.co.jp/business/articles/2611/14/news008.html",
-      "published": "2026-11-14T07:30:00+09:00",
-      "summary": "ダイナーの一角から、AI時代の主役「NVIDIA」を生み出したジェンスン・フアン氏。“皿洗い”から億万長者へと至った半生を振り返る。"
+      "title": "AIが設計データの分析からCAD操作まで支援する「SOLIDWORKS 2027」",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/16/news037.html",
+      "published": "2026-11-16T08:30:00+09:00",
+      "summary": "ダッソー・システムズは、3D設計開発ソリューション「SOLIDWORKS」の最新バージョン「SOLIDWORKS 2027」を発表した。製品バリエーションの検討やボルト締結解析、データ管理に関する機能強化に加え、AIによるアセンブリのパフォーマンス分析やモデルの軽量化、設計変更に伴う影響範囲の確認など、設計業務を支援する機能を拡充した。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "Googleの社内専用コーディングAI「GfG」、その全容 Geminiに社内データ1兆トークン学習させ開発 所要時間半減の業務も",
-      "url": "https://www.itmedia.co.jp/news/article/2611/13/2000003110/",
-      "published": "2026-11-13T12:00:00+09:00",
-      "summary": "米Googleなどに所属する研究者らが10月に発表した論文「Customizing an LLM for Enterprise Software Engineering」は、AIに企業独自の膨大な開発データを学習させ、社内システム開発に特化したコーディングモデルを構築する手法とその実用効果をまとめた研究報告だ。"
+      "title": "OpenAI、AIエージェントが代わりに支払う「ChatGPT Wallet」 カード番号は渡さず、購入ごとに生体認証",
+      "url": "https://www.itmedia.co.jp/news/article/2611/16/2000003208/",
+      "published": "2026-11-16T08:00:07+09:00",
+      "summary": "OpenAIは、AIエージェント「dot」による決済機能「ChatGPT Wallet」を発表した。実際のカード情報を店舗に渡さず、購入ごとに生体認証を求める仕組みで安全性を確保する。米国のChatGPT Pro加入者向けに提供を開始した。将来は事前承認に基づく自律決済にも対応する計画。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「好機が来た」――なぜ今Sakana AIは、イチからAIモデルを作るのか “新たな一手”のねらいを聞いた",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/13/2000003141/",
-      "published": "2026-11-13T10:44:00+09:00",
-      "summary": "既存モデルの活用に注力してきたSakana AIが、自社で一からAIモデルの開発を始めた。なぜ今なのか。背景や狙いを聞いた。"
+      "title": "自信がなければ「分かりません」──足立区が議会答弁AIにかけた“ガード” 「情報間違えれば区民に影響」の思い",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/16/2000003196/",
+      "published": "2026-11-16T08:00:00+09:00",
+      "summary": "東京都足立区は2025年にグーグル・クラウド・ジャパンと包括連携協定を結び、議会答弁や区民の声への対応でAIエージェントの実証実験を進めてきた。同社イベントに登壇した担当者が、その仕組みと運用のコツを紹介した。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「AI処理、データ非保持が守られず」――Notionが委託先の問題指摘、漏えいの恐れ巡り",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/13/2000003172/",
-      "published": "2026-11-13T10:22:05+09:00",
-      "summary": "クラウド型ワークスペース「Notion」のAI機能「Notion AI」のチャット記録が漏えいした恐れがある事案を巡り、Notion運営の米Notion Labsは、法人向けプランでZDR（ゼロデータ保持）を利用するーユーザーでも漏えいした可能性があることを明らかにした。"
+      "title": "ガートナーが考えるフィジカルAI実装のロードマップと人の役割",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/16/news050.html",
+      "published": "2026-11-16T08:00:00+09:00",
+      "summary": "製造業でも多くの業務でAIが活用される中、注目を集めるフィジカルAIだが、製造業での使用状況はどうなっているのだろうか。フィジカルAIの現在地と共にAI時代の人の役割について、ガートナージャパン アナリストの鹿内健太郎氏に話を聞いた。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "Google、高速で低価格の「Gemini 4 Hydrogen」発表 無料ユーザーも利用可能",
-      "url": "https://www.itmedia.co.jp/news/article/2611/13/2000003162/",
-      "published": "2026-11-13T08:04:46+09:00",
-      "summary": "Googleは、AIエージェントによる作業や日常的なコーディングに向けた高速・高効率の新モデル「Gemini 4 Hydrogen」を発表した。「Gemini 3.8 Flash」の約2.5倍の速さでタスクを終え、推論の深さを4段階から選べる。APIやGeminiアプリなどで同日から順次提供している。"
+      "title": "DMG森精機が進める工作機械部品へのAM活用、自社イベントで最新5軸機も展示",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/17/news012.html",
+      "published": "2026-11-16T07:45:00+09:00",
+      "summary": "DMG森精機は、東京グローバルヘッドクォータにおいて自社イベント「東京テクノロジーウィーク」を開催した。国内初披露を含む最新の5軸加工機や複合加工機、金属積層造形機など17台の機械に加え、DXソリューションなどを展示した。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "NECがデータカタログ1435個を1年で整備 AIによる意思決定支援への挑戦",
-      "url": "https://www.itmedia.co.jp/enterprise/articles/2610/30/news006.html",
-      "published": "2026-11-13T08:00:00+09:00",
-      "summary": "NECは5年間でデータ基盤を整え、従業員から経営トップまでが同じダッシュボードで判断する文化を定着させた。だが、AIで経営の意思決定を支援する段階に進もうとしたとき、人の利用を前提に整備したデータカタログだけでは「足りない」ことに気付いたという。何が足りず、どう補おうとしているのか。同社の関徳昭氏が講演で語った。"
+      "title": "ライセンス更新を機に「脱マクロ」 オートバックスセブンがGeminiで目指す売上高5000億円",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/16/2000003181/",
+      "published": "2026-11-16T07:00:00+09:00",
+      "summary": "オートバックスセブンは2032年度の売上高5000億円を目指してGoogle WorkspaceとGeminiを導入した。従来の表計算ソフトからの移行とAI活用の全社展開を図る。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "設計／製造から工場運用へ、オートデスクが描く工場全体の最適化戦略",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/13/news012.html",
-      "published": "2026-11-13T08:00:00+09:00",
-      "summary": "オートデスクは、製品の設計／製造から工場の計画／設計、シミュレーション、設備保全まで支援領域を広げている。「JIMTOF2026」の開催にあわせて来日した米国本社の幹部2人に、M&Aを通じた事業領域の拡大や、工場全体の最適化に向けた構想、AI活用の方向性などについて話を聞いた。"
+      "title": "AIモデリングもできる無償3D CAD「SolidCraft」を試してみた！",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/16/news011.html",
+      "published": "2026-11-16T07:00:00+09:00",
+      "summary": "無償で利用できるオープンソースのパラメトリック3D CAD「SolidCraft」を紹介する。Webブラウザとデスクトップアプリに対応し、後者では生成AIとの対話によるモデリングも可能だ。筆者が実際に操作して分かった基本機能の使い勝手や、AI連携の可能性と課題を探る。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "Windows 11に標準で用意されているバックアップ機能を解説する",
-      "url": "https://ascii.jp/elem/000/004/451/4451572/?rss",
-      "published": "2026-11-15T10:00:00+09:00",
-      "summary": "Windows 11には標準でさまざまなバックアップ機能が用意されており、ユーザーデータや設定情報、あるいは起動ドライブなどを保存し、エラーなどが発生する前の状態を記録してくれる。今回は、このバックアップ機能を整理する。"
+      "title": "「ラヴ上等」あっすん逮捕に波紋 ひろゆき氏は疑問、ホリエモンは「完璧に見せしめ」",
+      "url": "https://ascii.jp/elem/000/004/451/4451656/?rss",
+      "published": "2026-11-16T09:40:00+09:00",
+      "summary": "愛知県警は11月15日、Netflixの恋愛リアリティー番組「ラヴ上等」に出演した「あっすん」こと小栗彩朱佳容疑者ら男女3人を、風営法違反の疑いで逮捕した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "密輸対策のチップ位置確認は可能、エヌビディアが議員に非公開で説明",
-      "url": "https://ascii.jp/elem/000/004/451/4451604/?rss",
-      "published": "2026-11-15T07:14:28+09:00",
-      "summary": "中国への高性能AI半導体の密輸対策としてチップの所在地確認を義務付ける米法案をめぐり、エヌビディアの担当者が非公開の場で技術的に対応可能との見解を米下院議員に伝えていたという。取材に応じた議員が明らかにした。ジェンスンCEOの辞任とスパイ疑惑を受け、この法案が改めて注目を浴びている。"
+      "title": "GALLERIA、ガラスパネル×LEDが映えるゲーミングPC全27モデル発売 スペシャルエディション登場",
+      "url": "https://ascii.jp/elem/000/004/451/4451648/?rss",
+      "published": "2026-11-16T09:30:00+09:00",
+      "summary": "サードウェーブは「GALLERIA スペシャルエディション」全27モデルを発売した。ガラスパネルとLEDファンによる外観に加え、水冷クーラーと最大6基のファンを採用。Ryzen 7 9850X3DとRTX 5080を搭載するモデルも用意し、ドスパラ店舗と通販で販売する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "4Kで、最大10倍ズームで、バッテリー式。それで1万5980円？ Ringの新型屋外カメラ",
-      "url": "https://ascii.jp/elem/000/004/450/4450961/?rss",
-      "published": "2026-11-14T21:50:00+09:00",
-      "summary": "Amazonの新型屋外カメラ「Ring Outdoor Cam 4K Plus Battery」が予約受付中。価格は15,980円で、11月17日発売予定。高精細なRetinal 4K映像と最大10倍ズームに対応し、Ringの4Kカメラとして初めてバッテリー給電を採用した。玄関の軒下から裏庭のフェンスまで、設置場所の自由度が広がる新モデルだ。"
+      "title": "量子コンピュータに必要なHPCとの統合――HPEが選んだ「自ら作らない」戦略",
+      "url": "https://ascii.jp/elem/000/004/451/4451639/?rss",
+      "published": "2026-11-16T09:00:00+09:00",
+      "summary": "Hewlett-Packard Enterprise（HPE）が6月に発表した、量子コンピューティング分野における8社との協業拡大。注目すべきは、HPE自身では量子ハードウェアを開発しないという同社の戦略的な選択だ。自らはHPC分野でのノウハウを持つ“統合役”として、量子コンピューティング市場に参入することを選んだ。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "タブレットに変形する「VAIO T」が発売記念で3万3000円オフに。手に入れるなら、いまだ！",
-      "url": "https://ascii.jp/elem/000/004/451/4451456/?rss",
-      "published": "2026-11-14T20:00:00+09:00",
-      "summary": "VAIO直販に注目。「VAIO T ;Copilot+ PC」が「発売記念特別価格」として、3万3000円の値引きが適用され、34万1000円で購入できる。"
+      "title": "ヒューマノイド派遣サービスに掃除を頼んでみた／AIの「断る力」に危うさ",
+      "url": "https://ascii.jp/elem/000/004/451/4451636/?rss",
+      "published": "2026-11-16T09:00:00+09:00",
+      "summary": "世界最先端のテクノロジー情報をお届けするグローバルメディア「MITテクノロジーレビュー」から、ビジネスに役立つ注目のテック企業の最新動向、イノベーションにつながる最新の研究内容をピックアップして紹介します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "4K動画編集にも使えるRTX 5070 Ti搭載デスクトップPCが、なんと11万円オフ！",
-      "url": "https://ascii.jp/elem/000/004/451/4451453/?rss",
-      "published": "2026-11-14T20:00:00+09:00",
-      "summary": "マウスコンピューターがハロウィンセールを実施中。4K動画編集にも使えるRTX 5070 Ti搭載デスクトップPC「DAIV FM-A9G7T」が、なんと11万円オフ！"
+      "title": "Ryzen 9000対応マザーボードが12,480円 ASRock「A620AM-P」11月20日発売",
+      "url": "https://ascii.jp/elem/000/004/451/4451647/?rss",
+      "published": "2026-11-16T08:30:00+09:00",
+      "summary": "ASRockは、AMD A620搭載のMicro ATXマザーボード「A620AM-P」を11月20日に発売する。価格は12,480円。Ryzen 9000／8000／7000に対応し、M.2スロット2基や前面USB-C接続、BIOSフラッシュバックを備える。6カ月のCPUソケットピン折れ無償修理保証も付帯する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "レノボ「ThinkPad X1 Carbon Gen 13」が、まさかの“49%オフ”に！",
-      "url": "https://ascii.jp/elem/000/004/451/4451429/?rss",
-      "published": "2026-11-14T20:00:00+09:00",
-      "summary": "レノボ・ジャパンが「BLACK FRIDAY ThinkPadセール」を開催中。 対象モデルの「ThinkPad X1 Carbon Gen 13」は、まさかの“49%オフ”に！"
+      "title": "AI関連の求人・応募はビジネス職で高い伸び／2026年度のIT投資インデックスが過去最高に／世界の中で“働く喜び”が低い日本、ほか",
+      "url": "https://ascii.jp/elem/000/004/451/4451603/?rss",
+      "published": "2026-11-16T08:00:00+09:00",
+      "summary": "今回（2026年11月7日～11月13日）は、国内企業のIT投資意向指標が過去最高を更新、AI関連求人／応募はエンジニア職よりビジネス職で大きな伸び、サイバーフィジカルシステム（CPS）セキュリティ、IoT/OTセキュリティ運用監視サービス市場、27カ国調査で日本が最下位だった“働く喜び”についてのデータを紹介します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "買うしかねえ。ゲーミングPCの「32GBメモリー」へのアップグレードが、わずか1万6500円だ！",
-      "url": "https://ascii.jp/elem/000/004/449/4449765/?rss",
-      "published": "2026-11-14T20:00:00+09:00",
-      "summary": "BTOパソコンメーカーのSTORM（ストーム）では、対象パソコンのメモリカスタマイズ費用を25%オフにするキャンペーンを実施している。"
+      "title": "10年間作れなかったアプリが、AIでわずか10日で完成して感動 好きなキャラが踊る3Dライブをついに実現",
+      "url": "https://ascii.jp/elem/000/004/451/4451644/?rss",
+      "published": "2026-11-16T07:10:00+09:00",
+      "summary": "AIを使って、約10日で自作した3Dコンサートアプリ「百夜ステージ」を紹介。動画から抽出した1242個のモーションや自動演出、VRMモデルを組み合わせ、10年来の構想を実現した。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "23.8型の一体型デスクトップPCがFMV直販で24万4200円！ さらにクーポン利用で2200円オフ",
-      "url": "https://ascii.jp/elem/000/004/451/4451424/?rss",
-      "published": "2026-11-14T19:00:00+09:00",
-      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+      "title": "Xiaomi 18 Pro Max実機登場！ 背面ディスプレーに最速スナドラ、ライカカメラと楽しすぎるスマホの巻：スマホ総研定例会398",
+      "url": "https://ascii.jp/elem/000/004/451/4451627/?rss",
+      "published": "2026-11-16T07:00:00+09:00",
+      "summary": "今回はなんと！ 正式発表直前のシャオミの新ハイエンドモデル「Xiaomi 18 Pro Max」の実機が登場。最速スナドラにデュアル2億画素のライカカメラ、背面ディスプレー、カメラ部がフラットなデザイン、さらにはFeliCa搭載と楽しすぎるスマホ。これは要注目すぎです！"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market",
+      "url": "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/",
+      "published": "2026-11-16T08:30:00+09:00",
+      "summary": "Bharat Semi says it has secured design wins for its AI-enabled sensor technology with companies including General Atomics."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Is bad news for Jensen Huang also bad news for the AI industry?",
+      "url": "https://techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry/",
+      "published": "2026-11-16T06:56:35+09:00",
+      "summary": "\"Jensen is Nvidia, right? And so much of this economy is riding on Nvidia.\""
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "SNL gathers all the tech tycoons for a lesson in dating and spycraft",
+      "url": "https://techcrunch.com/2026/11/15/snl-gathers-all-the-tech-tycoons-for-a-lesson-in-dating-and-spycraft/",
+      "published": "2026-11-16T05:20:57+09:00",
+      "summary": "While awkward, creepy tech executives have become a recurring theme on Saturday Night Live, this week’s episode gave the cast a chance to show off all their impressions at once."
     },
     {
       "source": "TechCrunch AI",
@@ -175,30 +199,6 @@
       "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
       "published": "2026-11-14T07:43:00+09:00",
       "summary": "Nvidia poured tens of billions into AI startups under Huang. Without him at the helm, founders and VCs are bracing for smaller checks and lower valuations."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "AI agent startup LangChain hits $3B valuation",
-      "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
-      "published": "2026-11-14T04:37:57+09:00",
-      "summary": "LangChain now claims 7,000 customers of its model and platform agnostic agent management tool LangSmith."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "Export-banned Nvidia chips are behind China’s most powerful AI models — uh-oh, Jensen!",
-      "url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/",
-      "published": "2026-11-14T03:40:30+09:00",
-      "summary": "New research shows the most advanced AI models from China were trained on banned Nvidia chips."
-    },
-    {
-      "source": "TechCrunch AI",
-      "lang": "en",
-      "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
-      "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
-      "published": "2026-11-14T01:00:12+09:00",
-      "summary": "ChatGPT Wallet lets AI agents shop and check out on users' behalf, starting with a limited rollout to U.S. Pro subscribers."
     }
   ]
 }

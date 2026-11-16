@@ -1,6 +1,6 @@
 {
   "platform": "youtube",
-  "captured_at": "2026-11-15T01:18:55+00:00",
+  "captured_at": "2026-11-16T01:07:04+00:00",
   "source": "YouTube Data API public channel statistics via API key",
   "account": {
     "channel_url": "https://www.youtube.com/channel/UCHmI-5eV-xPLSVtcO8QOd7A",
@@ -98,7 +98,7 @@
     {
       "id": "rnpD_AOEFPs",
       "title": "百年love  #music #snow #winter #恋愛 #lovesong",
-      "views": 57,
+      "views": 58,
       "age_label": "2024-10-27T12:57:35Z",
       "category": "winter"
     },

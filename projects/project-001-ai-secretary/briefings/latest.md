@@ -1,6 +1,6 @@
-# 2026-11-15（日）朝の定時報告
+# 2026-11-16（月）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:18 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:07 JST
 
 ---
 
@@ -16,14 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-15（日） | 雨（弱） | 16.9°C / 14.3°C | 16.0mm | 100% | 8.0km/h |
-| 2026-11-16（月） | 曇り | 18.1°C / 12.5°C | 0.0mm | 4% | 8.9km/h |
-| 2026-11-17（火） | 霧雨（弱） | 16.6°C / 11.8°C | 1.0mm | 36% | 13.9km/h |
-| 2026-11-18（水） | にわか雨 | 19.5°C / 11.3°C | 8.58mm | 70% | 20.8km/h |
-| 2026-11-19（木） | 霧雨 | 13.7°C / 7.7°C | 2.0mm | 67% | 27.9km/h |
-
-**【農業アラート】**
-- 降水確率70%以上。屋外作業の予定調整をおすすめします。
+| 2026-11-16（月） | 曇り | 17.9°C / 10.7°C | 0.0mm | 4% | 11.3km/h |
+| 2026-11-17（火） | 霧雨 | 16.1°C / 9.7°C | 1.8mm | 36% | 12.0km/h |
+| 2026-11-18（水） | 霧雨 | 15.8°C / 11.7°C | 3.3mm | 70% | 15.3km/h |
+| 2026-11-19（木） | 霧雨 | 13.0°C / 8.0°C | 1.3mm | 67% | 27.2km/h |
+| 2026-11-20（金） | 霧雨 | 11.7°C / 6.8°C | 2.3mm | 42% | 25.6km/h |
 
 
 ---
@@ -32,21 +29,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [【追記あり】M365障害、ChatGPT／Claudeのコネクタにも影響 「ほとんどのリクエストで動作しない」](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003164/) — ITmedia AI+
-- [NVIDIAをつくった男、ジェンスン・フアン “デニーズの皿洗い“から“AI時代の主役“へ、激動の半生](https://www.itmedia.co.jp/business/articles/2611/14/news008.html) — ITmedia AI+
-- [Googleの社内専用コーディングAI「GfG」、その全容 Geminiに社内データ1兆トークン学習させ開発 所要時間半減の業務も](https://www.itmedia.co.jp/news/article/2611/13/2000003110/) — ITmedia AI+
-- [「好機が来た」――なぜ今Sakana AIは、イチからAIモデルを作るのか “新たな一手”のねらいを聞いた](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003141/) — ITmedia AI+
-- [「AI処理、データ非保持が守られず」――Notionが委託先の問題指摘、漏えいの恐れ巡り](https://www.itmedia.co.jp/aiplus/article/2611/13/2000003172/) — ITmedia AI+
-- [Google、高速で低価格の「Gemini 4 Hydrogen」発表 無料ユーザーも利用可能](https://www.itmedia.co.jp/news/article/2611/13/2000003162/) — ITmedia AI+
+- [CAD図面内の品名や注記をAIで検索、DWG／DXF形式に対応](https://monoist.itmedia.co.jp/mn/articles/2611/16/news016.html) — ITmedia AI+
+- [AIが設計データの分析からCAD操作まで支援する「SOLIDWORKS 2027」](https://monoist.itmedia.co.jp/mn/articles/2611/16/news037.html) — ITmedia AI+
+- [OpenAI、AIエージェントが代わりに支払う「ChatGPT Wallet」 カード番号は渡さず、購入ごとに生体認証](https://www.itmedia.co.jp/news/article/2611/16/2000003208/) — ITmedia AI+
+- [自信がなければ「分かりません」──足立区が議会答弁AIにかけた“ガード” 「情報間違えれば区民に影響」の思い](https://www.itmedia.co.jp/aiplus/article/2611/16/2000003196/) — ITmedia AI+
+- [ガートナーが考えるフィジカルAI実装のロードマップと人の役割](https://monoist.itmedia.co.jp/mn/articles/2611/16/news050.html) — ITmedia AI+
+- [DMG森精機が進める工作機械部品へのAM活用、自社イベントで最新5軸機も展示](https://monoist.itmedia.co.jp/mn/articles/2611/17/news012.html) — ITmedia AI+
 
 **海外AIニュース**
 
+- [Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market](https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/) — TechCrunch AI
+- [Is bad news for Jensen Huang also bad news for the AI industry?](https://techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry/) — TechCrunch AI
+- [SNL gathers all the tech tycoons for a lesson in dating and spycraft](https://techcrunch.com/2026/11/15/snl-gathers-all-the-tech-tycoons-for-a-lesson-in-dating-and-spycraft/) — TechCrunch AI
 - [Where was Nvidia’s security team?](https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/) — TechCrunch AI
 - [Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang](https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/) — TechCrunch AI
 - [The AI graveyard: a running list of projects and startups that didn’t make it](https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/) — TechCrunch AI
-- [Asian governments react to Nvidia CEO Jensen Huang’s exit](https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/) — TechCrunch AI
-- [Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say](https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/) — TechCrunch AI
-- [AI agent startup LangChain hits $3B valuation](https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/) — TechCrunch AI
 
 
 ---
@@ -65,10 +62,10 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 ## 4. 本日のワンポイントコメント
 
 🌾 **農業**
-雨の予報です。屋外作業の予定調整をおすすめします。
+良好な天気が予想されます。農作業を進めるのに適した一日です。
 
 🎵 **音楽**
-週末です。Cafeシリーズのアイデアを整理するのに適した一日です。
+朝です。Cafeシリーズのコンセプト整理に集中するのに適した時間帯です。
 
 🤖 **システム**
 GitHub・各システムは正常稼働中です。
