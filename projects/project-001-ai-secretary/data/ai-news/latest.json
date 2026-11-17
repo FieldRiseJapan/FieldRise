@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-16T10:22:30.443371+09:00",
+  "collected_at": "2026-11-17T12:58:59.251708+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,194 +11,194 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "OpenAI、AIエージェントが代わりに支払う「ChatGPT Wallet」 カード番号は渡さず、購入ごとに生体認証",
-      "url": "https://www.itmedia.co.jp/news/article/2611/16/2000003208/",
-      "published": "2026-11-16T09:49:03+09:00",
-      "summary": "OpenAIは、AIエージェント「dot」による決済機能「ChatGPT Wallet」を発表した。実際のカード情報を店舗に渡さず、購入ごとに生体認証を求める仕組みで安全性を確保する。米国のChatGPT Pro加入者向けに提供を開始した。将来は事前承認に基づく自律決済にも対応する計画。"
+      "title": "AIに打ち明けた相談は“広告トラッカー”に筒抜け？ ChatGPT、Claude、Gemini含む42サービスを米大が調査",
+      "url": "https://www.itmedia.co.jp/news/article/2611/17/2000003241/",
+      "published": "2026-11-17T12:00:00+09:00",
+      "summary": "米ニューヨーク州立大学ストーニーブルック校に所属する研究者らが発表した論文「Penny for Your Prompts: A Measurement Study of Contextual Leakage in AI Chat Platforms」（IEEE S&P 2027採択）は、AIチャットbotに入力した会話内容や個人情報が、サイト内の追跡プログラム（トラッカー）を通じて外部企業へ漏えい"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "エージェントが「安全に支払いを代行」する「ChatGPT Wallet」登場 OpenAIが決済大手と提携し開発 提供は米国から",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/16/2000003211/",
-      "published": "2026-11-16T09:44:05+09:00",
-      "summary": "OpenAIはエージェントがユーザーのカード情報にアクセスせずに支払いを代行する機能「ChatGPT Wallet」を発表した。"
+      "title": "規制の厳しい業界でAIエージェントをどう導入する？ MicrosoftとIBMが発表した基盤「3つの特徴」",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/17/news015.html",
+      "published": "2026-11-17T11:30:00+09:00",
+      "summary": "AIエージェントの実証から本番運用へ――。IBMとMicrosoftは、6000種類超の構築済みエージェントやアセットをそろえた業界特化型の基盤「Imagine Enterprise」でこの移行を支援する。一から構築せず、既存システムも置き換えずに済むという仕組みとは。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "CAD図面内の品名や注記をAIで検索、DWG／DXF形式に対応",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/16/news016.html",
-      "published": "2026-11-16T09:00:00+09:00",
-      "summary": "StockはAIナレッジツール「ナレカン」において、DWG／DXF形式のCADファイルをキーワード検索とAI検索の対象に追加した。図面内に記載された品名や仕様、注記などのテキストを基に目的の図面を探せる他、AIによる要約記事の自動作成も可能になった。"
+      "title": "OpenAI、児童性的虐待コンテンツ（CSAM）検出ツールを公開 ChatGPTで探すと24時間アカウント停止の警告も",
+      "url": "https://www.itmedia.co.jp/news/article/2611/17/2000003254/",
+      "published": "2026-11-17T10:45:02+09:00",
+      "summary": "OpenAIは、児童性的虐待コンテンツ（CSAM）を検出するための新たな画像分類ツールを発表した。従来は検出が困難だった新規画像やAI生成画像も対象とし、審査を通過した組織へAPI経由で無償提供する。同時にChatGPT上でのCSAM検索行為に対し、アカウントを24時間停止する警告機能も導入した。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "AIが設計データの分析からCAD操作まで支援する「SOLIDWORKS 2027」",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/16/news037.html",
-      "published": "2026-11-16T08:30:00+09:00",
-      "summary": "ダッソー・システムズは、3D設計開発ソリューション「SOLIDWORKS」の最新バージョン「SOLIDWORKS 2027」を発表した。製品バリエーションの検討やボルト締結解析、データ管理に関する機能強化に加え、AIによるアセンブリのパフォーマンス分析やモデルの軽量化、設計変更に伴う影響範囲の確認など、設計業務を支援する機能を拡充した。"
+      "title": "ジェンスン・フアン氏復帰を求める公開書簡に18万人以上が署名 現役従業員9000人に加えてイーロン・マスク氏らも賛同",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/17/2000003249/",
+      "published": "2026-11-17T09:52:22+09:00",
+      "summary": "NVIDIAの創業者、ジェンスン・フアン氏のCEOへの復帰を求める公開書簡に、18万人を超える署名が集まっている。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "自信がなければ「分かりません」──足立区が議会答弁AIにかけた“ガード” 「情報間違えれば区民に影響」の思い",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/16/2000003196/",
-      "published": "2026-11-16T08:00:00+09:00",
-      "summary": "東京都足立区は2025年にグーグル・クラウド・ジャパンと包括連携協定を結び、議会答弁や区民の声への対応でAIエージェントの実証実験を進めてきた。同社イベントに登壇した担当者が、その仕組みと運用のコツを紹介した。"
+      "title": "大手自動車メーカーの検図工数を90％削減 AIが図面の重要な変更点を判別",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/17/news014.html",
+      "published": "2026-11-17T09:00:00+09:00",
+      "summary": "Liberty Dataは、生成AIを活用した図面関連業務の自動化サービス「Liberty図面AI」における新旧図面の差分抽出機能の導入事例を公開した。図面の内容や設計指示の意図を理解し、検図者が優先して確認すべき変更点を判別する機能で、大手自動車メーカーでは検図工数を90％削減したという。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "ガートナーが考えるフィジカルAI実装のロードマップと人の役割",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/16/news050.html",
-      "published": "2026-11-16T08:00:00+09:00",
-      "summary": "製造業でも多くの業務でAIが活用される中、注目を集めるフィジカルAIだが、製造業での使用状況はどうなっているのだろうか。フィジカルAIの現在地と共にAI時代の人の役割について、ガートナージャパン アナリストの鹿内健太郎氏に話を聞いた。"
+      "title": "クレディセゾンはなぜChatGPTでROI954％・年169時間削減を達成できたのか",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/17/2000003219/",
+      "published": "2026-11-17T07:00:00+09:00",
+      "summary": "クレディセゾンは、わずか1カ月の検証を経てChatGPT Enterpriseの全社一斉導入に踏み切った。経営層の巻き込みと現場の工夫を両立させた、同社の実践的な推進アプローチとは。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "DMG森精機が進める工作機械部品へのAM活用、自社イベントで最新5軸機も展示",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/17/news012.html",
-      "published": "2026-11-16T07:45:00+09:00",
-      "summary": "DMG森精機は、東京グローバルヘッドクォータにおいて自社イベント「東京テクノロジーウィーク」を開催した。国内初披露を含む最新の5軸加工機や複合加工機、金属積層造形機など17台の機械に加え、DXソリューションなどを展示した。"
+      "title": "AIの本格運用に潜むトークン消費増とガバナンス負担 企業の約9割が再設計を迫られる実態",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/17/2000003223/",
+      "published": "2026-11-17T07:00:00+09:00",
+      "summary": "AIの業務導入が進む一方、本格展開のフェーズで運用体制の抜本的な見直しを迫られる企業が相次いでいる。トークン消費による想定外のコスト膨張や、各国・地域の法規制、データ主権への対応など、ITリーダーが直面する新たな制約とは何か。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "ライセンス更新を機に「脱マクロ」 オートバックスセブンがGeminiで目指す売上高5000億円",
-      "url": "https://kn.itmedia.co.jp/kn/article/2611/16/2000003181/",
-      "published": "2026-11-16T07:00:00+09:00",
-      "summary": "オートバックスセブンは2032年度の売上高5000億円を目指してGoogle WorkspaceとGeminiを導入した。従来の表計算ソフトからの移行とAI活用の全社展開を図る。"
+      "title": "「回答するAI」から「現実の課題を解決するAI」へ、ダッソーが掲げる産業AI戦略",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/17/news025.html",
+      "published": "2026-11-17T06:30:00+09:00",
+      "summary": "ダッソー・システムズは、年次カンファレンス「3DEXPERIENCE CONFERENCE JAPAN 2026」の開催に併せてプレスブリーフィングを実施した。同社 CEOのパスカル・ダロズ氏が、AIと科学、人間の専門性を融合させた産業AI戦略について説明。バーチャルツインを中核に、物理世界の仕組みを理解し、現実世界の課題解決を支援するAIの実現を目指す。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "スノーピーク、個人情報流出か 銀行口座情報も対象",
-      "url": "https://ascii.jp/elem/000/004/451/4451661/?rss",
-      "published": "2026-11-16T10:05:00+09:00",
-      "summary": "アウトドア用品を手がけるスノーピークは11月13日、リユース買取サービス、イベント予約システム、コミュニティアプリで不正アクセスによる個人情報の流出が発生したと発表した。"
+      "title": "【75％オフ】値段バグってる！「餓狼伝説 City of the Wolves」シーズンパス2まで含んで1292円",
+      "url": "https://ascii.jp/elem/000/004/452/4452176/?rss",
+      "published": "2026-11-17T12:45:00+09:00",
+      "summary": "SNKは対戦格闘ゲーム「餓狼伝説 City of the Wolves」のLegend Editionを、一部のプラットフォームを対象に75％オフで販売するセールを開催。 いまなら本編＋シーズンパス1＋2のセットが1292円となる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "「ラヴ上等」あっすん逮捕に波紋 ひろゆき氏は疑問、ホリエモンは「完璧に見せしめ」",
-      "url": "https://ascii.jp/elem/000/004/451/4451656/?rss",
-      "published": "2026-11-16T09:40:00+09:00",
-      "summary": "愛知県警は11月15日、Netflixの恋愛リアリティー番組「ラヴ上等」に出演した「あっすん」こと小栗彩朱佳容疑者ら男女3人を、風営法違反の疑いで逮捕した。"
+      "title": "マウスから美容家電・旅行用品まで約240製品 エレコムが招待制イベントを初開催",
+      "url": "https://ascii.jp/elem/000/004/452/4452092/?rss",
+      "published": "2026-11-17T12:15:00+09:00",
+      "summary": "エレコムは11月5日、招待制イベント「ELECOM CREATOR MEETUP 2026」を初開催した。インフルエンサー100名を招き、約240製品を展示。マウスやトラックボールから美容家電、旅行用品まで、仕事・暮らし・旅の3エリアで使い心地を体験できる場を設けた。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "GALLERIA、ガラスパネル×LEDが映えるゲーミングPC全27モデル発売 スペシャルエディション登場",
-      "url": "https://ascii.jp/elem/000/004/451/4451648/?rss",
-      "published": "2026-11-16T09:30:00+09:00",
-      "summary": "サードウェーブは「GALLERIA スペシャルエディション」全27モデルを発売した。ガラスパネルとLEDファンによる外観に加え、水冷クーラーと最大6基のファンを採用。Ryzen 7 9850X3DとRTX 5080を搭載するモデルも用意し、ドスパラ店舗と通販で販売する。"
+      "title": "「ポケモンスリープ」モンメン・エルフーン実装で活気 「これは偉い子」「厳選せねば」",
+      "url": "https://ascii.jp/elem/000/004/452/4452090/?rss",
+      "published": "2026-11-17T12:10:00+09:00",
+      "summary": "ポケモンが配信するiOS／Android向けアプリ「Pokémon Sleep（ポケモンスリープ）」にて、「なんでもペロリ！ごちそうウィーク vol.1」が開催中。同時に新ポケモン「モンメン」「エルフーン」も追加され、盛り上がりを見せている。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "量子コンピュータに必要なHPCとの統合――HPEが選んだ「自ら作らない」戦略",
-      "url": "https://ascii.jp/elem/000/004/451/4451639/?rss",
-      "published": "2026-11-16T09:00:00+09:00",
-      "summary": "Hewlett-Packard Enterprise（HPE）が6月に発表した、量子コンピューティング分野における8社との協業拡大。注目すべきは、HPE自身では量子ハードウェアを開発しないという同社の戦略的な選択だ。自らはHPC分野でのノウハウを持つ“統合役”として、量子コンピューティング市場に参入することを選んだ。"
+      "title": "資さん「ごぼ天うどん」が521円→488円に！ 2週間限定、感謝セール",
+      "url": "https://ascii.jp/elem/000/004/452/4452175/?rss",
+      "published": "2026-11-17T12:00:00+09:00",
+      "summary": "北九州発祥のうどんチェーン「資さんうどん」は、11月19日～12月2日の期間、「ごぼ天うどん」の特別セールを全店舗で開催します。看板商品の「ごぼ天うどん」がお得になります。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ヒューマノイド派遣サービスに掃除を頼んでみた／AIの「断る力」に危うさ",
-      "url": "https://ascii.jp/elem/000/004/451/4451636/?rss",
-      "published": "2026-11-16T09:00:00+09:00",
-      "summary": "世界最先端のテクノロジー情報をお届けするグローバルメディア「MITテクノロジーレビュー」から、ビジネスに役立つ注目のテック企業の最新動向、イノベーションにつながる最新の研究内容をピックアップして紹介します。"
+      "title": "シャープ「AQUOS sense11」は安心して長く使える点が最大の強み 実機フォトレポで紹介！",
+      "url": "https://ascii.jp/elem/000/004/452/4452014/?rss",
+      "published": "2026-11-17T12:00:00+09:00",
+      "summary": "ミドルクラスの大定番、シャープ「AQUOS sense」の新モデル「AQUOS sense11」が発表。11月26日に発売される。本記事ではメディア向け説明会での写真を中心にお届けしよう。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "Ryzen 9000対応マザーボードが12,480円 ASRock「A620AM-P」11月20日発売",
-      "url": "https://ascii.jp/elem/000/004/451/4451647/?rss",
-      "published": "2026-11-16T08:30:00+09:00",
-      "summary": "ASRockは、AMD A620搭載のMicro ATXマザーボード「A620AM-P」を11月20日に発売する。価格は12,480円。Ryzen 9000／8000／7000に対応し、M.2スロット2基や前面USB-C接続、BIOSフラッシュバックを備える。6カ月のCPUソケットピン折れ無償修理保証も付帯する。"
+      "title": "安心を求めるなら純正品が一番。DualSenseワイヤレスコントローラーの充電スタンドが18％オフ",
+      "url": "https://ascii.jp/elem/000/004/451/4451991/?rss",
+      "published": "2026-11-17T12:00:00+09:00",
+      "summary": "Amazon.co.jpにて、ソニー・インタラクティブエンタテインメントの「【純正品】DualSense 充電スタンド」が販売中だ。参考価格は3980円だが、執筆時点では18％オフの3253円で購入できる（11月16日時点）。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "AI関連の求人・応募はビジネス職で高い伸び／2026年度のIT投資インデックスが過去最高に／世界の中で“働く喜び”が低い日本、ほか",
-      "url": "https://ascii.jp/elem/000/004/451/4451603/?rss",
-      "published": "2026-11-16T08:00:00+09:00",
-      "summary": "今回（2026年11月7日～11月13日）は、国内企業のIT投資意向指標が過去最高を更新、AI関連求人／応募はエンジニア職よりビジネス職で大きな伸び、サイバーフィジカルシステム（CPS）セキュリティ、IoT/OTセキュリティ運用監視サービス市場、27カ国調査で日本が最下位だった“働く喜び”についてのデータを紹介します。"
+      "title": "秋田の課題とポテンシャル 沼谷市長、レッドクリフ佐々木CEOと考えた",
+      "url": "https://ascii.jp/elem/000/004/451/4451602/?rss",
+      "published": "2026-11-17T12:00:00+09:00",
+      "summary": "JAWS FESTA 2026 in Akitaの基調講演では、秋田市長 沼谷 純さんと株式会社レッドクリフ 代表取締役／CEO 佐々木 孔明さんを招き、秋田が抱える課題とその解決へのヒントを語ってもらった。ITを武器として、人口減少や高齢化が進む秋田を課題解決と新しい価値創出の舞台として捉え直して見えてくるものとは何なのか。角川アスキー総合研究所 TECH.ASCII.jp編集長 大谷イビサが聞"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "10年間作れなかったアプリが、AIでわずか10日で完成して感動 好きなキャラが踊る3Dライブをついに実現",
-      "url": "https://ascii.jp/elem/000/004/451/4451644/?rss",
-      "published": "2026-11-16T07:10:00+09:00",
-      "summary": "AIを使って、約10日で自作した3Dコンサートアプリ「百夜ステージ」を紹介。動画から抽出した1242個のモーションや自動演出、VRMモデルを組み合わせ、10年来の構想を実現した。"
+      "title": "にごり湯、源泉かけ流し、足湯まで！ 那須塩原市の個性派温泉4選",
+      "url": "https://ascii.jp/elem/000/004/451/4451512/?rss",
+      "published": "2026-11-17T12:00:00+09:00",
+      "summary": "那須塩原市の塩原温泉郷で異なる泉質を巡る。奥塩原高原ホテルの酸性硫黄泉や日本最大級の足湯「湯っ歩の里」など、日帰り入浴可能な4施設を案内します。あなた好みの湯に出会えます。"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market",
-      "url": "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/",
-      "published": "2026-11-16T08:30:00+09:00",
-      "summary": "Bharat Semi says it has secured design wins for its AI-enabled sensor technology with companies including General Atomics."
+      "title": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months",
+      "url": "https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months/",
+      "published": "2026-11-17T08:32:32+09:00",
+      "summary": "Three months since introducing its product, AI cybersecurity startup Corba has raised a $125 million Series A at a $1 billion valuation led by NEA."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Is bad news for Jensen Huang also bad news for the AI industry?",
-      "url": "https://techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry/",
-      "published": "2026-11-16T06:56:35+09:00",
-      "summary": "\"Jensen is Nvidia, right? And so much of this economy is riding on Nvidia.\""
+      "title": "All the questions Nvidia should answer on Tuesday — but probably won’t",
+      "url": "https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/",
+      "published": "2026-11-17T07:03:02+09:00",
+      "summary": "Nvidia interim CEO and longtime CFO Colette Kress is about to have one of the biggest days of her career on Tuesday when the company reports its third-quarter results. Given the turmoil Nvidia is in, "
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "SNL gathers all the tech tycoons for a lesson in dating and spycraft",
-      "url": "https://techcrunch.com/2026/11/15/snl-gathers-all-the-tech-tycoons-for-a-lesson-in-dating-and-spycraft/",
-      "published": "2026-11-16T05:20:57+09:00",
-      "summary": "While awkward, creepy tech executives have become a recurring theme on Saturday Night Live, this week’s episode gave the cast a chance to show off all their impressions at once."
+      "title": "California state AG sues OpenAI over rogue agent incidents",
+      "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
+      "published": "2026-11-17T05:07:13+09:00",
+      "summary": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Where was Nvidia’s security team?",
-      "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
-      "published": "2026-11-15T09:08:07+09:00",
-      "summary": "Nvidia’s security chief quietly left in August, and now that CEO Jensen Huang has stepped down over his relationships, including one with an executive at a company suspected of funneling chips to Chin"
+      "title": "Trump says ex-Nvidia CEO Jensen Huang’s affair with an alleged Chinese spy did not threaten national security",
+      "url": "https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/",
+      "published": "2026-11-17T04:12:02+09:00",
+      "summary": "Trump contradicted his own government's intelligence officials, who reportedly concluded that Alice Huang is a Chinese spy."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
-      "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/",
-      "published": "2026-11-15T06:41:22+09:00",
-      "summary": "The petition had attracted more than 115,000 signatures as of Saturday afternoon."
+      "title": "Sam Altman on Nvidia without Jensen Huang: The industry will be ‘fine’",
+      "url": "https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/",
+      "published": "2026-11-17T03:11:10+09:00",
+      "summary": "OpenAI CEO Sam Altman acknowledged the special role Nvidia CEO Jensen Huang has played in the AI boom, but ultimately thinks the industry will be “fine” without him at the helm."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
-      "url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
-      "published": "2026-11-15T02:30:00+09:00",
-      "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations."
+      "title": "FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’",
+      "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "published": "2026-11-17T02:36:43+09:00",
+      "summary": "The FBI says that the open source hacking tool was used in cyberattacks targeting a U.S. IT giant and the South Korean financial industry."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Asian governments react to Nvidia CEO Jensen Huang’s exit",
-      "url": "https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/",
-      "published": "2026-11-15T01:34:15+09:00",
-      "summary": "Some governments moved to confirm chip supply commitments, while others are monitoring the impact on local projects or addressing ongoing investigations."
+      "title": "Jordan Belfort’s new AI voice startup, Tone, wants to sell like the ‘Wolf of Wall Street’",
+      "url": "https://techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street/",
+      "published": "2026-11-17T02:10:00+09:00",
+      "summary": "Belfort claims his AI sales voice can already close deals almost as well as the best human salespeople, and he thinks it will catch up in a year."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say",
-      "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
-      "published": "2026-11-14T07:43:00+09:00",
-      "summary": "Nvidia poured tens of billions into AI startups under Huang. Without him at the helm, founders and VCs are bracing for smaller checks and lower valuations."
+      "title": "OpenAI will embed safety researchers to investigate AI subversion",
+      "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+      "published": "2026-11-17T02:02:43+09:00",
+      "summary": "OpenAI will embed six Apollo Research evaluators to investigate whether its AI models engage in subversive behavior, but restrictions on access and disclosure raise questions about their independence."
     }
   ]
 }

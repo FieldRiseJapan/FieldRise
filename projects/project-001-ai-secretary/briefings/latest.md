@@ -1,6 +1,6 @@
-# 2026-11-16（月）朝の定時報告
+# 2026-11-17（火）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 10:22 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 12:59 JST
 
 ---
 
@@ -29,21 +29,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [OpenAI、AIエージェントが代わりに支払う「ChatGPT Wallet」 カード番号は渡さず、購入ごとに生体認証](https://www.itmedia.co.jp/news/article/2611/16/2000003208/) — ITmedia AI+
-- [エージェントが「安全に支払いを代行」する「ChatGPT Wallet」登場 OpenAIが決済大手と提携し開発 提供は米国から](https://www.itmedia.co.jp/aiplus/article/2611/16/2000003211/) — ITmedia AI+
-- [CAD図面内の品名や注記をAIで検索、DWG／DXF形式に対応](https://monoist.itmedia.co.jp/mn/articles/2611/16/news016.html) — ITmedia AI+
-- [AIが設計データの分析からCAD操作まで支援する「SOLIDWORKS 2027」](https://monoist.itmedia.co.jp/mn/articles/2611/16/news037.html) — ITmedia AI+
-- [自信がなければ「分かりません」──足立区が議会答弁AIにかけた“ガード” 「情報間違えれば区民に影響」の思い](https://www.itmedia.co.jp/aiplus/article/2611/16/2000003196/) — ITmedia AI+
-- [ガートナーが考えるフィジカルAI実装のロードマップと人の役割](https://monoist.itmedia.co.jp/mn/articles/2611/16/news050.html) — ITmedia AI+
+- [AIに打ち明けた相談は“広告トラッカー”に筒抜け？ ChatGPT、Claude、Gemini含む42サービスを米大が調査](https://www.itmedia.co.jp/news/article/2611/17/2000003241/) — ITmedia AI+
+- [規制の厳しい業界でAIエージェントをどう導入する？ MicrosoftとIBMが発表した基盤「3つの特徴」](https://www.itmedia.co.jp/enterprise/articles/2611/17/news015.html) — ITmedia AI+
+- [OpenAI、児童性的虐待コンテンツ（CSAM）検出ツールを公開 ChatGPTで探すと24時間アカウント停止の警告も](https://www.itmedia.co.jp/news/article/2611/17/2000003254/) — ITmedia AI+
+- [ジェンスン・フアン氏復帰を求める公開書簡に18万人以上が署名 現役従業員9000人に加えてイーロン・マスク氏らも賛同](https://www.itmedia.co.jp/aiplus/article/2611/17/2000003249/) — ITmedia AI+
+- [大手自動車メーカーの検図工数を90％削減 AIが図面の重要な変更点を判別](https://monoist.itmedia.co.jp/mn/articles/2611/17/news014.html) — ITmedia AI+
+- [クレディセゾンはなぜChatGPTでROI954％・年169時間削減を達成できたのか](https://kn.itmedia.co.jp/kn/article/2611/17/2000003219/) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market](https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/) — TechCrunch AI
-- [Is bad news for Jensen Huang also bad news for the AI industry?](https://techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry/) — TechCrunch AI
-- [SNL gathers all the tech tycoons for a lesson in dating and spycraft](https://techcrunch.com/2026/11/15/snl-gathers-all-the-tech-tycoons-for-a-lesson-in-dating-and-spycraft/) — TechCrunch AI
-- [Where was Nvidia’s security team?](https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/) — TechCrunch AI
-- [Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang](https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/) — TechCrunch AI
-- [The AI graveyard: a running list of projects and startups that didn’t make it](https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/) — TechCrunch AI
+- [Cybersecurity AI startup Corma reaches $1B valuation in about 3 months](https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months/) — TechCrunch AI
+- [All the questions Nvidia should answer on Tuesday — but probably won’t](https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/) — TechCrunch AI
+- [California state AG sues OpenAI over rogue agent incidents](https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/) — TechCrunch AI
+- [Trump says ex-Nvidia CEO Jensen Huang’s affair with an alleged Chinese spy did not threaten national security](https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/) — TechCrunch AI
+- [Sam Altman on Nvidia without Jensen Huang: The industry will be ‘fine’](https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/) — TechCrunch AI
+- [FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’](https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/) — TechCrunch AI
 
 
 ---
