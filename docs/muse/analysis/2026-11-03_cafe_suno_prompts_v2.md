@@ -1,6 +1,7 @@
 # Cafeシリーズ Suno AIプロンプト改善版 v2
 
 - **文書ID:** FR-MUSE-2026-11-002（プロンプト改善編）
+- **分析系統:** MARKET
 - **作成者:** Muse（FieldRise AI社員）
 - **作成日:** 2026-11-03
 - **根拠資料:** MUSE-2026-11-001 調査報告書（docs/muse/research/2026-11-03_tiktok_jazz_october_2026.md）および音楽分析（docs/muse/analysis/2026-11-03_tiktok_jazz_music_analysis.md）
