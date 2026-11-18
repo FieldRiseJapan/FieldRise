@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-18T11:56:49.839478+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "わが社はChatGPTでどう紹介されている？ OpenAIが企業向けの確認機能を提供開始",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/18/news022.html",
+      "published": "2026-11-18T10:40:00+09:00",
+      "summary": "ChatGPTがユーザーに向けて、自社をどのように紹介しているのかを把握したいと考える企業は多いだろう。OpenAIは、その把握に役立つ機能を企業向けにβ版で公開した。米国の対象企業であれば、自社のAIエージェントをChatGPT広告のリンク先に設定することもできる。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「GPT-6.2 Astra／Sol」登場 前世代超える性能を「コスト1/3で実現」 Ultrafast提供も拡大",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/18/2000003282/",
+      "published": "2026-11-18T10:32:09+09:00",
+      "summary": "OpenAIが「GPT-6.2 Astra」「GPT-6.2 Sol」を発表。Astraは一部の性能評価で、前世代を上回るスコアを3分の1以下のコストで実現したとうたう。第三者機関の総合指標ではClaude Fable 5.2次ぐ2位。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「AIによる鍵の不正利用」を生体認証で防ぐ日立の新技術、サイバー攻撃対策にも",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/18/news040.html",
+      "published": "2026-11-18T08:30:00+09:00",
+      "summary": "日立製作所は、AIによる業務が人間の承認に基づくことを証明する技術「PoHD」を開発。生体認証を応用し、署名用の秘密鍵を保存せず生体情報から都度復元する。先進技術紹介のイベント「Hitachi R&D Innovation Day 2026」でデモンストレーションも披露した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AI時代に必要なエンジニアのスキルとは？ 開発現場の“品質問題”から読み解く",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/18/2000003236/",
+      "published": "2026-11-18T08:00:00+09:00",
+      "summary": "ソフトウェア品質に関する調査から見えてきた、AI時代に必要なエンジニアのスキルを解説する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "GAS×Geminiが一般提供開始 IT管理者が確認すべき権限設定は？",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/18/2000003256/",
+      "published": "2026-11-18T07:00:00+09:00",
+      "summary": "GASとGeminiの連携によってコーディング不要でスクリプト作成やデバッグが可能になった。コーディング知識がないユーザーでも自然言語の指示でスクリプトの作成や編集、エラー修正ができるようになる。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Googleドライブの最新ファイルをGeminiが常時参照 「スキル」に新機能追加",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/18/2000003259/",
+      "published": "2026-11-18T07:00:00+09:00",
+      "summary": "Geminiでカスタム指示を保存する「スキル」機能が拡張された。作成したスキルの他ユーザーへの共有や、Googleドライブなどのファイル追加が可能になり、常に最新データを参照してAIを動かせるようになる。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "【Pythonで学ぶデータ分析】重回帰分析のモデル比較をベイズ統計で行う ～ 株価の予測にはどの指標が効くのか？",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/18/news010.html",
+      "published": "2026-11-18T05:00:00+09:00",
+      "summary": "株価のファンダメンタルズ分析を行う手法の一つとして、重回帰分析が使われることがあります。例えば、収益力や成長性、割安性などの指標を説明変数として、リターン（利益）を目的変数とするわけです。その際、どの説明変数を重回帰式に含めるとより良い予測ができるかを検討する必要があります。今回は、そのためのモデル比較の簡単な方法を紹介します。『社会人1年生から学ぶやさしいデータ分析』ベイズ統計編（第12回）です"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "MUFG、松尾豊教授ら設立のAIスタートアップと提携 「遍在型AGI」活用へ",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/17/2000003260/",
+      "published": "2026-11-17T18:00:00+09:00",
+      "summary": "三菱UFJフィナンシャル・グループ（以下、MUFG）と傘下の三菱UFJ銀行は、AI研究で知られる東京大学の松尾豊教授らが設立したAIスタートアップThird Intelligence（東京都千代田区）と、AIの社会実装を手掛ける松尾研究所（東京都文京区）とのパートナーシップ契約を締結したと発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "今年も790円！ 日高屋の冬の人気「チゲ味噌ラーメン」が帰ってくる",
+      "url": "https://ascii.jp/elem/000/004/451/4451898/?rss",
+      "published": "2026-11-18T11:50:00+09:00",
+      "summary": "日高屋は11月27日より全店にて「チゲ味噌ラーメン」ならびに「もつ煮」を期間限定で販売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "EDIFIERのモニタースピーカーは、とにかくめっちゃいい。",
+      "url": "https://ascii.jp/elem/000/004/452/4452540/?rss",
+      "published": "2026-11-18T11:45:00+09:00",
+      "summary": "本日11月18日から20日までの3日間、幕張メッセで音響、映像、通信の国際展示会「Inter BEE 2026」が開催中。スピーカーを中心に展示していたEDIFIER（エディファイア）。ブースで全面的に押し出されていたのは、モニタースピーカーの「MR3」「MR4 MKII」「MR5」だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【本日から200円引き】大海老入り天丼が690円！「さん天」で7日間限定",
+      "url": "https://ascii.jp/elem/000/004/452/4452543/?rss",
+      "published": "2026-11-18T11:40:00+09:00",
+      "summary": "関西を中心に展開する「天丼・天ぷら本舗 さん天」は、11月18日～24日の7日間限定で「ちく玉大海老天丼」などを200円引きで販売します。本日から"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "大盛況の「ヤマハブース」で知った、音響技術の新たな傾向",
+      "url": "https://ascii.jp/elem/000/004/452/4452537/?rss",
+      "published": "2026-11-18T11:40:00+09:00",
+      "summary": "本日11月18日から20日までの3日間、幕張メッセで音響、映像、通信の国際展示会「Inter BEE 2026」が開催中。ヤマハのブースは、開場して間もない時間帯からかなりの賑わいを見せている。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "KDDI、「INFOBAR ZERO」発売 初代デザイン継承、ネット非対応で3万2780円",
+      "url": "https://ascii.jp/elem/000/004/452/4452539/?rss",
+      "published": "2026-11-18T11:35:00+09:00",
+      "summary": "KDDIと沖縄セルラーは11月18日、通話やSMSに機能を絞った携帯電話「INFOBAR ZERO」を12月25日に発売すると発表した。価格は3万2780円。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ファミマに「スライムまん」があらわれた！ メタルスライムも出現するぞ、マジ!?",
+      "url": "https://ascii.jp/elem/000/004/452/4452538/?rss",
+      "published": "2026-11-18T11:15:00+09:00",
+      "summary": "ファミリーマートは「スライムまん（てりやき味）」を11月24日から数量限定で発売します。さらに「メタルスライムまん」もレアで登場！"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "内閣府、政府広報に都市伝説系YouTuber起用 安全保障のPRで物議",
+      "url": "https://ascii.jp/elem/000/004/452/4452493/?rss",
+      "published": "2026-11-18T11:00:00+09:00",
+      "summary": "内閣府の「政府広報オンライン」は11月16日、安全保障をテーマにした特集「これは都市伝説ではない－世界を消した主婦－」を公開した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "離席時に本体を持ち出せる！ エレコムがBluetooth指紋認証リーダーを発表",
+      "url": "https://ascii.jp/elem/000/004/452/4452451/?rss",
+      "published": "2026-11-18T11:00:00+09:00",
+      "summary": "エレコムは2026年11月18日、PCから離して自由に設置できる独立型Bluetooth指紋認証リーダー「CR-FI50BBK」を発表した。11月下旬発売予定で、想定価格は9980円。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia’s startup stakes ballooned to $65B, but Huang’s exit puts future deals in doubt",
+      "url": "https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/",
+      "published": "2026-11-18T10:44:21+09:00",
+      "summary": "The value of Nvidia’s private investments has nearly tripled over the past nine months, fueled by Jensen Huang’s aggressive dealmaking and rising valuations of its existing portfolio companies."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia promises that revenue will keep soaring — for now",
+      "url": "https://techcrunch.com/2026/11/17/nvidia-promises-that-revenue-will-keep-soaring-for-now/",
+      "published": "2026-11-18T09:16:50+09:00",
+      "summary": "Despite the turmoil Nvidia is in after the departure of its disgraced founder and CEO Jensen Huang, the company projected that its streak of record-breaking revenue isn't about to stop."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia is abandoning China after Jensen Huang’s ouster",
+      "url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/",
+      "published": "2026-11-18T08:37:48+09:00",
+      "summary": "Nvidia's interim CEO says the company is done selling chips to China. How much will that cost?"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia says its open source AI strategy remains intact after Jensen Huang’s exit",
+      "url": "https://techcrunch.com/2026/11/17/nvidia-says-its-open-source-ai-strategy-remains-intact-after-jensen-huangs-exit/",
+      "published": "2026-11-18T08:04:35+09:00",
+      "summary": "Nvidia's interim CEO reaffirmed its open source AI strategy and plans to acquire Hugging Face, despite Jensen Huang's sudden departure."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia says it doesn’t plan to reappoint Jensen Huang as CEO",
+      "url": "https://techcrunch.com/2026/11/17/nvidia-says-it-doesnt-plan-to-reappoint-jensen-huang-as-ceo/",
+      "published": "2026-11-18T07:42:27+09:00",
+      "summary": "The former CEO offered to return to his top role at the company after his resignation last week."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Amazon and Google will together own nearly 30% of Anthropic after its IPO",
+      "url": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
+      "published": "2026-11-18T07:29:05+09:00",
+      "summary": "Amazon will own just under 15% of Anthropic after the IPO, with the option to go much higher. Google is a close second with holdings of nearly 14%."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "SEC reportedly investigating Nvidia amid Huang exit",
+      "url": "https://techcrunch.com/2026/11/17/sec-reportedly-investigating-nvidia-amid-huang-exit/",
+      "published": "2026-11-18T06:48:07+09:00",
+      "summary": "The SEC is opening a probe into Nvidia following the departure of CEO Jensen Huang, who admitted to an affair with an alleged Chinese spy, reports The Wall Street Journal."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Google joins the tech outage trend by announcing it’s not having one",
+      "url": "https://techcrunch.com/2026/11/17/google-joins-the-tech-outage-trend-by-announcing-its-not-having-one/",
+      "published": "2026-11-18T06:34:50+09:00",
+      "summary": "With tech outages seemingly everywhere, Google took the unusual step of announcing that Gmail is working just fine, actually."
+    }
+  ]
+}

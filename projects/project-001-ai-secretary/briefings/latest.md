@@ -1,6 +1,6 @@
-# 2026-11-17（火）朝の定時報告
+# 2026-11-18（水）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 13:10 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 11:57 JST
 
 ---
 
@@ -16,11 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-17（火） | 雨 | 14.9°C / 10.0°C | 21.9mm | 100% | 12.1km/h |
-| 2026-11-18（水） | 雨（弱） | 17.3°C / 10.5°C | 5.4mm | 98% | 15.2km/h |
-| 2026-11-19（木） | 雨 | 14.3°C / 8.1°C | 6.7mm | 63% | 19.5km/h |
-| 2026-11-20（金） | 雨（弱） | 11.2°C / 6.3°C | 5.8mm | 83% | 28.7km/h |
-| 2026-11-21（土） | 霧雨（弱） | 11.4°C / 6.9°C | 1.6mm | 56% | 20.8km/h |
+| 2026-11-18（水） | 雨 | 17.9°C / 11.7°C | 5.3mm | 98% | 14.1km/h |
+| 2026-11-19（木） | 雨（弱） | 13.3°C / 8.3°C | 2.9mm | 81% | 18.9km/h |
+| 2026-11-20（金） | 霧雨 | 9.6°C / 5.8°C | 4.2mm | 96% | 20.0km/h |
+| 2026-11-21（土） | 霧雨（強） | 11.2°C / 6.1°C | 3.5mm | 49% | 21.1km/h |
+| 2026-11-22（日） | 霧雨（弱） | 10.7°C / 0.8°C | 0.4mm | 8% | 16.9km/h |
 
 **【農業アラート】**
 - 降水確率70%以上。屋外作業の予定調整をおすすめします。
@@ -32,21 +32,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [AIに打ち明けた相談は“広告トラッカー”に筒抜け？ ChatGPT、Claude、Gemini含む42サービスを米大が調査](https://www.itmedia.co.jp/news/article/2611/17/2000003241/) — ITmedia AI+
-- [規制の厳しい業界でAIエージェントをどう導入する？ MicrosoftとIBMが発表した基盤「3つの特徴」](https://www.itmedia.co.jp/enterprise/articles/2611/17/news015.html) — ITmedia AI+
-- [OpenAI、児童性的虐待コンテンツ（CSAM）検出ツールを公開 ChatGPTで探すと24時間アカウント停止の警告も](https://www.itmedia.co.jp/news/article/2611/17/2000003254/) — ITmedia AI+
-- [ジェンスン・フアン氏復帰を求める公開書簡に18万人以上が署名 現役従業員9000人に加えてイーロン・マスク氏らも賛同](https://www.itmedia.co.jp/aiplus/article/2611/17/2000003249/) — ITmedia AI+
-- [大手自動車メーカーの検図工数を90％削減 AIが図面の重要な変更点を判別](https://monoist.itmedia.co.jp/mn/articles/2611/17/news014.html) — ITmedia AI+
-- [クレディセゾンはなぜChatGPTでROI954％・年169時間削減を達成できたのか](https://kn.itmedia.co.jp/kn/article/2611/17/2000003219/) — ITmedia AI+
+- [わが社はChatGPTでどう紹介されている？ OpenAIが企業向けの確認機能を提供開始](https://www.itmedia.co.jp/enterprise/articles/2611/18/news022.html) — ITmedia AI+
+- [「GPT-6.2 Astra／Sol」登場 前世代超える性能を「コスト1/3で実現」 Ultrafast提供も拡大](https://www.itmedia.co.jp/aiplus/article/2611/18/2000003282/) — ITmedia AI+
+- [「AIによる鍵の不正利用」を生体認証で防ぐ日立の新技術、サイバー攻撃対策にも](https://monoist.itmedia.co.jp/mn/articles/2611/18/news040.html) — ITmedia AI+
+- [AI時代に必要なエンジニアのスキルとは？ 開発現場の“品質問題”から読み解く](https://www.itmedia.co.jp/aiplus/article/2611/18/2000003236/) — ITmedia AI+
+- [GAS×Geminiが一般提供開始 IT管理者が確認すべき権限設定は？](https://kn.itmedia.co.jp/kn/article/2611/18/2000003256/) — ITmedia AI+
+- [Googleドライブの最新ファイルをGeminiが常時参照 「スキル」に新機能追加](https://kn.itmedia.co.jp/kn/article/2611/18/2000003259/) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Cybersecurity AI startup Corma reaches $1B valuation in about 3 months](https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months/) — TechCrunch AI
-- [All the questions Nvidia should answer on Tuesday — but probably won’t](https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/) — TechCrunch AI
-- [California state AG sues OpenAI over rogue agent incidents](https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/) — TechCrunch AI
-- [Trump says ex-Nvidia CEO Jensen Huang’s affair with an alleged Chinese spy did not threaten national security](https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/) — TechCrunch AI
-- [Sam Altman on Nvidia without Jensen Huang: The industry will be ‘fine’](https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/) — TechCrunch AI
-- [FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’](https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/) — TechCrunch AI
+- [Nvidia’s startup stakes ballooned to $65B, but Huang’s exit puts future deals in doubt](https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/) — TechCrunch AI
+- [Nvidia promises that revenue will keep soaring — for now](https://techcrunch.com/2026/11/17/nvidia-promises-that-revenue-will-keep-soaring-for-now/) — TechCrunch AI
+- [Nvidia is abandoning China after Jensen Huang’s ouster](https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/) — TechCrunch AI
+- [Nvidia says its open source AI strategy remains intact after Jensen Huang’s exit](https://techcrunch.com/2026/11/17/nvidia-says-its-open-source-ai-strategy-remains-intact-after-jensen-huangs-exit/) — TechCrunch AI
+- [Nvidia says it doesn’t plan to reappoint Jensen Huang as CEO](https://techcrunch.com/2026/11/17/nvidia-says-it-doesnt-plan-to-reappoint-jensen-huang-as-ceo/) — TechCrunch AI
+- [Amazon and Google will together own nearly 30% of Anthropic after its IPO](https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/) — TechCrunch AI
 
 
 ---
