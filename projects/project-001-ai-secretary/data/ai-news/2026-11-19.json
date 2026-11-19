@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-19T11:39:02.051138+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIによるAI研究「指数関数的に増加」でも「依然として人間中心」 OpenAIがレポート公開",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/19/2000003318/",
+      "published": "2026-11-19T09:48:01+09:00",
+      "summary": "OpenAIは、AIが同社内のAI研究にどのように貢献しているかに関するレポートを公開した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "PFUがファンレスエッジAIデバイスを開発、自然言語入力でAI解析機能を簡単構築",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/19/news044.html",
+      "published": "2026-11-19T08:30:00+09:00",
+      "summary": "PFUは、「EdgeTech+ 2026」において、ファンレスのエッジAIデバイスと、自然言語入力でAI解析機能を簡単に構築できるSIエージェントを組み合わせた「エッジAIデバイス×SIエージェント」を参考出展した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ソブリンAI実現に向けて再び立ちはだかる「旧来の課題」 データ・インフラ・モデルの自由度をどう保つか",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/19/2000002979/",
+      "published": "2026-11-19T08:00:00+09:00",
+      "summary": "企業のAI導入における課題の多くは、モデルそのものではなく、AIが機能する環境に起因している。根にあるのは、AIブーム以前から企業のITシステムが抱えてきたデータの「サイロ化」と、特定の環境や技術への「ロックイン」だ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "日本の音声AIスタートアップに159億円 ElevenLabsはなぜ、社員15人のKotobaを買収するのか",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/19/2000003306/",
+      "published": "2026-11-19T07:55:00+09:00",
+      "summary": "AI音声サービスを手掛ける米ElevenLabsは、音声AIスタートアップの米Kotoba Technologiesを買収すると発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「e-F@ctory」から次の進化へ、三菱電機が描くAI主体の自律型工場",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/19/news045.html",
+      "published": "2026-11-19T07:30:00+09:00",
+      "summary": "三菱電機は、FA向けの新たな統合ソリューションブランドとして「Serendie Automation」を展開することを発表した。本稿では、前編で三菱電機 上席執行役員 FAシステム事業本部長の都築貴之氏の講演とインタビューの内容を紹介し、後編では「Serendie Automation」を体現する技術展示の内容を紹介する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "コマツ油機開発センタが挑む設計プロセス改革、ナレッジ検索／整備に生成AI活用",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/19/news001.html",
+      "published": "2026-11-19T07:00:00+09:00",
+      "summary": "コマツの油機開発センタは、ベテラン設計者の技術やノウハウを組織の資産として活用する「ナレッジデータ」の構築を進めている。2022年から実務運用を開始し、現在は約7500件のナレッジを蓄積。さらに、生成AIを活用して検索性の向上やデータ整備の効率化に取り組んでいる。2021年に紹介した設計プロセス改革は、その後どのように進化したのか。コマツと、共創パートナーであるプログレス・テクノロジーズに話を聞い"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "まいばすけっとは「月2万件対応の社内窓口」の新人教育にAIをどう使った？",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/19/2000003301/",
+      "published": "2026-11-19T07:00:00+09:00",
+      "summary": "まいばすけっとは月間約2万件の問い合わせが寄せられる社内コールセンターの新人教育にAIを導入して指導時間を削減した。多忙な現場で、どのように教育の標準化と効率化を両立させたのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ついに“AIっぽさ”を脱却か？ OpenAIが新モデルGPT-6.2 AstraとSolを発表",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/19/2000003295/",
+      "published": "2026-11-19T07:00:00+09:00",
+      "summary": "OpenAIの新AIモデル「GPT-6.2 Astra」と「GPT-6.2 Sol」が登場した。法務や財務などの高度な専門業務を担うAstraと、日々の業務を支えるSolは、従来のコスト常識を覆す高い効率性を備える。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "Amazonブラックフライデー、11月30日から iPhone 17 Pro Maxなどアップル製品も特価に",
+      "url": "https://ascii.jp/elem/000/004/453/4453013/?rss",
+      "published": "2026-11-19T11:30:00+09:00",
+      "summary": "アマゾンジャパンは11月19日、年末の大型セール「Amazon ブラックフライデー」を11月30日0時から12月7日23時59分まで開催すると発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "PCファンの配線をすっきり！ CORSAIR「iCUE LINK LX360/LX360-R RGB」、一体型フレームで11月26日発売",
+      "url": "https://ascii.jp/elem/000/004/452/4452983/?rss",
+      "published": "2026-11-19T11:30:00+09:00",
+      "summary": "アスクは、CORSAIRの一体型冷却ファン「iCUE LINK LX360 RGB」「LX360-R RGB」を11月26日に発売。各1万9480円前後で、標準・リバースブレードと黒・白の4製品を展開する。iCUE LINKによる配線・管理の簡素化やゼロRPMモードに対応。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「ほぼ全人類が永久に失業する」Anthropic研究者がAIの未来を予測",
+      "url": "https://ascii.jp/elem/000/004/452/4452982/?rss",
+      "published": "2026-11-19T11:30:00+09:00",
+      "summary": "Anthropicの研究者Tao Lin氏が、人間の雇用の将来について厳しい見通しを示した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "うまそ！ ファミマに「紅はるか」のお芋ドーナツ160円！ けんちんそばも登場",
+      "url": "https://ascii.jp/elem/000/004/452/4452386/?rss",
+      "published": "2026-11-19T11:10:00+09:00",
+      "summary": "ファミリーマートは11月17日より、茨城県にゆかりのある原材料を使ったおむすび、麺類、パンの計3品を発売。関東地方の一部地域を除く店舗で販売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "中古「α7R V」が27万4980円！ カメラ・レンズなど700点以上が特価、12月1日まで",
+      "url": "https://ascii.jp/elem/000/004/452/4452963/?rss",
+      "published": "2026-11-19T11:00:00+09:00",
+      "summary": "中古カメラ・レンズ・アクセサリー700点以上を特別価格で販売するセールを12月1日9時まで開催。ソニーα7R Vボディーは27万4980円、DJI Osmo Pocket 4Pは8万9980円で登場する。中古品はそれぞれ1点物のため、商品ごとの状態と在庫を確認したい。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "14型ノートPCが13万9800円、NEXTGEARも特価 マウスの店舗限定「冬のボーナスセール」",
+      "url": "https://ascii.jp/elem/000/004/452/4452962/?rss",
+      "published": "2026-11-19T11:00:00+09:00",
+      "summary": "マウスコンピューターは11月20日から12月31日まで、ダイレクトショップ全店とG-Tune : Garage大阪で「冬のボーナスセール」を開催。14型ノートPCを13万9800円、メモリー32GB搭載NEXTGEARを27万9800円で数量限定販売する。両モデルとも3年間保証付き。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "チキン4ピース500円！ 人気のサクサクチキンが160円引き、23日まで",
+      "url": "https://ascii.jp/elem/000/004/452/4452914/?rss",
+      "published": "2026-11-19T11:00:00+09:00",
+      "summary": "ワタミが運営する韓国発のフライドチキンブランド「bb.q」は、全16店舗で人気のフライドチキンを特別価格で販売するキャンペーンを11月23日まで開催中です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "11/30展示｜イマクリエイト、1時間でけん玉約4000回成功！人の技をロボットへ継承",
+      "url": "https://ascii.jp/elem/000/004/452/4452897/?rss",
+      "published": "2026-11-19T11:00:00+09:00",
+      "summary": "2026年11月30日、東京・品川インターシティホールにてディープテック・スタートアップのエコシステム構築をテーマにした展示交流・カンファレンスイベント「ASCII STARTUP TechDay 2026」が開催される。同イベントでは、学術、産業、行政の垣根を越えた多様なゲストを迎えてのセッションのほか、スタートアップ企業などによるブース展示を行う。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Microsoft CEO Satya Nadella explains why he asked 60K employees to quit",
+      "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/",
+      "published": "2026-11-19T09:42:56+09:00",
+      "summary": "Microsoft CEO Satya Nadella explained why he offered buyouts to 60,000 of his employees in October, essentially urging them to voluntarily quit, rather than reducing the workforce via another massive "
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’",
+      "url": "https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/",
+      "published": "2026-11-19T08:45:00+09:00",
+      "summary": "The Microsoft CEO downplayed the recent Outlook outage while noting that AI was causing both opportunities and new challenges for securing much of the connected world."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Elon Musk says ousting Jensen Huang is like ‘kicking Michael Jordan off your team’",
+      "url": "https://techcrunch.com/2026/11/18/elon-musk-says-ousting-jensen-huang-is-like-kicking-michael-jordan-off-your-team/",
+      "published": "2026-11-19T08:25:17+09:00",
+      "summary": "“I don’t think [Huang is] disloyal to the United States,\" Musk said."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Microsoft CEO Satya Nadella remains confident in Nvidia after Huang’s exit",
+      "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit/",
+      "published": "2026-11-19T08:17:28+09:00",
+      "summary": "Microsoft CEO Satya Nadella expressed confidence in Jensen Huang's successor Colette Kress, who is serving as Nvidia's interim CEO."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Satya Nadella predicts AI agents will reshuffle the economics of the web",
+      "url": "https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/",
+      "published": "2026-11-19T07:58:11+09:00",
+      "summary": "Microsoft's CEO says AI agents could disrupt advertising-driven business models, forcing companies like Amazon to rethink how they compete for customers."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic reportedly prices IPO at $83 a share, above projected range",
+      "url": "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/",
+      "published": "2026-11-19T07:11:15+09:00",
+      "summary": "The long-awaited IPO reportedly values the company at $1.5 trillion on a fully diluted basis."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia created a weird bit of intrigue by not filing a routine SEC report",
+      "url": "https://techcrunch.com/2026/11/18/nvidia-created-a-weird-bit-of-intrigue-by-not-filing-a-routine-sec-report/",
+      "published": "2026-11-19T06:57:40+09:00",
+      "summary": "One Wall Street analyst got to the bottom of Nvidia's surprise announcement that it wouldn't be filing its formal quarterly results document, the 10-Q, for weeks."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Palmer Luckey warns AI-powered cyberattacks are outpacing defenses: ‘It’s time to start running’",
+      "url": "https://techcrunch.com/2026/11/18/palmer-luckey-warns-ai-powered-cyberattacks-are-outpacing-defenses-its-time-to-start-running/",
+      "published": "2026-11-19T06:34:13+09:00",
+      "summary": "The Anduril co-founder says outdated technology is leaving systems vulnerable to a new wave of AI-enabled attacks."
+    }
+  ]
+}

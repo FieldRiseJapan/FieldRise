@@ -1,6 +1,6 @@
-# 2026-11-18（水）朝の定時報告
+# 2026-11-19（木）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 12:08 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 11:39 JST
 
 ---
 
@@ -32,21 +32,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [わが社はChatGPTでどう紹介されている？ OpenAIが企業向けの確認機能を提供開始](https://www.itmedia.co.jp/enterprise/articles/2611/18/news022.html) — ITmedia AI+
-- [「GPT-6.2 Astra／Sol」登場 前世代超える性能を「コスト1/3で実現」 Ultrafast提供も拡大](https://www.itmedia.co.jp/aiplus/article/2611/18/2000003282/) — ITmedia AI+
-- [「AIによる鍵の不正利用」を生体認証で防ぐ日立の新技術、サイバー攻撃対策にも](https://monoist.itmedia.co.jp/mn/articles/2611/18/news040.html) — ITmedia AI+
-- [AI時代に必要なエンジニアのスキルとは？ 開発現場の“品質問題”から読み解く](https://www.itmedia.co.jp/aiplus/article/2611/18/2000003236/) — ITmedia AI+
-- [GAS×Geminiが一般提供開始 IT管理者が確認すべき権限設定は？](https://kn.itmedia.co.jp/kn/article/2611/18/2000003256/) — ITmedia AI+
-- [Googleドライブの最新ファイルをGeminiが常時参照 「スキル」に新機能追加](https://kn.itmedia.co.jp/kn/article/2611/18/2000003259/) — ITmedia AI+
+- [AIによるAI研究「指数関数的に増加」でも「依然として人間中心」 OpenAIがレポート公開](https://www.itmedia.co.jp/aiplus/article/2611/19/2000003318/) — ITmedia AI+
+- [PFUがファンレスエッジAIデバイスを開発、自然言語入力でAI解析機能を簡単構築](https://monoist.itmedia.co.jp/mn/articles/2611/19/news044.html) — ITmedia AI+
+- [ソブリンAI実現に向けて再び立ちはだかる「旧来の課題」 データ・インフラ・モデルの自由度をどう保つか](https://www.itmedia.co.jp/aiplus/article/2611/19/2000002979/) — ITmedia AI+
+- [日本の音声AIスタートアップに159億円 ElevenLabsはなぜ、社員15人のKotobaを買収するのか](https://www.itmedia.co.jp/aiplus/article/2611/19/2000003306/) — ITmedia AI+
+- [「e-F@ctory」から次の進化へ、三菱電機が描くAI主体の自律型工場](https://monoist.itmedia.co.jp/mn/articles/2611/19/news045.html) — ITmedia AI+
+- [コマツ油機開発センタが挑む設計プロセス改革、ナレッジ検索／整備に生成AI活用](https://monoist.itmedia.co.jp/mn/articles/2611/19/news001.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Nvidia’s startup stakes ballooned to $65B, but Huang’s exit puts future deals in doubt](https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/) — TechCrunch AI
-- [Nvidia promises that revenue will keep soaring — for now](https://techcrunch.com/2026/11/17/nvidia-promises-that-revenue-will-keep-soaring-for-now/) — TechCrunch AI
-- [Nvidia is abandoning China after Jensen Huang’s ouster](https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/) — TechCrunch AI
-- [Nvidia says its open source AI strategy remains intact after Jensen Huang’s exit](https://techcrunch.com/2026/11/17/nvidia-says-its-open-source-ai-strategy-remains-intact-after-jensen-huangs-exit/) — TechCrunch AI
-- [Nvidia says it doesn’t plan to reappoint Jensen Huang as CEO](https://techcrunch.com/2026/11/17/nvidia-says-it-doesnt-plan-to-reappoint-jensen-huang-as-ceo/) — TechCrunch AI
-- [Amazon and Google will together own nearly 30% of Anthropic after its IPO](https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/) — TechCrunch AI
+- [Microsoft CEO Satya Nadella explains why he asked 60K employees to quit](https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/) — TechCrunch AI
+- [Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’](https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/) — TechCrunch AI
+- [Elon Musk says ousting Jensen Huang is like ‘kicking Michael Jordan off your team’](https://techcrunch.com/2026/11/18/elon-musk-says-ousting-jensen-huang-is-like-kicking-michael-jordan-off-your-team/) — TechCrunch AI
+- [Microsoft CEO Satya Nadella remains confident in Nvidia after Huang’s exit](https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit/) — TechCrunch AI
+- [Satya Nadella predicts AI agents will reshuffle the economics of the web](https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/) — TechCrunch AI
+- [Anthropic reportedly prices IPO at $83 a share, above projected range](https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/) — TechCrunch AI
 
 
 ---
