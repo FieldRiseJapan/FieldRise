@@ -16,6 +16,11 @@ on:
         required: true
         default: true
         type: boolean
+      allow_manus_task_creation:
+        description: "Manusタスク作成によるクレジット消費を理解したうえで、この実行に限り明示的に許可する"
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -38,6 +43,7 @@ jobs:
       EVENT_BEFORE: ${{ github.event.before }}
       MANUAL_INSTRUCTION_PATH: ${{ inputs.instruction_path }}
       DRY_RUN: ${{ inputs.dry_run || false }}
+      MANUS_TASK_AUTHORIZED: ${{ inputs.allow_manus_task_creation || false }}
       MANUS_API_KEY: ${{ secrets.MANUS_API_KEY }}
       GH_TOKEN: ${{ github.token }}
 
@@ -245,6 +251,9 @@ jobs:
             if [[ "$DRY_RUN" == "true" ]]; then
               status="dry_run"
               detail="検知・重複防止・証跡記録を検証しました。Manus APIは呼び出していません。"
+            elif [[ "$MANUS_TASK_AUTHORIZED" != "true" ]]; then
+              status="blocked"
+              detail="Manusタスク作成の明示許可がないため、外部APIは呼び出していません。"
             elif [[ -z "$MANUS_API_KEY" ]]; then
               status="blocked"
               detail="GitHub Actions Secret MANUS_API_KEY が未設定のため、Manusへの受領トリガーは実行していません。"
