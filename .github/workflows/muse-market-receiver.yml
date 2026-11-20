@@ -1,0 +1,43 @@
+name: Muse MARKET report receiver
+on:
+  repository_dispatch:
+    types: [muse_market_report_v1]
+permissions:
+  contents: write
+concurrency:
+  group: muse-market-autosave
+  cancel-in-progress: false
+jobs:
+  receive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate and save Muse payload
+        env:
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+        run: |
+          python3 scripts/receive_muse_dispatch.py "$GITHUB_EVENT_PATH"
+      - name: Commit validated report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/muse/research/
+          git commit -m "docs(muse): save validated MARKET report"
+          # Other dispatch runs may have updated main after checkout.
+          # Rebase our validated new-file commit; never force-push.
+          AUTH_HEADER="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          for attempt in 1 2 3 4 5; do
+            git -c http.extraheader="$AUTH_HEADER" fetch origin main
+            git rebase origin/main
+            if git -c http.extraheader="$AUTH_HEADER" push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Concurrent update detected; retrying ($attempt/5)"
+            sleep "$attempt"
+          done
+          echo "Could not push after retries" >&2
+          exit 1
