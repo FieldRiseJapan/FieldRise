@@ -5,6 +5,9 @@ on:
     - cron: '0 22 * * *'  # Daily at 22:00 UTC (07:00 JST)
   workflow_dispatch:  # Allow manual trigger
 
+permissions:
+  contents: read
+
 jobs:
   api-health-check:
     runs-on: ubuntu-latest
@@ -20,8 +23,10 @@ jobs:
       
       - name: Check LINE Secret
         id: check_line
+        env:
+          CHECK_VALUE: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
         run: |
-          if [ -z "${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}" ]; then
+          if [ -z "${CHECK_VALUE:-}" ]; then
             echo "status=未設定" >> $GITHUB_OUTPUT
           else
             echo "status=設定済み" >> $GITHUB_OUTPUT
@@ -29,8 +34,10 @@ jobs:
       
       - name: Check YouTube Secret
         id: check_youtube
+        env:
+          CHECK_VALUE: ${{ secrets.YOUTUBE_API_KEY }}
         run: |
-          if [ -z "${{ secrets.YOUTUBE_API_KEY }}" ]; then
+          if [ -z "${CHECK_VALUE:-}" ]; then
             echo "status=未設定" >> $GITHUB_OUTPUT
           else
             echo "status=設定済み" >> $GITHUB_OUTPUT
@@ -38,8 +45,10 @@ jobs:
       
       - name: Check Meta Secret
         id: check_meta
+        env:
+          CHECK_VALUE: ${{ secrets.META_ACCESS_TOKEN }}
         run: |
-          if [ -z "${{ secrets.META_ACCESS_TOKEN }}" ]; then
+          if [ -z "${CHECK_VALUE:-}" ]; then
             echo "status=未設定" >> $GITHUB_OUTPUT
           else
             echo "status=設定済み" >> $GITHUB_OUTPUT
@@ -47,8 +56,10 @@ jobs:
       
       - name: Check TikTok Client Key
         id: check_tiktok_key
+        env:
+          CHECK_VALUE: ${{ secrets.TIKTOK_CLIENT_KEY }}
         run: |
-          if [ -z "${{ secrets.TIKTOK_CLIENT_KEY }}" ]; then
+          if [ -z "${CHECK_VALUE:-}" ]; then
             echo "status=未設定" >> $GITHUB_OUTPUT
           else
             echo "status=設定済み" >> $GITHUB_OUTPUT
@@ -56,8 +67,10 @@ jobs:
       
       - name: Check TikTok Client Secret
         id: check_tiktok_secret
+        env:
+          CHECK_VALUE: ${{ secrets.TIKTOK_CLIENT_SECRET }}
         run: |
-          if [ -z "${{ secrets.TIKTOK_CLIENT_SECRET }}" ]; then
+          if [ -z "${CHECK_VALUE:-}" ]; then
             echo "status=未設定" >> $GITHUB_OUTPUT
           else
             echo "status=設定済み" >> $GITHUB_OUTPUT
