@@ -1,6 +1,6 @@
-# 2026-11-19（木）朝の定時報告
+# 2026-11-20（金）朝の定時報告
 
-**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 11:49 JST
+**FieldRise AI協働本部 COO・秘書の桃花です。** | **生成時刻**: 11:23 JST
 
 ---
 
@@ -16,11 +16,11 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 | 日付 | 天気 | 最高/最低気温 | 降水量 | 降水確率 | 最大風速 |
 |---|---|---|---|---|---|
-| 2026-11-18（水） | 雨 | 17.9°C / 11.7°C | 5.3mm | 98% | 14.1km/h |
-| 2026-11-19（木） | 雨（弱） | 13.3°C / 8.3°C | 2.9mm | 81% | 18.9km/h |
-| 2026-11-20（金） | 霧雨 | 9.6°C / 5.8°C | 4.2mm | 96% | 20.0km/h |
-| 2026-11-21（土） | 霧雨（強） | 11.2°C / 6.1°C | 3.5mm | 49% | 21.1km/h |
-| 2026-11-22（日） | 霧雨（弱） | 10.7°C / 0.8°C | 0.4mm | 8% | 16.9km/h |
+| 2026-11-20（金） | 霧雨 | 10.7°C / 6.8°C | 2.5mm | 96% | 19.8km/h |
+| 2026-11-21（土） | 雨（弱） | 10.9°C / 5.0°C | 2.9mm | 31% | 13.7km/h |
+| 2026-11-22（日） | 霧雨（弱） | 9.6°C / 3.3°C | 0.1mm | 27% | 13.6km/h |
+| 2026-11-23（月） | 曇り | 12.2°C / 0.5°C | 0.0mm | 2% | 10.6km/h |
+| 2026-11-24（火） | にわか雨（弱） | 14.8°C / 6.1°C | 12.3mm | 100% | 23.0km/h |
 
 **【農業アラート】**
 - 降水確率70%以上。屋外作業の予定調整をおすすめします。
@@ -32,21 +32,21 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 
 **国内AIニュース**
 
-- [AIによるAI研究「指数関数的に増加」でも「依然として人間中心」 OpenAIがレポート公開](https://www.itmedia.co.jp/aiplus/article/2611/19/2000003318/) — ITmedia AI+
-- [PFUがファンレスエッジAIデバイスを開発、自然言語入力でAI解析機能を簡単構築](https://monoist.itmedia.co.jp/mn/articles/2611/19/news044.html) — ITmedia AI+
-- [ソブリンAI実現に向けて再び立ちはだかる「旧来の課題」 データ・インフラ・モデルの自由度をどう保つか](https://www.itmedia.co.jp/aiplus/article/2611/19/2000002979/) — ITmedia AI+
-- [日本の音声AIスタートアップに159億円 ElevenLabsはなぜ、社員15人のKotobaを買収するのか](https://www.itmedia.co.jp/aiplus/article/2611/19/2000003306/) — ITmedia AI+
-- [「e-F@ctory」から次の進化へ、三菱電機が描くAI主体の自律型工場](https://monoist.itmedia.co.jp/mn/articles/2611/19/news045.html) — ITmedia AI+
-- [コマツ油機開発センタが挑む設計プロセス改革、ナレッジ検索／整備に生成AI活用](https://monoist.itmedia.co.jp/mn/articles/2611/19/news001.html) — ITmedia AI+
+- [ChatGPT「Plus」プラン一部ユーザーに「dots」解禁 「Business Standard」全ユーザーにも](https://www.itmedia.co.jp/aiplus/article/2611/20/2000003359/) — ITmedia AI+
+- [ベテランPMが辞めても失いたくない「暗黙知」を“生成AI面談”で残す 東京ガス系が実践したノウハウ継承術](https://atmarkit.itmedia.co.jp/ait/articles/2611/20/news021.html) — ITmedia AI+
+- [ヒューマノイドからAIビジョンまで、三菱電機「Serendie Automation」の具体像](https://monoist.itmedia.co.jp/mn/articles/2611/20/news045.html) — ITmedia AI+
+- [Mac版「Gemini」にユーザーの代わりにアプリを操作する「computer use」機能追加 まず米国で](https://www.itmedia.co.jp/news/article/2611/20/2000003356/) — ITmedia AI+
+- [Antigravityを他社AIから操作すると「垢BAN」？ 注意点をGoogle Cloud日本法人に聞いた](https://www.itmedia.co.jp/aiplus/article/2611/20/2000003353/) — ITmedia AI+
+- [「名ばかりFDE」を見抜けるか？ 依頼検討時に確認したい10項目](https://www.itmedia.co.jp/enterprise/articles/2611/20/news028.html) — ITmedia AI+
 
 **海外AIニュース**
 
-- [Microsoft CEO Satya Nadella explains why he asked 60K employees to quit](https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/) — TechCrunch AI
-- [Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’](https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/) — TechCrunch AI
-- [Elon Musk says ousting Jensen Huang is like ‘kicking Michael Jordan off your team’](https://techcrunch.com/2026/11/18/elon-musk-says-ousting-jensen-huang-is-like-kicking-michael-jordan-off-your-team/) — TechCrunch AI
-- [Microsoft CEO Satya Nadella remains confident in Nvidia after Huang’s exit](https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit/) — TechCrunch AI
-- [Satya Nadella predicts AI agents will reshuffle the economics of the web](https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/) — TechCrunch AI
-- [Anthropic reportedly prices IPO at $83 a share, above projected range](https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/) — TechCrunch AI
+- [Apple may be developing its own AI agent that runs your Mac](https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/) — TechCrunch AI
+- [Anthropic’s 7 founders cashed out nearly $2B in record-breaking IPO](https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/) — TechCrunch AI
+- [Meta’s new Muse Charm device may cost $300](https://techcrunch.com/2026/11/19/metas-new-muse-charm-device-may-cost-300/) — TechCrunch AI
+- [These tech outages are giving Y2K, AI agent style](https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/) — TechCrunch AI
+- [The unfolding Jensen Huang scandal: a timeline](https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/) — TechCrunch AI
+- [Anthropic’s IPO could deliver $156B to charity](https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/) — TechCrunch AI
 
 
 ---
@@ -68,7 +68,7 @@ https://fieldrisejapan.github.io/FieldRise/ai-control-dashboard/
 雨の予報です。屋外作業の予定調整をおすすめします。
 
 🎵 **音楽**
-朝です。Cafeシリーズのコンセプト整理に集中するのに適した時間帯です。
+週末です。Cafeシリーズのアイデアを整理するのに適した一日です。
 
 🤖 **システム**
 GitHub・各システムは正常稼働中です。
