@@ -5,6 +5,7 @@ import json
 import os
 import tempfile
 from datetime import datetime, timezone
+from http.client import HTTPException
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError
@@ -35,12 +36,17 @@ def http_json(url: str, *, method: str = "GET", headers: dict[str, str] | None =
         body = urlencode(data).encode("utf-8")
         request_headers.setdefault("Content-Type", "application/x-www-form-urlencoded")
     request = Request(url, data=body, method=method, headers=request_headers)
+    return _read_json(request)
+
+
+def _read_json(request: Request) -> dict[str, Any]:
     try:
         with urlopen(request, timeout=45) as response:
             return json.loads(response.read().decode("utf-8"))
     except HTTPError as error:
-        payload = error.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"HTTP {error.code} from {url}: {payload[:500]}") from error
+        raise RuntimeError(f"API request failed (HTTP {error.code})") from None
+    except (OSError, ValueError, HTTPException):
+        raise RuntimeError("API transport or response decoding failed") from None
 
 
 def post_json(url: str, payload: dict[str, Any], headers: dict[str, str] | None = None) -> dict[str, Any]:
@@ -51,12 +57,7 @@ def post_json(url: str, payload: dict[str, Any], headers: dict[str, str] | None 
         method="POST",
         headers={"Accept": "application/json", "Content-Type": "application/json", **(headers or {})},
     )
-    try:
-        with urlopen(request, timeout=45) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except HTTPError as error:
-        response_body = error.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"HTTP {error.code} from {url}: {response_body[:500]}") from error
+    return _read_json(request)
 
 
 def write_json_atomic(filename: str, payload: dict[str, Any]) -> None:

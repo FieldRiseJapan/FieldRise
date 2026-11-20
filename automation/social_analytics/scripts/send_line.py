@@ -31,8 +31,7 @@ def main() -> None:
         with urlopen(request, timeout=30) as response:
             print(f"LINE notification sent: HTTP {response.status}")
     except HTTPError as error:
-        detail = error.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"LINE notification failed: HTTP {error.code}: {detail[:300]}") from error
+        raise RuntimeError(f"LINE notification failed (HTTP {error.code})") from None
 
 
 if __name__ == "__main__":
