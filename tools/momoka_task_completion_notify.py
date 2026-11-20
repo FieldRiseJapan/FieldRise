@@ -22,6 +22,11 @@ LINE_PUSH_URL = "https://api.line.me/v2/bot/message/push"
 MAX_RETRY_WINDOW = timedelta(hours=24)
 
 
+class ReportFormatError(ValueError):
+    def __init__(self, missing_fields: tuple[str, ...]) -> None:
+        super().__init__("正式報告書の必須項目が不足しています: " + "、".join(missing_fields))
+
+
 def utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
@@ -56,10 +61,11 @@ def report_metadata(markdown: str) -> dict[str, str]:
     delivery_test = clean_markdown(table_value(markdown, "Delivery test")).casefold() in {"true", "yes", "本番"}
     heading = clean_markdown(first_heading(markdown))
 
-    if not receipt_key:
-        raise ValueError("正式報告書から Receipt key を取得できません。")
-    if not status:
-        raise ValueError("正式報告書から 状態 を取得できません。")
+    missing_fields = tuple(
+        label for label, value in (("Receipt key", receipt_key), ("状態", status)) if not value
+    )
+    if missing_fields:
+        raise ReportFormatError(missing_fields)
 
     issue_number = "未指定"
     issue_match = re.search(r"#(\d+)", heading)
@@ -407,11 +413,17 @@ def main() -> int:
             write_receipt(result)
         Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         return 0
-    except (OSError, ValueError, json.JSONDecodeError) as error:
-        safe = {"action": "processing_failed", "detail": f"通知処理を完了できませんでした: {type(error).__name__}"}
-        Path(args.output).write_text(json.dumps(safe, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(safe["detail"], file=sys.stderr)
-        return 1
+    except ReportFormatError as error:
+        error_code = "invalid_report_format"
+        detail = str(error)
+    except (OSError, ValueError) as error:
+        error_code = "processing_error"
+        detail = f"通知処理を完了できませんでした: {type(error).__name__}"
+
+    safe = {"action": "processing_failed", "error_code": error_code, "detail": detail}
+    Path(args.output).write_text(json.dumps(safe, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(detail, file=sys.stderr)
+    return 1
 
 
 if __name__ == "__main__":

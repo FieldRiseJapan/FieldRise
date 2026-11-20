@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -71,6 +72,34 @@ class MomokaTaskCompletionNotifyTests(unittest.TestCase):
             line_target_id=target,
             retry_delay_seconds=0,
         )
+
+    def test_cli_identifies_missing_report_fields_without_echoing_report_body(self) -> None:
+        private_marker = "synthetic-private-marker"
+        self.report.write_text(f"# 旧形式の報告\n{private_marker}\n", encoding="utf-8")
+        output = self.root / "result.json"
+        run = subprocess.run(
+            [
+                sys.executable, notify.__file__,
+                "--report-path", str(self.report),
+                "--receipts-dir", str(self.receipts),
+                "--report-commit", "a" * 40,
+                "--report-url", "https://example.test/report",
+                "--occurred-at", "2026-08-15T01:00:00Z",
+                "--mode", "dry_run",
+                "--output", str(output),
+            ],
+            capture_output=True, text=True, check=False,
+        )
+
+        self.assertEqual(run.returncode, 1)
+        result = json.loads(output.read_text(encoding="utf-8"))
+        self.assertEqual(result["action"], "processing_failed")
+        self.assertEqual(result["error_code"], "invalid_report_format")
+        for field in ("Receipt key", "状態"):
+            self.assertIn(field, result["detail"])
+            self.assertIn(field, run.stderr)
+        self.assertNotIn(private_marker, run.stderr + json.dumps(result))
+        self.assertFalse(self.receipts.exists())
 
     def test_in_progress_does_not_create_or_send_notification(self) -> None:
         result = self.process("in_progress")

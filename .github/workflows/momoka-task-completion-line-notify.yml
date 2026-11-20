@@ -87,6 +87,7 @@ jobs:
         run: |
           set -euo pipefail
           result_path="$RUNNER_TEMP/momoka-line-notify-result.json"
+          process_exit=0
           python3 tools/momoka_task_completion_notify.py \
             --report-path "$REPORT_PATH_TO_PROCESS" \
             --receipts-dir "$RECEIPTS_DIR" \
@@ -94,7 +95,10 @@ jobs:
             --report-url "$REPORT_URL_TO_PROCESS" \
             --occurred-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --mode "$MODE_TO_PROCESS" \
-            --output "$result_path"
+            --output "$result_path" || process_exit=$?
+          if (( process_exit != 0 )) && ! jq -e '.action == "processing_failed"' "$result_path" >/dev/null; then
+            exit "$process_exit"
+          fi
           action="$(jq -r '.action' "$result_path")"
           notification_status="$(jq -r '.notification_status // "not_requested"' "$result_path")"
           detail="$(jq -r '.detail' "$result_path")"
