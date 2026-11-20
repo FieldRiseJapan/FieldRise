@@ -171,27 +171,6 @@ jobs:
               continue
             fi
 
-            instruction_id="$(extract_field '^[[:space:]]*(\\*\\*)?(タスクID|指示ID|[Ii]nstruction[ _-]?[Ii][Dd]|[Tt]ask[ _-]?[Ii][Dd])(\\*\\*)?[[:space:]]*[:：]' '未指定')"
-              priority="$(extract_field '^[[:space:]]*(\\*\\*)?(優先度|[Pp]riority)(\\*\\*)?[[:space:]]*[:：]' '未指定')"
-              created_at="$(git log -1 --format=%cI "$SOURCE_SHA" -- "$instruction_path")"
-              instruction_url="https://github.com/${GITHUB_REPOSITORY}/blob/${SOURCE_SHA}/${instruction_path}"
-              receipt_key="${SOURCE_SHA}:${instruction_path}"
-              jq -n \\
-                --arg receipt_key "$receipt_key" \\
-                --arg instruction_id "$instruction_id" \\
-                --arg instruction_path "$instruction_path" \\
-                --arg source_sha "$SOURCE_SHA" \\
-                --arg source_url "$instruction_url" \\
-                --arg priority "$priority" \\
-                --arg created_at "$created_at" \\
-                --arg finished_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \\
-                '{schema_version: 2, instruction: {receipt_key: $receipt_key, id: $instruction_id, path: $instruction_path, source_sha: $source_sha, source_url: $source_url, priority: $priority, created_at: $created_at}, execution: {status: "not_actionable", reason: "design_only"}, delivery: {recipient: "Manus default agent (桃花)", method: "Manus API task.create", status: "skipped", detail: "実装禁止の設計指示のため、外部実行タスクは作成していません。", finished_at: $finished_at}}' \\
-                > "$receipt_path"
-              commit_receipt "chore: record Momoka design-only instruction skip ${SOURCE_SHA:0:12}"
-              echo "- `$instruction_path`: **skipped (design-only; no external task created)**" >> "$GITHUB_STEP_SUMMARY"
-              continue
-            fi
-
             instruction_id="$(extract_field '^[[:space:]]*(\*\*)?(タスクID|指示ID|[Ii]nstruction[ _-]?[Ii][Dd]|[Tt]ask[ _-]?[Ii][Dd])(\*\*)?[[:space:]]*[:：]' '未指定')"
             priority="$(extract_field '^[[:space:]]*(\*\*)?(優先度|[Pp]riority)(\*\*)?[[:space:]]*[:：]' '未指定')"
             created_at="$(git log -1 --format=%cI "$SOURCE_SHA" -- "$instruction_path")"
