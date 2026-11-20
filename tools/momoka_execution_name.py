@@ -38,6 +38,26 @@ def labeled_value(markdown: str, labels: tuple[str, ...]) -> str:
     return clean(match.group(1)) if match else ""
 
 
+def is_design_only(markdown: str) -> bool:
+    """実装禁止が明示された設計文書を、実行タスクから除外する。"""
+    phase = labeled_value(markdown, ("フェーズ",))
+    has_no_implementation = bool(
+        re.search(r"^\s*実装しない。?\s*$", markdown, flags=re.MULTILINE)
+    )
+    has_code_freeze = bool(
+        re.search(r"^\s*コード変更しない。?\s*$", markdown, flags=re.MULTILINE)
+    )
+    waits_for_approval = bool(
+        re.search(r"^\s*設計提出後は停止し、実装承認を待つ。?\s*$", markdown, flags=re.MULTILINE)
+    )
+    return (
+        phase == "設計のみ（実装禁止）"
+        and has_no_implementation
+        and has_code_freeze
+        and waits_for_approval
+    )
+
+
 def formal_name(markdown: str) -> str:
     """指示書が明示した、具体値を持つ正式名を最優先で返す。"""
     for match in FORMAL_NAME_PATTERN.finditer(markdown):
@@ -147,9 +167,13 @@ def main() -> int:
     parser.add_argument("instruction_path", type=Path)
     parser.add_argument("--issue-title", default="")
     parser.add_argument("--issue-number-only", action="store_true")
+    parser.add_argument("--design-only", action="store_true", help="実装禁止の設計文書なら終了コード0を返す")
     args = parser.parse_args()
 
     markdown = args.instruction_path.read_text(encoding="utf-8")
+    if args.design_only:
+        return 0 if is_design_only(markdown) else 1
+
     declared_name = formal_name(markdown)
     if args.issue_number_only:
         print(issue_number_from(markdown, declared_name))

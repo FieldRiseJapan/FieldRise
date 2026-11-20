@@ -62,6 +62,31 @@ Issue #12 を対象にする。
         with self.assertRaisesRegex(ValueError, "作業内容"):
             naming.generate_execution_metadata("# 未指定\n\nプロジェクト名：AI Control Dashboard")
 
+    def test_explicit_design_only_instruction_is_not_an_actionable_task(self) -> None:
+        markdown = """# YouTube安全認証ゲートウェイ設計
+
+フェーズ: 設計のみ（実装禁止）
+
+今回やること
+実装しない。
+コード変更しない。
+設計提出後は停止し、実装承認を待つ。
+"""
+        self.assertTrue(naming.is_design_only(markdown))
+
+    def test_actionable_instruction_is_not_misclassified_as_design_only(self) -> None:
+        markdown = """# Muse自動保存修復
+
+プロジェクト名：FieldRise
+作業内容：受信処理を修正
+フェーズ: 実装
+"""
+        self.assertFalse(naming.is_design_only(markdown))
+        self.assertEqual(
+            naming.generate_execution_metadata(markdown)["execution_name"],
+            "桃花｜FieldRise｜受信処理を修正",
+        )
+
     def test_forbidden_placeholder_is_rejected(self) -> None:
         markdown = """# 受領
 
