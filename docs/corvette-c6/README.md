@@ -68,3 +68,11 @@ https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/man
 - **結果:** 交換後の点灯を確認済み（2026-11-22オーナー報告）。
 - **未確認:** メーカーAUXITO、T10、青色、2個入り製品を購入（2026-11-21）。製品表示は12V対応・2W・3014SMD 24連・キャンセラー付き。交換後点灯確認済み。実際の装着個数と左右の施工範囲は未確認。
 - **状態:** 作業完了・点灯確認済み。長期動作・消灯挙動は未確認。
+
+### 2026-11-22｜ルームミラー下マップライト・白色LED化の資料調査
+- **GM 2011年式取扱説明書:** マップライトはルームミラー下部、左右それぞれのボタンで操作。電球寸法はこの記載からは確定できない。https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2011/chevrolet/corvette/2011_chevrolet_corvette_owners.pdf
+- **C6専用LED資料:** ミラー下照明2個をT10/W3W/W5W（12V、3W/5W）と記載。LED色温度6500Kの例。https://www.dlp-kfz-design.de/wp-content/uploads/2012/04/PB-C6-LED-KZ-Beleuchtung-Innenraum-Kennzeichen-Sidemarker-Standlicht-03.09.2017.pdf
+- **CorvetteForum交換ガイド:** C6マップライトに194型LEDを案内。https://www.corvetteforum.com/how-tos/a/c5-c6-corvette-how-to-replace-interior-lights-with-leds-368580
+- **相反する情報:** 一部の汎用適合表は212-2と記載。日本仕様現車の純正球を確認するまで最終確定しない。
+- **交換手順資料:** ミラー下レンズをボタン付近から慎重に外し、電球を抜いてLEDを差し込む。点灯しなければ極性を反転。金属工具で接点を短絡させない。https://www.mamotorworks.com/production/website/articlefiles/installfiles/698831.pdf
+- **結論:** 白色T10/194系LEDを第一候補とするが、全長・頭部直径・カバー内クリアランスと日本仕様適合は未確認。購入前に現車電球写真・寸法を確認する。
