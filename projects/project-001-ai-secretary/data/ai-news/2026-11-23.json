@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-23T10:48:32.580555+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "OpenAIのチーフサイエンティスト、AI開発に業界共通の「上限」を提案 指標は「パープレキシティ」",
+      "url": "https://www.itmedia.co.jp/news/article/2611/23/2000003394/",
+      "published": "2026-11-23T07:49:18+09:00",
+      "summary": "OpenAIのチーフサイエンティストが、AIの予測精度を示す「パープレキシティ」を共通指標とし、開発の上限を業界で設けるよう提案する論考を公開した。GPT-3.5以降の社内モデルの推移も開示し、早ければ2027年にも事前学習が急加速する恐れがあるとして、監視技術が追いつくまでの歯止めを訴えている。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "メルカリの情報流出、AI委託先で何が起きた？ 確認された2つの攻撃",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/23/2000003393/",
+      "published": "2026-11-23T06:00:00+09:00",
+      "summary": "メルカリグループが業務で利用する「Notion AI」で、チャット記録の一部が外部に流出した可能性があることが公表された。AI処理を委託企業では、外部クラウド事業者への侵害や認証情報の窃取、サービスの脆弱性を悪用した不正アクセスが確認された。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Anthropicの数学者、「Claude」と共同で「リーマン予想」を証明したと主張 Leanコミュニティが「正しい」と認定",
+      "url": "https://www.itmedia.co.jp/news/article/2611/22/2000003388/",
+      "published": "2026-11-22T08:21:31+09:00",
+      "summary": "Anthropicの数学者レベント・アルポーゲ氏は、「Claude」と共同で未解決問題「リーマン予想」の証明を発見したと発表した。証明支援系「Lean」で記述された1700万行の形式証明を公開しており、Leanコミュニティは複数の検証を経て「証明は正しい」と認定する共同声明を出した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIに必要なのは知識か、企業独自の判断基準か？ 管理職調査で見えたAI活用の盲点",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/22/2000003384/",
+      "published": "2026-11-22T06:00:00+09:00",
+      "summary": "管理職を対象とした勤務先でのAI活用に関する調査では、半数以上が利用されなくなったAIツールや用途があると回答した。背景には、企業独自の判断基準に関わる課題があるようだ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "企業はAIをどう選ぶようになった？ ChatGPT、Copilot、Geminiの勢力図",
+      "url": "https://kn.itmedia.co.jp/kn/article/2611/21/2000003385/",
+      "published": "2026-11-21T14:22:15+09:00",
+      "summary": "企業が業務で利用するAIサービスの顔ぶれが変わりつつある。従来のように個別のAIサービスを選ぶだけでなく、既存の業務環境に組み込まれたAIを利用する動きも広がっているようだ。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIで成果を出す企業ほど「人を増やす」？ “通説”を否定する調査結果をIDCが発表",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/21/news003.html",
+      "published": "2026-11-21T09:00:00+09:00",
+      "summary": "「AIが普及すれば企業の人員は減る」という通説と食い違う調査結果を、IDCが発表した。AI投資で高いROIを得ている組織ほど、今後の増員を見込む割合が高い。AIで成果を出す企業が人員を増やすのはなぜか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "京大がAI依存チェックリスト公開 「当てはまるものあれば、しばらくAI触らないで」",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/20/2000003378/",
+      "published": "2026-11-20T19:13:44+09:00",
+      "summary": "京都大学の学生相談部門は「AIに悩みを相談する際に気をつけて欲しいこと」と題した文書を公開した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Antigravityを他社AIから操作すると「垢BAN」？ 注意点をGoogle Cloud日本法人に聞いた",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/20/2000003353/",
+      "published": "2026-11-20T17:04:35+09:00",
+      "summary": "「Google Antigravity」を他社のAIツールを介して利用すると規約違反でアカウント停止の可能性があるとXなどで話題になっている。Google Cloud日本法人への取材や公開されている規約などを基に状況と対応を整理する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【本日から】豚カツ定食が半額690円！ しかも無料ビュッフェ付き、新橋の太っ腹ランチ",
+      "url": "https://ascii.jp/elem/000/004/453/4453709/?rss",
+      "published": "2026-11-23T10:00:00+09:00",
+      "summary": "「個室大衆酒場 新橋や 駅前本店」は、ランチメニューを全面リニューアルすることを記念して、11月23日～25日の3日間は「豚カツ定食」を通常の半額となる690円で提供します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "黒すぎる！ からやま「ブラックカレー」はからあげ3個に卵黄ドーン！",
+      "url": "https://ascii.jp/elem/000/004/452/4452300/?rss",
+      "published": "2026-11-23T10:00:00+09:00",
+      "summary": "からあげ定食専門店のからやまは11月20日より国内の店舗にて「ブラックカレー」（1089円）を期間限定で販売中です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【本日から】ドラクエとの初コラボ商品！「ラ王」に激シビ辛な\"大魔王\"があらわれた",
+      "url": "https://ascii.jp/elem/000/004/453/4453587/?rss",
+      "published": "2026-11-23T08:00:00+09:00",
+      "summary": "日清食品は「日清マ王 大魔王味噌」（397円）を11月23日に全国で発売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "無料の画像生成AI「MiniMax H3-Image」はここがすごい Nano Bananaのようなモデルがローカルで動くのが当たり前に",
+      "url": "https://ascii.jp/elem/000/004/453/4453903/?rss",
+      "published": "2026-11-23T07:00:00+09:00",
+      "summary": "H3-Imageをクラウドとローカルで試用し、料金と生成速度を紹介。P-Image-OSSと人物の再現性や画風変更、LoRAの効果を比較し、両モデルの強みと弱み、併用の可能性を作例とともに解説する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "【生放送】AQUOS sense11 実機レビュー！開発者（中の人）に開発秘話から本音まで全部聞きます：スマホ総研拡大版",
+      "url": "https://ascii.jp/elem/000/004/453/4453658/?rss",
+      "published": "2026-11-23T07:00:00+09:00",
+      "summary": "ミドルクラスの大定番、シャープ「AQUOS sense」の新モデル「AQUOS sense11」が発表！ 11月26日の発売前に実機レビューをお届けします！"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「アスキーグルメNEWS」生放送（2026年11月27日号）",
+      "url": "https://ascii.jp/elem/000/004/453/4453631/?rss",
+      "published": "2026-11-23T07:00:00+09:00",
+      "summary": "巷で話題のおいしいグルメ情報を生放送でご紹介します。ぜひ、お昼ごはんを楽しみながらどうぞ！"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "RTX 5090搭載PCが22万3000円引き！ パソコンショップSEVEN、11月23日限定セール",
+      "url": "https://ascii.jp/elem/000/004/453/4453406/?rss",
+      "published": "2026-11-23T00:00:00+09:00",
+      "summary": "パソコンショップSEVENは11月23日、全10商品を対象に24時間限定セールを開催。RTX 5090、メモリー64GB、SSD 2TB搭載の「ZEFT R65XR」が22万3000円引きに。Radeon RX 9070 XT搭載PCは4万5000円引き、RTX 5070搭載PCは3万4000円引きで販売する。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "話題の「ゴジラ」とコラボしたFMVノートPC、直販サイトで10%オフで販売中！",
+      "url": "https://ascii.jp/elem/000/004/453/4453708/?rss",
+      "published": "2026-11-22T21:00:00+09:00",
+      "summary": "FMVパソコン通販サイト「FMV Store」では、複数のモデルを対象にセールを開催中。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO",
+      "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/",
+      "published": "2026-11-23T10:25:53+09:00",
+      "summary": "Three significant backers share what gave them conviction to bet billions on Anthropic."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI’s chief scientist has thoughts on how to limit AI development",
+      "url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+      "published": "2026-11-23T06:14:07+09:00",
+      "summary": "To establish a speed limit on AI development, you need to agree on how to measure speed."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Why data centers are at the center of the Big Tech backlash",
+      "url": "https://techcrunch.com/2026/11/22/why-data-centers-are-at-the-center-of-the-big-tech-backlash/",
+      "published": "2026-11-23T03:08:43+09:00",
+      "summary": "Journalist Paris Marx unpacks his new book \"Hyperscale.\""
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance",
+      "url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+      "published": "2026-11-22T06:37:10+09:00",
+      "summary": "Signal is limiting users' ability to take screenshots in both its Android and iOS apps."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "A tale of two Nvidias",
+      "url": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
+      "published": "2026-11-22T06:07:42+09:00",
+      "summary": "We got two very different pictures of Nvidia — the company’s latest earnings report vs. the tech executives loudly calling for Jensen Huang’s return."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Here are the top AI agents that can live in your text messages",
+      "url": "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/",
+      "published": "2026-11-22T02:00:00+09:00",
+      "summary": "We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Is selling an AI version of your face to this microdrama startup the future of Hollywood?",
+      "url": "https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/",
+      "published": "2026-11-22T01:00:00+09:00",
+      "summary": "An actor has licensed his face to a microdrama startup — in a trend that's already popular in China. Experts question the long-term consequences if this becomes a trend in Hollywood, too."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Daniel Ek backs AI researcher’s fusion power startup. Here’s what they’re building.",
+      "url": "https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/",
+      "published": "2026-11-21T04:53:41+09:00",
+      "summary": "Spotify founder Daniel Ek is backing Europa Fusion, a fusion power startup founded by an AI researcher. Here's what the startup is building."
+    }
+  ]
+}
