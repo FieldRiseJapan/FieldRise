@@ -1,6 +1,6 @@
 # Social Analytics — Latest Report Index
 
-**Generated:** 2026-11-23 01:58 UTC  
+**Generated:** 2026-11-24 05:21 UTC  
 **Owner:** FieldRiseJapan
 
 ## Report links

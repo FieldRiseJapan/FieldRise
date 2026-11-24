@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-24T14:21:26.847154+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「ノーコード」の次は何か？ AIを組み込むkintoneの“新しい呼び名”を考える",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/24/news045.html",
+      "published": "2026-11-24T13:20:00+09:00",
+      "summary": "AI時代の業務システムは、どのような姿になるのか。人とAIが役割を分担して働く時代に業務システムの中枢を担うのは何か。サイボウズ「kintone」の進化を見ながら考察する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "DeNA、「AI社員」を外販 使い過ぎを“残業時間”で管理",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003406/",
+      "published": "2026-11-24T12:26:08+09:00",
+      "summary": "DeNAは、AIエージェントを企業の一員として配属・育成できるとうたうサービス「AI社員 by DeNA」の提供を決定したと発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Anthropic、PRのレビューから修正、承認までをAIで支援する「Claude Ship」公開",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003404/",
+      "published": "2026-11-24T10:21:04+09:00",
+      "summary": "Anthropicは、GitHub上のプルリクエスト（PR）のレビューから修正、ポリシーに基づく承認判断までをAIで支援する「Claude Ship」をβ版として発表した。既存の「Code Review」に新エージェント「PR Steward」「Claude Approvals」を組み合わせ、Team／Enterpriseプラン向けに提供する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "国内で採れないAI人材、インドで確保 “日本に呼ばない”開発ラボをZenkenが始めた理由",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003396/",
+      "published": "2026-11-24T10:00:00+09:00",
+      "summary": "生成AIの普及で、企業が求めるエンジニア像は変わった。国内で採れない人材をどう確保するか。Zenkenは、インドのベテランエンジニアが現地に住んだまま開発に加わるサービスを始めた。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "ジェンスン・フアン氏、NVIDIAのCEOに復帰 マスク氏「誤りは正された」 AI企業代表のコメントまとめ",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003402/",
+      "published": "2026-11-24T09:50:21+09:00",
+      "summary": "NVIDIAは、中国のスパイと疑われている女性を含む複数人との不倫行為が取り沙汰されたことを受けCEOを辞任したジェンスン・フアン氏が同職に復帰したと発表した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "パナソニックHDが描くフィジカルAIの未来、研究開発と現場実装を両輪に",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/24/news040.html",
+      "published": "2026-11-24T09:00:00+09:00",
+      "summary": "パナソニックHDは、技術未来ビジョンの進捗状況や、フィジカルAI（人工知能）への取り組み方針を説明した。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "2028年までに「サービス中断」に見舞われるIT部門の共通点は？ Gartner予測",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/24/news023.html",
+      "published": "2026-11-24T08:00:00+09:00",
+      "summary": "AIの利用を拡大するIT部門の4割が、2028年までに事業に不可欠なサービスの中断に見舞われる――。Gartnerがこのような予測を発表した。中断に見舞われるIT部門の共通点とは。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "眠る「200兆円市場」、フィジカルAIを阻む「資源不足」 日立は独自技術で突破口探る",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003382/",
+      "published": "2026-11-24T08:00:00+09:00",
+      "summary": "日立製作所は、社会インフラ向けフィジカルAIの潜在市場が2030年に約1.3兆ドル（約200兆円）規模になると予想する。ただし、電力や人手などリソースの制約が成長を阻むという。独自技術「IWIM」でどう乗り越えるのか。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "エレコム、法人向けPoEスイッチ2機種がJC-STAR★1取得 対象ファームウェアも案内",
+      "url": "https://ascii.jp/elem/000/004/454/4454139/?rss",
+      "published": "2026-11-24T14:15:00+09:00",
+      "summary": "エレコムの法人向けPoE Webスマートスイッチ2機種がJC-STAR★1適合ラベルを取得。10G対応「EHB-SX2B08F-PH」はファームウェアVer.2.1.3以降、2.5G対応「EHB-SQ2B08F-PL」はVer.2.1.4以降が対象となる。IoT製品共通の最低限の脅威に対応する基準への適合を示す。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "1,000のランタンが港を彩る10日間「小樽運河キャンドルナイト」12月18日から入場無料で",
+      "url": "https://ascii.jp/elem/000/004/453/4453971/?rss",
+      "published": "2026-11-24T14:00:00+09:00",
+      "summary": "2026年12月18日から27日まで、北海道小樽市のおたるポートスクエアで「小樽運河キャンドルナイト」を開催する。JR小樽駅から徒歩約10分の港に約1,000灯のランタンが並び、マルシェやゴスペルライブを入場無料で楽しめる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "短期間でHCI基盤を刷新したニップコーポレーション（Windows HCIパッケージ導入事例）",
+      "url": "https://ascii.jp/elem/000/004/446/4446295/?rss",
+      "published": "2026-11-24T14:00:00+09:00",
+      "summary": "壁紙や床材をはじめ100万点を超えるインテリアなどの商材を取り扱うニップコーポレーションは、基幹・業務システムを載せたHCI基盤のリース満了が迫る環境のEOS （販売終了）が発覚し、半年以内での刷新を迫られる事態となった。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "クラウドに移行するなかで残り続けるActive Directoryの防御を考える",
+      "url": "https://ascii.jp/elem/000/004/446/4446255/?rss",
+      "published": "2026-11-24T14:00:00+09:00",
+      "summary": "ID基盤を オンプレミス Active Directory（AD）からクラウドへ シフトしていく流れは、かなり現実的なものになってきました。それでもADは残り続ける中で、AD防御の全体像を考えてみました。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "化粧品「ヴェレダ」、約20万件の顧客情報漏えいか 約4.6万件のクレカ情報も",
+      "url": "https://ascii.jp/elem/000/004/454/4454136/?rss",
+      "published": "2026-11-24T13:40:00+09:00",
+      "summary": "ヴェレダは11月24日、公式オンラインショップへの不正アクセスにより顧客情報19万8792件とクレジットカード情報4万5689件が漏えいした可能性があると発表した。カード情報にはセキュリティコードも含まれる。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "退職者アカウントの放置・シャドーIT対策を支援！ ソフトクリエイト「SCAssist Josys 運用サービス」開始",
+      "url": "https://ascii.jp/elem/000/004/454/4454094/?rss",
+      "published": "2026-11-24T13:30:00+09:00",
+      "summary": "ソフトクリエイトは11月24日、「SCAssist Josys 運用サービス」を提供開始。Josysを活用し、アカウントや権限、ライセンスを可視化して退職者アカウントの放置やシャドーIT対策を支援する。初期設定から運用改善まで対応し、月次確認を中心とするプランと運用代行付きプランを用意。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "クレカ情報3633人分が漏えいか 自動車用品のベレッツァ",
+      "url": "https://ascii.jp/elem/000/004/454/4454091/?rss",
+      "published": "2026-11-24T13:20:00+09:00",
+      "summary": "CSマーケティングは11月24日、自動車用シートカバーなどを扱う「ベレッツァ」のサイトに不正アクセスがあり、3633人分のクレジットカード情報が漏えいした可能性があると発表した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ディープテックが今「欧州」を目指す理由 開かれた入口とは？",
+      "url": "https://ascii.jp/elem/000/004/452/4452784/?rss",
+      "published": "2026-11-24T13:00:00+09:00",
+      "summary": "欧州進出を考える日本のスタートアップは、まず誰に会うべきか。TechDay 2026の「変化する世界で今こそ狙うべき 欧州エコシステムの開かれた入口」に先立ち、オーストリア大使館商務部とLa French Tech Tokyoの登壇者に、支援制度や交流会の活用、商習慣の違いを聞いた。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+      "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+      "published": "2026-11-24T07:05:50+09:00",
+      "summary": "As AI-generated code piles up, Anthropic's new developer tools aim to eliminate another bottleneck by letting agents handle routine approvals."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios",
+      "url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/",
+      "published": "2026-11-24T07:02:05+09:00",
+      "summary": "Think you know where the market is headed? A startup called Supertake lets you put money behind your ideas without having to pick the stocks yourself."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal",
+      "url": "https://techcrunch.com/2026/11/23/elon-musk-and-others-rejoice-as-jensen-huang-is-reinstated-at-nvidia-amid-scandal/",
+      "published": "2026-11-24T06:47:41+09:00",
+      "summary": "\"The mistake has been corrected,\" Elon Musk chimed in."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Megaspeed, the company at the center of the Jensen Huang scandal, appears headed for a US blacklist",
+      "url": "https://techcrunch.com/2026/11/23/megaspeed-the-company-at-the-center-of-the-jensen-huang-scandal-appears-headed-for-a-u-s-blacklist/",
+      "published": "2026-11-24T06:25:42+09:00",
+      "summary": "Megaspeed, which was previously led by Alice Huang, would be barred from doing business with U.S. companies unless those companies attained a special license from the federal government."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia employees greet Jensen Huang like a hero as he returns to company’s HQ",
+      "url": "https://techcrunch.com/2026/11/23/nvidia-employees-greet-jensen-huang-like-a-hero-as-he-returns-to-companys-hq/",
+      "published": "2026-11-24T05:38:53+09:00",
+      "summary": "\"I'm going to be a better CEO the second time around,\" Huang told employees."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Google Search’s AI Mode can now tap into Drive and Wallet for more personalized responses",
+      "url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/",
+      "published": "2026-11-24T04:14:46+09:00",
+      "summary": "By bringing Personal Intelligence in AI Mode to Drive, Wallet, and the Gemini app, Google is leveraging the wealth of user data that's already within its ecosystem"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Jensen Huang scheduled to testify next week in Senate following reinstatement as Nvidia CEO",
+      "url": "https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo/",
+      "published": "2026-11-24T03:12:22+09:00",
+      "summary": "The public hearing follows bipartisan calls for Huang to testify about the affair with the suspected Chinese spy."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+      "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+      "published": "2026-11-24T02:14:23+09:00",
+      "summary": "Amazon is acquiring Decart’s AI optimization technology and research team in a reported $7.5 billion deal."
+    }
+  ]
+}
