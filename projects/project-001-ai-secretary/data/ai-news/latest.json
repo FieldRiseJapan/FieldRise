@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-11-24T14:30:48.817889+09:00",
+  "collected_at": "2026-11-25T13:17:59.148588+09:00",
   "total_items": 24,
   "errors": [
     {
@@ -11,194 +11,194 @@
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "「ノーコード」の次は何か？ AIを組み込むkintoneの“新しい呼び名”を考える",
-      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/24/news045.html",
-      "published": "2026-11-24T13:20:00+09:00",
-      "summary": "AI時代の業務システムは、どのような姿になるのか。人とAIが役割を分担して働く時代に業務システムの中枢を担うのは何か。サイボウズ「kintone」の進化を見ながら考察する。"
+      "title": "AIでドーピングしたコンサルの実力は 使わない人材との能力差、BCG約500人で検証 Nature系列誌",
+      "url": "https://www.itmedia.co.jp/news/article/2611/25/2000003421/",
+      "published": "2026-11-25T12:00:00+09:00",
+      "summary": "米ボストン大学、米BCGのヘンダーソン研究所、米OpenAIに所属する研究者らがNature Human Behaviourで発表した論文「Generative AI and the temporary upskilling of knowledge workers」は、生成AIによる一時的なスキルアップの効果と限界を調査した研究報告だ。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "DeNA、「AI社員」を外販 使い過ぎを“残業時間”で管理",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003406/",
-      "published": "2026-11-24T12:26:08+09:00",
-      "summary": "DeNAは、AIエージェントを企業の一員として配属・育成できるとうたうサービス「AI社員 by DeNA」の提供を決定したと発表した。"
+      "title": "音楽サービスのTIDAL、AI生成楽曲を削除・受付停止へ 直近90日の配信楽曲の43％がAI生成",
+      "url": "https://www.itmedia.co.jp/news/article/2611/25/2000003433/",
+      "published": "2026-11-25T10:57:02+09:00",
+      "summary": "音楽ストリーミングサービスのTIDALは、完全AI生成楽曲の受付を停止し、配信済みの楽曲も削除すると発表した。直近90日間に配信された楽曲の43％が完全AI生成と判定されており、現在カタログの6.3％に当たる約2700万曲が該当する。AIを補助的に使った楽曲は引き続き配信可能だ。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "Anthropic、PRのレビューから修正、承認までをAIで支援する「Claude Ship」公開",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003404/",
-      "published": "2026-11-24T10:21:04+09:00",
-      "summary": "Anthropicは、GitHub上のプルリクエスト（PR）のレビューから修正、ポリシーに基づく承認判断までをAIで支援する「Claude Ship」をβ版として発表した。既存の「Code Review」に新エージェント「PR Steward」「Claude Approvals」を組み合わせ、Team／Enterpriseプラン向けに提供する。"
+      "title": "「Claude」で作ったアプリをMac／Windowsにインストール可能に 全プランでβ提供",
+      "url": "https://www.itmedia.co.jp/news/article/2611/25/2000003431/",
+      "published": "2026-11-25T10:07:59+09:00",
+      "summary": "Anthropicは、AIアシスタント「Claude」で作成したアーティファクトをMac／Windows向けのデスクトップアプリとして導入できる「Install as app」を全プラン向けにβ提供すると発表した。専用ウィンドウで動作し、通知やメニューバー表示、許可に応じたファイル操作にも対応する。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "国内で採れないAI人材、インドで確保 “日本に呼ばない”開発ラボをZenkenが始めた理由",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003396/",
-      "published": "2026-11-24T10:00:00+09:00",
-      "summary": "生成AIの普及で、企業が求めるエンジニア像は変わった。国内で採れない人材をどう確保するか。Zenkenは、インドのベテランエンジニアが現地に住んだまま開発に加わるサービスを始めた。"
+      "title": "設計者がAIに求めるのはCAD操作だけじゃない――SOLIDWORKS AIが目指す課題解決",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/25/news005.html",
+      "published": "2026-11-25T09:00:00+09:00",
+      "summary": "ダッソー・システムズは、年次ユーザーイベント「3DEXPERIENCE WORLD JAPAN 2026」を開催した。基調講演では、産業AIを支える技術基盤や3つのバーチャルコンパニオンの活用について紹介。AIがCADの操作支援からエンジニアリング業務の遂行へと進化する中で、設計者に求められる役割の変化や検証の重要性も示された。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "ジェンスン・フアン氏、NVIDIAのCEOに復帰 マスク氏「誤りは正された」 AI企業代表のコメントまとめ",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003402/",
-      "published": "2026-11-24T09:50:21+09:00",
-      "summary": "NVIDIAは、中国のスパイと疑われている女性を含む複数人との不倫行為が取り沙汰されたことを受けCEOを辞任したジェンスン・フアン氏が同職に復帰したと発表した。"
+      "title": "AIエージェントは隙あらばサンドボックスの外に出るのか Anthropicが評価手法「Siren」を発表",
+      "url": "https://www.itmedia.co.jp/news/article/2611/25/2000003430/",
+      "published": "2026-11-25T07:41:42+09:00",
+      "summary": "Anthropicは、AIエージェントが脆弱なサンドボックスから抜け出すかどうかを測る評価手法「Siren」を発表した。1700以上のシナリオで6モデルを検証し、最新モデル群が外に置かれた認証情報などを不正に使った割合は0.6?1.6％にとどまった。システムプロンプトでのルール明示や報告ツールなどの対策を組み合わせると、問題行動をほぼゼロに抑えられるという。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "パナソニックHDが描くフィジカルAIの未来、研究開発と現場実装を両輪に",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/24/news040.html",
-      "published": "2026-11-24T09:00:00+09:00",
-      "summary": "パナソニックHDは、技術未来ビジョンの進捗状況や、フィジカルAI（人工知能）への取り組み方針を説明した。"
+      "title": "現役組み込みエンジニアが考える「GitHub Copilot」の使いどころと検証の実際",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/25/news009.html",
+      "published": "2026-11-25T07:00:00+09:00",
+      "summary": "現役組み込みエンジニアである筆者が、AIを業務で使って見えた期待と限界の全体像を論じた前回記事に続き、今回はその続編としてもう一歩踏み込み、代表的なAIコーディングエージェントとして知られている「GitHub Copilot」の活用法を取り上げる。"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "2028年までに「サービス中断」に見舞われるIT部門の共通点は？ Gartner予測",
-      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/24/news023.html",
-      "published": "2026-11-24T08:00:00+09:00",
-      "summary": "AIの利用を拡大するIT部門の4割が、2028年までに事業に不可欠なサービスの中断に見舞われる――。Gartnerがこのような予測を発表した。中断に見舞われるIT部門の共通点とは。"
+      "title": "経理が「2人→1人」に減る現場 弥生の開発陣が警鐘を鳴らす「なんとなく経営」の限界",
+      "url": "https://www.itmedia.co.jp/business/articles/2611/25/news020.html",
+      "published": "2026-11-25T07:00:00+09:00",
+      "summary": "資材や人件費の高騰、法改正による事務負担増で中小企業の経営難易度が上がっている。弥生の担当者は、顧客と接する中での実感として、従業員20人前後の企業では約7割の企業が、数値化した売り上げ・利益目標を持たず、経営状況を経験や勘で「なんとなく」で把握していると話す。さらに経営者の間で広がる「AI格差」をどう乗り越えるべきか。会計領域でAIを使う際の落とし穴（誤認投資のリスク）と、経営者がAIを使いこな"
     },
     {
       "source": "ITmedia AI+",
       "lang": "ja",
-      "title": "眠る「200兆円市場」、フィジカルAIを阻む「資源不足」 日立は独自技術で突破口探る",
-      "url": "https://www.itmedia.co.jp/aiplus/article/2611/24/2000003382/",
-      "published": "2026-11-24T08:00:00+09:00",
-      "summary": "日立製作所は、社会インフラ向けフィジカルAIの潜在市場が2030年に約1.3兆ドル（約200兆円）規模になると予想する。ただし、電力や人手などリソースの制約が成長を阻むという。独自技術「IWIM」でどう乗り越えるのか。"
+      "title": "「ソフトウェアファクトリー」とは結局何か OpenAIもUberもfreeeも始めたAIエージェントの「工場」の中身",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/25/news002.html",
+      "published": "2026-11-25T05:00:00+09:00",
+      "summary": "AIコーディングエージェントを個別に使う段階から、工程全体を「工場」として組む段階へ。OpenAI、Uber、freeeなどの取り組みを手掛かりに、この言葉が指す仕組みと、人間に残る仕事を整理する。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "エレコム、法人向けPoEスイッチ2機種がJC-STAR★1取得 対象ファームウェアも案内",
-      "url": "https://ascii.jp/elem/000/004/454/4454139/?rss",
-      "published": "2026-11-24T14:15:00+09:00",
-      "summary": "エレコムの法人向けPoE Webスマートスイッチ2機種がJC-STAR★1適合ラベルを取得。10G対応「EHB-SX2B08F-PH」はファームウェアVer.2.1.3以降、2.5G対応「EHB-SQ2B08F-PL」はVer.2.1.4以降が対象となる。IoT製品共通の最低限の脅威に対応する基準への適合を示す。"
+      "title": "Switch 2と外出するときのお供に！ 最大60W出力が可能なACアダプターがAmazonタイムセールで24％オフ",
+      "url": "https://ascii.jp/elem/000/004/454/4454378/?rss",
+      "published": "2026-11-25T13:00:00+09:00",
+      "summary": "Amazon.co.jpにて、xunbidaの「Switch2用 ACアダプター」が販売中だ。参考価格は3299円だが、タイムセールにより24％オフの2519円で購入できる（11月24日時点）。携帯モードとTVモードを自動で判別し、最適な電力を供給してくれるという。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "1,000のランタンが港を彩る10日間「小樽運河キャンドルナイト」12月18日から入場無料で",
-      "url": "https://ascii.jp/elem/000/004/453/4453971/?rss",
-      "published": "2026-11-24T14:00:00+09:00",
-      "summary": "2026年12月18日から27日まで、北海道小樽市のおたるポートスクエアで「小樽運河キャンドルナイト」を開催する。JR小樽駅から徒歩約10分の港に約1,000灯のランタンが並び、マルシェやゴスペルライブを入場無料で楽しめる。"
+      "title": "【本日発売】丸亀製麺に「牡蠣うどん」きたー！プリッと滋味、冬のごちそう",
+      "url": "https://ascii.jp/elem/000/004/454/4454510/?rss",
+      "published": "2026-11-25T12:45:00+09:00",
+      "summary": "丸亀製麺は11月25日より、冬限定商品「焼き鴨ねぎうどん」と、牡蠣うどん2種を販売します。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "短期間でHCI基盤を刷新したニップコーポレーション（Windows HCIパッケージ導入事例）",
-      "url": "https://ascii.jp/elem/000/004/446/4446295/?rss",
-      "published": "2026-11-24T14:00:00+09:00",
-      "summary": "壁紙や床材をはじめ100万点を超えるインテリアなどの商材を取り扱うニップコーポレーションは、基幹・業務システムを載せたHCI基盤のリース満了が迫る環境のEOS （販売終了）が発覚し、半年以内での刷新を迫られる事態となった。"
+      "title": "注目の34型WQHD湾曲ゲーミングディスプレーがAmazonタイムセールで4万円切り",
+      "url": "https://ascii.jp/elem/000/004/454/4454377/?rss",
+      "published": "2026-11-25T12:45:00+09:00",
+      "summary": "Amazon.co.jpにて、ASUSの34型湾曲ゲーミングディスプレー「TUF Gaming VG34VQL3A」が販売中だ。過去価格は5万2500円だが、タイムセールにより24％オフの3万9800円で購入できる（11月24日時点）。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "クラウドに移行するなかで残り続けるActive Directoryの防御を考える",
-      "url": "https://ascii.jp/elem/000/004/446/4446255/?rss",
-      "published": "2026-11-24T14:00:00+09:00",
-      "summary": "ID基盤を オンプレミス Active Directory（AD）からクラウドへ シフトしていく流れは、かなり現実的なものになってきました。それでもADは残り続ける中で、AD防御の全体像を考えてみました。"
+      "title": "40キーにトラックボールを搭載！ 堀口英剛氏設計の左右分割キーボード「conductor」発売",
+      "url": "https://ascii.jp/elem/000/004/454/4454507/?rss",
+      "published": "2026-11-25T12:30:00+09:00",
+      "summary": "三陽合同会社は、堀口英剛氏が設計した左右分割キーボード「conductor」を11月24日に発売。40キー構成で、右側に19mm径トラックボールを搭載する。BluetoothとUSB-C有線接続、5台までのマルチペアリングに対応。左右セットで322g、磁石で一体化して持ち運べる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "化粧品「ヴェレダ」、約20万件の顧客情報漏えいか 約4.6万件のクレカ情報も",
-      "url": "https://ascii.jp/elem/000/004/454/4454136/?rss",
-      "published": "2026-11-24T13:40:00+09:00",
-      "summary": "ヴェレダは11月24日、公式オンラインショップへの不正アクセスにより顧客情報19万8792件とクレジットカード情報4万5689件が漏えいした可能性があると発表した。カード情報にはセキュリティコードも含まれる。"
+      "title": "Switch 2をドックなしで遊べてしかもOTG対応の13.5型モバイルディスプレー、12％オフの1万3199円",
+      "url": "https://ascii.jp/elem/000/004/454/4454373/?rss",
+      "published": "2026-11-25T12:30:00+09:00",
+      "summary": "Amazon.co.jpにて、HAILESIの13.5型モバイルディスプレー「S135」が販売中だ。過去価格は1万4999円だが、執筆時点では12％オフの1万3199円で購入できる（11月24日時点）。ドック不要でSwitch 2の画面を出力できる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "退職者アカウントの放置・シャドーIT対策を支援！ ソフトクリエイト「SCAssist Josys 運用サービス」開始",
-      "url": "https://ascii.jp/elem/000/004/454/4454094/?rss",
-      "published": "2026-11-24T13:30:00+09:00",
-      "summary": "ソフトクリエイトは11月24日、「SCAssist Josys 運用サービス」を提供開始。Josysを活用し、アカウントや権限、ライセンスを可視化して退職者アカウントの放置やシャドーIT対策を支援する。初期設定から運用改善まで対応し、月次確認を中心とするプランと運用代行付きプランを用意。"
+      "title": "「昭和米国物語」2027年10月28日発売へ 「最初のPVから5年か…」「私待つわ、いつまでも待つわ」",
+      "url": "https://ascii.jp/elem/000/004/454/4454506/?rss",
+      "published": "2026-11-25T12:15:00+09:00",
+      "summary": "NEKCOMは“昭和66年”のアメリカを舞台とするゲーム「昭和米国物語」の発売日を、2027年10月28日に決定したと発表。実質的には発売延期となる。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "クレカ情報3633人分が漏えいか 自動車用品のベレッツァ",
-      "url": "https://ascii.jp/elem/000/004/454/4454091/?rss",
-      "published": "2026-11-24T13:20:00+09:00",
-      "summary": "CSマーケティングは11月24日、自動車用シートカバーなどを扱う「ベレッツァ」のサイトに不正アクセスがあり、3633人分のクレジットカード情報が漏えいした可能性があると発表した。"
+      "title": "「ゼルダの伝説」モチーフのSwitch 2用公式ライセンスコントローラーが15％オフの6845円",
+      "url": "https://ascii.jp/elem/000/004/454/4454372/?rss",
+      "published": "2026-11-25T12:15:00+09:00",
+      "summary": "Amazon.co.jpにて、PowerAのNintendo Switch 2用コントローラー「パワーエー アドバンテージ・ワイヤレスコントローラー for Nintendo Switch 2 – ゼルダの伝説 マスターソード」が販売中だ。過去価格は8091円だが、タイムセールにより15％オフの6845円で購入できる（11月24日時点）。"
     },
     {
       "source": "ASCII.jp AI",
       "lang": "ja",
-      "title": "ディープテックが今「欧州」を目指す理由 開かれた入口とは？",
-      "url": "https://ascii.jp/elem/000/004/452/4452784/?rss",
-      "published": "2026-11-24T13:00:00+09:00",
-      "summary": "欧州進出を考える日本のスタートアップは、まず誰に会うべきか。TechDay 2026の「変化する世界で今こそ狙うべき 欧州エコシステムの開かれた入口」に先立ち、オーストリア大使館商務部とLa French Tech Tokyoの登壇者に、支援制度や交流会の活用、商習慣の違いを聞いた。"
+      "title": "ガストの「チーズソース付き旨辛チゲ鍋」が220円安く！ ミセスコラボ、グッズなしで販売",
+      "url": "https://ascii.jp/elem/000/004/454/4454347/?rss",
+      "published": "2026-11-25T12:15:00+09:00",
+      "summary": "ガストは11月24日～12月2日の期間、「Mrs. GREEN APPLE」コラボメニュー6品を、グッズなしの単品価格で販売します。"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
-      "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
-      "published": "2026-11-24T07:05:50+09:00",
-      "summary": "As AI-generated code piles up, Anthropic's new developer tools aim to eliminate another bottleneck by letting agents handle routine approvals."
+      "title": "Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to US industrial might — not a champion",
+      "url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
+      "published": "2026-11-25T09:12:02+09:00",
+      "summary": "Yale's Jeffrey Sonnenfeld warns that what the market cheered Monday, Jensen Huang's White House–backed return as Nvidia's CEO and board member, could prove a giant mistake, exposing the directors to \""
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios",
-      "url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/",
-      "published": "2026-11-24T07:02:05+09:00",
-      "summary": "Think you know where the market is headed? A startup called Supertake lets you put money behind your ideas without having to pick the stocks yourself."
+      "title": "Jensen Huang still thinks a succession plan creates unnecessary hierarchy",
+      "url": "https://techcrunch.com/2026/11/24/jensen-huang-still-thinks-a-succession-plan-creates-unnecessary-hierarchy/",
+      "published": "2026-11-25T07:27:52+09:00",
+      "summary": "It's a remarkable stance for a company that spent the last two weeks finding out what happens without its founder."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal",
-      "url": "https://techcrunch.com/2026/11/23/elon-musk-and-others-rejoice-as-jensen-huang-is-reinstated-at-nvidia-amid-scandal/",
-      "published": "2026-11-24T06:47:41+09:00",
-      "summary": "\"The mistake has been corrected,\" Elon Musk chimed in."
+      "title": "In all-hands meeting, Jensen Huang thanks White House and says he’s in therapy",
+      "url": "https://techcrunch.com/2026/11/24/in-all-hands-meeting-jensen-huang-thanks-white-house-and-says-hes-in-therapy/",
+      "published": "2026-11-25T06:48:27+09:00",
+      "summary": "The Nvidia founder apologized to his staff on Tuesday and said he was grateful for a second chance to lead the company."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Megaspeed, the company at the center of the Jensen Huang scandal, appears headed for a US blacklist",
-      "url": "https://techcrunch.com/2026/11/23/megaspeed-the-company-at-the-center-of-the-jensen-huang-scandal-appears-headed-for-a-u-s-blacklist/",
-      "published": "2026-11-24T06:25:42+09:00",
-      "summary": "Megaspeed, which was previously led by Alice Huang, would be barred from doing business with U.S. companies unless those companies attained a special license from the federal government."
+      "title": "Even the best AI agents struggle with everyday life",
+      "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
+      "published": "2026-11-25T06:33:29+09:00",
+      "summary": "As millions embrace personal AI assistants, a new benchmark reveals that even the most advanced AI models struggle to complete everyday tasks reliably and safely without introducing potential new prob"
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Nvidia employees greet Jensen Huang like a hero as he returns to company’s HQ",
-      "url": "https://techcrunch.com/2026/11/23/nvidia-employees-greet-jensen-huang-like-a-hero-as-he-returns-to-companys-hq/",
-      "published": "2026-11-24T05:38:53+09:00",
-      "summary": "\"I'm going to be a better CEO the second time around,\" Huang told employees."
+      "title": "Walmart teams up with Meta to bring Black Friday deals to AI agent Muse",
+      "url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
+      "published": "2026-11-25T06:32:38+09:00",
+      "summary": "Walmart now lets customers shop Black Friday deals through Muse, Meta’s AI agent."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Google Search’s AI Mode can now tap into Drive and Wallet for more personalized responses",
-      "url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/",
-      "published": "2026-11-24T04:14:46+09:00",
-      "summary": "By bringing Personal Intelligence in AI Mode to Drive, Wallet, and the Gemini app, Google is leveraging the wealth of user data that's already within its ecosystem"
+      "title": "Maple raises $5.3M to build AI products that protect your data, even from itself",
+      "url": "https://techcrunch.com/2026/11/24/maple-raises-5-3m-to-build-ai-products-that-protect-your-data-even-from-itself/",
+      "published": "2026-11-25T06:19:52+09:00",
+      "summary": "The startup's encrypted AI architecture is designed to prevent even the company itself from accessing users' private data."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Jensen Huang scheduled to testify next week in Senate following reinstatement as Nvidia CEO",
-      "url": "https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo/",
-      "published": "2026-11-24T03:12:22+09:00",
-      "summary": "The public hearing follows bipartisan calls for Huang to testify about the affair with the suspected Chinese spy."
+      "title": "Anthropic shares fall below IPO price, a worrying sign for AI startups",
+      "url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+      "published": "2026-11-25T03:30:42+09:00",
+      "summary": "Anthropic’s post-IPO slump could put pressure on AI startup valuations."
     },
     {
       "source": "TechCrunch AI",
       "lang": "en",
-      "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
-      "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
-      "published": "2026-11-24T02:14:23+09:00",
-      "summary": "Amazon is acquiring Decart’s AI optimization technology and research team in a reported $7.5 billion deal."
+      "title": "UK warns AI-driven cyberattacks are exposing years of weak security",
+      "url": "https://techcrunch.com/2026/11/24/uk-warns-ai-driven-cyberattacks-are-exposing-years-of-weak-security/",
+      "published": "2026-11-25T03:02:59+09:00",
+      "summary": "The British cyber agency says that \"building strong foundations has never mattered more\" as AI hacking tools rely on exploiting simple security flaws."
     }
   ]
 }
