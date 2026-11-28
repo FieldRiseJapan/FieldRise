@@ -1,0 +1,204 @@
+{
+  "collected_at": "2026-11-28T12:21:02.427759+09:00",
+  "total_items": 24,
+  "errors": [
+    {
+      "source": "VentureBeat AI",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "items": [
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIリスク監査の実施、わずか5.7％ 内部監査が追い付かない「もう一つのリスク」とは？",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/26/news037.html",
+      "published": "2026-11-27T10:50:00+09:00",
+      "summary": "ある調査によると、今後重要性が高まるリスクとして「AI・生成AI」を挙げた回答は半数を超えた。一方、AIのリスクに関する内部監査を「すでに実施」を選んだ回答者は5.7％にとどまる。同調査からは、内部監査が追い切れていない、AI以外の領域も浮かび上がった。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "電通が「Geminiを使いこなすFDE」ら3000人育成プログラムを開始 その内容とは？",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/27/news038.html",
+      "published": "2026-11-27T09:45:00+09:00",
+      "summary": "生成AIを導入しても、現場の業務に生かせないと成果にはつながらない。電通は約3000人を対象に、「Gemini Enterprise」を使いこなし、現場での生成AI活用を推進できる人材の育成を始めた。人材をどう育てるのか。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "AIエージェントの行動が「適切か暴走か」をどう見極める？ Googleが明かすテストの盲点",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2611/27/news035.html",
+      "published": "2026-11-27T08:00:00+09:00",
+      "summary": "AIエージェントが期待通りに動作するかどうかを、どのように検証すればよいのか。GoogleはAIコーディングエージェント向けのプラグイン開発を通じて、最終回答に基づく評価や、実際に操作させるテストだけでは見抜けない問題があることを明らかにした。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「コスト削減」の“次”の成果、どう設定する？ ビジネス変革に結び付けるための「期待の中身」",
+      "url": "https://www.itmedia.co.jp/enterprise/articles/2611/27/news025.html",
+      "published": "2026-11-27T08:00:00+09:00",
+      "summary": "ITRの調査によると、AI導入時に期待する効果として上位に並ぶのは「業務コストの削減」や「業務時間の短縮」でした。AIをビジネス変革の切り札とする企業は、AIの成果を問う前に、何を期待するかから見直す必要があると筆者は提言します。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "生成AI登場で人員増えた部門、減った部門は？ デロイト調査",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/27/2000003505/",
+      "published": "2026-11-27T08:00:00+09:00",
+      "summary": "デロイトが実施した調査で、企業における2026年のAI導入、活用状況が明らかになった。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "アマダと日立、AIエージェントのPoCで効果確認 フィジカルAIの現場実装へ",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2611/27/news050.html",
+      "published": "2026-11-27T07:30:00+09:00",
+      "summary": "アマダと日立製作所は、AIエージェントとフィジカルAIの実装により、アマダのユーザー工場の自律化とアマダの保守サービスのさらなる高度化に向けた協創を加速する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "「Gemini 4 Neon」が実際の標高データからスキーシミュレーターを開発――Google公式が勧める利用例まとめ",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/26/2000003494/",
+      "published": "2026-11-26T18:00:00+09:00",
+      "summary": "Googleが新発表したAIモデル「Gemini 4 Neon」について、公式ブログで披露されたデモや日常での活用場面をまとめて紹介する。"
+    },
+    {
+      "source": "ITmedia AI+",
+      "lang": "ja",
+      "title": "Obsidian公式の「エージェント向け」スキル集が登場 Vault操作法とファイル形式をひとまとめに",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2611/26/2000003470/",
+      "published": "2026-11-26T17:06:20+09:00",
+      "summary": "マークダウンエディタ「Obsidian」に「エージェント向けの公式コネクタ」機能が登場した。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ご家庭に1本あると便利！ 接点復活させるサンハヤト「ニューポリコールキング」が23%オフ",
+      "url": "https://ascii.jp/elem/000/004/455/4455869/?rss",
+      "published": "2026-11-28T12:15:00+09:00",
+      "summary": "「電気の通りがイマイチ」「イヤホンからガリ音がする」そんな悩みを解決してくれそうな接点復活剤「ニューポリコールキング」が、アマゾンで販売中だ。お目当てのガジェットと一緒にカートへ放り込んでおくと吉。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "腱鞘炎になる前に！ ロジクールの静音トラックボールマウスが5000円切り【Amazonブラックフライデー先行セール】",
+      "url": "https://ascii.jp/elem/000/004/455/4455867/?rss",
+      "published": "2026-11-28T12:00:00+09:00",
+      "summary": "Amazon.co.jpでロジクールのトラックボールマウス「M575SPd」がブラックフライデー先行セール中。腕を動かさず親指でボールを転がしてポインターを動かす人気のマウスが、41％オフとお買い得です。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "洗濯って、こんなにラクになるのか。洗剤の計量もフィルター掃除もおまかせできるAQUAの洗濯機",
+      "url": "https://ascii.jp/elem/000/004/455/4455402/?rss",
+      "published": "2026-11-28T12:00:00+09:00",
+      "summary": "洗剤の計量、洗濯物を干す作業、フィルターの掃除……。毎日の洗濯には意外と多くの手間がかかります。AQUAのドラム式洗濯乾燥機「AQW-DM12R-L(W)」なら、自動投入や自動おそうじ機能で家事の負担を減らせます。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "目覚まし時計にそこまでやるか。浅い眠りを検知して起こすAmazonの「Echo Time」が9000円引き",
+      "url": "https://ascii.jp/elem/000/004/455/4455008/?rss",
+      "published": "2026-11-28T12:00:00+09:00",
+      "summary": "Amazonのスマートクロック「Echo Time」がブラックフライデー先行セールの対象に。通常価格35,980円から25％オフの26,980円で販売中。超音波を利用した睡眠モニター技術を採用し、Alexa+のスマートアラームが浅い眠りを検知。ちょうどいいタイミングで起こしてくれる、新しいタイプの目覚まし時計だ。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "フィギュアも飾れるゲーミングPC！ STORM「SG2シリーズ」、曲面ガラスのショーケース仕様で登場",
+      "url": "https://ascii.jp/elem/000/004/455/4455701/?rss",
+      "published": "2026-11-28T10:00:00+09:00",
+      "summary": "STORMのゲーミングPC「SG2シリーズ」が11月28日より販売開始。ピラーレス構造と曲面強化ガラスを採用し、ARGB照明とフィギュアスタンドでPC内部やコレクションを演出する。空冷・AMD水冷・Intel水冷・数量限定モデルの4系統を展開し、限定モデルは裏配線のオールホワイト仕様。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "サンマルクの肉系ランチがうまそ！甘辛プルコギのホットサンド新登場",
+      "url": "https://ascii.jp/elem/000/004/454/4454216/?rss",
+      "published": "2026-11-28T10:00:00+09:00",
+      "summary": "サンマルクカフェは冬季限定の3商品を11月26日より全国の店舗にて期間限定で発売します。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "ゲーミングPCが最大10万円オフ！ パソコンショップSEVEN、11月28日限定で全10商品をセール",
+      "url": "https://ascii.jp/elem/000/004/455/4455643/?rss",
+      "published": "2026-11-28T00:00:00+09:00",
+      "summary": "パソコンショップSEVENは、11月28日0時から23時59分まで24時間限定セールを開催。ゲーミングPCなど全10商品を最大10万円オフで販売する。RTX 5070 Ti・128GBメモリ搭載モデルや、Ryzen 9 9950X・RX 9070 XT搭載モデルも対象。紹介の3機種はいずれも送料無料。"
+    },
+    {
+      "source": "ASCII.jp AI",
+      "lang": "ja",
+      "title": "「512GBで足りるかな……」と迷っている人に。1TBのM5 MacBook Airが3万円引きで24万8800円",
+      "url": "https://ascii.jp/elem/000/004/455/4455411/?rss",
+      "published": "2026-11-27T21:30:00+09:00",
+      "summary": "Appleの2026年モデル「MacBook Air」がAmazonのブラックフライデー先行セールの対象に。参考価格278,800円から11％オフの248,800円で販売中。M5チップと16GBユニファイドメモリ、1TB SSDを搭載。ストレージ容量に余裕を持たせたい人にはうれしい3万円引きだ。"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+      "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "published": "2026-11-27T05:03:54+09:00",
+      "summary": "Nvidia has told manufacturing partners to pause server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens its push to keep AI chips out of China."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Grand Theft Auto VI proves why efficiency isn’t a virtue",
+      "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "published": "2026-11-27T01:00:00+09:00",
+      "summary": "On the same day that Anthropic entered the public market, a painstakingly human video game became one of most successful entertainment launches of all time."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "S&P considers Nvidia credit downgrade over governance and ‘key man’ risks",
+      "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+      "published": "2026-11-26T07:44:32+09:00",
+      "summary": "The credit rating agency may lower Nvidia's credit rating to AA-, the fourth-highest rating."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
+      "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "published": "2026-11-26T05:03:27+09:00",
+      "summary": "OpenAI will introduce a single usage meter across ChatGPT as it combines the Chat and Work experiences."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it",
+      "url": "https://techcrunch.com/2026/11/25/jensen-huang-broke-nvidias-code-of-conduct-and-his-employees-may-not-forget-it/",
+      "published": "2026-11-26T04:54:57+09:00",
+      "summary": "Most codes of conduct serve as a reflection of corporate culture. In Nvidia's case, that could have consequences."
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’",
+      "url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+      "published": "2026-11-26T04:44:24+09:00",
+      "summary": "Anthropic CEO Dario Amodei pushes back against rivals’ accusations that he favors surrendering human agency to AI, even as leading AI companies increasingly automate their own research and model devel"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Want to buy your kid an AI toy this Christmas? Not in New York",
+      "url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/",
+      "published": "2026-11-26T03:11:46+09:00",
+      "summary": "New York has banned AI chatbot toys for five years as new research from Common Sense Media reveals troubling safety failures, including exposure to inappropriate content and risks to emotional develop"
+    },
+    {
+      "source": "TechCrunch AI",
+      "lang": "en",
+      "title": "Character.AI’s plan to auction off users’ private chats challenged by state AGs",
+      "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "published": "2026-11-26T02:35:58+09:00",
+      "summary": "The proposed Character.ai bankruptcy sale includes sensitive personal data from more than 21 million U.S. accounts, including 2.1 million registered to minors, the state AGs said."
+    }
+  ]
+}
